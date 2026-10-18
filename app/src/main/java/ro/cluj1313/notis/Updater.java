@@ -17,7 +17,7 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-/** Once a day: is there a newer GitHub release of cluj1313/notis-android? → dialog → download → system installer. */
+/** Once an hour (launch + resume): is there a newer GitHub release of cluj1313/notis-android? → dialog → download → system installer. */
 final class Updater {
     static final String API = "https://api.github.com/repos/cluj1313/notis-android/releases/latest";
     private Updater() {}
@@ -37,9 +37,12 @@ final class Updater {
         try { return a.getPackageManager().getPackageInfo(a.getPackageName(), 0).versionName; } catch (Exception e) { return "0"; }
     }
 
-    static void checkDaily(final Activity a) {
+    private static boolean asking;
+
+    /** On launch and on every resume, throttled to once per hour. */
+    static void check(final Activity a) {
         long last = Store.sp(a).getLong("updChk", 0), now = System.currentTimeMillis();
-        if (now - last < 20L * 3600 * 1000) return;
+        if (asking || (now - last < 3600L * 1000 && now >= last)) return;
         Store.sp(a).edit().putLong("updChk", now).apply();
         new Thread(() -> {
             try {
@@ -54,13 +57,15 @@ final class Updater {
                 if (as != null) for (int i = 0; i < as.length(); i++) { JSONObject o = as.optJSONObject(i); if (o != null && o.optString("name").endsWith(".apk")) { url = o.optString("browser_download_url"); break; } }
                 if (url == null) return;
                 final String u = url;
-                new Handler(Looper.getMainLooper()).post(() -> { if (!a.isFinishing()) ask(a, tag, u); });
+                new Handler(Looper.getMainLooper()).post(() -> { if (!a.isFinishing() && !asking) ask(a, tag, u); });
             } catch (Exception ignored) {}
         }).start();
     }
 
     static void ask(final Activity a, String tag, final String url) {
+        asking = true;
         new AlertDialog.Builder(a)
+            .setOnDismissListener(d -> asking = false)
             .setTitle("Versiune nouă disponibilă")
             .setMessage("Notis " + tag.replaceFirst("^v", "") + " (ai " + mine(a) + "). Notițele rămân.")
             .setPositiveButton("Instalează", (d, w) -> download(a, url))

@@ -46,5 +46,14 @@ final class Scheduler {
             if (p != null) { am.cancel(p); p.cancel(); }
         }
         Store.put(c, "sched", String.join("\n", now));
+        /* day-label tick: at local midnight re-render the widget times ("mâine 09:00" → "09:00") */
+        PendingIntent tick = PendingIntent.getBroadcast(c, 1, new Intent(c, BootReceiver.class).setAction("ro.cluj1313.notis.TICK"), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+        if (now.isEmpty()) am.cancel(tick);
+        else {
+            java.util.Calendar m = java.util.Calendar.getInstance();
+            m.add(java.util.Calendar.DAY_OF_YEAR, 1);
+            m.set(java.util.Calendar.HOUR_OF_DAY, 0); m.set(java.util.Calendar.MINUTE, 0); m.set(java.util.Calendar.SECOND, 30); m.set(java.util.Calendar.MILLISECOND, 0);
+            am.set(AlarmManager.RTC, m.getTimeInMillis(), tick);
+        }
     }
 }

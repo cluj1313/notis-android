@@ -124,10 +124,21 @@ public class WidgetService extends RemoteViewsService {
             v.setInt(R.id.ni_text, "setMaxLines", ex ? 40 : 1);
             v.setTextColor(R.id.ni_text, th.text);
             long at = nextAlarm(n);
-            v.setImageViewResource(R.id.ni_ic, at > 0 ? R.drawable.ic_alarm_on : R.drawable.ic_alarm);
-            v.setInt(R.id.ni_ic, "setColorFilter", at > 0 ? th.acc : th.mut);
-            if (at > 0) { v.setViewVisibility(R.id.ni_time, View.VISIBLE); v.setTextViewText(R.id.ni_time, shortTime(c, at)); v.setTextColor(R.id.ni_time, th.acc); }
-            else v.setViewVisibility(R.id.ni_time, View.GONE);
+            if (at > 0) {
+                /* alarm set: only the (next) time, no clock icon; ↻ for repeating */
+                JSONObject al = n.optJSONObject("alarm");
+                boolean rep = al != null && al.optInt("rep") > 0;
+                v.setViewVisibility(R.id.ni_ic, View.GONE);
+                v.setViewVisibility(R.id.ni_time, View.VISIBLE);
+                v.setTextViewText(R.id.ni_time, shortTime(c, at) + (rep ? " ↻" : ""));
+                v.setTextColor(R.id.ni_time, th.acc);
+            } else {
+                /* no alarm: only the clock icon */
+                v.setViewVisibility(R.id.ni_time, View.GONE);
+                v.setViewVisibility(R.id.ni_ic, View.VISIBLE);
+                v.setImageViewResource(R.id.ni_ic, R.drawable.ic_alarm);
+                v.setInt(R.id.ni_ic, "setColorFilter", th.mut);
+            }
             v.setOnClickFillInIntent(R.id.ni_text, new Intent().putExtra("n", id).putExtra("act", "expand"));
             v.setOnClickFillInIntent(R.id.ni_al, new Intent().putExtra("n", id).putExtra("act", "alarm"));
             return v;

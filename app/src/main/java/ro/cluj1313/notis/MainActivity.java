@@ -72,7 +72,7 @@ public class MainActivity extends Activity {
             }
         });
         Scheduler.rescheduleAll(this);
-        Updater.checkDaily(this);
+        Updater.check(this);
         if (b != null) web.restoreState(b);
         else web.loadUrl(BASE + query(getIntent()));
     }
@@ -93,6 +93,7 @@ public class MainActivity extends Activity {
     @Override protected void onResume() {
         super.onResume();
         foreground = true;
+        Updater.check(this);
         if (web != null) { web.onResume(); web.evaluateJavascript("window.NotisApp&&NotisApp.sync()", null); }
     }
     @Override protected void onPause() {
