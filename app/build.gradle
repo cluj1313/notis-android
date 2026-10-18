@@ -1,0 +1,27 @@
+plugins { id 'com.android.application' }
+def sp = new Properties()
+def spf = rootProject.file('signing.properties')
+if (spf.exists()) spf.withInputStream { sp.load(it) }
+android {
+    namespace 'ro.cluj1313.notis'
+    compileSdk 34
+    defaultConfig {
+        applicationId 'ro.cluj1313.notis'
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName '1.0.0'
+    }
+    signingConfigs {
+        release {
+            if (sp['storeFile']) {
+                storeFile file(sp['storeFile']); storePassword sp['storePassword']
+                keyAlias sp['keyAlias']; keyPassword sp['keyPassword']
+            }
+        }
+    }
+    buildTypes {
+        release { minifyEnabled false; signingConfig signingConfigs.release }
+    }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_17; targetCompatibility JavaVersion.VERSION_17 }
+}

@@ -1,0 +1,12 @@
+<resources>
+    <style name="NotisTheme" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/bg</item>
+        <item name="android:statusBarColor">@color/bg</item>
+        <item name="android:navigationBarColor">@color/bg</item>
+        <item name="android:colorAccent">@color/gold</item>
+    </style>
+    <style name="NotisDialog" parent="android:Theme.Material.Dialog">
+        <item name="android:colorAccent">@color/gold</item>
+        <item name="android:windowBackground">@drawable/dlg_bg</item>
+    </style>
+</resources>

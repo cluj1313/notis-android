@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/wi_row" android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:minHeight="38dp" android:orientation="horizontal" android:gravity="center_vertical" android:paddingStart="2dp" android:paddingEnd="4dp">
+    <ImageView android:id="@+id/wi_box" android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_box" android:contentDescription="Bifează" />
+    <TextView android:id="@+id/wi_text" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:textColor="@color/wtxt" android:textSize="15sp" android:maxLines="2" android:ellipsize="end" />
+</LinearLayout>

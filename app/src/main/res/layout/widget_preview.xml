@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="@drawable/w_bg" android:padding="10dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:gravity="center_vertical">
+        <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:paddingStart="4dp" android:text="Cumpărături Lidl" android:textColor="@color/gold" android:textSize="16sp" android:textStyle="bold" />
+        <ImageView android:layout_width="34dp" android:layout_height="34dp" android:src="@drawable/ic_plus" android:background="@drawable/w_add" android:padding="7dp" />
+    </LinearLayout>
+    <ImageView android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="8dp" android:src="@drawable/w_line" android:scaleType="fitXY" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="38dp" android:gravity="center_vertical"><ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_box" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:text="lapte" android:textColor="@color/wtxt" android:textSize="15sp" /></LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="38dp" android:gravity="center_vertical"><ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_box" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:text="pâine" android:textColor="@color/wtxt" android:textSize="15sp" /></LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="38dp" android:gravity="center_vertical"><ImageView android:layout_width="22dp" android:layout_height="22dp" android:src="@drawable/ic_box_on" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="10dp" android:text="ouă" android:textColor="@color/wmut" android:textSize="15sp" /></LinearLayout>
+</LinearLayout>
