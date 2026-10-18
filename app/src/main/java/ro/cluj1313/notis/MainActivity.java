@@ -25,12 +25,14 @@ import java.io.InputStream;
 public class MainActivity extends Activity {
     static final String BASE = "https://cluj1313.github.io/notis/";
     private static final int FILE_REQ = 41;
+    static volatile boolean foreground = false;
     private WebView web;
     private ValueCallback<Uri[]> fileCb;
 
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface"})
     @Override protected void onCreate(Bundle b) {
         super.onCreate(b);
+        if ((getApplicationInfo().flags & android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0) WebView.setWebContentsDebuggingEnabled(true);
         web = new WebView(this);
         web.setBackgroundColor(0xFF0B0A08);
         setContentView(web);
@@ -41,7 +43,7 @@ public class MainActivity extends Activity {
         s.setMediaPlaybackRequiresUserGesture(false);
         s.setAllowFileAccess(false);
         s.setCacheMode(WebSettings.LOAD_DEFAULT);
-        s.setUserAgentString(s.getUserAgentString() + " NotisAndroid/" + BuildConfigInfo.VERSION);
+        s.setUserAgentString(s.getUserAgentString() + " NotisAndroid/" + Updater.mine(this));
         web.addJavascriptInterface(new Bridge(this), "NotisNative");
         web.setWebViewClient(new WebViewClient() {
             @Override public WebResourceResponse shouldInterceptRequest(WebView v, WebResourceRequest r) { return offline(r); }
@@ -69,6 +71,8 @@ public class MainActivity extends Activity {
                 return true;
             }
         });
+        Scheduler.rescheduleAll(this);
+        Updater.checkDaily(this);
         if (b != null) web.restoreState(b);
         else web.loadUrl(BASE + query(getIntent()));
     }
@@ -88,9 +92,11 @@ public class MainActivity extends Activity {
 
     @Override protected void onResume() {
         super.onResume();
+        foreground = true;
         if (web != null) { web.onResume(); web.evaluateJavascript("window.NotisApp&&NotisApp.sync()", null); }
     }
     @Override protected void onPause() {
+        foreground = false;
         if (web != null) { web.evaluateJavascript("window.NotisApp&&document.dispatchEvent(new Event('visibilitychange'))", null); web.onPause(); }
         super.onPause();
     }

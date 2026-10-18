@@ -11,7 +11,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Notis">
-<meta name="jarvis-version" content="notis-v40">
+<meta name="jarvis-version" content="notis-v41">
 <title>Notis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -2707,24 +2707,41 @@ function nsLaunch(u){var U;try{U=new URL(u,location.href)}catch(_){return}var q=
  if(a==='new')setTimeout(fullNew,60);else if(a==='search')setTimeout(nSearchOpen,60)}
 setTimeout(function(){nsLaunch(location.href)},30);
 if(window.launchQueue&&launchQueue.setConsumer)launchQueue.setConsumer(function(p){if(p&&p.targetURL)nsLaunch(p.targetURL)});
-/* v40: bridge to the native Android app (home-screen widget). Only active when window.NotisNative exists. */
+/* v40/v41: bridge to the native Android app (home-screen widgets). Only active when window.NotisNative exists. */
 (function(){var N=window.NotisNative;if(!N||!N.saveSnapshot)return;var T=null;
  function title(n){var t=n.type==='check'?(n.title||''):'';if(!t.trim())t=String(n.text||'').split('\n').filter(function(x){return x.trim()})[0]||'';return t.trim().slice(0,80)}
- function snap(){var L=[];notes.forEach(function(n){if(n.del||n.lock)return;var it=[];
+ function al(n){var a=n.alarm;return a&&a.at?{at:a.at,rep:a.rep||0,until:a.until||null,snz:a.snz||null}:null}
+ function snap(){var L=[],NS=[];notes.forEach(function(n){if(n.del||n.lock)return;var it=[];
    if(n.type==='check')chkOrder(n).forEach(function(x){if(String(x.text||'').trim())it.push({i:x.id,t:x.text.trim(),d:!!x.done})});
    else if(n.type==='mix')(n.blocks||[]).forEach(function(b){if(b.t==='chk')mOrder(n,b).forEach(function(x){if(String(x.text||'').trim())it.push({i:x.id,b:b.id,t:x.text.trim(),d:!!x.done})})});
-   if(it.length)L.push({id:n.id,tab:n.tab||'',title:title(n)||'Listă',upd:n.updatedAt||n.ts||'',items:it})});
-  return JSON.stringify({v:1,ts:new Date().toISOString(),tabs:noteTabs.map(function(t){return{id:t.id,name:t.name}}),lists:L})}
+   if(it.length||n.type==='check')L.push({id:n.id,tab:n.tab||'',title:title(n)||'Listă',upd:n.updatedAt||n.ts||'',items:it});
+   NS.push({id:n.id,tab:n.tab||'',type:n.type||'text',title:title(n),text:String(n.text||'').slice(0,4000),upd:n.updatedAt||n.ts||'',alarm:al(n)})});
+  return JSON.stringify({v:2,ts:new Date().toISOString(),theme:typeof thCur!=='undefined'?thCur:'color',tabs:noteTabs.map(function(t){return{id:t.id,name:t.name}}),lists:L,notes:NS})}
  function push(){T=null;try{N.saveSnapshot(snap())}catch(_){}}
  function pushSoon(){clearTimeout(T);T=setTimeout(push,250)}
  var sv=saveNotes;saveNotes=function(){var r=sv.apply(this,arguments);pushSoon();return r};
+ function chkArr(n,bid,make){if(n.type==='check'){n.items=n.items||[];return n.items}if(n.type!=='mix')return null;var B=null;(n.blocks||[]).forEach(function(b){if(b.t==='chk'&&(!bid||b.id===bid))B=b});if(!B&&make){B={id:bUid(),t:'chk',items:[]};n.blocks=n.blocks||[];n.blocks.push(B)}return B?(B.items=B.items||[]):null}
+ function touch(n){n.updatedAt=n.editedAt=new Date().toISOString();if(n.type==='check')chkSync(n);else if(n.type==='mix')mSync(n)}
+ function apply(c){var op=c.op||'t',n=findN(c.n),now=new Date().toISOString();
+  if(op==='an'){if(n||!String(c.text||'').trim())return false;var tb=findNT(c.tab)?c.tab:(noteTabs.filter(function(t){return nFold(t.name)==='general'})[0]||noteTabs[0]).id;
+   var ts=c.ts?new Date(c.ts).toISOString():now;notes.push({id:c.n,text:String(c.text),tab:tb,ts:ts,createdAt:ts,updatedAt:ts});return true}
+  if(!n||n.lock||n.del)return false;
+  if(op==='al'){if(c.a&&c.a.at)n.alarm={at:+c.a.at,rep:+c.a.rep||0,until:c.a.until||null,snz:null};else if(n.alarm)delete n.alarm;else return false;try{alSchedule(n)}catch(_){}return true}
+  if(op==='ar'){var A=n.alarm;if(!A||!A.at||A.at>c.at)return false;if(A.snz&&A.snz<=c.at)A.snz=null;if(A.rep){var st=A.rep*60000;A.at=A.at+Math.ceil((c.at-A.at+1)/st)*st;if(A.at<Date.now())A.at=alRoll(A.at,A.rep);if(A.until&&A.at>A.until)delete n.alarm}else delete n.alarm;return true}
+  var arr=chkArr(n,c.b,op==='ai');if(!arr)return false;
+  if(op==='ai'){if(arr.some(function(x){return x.id===c.i})||!String(c.t||'').trim())return false;arr.push({id:c.i,text:String(c.t).trim(),done:false,createdAt:now,updatedAt:now});touch(n);return true}
+  if(op==='ri'){var k=-1;arr.forEach(function(x,ix){if(x.id===c.i)k=ix});if(k<0)return false;arr.splice(k,1);touch(n);return true}
+  var ch=false;arr.forEach(function(x){if(x.id===c.i&&!!x.done!==!!c.d){x.done=!!c.d;x.updatedAt=now;ch=true}});if(ch)touch(n);return ch}
  function sync(){var p=[];try{p=JSON.parse(N.peekPending()||'[]')}catch(_){p=[]}if(!p.length){push();return}var ch=false,open=fullId&&findN(fullId);
-  p.forEach(function(c){var n=findN(c.n);if(!n||n.lock)return;var a=null;if(n.type==='check')a=n.items||[];else if(n.type==='mix'&&c.b)(n.blocks||[]).forEach(function(b){if(b.id===c.b)a=b.items||[]});if(!a)return;
-   a.forEach(function(x){if(x.id===c.i&&!!x.done!==!!c.d){x.done=!!c.d;n.updatedAt=n.editedAt=new Date().toISOString();if(n.type==='check')chkSync(n);else mSync(n);ch=true}})});
-  if(ch){saveNotes();renderNotes();if(open){if(open.type==='check')chkRender();else if(open.type==='mix')mRender()}}
+  p.forEach(function(c){try{if(apply(c))ch=true}catch(e){console.warn(e)}});
+  if(ch){saveNotes();renderNotes();open=fullId&&findN(fullId);if(open){if(open.type==='check')chkRender();else if(open.type==='mix')mRender();try{edState()}catch(_){}}}
   try{N.ackPending(p.length)}catch(_){}push()}
+ /* native alarms ring via Android notifications; the in-page ring only while the app is on screen */
+ var af=alFire;alFire=function(){if(document.visibilityState==='hidden')return;return af.apply(this,arguments)};
+ var ac=alCheck;alCheck=function(){try{sync()}catch(_){}return ac.apply(this,arguments)};
  window.NotisApp={launch:function(u){nsLaunch(u)},sync:sync};
  document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')sync();else push()});
+ var th=thApply;thApply=function(){var r=th.apply(this,arguments);pushSoon();return r};
  setTimeout(sync,400)})();
 })();
 

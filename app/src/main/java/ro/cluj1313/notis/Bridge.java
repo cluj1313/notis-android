@@ -18,14 +18,15 @@ final class Bridge {
     Bridge(Context c) { ctx = c.getApplicationContext(); }
 
     @JavascriptInterface public boolean isNative() { return true; }
-    @JavascriptInterface public String version() { return BuildConfigInfo.VERSION; }
+    @JavascriptInterface public String version() { try { return ctx.getPackageManager().getPackageInfo(ctx.getPackageName(), 0).versionName; } catch (Exception e) { return ""; } }
 
     @JavascriptInterface public void saveSnapshot(String json) {
         Store.saveSnapshot(ctx, json);
         NotisWidget.refreshAll(ctx);
+        Scheduler.rescheduleAll(ctx);
     }
     @JavascriptInterface public String peekPending() { return Store.peekPending(ctx); }
-    @JavascriptInterface public void ackPending(int k) { Store.ackPending(ctx, k); NotisWidget.refreshAll(ctx); }
+    @JavascriptInterface public void ackPending(int k) { Store.ackPending(ctx, k); NotisWidget.refreshAll(ctx); Scheduler.rescheduleAll(ctx); }
 
     /** backup export: writes the JSON file into Downloads */
     @JavascriptInterface public boolean saveFile(String name, String content) {

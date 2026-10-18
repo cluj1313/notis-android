@@ -2,19 +2,22 @@ package ro.cluj1313.notis;
 
 import android.app.Activity;
 import android.appwidget.AppWidgetManager;
+import android.appwidget.AppWidgetProviderInfo;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Pick which checklist the widget shows (optional on Android 12+, also reachable by long-press → reconfigure). */
+/** Widget settings (on add, long-press → Reconfigurează, or the ⚙ in the widget header): theme + which list / tab. */
+@android.annotation.SuppressLint("ResourceType")
 public class WidgetConfigActivity extends Activity {
     private int wid = AppWidgetManager.INVALID_APPWIDGET_ID;
 
@@ -24,34 +27,68 @@ public class WidgetConfigActivity extends Activity {
         if (ex != null) wid = ex.getInt(AppWidgetManager.EXTRA_APPWIDGET_ID, wid);
         setResult(RESULT_CANCELED, new Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, wid));
         if (wid == AppWidgetManager.INVALID_APPWIDGET_ID) { finish(); return; }
-        final List<String> ids = new ArrayList<>(); final List<String> names = new ArrayList<>();
-        ids.add(null); names.add("Automat · Cumpărături / cea mai recentă");
+        AppWidgetProviderInfo info = AppWidgetManager.getInstance(this).getAppWidgetInfo(wid);
+        final boolean notesW = info != null && info.provider.getClassName().endsWith("NotesWidget");
         JSONObject s = Store.snapshot(this);
-        JSONArray lists = s.optJSONArray("lists"), tabs = s.optJSONArray("tabs");
-        if (lists != null) for (int i = 0; i < lists.length(); i++) {
-            JSONObject l = lists.optJSONObject(i); if (l == null) continue;
-            String tn = "";
-            if (tabs != null) for (int k = 0; k < tabs.length(); k++) { JSONObject t = tabs.optJSONObject(k); if (t != null && t.optString("id").equals(l.optString("tab"))) tn = t.optString("name"); }
-            ids.add(l.optString("id")); names.add(l.optString("title") + (tn.length() > 0 ? "  ·  " + tn : ""));
+        ColorStateList tint = ColorStateList.valueOf(Ui.GOLD);
+
+        LinearLayout c = Ui.col(this);
+        c.addView(Ui.title(this, notesW ? "Widget Notițe" : "Widget Listă"));
+        c.addView(Ui.text(this, "Temă", Ui.MUT, 13));
+        final RadioGroup tg = new RadioGroup(this);
+        String curT = Store.get(this, "th_" + wid); if (curT == null) curT = getIntent().getBooleanExtra("fromWidget", false) ? "gold" : "auto";
+        for (int i = 0; i < Themes.IDS.length; i++) {
+            RadioButton r = new RadioButton(this); r.setId(1000 + i); r.setText(Themes.NAMES[i] + (i == 0 ? "  (" + Themes.nameOf(Themes.fromApp(s.optString("theme", ""))) + ")" : ""));
+            r.setTextColor(Ui.TXT); r.setButtonTintList(tint); tg.addView(r);
+            if (Themes.IDS[i].equals(curT)) tg.check(1000 + i);
         }
-        ListView lv = new ListView(this);
-        lv.setPadding(12, 24, 12, 24);
-        lv.setDividerHeight(0);
-        lv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, names) {
-            @Override public View getView(int p, View cv, ViewGroup parent) {
-                TextView t = (TextView) super.getView(p, cv, parent);
-                t.setTextColor(p == 0 ? 0xFFE8C98A : 0xFFF2EAD8); t.setTextSize(16); t.setPadding(36, 26, 36, 26);
-                return t;
+        if (tg.getCheckedRadioButtonId() == -1) tg.check(1000);
+        c.addView(tg);
+
+        final List<String> ids = new ArrayList<>();
+        final RadioGroup lg = new RadioGroup(this);
+        c.addView(Ui.text(this, notesW ? "Tab" : "Listă", Ui.MUT, 13), Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 14)));
+        if (notesW) {
+            JSONArray tabs = s.optJSONArray("tabs");
+            String cur = Store.notesTab(this, wid, s);
+            if (tabs != null) for (int i = 0; i < tabs.length(); i++) {
+                JSONObject t = tabs.optJSONObject(i); if (t == null) continue;
+                ids.add(t.optString("id"));
+                RadioButton r = new RadioButton(this); r.setId(2000 + ids.size() - 1); r.setText(t.optString("name")); r.setTextColor(Ui.TXT); r.setButtonTintList(tint); lg.addView(r);
+                if (t.optString("id").equals(cur)) lg.check(r.getId());
             }
-        });
-        lv.setOnItemClickListener((parent, view, p, id) -> {
-            Store.setChoice(this, wid, ids.get(p));
-            NotisWidget.draw(this, AppWidgetManager.getInstance(this), wid);
-            AppWidgetManager.getInstance(this).notifyAppWidgetViewDataChanged(new int[]{wid}, R.id.w_list);
+        } else {
+            ids.add(null);
+            RadioButton r0 = new RadioButton(this); r0.setId(2000); r0.setText("Automat · Cumpărături / cea mai recentă"); r0.setTextColor(Ui.GOLD); r0.setButtonTintList(tint); lg.addView(r0);
+            String cur = Store.getChoice(this, wid);
+            JSONArray lists = s.optJSONArray("lists");
+            if (lists != null) for (int i = 0; i < lists.length(); i++) {
+                JSONObject l = lists.optJSONObject(i); if (l == null) continue;
+                ids.add(l.optString("id"));
+                String tn = Store.tabName(s, l.optString("tab"));
+                RadioButton r = new RadioButton(this); r.setId(2000 + ids.size() - 1); r.setText(l.optString("title") + (tn.length() > 0 ? "  ·  " + tn : "")); r.setTextColor(Ui.TXT); r.setButtonTintList(tint); lg.addView(r);
+                if (l.optString("id").equals(cur)) lg.check(r.getId());
+            }
+            if (lg.getCheckedRadioButtonId() == -1) lg.check(2000);
+        }
+        if (ids.isEmpty()) c.addView(Ui.text(this, "Deschide aplicația Notis o dată ca să apară listele/taburile.", Ui.MUT, 13));
+        c.addView(lg);
+
+        LinearLayout r = Ui.row(this); r.setGravity(android.view.Gravity.END);
+        Button ok = Ui.btn(this, "Salvează", true);
+        r.addView(ok);
+        c.addView(r, Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 14)));
+        ScrollView sv = new ScrollView(this); sv.addView(c); setContentView(sv); setTitle("");
+
+        ok.setOnClickListener(v -> {
+            int ti = tg.getCheckedRadioButtonId() - 1000;
+            Store.put(this, "th_" + wid, Themes.IDS[Math.max(0, Math.min(Themes.IDS.length - 1, ti))]);
+            int li = lg.getCheckedRadioButtonId() - 2000;
+            if (li >= 0 && li < ids.size()) { if (notesW) Store.put(this, "tab_" + wid, ids.get(li)); else Store.setChoice(this, wid, ids.get(li)); }
+            Store.put(this, "arm_" + wid, null);
+            NotisWidget.refreshAll(this);
             setResult(RESULT_OK, new Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, wid));
             finish();
         });
-        setTitle(lists == null || lists.length() == 0 ? "Deschide Notis întâi" : "Ce listă arată widgetul?");
-        setContentView(lv);
     }
 }
