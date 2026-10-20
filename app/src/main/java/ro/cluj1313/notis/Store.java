@@ -274,6 +274,44 @@ final class Store {
         JSONArray tabs = s.optJSONArray("tabs"); return tabs != null && tabs.length() > 0 ? tabs.optJSONObject(0).optString("id") : "";
     }
 
+    /** pure: picker entries for the list widget: auto + checklists grouped by tab (tabs in app order) */
+    static java.util.List<JSONObject> pickLists(JSONObject s, String choice) {
+        java.util.List<JSONObject> out = new java.util.ArrayList<>();
+        JSONArray lists = s.optJSONArray("lists"), tabs = s.optJSONArray("tabs");
+        boolean chosenExists = choice != null && byId(lists, choice) != null;
+        try {
+            out.add(new JSONObject().put("kind", "auto").put("title", "Automat · cea mai recentă listă").put("cur", !chosenExists));
+            java.util.List<String> order = new java.util.ArrayList<>();
+            if (tabs != null) for (int i = 0; i < tabs.length(); i++) { JSONObject t = tabs.optJSONObject(i); if (t != null) order.add(t.optString("id")); }
+            if (lists != null) for (int i = 0; i < lists.length(); i++) { JSONObject l = lists.optJSONObject(i); if (l != null && !order.contains(l.optString("tab"))) order.add(l.optString("tab")); }
+            for (String tab : order) {
+                java.util.List<JSONObject> g = new java.util.ArrayList<>();
+                if (lists != null) for (int i = 0; i < lists.length(); i++) {
+                    JSONObject l = lists.optJSONObject(i); if (l == null || !tab.equals(l.optString("tab")) || l.optString("id").isEmpty()) continue;
+                    JSONArray it = l.optJSONArray("items"); int n = 0, d = 0;
+                    if (it != null) for (int k = 0; k < it.length(); k++) { JSONObject x = it.optJSONObject(k); if (x == null) continue; n++; if (x.optBoolean("d")) d++; }
+                    g.add(new JSONObject().put("kind", "list").put("id", l.optString("id")).put("title", l.optString("title", "Listă")).put("cnt", "☑ " + d + "/" + n).put("cur", chosenExists && choice.equals(l.optString("id"))));
+                }
+                if (g.isEmpty()) continue;
+                String nm = tabName(s, tab);
+                out.add(new JSONObject().put("kind", "hdr").put("title", nm.isEmpty() ? "Alte" : nm));
+                out.addAll(g);
+            }
+        } catch (Exception ignored) {}
+        return out;
+    }
+    /** pure: picker entries for the Notes widget: every tab with its note count, current one marked */
+    static java.util.List<JSONObject> pickTabs(JSONObject s, String current) {
+        java.util.List<JSONObject> out = new java.util.ArrayList<>();
+        JSONArray tabs = s.optJSONArray("tabs");
+        if (tabs != null) for (int i = 0; i < tabs.length(); i++) {
+            JSONObject t = tabs.optJSONObject(i); if (t == null || t.optString("id").isEmpty()) continue;
+            int n = WidgetService.notesOf(s, t.optString("id")).size();
+            try { out.add(new JSONObject().put("kind", "tab").put("id", t.optString("id")).put("title", t.optString("name")).put("cnt", n + (n == 1 ? " notiță" : " notițe")).put("cur", t.optString("id").equals(current))); } catch (Exception ignored) {}
+        }
+        return out;
+    }
+
     /** chosen list, else the most recently updated checklist in the "Cumpărături" tab, else the most recent checklist */
     static JSONObject listFor(Context c, int wid) {
         JSONObject s = snapshot(c);

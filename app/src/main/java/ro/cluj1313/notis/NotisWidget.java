@@ -89,6 +89,7 @@ public class NotisWidget extends AppWidgetProvider {
         v.setInt(R.id.w_add, "setBackgroundResource", t.add);
         v.setInt(R.id.w_add, "setColorFilter", t.acc);
         v.setInt(R.id.w_cfg, "setColorFilter", t.mut);
+        v.setInt(R.id.w_pick, "setColorFilter", t.mut);
         v.setInt(R.id.w_line, "setColorFilter", t.line);
         v.setTextColor(R.id.w_title, t.title);
         v.setTextColor(R.id.w_sub, t.mut);
@@ -119,6 +120,9 @@ public class NotisWidget extends AppWidgetProvider {
         Intent cfg = new Intent(c, WidgetConfigActivity.class).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id).putExtra("fromWidget", true);
         cfg.setData(Uri.parse("notis://cfg/" + id));
         v.setOnClickPendingIntent(R.id.w_cfg, activity(c, id * 10 + 3, cfg));
+        Intent pick = new Intent(c, PickActivity.class).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id).putExtra("kind", "list");
+        pick.setData(Uri.parse("notis://pick/list/" + id));
+        v.setOnClickPendingIntent(R.id.w_pick, activity(c, id * 10 + 4, pick));
         Intent svc = new Intent(c, WidgetService.class).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id).putExtra("kind", "list");
         svc.setData(Uri.parse("notis://widget/list/" + id));
         v.setRemoteAdapter(R.id.w_list, svc);

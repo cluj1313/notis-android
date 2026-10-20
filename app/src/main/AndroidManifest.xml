@@ -33,6 +33,7 @@
         <activity android:name=".AddItemActivity" android:exported="false" android:theme="@style/NotisDialog" android:excludeFromRecents="true" android:taskAffinity="ro.cluj1313.notis.widgetui" android:windowSoftInputMode="stateAlwaysVisible|adjustResize" />
         <activity android:name=".AddNoteActivity" android:exported="false" android:theme="@style/NotisDialog" android:excludeFromRecents="true" android:taskAffinity="ro.cluj1313.notis.widgetui" android:windowSoftInputMode="stateAlwaysVisible|adjustResize" />
         <activity android:name=".AlarmActivity" android:exported="false" android:theme="@style/NotisDialog" android:excludeFromRecents="true" android:taskAffinity="ro.cluj1313.notis.widgetui" />
+        <activity android:name=".PickActivity" android:exported="false" android:theme="@style/NotisDialog" android:excludeFromRecents="true" android:taskAffinity="ro.cluj1313.notis.widgetui" />
         <activity android:name=".RowActivity" android:exported="false" android:theme="@android:style/Theme.NoDisplay" android:excludeFromRecents="true" android:noHistory="true" android:taskAffinity="ro.cluj1313.notis.widgetui" />
         <receiver android:name=".NotisWidget" android:exported="true" android:label="Notis · Listă">
             <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>

@@ -39,6 +39,9 @@ public class NotesWidget extends AppWidgetProvider {
         Intent cfg = new Intent(c, WidgetConfigActivity.class).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id).putExtra("fromWidget", true);
         cfg.setData(Uri.parse("notis://cfg/" + id));
         v.setOnClickPendingIntent(R.id.w_cfg, NotisWidget.activity(c, id * 10 + 3, cfg));
+        Intent pick = new Intent(c, PickActivity.class).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id).putExtra("kind", "notes");
+        pick.setData(Uri.parse("notis://pick/notes/" + id));
+        v.setOnClickPendingIntent(R.id.w_pick, NotisWidget.activity(c, id * 10 + 4, pick));
         Intent svc = new Intent(c, WidgetService.class).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id).putExtra("kind", "notes");
         svc.setData(Uri.parse("notis://widget/notes/" + id));
         v.setRemoteAdapter(R.id.w_list, svc);
