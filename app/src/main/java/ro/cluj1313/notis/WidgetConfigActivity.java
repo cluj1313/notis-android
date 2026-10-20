@@ -19,6 +19,8 @@ import java.util.List;
 /** Widget settings (on add, long-press → Reconfigurează, or the ⚙ in the widget header): theme + which list / tab. */
 @android.annotation.SuppressLint("ResourceType")
 public class WidgetConfigActivity extends Activity {
+    /** a re-tap on ⚙ while the dialog exists: rebuild it for the new intent instead of showing stale state */
+    @Override protected void onNewIntent(Intent i) { super.onNewIntent(i); setIntent(i); recreate(); }
     private int wid = AppWidgetManager.INVALID_APPWIDGET_ID;
 
     @Override protected void onCreate(Bundle b) {
@@ -82,11 +84,11 @@ public class WidgetConfigActivity extends Activity {
 
         ok.setOnClickListener(v -> {
             int ti = tg.getCheckedRadioButtonId() - 1000;
-            Store.put(this, "th_" + wid, Themes.IDS[Math.max(0, Math.min(Themes.IDS.length - 1, ti))]);
+            Store.put(this, "th_" + wid, Store.themeAt(ti));
             int li = lg.getCheckedRadioButtonId() - 2000;
             if (li >= 0 && li < ids.size()) { if (notesW) Store.put(this, "tab_" + wid, ids.get(li)); else Store.setChoice(this, wid, ids.get(li)); }
             Store.put(this, "arm_" + wid, null);
-            NotisWidget.refreshAll(this);
+            NotisWidget.refreshAll(this);   /* full updateAppWidget (header + background) + list data for every widget */
             setResult(RESULT_OK, new Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, wid));
             finish();
         });

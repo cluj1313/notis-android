@@ -25,7 +25,8 @@ public class NotesWidget extends AppWidgetProvider {
     }
 
     static void draw(Context c, AppWidgetManager m, int id) {
-        RemoteViews v = new RemoteViews(c.getPackageName(), R.layout.notes_widget);
+        Themes th0 = Themes.forWidget(c, id);
+        RemoteViews v = new RemoteViews(c.getPackageName(), Store.layoutFor(c, id, th0.id) ? R.layout.notes_widget_alt : R.layout.notes_widget);
         NotisWidget.theme(v, Themes.forWidget(c, id));
         JSONObject s = Store.snapshot(c);
         String tab = Store.notesTab(c, id, s), tn = Store.tabName(s, tab);

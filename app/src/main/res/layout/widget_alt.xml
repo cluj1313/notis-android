@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/w_root" android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="@drawable/w_bg_gold" android:padding="10dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+        <LinearLayout android:id="@+id/w_head" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:paddingStart="4dp">
+            <TextView android:id="@+id/w_title" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Notis" android:textColor="@color/gold" android:textSize="16sp" android:textStyle="bold" android:maxLines="1" android:ellipsize="end" />
+            <TextView android:id="@+id/w_sub" android:layout_width="match_parent" android:layout_height="wrap_content" android:textColor="@color/wmut" android:textSize="11sp" android:maxLines="1" android:ellipsize="end" />
+        </LinearLayout>
+        <ImageView android:id="@+id/w_pick" android:layout_width="30dp" android:layout_height="30dp" android:layout_marginEnd="2dp" android:src="@drawable/ic_lists" android:padding="6dp" android:contentDescription="Alege lista" />
+        <ImageView android:id="@+id/w_cfg" android:layout_width="30dp" android:layout_height="30dp" android:layout_marginEnd="6dp" android:src="@drawable/ic_gear" android:padding="6dp" android:contentDescription="Setări widget" />
+        <ImageView android:id="@+id/w_add" android:layout_width="34dp" android:layout_height="34dp" android:src="@drawable/ic_plus" android:background="@drawable/w_add_gold" android:padding="7dp" android:contentDescription="Adaugă" />
+    </LinearLayout>
+    <ImageView android:id="@+id/w_line" android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="8dp" android:layout_marginBottom="2dp" android:src="@drawable/w_line" android:scaleType="fitXY" />
+    <FrameLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <ListView android:id="@+id/w_list" android:layout_width="match_parent" android:layout_height="match_parent" android:divider="@null" android:dividerHeight="0dp" android:scrollbars="none" />
+        <TextView android:id="@+id/w_empty" android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:padding="8dp" android:text="Deschide Notis o dată ca să apară lista ta." android:textColor="@color/wmut" android:textSize="13sp" />
+    </FrameLayout>
+</LinearLayout>

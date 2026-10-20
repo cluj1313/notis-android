@@ -13,6 +13,7 @@ import org.json.JSONObject;
 
 /** widget header ☰: which checklist (list widget) or which tab (Notes widget) this widget shows */
 public class PickActivity extends Activity {
+    @Override protected void onNewIntent(android.content.Intent i) { super.onNewIntent(i); setIntent(i); recreate(); }
     @Override protected void onCreate(Bundle b) {
         super.onCreate(b);
         final int wid = getIntent().getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, 0);

@@ -102,7 +102,8 @@ public class NotisWidget extends AppWidgetProvider {
     }
 
     static void draw(Context c, AppWidgetManager m, int id) {
-        RemoteViews v = new RemoteViews(c.getPackageName(), R.layout.widget);
+        Themes th0 = Themes.forWidget(c, id);
+        RemoteViews v = new RemoteViews(c.getPackageName(), Store.layoutFor(c, id, th0.id) ? R.layout.widget_alt : R.layout.widget);
         Themes th = Themes.forWidget(c, id);
         theme(v, th);
         JSONObject l = Store.listFor(c, id);
