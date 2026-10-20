@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.appwidget.AppWidgetManager;
 import android.content.Intent;
 import android.os.Bundle;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /** Invisible trampoline for "Notis · Notițe" rows: expand/collapse, or open the alarm dialog. */
 public class RowActivity extends Activity {
@@ -17,17 +19,22 @@ public class RowActivity extends Activity {
             if ("alarm".equals(act)) {
                 startActivity(new Intent(this, AlarmActivity.class).putExtra("n", nid));
             } else if ("del".equals(act)) {
-                if (Store.noteArmed(this, wid, nid)) {
-                    Store.put(this, "narm_" + wid, null);
-                    Store.deleteNote(this, nid);
+                /* one tap: to the app trash now, "Anulează" row for 5 s */
+                JSONObject copy = null; JSONArray ns = Store.snapshot(this).optJSONArray("notes");
+                if (ns != null) for (int k = 0; k < ns.length(); k++) { JSONObject x = ns.optJSONObject(k); if (x != null && nid.equals(x.optString("id"))) copy = x; }
+                Store.deleteNote(this, nid);
+                try { Store.putUndo(this, wid, new JSONObject().put("k", "n").put("n", nid).put("p", i.getIntExtra("p", 0))
+                    .put("t", copy == null ? "" : copy.optString("title")).put("note", copy == null ? JSONObject.NULL : copy)); } catch (Exception ignored) {}
+                Scheduler.rescheduleAll(this);
+                NotisWidget.refreshAll(this);
+                NotisWidget.laterRefresh(this);
+            } else if ("undo".equals(act)) {
+                JSONObject u = Store.getUndo(this, wid);
+                if (u != null && "n".equals(u.optString("k")) && nid.equals(u.optString("n"))) {
+                    Store.put(this, "undo_" + wid, null);
+                    Store.restoreNote(this, nid, u.optJSONObject("note"));
                     Scheduler.rescheduleAll(this);
                     NotisWidget.refreshAll(this);
-                } else {
-                    Store.put(this, "narm_" + wid, nid + "|" + System.currentTimeMillis());
-                    AppWidgetManager.getInstance(this).notifyAppWidgetViewDataChanged(new int[]{wid}, R.id.w_list);
-                    final android.content.Context ac = getApplicationContext(); final int w = wid;
-                    new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(() ->
-                        AppWidgetManager.getInstance(ac).notifyAppWidgetViewDataChanged(new int[]{w}, R.id.w_list), 5200);
                 }
             } else {
                 Store.toggleExpanded(this, wid, nid);

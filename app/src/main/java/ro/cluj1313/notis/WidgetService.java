@@ -59,14 +59,14 @@ public class WidgetService extends RemoteViewsService {
 
     static final class F implements RemoteViewsFactory {
         private final Context c; private final int wid;
-        private final List<JSONObject> rows = new ArrayList<>(); private String nid = "", armed = ""; private Themes th;
+        private final List<JSONObject> rows = new ArrayList<>(); private String nid = ""; private JSONObject undo; private Themes th;
         F(Context c, int wid) { this.c = c; this.wid = wid; }
         @Override public void onCreate() {}
         @Override public void onDestroy() { rows.clear(); }
         @Override public void onDataSetChanged() {
             rows.clear();
             th = Themes.forWidget(c, wid);
-            String a = Store.get(c, "arm_" + wid); armed = a == null ? "" : a.substring(0, Math.max(0, a.indexOf('|')));
+            undo = Store.getUndo(c, wid);
             JSONObject l = Store.listFor(c, wid);
             if (l == null) return;
             nid = l.optString("id");
@@ -75,30 +75,38 @@ public class WidgetService extends RemoteViewsService {
             List<JSONObject> done = new ArrayList<>();
             for (int k = 0; k < it.length(); k++) { JSONObject x = it.optJSONObject(k); if (x == null) continue; if (x.optBoolean("d")) done.add(x); else rows.add(x); }
             rows.addAll(done);
+            if (undo != null && "i".equals(undo.optString("k")) && nid.equals(undo.optString("n"))) {
+                try { rows.add(Math.max(0, Math.min(rows.size(), undo.optInt("p"))), new JSONObject().put("undo", true).put("i", undo.optString("i")).put("t", undo.optString("t"))); } catch (Exception ignored) {}
+            }
         }
         @Override public int getCount() { return rows.size(); }
         @Override public RemoteViews getViewAt(int p) {
             RemoteViews v = new RemoteViews(c.getPackageName(), R.layout.widget_item);
             if (p >= rows.size()) return v;
             JSONObject x = rows.get(p);
-            boolean d = x.optBoolean("d"), arm = armed.length() > 0 && armed.equals(x.optString("i"));
+            boolean d = x.optBoolean("d");
             String t = x.optString("t");
-            if (arm) { v.setTextViewText(R.id.wi_text, "Atinge 🗑 din nou ca să ștergi „" + t + "”"); v.setTextColor(R.id.wi_text, th.danger); }
-            else if (d) { SpannableString s = new SpannableString(t); s.setSpan(new StrikethroughSpan(), 0, t.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); v.setTextViewText(R.id.wi_text, s); v.setTextColor(R.id.wi_text, th.mut); }
+            if (x.optBoolean("undo")) {
+                v.setViewVisibility(R.id.wi_box, View.GONE); v.setViewVisibility(R.id.wi_x, View.GONE);
+                v.setTextViewText(R.id.wi_text, "Șters „" + t + "” · ANULEAZĂ"); v.setTextColor(R.id.wi_text, th.acc);
+                v.setOnClickFillInIntent(R.id.wi_row, new Intent().putExtra("n", nid).putExtra("i", x.optString("i")).putExtra("act", "undo"));
+                return v;
+            }
+            if (d) { SpannableString s = new SpannableString(t); s.setSpan(new StrikethroughSpan(), 0, t.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); v.setTextViewText(R.id.wi_text, s); v.setTextColor(R.id.wi_text, th.mut); }
             else { v.setTextViewText(R.id.wi_text, t); v.setTextColor(R.id.wi_text, th.text); }
             v.setImageViewResource(R.id.wi_box, d ? R.drawable.ic_box_on : R.drawable.ic_box);
             v.setInt(R.id.wi_box, "setColorFilter", d ? th.mut : th.acc);
-            v.setImageViewResource(R.id.wi_x, arm ? R.drawable.ic_trash : R.drawable.ic_x);
-            v.setInt(R.id.wi_x, "setColorFilter", arm ? th.danger : th.mut);
+            v.setImageViewResource(R.id.wi_x, R.drawable.ic_x);
+            v.setInt(R.id.wi_x, "setColorFilter", th.mut);
             Intent f = new Intent().putExtra("n", nid).putExtra("i", x.optString("i")).putExtra("b", x.optString("b", "")).putExtra("d", d).putExtra("act", "toggle");
             v.setOnClickFillInIntent(R.id.wi_row, f);
-            Intent g = new Intent().putExtra("n", nid).putExtra("i", x.optString("i")).putExtra("b", x.optString("b", "")).putExtra("act", "del");
+            Intent g = new Intent().putExtra("n", nid).putExtra("i", x.optString("i")).putExtra("b", x.optString("b", "")).putExtra("t", t).putExtra("d", d).putExtra("p", p).putExtra("act", "del");
             v.setOnClickFillInIntent(R.id.wi_x, g);
             return v;
         }
         @Override public RemoteViews getLoadingView() { return null; }
         @Override public int getViewTypeCount() { return 1; }
-        @Override public long getItemId(int p) { return p < rows.size() ? (rows.get(p).optString("b", "") + rows.get(p).optString("i")).hashCode() : p; }
+        @Override public long getItemId(int p) { return p < rows.size() ? ((rows.get(p).optBoolean("undo") ? "undo:" : "") + rows.get(p).optString("b", "") + rows.get(p).optString("i")).hashCode() : p; }
         @Override public boolean hasStableIds() { return true; }
     }
 
@@ -112,6 +120,10 @@ public class WidgetService extends RemoteViewsService {
             th = Themes.forWidget(c, wid);
             JSONObject s = Store.snapshot(c);
             rows = notesOf(s, Store.notesTab(c, wid, s));
+            JSONObject u = Store.getUndo(c, wid);
+            if (u != null && "n".equals(u.optString("k"))) {
+                try { rows.add(Math.max(0, Math.min(rows.size(), u.optInt("p"))), new JSONObject().put("undo", true).put("id", u.optString("n")).put("title", u.optString("t"))); } catch (Exception ignored) {}
+            }
         }
         @Override public int getCount() { return rows.size(); }
         @Override public RemoteViews getViewAt(int p) {
@@ -119,6 +131,14 @@ public class WidgetService extends RemoteViewsService {
             if (p >= rows.size()) return v;
             JSONObject n = rows.get(p);
             String id = n.optString("id"), txt = n.optString("text").trim();
+            if (n.optBoolean("undo")) {
+                String tt = n.optString("title"); if (tt.length() > 40) tt = tt.substring(0, 40) + "…";
+                v.setTextViewText(R.id.ni_text, "Mutată în coș" + (tt.length() > 0 ? " „" + tt + "”" : "") + " · ANULEAZĂ");
+                v.setTextColor(R.id.ni_text, th.acc);
+                v.setViewVisibility(R.id.ni_al, View.GONE); v.setViewVisibility(R.id.ni_del, View.GONE);
+                v.setOnClickFillInIntent(R.id.ni_text, new Intent().putExtra("n", id).putExtra("act", "undo"));
+                return v;
+            }
             boolean ex = Store.expanded(c, wid, id);
             v.setTextViewText(R.id.ni_text, txt);
             v.setInt(R.id.ni_text, "setMaxLines", ex ? 40 : 1);
@@ -141,11 +161,10 @@ public class WidgetService extends RemoteViewsService {
             }
             /* expanded row only: "Mută în coș" (two taps within 5 s) */
             if (ex) {
-                boolean arm = Store.noteArmed(c, wid, id);
                 v.setViewVisibility(R.id.ni_del, View.VISIBLE);
-                v.setTextViewText(R.id.ni_del, arm ? "✕  Atinge din nou ca să muți în coș" : "✕  Mută în coș");
-                v.setTextColor(R.id.ni_del, arm ? th.danger : th.mut);
-                v.setOnClickFillInIntent(R.id.ni_del, new Intent().putExtra("n", id).putExtra("act", "del"));
+                v.setTextViewText(R.id.ni_del, "✕  Mută în coș");
+                v.setTextColor(R.id.ni_del, th.mut);
+                v.setOnClickFillInIntent(R.id.ni_del, new Intent().putExtra("n", id).putExtra("p", p).putExtra("act", "del"));
             } else v.setViewVisibility(R.id.ni_del, View.GONE);
             v.setOnClickFillInIntent(R.id.ni_text, new Intent().putExtra("n", id).putExtra("act", "expand"));
             v.setOnClickFillInIntent(R.id.ni_al, new Intent().putExtra("n", id).putExtra("act", "alarm"));
@@ -153,7 +172,7 @@ public class WidgetService extends RemoteViewsService {
         }
         @Override public RemoteViews getLoadingView() { return null; }
         @Override public int getViewTypeCount() { return 1; }
-        @Override public long getItemId(int p) { return p < rows.size() ? rows.get(p).optString("id").hashCode() : p; }
+        @Override public long getItemId(int p) { return p < rows.size() ? ((rows.get(p).optBoolean("undo") ? "undo:" : "") + rows.get(p).optString("id")).hashCode() : p; }
         @Override public boolean hasStableIds() { return true; }
     }
 }

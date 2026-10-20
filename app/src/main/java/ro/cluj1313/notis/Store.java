@@ -50,6 +50,22 @@ final class Store {
         try { JSONObject o = new JSONObject().put("op", "ai").put("n", nid).put("i", id).put("t", text); if (bid != null && bid.length() > 0) o.put("b", bid); addOp(c, o); } catch (Exception ignored) {}
         return id;
     }
+    /** undo of a widget remove: same id comes back (web "ai" is idempotent by id) */
+    static void readdItem(Context c, String nid, String bid, String iid, String text, boolean done) {
+        try { JSONObject o = new JSONObject().put("op", "ai").put("n", nid).put("i", iid).put("t", text); if (bid != null && bid.length() > 0) o.put("b", bid); addOp(c, o);
+            if (done) toggle(c, nid, bid, iid, true); } catch (Exception ignored) {}
+    }
+    /** undo of "move to trash": web restores it (op "rn"); the copy keeps it visible in the widget until then */
+    static void restoreNote(Context c, String nid, JSONObject copy) {
+        try { JSONObject o = new JSONObject().put("op", "rn").put("n", nid); if (copy != null) o.put("note", copy); addOp(c, o); } catch (Exception ignored) {}
+    }
+    /** one-tap delete + 5 s "Anulează" row, per widget */
+    static final long UNDO_MS = 5000;
+    static void putUndo(Context c, int wid, JSONObject u) { try { u.put("ts", System.currentTimeMillis()); } catch (Exception ignored) {} put(c, "undo_" + wid, u.toString()); }
+    static JSONObject getUndo(Context c, int wid) {
+        String s = get(c, "undo_" + wid); if (s == null) return null;
+        try { JSONObject u = new JSONObject(s); long age = System.currentTimeMillis() - u.optLong("ts"); return age >= 0 && age < UNDO_MS ? u : null; } catch (Exception e) { return null; }
+    }
     static void removeItem(Context c, String nid, String bid, String iid) {
         try { JSONObject o = new JSONObject().put("op", "ri").put("n", nid).put("i", iid); if (bid != null && bid.length() > 0) o.put("b", bid); addOp(c, o); } catch (Exception ignored) {}
     }
@@ -105,6 +121,7 @@ final class Store {
                     continue;
                 }
                 if (op.equals("dn")) { drop(notes, nid); drop(lists, nid); continue; }
+                if (op.equals("rn")) { JSONObject cp = p.optJSONObject("note"); if (cp != null && byId(notes, nid) == null) notes.put(new JSONObject(cp.toString())); continue; }
                 if (op.equals("al") || op.equals("ar")) {
                     JSONObject n = byId(notes, nid); if (n == null) continue;
                     if (op.equals("al")) { JSONObject a = p.optJSONObject("a"); if (a == null) n.remove("alarm"); else n.put("alarm", a); }
@@ -135,7 +152,7 @@ final class Store {
     // ---- per-widget settings ----
     static void put(Context c, String k, String v) { SharedPreferences.Editor e = sp(c).edit(); if (v == null) e.remove(k); else e.putString(k, v); e.commit(); }
     static String get(Context c, String k) { return sp(c).getString(k, null); }
-    static void forget(Context c, int wid) { SharedPreferences.Editor e = sp(c).edit(); for (String p : new String[]{"w_", "th_", "tab_", "ex_", "arm_", "narm_"}) e.remove(p + wid); e.commit(); }
+    static void forget(Context c, int wid) { SharedPreferences.Editor e = sp(c).edit(); for (String p : new String[]{"w_", "th_", "tab_", "ex_", "arm_", "narm_", "undo_"}) e.remove(p + wid); e.commit(); }
     static void setChoice(Context c, int wid, String nid) { put(c, "w_" + wid, nid); }
     static String getChoice(Context c, int wid) { return get(c, "w_" + wid); }
 

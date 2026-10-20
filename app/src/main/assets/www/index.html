@@ -11,7 +11,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Notis">
-<meta name="jarvis-version" content="notis-v42">
+<meta name="jarvis-version" content="notis-v43">
 <title>Notis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -452,7 +452,8 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
 #noteFull.mix #nfPh{display:none}
 .nbi{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:8px;margin:8px 0}
 .nbi .phi{aspect-ratio:1;border-radius:12px;background:#0a1a2c center/cover no-repeat;border:1px solid rgba(var(--lnR),.18);-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;touch-action:manipulation}
-.nbi.one{display:block}.nbi.one .phi{width:100%;aspect-ratio:4 / 3;background-size:100% 100%}
+.nbi.one{display:block}
+@supports (field-sizing:content){.nbt{field-sizing:content;height:auto!important}}.nbi.one .phi{width:100%;aspect-ratio:4 / 3;background-size:100% 100%}
 #phView{touch-action:none;overflow:hidden;-webkit-user-select:none;user-select:none}#phView img{pointer-events:none;will-change:transform}#pvCount{position:absolute;left:0;right:0;bottom:calc(18px + env(safe-area-inset-bottom));text-align:center;color:var(--mut);font-size:13px}
 #crop{position:fixed;inset:0;z-index:70;background:#040b14;display:none;flex-direction:column;touch-action:none;overscroll-behavior:contain}#crop.show{display:flex}
 #cropStage{position:relative;flex:1;margin-bottom:calc(60px + env(safe-area-inset-bottom));overflow:hidden;touch-action:none;-webkit-user-select:none;user-select:none}
@@ -2544,15 +2545,19 @@ function mNorm(n){var a=[];(n.blocks||[]).forEach(function(b){if(b.t==='chk'&&!(
 function mTouch(n){n.updatedAt=n.editedAt=new Date().toISOString();mSync(n);nSaveSoon()}
 function mPre(n){if(nSaveT){clearTimeout(nSaveT);nSaveT=null}mSync(n);saveNotes()}
 function mBlk(id){var n=fullId&&findN(fullId);if(!n||!n.blocks)return{};for(var i=0;i<n.blocks.length;i++)if(n.blocks[i].id===id)return{n:n,b:n.blocks[i],i:i};return{n:n}}
-function mFit(t){t.style.height='auto';t.style.height=t.scrollHeight+'px'}
+function mFit(t){if(!t.isConnected)return;t.style.height='auto';var h=t.scrollHeight;if(!h||!t.offsetWidth){t.style.height='';mRefit();return}t.style.height=h+'px'}
+/* v43: re-measure the text blocks after anything that moves/resizes them (photo decode, aspect-ratio change, keyboard/viewport, return from the picker) */
+var mRefT=null;function mRefitNow(){var B0=$('nfBlocks');if(!B0)return;B0.querySelectorAll('.nbt').forEach(function(t){if(!t.isConnected||!t.offsetWidth)return;t.style.height='auto';var h=t.scrollHeight;if(h)t.style.height=h+'px'})}
+function mRefit(){clearTimeout(mRefT);requestAnimationFrame(mRefitNow);mRefT=setTimeout(function(){mRefitNow();setTimeout(mRefitNow,400)},120)}
 function mRender(focus){var n=fullId&&findN(fullId);if(!n||n.type!=='mix')return;mNorm(n);var box=$('nfBlocks');
  if(!focus){var ae=document.activeElement;if(ae&&box.contains(ae)){var bb=ae.closest('[data-b]');if(ae.classList.contains('cit'))focus={b:bb.dataset.b,item:ae.closest('.ci').dataset.id,end:true};else if(ae.classList.contains('nbt'))focus={b:bb.dataset.b,pos:ae.selectionStart}}}
  var h='';n.blocks.forEach(function(b){h+=b.t==='img'?'<div class="nbi'+((b.ph||[]).length===1?' one':'')+'" data-b="'+b.id+'">'+(b.ph||[]).map(function(id){return '<div class="phi" data-id="'+esc(id)+'"'+(phCache[id]?' data-u="'+phCache[id]+'" style="background-image:url('+phCache[id]+')'+(phRatio[id]?';aspect-ratio:'+phRatio[id]:'')+'"':'')+'></div>'}).join('')+'</div>':'';if(b.t==='img');else if(b.t==='text')h+='<div class="nbw" data-b="'+b.id+'"><textarea class="nbt" rows="1" autocomplete="off" data-lpignore="true" data-1p-ignore="true" data-form-type="other" aria-label="Text">'+esc(b.v||'')+'</textarea></div>';
   else{var a=b.items||[],P={isort:n.isort,items:a,createdAt:n.createdAt,ts:n.ts},un=ciSort(P,a.filter(function(x){return !x.done})),dn=ciSort(P,a.filter(function(x){return x.done}));
    h+='<div class="nbc" data-b="'+b.id+'">'+un.map(chkRow).join('')+'<button type="button" class="ciadd" aria-label="Adaugă element"></button>'+(dn.length?'<div class="cisep"></div>'+dn.map(chkRow).join(''):'')+'</div>'}});
- box.innerHTML=h;box.querySelectorAll('.nbt').forEach(mFit);phFill();
+ box.innerHTML=h;box.querySelectorAll('.nbt').forEach(mFit);phFill();mRefit();
  if(focus){var w=box.querySelector('[data-b="'+focus.b+'"]'),el=w&&(focus.item?w.querySelector('.ci[data-id="'+focus.item+'"] .cit'):w.querySelector('.nbt'));if(el){el.focus();var L=focus.pos!=null?focus.pos:(focus.end?el.value.length:0);try{el.setSelectionRange(L,L)}catch(_){}}}}
 function mItem(el){var w=el.closest('.nbc'),row=el.closest('.ci');if(!w||!row)return{};var r=mBlk(w.dataset.b);if(!r.b)return{};for(var i=0;i<r.b.items.length;i++)if(r.b.items[i].id===row.dataset.id){r.x=r.b.items[i];r.xi=i;return r}return r}
+(function(){var rf=function(){if($('noteFull').classList.contains('mix'))mRefit()};window.addEventListener('resize',rf);if(window.visualViewport)visualViewport.addEventListener('resize',rf);document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')rf()});if(window.ResizeObserver)new ResizeObserver(rf).observe($('nfBlocks'))})();
 var mCaret=null;/* last caret: {b:blockId,pos} or {plain:pos} or {chkb:blockId} */
 document.addEventListener('focusin',function(e){var t=e.target;if(t===$('nfText'))mCaret={plain:1};else if(t.classList&&t.classList.contains('nbt'))mCaret={b:t.closest('[data-b]').dataset.b};else if(t.closest&&t.closest('.nbc'))mCaret={chkb:t.closest('.nbc').dataset.b};else if(t.closest&&t.closest('#nfChk'))mCaret={chk:1}});
 document.addEventListener('selectionchange',function(){var t=document.activeElement;if(!mCaret||!t)return;if(t===$('nfText')||(t.classList&&t.classList.contains('nbt')))mCaret.pos=t.selectionStart});
@@ -2598,7 +2603,7 @@ function edState(){var n=fullId&&findN(fullId);$('nfAlarm').classList.toggle('on
 new MutationObserver(function(){if(!$('alModal').classList.contains('show'))setTimeout(edState,50)}).observe($('alModal'),{attributes:true,attributeFilter:['class']});
 /* ---------- v11: inline photo blocks (t:'img', ph:[photo ids]) + crop editor ---------- */
 var phCache={},phRatio={};
-function phAR(d,id,u){if(!d.closest('.nbi.one'))return;if(phRatio[id]){d.style.aspectRatio=phRatio[id];return}var im=new Image();im.onload=function(){var w=im.naturalWidth,h=Math.max(im.naturalHeight,im.naturalWidth/4);phRatio[id]=w+' / '+h;d.style.aspectRatio=phRatio[id]};im.src=u}
+function phAR(d,id,u){if(!d.closest('.nbi.one'))return;if(phRatio[id]){d.style.aspectRatio=phRatio[id];return}var im=new Image();im.onload=function(){var w=im.naturalWidth,h=Math.max(im.naturalHeight,im.naturalWidth/4);phRatio[id]=w+' / '+h;d.style.aspectRatio=phRatio[id];mRefit()};im.src=u}
 function phCacheClear(){for(var k in phCache)try{URL.revokeObjectURL(phCache[k])}catch(_){}phCache={}}
 function phGet(id){return phTx('readonly',function(s){return s.get(id)})}
 function phFill(){var n=fullId&&findN(fullId);if(!n)return;$('nfBlocks').querySelectorAll('.phi[data-id]').forEach(function(d){var id=d.dataset.id;
@@ -2725,6 +2730,7 @@ if(window.launchQueue&&launchQueue.setConsumer)launchQueue.setConsumer(function(
  function apply(c){var op=c.op||'t',n=findN(c.n),now=new Date().toISOString();
   if(op==='an'){if(n||!String(c.text||'').trim())return false;var tb=findNT(c.tab)?c.tab:(noteTabs.filter(function(t){return nFold(t.name)==='general'})[0]||noteTabs[0]).id;
    var ts=c.ts?new Date(c.ts).toISOString():now;notes.push({id:c.n,text:String(c.text),tab:tb,ts:ts,createdAt:ts,updatedAt:ts});return true}
+  if(op==='rn'){if(!n||!n.del)return false;var t9=n.delTab||n.tab;if(!findNT(t9))t9=(findNT('general')||noteTabs[0]).id;n.tab=t9;delete n.del;delete n.delTab;return true}
   if(!n||n.lock||n.del)return false;
   if(op==='dn'){n.del=now;n.delTab=n.tab;return true}
   if(op==='al'){if(c.a&&c.a.at)n.alarm={at:+c.a.at,rep:+c.a.rep||0,until:c.a.until||null,snz:null};else if(n.alarm)delete n.alarm;else return false;try{alSchedule(n)}catch(_){}return true}

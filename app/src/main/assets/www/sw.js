@@ -1,6 +1,6 @@
 /* Notis service worker: app shell cache. HTML = network-first (updates arrive), static = cache-first.
    Voice model files (Mihai, own cache "jarvis-piper-v1") and weather (Open-Meteo) are NOT touched: passed straight to the network. */
-var VERSION='notis-shell-v42';
+var VERSION='notis-shell-v43';
 var SHELL=['./','index.html','manifest.webmanifest?v=39','icons/sc-new-96.png','icons/sc-search-96.png','icons/sc-cart-96.png',
  'icons/favicon.png?v=29','icons/icon-192.png?v=29','icons/icon-512.png?v=29','icons/icon-maskable-512.png?v=29','icons/apple-touch-icon.png?v=29','art/jad-t.svg','art/jad-b.svg','art/lac-t.svg','art/lac-b.svg','art/tus-t.svg','art/tus-b.svg','art/paper.svg','art/neon-b.svg','art/papyrus.svg','art/pap-t.svg','art/pap-b.svg','art/m-bamboo.svg','art/m-sakura.svg','art/lup-d.webp','art/lup-l.webp','art/flag.webp','art/salon-marble.svg','art/cleo-q.svg','art/cleo-b.svg','art/cleo-l.svg','art/cleo-pap.svg'];
 var FONT_HOSTS=/^https:\/\/(fonts\.googleapis\.com|fonts\.gstatic\.com)\//,DSEG=/^https:\/\/cdn\.jsdelivr\.net\/npm\/dseg@/;

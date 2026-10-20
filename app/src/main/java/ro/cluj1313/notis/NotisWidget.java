@@ -27,22 +27,20 @@ public class NotisWidget extends AppWidgetProvider {
             String nid = i.getStringExtra("n"), iid = i.getStringExtra("i"), bid = i.getStringExtra("b"), act = i.getStringExtra("act");
             if (nid != null && iid != null) {
                 if ("del".equals(act)) {
-                    String arm = Store.get(c, "arm_" + wid);
-                    long now = System.currentTimeMillis();
-                    if (arm != null && arm.startsWith(iid + "|") && now - Long.parseLong(arm.substring(arm.indexOf('|') + 1)) < 5000) {
-                        Store.put(c, "arm_" + wid, null);
-                        Store.removeItem(c, nid, bid, iid);
-                    } else {
-                        Store.put(c, "arm_" + wid, iid + "|" + now);
-                        final PendingResult pr = goAsync(); final Context ac = c.getApplicationContext(); final int w = wid;
-                        new Handler(Looper.getMainLooper()).postDelayed(() -> {
-                            String a2 = Store.get(ac, "arm_" + w);
-                            if (a2 != null && a2.startsWith(iid + "|")) { Store.put(ac, "arm_" + w, null); refreshAll(ac); }
-                            pr.finish();
-                        }, 5200);
+                    /* 1.4.0: one tap removes at once; a 5 s "Anulează" row replaces it.
+                       (1.3.0's two-tap confirm held the broadcast with goAsync() for 5.2 s, which queued the
+                       second tap until the confirm window had already been reset -> it could never delete.) */
+                    Store.removeItem(c, nid, bid, iid);
+                    try { Store.putUndo(c, wid, new JSONObject().put("k", "i").put("n", nid).put("b", bid == null ? "" : bid).put("i", iid)
+                        .put("t", i.getStringExtra("t")).put("d", i.getBooleanExtra("d", false)).put("p", i.getIntExtra("p", 0))); } catch (Exception ignored) {}
+                    laterRefresh(c);
+                } else if ("undo".equals(act)) {
+                    JSONObject u = Store.getUndo(c, wid);
+                    if (u != null && "i".equals(u.optString("k")) && iid.equals(u.optString("i"))) {
+                        Store.put(c, "undo_" + wid, null);
+                        Store.readdItem(c, nid, u.optString("b"), iid, u.optString("t"), u.optBoolean("d"));
                     }
                 } else {
-                    Store.put(c, "arm_" + wid, null);
                     Store.toggle(c, nid, bid, iid, !i.getBooleanExtra("d", false));
                 }
                 refreshAll(c);
@@ -50,6 +48,12 @@ public class NotisWidget extends AppWidgetProvider {
             return;
         }
         super.onReceive(c, i);
+    }
+
+    /** redraw once the undo window is over (no goAsync: it would serialize the next taps behind it) */
+    static void laterRefresh(Context c) {
+        final Context ac = c.getApplicationContext();
+        new Handler(Looper.getMainLooper()).postDelayed(() -> refreshAll(ac), Store.UNDO_MS + 300);
     }
 
     static void refreshAll(Context c) {
