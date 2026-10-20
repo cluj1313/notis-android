@@ -64,9 +64,21 @@ public class WidgetService extends RemoteViewsService {
             JSONObject x = rs.get(p);
             /* the launcher recycles row views: always set every visibility explicitly */
             v.setViewVisibility(R.id.wi_box, View.VISIBLE); v.setViewVisibility(R.id.wi_x, View.VISIBLE);
+            v.setViewVisibility(R.id.wi_yes, View.GONE); v.setViewVisibility(R.id.wi_no, View.GONE);
             try {
             boolean d = x.optBoolean("d");
             String t = x.optString("t");
+            if (x.optBoolean("ask")) {
+                v.setViewVisibility(R.id.wi_box, View.GONE); v.setViewVisibility(R.id.wi_x, View.GONE);
+                v.setViewVisibility(R.id.wi_yes, View.VISIBLE); v.setViewVisibility(R.id.wi_no, View.VISIBLE);
+                v.setTextViewText(R.id.wi_text, "Vrei să ștergi „" + t + "”?"); v.setTextColor(R.id.wi_text, th.text);
+                v.setTextColor(R.id.wi_yes, th.danger); v.setTextColor(R.id.wi_no, th.acc);
+                Intent base = new Intent().putExtra("n", nid).putExtra("i", x.optString("i")).putExtra("b", x.optString("b", ""));
+                v.setOnClickFillInIntent(R.id.wi_row, new Intent(base).putExtra("act", "no"));
+                v.setOnClickFillInIntent(R.id.wi_no, new Intent(base).putExtra("act", "no"));
+                v.setOnClickFillInIntent(R.id.wi_yes, new Intent(base).putExtra("act", "yes"));
+                return v;
+            }
             if (x.optBoolean("undo")) {
                 v.setViewVisibility(R.id.wi_box, View.GONE); v.setViewVisibility(R.id.wi_x, View.GONE);
                 v.setTextViewText(R.id.wi_text, "Șters „" + t + "” · ANULEAZĂ"); v.setTextColor(R.id.wi_text, th.acc);
@@ -91,7 +103,20 @@ public class WidgetService extends RemoteViewsService {
             if (p >= rs.size()) return v;
             JSONObject n = rs.get(p);
             v.setViewVisibility(R.id.ni_al, View.VISIBLE); /* recycled row views: reset */
+            v.setViewVisibility(R.id.ni_yes, View.GONE); v.setViewVisibility(R.id.ni_no, View.GONE);
             String id = n.optString("id"), txt = n.optString("text").trim();
+            if (n.optBoolean("ask")) {
+                String tt = txt.split("\n", 2)[0]; if (tt.length() > 40) tt = tt.substring(0, 40) + "…";
+                v.setTextViewText(R.id.ni_text, "Vrei să ștergi" + (tt.length() > 0 ? " „" + tt + "”" : "") + "?");
+                v.setInt(R.id.ni_text, "setMaxLines", 2); v.setTextColor(R.id.ni_text, th.text);
+                v.setViewVisibility(R.id.ni_al, View.GONE); v.setViewVisibility(R.id.ni_del, View.GONE);
+                v.setViewVisibility(R.id.ni_yes, View.VISIBLE); v.setViewVisibility(R.id.ni_no, View.VISIBLE);
+                v.setTextColor(R.id.ni_yes, th.danger); v.setTextColor(R.id.ni_no, th.acc);
+                v.setOnClickFillInIntent(R.id.ni_text, new Intent().putExtra("n", id).putExtra("act", "no"));
+                v.setOnClickFillInIntent(R.id.ni_no, new Intent().putExtra("n", id).putExtra("act", "no"));
+                v.setOnClickFillInIntent(R.id.ni_yes, new Intent().putExtra("n", id).putExtra("act", "yes"));
+                return v;
+            }
             if (n.optBoolean("undo")) {
                 String tt = n.optString("title"); if (tt.length() > 40) tt = tt.substring(0, 40) + "…";
                 v.setTextViewText(R.id.ni_text, "Mutată în coș" + (tt.length() > 0 ? " „" + tt + "”" : "") + " · ANULEAZĂ");
@@ -123,7 +148,7 @@ public class WidgetService extends RemoteViewsService {
             /* expanded row only: "Mută în coș" (two taps within 5 s) */
             if (ex) {
                 v.setViewVisibility(R.id.ni_del, View.VISIBLE);
-                v.setTextViewText(R.id.ni_del, "✕  Mută în coș");
+                v.setTextViewText(R.id.ni_del, "✕  Șterge");
                 v.setTextColor(R.id.ni_del, th.mut);
                 v.setOnClickFillInIntent(R.id.ni_del, new Intent().putExtra("n", id).putExtra("p", p).putExtra("act", "del"));
             } else v.setViewVisibility(R.id.ni_del, View.GONE);
@@ -142,7 +167,7 @@ public class WidgetService extends RemoteViewsService {
         try {
             Themes th = Themes.forWidget(c, wid);
             JSONObject l = Store.listFor(c, wid);
-            if (l != null) { List<JSONObject> rs = Store.listRows(l, Store.getUndo(c, wid)); String nid = l.optString("id");
+            if (l != null) { List<JSONObject> rs = Store.markAsk(Store.listRows(l, null), Store.getAsk(c, wid), l.optString("id"), false); String nid = l.optString("id");
                 java.util.Set<Long> seen = new java.util.HashSet<>();
                 for (int p = 0; p < rs.size(); p++) { long id = listId(rs.get(p)); while (!seen.add(id)) id++; b.addItem(id, listRow(c, rs, nid, th, p)); } }
         } catch (Exception ignored) {}
@@ -154,7 +179,7 @@ public class WidgetService extends RemoteViewsService {
         try {
             Themes th = Themes.forWidget(c, wid);
             JSONObject s = Store.snapshot(c);
-            List<JSONObject> rs = Store.noteRows(s, Store.notesTab(c, wid, s), Store.getUndo(c, wid));
+            List<JSONObject> rs = Store.markAsk(Store.noteRows(s, Store.notesTab(c, wid, s), null), Store.getAsk(c, wid), null, true);
             java.util.Set<Long> seen = new java.util.HashSet<>();
             for (int p = 0; p < rs.size(); p++) { long id = noteId(rs.get(p)); while (!seen.add(id)) id++; b.addItem(id, noteRow(c, wid, rs, th, p)); }
         } catch (Exception ignored) {}
@@ -173,7 +198,7 @@ public class WidgetService extends RemoteViewsService {
             try {
                 th = Themes.forWidget(c, wid);
                 JSONObject l = Store.listFor(c, wid);
-                if (l != null) { id = l.optString("id"); r = Store.listRows(l, Store.getUndo(c, wid)); }
+                if (l != null) { id = l.optString("id"); r = Store.markAsk(Store.listRows(l, null), Store.getAsk(c, wid), l.optString("id"), false); }
             } catch (Exception e) { r = new ArrayList<>(); }
             nid = id; rows = r;
         }
@@ -196,7 +221,7 @@ public class WidgetService extends RemoteViewsService {
             try {
                 th = Themes.forWidget(c, wid);
                 JSONObject s = Store.snapshot(c);
-                r = Store.noteRows(s, Store.notesTab(c, wid, s), Store.getUndo(c, wid));
+                r = Store.markAsk(Store.noteRows(s, Store.notesTab(c, wid, s), null), Store.getAsk(c, wid), null, true);
             } catch (Exception e) { r = new ArrayList<>(); }
             rows = r;
         }

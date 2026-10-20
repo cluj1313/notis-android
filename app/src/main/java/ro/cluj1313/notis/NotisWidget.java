@@ -33,6 +33,13 @@ public class NotisWidget extends AppWidgetProvider {
             String nid = i.getStringExtra("n"), iid = i.getStringExtra("i"), bid = i.getStringExtra("b"), act = i.getStringExtra("act");
             if (nid != null && iid != null) {
                 if ("del".equals(act)) {
+                    try { Store.putAsk(c, wid, new JSONObject().put("k", "i").put("n", nid).put("b", bid == null ? "" : bid).put("i", iid)); } catch (Exception ignored) {}
+                } else if ("no".equals(act)) {
+                    Store.clearAsk(c, wid);
+                } else if ("yes".equals(act)) {
+                    if (Store.askMatches(Store.getAsk(c, wid), nid, bid, iid)) Store.removeItem(c, nid, bid, iid);
+                    Store.clearAsk(c, wid);
+                } else if ("olddel".equals(act)) {
                     /* 1.4.0: one tap removes at once; a 5 s "Anulează" row replaces it.
                        (1.3.0's two-tap confirm held the broadcast with goAsync() for 5.2 s, which queued the
                        second tap until the confirm window had already been reset -> it could never delete.) */
@@ -57,6 +64,7 @@ public class NotisWidget extends AppWidgetProvider {
                         Store.readdItem(c, nid, u.optString("b"), x, u.optInt("ix", -1));
                     }
                 } else {
+                    Store.clearAsk(c, wid);
                     Store.toggle(c, nid, bid, iid, !i.getBooleanExtra("d", false));
                 }
                 refreshAll(c);

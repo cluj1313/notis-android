@@ -19,6 +19,17 @@ public class RowActivity extends Activity {
             if ("alarm".equals(act)) {
                 startActivity(new Intent(this, AlarmActivity.class).putExtra("n", nid));
             } else if ("del".equals(act)) {
+                try { Store.putAsk(this, wid, new JSONObject().put("k", "n").put("n", nid)); } catch (Exception ignored) {}
+                NotisWidget.refreshAll(this);
+            } else if ("no".equals(act)) {
+                Store.clearAsk(this, wid);
+                NotisWidget.refreshAll(this);
+            } else if ("yes".equals(act)) {
+                /* to the app trash (restorable there), synced through the pending queue */
+                if (Store.askMatches(Store.getAsk(this, wid), nid, null, null)) { Store.deleteNote(this, nid); Scheduler.rescheduleAll(this); }
+                Store.clearAsk(this, wid);
+                NotisWidget.refreshAll(this);
+            } else if ("olddel".equals(act)) {
                 /* one tap: to the app trash now, "Anulează" row for 5 s */
                 JSONObject copy = null; JSONArray ns = Store.snapshot(this).optJSONArray("notes");
                 if (ns != null) for (int k = 0; k < ns.length(); k++) { JSONObject x = ns.optJSONObject(k); if (x != null && nid.equals(x.optString("id"))) copy = x; }
@@ -37,6 +48,7 @@ public class RowActivity extends Activity {
                     NotisWidget.refreshAll(this);
                 }
             } else {
+                Store.clearAsk(this, wid);
                 Store.toggleExpanded(this, wid, nid);
                 if (android.os.Build.VERSION.SDK_INT >= 31) NotesWidget.draw(this, AppWidgetManager.getInstance(this), wid);
                 else AppWidgetManager.getInstance(this).notifyAppWidgetViewDataChanged(new int[]{wid}, R.id.w_list);

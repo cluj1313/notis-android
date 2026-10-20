@@ -120,6 +120,31 @@ final class Store {
         try { JSONObject o = new JSONObject().put("op", "rn").put("n", nid); if (copy != null) o.put("note", copy); addOp(c, o); } catch (Exception ignored) {}
     }
     /** one-tap delete + 5 s "Anulează" row, per widget */
+    /* 1.7.0: delete asks inline "Vrei să ștergi?  Nu  Da" on the row itself (replaces the 5 s ANULEAZĂ undo) */
+    static final long ASK_MS = 60000;
+    static void putAsk(Context c, int wid, JSONObject a) { try { a.put("ts", System.currentTimeMillis()); } catch (Exception ignored) {} put(c, "ask_" + wid, a.toString()); }
+    static JSONObject getAsk(Context c, int wid) { String s = get(c, "ask_" + wid); return s == null ? null : askValid(s, System.currentTimeMillis()); }
+    static void clearAsk(Context c, int wid) { put(c, "ask_" + wid, null); }
+    /** pure: a pending question, or null when absent/garbled/expired */
+    static JSONObject askValid(String s, long now) {
+        try { JSONObject a = new JSONObject(s); long age = now - a.optLong("ts"); return age >= 0 && age < ASK_MS ? a : null; } catch (Exception e) { return null; }
+    }
+    /** pure: does this pending question concern this row? (list item: k=i,n,b,i — note: k=n,n) */
+    static boolean askMatches(JSONObject a, String nid, String bid, String iid) {
+        if (a == null || nid == null || !nid.equals(a.optString("n"))) return false;
+        if (iid == null) return "n".equals(a.optString("k"));
+        return "i".equals(a.optString("k")) && iid.equals(a.optString("i")) && (bid == null ? "" : bid).equals(a.optString("b", ""));
+    }
+    /** pure: rows with the asked one flagged "ask" (copies, inputs untouched) */
+    static java.util.List<JSONObject> markAsk(java.util.List<JSONObject> rows, JSONObject a, String nid, boolean notes) {
+        java.util.List<JSONObject> r = new java.util.ArrayList<>();
+        for (JSONObject x : rows) {
+            boolean m = notes ? askMatches(a, x.optString("id"), null, null) : askMatches(a, nid, x.optString("b", ""), x.optString("i"));
+            if (m) { try { x = new JSONObject(x.toString()).put("ask", true); } catch (Exception ignored) {} }
+            r.add(x);
+        }
+        return r;
+    }
     static final long UNDO_MS = 5000;
     static void putUndo(Context c, int wid, JSONObject u) { try { u.put("ts", System.currentTimeMillis()); } catch (Exception ignored) {} put(c, "undo_" + wid, u.toString()); }
     static JSONObject getUndo(Context c, int wid) {
@@ -237,7 +262,7 @@ final class Store {
     // ---- per-widget settings ----
     static void put(Context c, String k, String v) { SharedPreferences.Editor e = sp(c).edit(); if (v == null) e.remove(k); else e.putString(k, v); e.commit(); }
     static String get(Context c, String k) { return sp(c).getString(k, null); }
-    static void forget(Context c, int wid) { SharedPreferences.Editor e = sp(c).edit(); for (String p : new String[]{"w_", "th_", "tab_", "ex_", "arm_", "narm_", "undo_", "lay_", "rth_"}) e.remove(p + wid); e.commit(); }
+    static void forget(Context c, int wid) { SharedPreferences.Editor e = sp(c).edit(); for (String p : new String[]{"w_", "th_", "tab_", "ex_", "arm_", "narm_", "undo_", "lay_", "rth_", "ask_"}) e.remove(p + wid); e.commit(); }
     /** pure: theme id stored for a radio index (clamped) */
     static String themeAt(int index) { return Themes.IDS[Math.max(0, Math.min(Themes.IDS.length - 1, index))]; }
     static void setChoice(Context c, int wid, String nid) { put(c, "w_" + wid, nid); }
