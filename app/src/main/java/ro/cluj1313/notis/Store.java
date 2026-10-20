@@ -121,6 +121,9 @@ final class Store {
     }
     /** one-tap delete + 5 s "Anulează" row, per widget */
     /* 1.7.0: delete asks inline "Vrei să ștergi?  Nu  Da" on the row itself (replaces the 5 s ANULEAZĂ undo) */
+    /** pure: picker group state — stored "0" = closed, anything else (incl. never set) = open */
+    static String groupKey(boolean notes, String title) { return "pg_" + (notes ? "t_" : "l_") + (title == null ? "" : title); }
+    static boolean groupOpen(String stored) { return !"0".equals(stored); }
     static final long ASK_MS = 60000;
     static void putAsk(Context c, int wid, JSONObject a) { try { a.put("ts", System.currentTimeMillis()); } catch (Exception ignored) {} put(c, "ask_" + wid, a.toString()); }
     static JSONObject getAsk(Context c, int wid) { String s = get(c, "ask_" + wid); return s == null ? null : askValid(s, System.currentTimeMillis()); }

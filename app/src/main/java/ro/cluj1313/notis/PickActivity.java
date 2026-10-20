@@ -24,9 +24,27 @@ public class PickActivity extends Activity {
         c.addView(Ui.title(this, notes ? "Ce tab arată widgetul" : "Ce listă arată widgetul"));
         LinearLayout box = new LinearLayout(this); box.setOrientation(LinearLayout.VERTICAL);
         int n = 0;
+        LinearLayout grp = box; /* rows go into the current group's collapsible body */
         for (final JSONObject r : rows) {
             String k = r.optString("kind");
-            if (k.equals("hdr")) { TextView h = Ui.text(this, r.optString("title").toUpperCase(), Ui.MUT, 11); h.setPadding(Ui.dp(this, 4), Ui.dp(this, 12), 0, Ui.dp(this, 4)); box.addView(h); continue; }
+            if (k.equals("hdr")) {
+                /* 1.8.0: each tab is a dropdown; open/closed is remembered per tab across openings */
+                final String key = Store.groupKey(notes, r.optString("title"));
+                final boolean open0 = Store.groupOpen(Store.get(this, key));
+                final LinearLayout body = new LinearLayout(this); body.setOrientation(LinearLayout.VERTICAL);
+                body.setVisibility(open0 ? android.view.View.VISIBLE : android.view.View.GONE);
+                final String title = r.optString("title").toUpperCase();
+                final TextView h = Ui.text(this, (open0 ? "▾  " : "▸  ") + title, Ui.MUT, 11);
+                h.setPadding(Ui.dp(this, 4), Ui.dp(this, 12), Ui.dp(this, 4), Ui.dp(this, 8)); h.setMinHeight(Ui.dp(this, 40)); h.setGravity(Gravity.CENTER_VERTICAL);
+                h.setOnClickListener(v -> {
+                    boolean op = body.getVisibility() != android.view.View.VISIBLE;
+                    body.setVisibility(op ? android.view.View.VISIBLE : android.view.View.GONE);
+                    h.setText((op ? "▾  " : "▸  ") + title);
+                    Store.put(this, key, op ? null : "0");
+                });
+                box.addView(h, Ui.lp(Ui.MP, Ui.WC, 0)); box.addView(body, Ui.lp(Ui.MP, Ui.WC, 0));
+                grp = body; continue;
+            }
             n++;
             boolean cur = r.optBoolean("cur");
             LinearLayout row = Ui.row(this); int p = Ui.dp(this, 10); row.setPadding(Ui.dp(this, 12), p, Ui.dp(this, 12), p); row.setMinimumHeight(Ui.dp(this, 46));
@@ -35,7 +53,7 @@ public class PickActivity extends Activity {
             row.addView(t, new LinearLayout.LayoutParams(0, Ui.WC, 1));
             if (r.has("cnt")) { TextView ct = Ui.text(this, r.optString("cnt"), Ui.MUT, 12); ct.setGravity(Gravity.END); row.addView(ct); }
             row.setOnClickListener(v -> choose(wid, notes, r));
-            box.addView(row, Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 2)));
+            grp.addView(row, Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 2)));
         }
         if (n == 0 || (!notes && n == 1)) c.addView(Ui.text(this, notes ? "Deschide aplicația Notis o dată ca să apară taburile." : "Nu am găsit liste cu bife. Creează una în Notis.", Ui.MUT, 13));
         ScrollView sv = new ScrollView(this); sv.addView(box);
