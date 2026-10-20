@@ -11,7 +11,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Notis">
-<meta name="jarvis-version" content="notis-v43">
+<meta name="jarvis-version" content="notis-v44">
 <title>Notis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -2717,9 +2717,10 @@ if(window.launchQueue&&launchQueue.setConsumer)launchQueue.setConsumer(function(
  function title(n){var t=n.type==='check'?(n.title||''):'';if(!t.trim())t=String(n.text||'').split('\n').filter(function(x){return x.trim()})[0]||'';return t.trim().slice(0,80)}
  function al(n){var a=n.alarm;return a&&a.at?{at:a.at,rep:a.rep||0,until:a.until||null,snz:a.snz||null}:null}
  function snap(){var L=[],NS=[];notes.forEach(function(n){if(n.del||n.lock)return;var it=[];
-   if(n.type==='check')chkOrder(n).forEach(function(x){if(String(x.text||'').trim())it.push({i:x.id,t:x.text.trim(),d:!!x.done})});
-   else if(n.type==='mix')(n.blocks||[]).forEach(function(b){if(b.t==='chk')mOrder(n,b).forEach(function(x){if(String(x.text||'').trim())it.push({i:x.id,b:b.id,t:x.text.trim(),d:!!x.done})})});
-   if(it.length||n.type==='check')L.push({id:n.id,tab:n.tab||'',title:title(n)||'Listă',upd:n.updatedAt||n.ts||'',items:it});
+   var base=n.createdAt||n.ts||'';function W(x,raw,b){var o={i:x.id,t:String(x.text||'').trim(),d:!!x.done,o:raw.indexOf(x),c:x.createdAt||base,u:x.updatedAt||x.createdAt||base};if(b)o.b=b;return o}
+   if(n.type==='check')chkOrder(n).forEach(function(x){if(String(x.text||'').trim())it.push(W(x,n.items||[]))});
+   else if(n.type==='mix')(n.blocks||[]).forEach(function(b){if(b.t==='chk')mOrder(n,b).forEach(function(x){if(String(x.text||'').trim())it.push(W(x,b.items||[],b.id))})});
+   if(it.length||n.type==='check')L.push({id:n.id,tab:n.tab||'',title:title(n)||'Listă',upd:n.updatedAt||n.ts||'',srt:n.isort||'alpha',base:base,items:it});
    NS.push({id:n.id,tab:n.tab||'',type:n.type||'text',title:title(n),text:String(n.text||'').slice(0,4000),upd:n.updatedAt||n.ts||'',alarm:al(n)})});
   return JSON.stringify({v:2,ts:new Date().toISOString(),theme:typeof thCur!=='undefined'?thCur:'color',tabs:noteTabs.map(function(t){return{id:t.id,name:t.name}}),lists:L,notes:NS})}
  function push(){T=null;try{N.saveSnapshot(snap())}catch(_){}}
@@ -2727,6 +2728,8 @@ if(window.launchQueue&&launchQueue.setConsumer)launchQueue.setConsumer(function(
  var sv=saveNotes;saveNotes=function(){var r=sv.apply(this,arguments);pushSoon();return r};
  function chkArr(n,bid,make){if(n.type==='check'){n.items=n.items||[];return n.items}if(n.type!=='mix')return null;var B=null;(n.blocks||[]).forEach(function(b){if(b.t==='chk'&&(!bid||b.id===bid))B=b});if(!B&&make){B={id:bUid(),t:'chk',items:[]};n.blocks=n.blocks||[];n.blocks.push(B)}return B?(B.items=B.items||[]):null}
  function touch(n){n.updatedAt=n.editedAt=new Date().toISOString();if(n.type==='check')chkSync(n);else if(n.type==='mix')mSync(n)}
+ var wri={};try{wri=JSON.parse(localStorage.getItem('ns_wri')||'{}')||{}}catch(_){wri={}}
+ function wriSave(){var lim=Date.now()-864e5;for(var k in wri)if(!wri[k]||wri[k].ts<lim)delete wri[k];try{localStorage.setItem('ns_wri',JSON.stringify(wri))}catch(_){}}
  function apply(c){var op=c.op||'t',n=findN(c.n),now=new Date().toISOString();
   if(op==='an'){if(n||!String(c.text||'').trim())return false;var tb=findNT(c.tab)?c.tab:(noteTabs.filter(function(t){return nFold(t.name)==='general'})[0]||noteTabs[0]).id;
    var ts=c.ts?new Date(c.ts).toISOString():now;notes.push({id:c.n,text:String(c.text),tab:tb,ts:ts,createdAt:ts,updatedAt:ts});return true}
@@ -2736,8 +2739,12 @@ if(window.launchQueue&&launchQueue.setConsumer)launchQueue.setConsumer(function(
   if(op==='al'){if(c.a&&c.a.at)n.alarm={at:+c.a.at,rep:+c.a.rep||0,until:c.a.until||null,snz:null};else if(n.alarm)delete n.alarm;else return false;try{alSchedule(n)}catch(_){}return true}
   if(op==='ar'){var A=n.alarm;if(!A||!A.at||A.at>c.at)return false;if(A.snz&&A.snz<=c.at)A.snz=null;if(A.rep){var st=A.rep*60000;A.at=A.at+Math.ceil((c.at-A.at+1)/st)*st;if(A.at<Date.now())A.at=alRoll(A.at,A.rep);if(A.until&&A.at>A.until)delete n.alarm}else delete n.alarm;return true}
   var arr=chkArr(n,c.b,op==='ai');if(!arr)return false;
-  if(op==='ai'){if(arr.some(function(x){return x.id===c.i})||!String(c.t||'').trim())return false;arr.push({id:c.i,text:String(c.t).trim(),done:false,createdAt:now,updatedAt:now});touch(n);return true}
-  if(op==='ri'){var k=-1;arr.forEach(function(x,ix){if(x.id===c.i)k=ix});if(k<0)return false;arr.splice(k,1);touch(n);return true}
+  if(op==='ai'){if(arr.some(function(x){return x.id===c.i})||!String(c.t||'').trim())return false;
+   var st=wri[c.n+'|'+c.i],X=c.x||null,obj,at=arr.length;
+   if(st&&st.it){obj=st.it;at=st.k}else if(X){obj={id:c.i,text:String(X.t||c.t).trim(),done:!!X.d,createdAt:X.c||now,updatedAt:X.u||X.c||now};if(X.o>=0)at=X.o}
+   else obj={id:c.i,text:String(c.t).trim(),done:!!c.d,createdAt:now,updatedAt:now};
+   delete wri[c.n+'|'+c.i];wriSave();arr.splice(Math.max(0,Math.min(at,arr.length)),0,obj);n.updatedAt=n.editedAt=now;if(n.type==='check')chkSync(n);else if(n.type==='mix')mSync(n);return true}
+  if(op==='ri'){var k=-1;arr.forEach(function(x,ix){if(x.id===c.i)k=ix});if(k<0)return false;wri[c.n+'|'+c.i]={k:k,it:arr[k],ts:Date.now()};wriSave();arr.splice(k,1);touch(n);return true}
   var ch=false;arr.forEach(function(x){if(x.id===c.i&&!!x.done!==!!c.d){x.done=!!c.d;x.updatedAt=now;ch=true}});if(ch)touch(n);return ch}
  function sync(){var p=[];try{p=JSON.parse(N.peekPending()||'[]')}catch(_){p=[]}if(!p.length){push();return}var ch=false,open=fullId&&findN(fullId);
   p.forEach(function(c){try{if(apply(c))ch=true}catch(e){console.warn(e)}});

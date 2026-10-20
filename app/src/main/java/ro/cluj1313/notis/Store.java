@@ -51,9 +51,69 @@ final class Store {
         return id;
     }
     /** undo of a widget remove: same id comes back (web "ai" is idempotent by id) */
-    static void readdItem(Context c, String nid, String bid, String iid, String text, boolean done) {
-        try { JSONObject o = new JSONObject().put("op", "ai").put("n", nid).put("i", iid).put("t", text); if (bid != null && bid.length() > 0) o.put("b", bid); addOp(c, o);
-            if (done) toggle(c, nid, bid, iid, true); } catch (Exception ignored) {}
+    static void readdItem(Context c, String nid, String bid, JSONObject item, int k) {
+        addOp(c, readdOp(nid, bid, item, k));
+    }
+    static JSONObject readdOp(String nid, String bid, JSONObject item, int k) {
+        JSONObject o = new JSONObject();
+        try {
+            o.put("op", "ai").put("n", nid).put("i", item.optString("i")).put("t", item.optString("t")).put("d", item.optBoolean("d")).put("x", item);
+            if (k >= 0) o.put("k", k);
+            if (bid != null && bid.length() > 0) o.put("b", bid);
+        } catch (Exception ignored) {}
+        return o;
+    }
+    static void sortLike(java.util.List<JSONObject> a, String mode) {
+        final java.text.Collator col = java.text.Collator.getInstance(new java.util.Locale("ro")); col.setStrength(java.text.Collator.PRIMARY);
+        a.sort((x, y) -> {
+            String tx = x.optString("t").trim(), ty = y.optString("t").trim();
+            boolean ex = tx.isEmpty(), ey = ty.isEmpty(); if (ex != ey) return ex ? 1 : -1;
+            int r = 0;
+            if ("alpha".equals(mode)) r = col.compare(tx, ty);
+            else if ("created".equals(mode)) r = y.optString("c").compareTo(x.optString("c"));
+            else if ("updated".equals(mode)) r = y.optString("u").compareTo(x.optString("u"));
+            r = Integer.signum(r);
+            return r != 0 ? r : Integer.compare(x.optInt("o"), y.optInt("o"));
+        });
+    }
+    /** pure: Notes widget rows of a tab (+ undo row) */
+    static java.util.List<JSONObject> noteRows(JSONObject s, String tab, JSONObject undo) {
+        java.util.List<JSONObject> r = WidgetService.notesOf(s, tab);
+        if (undo != null && "n".equals(undo.optString("k"))) {
+            boolean back = false; for (JSONObject n : r) if (undo.optString("n").equals(n.optString("id"))) back = true;
+            if (!back) try { r.add(Math.max(0, Math.min(r.size(), undo.optInt("p"))), new JSONObject().put("undo", true).put("id", undo.optString("n")).put("title", undo.optString("t"))); } catch (Exception ignored) {}
+        }
+        return r;
+    }
+    /** pure: the list widget's rows (open first, then done) with the undo row; skips/repairs bad items */
+    static java.util.List<JSONObject> listRows(JSONObject l, JSONObject undo) {
+        /* rows in exactly the app's order: per checklist block, open items then done items, each sorted like ciSort() */
+        java.util.LinkedHashMap<String, java.util.List<JSONObject>> groups = new java.util.LinkedHashMap<>();
+        java.util.Set<String> seen = new java.util.HashSet<>();
+        JSONArray it = l == null ? null : l.optJSONArray("items");
+        if (it != null) for (int k = 0; k < it.length(); k++) {
+            JSONObject x = it.optJSONObject(k); if (x == null) continue;
+            String id = x.optString("i", ""); if (id.length() == 0 || x.optBoolean("undo")) continue;
+            String b = x.optString("b", "");
+            if (!seen.add(b + "|" + id)) continue;
+            JSONObject y = new JSONObject();
+            try { y.put("i", id).put("t", x.optString("t", "")).put("d", x.optBoolean("d")).put("b", b).put("o", x.optInt("o", k)).put("c", x.optString("c", "")).put("u", x.optString("u", "")).put("k", k); } catch (Exception e) { continue; }
+            java.util.List<JSONObject> g = groups.get(b); if (g == null) { g = new java.util.ArrayList<>(); groups.put(b, g); } g.add(y);
+        }
+        final String srt = l == null ? null : l.optString("srt", null);
+        java.util.List<JSONObject> open = new java.util.ArrayList<>();
+        for (java.util.List<JSONObject> g : groups.values()) {
+            java.util.List<JSONObject> un = new java.util.ArrayList<>(), dn = new java.util.ArrayList<>();
+            for (JSONObject y : g) (y.optBoolean("d") ? dn : un).add(y);
+            if (srt != null) { sortLike(un, srt); sortLike(dn, srt); }
+            else { java.util.Comparator<JSONObject> byK = (p1, p2) -> Integer.compare(p1.optInt("k"), p2.optInt("k")); un.sort(byK); dn.sort(byK); }
+            open.addAll(un); open.addAll(dn);
+        }
+        if (l != null && undo != null && "i".equals(undo.optString("k")) && l.optString("id").equals(undo.optString("n"))
+            && !seen.contains(undo.optString("b", "") + "|" + undo.optString("i"))) {
+            try { open.add(Math.max(0, Math.min(open.size(), undo.optInt("p"))), new JSONObject().put("undo", true).put("i", undo.optString("i")).put("t", undo.optString("t"))); } catch (Exception ignored) {}
+        }
+        return open;
     }
     /** undo of "move to trash": web restores it (op "rn"); the copy keeps it visible in the widget until then */
     static void restoreNote(Context c, String nid, JSONObject copy) {
@@ -106,10 +166,16 @@ final class Store {
     static synchronized JSONObject snapshot(Context c) {
         JSONObject s;
         try { s = new JSONObject(sp(c).getString("snap", "{}")); } catch (Exception e) { s = new JSONObject(); }
+        return overlay(s, pending(c));
+    }
+
+    /** pure: snapshot + pending ops (unit-tested on the JVM) */
+    static JSONObject overlay(JSONObject s, JSONArray pend) {
         try {
             if (s.optJSONArray("lists") == null) s.put("lists", new JSONArray());
             if (s.optJSONArray("notes") == null) s.put("notes", new JSONArray());
-            JSONArray lists = s.getJSONArray("lists"), notes = s.getJSONArray("notes"), pend = pending(c);
+            JSONArray lists = s.getJSONArray("lists"), notes = s.getJSONArray("notes");
+            if (pend == null) pend = new JSONArray();
             for (int k = 0; k < pend.length(); k++) {
                 JSONObject p = pend.optJSONObject(k); if (p == null) continue;
                 String op = p.optString("op", "t"), nid = p.optString("n");
@@ -139,14 +205,33 @@ final class Store {
                 String iid = p.optString("i"), bid = p.optString("b", "");
                 int at = -1;
                 for (int j = 0; j < it.length(); j++) { JSONObject x = it.optJSONObject(j); if (x != null && iid.equals(x.optString("i")) && (bid.length() == 0 || bid.equals(x.optString("b", "")))) { at = j; break; } }
-                if (op.equals("ai")) { if (at < 0) { JSONObject x = new JSONObject().put("i", iid).put("t", p.optString("t")).put("d", false); if (bid.length() > 0) x.put("b", bid); it.put(x); } }
+                if (op.equals("ai")) { if (at < 0) {
+                    /* undo carries the exact original item ("x") and its index ("k") */
+                    JSONObject x = p.optJSONObject("x") != null ? new JSONObject(p.getJSONObject("x").toString()) : new JSONObject();
+                    x.put("i", iid); x.put("t", p.optString("t", x.optString("t"))); x.put("d", p.has("d") ? p.optBoolean("d") : x.optBoolean("d"));
+                    if (bid.length() > 0) x.put("b", bid);
+                    if (!x.has("o")) { /* brand-new item: app appends it at the end, created/updated = now */
+                        int mo = -1; for (int j = 0; j < it.length(); j++) { JSONObject y = it.optJSONObject(j); if (y != null && bid.equals(y.optString("b", ""))) mo = Math.max(mo, y.optInt("o", j)); }
+                        x.put("o", mo + 1); String ts = iso(p.optLong("ts", System.currentTimeMillis())); x.put("c", ts); x.put("u", ts);
+                    }
+                    int kk = p.optInt("k", -1);
+                    insertAt(it, kk < 0 ? it.length() : Math.min(kk, it.length()), x);
+                } }
                 else if (op.equals("ri")) { if (at >= 0) it.remove(at); }
-                else if (at >= 0) it.getJSONObject(at).put("d", p.optBoolean("d"));
+                else if (at >= 0) { JSONObject y = it.getJSONObject(at); if (y.optBoolean("d") != p.optBoolean("d")) { y.put("d", p.optBoolean("d")); y.put("u", iso(p.optLong("ts", System.currentTimeMillis()))); } }
             }
         } catch (Exception ignored) {}
         return s;
     }
 
+    static String iso(long ms) {
+        java.text.SimpleDateFormat f = new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", java.util.Locale.US);
+        f.setTimeZone(java.util.TimeZone.getTimeZone("UTC")); return f.format(new java.util.Date(ms));
+    }
+    static void insertAt(JSONArray a, int k, Object v) throws org.json.JSONException {
+        for (int j = a.length(); j > k; j--) a.put(j, a.get(j - 1));
+        a.put(k, v);
+    }
     private static void drop(JSONArray a, String id) { for (int j = a.length() - 1; j >= 0; j--) { JSONObject x = a.optJSONObject(j); if (x != null && id.equals(x.optString("id"))) a.remove(j); } }
 
     // ---- per-widget settings ----

@@ -30,15 +30,25 @@ public class NotisWidget extends AppWidgetProvider {
                     /* 1.4.0: one tap removes at once; a 5 s "Anulează" row replaces it.
                        (1.3.0's two-tap confirm held the broadcast with goAsync() for 5.2 s, which queued the
                        second tap until the confirm window had already been reset -> it could never delete.) */
+                    /* keep the exact item and its index so ANULEAZĂ puts back the same thing in the same place */
+                    JSONObject orig = null; int k = -1;
+                    JSONObject l0 = Store.listFor(c, wid);
+                    JSONArray its = l0 != null && nid.equals(l0.optString("id")) ? l0.optJSONArray("items") : null;
+                    String b0 = bid == null ? "" : bid;
+                    if (its != null) for (int j = 0; j < its.length(); j++) { JSONObject x = its.optJSONObject(j);
+                        if (x != null && iid.equals(x.optString("i")) && (b0.length() == 0 || b0.equals(x.optString("b", "")))) { orig = x; k = j; break; } }
+                    if (orig == null) { try { orig = new JSONObject().put("i", iid).put("t", i.getStringExtra("t") == null ? "" : i.getStringExtra("t")).put("d", i.getBooleanExtra("d", false)); if (b0.length() > 0) orig.put("b", b0); } catch (Exception ignored) {} }
                     Store.removeItem(c, nid, bid, iid);
-                    try { Store.putUndo(c, wid, new JSONObject().put("k", "i").put("n", nid).put("b", bid == null ? "" : bid).put("i", iid)
-                        .put("t", i.getStringExtra("t")).put("d", i.getBooleanExtra("d", false)).put("p", i.getIntExtra("p", 0))); } catch (Exception ignored) {}
+                    try { Store.putUndo(c, wid, new JSONObject().put("k", "i").put("n", nid).put("b", b0).put("i", iid)
+                        .put("t", orig.optString("t")).put("x", orig).put("ix", k).put("p", i.getIntExtra("p", 0))); } catch (Exception ignored) {}
                     laterRefresh(c);
                 } else if ("undo".equals(act)) {
                     JSONObject u = Store.getUndo(c, wid);
                     if (u != null && "i".equals(u.optString("k")) && iid.equals(u.optString("i"))) {
                         Store.put(c, "undo_" + wid, null);
-                        Store.readdItem(c, nid, u.optString("b"), iid, u.optString("t"), u.optBoolean("d"));
+                        JSONObject x = u.optJSONObject("x");
+                        if (x == null) { try { x = new JSONObject().put("i", iid).put("t", u.optString("t")); } catch (Exception ignored) {} }
+                        Store.readdItem(c, nid, u.optString("b"), x, u.optInt("ix", -1));
                     }
                 } else {
                     Store.toggle(c, nid, bid, iid, !i.getBooleanExtra("d", false));
