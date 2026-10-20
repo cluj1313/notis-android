@@ -57,26 +57,9 @@ public class WidgetService extends RemoteViewsService {
         return DateFormat.format("dd.MM HH:mm", t).toString();
     }
 
-    static final class F implements RemoteViewsFactory {
-        private final Context c; private final int wid;
-        private volatile List<JSONObject> rows = new ArrayList<>(); private volatile String nid = ""; private volatile Themes th;
-        F(Context c, int wid) { this.c = c; this.wid = wid; }
-        @Override public void onCreate() {}
-        @Override public void onDestroy() { rows.clear(); }
-        @Override public void onDataSetChanged() {
-            /* build a new list and swap it in: getViewAt() never sees a half-filled list */
-            List<JSONObject> r = new ArrayList<>(); String id = "";
-            try {
-                th = Themes.forWidget(c, wid);
-                JSONObject l = Store.listFor(c, wid);
-                if (l != null) { id = l.optString("id"); r = Store.listRows(l, Store.getUndo(c, wid)); }
-            } catch (Exception e) { r = new ArrayList<>(); }
-            nid = id; rows = r;
-        }
-        @Override public int getCount() { return rows.size(); }
-        @Override public RemoteViews getViewAt(int p) {
+    /* ---- row builders shared by the inline collection (API 31+) and the legacy factory ---- */
+    static RemoteViews listRow(Context c, List<JSONObject> rs, String nid, Themes th, int p) {
             RemoteViews v = new RemoteViews(c.getPackageName(), R.layout.widget_item);
-            List<JSONObject> rs = rows; String nid = this.nid; Themes th = this.th != null ? this.th : Themes.of("gold");
             if (p >= rs.size()) return v;
             JSONObject x = rs.get(p);
             /* the launcher recycles row views: always set every visibility explicitly */
@@ -103,31 +86,8 @@ public class WidgetService extends RemoteViewsService {
             } catch (Exception e) { v.setTextViewText(R.id.wi_text, x.optString("t")); }
             return v;
         }
-        @Override public RemoteViews getLoadingView() { return null; }
-        @Override public int getViewTypeCount() { return 1; }
-        @Override public long getItemId(int p) { List<JSONObject> rs = rows; return p < rs.size() ? ((rs.get(p).optBoolean("undo") ? "undo:" : "") + rs.get(p).optString("b", "") + rs.get(p).optString("i")).hashCode() : p; }
-        @Override public boolean hasStableIds() { return true; }
-    }
-
-    static final class NotesF implements RemoteViewsFactory {
-        private final Context c; private final int wid;
-        private volatile List<JSONObject> rows = new ArrayList<>(); private volatile Themes th;
-        NotesF(Context c, int wid) { this.c = c; this.wid = wid; }
-        @Override public void onCreate() {}
-        @Override public void onDestroy() { rows.clear(); }
-        @Override public void onDataSetChanged() {
-            List<JSONObject> r;
-            try {
-                th = Themes.forWidget(c, wid);
-                JSONObject s = Store.snapshot(c);
-                r = Store.noteRows(s, Store.notesTab(c, wid, s), Store.getUndo(c, wid));
-            } catch (Exception e) { r = new ArrayList<>(); }
-            rows = r;
-        }
-        @Override public int getCount() { return rows.size(); }
-        @Override public RemoteViews getViewAt(int p) {
+    static RemoteViews noteRow(Context c, int wid, List<JSONObject> rs, Themes th, int p) {
             RemoteViews v = new RemoteViews(c.getPackageName(), R.layout.note_item);
-            List<JSONObject> rs = rows; Themes th = this.th != null ? this.th : Themes.of("gold");
             if (p >= rs.size()) return v;
             JSONObject n = rs.get(p);
             v.setViewVisibility(R.id.ni_al, View.VISIBLE); /* recycled row views: reset */
@@ -171,6 +131,77 @@ public class WidgetService extends RemoteViewsService {
             v.setOnClickFillInIntent(R.id.ni_al, new Intent().putExtra("n", id).putExtra("act", "alarm"));
             return v;
         }
+
+    static long listId(JSONObject x) { return ((x.optBoolean("undo") ? "undo:" : "") + x.optString("b", "") + x.optString("i")).hashCode(); }
+    static long noteId(JSONObject x) { return ((x.optBoolean("undo") ? "undo:" : "") + x.optString("id")).hashCode(); }
+
+    /** 1.6.0: rows travel inside the widget update itself — no service, no factory, nothing to unbind/cache. */
+    @android.annotation.TargetApi(31)
+    static RemoteViews.RemoteCollectionItems listItems(Context c, int wid) {
+        RemoteViews.RemoteCollectionItems.Builder b = new RemoteViews.RemoteCollectionItems.Builder().setHasStableIds(true).setViewTypeCount(1);
+        try {
+            Themes th = Themes.forWidget(c, wid);
+            JSONObject l = Store.listFor(c, wid);
+            if (l != null) { List<JSONObject> rs = Store.listRows(l, Store.getUndo(c, wid)); String nid = l.optString("id");
+                java.util.Set<Long> seen = new java.util.HashSet<>();
+                for (int p = 0; p < rs.size(); p++) { long id = listId(rs.get(p)); while (!seen.add(id)) id++; b.addItem(id, listRow(c, rs, nid, th, p)); } }
+        } catch (Exception ignored) {}
+        return b.build();
+    }
+    @android.annotation.TargetApi(31)
+    static RemoteViews.RemoteCollectionItems noteItems(Context c, int wid) {
+        RemoteViews.RemoteCollectionItems.Builder b = new RemoteViews.RemoteCollectionItems.Builder().setHasStableIds(true).setViewTypeCount(1);
+        try {
+            Themes th = Themes.forWidget(c, wid);
+            JSONObject s = Store.snapshot(c);
+            List<JSONObject> rs = Store.noteRows(s, Store.notesTab(c, wid, s), Store.getUndo(c, wid));
+            java.util.Set<Long> seen = new java.util.HashSet<>();
+            for (int p = 0; p < rs.size(); p++) { long id = noteId(rs.get(p)); while (!seen.add(id)) id++; b.addItem(id, noteRow(c, wid, rs, th, p)); }
+        } catch (Exception ignored) {}
+        return b.build();
+    }
+
+    static final class F implements RemoteViewsFactory {
+        private final Context c; private final int wid;
+        private volatile List<JSONObject> rows = new ArrayList<>(); private volatile String nid = ""; private volatile Themes th;
+        F(Context c, int wid) { this.c = c; this.wid = wid; }
+        @Override public void onCreate() {}
+        @Override public void onDestroy() { rows.clear(); }
+        @Override public void onDataSetChanged() {
+            /* build a new list and swap it in: getViewAt() never sees a half-filled list */
+            List<JSONObject> r = new ArrayList<>(); String id = "";
+            try {
+                th = Themes.forWidget(c, wid);
+                JSONObject l = Store.listFor(c, wid);
+                if (l != null) { id = l.optString("id"); r = Store.listRows(l, Store.getUndo(c, wid)); }
+            } catch (Exception e) { r = new ArrayList<>(); }
+            nid = id; rows = r;
+        }
+        @Override public int getCount() { return rows.size(); }
+        @Override public RemoteViews getViewAt(int p) { return listRow(c, rows, nid, th != null ? th : Themes.of("gold"), p); }
+        @Override public RemoteViews getLoadingView() { return null; }
+        @Override public int getViewTypeCount() { return 1; }
+        @Override public long getItemId(int p) { List<JSONObject> rs = rows; return p < rs.size() ? ((rs.get(p).optBoolean("undo") ? "undo:" : "") + rs.get(p).optString("b", "") + rs.get(p).optString("i")).hashCode() : p; }
+        @Override public boolean hasStableIds() { return true; }
+    }
+
+    static final class NotesF implements RemoteViewsFactory {
+        private final Context c; private final int wid;
+        private volatile List<JSONObject> rows = new ArrayList<>(); private volatile Themes th;
+        NotesF(Context c, int wid) { this.c = c; this.wid = wid; }
+        @Override public void onCreate() {}
+        @Override public void onDestroy() { rows.clear(); }
+        @Override public void onDataSetChanged() {
+            List<JSONObject> r;
+            try {
+                th = Themes.forWidget(c, wid);
+                JSONObject s = Store.snapshot(c);
+                r = Store.noteRows(s, Store.notesTab(c, wid, s), Store.getUndo(c, wid));
+            } catch (Exception e) { r = new ArrayList<>(); }
+            rows = r;
+        }
+        @Override public int getCount() { return rows.size(); }
+        @Override public RemoteViews getViewAt(int p) { return noteRow(c, wid, rows, th != null ? th : Themes.of("gold"), p); }
         @Override public RemoteViews getLoadingView() { return null; }
         @Override public int getViewTypeCount() { return 1; }
         @Override public long getItemId(int p) { List<JSONObject> rs = rows; return p < rs.size() ? ((rs.get(p).optBoolean("undo") ? "undo:" : "") + rs.get(p).optString("id")).hashCode() : p; }

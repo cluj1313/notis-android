@@ -38,7 +38,8 @@ public class RowActivity extends Activity {
                 }
             } else {
                 Store.toggleExpanded(this, wid, nid);
-                AppWidgetManager.getInstance(this).notifyAppWidgetViewDataChanged(new int[]{wid}, R.id.w_list);
+                if (android.os.Build.VERSION.SDK_INT >= 31) NotesWidget.draw(this, AppWidgetManager.getInstance(this), wid);
+                else AppWidgetManager.getInstance(this).notifyAppWidgetViewDataChanged(new int[]{wid}, R.id.w_list);
             }
         }
         finish();

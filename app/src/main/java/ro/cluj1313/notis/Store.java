@@ -238,20 +238,6 @@ final class Store {
     static void put(Context c, String k, String v) { SharedPreferences.Editor e = sp(c).edit(); if (v == null) e.remove(k); else e.putString(k, v); e.commit(); }
     static String get(Context c, String k) { return sp(c).getString(k, null); }
     static void forget(Context c, int wid) { SharedPreferences.Editor e = sp(c).edit(); for (String p : new String[]{"w_", "th_", "tab_", "ex_", "arm_", "narm_", "undo_", "lay_", "rth_"}) e.remove(p + wid); e.commit(); }
-    /** Some launchers (seen on Xiaomi/HyperOS) only re-apply a new RemoteViews onto the already inflated
-     *  widget view when the layout id is unchanged, and keep the old background/tints after the first theme change.
-     *  A theme change flips between two identical layouts so the host inflates the widget from scratch. */
-    static boolean layoutGen(Context c, int wid) { return "1".equals(get(c, "lay_" + wid)); }
-    static void flipLayout(Context c, int wid) { put(c, "lay_" + wid, layoutGen(c, wid) ? null : "1"); }
-    /** layout to use for this draw: flips whenever the palette actually shown changes (theme pick or "auto" following the app) */
-    static boolean layoutFor(Context c, int wid, String paletteId) {
-        String drawn = get(c, "rth_" + wid);
-        if (needsFlip(drawn, paletteId)) flipLayout(c, wid);
-        if (drawn == null || !drawn.equals(paletteId)) put(c, "rth_" + wid, paletteId);
-        return layoutGen(c, wid);
-    }
-    /** pure */
-    static boolean needsFlip(String drawn, String now) { return drawn != null && now != null && !drawn.equals(now); }
     /** pure: theme id stored for a radio index (clamped) */
     static String themeAt(int index) { return Themes.IDS[Math.max(0, Math.min(Themes.IDS.length - 1, index))]; }
     static void setChoice(Context c, int wid, String nid) { put(c, "w_" + wid, nid); }

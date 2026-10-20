@@ -75,7 +75,7 @@ public class NotisWidget extends AppWidgetProvider {
         AppWidgetManager m = AppWidgetManager.getInstance(c);
         int[] ids = m.getAppWidgetIds(new ComponentName(c, NotisWidget.class));
         for (int id : ids) draw(c, m, id);
-        if (ids.length > 0) m.notifyAppWidgetViewDataChanged(ids, R.id.w_list);
+        if (ids.length > 0 && Build.VERSION.SDK_INT < 31) m.notifyAppWidgetViewDataChanged(ids, R.id.w_list);
         NotesWidget.refreshAll(c);
     }
 
@@ -102,8 +102,7 @@ public class NotisWidget extends AppWidgetProvider {
     }
 
     static void draw(Context c, AppWidgetManager m, int id) {
-        Themes th0 = Themes.forWidget(c, id);
-        RemoteViews v = new RemoteViews(c.getPackageName(), Store.layoutFor(c, id, th0.id) ? R.layout.widget_alt : R.layout.widget);
+        RemoteViews v = new RemoteViews(c.getPackageName(), R.layout.widget);
         Themes th = Themes.forWidget(c, id);
         theme(v, th);
         JSONObject l = Store.listFor(c, id);
@@ -118,6 +117,7 @@ public class NotisWidget extends AppWidgetProvider {
             for (int k = 0; k < n; k++) if (it.optJSONObject(k).optBoolean("d")) done++;
             v.setTextViewText(R.id.w_title, l.optString("title", "Listă"));
             v.setTextViewText(R.id.w_sub, "☑ " + done + "/" + n);
+            v.setTextViewText(R.id.w_empty, "Lista e goală — apasă + ca să adaugi.");
             v.setOnClickPendingIntent(R.id.w_head, openApp(c, id * 10 + 1, "?open=" + Uri.encode(l.optString("id"))));
             Intent add = new Intent(c, AddItemActivity.class).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id).putExtra("n", l.optString("id"));
             add.setData(Uri.parse("notis://additem/" + id));
@@ -131,7 +131,8 @@ public class NotisWidget extends AppWidgetProvider {
         v.setOnClickPendingIntent(R.id.w_pick, activity(c, id * 10 + 4, pick));
         Intent svc = new Intent(c, WidgetService.class).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id).putExtra("kind", "list");
         svc.setData(Uri.parse("notis://widget/list/" + id));
-        v.setRemoteAdapter(R.id.w_list, svc);
+        if (Build.VERSION.SDK_INT >= 31) v.setRemoteAdapter(R.id.w_list, WidgetService.listItems(c, id));
+        else v.setRemoteAdapter(R.id.w_list, svc);
         v.setEmptyView(R.id.w_list, R.id.w_empty);
         Intent t = new Intent(c, ListActReceiver.class).setAction(ACT).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id);
         t.setData(Uri.parse("notis://listact/" + id));

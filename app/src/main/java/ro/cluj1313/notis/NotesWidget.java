@@ -21,12 +21,11 @@ public class NotesWidget extends AppWidgetProvider {
         AppWidgetManager m = AppWidgetManager.getInstance(c);
         int[] ids = m.getAppWidgetIds(new ComponentName(c, NotesWidget.class));
         for (int id : ids) draw(c, m, id);
-        if (ids.length > 0) m.notifyAppWidgetViewDataChanged(ids, R.id.w_list);
+        if (ids.length > 0 && Build.VERSION.SDK_INT < 31) m.notifyAppWidgetViewDataChanged(ids, R.id.w_list);
     }
 
     static void draw(Context c, AppWidgetManager m, int id) {
-        Themes th0 = Themes.forWidget(c, id);
-        RemoteViews v = new RemoteViews(c.getPackageName(), Store.layoutFor(c, id, th0.id) ? R.layout.notes_widget_alt : R.layout.notes_widget);
+        RemoteViews v = new RemoteViews(c.getPackageName(), R.layout.notes_widget);
         NotisWidget.theme(v, Themes.forWidget(c, id));
         JSONObject s = Store.snapshot(c);
         String tab = Store.notesTab(c, id, s), tn = Store.tabName(s, tab);
@@ -45,7 +44,8 @@ public class NotesWidget extends AppWidgetProvider {
         v.setOnClickPendingIntent(R.id.w_pick, NotisWidget.activity(c, id * 10 + 4, pick));
         Intent svc = new Intent(c, WidgetService.class).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id).putExtra("kind", "notes");
         svc.setData(Uri.parse("notis://widget/notes/" + id));
-        v.setRemoteAdapter(R.id.w_list, svc);
+        if (Build.VERSION.SDK_INT >= 31) v.setRemoteAdapter(R.id.w_list, WidgetService.noteItems(c, id));
+        else v.setRemoteAdapter(R.id.w_list, svc);
         v.setEmptyView(R.id.w_list, R.id.w_empty);
         /* rows go through a no-UI activity: expanding needs no UI, the ⏰ opens the alarm dialog (activity starts from a broadcast are blocked on Android 10+) */
         Intent t = new Intent(c, RowActivity.class).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id)
