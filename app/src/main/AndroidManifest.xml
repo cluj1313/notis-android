@@ -7,13 +7,14 @@
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <application
         android:label="Notis"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher"
         android:allowBackup="false"
+        android:usesCleartextTraffic="false"
+        android:networkSecurityConfig="@xml/network_security"
         android:supportsRtl="false"
         android:theme="@style/NotisTheme">
         <activity
@@ -44,6 +45,7 @@
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/notes_widget_info" />
         </receiver>
         <receiver android:name=".AlarmReceiver" android:exported="false" />
+        <receiver android:name=".ListActReceiver" android:exported="false" />
         <receiver android:name=".BootReceiver" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
@@ -54,6 +56,5 @@
             </intent-filter>
         </receiver>
         <service android:name=".WidgetService" android:exported="false" android:permission="android.permission.BIND_REMOTEVIEWS" />
-        <provider android:name=".ApkProvider" android:authorities="ro.cluj1313.notis.apk" android:exported="false" android:grantUriPermissions="true" />
     </application>
 </manifest>

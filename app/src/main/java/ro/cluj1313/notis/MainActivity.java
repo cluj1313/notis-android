@@ -26,6 +26,8 @@ public class MainActivity extends Activity {
     static final String BASE = "https://cluj1313.github.io/notis/";
     private static final int FILE_REQ = 41;
     static volatile boolean foreground = false;
+    /** true only while the top document is Notis itself (checked by every bridge call) */
+    static volatile boolean trusted = false;
     private WebView web;
     private ValueCallback<Uri[]> fileCb;
 
@@ -46,7 +48,17 @@ public class MainActivity extends Activity {
         s.setUserAgentString(s.getUserAgentString() + " NotisAndroid/" + Updater.mine(this));
         web.addJavascriptInterface(new Bridge(this), "NotisNative");
         web.setWebViewClient(new WebViewClient() {
-            @Override public WebResourceResponse shouldInterceptRequest(WebView v, WebResourceRequest r) { return offline(r); }
+            @Override public WebResourceResponse shouldInterceptRequest(WebView v, WebResourceRequest r) {
+                /* no foreign frames: the NotisNative bridge must only ever be reachable from https://cluj1313.github.io/notis/ */
+                if (!r.isForMainFrame()) {
+                    String acc = r.getRequestHeaders() == null ? null : r.getRequestHeaders().get("Accept");
+                    if (acc != null && acc.contains("text/html") && !r.getUrl().toString().startsWith(BASE))
+                        return new WebResourceResponse("text/plain", "utf-8", 403, "Forbidden", null, new java.io.ByteArrayInputStream(new byte[0]));
+                }
+                return offline(r);
+            }
+            @Override public void onPageStarted(WebView v, String url, android.graphics.Bitmap f) { trusted = url != null && url.startsWith(BASE); super.onPageStarted(v, url, f); }
+            @Override public void doUpdateVisitedHistory(WebView v, String url, boolean reload) { trusted = url != null && url.startsWith(BASE); super.doUpdateVisitedHistory(v, url, reload); }
             @Override public boolean shouldOverrideUrlLoading(WebView v, WebResourceRequest r) {
                 Uri u = r.getUrl();
                 if (u.toString().startsWith(BASE)) return false;

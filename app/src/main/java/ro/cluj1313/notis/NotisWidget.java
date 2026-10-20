@@ -22,6 +22,12 @@ public class NotisWidget extends AppWidgetProvider {
     @Override public void onDeleted(Context c, int[] ids) { for (int id : ids) Store.forget(c, id); }
 
     @Override public void onReceive(Context c, Intent i) {
+        /* row taps are handled only by the private ListActReceiver (this provider must stay exported for the system) */
+        if (ACT.equals(i.getAction())) return;
+        super.onReceive(c, i);
+    }
+
+    static void handleAct(Context c, Intent i) {
         if (ACT.equals(i.getAction())) {
             int wid = i.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, 0);
             String nid = i.getStringExtra("n"), iid = i.getStringExtra("i"), bid = i.getStringExtra("b"), act = i.getStringExtra("act");
@@ -57,7 +63,6 @@ public class NotisWidget extends AppWidgetProvider {
             }
             return;
         }
-        super.onReceive(c, i);
     }
 
     /** redraw once the undo window is over (no goAsync: it would serialize the next taps behind it) */
@@ -127,7 +132,7 @@ public class NotisWidget extends AppWidgetProvider {
         svc.setData(Uri.parse("notis://widget/list/" + id));
         v.setRemoteAdapter(R.id.w_list, svc);
         v.setEmptyView(R.id.w_list, R.id.w_empty);
-        Intent t = new Intent(c, NotisWidget.class).setAction(ACT).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id);
+        Intent t = new Intent(c, ListActReceiver.class).setAction(ACT).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id);
         t.setData(Uri.parse("notis://listact/" + id));
         int fl = PendingIntent.FLAG_UPDATE_CURRENT | (Build.VERSION.SDK_INT >= 31 ? PendingIntent.FLAG_MUTABLE : 0);
         v.setPendingIntentTemplate(R.id.w_list, PendingIntent.getBroadcast(c, id, t, fl));

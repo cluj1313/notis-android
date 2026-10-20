@@ -17,19 +17,19 @@ final class Bridge {
     private final Context ctx;
     Bridge(Context c) { ctx = c.getApplicationContext(); }
 
-    @JavascriptInterface public boolean isNative() { return true; }
-    @JavascriptInterface public String version() { try { return ctx.getPackageManager().getPackageInfo(ctx.getPackageName(), 0).versionName; } catch (Exception e) { return ""; } }
+    @JavascriptInterface public boolean isNative() { if (!MainActivity.trusted) return false; return true; }
+    @JavascriptInterface public String version() { if (!MainActivity.trusted) return ""; try { return ctx.getPackageManager().getPackageInfo(ctx.getPackageName(), 0).versionName; } catch (Exception e) { return ""; } }
 
-    @JavascriptInterface public void saveSnapshot(String json) {
+    @JavascriptInterface public void saveSnapshot(String json) { if (!MainActivity.trusted) return;
         Store.saveSnapshot(ctx, json);
         NotisWidget.refreshAll(ctx);
         Scheduler.rescheduleAll(ctx);
     }
-    @JavascriptInterface public String peekPending() { return Store.peekPending(ctx); }
-    @JavascriptInterface public void ackPending(int k) { Store.ackPending(ctx, k); NotisWidget.refreshAll(ctx); Scheduler.rescheduleAll(ctx); }
+    @JavascriptInterface public String peekPending() { if (!MainActivity.trusted) return ""; return Store.peekPending(ctx); }
+    @JavascriptInterface public void ackPending(int k) { if (!MainActivity.trusted) return; Store.ackPending(ctx, k); NotisWidget.refreshAll(ctx); Scheduler.rescheduleAll(ctx); }
 
     /** backup export: writes the JSON file into Downloads */
-    @JavascriptInterface public boolean saveFile(String name, String content) {
+    @JavascriptInterface public boolean saveFile(String name, String content) { if (!MainActivity.trusted) return false;
         try {
             String safe = name.replaceAll("[^A-Za-z0-9._ -]", "_");
             byte[] data = content.getBytes(StandardCharsets.UTF_8);

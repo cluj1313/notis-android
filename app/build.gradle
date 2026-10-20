@@ -4,19 +4,20 @@ def spf = rootProject.file('signing.properties')
 if (spf.exists()) spf.withInputStream { sp.load(it) }
 android {
     namespace 'ro.cluj1313.notis'
-    compileSdk 34
+    compileSdk 35
     defaultConfig {
         applicationId 'ro.cluj1313.notis'
         minSdk 26
-        targetSdk 34
-        versionCode 7
-        versionName '1.5.0'
+        targetSdk 35
+        versionCode 8
+        versionName '1.5.1'
     }
     signingConfigs {
         release {
             if (sp['storeFile']) {
                 storeFile file(sp['storeFile']); storePassword sp['storePassword']
                 keyAlias sp['keyAlias']; keyPassword sp['keyPassword']
+                enableV1Signing true; enableV2Signing true; enableV3Signing true
             }
         }
     }

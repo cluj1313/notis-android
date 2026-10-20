@@ -4,6 +4,7 @@
         <item name="android:statusBarColor">@color/bg</item>
         <item name="android:navigationBarColor">@color/bg</item>
         <item name="android:colorAccent">@color/gold</item>
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
     </style>
     <style name="NotisDialog" parent="android:Theme.Material.Dialog">
         <item name="android:colorAccent">@color/gold</item>
@@ -13,5 +14,6 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:textColorPrimary">#FFF2EAD8</item>
         <item name="android:textColorSecondary">#FF9A9183</item>
+        <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
     </style>
 </resources>
