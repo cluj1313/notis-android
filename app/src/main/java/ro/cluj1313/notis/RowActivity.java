@@ -13,8 +13,22 @@ public class RowActivity extends Activity {
         int wid = i.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, 0);
         String nid = i.getStringExtra("n");
         if (nid != null) {
-            if ("alarm".equals(i.getStringExtra("act"))) {
+            String act = i.getStringExtra("act");
+            if ("alarm".equals(act)) {
                 startActivity(new Intent(this, AlarmActivity.class).putExtra("n", nid));
+            } else if ("del".equals(act)) {
+                if (Store.noteArmed(this, wid, nid)) {
+                    Store.put(this, "narm_" + wid, null);
+                    Store.deleteNote(this, nid);
+                    Scheduler.rescheduleAll(this);
+                    NotisWidget.refreshAll(this);
+                } else {
+                    Store.put(this, "narm_" + wid, nid + "|" + System.currentTimeMillis());
+                    AppWidgetManager.getInstance(this).notifyAppWidgetViewDataChanged(new int[]{wid}, R.id.w_list);
+                    final android.content.Context ac = getApplicationContext(); final int w = wid;
+                    new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(() ->
+                        AppWidgetManager.getInstance(ac).notifyAppWidgetViewDataChanged(new int[]{w}, R.id.w_list), 5200);
+                }
             } else {
                 Store.toggleExpanded(this, wid, nid);
                 AppWidgetManager.getInstance(this).notifyAppWidgetViewDataChanged(new int[]{wid}, R.id.w_list);

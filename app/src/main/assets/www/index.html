@@ -11,7 +11,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Notis">
-<meta name="jarvis-version" content="notis-v41">
+<meta name="jarvis-version" content="notis-v42">
 <title>Notis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Roboto+Condensed:wght@700&family=Orbitron:wght@700&family=Share+Tech+Mono&family=Rajdhani:wght@600;700&family=Audiowide&family=Teko:wght@500&family=Oxanium:wght@700&display=swap" rel="stylesheet">
@@ -2726,6 +2726,7 @@ if(window.launchQueue&&launchQueue.setConsumer)launchQueue.setConsumer(function(
   if(op==='an'){if(n||!String(c.text||'').trim())return false;var tb=findNT(c.tab)?c.tab:(noteTabs.filter(function(t){return nFold(t.name)==='general'})[0]||noteTabs[0]).id;
    var ts=c.ts?new Date(c.ts).toISOString():now;notes.push({id:c.n,text:String(c.text),tab:tb,ts:ts,createdAt:ts,updatedAt:ts});return true}
   if(!n||n.lock||n.del)return false;
+  if(op==='dn'){n.del=now;n.delTab=n.tab;return true}
   if(op==='al'){if(c.a&&c.a.at)n.alarm={at:+c.a.at,rep:+c.a.rep||0,until:c.a.until||null,snz:null};else if(n.alarm)delete n.alarm;else return false;try{alSchedule(n)}catch(_){}return true}
   if(op==='ar'){var A=n.alarm;if(!A||!A.at||A.at>c.at)return false;if(A.snz&&A.snz<=c.at)A.snz=null;if(A.rep){var st=A.rep*60000;A.at=A.at+Math.ceil((c.at-A.at+1)/st)*st;if(A.at<Date.now())A.at=alRoll(A.at,A.rep);if(A.until&&A.at>A.until)delete n.alarm}else delete n.alarm;return true}
   var arr=chkArr(n,c.b,op==='ai');if(!arr)return false;
@@ -2735,7 +2736,7 @@ if(window.launchQueue&&launchQueue.setConsumer)launchQueue.setConsumer(function(
  function sync(){var p=[];try{p=JSON.parse(N.peekPending()||'[]')}catch(_){p=[]}if(!p.length){push();return}var ch=false,open=fullId&&findN(fullId);
   p.forEach(function(c){try{if(apply(c))ch=true}catch(e){console.warn(e)}});
   if(ch){saveNotes();renderNotes();open=fullId&&findN(fullId);if(open){if(open.type==='check')chkRender();else if(open.type==='mix')mRender();try{edState()}catch(_){}}}
-  try{N.ackPending(p.length)}catch(_){}push()}
+  push();try{N.ackPending(p.length)}catch(_){}}
  /* native alarms ring via Android notifications; the in-page ring only while the app is on screen */
  var af=alFire;alFire=function(){if(document.visibilityState==='hidden')return;return af.apply(this,arguments)};
  var ac=alCheck;alCheck=function(){try{sync()}catch(_){}return ac.apply(this,arguments)};

@@ -139,6 +139,14 @@ public class WidgetService extends RemoteViewsService {
                 v.setImageViewResource(R.id.ni_ic, R.drawable.ic_alarm);
                 v.setInt(R.id.ni_ic, "setColorFilter", th.mut);
             }
+            /* expanded row only: "Mută în coș" (two taps within 5 s) */
+            if (ex) {
+                boolean arm = Store.noteArmed(c, wid, id);
+                v.setViewVisibility(R.id.ni_del, View.VISIBLE);
+                v.setTextViewText(R.id.ni_del, arm ? "✕  Atinge din nou ca să muți în coș" : "✕  Mută în coș");
+                v.setTextColor(R.id.ni_del, arm ? th.danger : th.mut);
+                v.setOnClickFillInIntent(R.id.ni_del, new Intent().putExtra("n", id).putExtra("act", "del"));
+            } else v.setViewVisibility(R.id.ni_del, View.GONE);
             v.setOnClickFillInIntent(R.id.ni_text, new Intent().putExtra("n", id).putExtra("act", "expand"));
             v.setOnClickFillInIntent(R.id.ni_al, new Intent().putExtra("n", id).putExtra("act", "alarm"));
             return v;

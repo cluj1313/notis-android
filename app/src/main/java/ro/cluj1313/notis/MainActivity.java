@@ -63,9 +63,15 @@ public class MainActivity extends Activity {
             @Override public boolean onShowFileChooser(WebView v, ValueCallback<Uri[]> cb, FileChooserParams p) {
                 if (fileCb != null) fileCb.onReceiveValue(null);
                 fileCb = cb;
-                Intent i;
-                try { i = p.createIntent(); } catch (Exception e) { i = new Intent(Intent.ACTION_GET_CONTENT).setType("*/*"); }
-                i.addCategory(Intent.CATEGORY_OPENABLE);
+                /* explicit GET_CONTENT with the page's accept types (image/* for photos, json for backups) */
+                java.util.ArrayList<String> types = new java.util.ArrayList<>();
+                String[] acc = p.getAcceptTypes();
+                if (acc != null) for (String t : acc) for (String x : t.split(",")) { x = x.trim(); if (x.length() == 0) continue;
+                    if (x.startsWith(".")) { String m = android.webkit.MimeTypeMap.getSingleton().getMimeTypeFromExtension(x.substring(1)); if (m != null) x = m; else continue; }
+                    if (!types.contains(x)) types.add(x); }
+                Intent i = new Intent(Intent.ACTION_GET_CONTENT).addCategory(Intent.CATEGORY_OPENABLE);
+                if (types.size() == 1) i.setType(types.get(0));
+                else { i.setType(types.isEmpty() ? "*/*" : (allImages(types) ? "image/*" : "*/*")); if (types.size() > 1) i.putExtra(Intent.EXTRA_MIME_TYPES, types.toArray(new String[0])); }
                 if (p.getMode() == FileChooserParams.MODE_OPEN_MULTIPLE) i.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
                 try { startActivityForResult(i, FILE_REQ); } catch (Exception e) { fileCb = null; return false; }
                 return true;
@@ -109,10 +115,23 @@ public class MainActivity extends Activity {
 
     @Override protected void onActivityResult(int req, int res, Intent data) {
         if (req == FILE_REQ && fileCb != null) {
-            fileCb.onReceiveValue(WebChromeClient.FileChooserParams.parseResult(res, data));
+            fileCb.onReceiveValue(pickResult(res, data));
             fileCb = null; return;
         }
         super.onActivityResult(req, res, data);
+    }
+
+    private static boolean allImages(java.util.List<String> t) { for (String x : t) if (!x.startsWith("image/")) return false; return true; }
+
+    /** FileChooserParams.parseResult() only reads getData(): a multi-select (and some single picks from
+     *  Photos/Files) come back as ClipData only, which it drops -> the page got no files at all. */
+    static Uri[] pickResult(int res, Intent data) {
+        if (res != RESULT_OK || data == null) return null;
+        java.util.LinkedHashSet<Uri> out = new java.util.LinkedHashSet<>();
+        android.content.ClipData cd = data.getClipData();
+        if (cd != null) for (int k = 0; k < cd.getItemCount(); k++) { Uri u = cd.getItemAt(k).getUri(); if (u != null) out.add(u); }
+        if (data.getData() != null) out.add(data.getData());
+        return out.isEmpty() ? null : out.toArray(new Uri[0]);
     }
 
     /** No network: serve the bundled copy of Notis under the same origin (same storage). Online: let the web/service worker handle it. */

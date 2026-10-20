@@ -58,6 +58,15 @@ final class Store {
         try { addOp(c, new JSONObject().put("op", "an").put("n", id).put("tab", tab == null ? "" : tab).put("text", text)); } catch (Exception ignored) {}
         return id;
     }
+    /** note -> app trash (restorable there); applied by the web app as op "dn" */
+    static void deleteNote(Context c, String nid) {
+        try { addOp(c, new JSONObject().put("op", "dn").put("n", nid)); } catch (Exception ignored) {}
+    }
+    static boolean noteArmed(Context c, int wid, String nid) {
+        String a = get(c, "narm_" + wid);
+        if (a == null || !a.startsWith(nid + "|")) return false;
+        try { return System.currentTimeMillis() - Long.parseLong(a.substring(a.indexOf('|') + 1)) < 5000; } catch (Exception e) { return false; }
+    }
     static void setAlarm(Context c, String nid, long at, int repMin) {
         try { addOp(c, new JSONObject().put("op", "al").put("n", nid).put("a", at > 0 ? new JSONObject().put("at", at).put("rep", repMin) : JSONObject.NULL)); } catch (Exception ignored) {}
     }
@@ -95,6 +104,7 @@ final class Store {
                     }
                     continue;
                 }
+                if (op.equals("dn")) { drop(notes, nid); drop(lists, nid); continue; }
                 if (op.equals("al") || op.equals("ar")) {
                     JSONObject n = byId(notes, nid); if (n == null) continue;
                     if (op.equals("al")) { JSONObject a = p.optJSONObject("a"); if (a == null) n.remove("alarm"); else n.put("alarm", a); }
@@ -120,10 +130,12 @@ final class Store {
         return s;
     }
 
+    private static void drop(JSONArray a, String id) { for (int j = a.length() - 1; j >= 0; j--) { JSONObject x = a.optJSONObject(j); if (x != null && id.equals(x.optString("id"))) a.remove(j); } }
+
     // ---- per-widget settings ----
     static void put(Context c, String k, String v) { SharedPreferences.Editor e = sp(c).edit(); if (v == null) e.remove(k); else e.putString(k, v); e.commit(); }
     static String get(Context c, String k) { return sp(c).getString(k, null); }
-    static void forget(Context c, int wid) { SharedPreferences.Editor e = sp(c).edit(); for (String p : new String[]{"w_", "th_", "tab_", "ex_", "arm_"}) e.remove(p + wid); e.commit(); }
+    static void forget(Context c, int wid) { SharedPreferences.Editor e = sp(c).edit(); for (String p : new String[]{"w_", "th_", "tab_", "ex_", "arm_", "narm_"}) e.remove(p + wid); e.commit(); }
     static void setChoice(Context c, int wid, String nid) { put(c, "w_" + wid, nid); }
     static String getChoice(Context c, int wid) { return get(c, "w_" + wid); }
 
