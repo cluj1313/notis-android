@@ -255,4 +255,9 @@ public class MainActivity extends Activity {
             return nc != null && nc.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
         } catch (Exception e) { return true; }
     }
+    /** v57: ask the web app for a full automatic backup (native copy via Bridge.autoBackup) */
+    void evalJs(String js) { try { if (web != null) web.evaluateJavascript(js, null); } catch (Exception ignored) {} }
+    void backupNow(String reason) {
+        try { if (web != null) web.evaluateJavascript("window.notisAutoBackupNow&&notisAutoBackupNow('" + reason.replaceAll("[^a-z-]", "") + "')", null); } catch (Exception ignored) {}
+    }
 }

@@ -6,11 +6,23 @@
 <meta name="theme-color" content="#06111f">
 <script>try{var _t=JSON.parse(localStorage.getItem('ns_theme'));if(_t&&_t!=='color')document.documentElement.setAttribute('data-theme',_t)}catch(e){}</script>
 <script>/* v55 i18n: one dictionary file per language in i18n/<code>.js (keys = Romanian source text). Romanian = built-in, no file. */
-var NOTIS_LANGS=[['ro','Română'],['en','English'],['fr','Français'],['de','Deutsch'],['it','Italiano'],['hu','Magyar'],['ru','Русский']];
+var NOTIS_LANGS=[['ro','Română','Romanian','Română'],['en','English','English','Engleză'],['fr','Français','French','Franceză'],['de','Deutsch','German','Germană'],['it','Italiano','Italian','Italiană'],['hu','Magyar','Hungarian','Maghiară'],['ru','Русский','Russian','Rusă'],
+ ['es','Español','Spanish','Spaniolă'],['pt','Português (Portugal)','Portuguese','Portugheză'],['pt-BR','Português (Brasil)','Portuguese (Brazil)','Portugheză (Brazilia)'],['pl','Polski','Polish','Poloneză'],['tr','Türkçe','Turkish','Turcă'],['uk','Українська','Ukrainian','Ucraineană'],
+ ['ar','العربية','Arabic','Arabă'],['he','עברית','Hebrew','Ebraică'],['fa','فارسی','Persian','Persană'],['zh-Hans','简体中文','Chinese (Simplified)','Chineză (simplificată)'],['zh-Hant','繁體中文','Chinese (Traditional)','Chineză (tradițională)'],['ja','日本語','Japanese','Japoneză'],['ko','한국어','Korean','Coreeană'],
+ ['hi','हिन्दी','Hindi','Hindi'],['bn','বাংলা','Bengali','Bengaleză'],['id','Bahasa Indonesia','Indonesian','Indoneziană'],['ms','Bahasa Melayu','Malay','Malaeză'],['vi','Tiếng Việt','Vietnamese','Vietnameză'],['th','ไทย','Thai','Thailandeză'],
+ ['nl','Nederlands','Dutch','Neerlandeză'],['sv','Svenska','Swedish','Suedeză'],['no','Norsk','Norwegian','Norvegiană'],['da','Dansk','Danish','Daneză'],['fi','Suomi','Finnish','Finlandeză'],['et','Eesti','Estonian','Estonă'],['lv','Latviešu','Latvian','Letonă'],['lt','Lietuvių','Lithuanian','Lituaniană'],
+ ['cs','Čeština','Czech','Cehă'],['sk','Slovenčina','Slovak','Slovacă'],['sl','Slovenščina','Slovenian','Slovenă'],['hr','Hrvatski','Croatian','Croată'],['sr','Српски','Serbian','Sârbă'],['bg','Български','Bulgarian','Bulgară'],['mk','Македонски','Macedonian','Macedoneană'],['sq','Shqip','Albanian','Albaneză'],
+ ['el','Ελληνικά','Greek','Greacă'],['ca','Català','Catalan','Catalană']];
+var NOTIS_RTL={ar:1,he:1,fa:1};
 var NOTIS_I18N={},NOTIS_I18N_RX=[];
-var NL=(function(){var ok={},p='auto';NOTIS_LANGS.forEach(function(x){ok[x[0]]=1});try{p=localStorage.getItem('notis_lang')||'auto'}catch(e){}
- if(p!=='auto'&&ok[p])return p;var c=String(navigator.language||'en').toLowerCase().split(/[-_]/)[0];if(c==='mo')c='ro';return ok[c]?c:'en'})();
-document.documentElement.lang=NL;
+/* language from a BCP-47 tag: zh-TW/HK/MO/Hant → zh-Hant, other zh → zh-Hans, pt-BR, nb/nn → no, iw → he, in → id, mo → ro */
+function NOTIS_LANGOF(tag){var ok={};NOTIS_LANGS.forEach(function(x){ok[x[0]]=1});var t=String(tag||'').replace('_','-'),l=t.toLowerCase(),p=l.split('-')[0];
+ if(ok[t])return t;if(p==='zh')return /hant|-tw|-hk|-mo/.test(l)?'zh-Hant':'zh-Hans';if(p==='pt')return /-br/.test(l)?'pt-BR':'pt';
+ var m={nb:'no',nn:'no',iw:'he',in:'id',mo:'ro',zsm:'ms'};if(m[p])p=m[p];return ok[p]?p:''}
+var NL=(function(){var p='auto';try{p=localStorage.getItem('notis_lang')||'auto'}catch(e){}
+ if(p!=='auto'&&NOTIS_LANGOF(p)===p)return p;var c=NOTIS_LANGOF(navigator.language||'en');
+ if(!c&&navigator.languages)for(var i=0;i<navigator.languages.length&&!c;i++)c=NOTIS_LANGOF(navigator.languages[i]);return c||'en'})();
+document.documentElement.lang=NL;document.documentElement.dir=NOTIS_RTL[NL]?'rtl':'ltr';
 if(NL!=='ro')document.write('<script src="i18n/'+NL+'.js"><\/script>');
 function TR(s){if(NL==='ro'||typeof s!=='string'||!s)return s;var r=TR.x(s);return r==null?s:r}
 TR.x=function(s){var D=NOTIS_I18N,m,r,i;if(Object.prototype.hasOwnProperty.call(D,s))return D[s];
@@ -28,7 +40,8 @@ if(NL!=='ro')(function(){var SKIP='textarea,input,select option[data-u],.t,.nsni
  function walkN(root){if(root.nodeType===3){txt(root);return}if(root.nodeType!==1)return;el(root);var w=document.createTreeWalker(root,5,null),n;while((n=w.nextNode())){if(n.nodeType===3)txt(n);else el(n)}}
  new MutationObserver(function(ms){for(var i=0;i<ms.length;i++){var m=ms[i];if(m.type==='childList'){for(var j=0;j<m.addedNodes.length;j++)walkN(m.addedNodes[j])}else if(m.type==='characterData')txt(m.target);else if(m.type==='attributes')el(m.target)}})
   .observe(document.documentElement,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:AT});
- TR.walk=walkN})();
+ TR.walk=walkN;
+ document.addEventListener('DOMContentLoaded',function(){var lm=document.querySelector('link[rel=manifest]');if(lm)lm.href='manifest-'+NL+'.webmanifest?v=57'})})();
 </script>
 <link rel="manifest" href="manifest.webmanifest?v=47">
 <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon.png?v=29">
@@ -242,6 +255,9 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .bkrow .bkacts{display:flex;gap:6px;flex-wrap:wrap}
 .bkrow .bkacts .btn{padding:5px 10px;font-size:12.5px}
 .bkempty{color:var(--mut);font-size:13px;padding:2px 0}
+#sLangQ{width:100%;margin:0 0 8px;box-sizing:border-box}
+[dir=rtl] .ntop{direction:ltr}[dir=rtl] .ntop input,[dir=rtl] .ntop .nsbox{direction:rtl}
+#sLang[size]{height:auto;padding:4px}
 
 .fonts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .fopt{background:rgba(var(--s2R),.7);border:1px solid var(--line);border-radius:12px;padding:8px 6px 6px;color:var(--clock);cursor:pointer;text-align:center;font:inherit}
@@ -816,7 +832,7 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
 :root[data-theme=exc] #notesPg .card,:root[data-theme=exc] #noteFull .nfcard{border:1px solid rgba(198,242,26,.3);box-shadow:0 8px 28px rgba(0,0,0,.45),0 0 16px rgba(198,242,26,.09),inset 0 1px 0 rgba(255,255,255,.05)}
 :root[data-theme=exc]{--mot:#d4ea86;--moto:.36;--lupo:.2}
 :root[data-theme=exc] #notesPg::before,:root[data-theme=exc] #noteFull::before{display:none}
-/* v47: background gallery; bamboo + vertical motto removed */#notesPg .ntop::after,#noteFull .ntop::after{display:none!important}:root[data-bg=none] #notesPg>.nwrap::before,:root[data-bg=none] #noteFull>.nwrap::before{display:none}:root[data-bg=mist] #notesPg>.nwrap::before,:root[data-bg=mist] #noteFull>.nwrap::before{background:url(art/bg-mist.webp) center/cover no-repeat;height:100vh;opacity:calc(var(--lupo,.2)*1.15*var(--bgm,1));mix-blend-mode:normal;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%)}:root[data-bg=forest] #notesPg>.nwrap::before,:root[data-bg=forest] #noteFull>.nwrap::before{background:url(art/bg-forest.webp) center/cover no-repeat;height:100vh;opacity:calc(var(--lupo,.2)*1.15*var(--bgm,1));mix-blend-mode:normal;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%)}:root[data-bg=lake] #notesPg>.nwrap::before,:root[data-bg=lake] #noteFull>.nwrap::before{background:url(art/bg-lake.webp) center/cover no-repeat;height:100vh;opacity:calc(var(--lupo,.2)*1.15*var(--bgm,1));mix-blend-mode:normal;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%)}:root[data-bg=sea] #notesPg>.nwrap::before,:root[data-bg=sea] #noteFull>.nwrap::before{background:url(art/bg-sea.webp) center/cover no-repeat;height:100vh;opacity:calc(var(--lupo,.2)*1.15*var(--bgm,1));mix-blend-mode:normal;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%)}:root[data-bg=snow] #notesPg>.nwrap::before,:root[data-bg=snow] #noteFull>.nwrap::before{background:url(art/bg-snow.webp) center/cover no-repeat;height:100vh;opacity:calc(var(--lupo,.2)*1.15*var(--bgm,1));mix-blend-mode:normal;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%)}:root[data-bg=night] #notesPg>.nwrap::before,:root[data-bg=night] #noteFull>.nwrap::before{background:url(art/bg-night.webp) center/cover no-repeat;height:100vh;opacity:calc(var(--lupo,.2)*1.15*var(--bgm,1));mix-blend-mode:normal;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%)}#demoBan{position:fixed;top:calc(14px + env(safe-area-inset-top));left:calc(50% - 22px);transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:6px;padding:3px 3px 3px 10px;border-radius:999px;background:#ff8a00;color:#1a1000;font-size:11.5px;box-shadow:0 3px 10px rgba(0,0,0,.3);white-space:nowrap}#demoBan b{letter-spacing:.1em}#demoBan span{display:none}#demoBan button{border:0;border-radius:999px;background:#1a1000;color:#fff;font:inherit;font-weight:700;padding:4px 10px;cursor:pointer}body:has(#notesPg.selm) #demoBan,body:has(#notesPg.nsrch) #demoBan{display:none}.bgkl{display:flex;justify-content:space-between;font-size:11.5px;color:var(--mut);margin-top:2px}.bgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.bgc{position:relative;aspect-ratio:3/4;border-radius:12px;border:2px solid var(--line);background:rgba(var(--s1R),.35) center/cover no-repeat;padding:0;cursor:pointer;overflow:hidden;color:var(--txt);font:inherit;font-size:11px}.bgc span{position:absolute;left:0;right:0;bottom:0;padding:3px 2px;background:rgba(0,0,0,.45);color:#fff;text-align:center;line-height:1.2}.bgc.on{border-color:var(--cyan);box-shadow:0 0 0 2px rgba(var(--acR),.35)}.bgc.on::after{content:"✓";position:absolute;top:4px;right:6px;color:#fff;font-weight:700;text-shadow:0 0 4px #000}.bgc.none{display:flex;align-items:center;justify-content:center;font-size:12px}.bgc.none span{display:none}#thRow .thc{flex:1 1 30%;line-height:1.15;text-align:center;padding-left:4px;padding-right:4px}
+/* v47: background gallery; bamboo + vertical motto removed */#notesPg .ntop::after,#noteFull .ntop::after{display:none!important}:root[data-bg=none] #notesPg>.nwrap::before,:root[data-bg=none] #noteFull>.nwrap::before{display:none}:root[data-bg=mist] #notesPg>.nwrap::before,:root[data-bg=mist] #noteFull>.nwrap::before{background:url(art/bg-mist.webp) center/cover no-repeat;height:100vh;opacity:calc(var(--lupo,.2)*1.15*var(--bgm,1));mix-blend-mode:normal;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%)}:root[data-bg=forest] #notesPg>.nwrap::before,:root[data-bg=forest] #noteFull>.nwrap::before{background:url(art/bg-forest.webp) center/cover no-repeat;height:100vh;opacity:calc(var(--lupo,.2)*1.15*var(--bgm,1));mix-blend-mode:normal;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%)}:root[data-bg=lake] #notesPg>.nwrap::before,:root[data-bg=lake] #noteFull>.nwrap::before{background:url(art/bg-lake.webp) center/cover no-repeat;height:100vh;opacity:calc(var(--lupo,.2)*1.15*var(--bgm,1));mix-blend-mode:normal;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%)}:root[data-bg=sea] #notesPg>.nwrap::before,:root[data-bg=sea] #noteFull>.nwrap::before{background:url(art/bg-sea.webp) center/cover no-repeat;height:100vh;opacity:calc(var(--lupo,.2)*1.15*var(--bgm,1));mix-blend-mode:normal;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%)}:root[data-bg=snow] #notesPg>.nwrap::before,:root[data-bg=snow] #noteFull>.nwrap::before{background:url(art/bg-snow.webp) center/cover no-repeat;height:100vh;opacity:calc(var(--lupo,.2)*1.15*var(--bgm,1));mix-blend-mode:normal;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%)}:root[data-bg=night] #notesPg>.nwrap::before,:root[data-bg=night] #noteFull>.nwrap::before{background:url(art/bg-night.webp) center/cover no-repeat;height:100vh;opacity:calc(var(--lupo,.2)*1.15*var(--bgm,1));mix-blend-mode:normal;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%)}#demoBan{position:fixed;top:calc(14px + env(safe-area-inset-top));left:calc(50% - 22px);transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:6px;padding:3px 3px 3px 10px;border-radius:999px;background:#ff8a00;color:#1a1000;font-size:11.5px;box-shadow:0 3px 10px rgba(0,0,0,.3);white-space:nowrap}#demoBan b{letter-spacing:.1em}#demoBan span{display:none}#demoBan button{border:0;border-radius:999px;background:#1a1000;color:#fff;font:inherit;font-weight:700;padding:4px 10px;cursor:pointer}body:has(#notesPg.selm) #demoBan,body:has(#notesPg.nsrch) #demoBan{display:none}.bgkl{display:flex;justify-content:space-between;font-size:11.5px;color:var(--mut);margin-top:2px}.bgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.bgc{position:relative;aspect-ratio:3/4;border-radius:12px;border:2px solid var(--line);background:rgba(var(--s1R),.35) center/cover no-repeat;padding:0;cursor:pointer;overflow:hidden;color:var(--txt);font:inherit;font-size:11px}.bgc span{position:absolute;left:0;right:0;bottom:0;padding:3px 2px;background:rgba(0,0,0,.45);color:#fff;text-align:center;line-height:1.2}.bgc.on{border-color:var(--cyan);box-shadow:0 0 0 2px rgba(var(--acR),.35)}.bgc.on::after{content:"✓";position:absolute;top:4px;right:6px;color:#fff;font-weight:700;text-shadow:0 0 4px #000}.bgc.none{display:flex;align-items:center;justify-content:center;font-size:12px;padding:3px;text-align:center;line-height:1.15;overflow-wrap:anywhere;hyphens:auto}.bgc.none span{display:none}#thRow .thc{flex:1 1 30%;line-height:1.15;text-align:center;padding-left:4px;padding-right:4px}
 .throw{display:flex;gap:8px;flex-wrap:wrap}.thc{flex:1;min-width:0;border-radius:999px;padding:8px 6px;font:inherit;font-size:13.5px;cursor:pointer;border:1px solid var(--line);background:rgba(var(--s1R),.35);color:var(--txt);display:flex;align-items:center;justify-content:center;gap:6px}
 .thc i{width:12px;height:12px;border-radius:50%;flex:none;border:1px solid rgba(128,128,128,.5)}.thc.on{border:2px solid var(--cyan);padding:7px 5px;font-weight:700;box-shadow:0 0 10px rgba(var(--acR),.35)}
 </style>
@@ -878,9 +894,9 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
  <div class="field"><label for="sCity">Oraș (vremea)</label><input id="sCity" placeholder="Caută orașul, ex. Gherla" autocomplete="off" enterkeyhint="search"><div class="cityrow"><button type="button" class="btn" id="sGeo">📍 Folosește locația mea</button><span class="citysel" id="citySel"></span></div><div class="citylist" id="cityList"></div></div>
 
  <div class="sec">Limbă</div>
- <div class="field"><select id="sLang" aria-label="Limbă"></select></div>
+ <div class="field"><input type="search" id="sLangQ" class="langq" placeholder="Caută limba…" aria-label="Caută limba" autocomplete="off"><select id="sLang" aria-label="Limbă"></select></div>
  <div class="sec">Temă</div>
- <div class="field"><div class="throw" id="thRow"><button type="button" class="thc" data-th="color"><i style="background:#3fd8ff"></i>Color</button><button type="button" class="thc" data-th="dark"><i style="background:#000"></i>Dark</button><button type="button" class="thc" data-th="light"><i style="background:#f3f5f8"></i>Light</button><button type="button" class="thc" data-th="vip"><i style="background:linear-gradient(135deg,#e8c98a,#a8823f)"></i>VIP</button><button type="button" class="thc" data-th="jad"><i style="background:linear-gradient(135deg,#2f6b58,#0f2a24)"></i>Jad</button><button type="button" class="thc" data-th="lac"><i style="background:linear-gradient(135deg,#a51c22,#5a0f12)"></i>Lac Roșu</button><button type="button" class="thc" data-th="tus"><i style="background:radial-gradient(circle,#1a1a1a 30%,#f2ece0 34%)"></i>Tuș</button><button type="button" class="thc" data-th="pap"><i style="background:linear-gradient(135deg,#e2cfa4,#b8955a)"></i>Papirus</button><button type="button" class="thc" data-th="salon"><i style="background:linear-gradient(135deg,#8a5a17,#e9c77b 55%,#b8862b)"></i>Salon Auriu</button><button type="button" class="thc" data-th="exc"><i style="background:radial-gradient(circle at 35% 35%,#e6ff7a,#c6f21a 40%,#2a3008 75%,#07090c)"></i>Excalibur</button><button type="button" class="thc" data-th="cleo"><i style="background:linear-gradient(135deg,#1b4f86,#0b6f78 50%,#d4a62a)"></i>Cleopatra</button><button type="button" class="thc" data-th="neon"><i style="background:linear-gradient(135deg,#ff3d9a,#29e0ff)"></i><span style="font-size:12px;line-height:1.05">Neon<br>Shanghai</span></button></div><div id="vipRow"><label for="vipInt"><span>Fundal VIP</span><span>întunecat ↔ luminos</span></label><input type="range" id="vipInt" min="0" max="100" step="1"></div></div>
+ <div class="field"><div class="throw" id="thRow"><button type="button" class="thc" data-th="color"><i style="background:#3fd8ff"></i>Colorat</button><button type="button" class="thc" data-th="dark"><i style="background:#000"></i>Întunecat</button><button type="button" class="thc" data-th="light"><i style="background:#f3f5f8"></i>Luminos</button><button type="button" class="thc" data-th="vip"><i style="background:linear-gradient(135deg,#e8c98a,#a8823f)"></i>VIP</button><button type="button" class="thc" data-th="jad"><i style="background:linear-gradient(135deg,#2f6b58,#0f2a24)"></i>Jad</button><button type="button" class="thc" data-th="lac"><i style="background:linear-gradient(135deg,#a51c22,#5a0f12)"></i>Lac Roșu</button><button type="button" class="thc" data-th="tus"><i style="background:radial-gradient(circle,#1a1a1a 30%,#f2ece0 34%)"></i>Tuș</button><button type="button" class="thc" data-th="pap"><i style="background:linear-gradient(135deg,#e2cfa4,#b8955a)"></i>Papirus</button><button type="button" class="thc" data-th="salon"><i style="background:linear-gradient(135deg,#8a5a17,#e9c77b 55%,#b8862b)"></i>Salon Auriu</button><button type="button" class="thc" data-th="exc"><i style="background:radial-gradient(circle at 35% 35%,#e6ff7a,#c6f21a 40%,#2a3008 75%,#07090c)"></i>Excalibur</button><button type="button" class="thc" data-th="cleo"><i style="background:linear-gradient(135deg,#1b4f86,#0b6f78 50%,#d4a62a)"></i>Cleopatra</button><button type="button" class="thc" data-th="neon"><i style="background:linear-gradient(135deg,#ff3d9a,#29e0ff)"></i><span style="font-size:12px;line-height:1.05">Neon<br>Shanghai</span></button></div><div id="vipRow"><label for="vipInt"><span>Fundal VIP</span><span>întunecat ↔ luminos</span></label><input type="range" id="vipInt" min="0" max="100" step="1"></div></div>
 <div class="sec">Exemple pentru utilizatori noi</div><div class="field"><div class="throw"><button type="button" class="thc" id="bDemo"></button><button type="button" class="thc" id="bDemoReset">Resetează exemplele</button></div><div class="bgkl"><span id="demoHint"></span></div></div>
 <div class="sec">Fundal</div><div class="field"><div class="bgrid" id="bgRow"><button type="button" class="bgc none" data-bg="none">Fără imagine<span></span></button><button type="button" class="bgc" data-bg="lup" style="background-image:url(art/bg-lup-t.webp)" aria-label="Lup"><span>Lup</span></button><button type="button" class="bgc" data-bg="mist" style="background-image:url(art/bg-mist-t.webp)" aria-label="Munți în ceață"><span>Munți în ceață</span></button><button type="button" class="bgc" data-bg="forest" style="background-image:url(art/bg-forest-t.webp)" aria-label="Pădure"><span>Pădure</span></button><button type="button" class="bgc" data-bg="lake" style="background-image:url(art/bg-lake-t.webp)" aria-label="Lac"><span>Lac</span></button><button type="button" class="bgc" data-bg="sea" style="background-image:url(art/bg-sea-t.webp)" aria-label="Mare"><span>Mare</span></button><button type="button" class="bgc" data-bg="snow" style="background-image:url(art/bg-snow-t.webp)" aria-label="Piscuri"><span>Piscuri</span></button><button type="button" class="bgc" data-bg="night" style="background-image:url(art/bg-night-t.webp)" aria-label="Cer înstelat"><span>Cer înstelat</span></button></div></div>
  <div class="field" id="fBgk"><label for="sBgk">Intensitate fundal <span class="val" id="vBgk"></span></label><input type="range" id="sBgk" min="-10" max="10" step="1" aria-label="Mai estompat ↔ mai intens"><div class="bgkl"><span>mai estompat</span><span>mai intens</span></div></div>
@@ -890,7 +906,7 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
  <div class="field" id="fPiper"><div class="prow"><span class="ptxt" id="pState">…</span><button type="button" class="btn" id="pDl">Descarcă</button><button type="button" class="btn" id="pDel">Șterge</button></div>
   <div class="hint">Se descarcă o singură dată (≈<span id="pMB">88</span> MB) și rămâne salvată în browser pentru folosire offline. <span id="pNote"></span></div></div>
  <div class="field" id="fTone"><label for="sTone">Ton <span class="val" id="vTone"></span></label><input type="range" id="sTone" min="0.7" max="1.3" step="0.01"><div class="hint">Stânga = voce mai groasă (aceeași viteză).</div></div>
- <div class="field" id="fVoice"><label for="sVoice">Voce telefon</label><select id="sVoice"></select></div>
+ <div class="field" id="fVoice"><label for="sVoice">Voce telefon</label><select id="sVoice"></select><div class="hint" id="vHint"></div><button type="button" class="btn" id="sVoiceDl">Descarcă altă voce</button></div>
  <div class="field"><label for="sRate">Viteză <span class="val" id="vRate"></span></label><input type="range" id="sRate" min="0.8" max="2" step="0.05"></div>
  <div class="field" id="fPitch"><label for="sPitch">Ton (doar vocea telefonului) <span class="val" id="vPitch"></span></label><input type="range" id="sPitch" min="0.5" max="1.5" step="0.05"></div>
  <div class="field"><button type="button" class="btn" id="sTest">Test voce</button></div>
@@ -910,6 +926,7 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
   <div class="hint">Salvează pe telefon notițele, taburile de notițe și setările vocii. Poți restaura un backup vechi sau îl poți trimite ca fișier .json.</div>
   <div class="bklist" id="jvBkList" style="margin-bottom:8px"></div><div class="bklist" id="bkList"><div class="bkempty">Niciun backup încă.</div></div>
  </div>
+ <div class="sec" id="bkAuto">Backup-uri automate</div><div class="field"><div class="hint">Înainte de fiecare actualizare a aplicației, Notis salvează automat tot (notițe, taburi, foldere, poze, înregistrări, desene, setări). Se păstrează ultimele 5 copii.</div><div class="bklist" id="abList"></div></div>
 
  <div class="field"><button type="button" class="btn" id="sShareApp">Trimite aplicația</button></div>
  <div id="fInstall"><div class="sec">Aplicație</div>
@@ -952,7 +969,7 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
 <div id="drPg" aria-label="Desen"><div class="drtop"><button type="button" class="hb" id="drX" aria-label="Închide">×</button><span class="drt">DESEN</span><button type="button" class="hb" id="drUndo" aria-label="Anulează" disabled>↶</button><button type="button" class="btn" id="drOk">Salvează</button></div><canvas id="drCv"></canvas><div class="drbar"><div id="drCols"></div><div class="drsz"><button type="button" data-ds="3" aria-label="Subțire"><i style="width:4px;height:4px"></i></button><button type="button" data-ds="6" aria-label="Mediu"><i style="width:8px;height:8px"></i></button><button type="button" data-ds="14" aria-label="Gros"><i style="width:15px;height:15px"></i></button></div><button type="button" id="drEr" aria-label="Radieră"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15.5 4.5l4 4L10 18H6l-2-2z"/><path d="M9 10l5 5M10 18h10"/></svg></button></div></div>
 <div class="modal" id="recModal"><div class="card jvdlg recbox"><div class="lbl"><span>🎙 Înregistrare</span></div><div class="recv"><i class="recdot"></i><span id="recT">0:00</span></div><div class="recmsg" id="recMsg"></div><div class="mrow"><button type="button" class="btn" id="recCancel">Anulează</button><button type="button" class="btn" id="recStop">■ Salvează</button></div></div></div>
 <div id="lpMenu"><div id="lpBox"></div></div>
- <div class="modal" id="voiceModal"><section class="card ccol" id="cVoice"><div class="lbl"><span class="lt">Voice status</span><span class="hgrp"><button type="button" class="hb vclose" id="voiceClose" aria-label="Închide">×</button><button class="spk" data-read="voice" aria-label="Citește"></button><button type="button" class="hb tcol" aria-expanded="true" aria-label="Restrânge cardul"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.2 8.1a1.5 1.5 0 0 1 2.1 0L12 13.8l5.7-5.7a1.5 1.5 0 1 1 2.1 2.1l-6.75 6.75a1.5 1.5 0 0 1-2.1 0L4.2 10.2a1.5 1.5 0 0 1 0-2.1z"/></svg></button></span></div>
+ <div class="modal" id="voiceModal"><section class="card ccol" id="cVoice"><div class="lbl"><span class="lt">Starea vocii</span><span class="hgrp"><button type="button" class="hb vclose" id="voiceClose" aria-label="Închide">×</button><button class="spk" data-read="voice" aria-label="Citește"></button><button type="button" class="hb tcol" aria-expanded="true" aria-label="Restrânge cardul"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.2 8.1a1.5 1.5 0 0 1 2.1 0L12 13.8l5.7-5.7a1.5 1.5 0 1 1 2.1 2.1l-6.75 6.75a1.5 1.5 0 0 1-2.1 0L4.2 10.2a1.5 1.5 0 0 1 0-2.1z"/></svg></button></span></div>
   <p class="voice kw" id="greet">…</p>
   <div class="status" id="vstatus">Agent local. Doar vreme și taskuri.</div>
   <div class="vprog" id="vprog"><span id="vprogTxt"></span><div class="pb"><i id="vprogBar"></i></div></div></section></div>
@@ -1102,6 +1119,39 @@ var TTS=(function(){
 })();
 </script>
 <script>
+/* v57: AUTO-BACKUP BEFORE ANY UPDATE / DATA MIGRATION.
+   Runs before the app script (so before any migration touches localStorage). If the web or native version differs from the last
+   one that booted successfully, the raw pre-update data is copied synchronously to (1) native files that survive app updates
+   (NotisNative.autoBackup, 5 rotating copies) and (2) localStorage 'ns_premig'; photos/recordings/drawings are added
+   asynchronously once the app is up, plus a 5-copy IndexedDB ring. If startup throws before the app finished booting, the raw
+   snapshot is written back (auto-restore) — old keys are never lost. */
+var NOTIS_WEBV='57';
+var NOTIS_AB=(function(){var R={changed:false,raw:null};try{
+ var demo=localStorage.getItem('notis_demo')==='1';
+ var nat='';try{if(window.NotisNative&&NotisNative.version)nat=String(NotisNative.version()||'')}catch(_){}
+ R.cur=NOTIS_WEBV+'|'+nat;R.last=localStorage.getItem('ns_lastver');
+ R.raw=NOTIS_ABraw();
+ var hasData=!!(R.raw.ns_notes||R.raw.ns_tasks||R.raw.ns_notetabs||R.raw.ns_folders);
+ if(R.last===R.cur)return R;
+ if(!hasData){if(!demo)localStorage.setItem('ns_lastver',R.cur);return R}
+ R.changed=true;R.id='auto-'+Date.now();
+ R.rec={notisAuto:1,id:R.id,ts:new Date().toISOString(),reason:'update',from:R.last||'',to:R.cur,raw:R.raw};
+ var again=false;try{again=sessionStorage.getItem('ns_abreload')===R.cur}catch(_){}
+ if(!again){try{if(window.NotisNative&&NotisNative.autoBackup)R.nativeOk=!!NotisNative.autoBackup(R.id,JSON.stringify(R.rec))}catch(e){R.nativeErr=String(e)}}
+ try{localStorage.setItem('ns_premig',JSON.stringify(R.rec));R.lsOk=true}catch(e){R.lsOk=false}
+ window.addEventListener('error',function(ev){if(!window.NOTIS_BOOTED)NOTIS_AB.restore('startup error: '+(ev&&ev.message))});
+}catch(e){R.err=String(e)}return R})();
+function NOTIS_ABraw(){var raw={};for(var i=0;i<localStorage.length;i++){var k=localStorage.key(i);if(!k||k.indexOf('demo:')===0||/^ns_(wx|news|premig|lastver|migfail)/.test(k)||k.indexOf('notis_demo')===0)continue;raw[k]=localStorage.getItem(k)}return raw}
+/* write a raw snapshot back: keys created after the snapshot are removed, every snapshot key is restored byte-for-byte */
+function NOTIS_ABput(raw){var ks=[];for(var i=0;i<localStorage.length;i++)ks.push(localStorage.key(i));
+ ks.forEach(function(k){if(k&&k.indexOf('demo:')!==0&&!/^ns_(premig|lastver|migfail)/.test(k)&&k.indexOf('notis_demo')!==0&&!/^ns_(wx|news)/.test(k)&&!(k in raw))localStorage.removeItem(k)});
+ Object.keys(raw).forEach(function(k){localStorage.setItem(k,raw[k])})}
+NOTIS_AB.restore=function(why){var R=NOTIS_AB;if(!R.changed||R.restored||!R.raw)return false;R.restored=true;
+ try{NOTIS_ABput(R.raw);localStorage.setItem('ns_migfail',JSON.stringify({ver:R.cur,why:String(why||''),ts:new Date().toISOString()}))}catch(e){return false}
+ var once=false;try{once=sessionStorage.getItem('ns_abreload')===R.cur;sessionStorage.setItem('ns_abreload',R.cur)}catch(_){}
+ if(!once)setTimeout(function(){location.reload()},50);return true};
+</script>
+<script>
 (function(){
 'use strict';
 var $=function(id){return document.getElementById(id)};
@@ -1112,11 +1162,11 @@ try{var qd=new URLSearchParams(location.search).get('demo');if(qd==='1'){localSt
 var DEMO=false;try{DEMO=localStorage.getItem('notis_demo')==='1'}catch(_){}
 /* new users never inherit the owner's name: personal default only for an install that already has settings */
 var NS_HASCFG=false;try{NS_HASCFG=!DEMO&&!!localStorage.getItem('ns_cfg')}catch(_){}
-var DEMOV='3'+(NL==='ro'?'':':'+NL);
-if(DEMO){PFX='demo:';try{if(localStorage.getItem('demo:ns_demov')!==DEMOV){Object.keys(localStorage).filter(function(k){return k.indexOf('demo:')===0}).forEach(function(k){localStorage.removeItem(k)});var D0={"tabs": [{"id": "g", "name": "General"}, {"id": "c", "name": "Cumpărături", "color": "#ff9fd0"}, {"id": "u", "name": "⚠️ URGENȚE", "color": "#ff6b6b"}, {"id": "r", "name": "Listă rapidă ⚡", "color": "#f5c542"}, {"id": "a", "name": "Atelier", "color": "#9b8cff"}, {"id": "m", "name": "My Apps", "color": "#5fd38d"}, {"id": "conf", "name": "Confidențial", "color": "#e0b84f", "lk": "{\"v\":1,\"salt\":\"v7KMoquGEUgz622Wl8OmoA==\",\"iv\":\"1zPx4v/HAr/BrxGx\",\"ct\":\"jM9BQkem8ZX2ZwKOPmX7HdyVlDpdaX27DhES/ZrM\"}"}], "notes": [{"id": "d1", "tab": "g", "text": "👋 Bun venit în Notis!\nAcesta e MODUL DEMO: notițele de aici sunt doar exemple, separate de ale tale. Ieși oricând din bannerul de sus sau din Setări → Mod demo.\nApasă pe o notiță ca s-o deschizi; ✔ (dreapta jos) salvează și închide.", "pin": true, "color": "#14304a"}, {"id": "d2", "tab": "g", "text": "📌 Fixează sus (pin)\nȚine apăsat pe o notiță → bara de sus → pictograma pioneză. Notițele fixate stau mereu primele în tab.", "pin": true}, {"id": "d26", "tab": "g", "text": "➕ Taburi: adaugă, redenumește, șterge\nAdaugă: atinge „+” de la capătul rândului de taburi (sus) → scrie numele → Salvează.\nRedenumește: ține apăsat pe tab → ✎ Redenumește.\nOrdine și culoare: ține apăsat pe tab → ↔ Mută (stânga / dreapta) sau 🎨 Culoare.\nȘterge: ține apăsat pe tab → 🗑 Șterge tabul → confirmă. Atenție: notițele din tab se șterg odată cu el, așa că mută-le înainte (selecție → 📁)."}, {"id": "d27", "tab": "g", "text": "📁 Foldere în taburi\nÎn orice tab: ≡ (sus) → 📁 Folder nou. Atinge un folder ca să intri; sus apare calea (ex. Atelier › Clienți › 2026): atinge un nume ca să urci, sau ‹ / butonul Înapoi al telefonului.\nȚine apăsat pe folder: ✎ Redenumește, ＋ Subfolder, ↕ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Atelier."}, {"id": "dt1", "tab": "g", "text": "🔒 Tab blocat (date confidențiale)\nȚine apăsat pe un tab → 🔒 Blochează → alegi un PIN de 4 cifre. Tabul cere PIN când îl deschizi (atingere sau glisare) și se blochează din nou când pleci din el sau ieși din aplicație. Notițele și folderele lui nu apar în căutare și nici în widgeturi. Încearcă tabul „Confidențial” — PIN demo: 1234."}, {"id": "d3", "tab": "g", "text": "✅ Selecție multiplă\nȚine apăsat pe o notiță, apoi atinge altele. Sus apare bara cu: ← ieșire, număr, 🎨 culoare, 📁 mută în alt tab, 📌 fixează, 🗑 coș, ⋮ (alarmă, editează, trimite, blochează, selectează tot)."}, {"id": "d4", "tab": "g", "text": "🎨 Culori\nSelectează notița → 🎨. Ai 16 culori care se adaptează temei (pastel pe Light, discrete pe temele închise). Și în editor: butonul 🎨 din bara de jos.", "color": "#3e2812"}, {"id": "d5", "tab": "g", "text": "🔍 Căutare\nLupa de sus caută în TOATE notițele și taburile. Rezultatele arată rândurile potrivite, cu cuvântul subliniat, și tabul de unde vin."}, {"id": "d6", "tab": "g", "text": "↕ Sortare\nButonul ≡ de sus: Alfabetic, Manual (trage cu degetul), Data creării, Data modificării — separat pentru fiecare tab. Tot acolo: 🗑 Coș de gunoi."}, {"id": "d7", "tab": "g", "text": "🗑 Coș de gunoi\nȘtergerea mută notița în coș (≡ → Coș de gunoi, sau din notiță: ≡ → Mută notița în coș). Din coș: ține apăsat → Reface. Coșul se golește singur după 30 de zile."}, {"id": "d8", "tab": "g", "text": "⚙ Setări\nAtinge NOTIS (sus stânga) → Setări: Temă (11 teme, ex. Salon Auriu, Excalibur, Cleopatra), Fundal (galerie de poze + „Fără imagine”), Intensitate fundal, Spațiu între notițe, Voce, Backup."}, {"id": "d9", "tab": "g", "text": "🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce (Mihai). Viteza și tonul se reglează în Setări → Voce."}, {"id": "d10", "tab": "g", "text": "↶ ↷ Anulează / Refă\nSăgețile din stânga jos (pe ecranul principal și în editor) anulează sau refac ultima modificare: ștergere, mutare, culoare, text."}, {"id": "d11", "tab": "c", "type": "check", "title": "Kaufland 🛒", "items": [{"id": "di11_0", "text": "Lapte", "done": false}, {"id": "di11_1", "text": "Pâine", "done": false}, {"id": "di11_2", "text": "Ouă", "done": false}, {"id": "di11_3", "text": "Roșii", "done": false}, {"id": "di11_4", "text": "Cafea", "done": true}, {"id": "di11_5", "text": "Detergent", "done": true}], "text": "Kaufland 🛒\nLapte\nPâine\nOuă\nRoșii\nCafea\nDetergent"}, {"id": "d12", "tab": "c", "type": "check", "title": "Lidl 🛒", "items": [{"id": "di12_0", "text": "Iaurt grecesc", "done": false}, {"id": "di12_1", "text": "Banane", "done": false}, {"id": "di12_2", "text": "Apă plată", "done": true}], "text": "Lidl 🛒\nIaurt grecesc\nBanane\nApă plată"}, {"id": "d13", "tab": "c", "type": "check", "title": "☑ Cum merg listele", "items": [{"id": "di13_0", "text": "Bifează un element → coboară automat jos, tăiat", "done": false}, {"id": "di13_1", "text": "Ține apăsat și trage ca să schimbi ordinea", "done": false}, {"id": "di13_2", "text": "Scrie pe ultimul rând gol ca să adaugi", "done": false}, {"id": "di13_3", "text": "Element bifat (îl debifezi cu o atingere)", "done": true}], "text": "☑ Cum merg listele\nBifează un element → coboară automat jos, tăiat\nȚine apăsat și trage ca să schimbi ordinea\nScrie pe ultimul rând gol ca să adaugi\nElement bifat (îl debifezi cu o atingere)"}, {"id": "d14", "tab": "u", "text": "⏰ Alarme și mementouri\nÎn notiță → butonul ⏰ (bara de jos): alegi ora, repetarea (zilnic/săptămânal…) și snooze. Alarma sună și cu aplicația închisă; ora apare în dreapta rândului.", "alarm": {"at": 0, "rep": 0}, "color": "#3d1a1c"}, {"id": "d15", "tab": "u", "text": "⚠️ Tab de urgențe\nUn tab cu nume și culoare proprie pentru ce e important. Creezi taburi cu „+”, le redenumești / colorezi / muți ținând apăsat pe tab."}, {"id": "d16", "tab": "u", "text": "🔒 Blocare\nȚine apăsat pe notiță → ⋮ → Blochează. Notița (și pozele ei) se criptează cu PIN; în listă apare doar titlul cu 🔒."}, {"id": "d17", "tab": "r", "type": "check", "title": "Listă rapidă", "items": [{"id": "di17_0", "text": "Buletin", "done": false}, {"id": "di17_1", "text": "Cablu + încărcător", "done": false}, {"id": "di17_2", "text": "Trusă de prim ajutor", "done": false}, {"id": "di17_3", "text": "Ochelari de soare", "done": false}], "text": "Listă rapidă\nBuletin\nCablu + încărcător\nTrusă de prim ajutor\nOchelari de soare"}, {"id": "d18", "tab": "r", "text": "📱 Widget Listă\nPe ecranul telefonului: ține apăsat → Widgeturi → Notis · Listă. Bifezi direct, „+” adaugă, ✕ întreabă „Vrei să ștergi?” Nu / Da. ⚙ = temă, ☰ = alegi lista (grupată pe taburi, se deschid/închid cu ▾)."}, {"id": "d19", "tab": "r", "text": "🗒 Widget Notițe\nNotis · Notițe arată un tab: atingi un rând ca să-l desfaci/strângi, ⏰ pune alarmă, „+” notiță nouă, ✕ Șterge (cu confirmare). ☰ alege tabul."}, {"id": "d20", "tab": "r", "text": "🚀 Scurtături pe iconiță\nȚine apăsat pe iconița Notis: Notiță nouă, Caută, Cumpărături — deschid direct acolo."}, {"id": "d21", "tab": "a", "type": "mix", "blocks": [{"t": "text", "v": "📷 Poze în notiță\nO singură poză apare pe toată lățimea:"}, {"t": "img", "ph": ["dp1"]}, {"t": "text", "v": "Mai multe poze apar ca miniaturi. Atinge una ca s-o mărești; ciupește cu două degete pentru zoom, glisează pentru următoarea:"}, {"t": "img", "ph": ["dp2", "dp3", "dp4"]}, {"t": "text", "v": "Ține apăsat pe o poză ca s-o ștergi. Butonul 🖼 din bara de jos adaugă poze (și decupare)."}], "text": "📷 Poze în notiță\nO singură poză apare pe toată lățimea:\nMai multe poze apar ca miniaturi. Atinge una ca s-o mărești; ciupește cu două degete pentru zoom, glisează pentru următoarea:\nȚine apăsat pe o poză ca s-o ștergi. Butonul 🖼 din bara de jos adaugă poze (și decupare).", "color": "#0f3a33"}, {"id": "d22", "tab": "a", "type": "mix", "blocks": [{"t": "text", "v": "🛠 Notiță mixtă: text + listă + poze"}, {"t": "chk", "items": [{"id": "di22_0", "text": "Comandă stofă", "done": false}, {"id": "di22_1", "text": "Sună clientul", "done": false}, {"id": "di22_2", "text": "Măsurători făcute", "done": true}]}, {"t": "text", "v": "Bara de jos stă deasupra tastaturii: ↶ ↷, 📎 atașează (imagine, poză, desen, înregistrare), ☑ listă, 🎨 culoare, 📁 mută, ⏰ alarmă, Citește."}], "text": "🛠 Notiță mixtă: text + listă + poze\nBara de jos stă deasupra tastaturii: ↶ ↷, 📎 atașează (imagine, poză, desen, înregistrare), ☑ listă, 🎨 culoare, 📁 mută, ⏰ alarmă, Citește."}, {"id": "d23", "tab": "a", "text": "📁 Mută între taburi și foldere\nSelectează una sau mai multe notițe → 📁 → alege tabul sau folderul (folderele apar sub tabul lor, cu subfolderele indentate). Tot acolo: ＋ Folder nou. Sau din editor: butonul 📁."}, {"id": "d24", "tab": "m", "text": "Notis – aplicația ta de notițe\nMerge offline, se instalează ca aplicație (Android sau din browser) și ține totul pe telefon. Fă backup din Setări → Backup."}, {"id": "d25", "tab": "m", "text": "Rânduri mai compacte\nSetări → Spațiu între notițe: de la 0 (foarte compact) la 14 px."}, {"id": "d28", "tab": "a", "text": "✏️ Desen și 🎙 Înregistrare\nÎn notiță → 📎 (bara de jos) → Desen: desenezi cu degetul (culori, 3 grosimi, radieră, ↶ anulează), Salvează → apare ca imagine în notiță.\n📎 → Înregistrare: pornește imediat, ■ Stop salvează. Se redă direct din notiță cu ▶; × o șterge. Exemple: folderul Proiecte."}, {"id": "d29", "tab": "a", "text": "🔒 Folderul „Privat”\nE un folder blocat: cere PIN la deschidere, iar notițele lui nu apar în căutare. În demo, PIN-ul este 1234."}, {"id": "d30", "tab": "a", "text": "Maria P. – rochie de seară\nProbă: joi, 17:00\nStofă: satin bleumarin, 3 m", "fd": "df_cli", "color": "#2a1838"}, {"id": "d31", "tab": "a", "text": "Ion D. – costum\nMăsuri luate. De comandat căptușeala.", "fd": "df_cli"}, {"id": "d32", "tab": "a", "text": "📁 Foldere în foldere\nEști în Atelier › Clienți › 2026. Poți face oricâte niveluri: ține apăsat pe un folder → ＋ Subfolder.", "fd": "df_26"}, {"id": "d33", "tab": "a", "type": "check", "title": "Comenzi octombrie", "items": [{"id": "di33_0", "text": "Rochie Maria – probă", "done": false}, {"id": "di33_1", "text": "Costum Ion – căptușeală", "done": false}, {"id": "di33_2", "text": "Fustă plisată – gata", "done": true}], "text": "Comenzi octombrie\nRochie Maria – probă\nCostum Ion – căptușeală\nFustă plisată – gata", "fd": "df_oct"}, {"id": "d34", "tab": "a", "type": "mix", "blocks": [{"t": "text", "v": "🎨 Desen în notiță\nDesenat cu degetul în Notis (📎 → Desen):"}, {"t": "img", "ph": ["dp5"]}, {"t": "text", "v": "Atinge desenul ca să-l mărești."}], "text": "🎨 Desen în notiță\nDesenat cu degetul în Notis (📎 → Desen):\nAtinge desenul ca să-l mărești.", "fd": "df_proj"}, {"id": "d35", "tab": "a", "type": "mix", "blocks": [{"t": "text", "v": "🎙 Înregistrare în notiță\nApasă ▶ ca s-o asculți (exemplu: un clopoțel). Înregistrările tale se fac din 📎 → Înregistrare."}, {"t": "aud", "a": "da1", "dur": 4}, {"t": "text", "v": "Poți avea text, liste, poze și înregistrări în aceeași notiță."}], "text": "🎙 Înregistrare în notiță\nApasă ▶ ca s-o asculți (exemplu: un clopoțel). Înregistrările tale se fac din 📎 → Înregistrare.\nPoți avea text, liste, poze și înregistrări în aceeași notiță.", "fd": "df_proj"}, {"id": "d36", "tab": "a", "text": "🔓 Ai intrat în folderul blocat\nBlochezi orice folder: ține apăsat → 🔒 Blochează → alegi un PIN de 4 cifre. La ieșire, folderul se blochează din nou.", "fd": "df_priv"}, {"id": "dt2", "tab": "conf", "text": "🔓 Ai deschis tabul blocat\nAici ții date confidențiale: coduri, contracte, adrese. Deblocare definitivă: ține apăsat pe tab → 🔓 Deblochează (cere PIN)."}, {"id": "dt3", "tab": "conf", "type": "check", "title": "Acte de reînnoit", "items": [{"id": "dti1", "text": "Pașaport", "done": false}, {"id": "dti2", "text": "Asigurare mașină", "done": false}], "text": "Acte de reînnoit\nPașaport\nAsigurare mașină"}], "folders": [{"id": "df_cli", "tab": "a", "parent": "", "name": "Clienți"}, {"id": "df_26", "tab": "a", "parent": "df_cli", "name": "2026"}, {"id": "df_oct", "tab": "a", "parent": "df_26", "name": "Octombrie"}, {"id": "df_proj", "tab": "a", "parent": "", "name": "Proiecte"}, {"id": "df_priv", "tab": "a", "parent": "", "name": "Privat", "lk": "{\"v\":1,\"salt\":\"qkMCQOyXgzFSQwNDgwlTew==\",\"iv\":\"E2/zYrrWT19qLhWh\",\"ct\":\"uiKBvaOof146xJ7oyJWLUeJGoR81ngZ+JSm/XWcqeLu338tT\"}"}]},t0=Date.now(),iso=new Date().toISOString(),tm=new Date();tm.setDate(tm.getDate()+1);tm.setHours(9,0,0,0);
+var DEMOV='4'+(NL==='ro'?'':':'+NL);
+if(DEMO){PFX='demo:';try{if(localStorage.getItem('demo:ns_demov')!==DEMOV){Object.keys(localStorage).filter(function(k){return k.indexOf('demo:')===0}).forEach(function(k){localStorage.removeItem(k)});var D0={"tabs": [{"id": "u", "name": "URGENȚE", "color": "#ff6b6b"}, {"id": "c", "name": "Cumpărături", "color": "#ff9fd0"}, {"id": "conf", "name": "Plăți", "color": "#e0b84f", "lk": "{\"v\":1,\"salt\":\"v7KMoquGEUgz622Wl8OmoA==\",\"iv\":\"1zPx4v/HAr/BrxGx\",\"ct\":\"jM9BQkem8ZX2ZwKOPmX7HdyVlDpdaX27DhES/ZrM\"}"}, {"id": "d", "name": "Diverse", "color": "#9b8cff"}, {"id": "auto", "name": "Auto", "color": "#5fb8ff"}, {"id": "ut", "name": "Utilități", "color": "#5fd38d"}], "notes": [{"id": "d1", "tab": "u", "text": "👋 Bun venit în Notis!\nAcesta e MODUL DEMO: notițele de aici sunt doar exemple, separate de ale tale. Ieși oricând din bannerul de sus sau din Setări → Mod demo.\nApasă pe o notiță ca s-o deschizi; ✔ (dreapta jos) salvează și închide.", "pin": true, "color": "#14304a"}, {"id": "d2", "tab": "u", "text": "📌 Fixează sus (pin)\nȚine apăsat pe o notiță → bara de sus → pictograma pioneză. Notițele fixate stau mereu primele în tab.", "pin": true}, {"id": "d26", "tab": "d", "text": "➕ Taburi: adaugă, redenumește, șterge\nAdaugă: atinge „+” de la capătul rândului de taburi (sus) → scrie numele → Salvează.\nRedenumește: ține apăsat pe tab → ✎ Redenumește.\nOrdine și culoare: ține apăsat pe tab → ↔ Mută (stânga / dreapta) sau 🎨 Culoare.\nȘterge: ține apăsat pe tab → 🗑 Șterge tabul → confirmă. Atenție: notițele din tab se șterg odată cu el, așa că mută-le înainte (selecție → 📁)."}, {"id": "d27", "tab": "d", "text": "📁 Foldere în taburi\nÎn orice tab: ≡ (sus) → 📁 Folder nou. Atinge un folder ca să intri; sus apare calea (ex. Diverse › Clienți › 2026): atinge un nume ca să urci, sau ‹ / butonul Înapoi al telefonului.\nȚine apăsat pe folder: ✎ Redenumește, ＋ Subfolder, ↕ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse."}, {"id": "dt1", "tab": "d", "text": "🔒 Tab blocat (date confidențiale)\nȚine apăsat pe un tab → 🔒 Blochează → alegi un PIN de 4 cifre. Tabul cere PIN când îl deschizi (atingere sau glisare) și se blochează din nou când pleci din el sau ieși din aplicație. Notițele și folderele lui nu apar în căutare și nici în widgeturi. Încearcă tabul „Plăți” — PIN demo: 1234."}, {"id": "d3", "tab": "c", "text": "✅ Selecție multiplă\nȚine apăsat pe o notiță, apoi atinge altele. Sus apare bara cu: ← ieșire, număr, 🎨 culoare, 📁 mută în alt tab, 📌 fixează, 🗑 coș, ⋮ (alarmă, editează, trimite, blochează, selectează tot)."}, {"id": "d4", "tab": "c", "text": "🎨 Culori\nSelectează notița → 🎨. Ai 16 culori care se adaptează temei (pastel pe Light, discrete pe temele închise). Și în editor: butonul 🎨 din bara de jos.", "color": "#3e2812"}, {"id": "d5", "tab": "d", "text": "🔍 Căutare\nLupa de sus caută în TOATE notițele și taburile. Rezultatele arată rândurile potrivite, cu cuvântul subliniat, și tabul de unde vin."}, {"id": "d6", "tab": "d", "text": "↕ Sortare\nButonul ≡ de sus: Alfabetic, Manual (trage cu degetul), Data creării, Data modificării — separat pentru fiecare tab. Tot acolo: 🗑 Coș de gunoi."}, {"id": "d7", "tab": "d", "text": "🗑 Coș de gunoi\nȘtergerea mută notița în coș (≡ → Coș de gunoi, sau din notiță: ≡ → Mută notița în coș). Din coș: ține apăsat → Reface. Coșul se golește singur după 30 de zile."}, {"id": "d8", "tab": "ut", "text": "⚙ Setări\nAtinge NOTIS (sus stânga) → Setări: Temă (11 teme, ex. Salon Auriu, Excalibur, Cleopatra), Fundal (galerie de poze + „Fără imagine”), Intensitate fundal, Spațiu între notițe, Voce, Backup."}, {"id": "d9", "tab": "ut", "text": "🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce (Mihai). Viteza și tonul se reglează în Setări → Voce."}, {"id": "d10", "tab": "ut", "text": "↶ ↷ Anulează / Refă\nSăgețile din stânga jos (pe ecranul principal și în editor) anulează sau refac ultima modificare: ștergere, mutare, culoare, text."}, {"id": "d11", "tab": "c", "type": "check", "title": "Kaufland 🛒", "items": [{"id": "di11_0", "text": "Lapte", "done": false}, {"id": "di11_1", "text": "Pâine", "done": false}, {"id": "di11_2", "text": "Ouă", "done": false}, {"id": "di11_3", "text": "Roșii", "done": false}, {"id": "di11_4", "text": "Cafea", "done": true}, {"id": "di11_5", "text": "Detergent", "done": true}], "text": "Kaufland 🛒\nLapte\nPâine\nOuă\nRoșii\nCafea\nDetergent"}, {"id": "d12", "tab": "c", "type": "check", "title": "Lidl 🛒", "items": [{"id": "di12_0", "text": "Iaurt grecesc", "done": false}, {"id": "di12_1", "text": "Banane", "done": false}, {"id": "di12_2", "text": "Apă plată", "done": true}], "text": "Lidl 🛒\nIaurt grecesc\nBanane\nApă plată"}, {"id": "d13", "tab": "c", "type": "check", "title": "☑ Cum merg listele", "items": [{"id": "di13_0", "text": "Bifează un element → coboară automat jos, tăiat", "done": false}, {"id": "di13_1", "text": "Ține apăsat și trage ca să schimbi ordinea", "done": false}, {"id": "di13_2", "text": "Scrie pe ultimul rând gol ca să adaugi", "done": false}, {"id": "di13_3", "text": "Element bifat (îl debifezi cu o atingere)", "done": true}], "text": "☑ Cum merg listele\nBifează un element → coboară automat jos, tăiat\nȚine apăsat și trage ca să schimbi ordinea\nScrie pe ultimul rând gol ca să adaugi\nElement bifat (îl debifezi cu o atingere)"}, {"id": "d14", "tab": "u", "text": "⏰ Alarme și mementouri\nÎn notiță → butonul ⏰ (bara de jos): alegi ora, repetarea (zilnic/săptămânal…) și snooze. Alarma sună și cu aplicația închisă; ora apare în dreapta rândului.", "alarm": {"at": 0, "rep": 0}, "color": "#3d1a1c"}, {"id": "d15", "tab": "u", "text": "⚠️ Tab de urgențe\nUn tab cu nume și culoare proprie pentru ce e important. Creezi taburi cu „+”, le redenumești / colorezi / muți ținând apăsat pe tab."}, {"id": "d16", "tab": "u", "text": "🔒 Blocare\nȚine apăsat pe notiță → ⋮ → Blochează. Notița (și pozele ei) se criptează cu PIN; în listă apare doar titlul cu 🔒."}, {"id": "d17", "tab": "d", "type": "check", "title": "Listă rapidă", "items": [{"id": "di17_0", "text": "Buletin", "done": false}, {"id": "di17_1", "text": "Cablu + încărcător", "done": false}, {"id": "di17_2", "text": "Trusă de prim ajutor", "done": false}, {"id": "di17_3", "text": "Ochelari de soare", "done": false}], "text": "Listă rapidă\nBuletin\nCablu + încărcător\nTrusă de prim ajutor\nOchelari de soare"}, {"id": "d18", "tab": "ut", "text": "📱 Widget Listă\nPe ecranul telefonului: ține apăsat → Widgeturi → Notis · Listă. Bifezi direct, „+” adaugă, ✕ întreabă „Vrei să ștergi?” Nu / Da. ⚙ = temă, ☰ = alegi lista (grupată pe taburi, se deschid/închid cu ▾)."}, {"id": "d19", "tab": "ut", "text": "🗒 Widget Notițe\nNotis · Notițe arată un tab: atingi un rând ca să-l desfaci/strângi, ⏰ pune alarmă, „+” notiță nouă, ✕ Șterge (cu confirmare). ☰ alege tabul."}, {"id": "d20", "tab": "c", "text": "🚀 Scurtături pe iconiță\nȚine apăsat pe iconița Notis: Notiță nouă, Caută, Cumpărături — deschid direct acolo."}, {"id": "d21", "tab": "d", "type": "mix", "blocks": [{"t": "text", "v": "📷 Poze în notiță\nO singură poză apare pe toată lățimea:"}, {"t": "img", "ph": ["dp1"]}, {"t": "text", "v": "Mai multe poze apar ca miniaturi. Atinge una ca s-o mărești; ciupește cu două degete pentru zoom, glisează pentru următoarea:"}, {"t": "img", "ph": ["dp2", "dp3", "dp4"]}, {"t": "text", "v": "Ține apăsat pe o poză ca s-o ștergi. Butonul 🖼 din bara de jos adaugă poze (și decupare)."}], "text": "📷 Poze în notiță\nO singură poză apare pe toată lățimea:\nMai multe poze apar ca miniaturi. Atinge una ca s-o mărești; ciupește cu două degete pentru zoom, glisează pentru următoarea:\nȚine apăsat pe o poză ca s-o ștergi. Butonul 🖼 din bara de jos adaugă poze (și decupare).", "color": "#0f3a33"}, {"id": "d22", "tab": "d", "type": "mix", "blocks": [{"t": "text", "v": "🛠 Notiță mixtă: text + listă + poze"}, {"t": "chk", "items": [{"id": "di22_0", "text": "Comandă stofă", "done": false}, {"id": "di22_1", "text": "Sună clientul", "done": false}, {"id": "di22_2", "text": "Măsurători făcute", "done": true}]}, {"t": "text", "v": "Bara de jos stă deasupra tastaturii: ↶ ↷, 📎 atașează (imagine, poză, desen, înregistrare), ☑ listă, 🎨 culoare, 📁 mută, ⏰ alarmă, Citește."}], "text": "🛠 Notiță mixtă: text + listă + poze\nBara de jos stă deasupra tastaturii: ↶ ↷, 📎 atașează (imagine, poză, desen, înregistrare), ☑ listă, 🎨 culoare, 📁 mută, ⏰ alarmă, Citește."}, {"id": "d23", "tab": "d", "text": "📁 Mută între taburi și foldere\nSelectează una sau mai multe notițe → 📁 → alege tabul sau folderul (folderele apar sub tabul lor, cu subfolderele indentate). Tot acolo: ＋ Folder nou. Sau din editor: butonul 📁."}, {"id": "d24", "tab": "ut", "text": "Notis – aplicația ta de notițe\nMerge offline, se instalează ca aplicație (Android sau din browser) și ține totul pe telefon. Fă backup din Setări → Backup."}, {"id": "d25", "tab": "ut", "text": "Rânduri mai compacte\nSetări → Spațiu între notițe: de la 0 (foarte compact) la 14 px."}, {"id": "d28", "tab": "d", "text": "✏️ Desen și 🎙 Înregistrare\nÎn notiță → 📎 (bara de jos) → Desen: desenezi cu degetul (culori, 3 grosimi, radieră, ↶ anulează), Salvează → apare ca imagine în notiță.\n📎 → Înregistrare: pornește imediat, ■ Stop salvează. Se redă direct din notiță cu ▶; × o șterge. Exemple: folderul Proiecte."}, {"id": "d29", "tab": "d", "text": "🔒 Folderul „Privat”\nE un folder blocat: cere PIN la deschidere, iar notițele lui nu apar în căutare. În demo, PIN-ul este 1234."}, {"id": "d30", "tab": "d", "text": "Maria P. – rochie de seară\nProbă: joi, 17:00\nStofă: satin bleumarin, 3 m", "fd": "df_cli", "color": "#2a1838"}, {"id": "d31", "tab": "d", "text": "Ion D. – costum\nMăsuri luate. De comandat căptușeala.", "fd": "df_cli"}, {"id": "d32", "tab": "d", "text": "📁 Foldere în foldere\nEști în Diverse › Clienți › 2026. Poți face oricâte niveluri: ține apăsat pe un folder → ＋ Subfolder.", "fd": "df_26"}, {"id": "d33", "tab": "d", "type": "check", "title": "Comenzi octombrie", "items": [{"id": "di33_0", "text": "Rochie Maria – probă", "done": false}, {"id": "di33_1", "text": "Costum Ion – căptușeală", "done": false}, {"id": "di33_2", "text": "Fustă plisată – gata", "done": true}], "text": "Comenzi octombrie\nRochie Maria – probă\nCostum Ion – căptușeală\nFustă plisată – gata", "fd": "df_oct"}, {"id": "d34", "tab": "d", "type": "mix", "blocks": [{"t": "text", "v": "🎨 Desen în notiță\nDesenat cu degetul în Notis (📎 → Desen):"}, {"t": "img", "ph": ["dp5"]}, {"t": "text", "v": "Atinge desenul ca să-l mărești."}], "text": "🎨 Desen în notiță\nDesenat cu degetul în Notis (📎 → Desen):\nAtinge desenul ca să-l mărești.", "fd": "df_proj"}, {"id": "d35", "tab": "d", "type": "mix", "blocks": [{"t": "text", "v": "🎙 Înregistrare în notiță\nApasă ▶ ca s-o asculți (exemplu: un clopoțel). Înregistrările tale se fac din 📎 → Înregistrare."}, {"t": "aud", "a": "da1", "dur": 4}, {"t": "text", "v": "Poți avea text, liste, poze și înregistrări în aceeași notiță."}], "text": "🎙 Înregistrare în notiță\nApasă ▶ ca s-o asculți (exemplu: un clopoțel). Înregistrările tale se fac din 📎 → Înregistrare.\nPoți avea text, liste, poze și înregistrări în aceeași notiță.", "fd": "df_proj"}, {"id": "d36", "tab": "d", "text": "🔓 Ai intrat în folderul blocat\nBlochezi orice folder: ține apăsat → 🔒 Blochează → alegi un PIN de 4 cifre. La ieșire, folderul se blochează din nou.", "fd": "df_priv"}, {"id": "dt2", "tab": "conf", "text": "🔓 Ai deschis tabul blocat\nAici ții date confidențiale: coduri, contracte, adrese. Deblocare definitivă: ține apăsat pe tab → 🔓 Deblochează (cere PIN)."}, {"id": "dt3", "tab": "conf", "type": "check", "title": "Acte de reînnoit", "items": [{"id": "dti1", "text": "Pașaport", "done": false}, {"id": "dti2", "text": "Asigurare mașină", "done": false}], "text": "Acte de reînnoit\nPașaport\nAsigurare mașină"}, {"id": "da1", "tab": "auto", "type": "check", "title": "🚗 Acte mașină", "items": [{"id": "da1_0", "text": "ITP – expiră pe 12 martie", "done": false}, {"id": "da1_1", "text": "RCA – reînnoit", "done": true}, {"id": "da1_2", "text": "Rovinietă", "done": false}], "text": "🚗 Acte mașină\nITP – expiră pe 12 martie\nRCA – reînnoit\nRovinietă"}, {"id": "da2", "tab": "auto", "text": "🔧 Revizie\nSchimb ulei și filtre la 15.000 km. Verifică plăcuțele de frână și presiunea în roți."}, {"id": "dp1", "tab": "conf", "type": "check", "title": "💡 Facturi lunare", "items": [{"id": "dp1_0", "text": "Curent", "done": true}, {"id": "dp1_1", "text": "Gaz", "done": false}, {"id": "dp1_2", "text": "Apă", "done": false}, {"id": "dp1_3", "text": "Internet", "done": true}], "text": "💡 Facturi lunare\nCurent\nGaz\nApă\nInternet"}], "folders": [{"id": "df_cli", "tab": "d", "parent": "", "name": "Clienți"}, {"id": "df_26", "tab": "d", "parent": "df_cli", "name": "2026"}, {"id": "df_oct", "tab": "d", "parent": "df_26", "name": "Octombrie"}, {"id": "df_proj", "tab": "d", "parent": "", "name": "Proiecte"}, {"id": "df_priv", "tab": "d", "parent": "", "name": "Privat", "lk": "{\"v\":1,\"salt\":\"qkMCQOyXgzFSQwNDgwlTew==\",\"iv\":\"E2/zYrrWT19qLhWh\",\"ct\":\"uiKBvaOof146xJ7oyJWLUeJGoR81ngZ+JSm/XWcqeLu338tT\"}"}]},t0=Date.now(),iso=new Date().toISOString(),tm=new Date();tm.setDate(tm.getDate()+1);tm.setHours(9,0,0,0);
  if(NL!=='ro')(function tw(o){for(var k in o){var v=o[k];if(typeof v==='string'){if(/^(name|text|title|v)$/.test(k))o[k]=TR(v)}else if(v&&typeof v==='object')tw(v)}})(D0);
  D0.notes.forEach(function(n,i){n.ts=t0-i*36e5;n.createdAt=iso;n.updatedAt=iso;if(n.alarm)n.alarm={at:tm.getTime(),rep:0}});
- localStorage.setItem('demo:ns_notes',JSON.stringify(D0.notes));localStorage.setItem('demo:ns_notetabs',JSON.stringify(D0.tabs));localStorage.setItem('demo:ns_notetab','"g"');localStorage.setItem('demo:ns_notesort1','1');localStorage.setItem('demo:ns_cfg',JSON.stringify({name:''}));localStorage.setItem('demo:ns_folders',JSON.stringify(D0.folders||[]));localStorage.setItem('demo:ns_demov',DEMOV)}}catch(_){}}
+ localStorage.setItem('demo:ns_notes',JSON.stringify(D0.notes));localStorage.setItem('demo:ns_notetabs',JSON.stringify(D0.tabs));localStorage.setItem('demo:ns_notetab','"u"');localStorage.setItem('demo:ns_notesort1','1');localStorage.setItem('demo:ns_cfg',JSON.stringify({name:''}));localStorage.setItem('demo:ns_folders',JSON.stringify(D0.folders||[]));localStorage.setItem('demo:ns_demov',DEMOV)}}catch(_){}}
 function demoSet(on){try{if(on)localStorage.setItem('notis_demo','1');else localStorage.removeItem('notis_demo');localStorage.setItem('notis_demo_offered','1')}catch(_){}location.reload()}
 function demoReset(){try{Object.keys(localStorage).filter(function(k){return k.indexOf('demo:')===0}).forEach(function(k){localStorage.removeItem(k)})}catch(_){}try{indexedDB.deleteDatabase('notis-photos-demo')}catch(_){}}
 document.documentElement.classList.add('notis');
@@ -1147,15 +1197,15 @@ function saveCfg(){LS.set('ns_cfg',cfg)}
 
 /* ---------- clock ---------- */
 var FONTS=[
- {id:'condensed',name:'Condensat (implicit)',css:'"Roboto Condensed",Oswald,"Arial Narrow",sans-serif-condensed,sans-serif',w:700,k:1},
+ {id:'condensed',name:TR('Condensat (implicit)'),css:'"Roboto Condensed",Oswald,"Arial Narrow",sans-serif-condensed,sans-serif',w:700,k:1},
  {id:'orbitron',name:'Orbitron',css:'Orbitron,monospace',w:700,k:1},
  {id:'rajdhani',name:'Rajdhani',css:'Rajdhani,sans-serif',w:700,k:1.25},
  {id:'sharetech',name:'Share Tech Mono',css:'"Share Tech Mono",monospace',w:400,k:1.2},
  {id:'audiowide',name:'Audiowide',css:'Audiowide,sans-serif',w:400,k:1},
  {id:'teko',name:'Teko',css:'Teko,sans-serif',w:500,k:1.45},
  {id:'oxanium',name:'Oxanium',css:'Oxanium,sans-serif',w:700,k:1.1},
- {id:'dseg7',name:'DSEG7 (7 segmente)',css:'"DSEG7 Classic",monospace',w:700,k:.9,seg:'88.88'},
- {id:'dseg14',name:'DSEG14 (14 segm.)',css:'"DSEG14 Classic",monospace',w:700,k:.9,seg:'~~.~~'},
+ {id:'dseg7',name:TR('DSEG7 (7 segmente)'),css:'"DSEG7 Classic",monospace',w:700,k:.9,seg:'88.88'},
+ {id:'dseg14',name:TR('DSEG14 (14 segm.)'),css:'"DSEG14 Classic",monospace',w:700,k:.9,seg:'~~.~~'},
  {id:'mono',name:TR('Monospace sistem'),css:'ui-monospace,"Roboto Mono","Droid Sans Mono",Menlo,Consolas,monospace',w:700,k:1.15}];
 function fontById(id){return FONTS.filter(function(f){return f.id===id})[0]||FONTS[0]}
 function applyClock(c){c=c||cfg;var f=fontById(c.clockFont),el=$('clock');
@@ -1267,7 +1317,7 @@ function icon(kind,day){var u='i'+(_iconN++),body='';
 function windTxt(k){return k<6?TR('Vânt calm'):k<20?TR('Vânt slab'):k<39?TR('Vânt moderat'):k<62?TR('Vânt puternic'):TR('Vânt foarte puternic')}
 var wx=LS.get('ns_wx',null);
 function wxSentence(w){if(!w)return TR('Nu am date despre vreme.');var d=WMO[w.code]||[TR('Vreme variabilă'),'cloud',TR('Variabil')];
- var s=d[0]+'. Acum '+Math.round(w.temp)+' grade. Maxima '+Math.round(w.max)+', minima '+Math.round(w.min)+TR('. Șanse de ploaie: ')+w.pp+'%. '+windTxt(w.wind)+'.';
+ var s=d[0]+TR('. Acum ')+Math.round(w.temp)+TR(' grade. Maxima ')+Math.round(w.max)+TR(', minima ')+Math.round(w.min)+TR('. Șanse de ploaie: ')+w.pp+'%. '+windTxt(w.wind)+'.';
  var rainy=/rain|storm|drizzle/.test(d[1]);s+=(w.pp>=40||rainy)?TR(' Ia umbrela cu tine.'):TR(' Nu ai nevoie de umbrelă.');return s}
 function wxDayLabel(iso){var p=String(iso||'').split('-');if(p.length<3)return'—';
  var d=new Date(+p[0],+p[1]-1,+p[2]);return ZILE_S[d.getDay()]+' '+d.getDate()}
@@ -1278,7 +1328,7 @@ function renderWxDays(){var el=$('wxdays');if(!el)return;el.innerHTML='';
   var lab=document.createElement('div');lab.className='wd';lab.textContent=wxDayLabel(day.date);cell.appendChild(lab);
   var ic=document.createElement('div');ic.className='wi';ic.innerHTML=icon(d[1],1);cell.appendChild(ic);
   el.appendChild(cell)})}
-function renderWx(){$('wxlbl').textContent='Vremea · '+cfg.city;if($('wxcity'))$('wxcity').textContent=cfg.city;
+function renderWx(){$('wxlbl').textContent=TR('Vremea · ')+cfg.city;if($('wxcity'))$('wxcity').textContent=cfg.city;
  if(!wx){$('wxicon').innerHTML=icon('cloud',1);$('wxtemp').textContent='—°';if($('wxtempmini'))$('wxtempmini').textContent='—°';if($('wxiconmini'))$('wxiconmini').innerHTML=icon('cloud',1);$('wxcond').textContent=TR('Se încarcă…');$('wxfeel').textContent='';$('wxline').textContent='';$('wxhi').textContent='';$('wxmeta').textContent='';renderWxDays();return}
  var d=WMO[wx.code]||[TR('Vreme variabilă'),'cloud',TR('Variabil')];$('wxicon').innerHTML=icon(d[1],wx.day);if($('wxiconmini'))$('wxiconmini').innerHTML=icon(d[1],wx.day);
  $('wxtemp').textContent=Math.round(wx.temp)+'°';if($('wxtempmini'))$('wxtempmini').textContent=Math.round(wx.temp)+'°';
@@ -1289,7 +1339,7 @@ function renderWx(){$('wxlbl').textContent='Vremea · '+cfg.city;if($('wxcity'))
  if(!(speaking&&activeSeg&&activeSeg.el===$('wxtxt')))$('wxtxt').textContent=wxSentence(wx);
  var t=new Date(wx.ts),n=new Date();
  var when=dkey(t)===dkey(n)?TR('azi la ')+pad(t.getHours())+':'+pad(t.getMinutes()):t.getDate()+' '+LUNI_S[t.getMonth()]+' '+pad(t.getHours())+':'+pad(t.getMinutes());
- $('wxmeta').textContent='Actualizat '+when+(wx.stale?' (offline)':'');
+ $('wxmeta').textContent=TR('Actualizat ')+when+(wx.stale?' (offline)':'');
  renderWxDays()}
 function loadWx(){
  var u='https://api.open-meteo.com/v1/forecast?latitude='+cfg.lat+'&longitude='+cfg.lon+'&current=temperature_2m,apparent_temperature,weather_code,wind_speed_10m,is_day&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone='+encodeURIComponent(cfg.tz||'Europe/Bucharest')+'&forecast_days=5';
@@ -1310,7 +1360,7 @@ function save(){LS.set('ns_tasks',tasks);histPush()}
 function live(t){return !t.deleted}
 function visible(t){return live(t)&&(!t.done||t.doneDate===dkey())} /* done tasks stay visible until the end of the day they were completed */
 function dayOff(n){var d=new Date();d.setDate(d.getDate()+n);return dkey(d)}
-function shortDate(k){var p=k.split('-');return 'din '+(+p[2])+' '+LUNI_S[+p[1]-1]}
+function shortDate(k){var p=k.split('-');return TR('din ')+(+p[2])+' '+LUNI_S[+p[1]-1]}
 /* v15: Azi / Mâine. Each task has dueDay. Azi = dueDay <= today (open, or done today); Mâine = dueDay >= tomorrow.
    Open tasks whose dueDay passed roll to today (fromDay keeps the first day they were due -> "din 3 oct" note). */
 function inList(t,which){var tk=dkey();return which==='maine'?t.dueDay>tk:t.dueDay<=tk}
@@ -1339,7 +1389,7 @@ function renderItem(t,stHtml,alarm){var li=document.createElement('li');li.class
  li.innerHTML='<span class="dot"></span><span class="t kw">'+esc(t.text)+'</span>'+(stHtml?'<span class="st">'+stHtml+'</span>':'')+al+'<button class="ed" aria-label="Editează">✎</button><button class="x" aria-label="Șterge">×</button>';return li}
 function fillList(ul,list,emptyTxt,makeLi){ul.innerHTML=list.length?'':'<li class="empty">'+emptyTxt+'</li>';if(!list.length)return;
  list.filter(function(x){return x.urgent&&!isDoneItem(x)}).forEach(function(x){ul.appendChild(makeLi(x))});
- var sep=document.createElement('li');sep.className='jv-sep';sep.setAttribute('aria-hidden','true');sep.innerHTML='<span>URGENT ↑</span>';ul.appendChild(sep);
+ var sep=document.createElement('li');sep.className='jv-sep';sep.setAttribute('aria-hidden','true');sep.innerHTML='<span>'+TR('URGENT ↑')+'</span>';ul.appendChild(sep);
  list.filter(function(x){return !x.urgent&&!isDoneItem(x)}).forEach(function(x){ul.appendChild(makeLi(x))});
  list.filter(isDoneItem).forEach(function(x){ul.appendChild(makeLi(x))})}
 function placeBeforeDone(arr,item,doneFn){var i=arr.indexOf(item);if(i>=0)arr.splice(i,1);
@@ -1491,7 +1541,7 @@ $('tmForm').addEventListener('submit',function(e){e.preventDefault();var n=$('tm
  if(!n){toast(TR('Numele tabului e obligatoriu'));$('tmName').focus();return}
  if(tmTab){tmTab.name=n;tmTab.color=tmColor;tmTab.editedAt=new Date().toISOString();saveTabs();renderTabs();closeTabModal();toast(TR('Tab redenumit'));return}
  var t={id:uid(),name:n,color:tmColor,created:new Date().toISOString(),items:[]};tabs.push(t);saveTabs();renderTabs();closeTabModal();
- var c=$('ct_'+t.id);if(c){c.scrollIntoView({behavior:'smooth',block:'center'})}toast('Tab „'+n+'" creat')});
+ var c=$('ct_'+t.id);if(c){c.scrollIntoView({behavior:'smooth',block:'center'})}toast(TR('Tab „')+n+TR('” creat'))});
 
 /* ---------- undo / redo: snapshot history of tasks + shopping + tabs (session only, max 50 steps) ---------- */
 var HMAX=50,hUndo=[],hRedo=[],hCur=null;
@@ -1608,7 +1658,7 @@ function lpPos(){var c=lpCur;if(!c)return;var r=c.li.getBoundingClientRect(),box
  var top=r.bottom+6;if(top+h>vh-10)top=Math.max(10,r.top-h-6);box.style.top=top+'px';box.style.left=Math.max(12,Math.min(window.innerWidth-w-12,r.left+24))+'px'}
 function lpMoveMenu(){var c=lpCur,o=dndObj(c.S,c.id),box=$('lpBox'),h='<div class="lph">Mută în</div>';
  lpLists().forEach(function(L,i){h+='<button data-mv="'+i+'"'+(L.key===c.S.key?' class="cur"':'')+'>'+esc(L.n)+(L.key===c.S.key?' ✓':'')+'</button>'});
- h+='<button data-a="urg">'+(o.urgent?'● Normal':'● Urgent')+'</button>';box.innerHTML=h;lpPos()}
+ h+='<button data-a="urg">'+(o.urgent?TR('● Normal'):TR('● Urgent'))+'</button>';box.innerHTML=h;lpPos()}
 function lpTabOpen(hd){lpCur={li:hd,tabHd:true};$('lpBox').innerHTML='<button data-a="ren">✎ Redenumește</button><button data-a="tdel" class="dng">🗑 Șterge tabul</button>';$('lpMenu').classList.add('show');hd.classList.add('jv-lpon');lpPos()}
 function lpNTOpen(b){lpCur={li:b,nt:b.dataset.id};$('lpBox').innerHTML='<button data-a="ntren">✎ Redenumește</button><button data-a="ntmv">↔ Mută</button><button data-a="ntcol">🎨 Culoare</button>'+((findNT(b.dataset.id)||{}).lk?'<button data-a="ntunl">🔓 Deblochează</button>':'<button data-a="ntlock">🔒 Blochează</button>')+'<button data-a="ntdel" class="dng">🗑 Șterge tabul</button>';$('lpMenu').classList.add('show');b.classList.add('jv-lpon');lpPos()}
 function lpNoteOpen(li){if((findN(li.dataset.id)||{}).del){lpCur={li:li,note:true};$('lpBox').innerHTML='<button data-a="nrest">↩ Reface</button><button data-a="npurge" class="dng">× Șterge definitiv</button>';$('lpMenu').classList.add('show');lpPos();return}lpCur={li:li,note:true};try{var _sn=findN(li.dataset.id);nShP=_sn&&!(_sn.lock&&!_sn._key)?nSharePrep(_sn):null}catch(_){nShP=null}$('lpBox').innerHTML='<button data-a="nal">⏰ Alarmă</button><button data-a="ned">✎ Editează</button><button data-a="nshr">📤 Trimite</button><button data-a="ndrag">✥ Mută (drag &amp; drop)</button><button data-a="nmv">↕ Mută în alt tab</button>'+((findN(li.dataset.id)||{}).lock?'<button data-a="nunl">🔓 Deblochează</button>':'<button data-a="nlock">🔒 Blochează</button>')+'<button data-a="ndel" class="dng">× Șterge</button>';$('lpMenu').classList.add('show');li.classList.add('jv-lpon');lpPos()}
@@ -1652,13 +1702,32 @@ var MALE_RE=/\bmale\b|barbat|bărbat|masculin|emil|andrei|ion\b|ioan|mihai|alexa
 function maleScore(v){var n=(v.name+' '+v.voiceURI).toLowerCase(),s=0;
  if(/female|femeie|feminin|ioana|alina|carmen|maria|elena|andreea|irina/.test(n))return -10;
  if(MALE_RE.test(n))s+=10;if(/-x-/.test(n))s+=2;if(!v.default)s+=1;if(/local/.test(n))s+=.5;return s}
-function loadVoices(){if(!window.speechSynthesis)return;allVoices=speechSynthesis.getVoices()||[];
- var ro=allVoices.filter(function(v){return /^ro/i.test(v.lang)});roVoice=null;autoMale=false;
- if(cfg.voiceURI)roVoice=allVoices.filter(function(v){return v.voiceURI===cfg.voiceURI})[0]||null;
- if(!roVoice&&ro.length){roVoice=ro.slice().sort(function(a,b){return maleScore(b)-maleScore(a)})[0];autoMale=MALE_RE.test(roVoice.name+' '+roVoice.voiceURI)&&!/female/i.test(roVoice.name)}
+/* 2.2.0: "Citește" speaks the app language (Automat = phone language). Android: native system TTS via NotisNative; browser: speechSynthesis */
+var NTTS=(function(){try{return window.NotisNative&&NotisNative.isNative&&NotisNative.isNative()&&NotisNative.ttsVoices?NotisNative:null}catch(_){return null}})();
+var TTS_TAG={'zh-Hans':'zh-CN','zh-Hant':'zh-TW','no':'nb-NO','pt':'pt-PT','pt-BR':'pt-BR','ro':'ro-RO'};
+function ttsTag(){return TTS_TAG[NL]||NL}
+function langMatch(vl){vl=String(vl||'').replace(/_/g,'-').toLowerCase();var al={iw:'he','in':'id',no:'nb',nn:'nb'};var b=vl.split('-')[0];b=al[b]||b;var w=NL.toLowerCase().split('-')[0];w=al[w]||w;
+ if(b!==w)return false;if(w==='zh')return /hant|-tw|-hk|-mo/.test(vl)===(NL==='zh-Hant');return true}
+var langVoices=[],voicesReady=false,_vTry=0;
+function loadVoices(){
+ if(NTTS){var j=null;try{j=JSON.parse(NTTS.ttsVoices(NL)||'[]')}catch(_){j=[]}
+  if(j===null){allVoices=[];voicesReady=true}else{allVoices=j.map(function(v){return {name:v.name,voiceURI:v.name,lang:v.lang,'default':false,net:v.net,installed:v.installed,quality:v.quality,nat:true}});
+   var st=-1;try{st=NTTS.ttsState()}catch(_){};voicesReady=st===2||st===-1;if(!voicesReady&&_vTry++<20)setTimeout(loadVoices,600)}}
+ else{if(!window.speechSynthesis)return;allVoices=speechSynthesis.getVoices()||[];voicesReady=allVoices.length>0||_vTry++>3}
+ langVoices=allVoices.filter(function(v){return v.installed!==false&&langMatch(v.lang)});roVoice=null;autoMale=false;
+ if(cfg.voiceURI)roVoice=langVoices.filter(function(v){return v.voiceURI===cfg.voiceURI})[0]||null;
+ if(!roVoice&&langVoices.length){roVoice=langVoices.slice().sort(function(a,b){return NL==='ro'?maleScore(b)-maleScore(a):((a.net?1:0)-(b.net?1:0))||((b.quality||0)-(a.quality||0))||((b['default']?1:0)-(a['default']?1:0))})[0];autoMale=NL==='ro'&&MALE_RE.test(roVoice.name+' '+roVoice.voiceURI)&&!/female/i.test(roVoice.name)}
  if($('modal').classList.contains('show'))fillVoiceSelect()}
-function curPitch(){return cfg.pitch!=null?+cfg.pitch:(autoMale?1:.75)}
-if(window.speechSynthesis){loadVoices();if(speechSynthesis.addEventListener)speechSynthesis.addEventListener('voiceschanged',loadVoices);else speechSynthesis.onvoiceschanged=loadVoices;setTimeout(loadVoices,500);setTimeout(loadVoices,2000)}
+function installVoice(){var ok=false;try{ok=NTTS&&NTTS.ttsInstall&&NTTS.ttsInstall()}catch(_){}
+ if(!ok)toast(TR('Instalează o voce din setările telefonului: Setări → Sistem → Limbi → Transformare text în vorbire.'))}
+function voiceMissing(){var cf=$('cfModal').querySelector('.cftxt'),t0=cf.textContent,ok=$('cfOk'),no=$('cfNo'),o0=ok.textContent,n0=no.textContent;
+ var ln='';try{ln=new Intl.DisplayNames([NL==='no'?'nb':NL],{type:'language'}).of(NL==='no'?'nb':NL)}catch(_){}
+ cf.textContent=TR('Nu e instalată nicio voce pentru limba aplicației')+(ln?' ('+ln+')':'')+'. '+TR('Instalează una ca să pot citi cu voce tare.');ok.textContent=TR('Instalează o voce');no.textContent=TR('Închide');ok.classList.remove('dngb');
+ function back(){cf.textContent=t0;ok.textContent=o0;no.textContent=n0;ok.classList.add('dngb')}
+ $('cfOk').onclick=function(){jvClose('cfModal');back();installVoice()};$('cfNo').onclick=function(){jvClose('cfModal');back()};$('cfModal').classList.add('show')}
+function curPitch(){return cfg.pitch!=null?+cfg.pitch:(autoMale||NL!=='ro'?1:.75)}
+if(NTTS){loadVoices();setTimeout(loadVoices,1500)}
+else if(window.speechSynthesis){loadVoices();if(speechSynthesis.addEventListener)speechSynthesis.addEventListener('voiceschanged',loadVoices);else speechSynthesis.onvoiceschanged=loadVoices;setTimeout(loadVoices,500);setTimeout(loadVoices,2000)}
 
 /* word weight ≈ how long it takes to say (used for timing inside a known-duration chunk) */
 function spokenLen(w){var core=w.replace(/[^0-9a-zăâîșțşţáéíóúàèìòùäëïöü%]/gi,'');var n=0;
@@ -1682,7 +1751,7 @@ function chunkTimes(ch,pcm,sr){var win=Math.max(1,Math.round(sr*.01)),n=Math.flo
  var ws=[],tot=0;for(var k=ch.a;k<ch.b;k++){var w=ch.seg.words[k].w,x=spokenLen(w)+1.5+(k<ch.b-1?pauseW(w):0);ws.push(x);tot+=x}
  var times=[],c=0;ws.forEach(function(x){times.push(t0+(t1-t0)*c/tot);c+=x});return times}
 function waitUntil(t,gen){return new Promise(function(res){(function chk(){if(gen!==kGen||!actx||actx.currentTime>=t)res();else setTimeout(chk,40)})()})}
-function selVoice(){return cfg.engine==='browser'?null:(TTS.voice(cfg.engine)||TTS.voice('mihai'))}
+function selVoice(){return (cfg.engine==='browser'||NL!=='ro')?null:(TTS.voice(cfg.engine)||TTS.voice('mihai'))}
 function speakNeural(segs,gen,v){
  var chunks=buildChunks(segs);if(!chunks.length)return Promise.resolve();
  unlockAudio();if(!actx)return Promise.reject(new Error('AudioContext indisponibil'));
@@ -1707,9 +1776,10 @@ function speakNeural(segs,gen,v){
  return step()}
 
 /* --- phone voice engine (speechSynthesis): boundary events or timer estimate --- */
+var ttsCb={},ttsN=0;window.notisTtsEv=function(id,t,s,e){var h=ttsCb[id];if(!h)return;if(t==='start')h.onstart&&h.onstart();else if(t==='range')h.onboundary&&h.onboundary({name:'word',charIndex:s});else{delete ttsCb[id];h.onend&&h.onend()}};
 function speakBrowserSeg(seg,gen){return new Promise(function(resolve){
- if(!window.speechSynthesis||gen!==kGen){resolve();return}
- var u=new SpeechSynthesisUtterance(seg.text);u.lang='ro-RO';if(roVoice){u.voice=roVoice;u.lang=roVoice.lang}
+ if((!NTTS&&!window.speechSynthesis)||gen!==kGen){resolve();return}
+ var u=NTTS?{}:new SpeechSynthesisUtterance(seg.text);if(!NTTS){u.lang=ttsTag();if(roVoice&&!roVoice.nat){u.voice=roVoice;u.lang=roVoice.lang}}
  var rate=curRate();u.rate=rate;u.pitch=curPitch();
  var got=false,started=false,done=false,timer=null,est=0;seg.words.forEach(function(w){est+=wordMs(w.w,rate)});
  function fin(){if(done)return;done=true;clearTimeout(timer);clearTimeout(safety);resolve()}
@@ -1719,21 +1789,24 @@ function speakBrowserSeg(seg,gen){return new Promise(function(resolve){
  u.onboundary=function(e){if(gen!==kGen||(e.name&&e.name!=='word'))return;if(!got){got=true;clearTimeout(timer)}
   var ci=e.charIndex||0,k=0;while(k<seg.words.length-1&&ci>=seg.words[k].e)k++;hl(seg,k)};
  u.onend=u.onerror=fin;
- speechSynthesis.speak(u);
- setTimeout(function(){if(!started&&!done&&gen===kGen&&speechSynthesis.speaking)onStart()},1200);
+ if(NTTS){var id='u'+(++ttsN);ttsCb[id]=u;if(!NTTS.ttsSpeak(seg.text,roVoice?roVoice.name:'',NL,rate,u.pitch,id)){delete ttsCb[id];fin();return}
+  setTimeout(function(){if(!started&&!done&&gen===kGen)onStart()},1200)}
+ else{speechSynthesis.speak(u);
+ setTimeout(function(){if(!started&&!done&&gen===kGen&&speechSynthesis.speaking)onStart()},1200)}
  var safety=setTimeout(fin,est*2.5+8000)})}
 function speakBrowser(segs,gen){
- if(!window.speechSynthesis){toast(TR('Sinteza vocală nu e disponibilă'));return Promise.resolve()}
+ if(!NTTS&&!window.speechSynthesis){toast(TR('Sinteza vocală nu e disponibilă'));return Promise.resolve()}
+ if(voicesReady&&!langVoices.length&&(NTTS||allVoices.length)){voiceMissing();return Promise.resolve()}
  var p=Promise.resolve();segs.forEach(function(s){p=p.then(function(){if(gen===kGen)return speakBrowserSeg(s,gen)})});return p}
 
 function stopSpeaking(){kGen++;sources.forEach(function(s){try{s.stop()}catch(e){}});sources=[];
- if(window.speechSynthesis)speechSynthesis.cancel();clearActive();speaking=false;speakKey=null;updEq()}
+ if(window.speechSynthesis)speechSynthesis.cancel();if(NTTS)try{NTTS.ttsStop();ttsCb={}}catch(_){}clearActive();speaking=false;speakKey=null;updEq()}
 function speak(segs,key){
  stopSpeaking();var gen=++kGen;speaking=true;speakKey=key||null;updEq();unlockAudio();
  var v=selVoice(),e=v&&v.engine,useN=!!v&&TTS.state(e)==='ready';
  if(v&&!useN){ensureVoice().catch(function(){});
   toast(TTS.state(e)==='loading'?TR('Vocea ')+v.short+TR(' se pregătește (')+Math.round(TTS.progress(e)*100)+TR('%). Până atunci folosesc vocea telefonului.'):TR('Vocea ')+v.short+TR(' nu e disponibilă. Folosesc vocea telefonului.'))}
- setStatus(useN?'Vorbesc ('+v.short+')…':'Vorbesc…');
+ setStatus(useN?TR('Vorbesc (')+v.short+')…':TR('Vorbesc…'));
  var p=useN?speakNeural(segs,gen,v).catch(function(err){console.warn(err);if(gen!==kGen)return;
    setStatus(TR('Eroare voce ')+v.short+': '+(err&&err.message||err)+TR('. Folosesc vocea telefonului.'),true);return speakBrowser(segs,gen)}):speakBrowser(segs,gen);
  function fin(){if(gen!==kGen)return;speaking=false;speakKey=null;updEq();clearActive();setStatus();if(!greetBusy)renderGreet(true)}
@@ -1744,7 +1817,7 @@ function segsVoice(){greetBusy=false;return [prepSeg($('greet'),greetFull())]}
 function segsWx(){var s=[prepSeg(null,TR('Vremea în ')+cfg.city+'.')];if(wx)s.push(prepSeg($('wxtxt'),wxSentence(wx)));else s.push(prepSeg(null,TR('Nu am date despre vreme.')));return s}
 function segsUrg(open,getEl,emptyMsg){var s=[],urg=open.filter(function(x){return x.urgent}),norm=open.filter(function(x){return !x.urgent});
  if(!open.length){s.push(prepSeg(null,emptyMsg));return s}
- if(urg.length){s.push(prepSeg(null,'Urgent:'));urg.forEach(function(x){s.push(prepSeg(getEl(x),x.text))})}
+ if(urg.length){s.push(prepSeg(null,TR('Urgent:')));urg.forEach(function(x){s.push(prepSeg(getEl(x),x.text))})}
  norm.forEach(function(x){s.push(prepSeg(getEl(x),x.text))});return s}
 function segsTasks(which){var lt=which==='maine'?$('ltMaine'):$('ltAzi'),title=which==='maine'?TR('Taskuri pentru mâine'):TR('Taskuri pentru azi'),ul=which==='maine'?'lMaine':'lAzi';
  return [prepSeg(lt,title)].concat(segsUrg(listFor(which).filter(function(t){return !t.done}),function(t){return document.querySelector('#'+ul+' li[data-id="'+t.id+'"] .t')},TR('Niciun task deschis.')))}
@@ -1790,12 +1863,11 @@ $('bMicM').onclick=function(){var i=$('iTaskM');i.focus();try{i.click()}catch(e)
 var pending=null,draft=null;
 function fillVoiceSelect(){var sel=$('sVoice'),cur=sel.value||cfg.voiceURI||'';sel.innerHTML='';
  var o=document.createElement('option');o.value='';o.textContent=TR('Automat')+(roVoice&&!cfg.voiceURI?' ('+roVoice.name+')':'');sel.appendChild(o);
- var ro=allVoices.filter(function(v){return /^ro/i.test(v.lang)}),rest=allVoices.filter(function(v){return !/^ro/i.test(v.lang)});
- function grp(label,list){if(!list.length)return;var g=document.createElement('optgroup');g.label=label;
-  list.forEach(function(v){var op=document.createElement('option');op.value=v.voiceURI;op.textContent=v.name+' ('+v.lang+')'+(v.default?' ★':'');g.appendChild(op)});sel.appendChild(g)}
- grp(TR('Română'),ro);grp(TR('Toate vocile'),rest);sel.value=cur;if(sel.value!==cur)sel.value=''}
+ langVoices.forEach(function(v){var op=document.createElement('option');op.value=v.voiceURI;op.setAttribute('data-u','');op.textContent=v.name+' ('+v.lang+')'+(v.net?' ☁':'')+(v['default']?' ★':'');sel.appendChild(op)});
+ sel.value=cur;if(sel.value!==cur)sel.value='';
+ var h=$('vHint');if(h)h.textContent=langVoices.length?TR('Voci instalate pentru limba aplicației: ')+langVoices.length:TR('Nu e instalată nicio voce pentru limba aplicației.')}
 function fillEngineSelect(){var sel=$('sEngine');if(sel.options.length)return;
- TTS.VOICES.forEach(function(v){var o=document.createElement('option');o.value=v.id;o.textContent=v.label+' · ~'+TTS.sizeMB(v.engine)+' MB';sel.appendChild(o)});
+ if(NL==='ro')TTS.VOICES.forEach(function(v){var o=document.createElement('option');o.value=v.id;o.textContent=v.label+' · ~'+TTS.sizeMB(v.engine)+' MB';sel.appendChild(o)});
  var o=document.createElement('option');o.value='browser';o.textContent=TR('Vocea telefonului');sel.appendChild(o)}
 var NOTES={piper:TTS.opaque?TR('Fișier deschis local: vocea poate fi descărcată la fiecare deschidere. Deschide linkul online ca să rămână salvată.'):TR('Rapidă. Se descarcă o singură dată și merge offline.')};
 function updVoiceRow(){var id=$('sEngine').value;if(id==='browser')return;var v=TTS.voice(id),e=v.engine,s=TTS.state(e),el=$('pState');
@@ -1819,15 +1891,16 @@ $('sRate').oninput=$('sPitch').oninput=$('sTone').oninput=showVals;
 $('sSize').oninput=function(){showVals();draft.clockSize=+this.value;applyClock(draft)};
 $('sNewsSize').oninput=function(){showVals();draft.newsSize=+this.value;applyNewsSize(draft.newsSize)};
 $('sEngine').onchange=function(){updEngineUI();updVoiceRow()};
+$('sVoiceDl').onclick=installVoice;
 $('pDl').onclick=function(){ensureVoice($('sEngine').value).catch(function(){});setTimeout(updVoiceRow,50)};
 $('pDel').onclick=function(){var v=TTS.voice($('sEngine').value);if(!v||!confirm(TR('Ștergi vocea ')+TTS.engineName(v.engine)+TR(' descărcată? (se poate descărca din nou)')))return;TTS.remove(v.engine).then(function(){toast(TR('Vocea a fost ștearsă'));updVoiceRow()})};
 $('sTest').onclick=function(){var old={engine:cfg.engine,rate:cfg.rate,pitch:cfg.pitch,voiceURI:cfg.voiceURI,tone:cfg.tone};
- cfg.tone=+$('sTone').value;cfg.engine=$('sEngine').value;cfg.rate=+$('sRate').value;cfg.pitch=+$('sPitch').value;cfg.voiceURI=$('sVoice').value||null;loadVoices();
- greetBusy=true;clearTimeout(greetRestoreT);var seg=prepSeg($('greet'),'Salut, '+($('sName').value.trim()||cfg.name)+TR('. Așa sună vocea mea acum.'));
+ cfg.tone=+$('sTone').value;if(NL==='ro')cfg.engine=$('sEngine').value;cfg.rate=+$('sRate').value;cfg.pitch=+$('sPitch').value;cfg.voiceURI=$('sVoice').value||null;loadVoices();
+ greetBusy=true;clearTimeout(greetRestoreT);var seg=prepSeg($('greet'),TR('Salut, ')+($('sName').value.trim()||cfg.name)+TR('. Așa sună vocea mea acum.'));
  speak([seg],'voice').then(function(){greetBusy=false});setTimeout(function(){Object.assign(cfg,old);loadVoices()},0)};
 $('bSettings').onclick=function(){draft={clockFont:cfg.clockFont,clockColor:cfg.clockColor,clockSize:cfg.clockSize,newsSize:newsScale,newsCats:newsCats.slice()};
  $('sName').value=cfg.name;$('sCity').value=cfg.city;$('cityList').innerHTML='';pending=null;$('citySel').textContent='';
- fillEngineSelect();$('sEngine').value=cfg.engine;$('sTone').value=cfg.tone;loadVoices();fillVoiceSelect();$('sVoice').value=cfg.voiceURI||'';$('sRate').value=curRate();$('sPitch').value=curPitch();$('sSize').value=cfg.clockSize;$('sNewsSize').value=newsScale;buildNewsCats(draft.newsCats);
+ fillEngineSelect();$('sEngine').value=NL==='ro'?cfg.engine:'browser';$('sTone').value=cfg.tone;loadVoices();fillVoiceSelect();$('sVoice').value=cfg.voiceURI||'';$('sRate').value=curRate();$('sPitch').value=curPitch();$('sSize').value=cfg.clockSize;$('sNewsSize').value=newsScale;buildNewsCats(draft.newsCats);
  $('sRemindUrg').checked=cfg.remindUrgent!==false;showVals();updEngineUI();updVoiceRow();buildFontGrid();buildColors();renderBkList();$('modal').classList.add('show')};
 function closeModal(){applyClock(cfg);applyNewsSize(newsScale);renderNews(newsCats);$('modal').classList.remove('show')}
 $('sCancel').onclick=closeModal;
@@ -1849,8 +1922,8 @@ $('sGeo').onclick=function(){if(!navigator.geolocation){toast(TR('Locația nu e 
    b.disabled=false;citySel({city:nm,lat:lat,lon:lon,tz:'auto'},sub)})},
   function(){b.disabled=false;$('citySel').textContent='';toast(TR('Nu am acces la locație (permisiune refuzată)'))},{enableHighAccuracy:false,timeout:12000,maximumAge:600000})};
 $('sSave').onclick=function(){var name=$('sName').value.trim()||cfg.name,city=$('sCity').value.trim();
- function done(){saveCfg();$('modal').classList.remove('show');applyClock();renderGreet(true);renderWx();loadWx();toast(TR('Setări salvate'));if(cfg.engine!=='browser')ensureVoice().catch(function(){})}
- cfg.name=name;cfg.engine=$('sEngine').value;cfg.tone=+$('sTone').value;cfg.voiceURI=$('sVoice').value||null;cfg.rate=+$('sRate').value;cfg.pitch=+$('sPitch').value;
+ function done(){saveCfg();$('modal').classList.remove('show');applyClock();renderGreet(true);renderWx();loadWx();toast(TR('Setări salvate'));if(cfg.engine!=='browser'&&NL==='ro')ensureVoice().catch(function(){})}
+ cfg.name=name;if(NL==='ro')cfg.engine=$('sEngine').value;cfg.tone=+$('sTone').value;cfg.voiceURI=$('sVoice').value||null;cfg.rate=+$('sRate').value;cfg.pitch=+$('sPitch').value;
  cfg.remindUrgent=!!$('sRemindUrg').checked;cfg.clockFont=draft.clockFont;cfg.clockColor=draft.clockColor;cfg.clockSize=draft.clockSize;newsScale=draft.newsSize||100;LS.set('ns_newssize',newsScale);applyNewsSize(newsScale);newsCats=draft.newsCats.slice();LS.set('ns_newscats',newsCats);renderNews(newsCats);loadVoices();
  if(pending){var chg=pending.lat!==cfg.lat||pending.lon!==cfg.lon||pending.city!==cfg.city;cfg.city=pending.city;cfg.lat=pending.lat;cfg.lon=pending.lon;cfg.tz=pending.tz;if(chg){wx=null;LS.set('ns_wx',null)}done()}
  else if(city&&city!==cfg.city){geocode(city).then(function(r){if(!r.length){toast(TR('Orașul nu a fost găsit'));return}
@@ -1866,7 +1939,7 @@ function maybeRemindUrgent(){
  var u=urgentAzi();if(!u.length)return;
  var day=dkey();if(LS.get('ns_urgday',null)===day)return;LS.set('ns_urgday',day);
  var n=u.length,tit=u.slice(0,2).map(function(t){return t.text}).join(' · ');
- var msg=(n===1?TR('Ai 1 task urgent azi: '):'Ai '+n+TR(' taskuri urgente azi: '))+tit+(n>2?'…':'');
+ var msg=(n===1?TR('Ai 1 task urgent azi: '):TR('Ai ')+n+TR(' taskuri urgente azi: '))+tit+(n>2?'…':'');
  toast(msg);clearTimeout(toast._t);toast._t=setTimeout(function(){$('toast').classList.remove('show')},5500)}
 document.addEventListener('visibilitychange',function(){if(!document.hidden)setTimeout(maybeRemindUrgent,600)});
 window.addEventListener('focus',function(){setTimeout(maybeRemindUrgent,600)});
@@ -1916,7 +1989,7 @@ function bkApply(data){if(!data||typeof data!=='object')throw new Error('empty')
  renderNews(newsCats);loadVoices();
  if($('modal').classList.contains('show')){draft={clockFont:cfg.clockFont,clockColor:cfg.clockColor,clockSize:cfg.clockSize,newsSize:newsScale,newsCats:newsCats.slice()};
   $('sName').value=cfg.name;$('sCity').value=cfg.city;$('cityList').innerHTML='';pending=null;
-  fillEngineSelect();$('sEngine').value=cfg.engine;$('sTone').value=cfg.tone;fillVoiceSelect();$('sVoice').value=cfg.voiceURI||'';$('sRate').value=curRate();$('sPitch').value=curPitch();$('sSize').value=cfg.clockSize;$('sNewsSize').value=newsScale;buildNewsCats(draft.newsCats);
+  fillEngineSelect();$('sEngine').value=NL==='ro'?cfg.engine:'browser';$('sTone').value=cfg.tone;fillVoiceSelect();$('sVoice').value=cfg.voiceURI||'';$('sRate').value=curRate();$('sPitch').value=curPitch();$('sSize').value=cfg.clockSize;$('sNewsSize').value=newsScale;buildNewsCats(draft.newsCats);
   showVals();updEngineUI();updVoiceRow();buildFontGrid();buildColors()}
  if(!wx||wx.city!==cfg.city||(wx.lat!=null&&(wx.lat!==cfg.lat||wx.lon!==cfg.lon))){wx=null;LS.set('ns_wx',null);renderWx();loadWx()}else renderWx()}
 function bkRestore(id){var e=bkFind(id);if(!e)return;if(!confirm(TR('Se înlocuiește tot ce e acum în aplicație cu backup-ul din ')+e.label+'?'))return;
@@ -1938,7 +2011,7 @@ $('bBkFile').onchange=function(){var f=this.files&&this.files[0];if(!f)return;
 
 /* ---------- share ---------- */
 function summary(){var d=new Date(),tk=dkey(),o=tasks.filter(function(t){return live(t)&&!t.done});
- var L=['JARVIS · '+ZILE[d.getDay()]+', '+d.getDate()+' '+LUNI[d.getMonth()]+' '+d.getFullYear()+' '+pad(d.getHours())+':'+pad(d.getMinutes()),'','Vremea · '+cfg.city+': '+wxSentence(wx),''];
+ var L=[TR('JARVIS · ')+ZILE[d.getDay()]+', '+d.getDate()+' '+LUNI[d.getMonth()]+' '+d.getFullYear()+' '+pad(d.getHours())+':'+pad(d.getMinutes()),'',TR('Vremea · ')+cfg.city+': '+wxSentence(wx),''];
  var az=listFor('azi').filter(function(t){return !t.done}),mn=listFor('maine').filter(function(t){return !t.done});
  if(az.length){L.push(TR('Taskuri pentru azi:'));az.forEach(function(t){L.push('• '+t.text+(t.fromDay&&t.fromDay<tk?' ('+shortDate(t.fromDay)+')':''))});L.push('')}
  if(mn.length){L.push(TR('Taskuri pentru mâine:'));mn.forEach(function(t){L.push('• '+t.text)})}
@@ -1988,8 +2061,8 @@ newsData=newsNorm(newsData);
 function newsRelTime(iso){if(!iso)return'';
  var t=Date.parse(iso);if(!isFinite(t))return'';
  var s=Math.max(0,Math.round((Date.now()-t)/1000));
- if(s<60)return'acum';if(s<3600)return Math.floor(s/60)+' min';if(s<86400)return Math.floor(s/3600)+' h';
- var d=Math.floor(s/86400);return d===1?'1 zi':d+' zile'}
+ if(s<60)return TR('acum');if(s<3600)return Math.floor(s/60)+TR(' min');if(s<86400)return Math.floor(s/3600)+TR(' h');
+ var d=Math.floor(s/86400);return d===1?TR('1 zi'):d+TR(' zile')}
 function newsFmtUpdated(iso){var t=iso?new Date(iso):null;if(!t||!isFinite(t.getTime()))t=new Date();
  return TR('Actualizat la ')+pad(t.getHours())+':'+pad(t.getMinutes())}
 /* v38: in-card news search (titles+snippets; not persisted) */
@@ -2061,7 +2134,7 @@ bootVoice();
 window.JARVIS={readCard:readCard,stop:stopSpeaking,say:say,get speaking(){return speaking},get activeWord(){return activeSeg&&activeSeg.cur>=0?activeSeg.words[activeSeg.cur].w:null},
  get activeEl(){return activeSeg&&activeSeg.el?activeSeg.el.id||activeSeg.el.className:null},ensureVoice:ensureVoice,TTS:TTS};
 var dm=location.hash.match(/demo-karaoke(?:=(\d+))?/);
-if(dm)loadWx().then(function(){speaking=true;speakKey='wx';updEq();setStatus('Vorbesc (Mihai)…');var s=prepSeg($('wxtxt'),wxSentence(wx));setTimeout(function(){hl(s,+(dm[1]||6))},80)});
+if(dm)loadWx().then(function(){speaking=true;speakKey='wx';updEq();setStatus(NL==='ro'?'Vorbesc (Mihai)…':TR('Vorbesc…'));var s=prepSeg($('wxtxt'),wxSentence(wx));setTimeout(function(){hl(s,+(dm[1]||6))},80)});
 if(/demo-settings/.test(location.hash))setTimeout(function(){$('bSettings').click()},300);
 /* ---------- v40: per-task alarms (t.alarm={at:ms,rep:min|0,until:ms|null,snz:ms|null}; stored in ns_tasks -> included in Backup) ---------- */
 function alNext(t){var a=t&&t.alarm;if(!a||!a.at)return 0;return a.snz&&a.snz<a.at?a.snz:a.at}
@@ -2075,7 +2148,7 @@ function alAll(){var a=[];tasks.forEach(function(t){if(!t.deleted)a.push({r:{k:'
  shop.forEach(function(s){if(!s.hidden)a.push({r:{k:'s',id:s.id},o:s,off:s.bought})});
  tabs.forEach(function(tb){(tb.items||[]).forEach(function(s){if(!s.hidden)a.push({r:{k:'b',tab:tb.id,id:s.id},o:s,off:s.done})})});
  if(typeof notes!=='undefined'&&notes)notes.forEach(function(n){if(!n.del)a.push({r:{k:'n',id:n.id},o:n,off:false})});return a}
-function alChips(){var box=$('alChips');box.innerHTML='';[[30,'30 min'],[60,TR('1 oră')],[120,'2 ore'],[240,'4 ore'],[360,'6 ore'],[480,'8 ore'],[720,'12 ore'],[1440,'24 ore']].forEach(function(c){
+function alChips(){var box=$('alChips');box.innerHTML='';[[30,TR('30 min')],[60,TR('1 oră')],[120,TR('2 ore')],[240,TR('4 ore')],[360,TR('6 ore')],[480,TR('8 ore')],[720,TR('12 ore')],[1440,TR('24 ore')]].forEach(function(c){
  var b=document.createElement('button');b.type='button';b.className='alc'+(alRep===c[0]?' on':'');b.textContent=c[1];b.onclick=function(){alRep=c[0];$('alMin').value='';alChips()};box.appendChild(b)})}
 function alType(rep){$('alT1').classList.toggle('on',!rep);$('alT2').classList.toggle('on',!!rep);$('alRepBox').style.display=rep?'':'none'}
 function alEndUI(){$('alUntilBox').style.display=$('alEnd').value==='until'?'':'none'}
@@ -2156,7 +2229,9 @@ function nInsertAlpha(n){var i=notes.indexOf(n);if(i>=0)notes.splice(i,1);var at
 function nShift(id,d){var n=findN(id);if(!n)return;var i=notes.indexOf(n),j=i+d;while(j>=0&&j<notes.length&&(notes[j].tab!==n.tab||!notes[j].text.trim()))j+=d;
  if(j<0||j>=notes.length)return;notes[i]=notes[j];notes[j]=n;saveNotes();renderNotes()}
 function ntUid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
-function ntMigrate(){if(!Array.isArray(noteTabs)||!noteTabs.length)noteTabs=[{id:'general',name:TR('General')}];
+/* v57: default tabs for brand-new users only (no tabs stored AND no notes) — existing data is never touched */
+function NT_DEFAULTS(){return [['u','URGENȚE','#ff6b6b'],['c','Cumpărături','#ff9fd0'],['p','Plăți','#e0b84f'],['d','Diverse','#9b8cff'],['auto','Auto','#5fb8ff'],['ut','Utilități','#5fd38d']].map(function(x){return {id:x[0],name:TR(x[1]),color:x[2]}})}
+function ntMigrate(){if(noteTabs==null&&!notes.length)noteTabs=NT_DEFAULTS();if(!Array.isArray(noteTabs)||!noteTabs.length)noteTabs=[{id:'general',name:TR('General')}];
  notes.forEach(function(n){if(!n.createdAt)n.createdAt=n.ts||new Date().toISOString();if(!n.updatedAt)n.updatedAt=n.editedAt||n.createdAt});
  notes.forEach(function(n){if(!n.tab||!noteTabs.some(function(t){return t.id===n.tab}))n.tab=noteTabs[0].id});
  if(!noteTabs.some(function(t){return t.id===noteTab}))noteTab=noteTabs[0].id;LS.set('ns_notes',notes);LS.set('ns_notetabs',noteTabs);LS.set('ns_notetab',noteTab)}
@@ -2326,7 +2401,7 @@ function nShBatch(P,bi){var fs=P.batches[bi],withTxt=bi===0&&P.txt,d={files:fs};
  var can=true;try{can=!navigator.canShare||navigator.canShare(d)}catch(_){can=false}
  if(!can){toast(TR('Telefonul a refuzat trimiterea pozelor'));return nShMenu(P,bi)}
  nShSend(d,function(){if(bi+1<P.batches.length)nShMenu(P,bi+1)},function(){nShMenu(P,bi)})}
-function nShMenu(P,bi){var o=[{t:TR('📤 Trimite pozele ')+nShRange(P,bi)+TR(' din ')+P.files.length+(bi===0&&P.txt?' + text':''),f:function(){nShBatch(P,bi)}}];
+function nShMenu(P,bi){var o=[{t:TR('📤 Trimite pozele ')+nShRange(P,bi)+TR(' din ')+P.files.length+(bi===0&&P.txt?TR(' + text'):''),f:function(){nShBatch(P,bi)}}];
  if(P.txt)o.push({t:TR('Doar text'),f:function(){nShSend({text:P.txt},null,function(){nCopySync(P.txt)})}});
  nShSheet(P.files.length>SH_MAXN&&bi===0?TR('Notița are ')+P.files.length+TR(' poze — le trimit pe rând, câte ')+SH_MAXN+'.':TR('Trimite notița'),o)}
 function nShareNow(P){var txt=P.txt;if(!P.ready){if(txt&&navigator.share){nShSend({text:txt},null,function(){nCopySync(txt)});return}toast(TR('Pregătesc pozele…'));return}
@@ -2423,8 +2498,8 @@ function nrField(ta,text,out,extra){if(!ta||ta.value!==text){text.split('\n').fo
 function noteRead(){if(speaking&&speakKey==='note'){stopSpeaking();return}nrClear();var cn=fullId&&findN(fullId),sg=[];
  try{var ae=document.activeElement;if(ae&&ae.blur&&$('noteFull').contains(ae))ae.blur()}catch(_){}
  var Q=function(sel){return document.querySelector('#noteFull '+sel)};
- if(cn&&cn.type==='mix'){(cn.blocks||[]).forEach(function(b){if(b.t==='text')nrField(Q('.nbw[data-b="'+b.id+'"] .nbt'),b.v||'',sg);else if(b.t==='chk')mOrder(cn,b).forEach(function(x){if(x.text.trim())nrField(Q('[data-b="'+b.id+'"] .ci[data-id="'+x.id+'"] .cit'),x.text,sg,x.done?', bifat':'')})})}
- else if(cn&&cn.type==='check'){if((cn.title||'').trim())nrField($('nfTitle'),cn.title,sg);chkOrder(cn).forEach(function(x){if(x.text.trim())nrField(Q('#nfChk .ci[data-id="'+x.id+'"] .cit'),x.text,sg,x.done?', bifat':'')})}
+ if(cn&&cn.type==='mix'){(cn.blocks||[]).forEach(function(b){if(b.t==='text')nrField(Q('.nbw[data-b="'+b.id+'"] .nbt'),b.v||'',sg);else if(b.t==='chk')mOrder(cn,b).forEach(function(x){if(x.text.trim())nrField(Q('[data-b="'+b.id+'"] .ci[data-id="'+x.id+'"] .cit'),x.text,sg,x.done?TR(', bifat'):'')})})}
+ else if(cn&&cn.type==='check'){if((cn.title||'').trim())nrField($('nfTitle'),cn.title,sg);chkOrder(cn).forEach(function(x){if(x.text.trim())nrField(Q('#nfChk .ci[data-id="'+x.id+'"] .cit'),x.text,sg,x.done?TR(', bifat'):'')})}
  else nrField($('nfText'),$('nfText').value,sg);
  if(!sg.length){nrClear();toast(TR('Notița e goală'));return}nrBusy=true;try{return speak(sg,'note')}finally{nrBusy=false}}
 $('nfRead').addEventListener('click',function(e){e.preventDefault();noteRead()});
@@ -2676,8 +2751,15 @@ document.addEventListener('visibilitychange',function(){if(document.hidden&&Obje
 /* v55: language picker (Setări → Limbă). Stored globally (not per demo); reload applies it everywhere. */
 (function(){var sel=$('sLang');if(!sel)return;var cur='auto';try{cur=localStorage.getItem('notis_lang')||'auto'}catch(_){}
  var nm={};NOTIS_LANGS.forEach(function(x){nm[x[0]]=x[1]});
- var o=document.createElement('option');o.value='auto';o.setAttribute('data-u','1');o.textContent=TR('Automat (limba telefonului)')+' · '+nm[NL];sel.appendChild(o);
- NOTIS_LANGS.forEach(function(x){var e=document.createElement('option');e.value=x[0];e.setAttribute('data-u','1');e.textContent=x[1];sel.appendChild(e)});
+ var DN=null;try{DN=new Intl.DisplayNames([NL==='no'?'nb':NL],{type:'language'})}catch(_){}
+ function dn(c){try{return DN?DN.of(c==='no'?'nb':c):''}catch(_){return ''}}
+ function fold(x){return String(x||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
+ function fill(q){q=fold(q).trim();sel.innerHTML='';
+  var o=document.createElement('option');o.value='auto';o.setAttribute('data-u','1');o.textContent=TR('Automat (limba telefonului)')+' · '+nm[NL];if(!q)sel.appendChild(o);
+  NOTIS_LANGS.forEach(function(x){if(q&&!(fold(x[1]+' '+x[2]+' '+x[3]+' '+x[0]).indexOf(q)>=0||(NL!=='en'&&NL!=='ro'&&fold(dn(x[0])).indexOf(q)>=0)))return;var e=document.createElement('option');e.value=x[0];e.setAttribute('data-u','1');var ln=dn(x[0]);e.setAttribute('data-u','');e.textContent=x[1]+(ln&&fold(ln)!==fold(x[1])?' — '+ln:'');sel.appendChild(e)});
+  if(q&&!sel.options.length){var z=document.createElement('option');z.disabled=true;z.textContent=TR('Nicio limbă găsită');sel.appendChild(z)}
+  sel.size=q?Math.min(8,Math.max(2,sel.options.length)):0;sel.value=nm[cur]?cur:'auto';if(q&&sel.selectedIndex<0)sel.selectedIndex=-1}
+ fill('');var qi=$('sLangQ');if(qi)qi.addEventListener('input',function(){fill(qi.value)});
  sel.value=nm[cur]?cur:'auto';
  sel.onchange=function(){try{if(sel.value==='auto')localStorage.removeItem('notis_lang');else localStorage.setItem('notis_lang',sel.value)}catch(_){}location.reload()}})();
 try{if(window.NotisNative&&NotisNative.setLang)NotisNative.setLang(NL)}catch(_){}
@@ -2975,7 +3057,7 @@ var BG_IDS=['none','lup','mist','forest','lake','sea','snow','night'];function b
 $('bDemo').textContent=DEMO?TR('Ieși din Mod demo'):TR('Mod demo (exemple)');$('demoHint').textContent=DEMO?TR('Ești în Mod demo. Datele tale reale sunt păstrate separat.'):TR('Deschide exemplele într-un spațiu separat; datele tale nu sunt atinse.');$('bDemoReset').style.display=DEMO?'':'none';$('bDemo').onclick=function(){demoSet(!DEMO)};$('bDemoReset').onclick=function(){demoReset();location.reload()};
 bgApply(LS.get('ns_bg','lup'));
 /* v48: background intensity: -10 very faded … 0 default … +10 much darker / vivid */
-function bgkApply(v){v=Math.max(-10,Math.min(10,+v||0));var m=v<0?1+v*0.07:1+v*0.28;document.documentElement.style.setProperty('--bgm',m.toFixed(2));$('vBgk').textContent=v===0?'implicit':(v>0?'+':'')+v;$('sBgk').value=v}
+function bgkApply(v){v=Math.max(-10,Math.min(10,+v||0));var m=v<0?1+v*0.07:1+v*0.28;document.documentElement.style.setProperty('--bgm',m.toFixed(2));$('vBgk').textContent=v===0?TR('implicit'):(v>0?'+':'')+v;$('sBgk').value=v}
 bgkApply(LS.get('ns_bgk',0));$('sBgk').addEventListener('input',function(){bgkApply(this.value)});$('sBgk').addEventListener('change',function(){LS.set('ns_bgk',+this.value)});$('bgRow').addEventListener('click',function(e){var b=e.target.closest('.bgc');if(!b)return;LS.set('ns_bg',b.dataset.bg);bgApply(b.dataset.bg)});
 $('thRow').addEventListener('click',function(e){var b=e.target.closest('.thc');if(!b)return;LS.set('ns_theme',b.dataset.th);thApply(b.dataset.th);try{renderNotes();edState()}catch(_){}});
 $('vipInt').addEventListener('input',function(){LS.set('ns_vipint',+this.value);thApply('vip')});
@@ -3046,6 +3128,35 @@ if(window.launchQueue&&launchQueue.setConsumer)launchQueue.setConsumer(function(
  document.addEventListener('visibilitychange',function(){if(document.visibilityState==='visible')sync();else push()});
  var th=thApply;thApply=function(){var r=th.apply(this,arguments);pushSoon();return r};
  setTimeout(sync,400)})();
+/* ---------- v57: automatic backups (see NOTIS_AB in the pre-script) ---------- */
+var AB_MAX=5;
+function abIdb(){return new Promise(function(res,rej){var r=indexedDB.open('notis-autobk',1);r.onupgradeneeded=function(){r.result.createObjectStore('b',{keyPath:'id'})};r.onsuccess=function(){res(r.result)};r.onerror=function(){rej(r.error)}})}
+function abIdbTx(mode,fn){return abIdb().then(function(db){return new Promise(function(res,rej){var t=db.transaction('b',mode),s=t.objectStore('b'),q=fn(s);t.oncomplete=function(){res(q&&q.result)};t.onerror=t.onabort=function(){rej(t.error)}})})}
+function abIdbAll(){return abIdbTx('readonly',function(s){return s.getAll()}).then(function(a){return (a||[]).sort(function(x,y){return y.id<x.id?-1:1})}).catch(function(){return []})}
+function abIdbPut(rec){return abIdbTx('readwrite',function(s){s.put(rec)}).then(abIdbAll).then(function(a){var x=a.slice(AB_MAX);if(!x.length)return;return abIdbTx('readwrite',function(s){x.forEach(function(r){s.delete(r.id)})})}).catch(function(e){console.warn('autobk idb',e)})}
+function abNative(){return !!(window.NotisNative&&NotisNative.autoBackup)}
+function abStore(rec){var json=JSON.stringify(rec),ok=false;if(abNative()){try{ok=!!NotisNative.autoBackup(rec.id,json)}catch(e){console.warn(e)}}return abIdbPut(rec).then(function(){return ok})}
+/* full snapshot now (raw localStorage + photos/recordings/drawings) */
+function abNow(reason){if(DEMO)return Promise.resolve(null);var rec={notisAuto:1,id:'auto-'+Date.now(),ts:new Date().toISOString(),reason:reason||'manual',from:NOTIS_AB.cur,to:NOTIS_AB.cur,raw:NOTIS_ABraw()};
+ return phDump().then(function(p){rec.photos=p;return abStore(rec)}).then(function(){renderAbList();return rec})}
+window.notisAutoBackupNow=abNow;
+function abList(){var out={};return abIdbAll().then(function(a){a.forEach(function(r){out[r.id]={id:r.id,ts:r.ts,reason:r.reason,from:r.from,to:r.to,src:'idb'}});
+ if(abNative()&&NotisNative.autoBackups){try{JSON.parse(NotisNative.autoBackups()||'[]').forEach(function(m){if(!out[m.id])out[m.id]=Object.assign({src:'native'},m);else out[m.id].nat=1})}catch(e){}}
+ return Object.keys(out).map(function(k){return out[k]}).sort(function(x,y){return y.id<x.id?-1:1})})}
+function abGet(id){return abIdbTx('readonly',function(s){return s.get(id)}).then(function(r){if(r)return r;if(abNative()&&NotisNative.autoBackupGet){var j=NotisNative.autoBackupGet(id);return j?JSON.parse(j):null}return null}).catch(function(){if(abNative()&&NotisNative.autoBackupGet){var j=NotisNative.autoBackupGet(id);return j?JSON.parse(j):null}return null})}
+function abWhy(m){return m.reason==='update'?TR('înainte de actualizare')+(m.from?' ('+String(m.from).split('|').filter(Boolean).join(' / ')+' → '+String(m.to).split('|').filter(Boolean).join(' / ')+')':''):m.reason==='before-update'?TR('înainte de descărcarea actualizării'):m.reason==='before-restore'?TR('înainte de restaurare'):TR('manual')}
+function renderAbList(){var box=$('abList');if(!box)return;abList().then(function(a){box.innerHTML='';if(!a.length){var e=document.createElement('div');e.className='bkempty';e.textContent=TR('Niciun backup automat încă.');box.appendChild(e);return}
+ a.forEach(function(m){var row=document.createElement('div');row.className='bkrow';var l=document.createElement('div');l.className='bklbl';l.setAttribute('data-u','');l.textContent=bkLabel(new Date(m.ts))+' · '+abWhy(m);row.appendChild(l);
+  var acts=document.createElement('div');acts.className='bkacts';var b=document.createElement('button');b.type='button';b.className='btn';b.textContent=TR('Restaurează');b.onclick=function(){abRestore(m.id)};acts.appendChild(b);row.appendChild(acts);box.appendChild(row)})})}
+function abRestore(id){abGet(id).then(function(rec){if(!rec||!rec.raw){toast(TR('Nu am putut restaura backup-ul'));return}
+ if(!confirm(TR('Se înlocuiește tot ce e acum în aplicație cu backup-ul din ')+bkLabel(new Date(rec.ts))+'?'))return;
+ /* safety first: snapshot of the current state, then restore */
+ return abNow('before-restore').then(function(){NOTIS_ABput(rec.raw);return rec.photos&&rec.photos.length?phLoad(rec.photos):0}).then(function(){toast(TR('Restaurat · ')+bkLabel(new Date(rec.ts)));setTimeout(function(){location.reload()},700)})}).catch(function(e){console.warn(e);toast(TR('Nu am putut restaura backup-ul'))})}
+/* boot finished: this version is now the last good one; complete the pre-update backup with photos */
+window.NOTIS_BOOTED=true;
+if(NOTIS_AB.changed&&!DEMO){try{localStorage.setItem('ns_lastver',NOTIS_AB.cur)}catch(_){}
+ var rec0=NOTIS_AB.rec;phDump().then(function(p){rec0.photos=p;return abStore(rec0)}).then(renderAbList)}
+renderAbList();
 })();
 
 </script>

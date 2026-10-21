@@ -20,7 +20,7 @@ public class LocaleStringsTest {
         Map<String, String> en = load("values");
         for (String l : Tr.LANGS) {
             if (l.equals("en")) continue;
-            Map<String, String> m = load("values-" + l);
+            Map<String, String> m = load(Tr.resDir(l));
             for (String k : en.keySet()) {
                 if (k.equals("app_name")) continue;
                 assertTrue(l + " missing " + k, m.containsKey(k));
@@ -42,7 +42,7 @@ public class LocaleStringsTest {
         }
     }
     @Test public void setLangOnlyAcceptsKnownCodes() {
-        assertEquals(7, Tr.LANGS.length);
+        assertEquals(44, Tr.LANGS.length);
         assertTrue(Arrays.asList(Tr.LANGS).containsAll(Arrays.asList("ro", "en", "fr", "de", "it", "hu", "ru")));
     }
 }
