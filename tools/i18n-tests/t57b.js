@@ -1,4 +1,5 @@
 // v57 auto-backup: (1) version change -> backup before migration, data intact; (2) simulated failing migration -> auto-restore, data intact;
+const CUR=require('fs').readFileSync('/workspace/notis/index.html','utf8').match(/NOTIS_WEBV='(\d+)'/)[1]+'|2.2.0';
 // (3) Settings list shows automatic backups, restore works; (4) same version -> no new backup.
 const p=require('puppeteer-core');const w=ms=>new Promise(r=>setTimeout(r,ms));let fails=0;const ok=(c,m)=>{if(!c)fails++;console.log((c?'PASS ':'FAIL ')+m)};
 (async()=>{const b=await p.launch({executablePath:'/usr/bin/google-chrome',args:['--no-sandbox']});
@@ -20,10 +21,10 @@ const p=require('puppeteer-core');const w=ms=>new Promise(r=>setTimeout(r,ms));l
  {const {ctx,pg}=await page({last:'56|2.1.1'});await pg.goto('http://localhost:8766/?nt_test=1',{waitUntil:'networkidle0'});await w(1500);
   const r=await pg.evaluate(()=>({nat:Object.keys(__nat),rec:Object.values(__nat).map(j=>JSON.parse(j)),notes:localStorage.getItem('ns_notes'),last:localStorage.getItem('ns_lastver'),pre:!!localStorage.getItem('ns_premig'),shown:document.getElementById('notesList').textContent}));
   ok(r.nat.length===1,'update: one native auto-backup written ('+r.nat+')');
-  ok(r.rec[0]&&r.rec[0].raw.ns_notes===NOTES&&r.rec[0].from==='56|2.1.1'&&r.rec[0].to==='57|2.2.0','update: backup holds the exact pre-update notes, from 56 → 57');
+  ok(r.rec[0]&&r.rec[0].raw.ns_notes===NOTES&&r.rec[0].from==='56|2.1.1'&&r.rec[0].to===CUR,'update: backup holds the exact pre-update notes, from 56 → 57');
   ok(r.rec[0]&&Array.isArray(r.rec[0].photos),'update: backup completed with photos/recordings array');
   ok(sig(r.notes)===sig(NOTES)&&r.shown.includes('Notița mea importantă'),'update: user notes intact and shown');
-  ok(r.last==='57|2.2.0'&&r.pre,'update: last-good version recorded, pre-migration copy kept');
+  ok(r.last===CUR&&r.pre,'update: last-good version recorded, pre-migration copy kept');
   await pg.reload({waitUntil:'networkidle0'});await w(1000);
   ok((await pg.evaluate(()=>Object.keys(__nat).length))===1,'same version again: no extra backup');
   // settings list + restore
@@ -44,6 +45,6 @@ const p=require('puppeteer-core');const w=ms=>new Promise(r=>setTimeout(r,ms));l
   // migration fixed -> next start works with the data
   await pg.evaluate(()=>{localStorage.removeItem('ns_test_failmig');sessionStorage.removeItem('ns_abreload')});await pg.reload({waitUntil:'networkidle0'});await w(1200);
   const r2=await pg.evaluate(()=>({shown:document.getElementById('notesList').textContent,last:localStorage.getItem('ns_lastver')}));
-  ok(r2.shown.includes('Notița mea importantă')&&r2.last==='57|2.2.0','fail: after the fix the app boots with the original notes');
+  ok(r2.shown.includes('Notița mea importantă')&&r2.last===CUR,'fail: after the fix the app boots with the original notes');
   await ctx.close()}
  console.log(fails?'FAILED '+fails:'ALL PASS');await b.close();process.exit(fails?1:0)})();

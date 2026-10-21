@@ -446,6 +446,7 @@ html.jv-notes #noteFab{display:flex}#noteFull.show~#noteFab,html.jv-nfull #noteF
 
 #noteFab{background:rgba(var(--s4R),.55)!important;color:var(--cyan)!important;border:1.5px solid rgba(var(--acR),.75)!important;box-shadow:0 0 12px rgba(var(--acR),.35),inset 0 0 10px rgba(var(--acR),.12)!important;font-weight:300!important}
 #nfRead{position:fixed;right:calc(14px + env(safe-area-inset-right));bottom:calc(14px + env(safe-area-inset-bottom));z-index:11;font-size:14px;padding:8px 16px}
+#nfRead{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:var(--rdmax,78px)}
 #nfRead.on{border-color:var(--cyan);color:var(--cyan);box-shadow:0 0 10px rgba(var(--acR),.4)}
 #nfText{padding-bottom:56px}
 
@@ -1125,7 +1126,7 @@ var TTS=(function(){
    (NotisNative.autoBackup, 5 rotating copies) and (2) localStorage 'ns_premig'; photos/recordings/drawings are added
    asynchronously once the app is up, plus a 5-copy IndexedDB ring. If startup throws before the app finished booting, the raw
    snapshot is written back (auto-restore) — old keys are never lost. */
-var NOTIS_WEBV='57';
+var NOTIS_WEBV='58';
 var NOTIS_AB=(function(){var R={changed:false,raw:null};try{
  var demo=localStorage.getItem('notis_demo')==='1';
  var nat='';try{if(window.NotisNative&&NotisNative.version)nat=String(NotisNative.version()||'')}catch(_){}
@@ -1688,7 +1689,7 @@ window.addEventListener('blur',dndReset);document.addEventListener('visibilitych
 var speaking=false,listening=false,kGen=0,speakKey=null;
 function updEq(){$('eq').classList.toggle('on',speaking||listening);$('orb').classList.toggle('active',speaking||listening);
  document.querySelectorAll('.spk').forEach(function(b){b.classList.toggle('on',speaking&&b.dataset.read===speakKey)});
- $('bRead').classList.toggle('on',speaking&&speakKey==='all');if($('nfRead')){var nr=speaking&&speakKey==='note';if(!nr&&!nrBusy&&nrMir&&nrMir.length)nrClear();$('nfRead').classList.toggle('on',nr);$('nfRead').textContent=nr?TR('🔊 Citește…'):TR('Citește')}$('bReadAll').classList.toggle('on',speaking&&speakKey==='below')}
+ $('bRead').classList.toggle('on',speaking&&speakKey==='all');if($('nfRead')){var nr=speaking&&speakKey==='note';if(!nr&&!nrBusy&&nrMir&&nrMir.length)nrClear();$('nfRead').classList.toggle('on',nr);$('nfRead').textContent=nr?TR('🔊 Citește…'):TR('Citește');window.nfReadFit&&nfReadFit()}$('bReadAll').classList.toggle('on',speaking&&speakKey==='below')}
 var actx=null,sources=[];
 function unlockAudio(){try{if(!actx){var AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;actx=new AC()}
  if(actx.state==='suspended')actx.resume();
@@ -2286,11 +2287,11 @@ function draftFinish(){if(!$('iNote')){draftId=null;return}var n=draftId&&findN(
 function noteGrow(){var i=$('iNote');if(!i)return;i.style.height='auto';i.style.height=i.scrollHeight+'px'}
 /* v50: top input removed; new notes start from the + button in the full editor */
 var fullId=null;
-function fullOpen(id){if(draftId)draftFinish();var n=findN(id);if(!n)return;if(n.lock&&!n._key){lkOpen(id);return}$('noteFull').classList.toggle('nro',!!n.del);nHlClear();var hp=nHlPend&&nHlPend.id===id?nHlPend:null;nHlPend=null;if(hp)setTimeout(function(){if(fullId===id)nHlApply(hp.q)},250);fullId=id;fullIsNew=false;var ta=$('nfText');ta.value=n.text;mShow(n);$('noteFull').classList.toggle('chk',n.type==='check');phClear();if(n.type==='mix')mRender();edState();setTimeout(phRender,0);if(n.type==='check')chkRender();$('noteFull').classList.add('show');document.documentElement.classList.add('jv-nfull');try{history.pushState({jvNote:1},'')}catch(_){}}
+function fullOpen(id){if(draftId)draftFinish();var n=findN(id);if(!n)return;if(n.lock&&!n._key){lkOpen(id);return}$('noteFull').classList.toggle('nro',!!n.del);nHlClear();var hp=nHlPend&&nHlPend.id===id?nHlPend:null;nHlPend=null;if(hp)setTimeout(function(){if(fullId===id)nHlApply(hp.q)},250);fullId=id;fullIsNew=false;var ta=$('nfText');ta.value=n.text;mShow(n);$('noteFull').classList.toggle('chk',n.type==='check');phClear();if(n.type==='mix')mRender();edState();setTimeout(phRender,0);if(n.type==='check')chkRender();$('noteFull').classList.add('show');setTimeout(function(){window.nfReadFit&&nfReadFit()},0);document.documentElement.classList.add('jv-nfull');try{history.pushState({jvNote:1},'')}catch(_){}}
 function fullInput(){var n=fullId&&findN(fullId);if(!n){var v=$('nfText').value;if(!v.trim())return;var now=new Date().toISOString();n={id:ntUid(),text:v,ts:now,createdAt:now,updatedAt:now,tab:noteTab,fd:nFolder||undefined};notes.push(n);fullId=n.id;fullIsNew=true;nSaveSoon();return}if(n.type==='check'||n.type==='mix')return;n.text=$('nfText').value;n.editedAt=n.updatedAt=new Date().toISOString();nSaveSoon()}
 function fullFlush(){if(!fullId)return;var n=findN(fullId);if(n){if(n.type==='check')chkSync(n);else if(n.type==='mix')mSync(n);else n.text=$('nfText').value;if(!n.text.trim()&&!n.ph)notes=notes.filter(function(x){return x!==n})}nFlush()}
 var fullIsNew=false;
-function fullNew(){var ta=$('nfText');ta.value='';$('noteFull').classList.remove('mix');ncApply(null);$('nfAlarm').classList.remove('on');phGen++;phClear();phFit();fullId=null;fullIsNew=false;$('noteFull').classList.remove('chk');$('noteFull').classList.add('show');document.documentElement.classList.add('jv-nfull');try{history.pushState({jvNote:1},'')}catch(_){}try{ta.focus()}catch(_){}}
+function fullNew(){var ta=$('nfText');ta.value='';$('noteFull').classList.remove('mix');ncApply(null);$('nfAlarm').classList.remove('on');phGen++;phClear();phFit();fullId=null;fullIsNew=false;$('noteFull').classList.remove('chk');$('noteFull').classList.add('show');setTimeout(function(){window.nfReadFit&&nfReadFit()},0);document.documentElement.classList.add('jv-nfull');try{history.pushState({jvNote:1},'')}catch(_){}try{ta.focus()}catch(_){}}
 $('noteFab').addEventListener('click',fullNew);
 /* v57: separate undo/redo for Notițe (snapshots never hold more plaintext than storage; ciphertext comes from a cache) */
 var nLockCache={},nH={u:[],r:[],cur:null},NH_MAX=60;
@@ -2433,7 +2434,7 @@ function chkRender(focusId,atEnd){var n=chkNote();if(!n)return;$('nfTitle').valu
  if(focusId){var el=document.querySelector('#nfItems .ci[data-id="'+focusId+'"] .cit');if(el){el.focus();var L=atEnd?el.value.length:0;try{el.setSelectionRange(L,L)}catch(_){}}}}
 function chkNew(){if(draftId)draftFinish();var now=new Date().toISOString(),it=ciNew(false);
  var n={id:ntUid(),type:'check',title:'',items:[it],text:'',ts:now,createdAt:now,updatedAt:now,tab:noteTab,fd:nFolder||undefined};notes.push(n);fullId=n.id;fullIsNew=true;
- $('nfText').value='';$('noteFull').classList.remove('mix');ncApply(null);$('nfAlarm').classList.remove('on');$('noteFull').classList.add('show','chk');document.documentElement.classList.add('jv-nfull');try{history.pushState({jvNote:1},'')}catch(_){}chkRender();setTimeout(function(){try{$('nfTitle').focus()}catch(_){}},60)}
+ $('nfText').value='';$('noteFull').classList.remove('mix');ncApply(null);$('nfAlarm').classList.remove('on');$('noteFull').classList.add('show','chk');setTimeout(function(){window.nfReadFit&&nfReadFit()},0);document.documentElement.classList.add('jv-nfull');try{history.pushState({jvNote:1},'')}catch(_){}chkRender();setTimeout(function(){try{$('nfTitle').focus()}catch(_){}},60)}
 $('nChkNew').addEventListener('click',chkNew);
 $('nfTitle').addEventListener('input',function(){var n=chkNote();if(!n)return;n.title=this.value;chkTouch(n)});
 $('nfTitle').addEventListener('keydown',function(e){if(e.key!=='Enter')return;e.preventDefault();var n=chkNote();if(!n)return;var f=chkOrder(n)[0];if(!f){f=ciNew(false);n.items.push(f);chkRender()}chkRender(f.id,true)});
@@ -3153,6 +3154,17 @@ function abRestore(id){abGet(id).then(function(rec){if(!rec||!rec.raw){toast(TR(
  /* safety first: snapshot of the current state, then restore */
  return abNow('before-restore').then(function(){NOTIS_ABput(rec.raw);return rec.photos&&rec.photos.length?phLoad(rec.photos):0}).then(function(){toast(TR('Restaurat · ')+bkLabel(new Date(rec.ts)));setTimeout(function(){location.reload()},700)})}).catch(function(e){console.warn(e);toast(TR('Nu am putut restaura backup-ul'))})}
 /* boot finished: this version is now the last good one; complete the pre-update backup with photos */
+/* v58: "Read aloud" label must never cover the editor toolbar in long languages: cap width to the free space, shrink font to fit */
+function nfReadFit(){var r=$('nfRead');if(!r||!r.getClientRects().length)return;var tb=document.querySelector('#noteFull .nfhist');var free=78;
+ if(tb&&tb.getBoundingClientRect().width){free=Math.max(48,Math.floor(innerWidth-14-tb.getBoundingClientRect().right-6))}
+ var lbl=r.classList.contains('on')?TR('🔊 Citește…'):TR('Citește');r.setAttribute('aria-label',lbl);r.title=lbl;
+ if(r.textContent!==lbl)r.textContent=lbl;
+ document.documentElement.style.setProperty('--rdmax',free+'px');r.style.paddingLeft=r.style.paddingRight='';r.style.fontSize='';
+ if(r.scrollWidth>r.clientWidth){r.style.paddingLeft=r.style.paddingRight='10px'}
+ for(var f=14;f>12&&r.scrollWidth>r.clientWidth;f--)r.style.fontSize=f-1+'px';
+ if(r.scrollWidth>r.clientWidth){r.style.fontSize='';r.textContent=r.classList.contains('on')?'🔊…':'🔊'}}
+window.addEventListener('resize',function(){setTimeout(nfReadFit,50)});
+window.nfReadFit=nfReadFit;setTimeout(nfReadFit,300);
 window.NOTIS_BOOTED=true;
 if(NOTIS_AB.changed&&!DEMO){try{localStorage.setItem('ns_lastver',NOTIS_AB.cur)}catch(_){}
  var rec0=NOTIS_AB.rec;phDump().then(function(p){rec0.photos=p;return abStore(rec0)}).then(renderAbList)}
