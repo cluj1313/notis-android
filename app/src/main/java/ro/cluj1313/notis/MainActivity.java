@@ -260,4 +260,13 @@ public class MainActivity extends Activity {
     void backupNow(String reason) {
         try { if (web != null) web.evaluateJavascript("window.notisAutoBackupNow&&notisAutoBackupNow('" + reason.replaceAll("[^a-z-]", "") + "')", null); } catch (Exception ignored) {}
     }
+    /** v58: run `then` once the web app reports the backup finished (photos included), or after `maxMs` at the latest */
+    private static Runnable pendingAfterBackup;
+    void backupThen(String reason, Runnable then, long maxMs) {
+        final android.os.Handler h = new android.os.Handler(android.os.Looper.getMainLooper());
+        final Runnable once = new Runnable() { boolean done; public void run() { if (done) return; done = true; pendingAfterBackup = null; then.run(); } };
+        pendingAfterBackup = once; h.postDelayed(once, maxMs);
+        try { if (web != null) web.evaluateJavascript("window.notisAutoBackupNow?Promise.resolve(notisAutoBackupNow('" + reason.replaceAll("[^a-z-]", "") + "')).catch(function(){}).then(function(){try{NotisNative.autoBackupDone()}catch(e){}}):NotisNative.autoBackupDone()", null); else once.run(); } catch (Exception e) { once.run(); }
+    }
+    static void backupDone() { final Runnable r = pendingAfterBackup; if (r != null) new android.os.Handler(android.os.Looper.getMainLooper()).post(r); }
 }

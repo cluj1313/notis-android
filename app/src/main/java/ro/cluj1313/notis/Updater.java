@@ -63,8 +63,8 @@ final class Updater {
             .setMessage(Tr.s(a, R.string.upd_msg, tag.replaceFirst("^v", ""), mine(a)))
             .setPositiveButton(Tr.s(a, R.string.upd_open), (d, w) -> {
                 /* v57: full automatic backup BEFORE the download page opens (photos included), then open the link */
-                if (a instanceof MainActivity) ((MainActivity) a).backupNow("before-update");
-                new android.os.Handler(android.os.Looper.getMainLooper()).postDelayed(() -> { try { a.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(page))); } catch (Exception ignored) {} }, 2500);
+                Runnable open = () -> { try { a.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(page))); } catch (Exception ignored) {} };
+                if (a instanceof MainActivity) ((MainActivity) a).backupThen("before-update", open, 15000); else open.run();
             })
             .setNegativeButton(Tr.s(a, R.string.upd_later), null)
             .show();

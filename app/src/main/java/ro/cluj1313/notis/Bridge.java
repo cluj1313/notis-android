@@ -47,6 +47,7 @@ final class Bridge {
 
     /* v57 automatic backups (before updates / migrations), private storage that survives app updates */
     @JavascriptInterface public boolean autoBackup(String id, String json) { if (!MainActivity.trusted) return false; return AutoBackup.write(ctx.getFilesDir(), id, json); }
+    @JavascriptInterface public void autoBackupDone() { if (MainActivity.trusted) MainActivity.backupDone(); }
     @JavascriptInterface public String autoBackups() { if (!MainActivity.trusted) return "[]"; return AutoBackup.index(ctx.getFilesDir()); }
     @JavascriptInterface public String autoBackupGet(String id) { if (!MainActivity.trusted) return ""; return AutoBackup.read(ctx.getFilesDir(), id); }
 
