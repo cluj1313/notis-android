@@ -3,3 +3,5 @@ Translation tests (run with node; expect /workspace/notis checkout + local serve
 - raw57.js (L=xx): unwrapped UI literals
 - strict.js langs: values left in Romanian
 - t22.js: runtime DOM scan + screenshots in demo mode
+- t57b.js: auto-backup (version change, simulated failing migration -> auto-restore, Settings list + restore)
+- t57c.js: read aloud in app language, install-voice intent
