@@ -13,7 +13,11 @@ Tot ce trebuie încărcat e în folderul **notis-play/** (și în repo: `notis-a
 
 ## 2. Creezi aplicația
 1. Play Console → **Create app** → Nume: `Notis – Notițe și mementouri` · Limba implicită: **Română (ro-RO)** · Tip: **App** · **Free** → bifezi declarațiile.
-2. **Setup → App integrity → App signing**: lași varianta implicită **„Google manages the app signing key”**. (Cheia ta existentă devine „upload key” – vezi `docs/UPLOAD-KEY.md`.)
+2. **IMPORTANT, înainte de primul upload: Test and release → App integrity → App signing → „Use existing app signing key”** („Export and upload a key from Java keystore”). **Nu** lăsa varianta în care Google își face propria cheie – asta nu se mai poate schimba după.
+   - Descarci de pe pagină fișierul **encryption_public_key.pem** și mi-l trimiți mie (sau rulezi `play/export-signing-key.sh` pe box).
+   - Eu îți dau înapoi fișierul criptat **notis-play-key-export.zip**, pe care îl încarci pe aceeași pagină → Save.
+   - Verifici că amprenta SHA-256 afișată începe cu `28:2C:B6:E6` (detalii în `docs/UPLOAD-KEY.md`).
+   - Rezultat: versiunea din Play are aceeași semnătură ca cea de pe GitHub și **se instalează peste ea, fără dezinstalare, fără să se piardă nimic**.
 
 ## 3. „App content” (Policy → App content) – răspunsurile sunt gata în `docs/PLAY-CONSOLE-ANSWERS.md`
 - **Privacy policy**: `https://cluj1313.github.io/notis/privacy/`
@@ -34,10 +38,10 @@ Tot ce trebuie încărcat e în folderul **notis-play/** (și în repo: `notis-a
 Regula Google: **minim 12 testeri** care s-au înscris și **au rămas înscriși 14 zile la rând** într-un test închis, înainte să poți cere publicarea în Production.
 1. **Testing → Closed testing → Create track** (sau folosești „Alpha”).
 2. **Testers**: alegi **Email list** → creezi o listă (ex. „Prieteni Notis”) și adaugi adresele Gmail ale celor ≥12 persoane (pune 15–20, unii uită să se înscrie). Alternativ, un **Google Group** și adaugi adresa grupului.
-3. **Create new release** → încarci **`build/Notis-2.1.1-play.aab`** → la „Release notes” scrii ex. `Prima versiune pe Google Play.` → **Review release → Start rollout to Closed testing**.
+3. **Create new release** → încarci **`build/Notis-2.2.1-play.aab`** → la „Release notes” scrii ex. `Prima versiune pe Google Play.` → **Review release → Start rollout to Closed testing**.
 4. Trimiți la verificare (**Send for review** în „Publishing overview”): prima versiune intră la verificare Google (câteva ore – câteva zile).
 5. După aprobare, copiezi **linkul de înscriere (opt-in URL)** din pagina track-ului și îl trimiți testerilor (WhatsApp/e-mail). Fiecare: deschide linkul cu contul Gmail din listă → **„Become a tester”** → apoi instalează Notis din Play.
-   - Cine are deja Notis din GitHub: întâi **Setări → Backup/Export**, apoi dezinstalează versiunea GitHub, instalează din Play și importă backup-ul (semnăturile diferă).
+   - Cine are deja Notis din GitHub: instalează direct din Play, **peste** versiunea existentă (aceeași semnătură) – notițele rămân. Notis face oricum un backup automat la prima pornire a versiunii noi.
 6. Ține testul activ **14 zile**; roagă testerii să deschidă aplicația din când în când și să lase feedback (Google se uită și la implicare).
 7. După 14 zile: **Dashboard → Apply for production** → răspunzi la câteva întrebări despre test (cum ai găsit testeri, ce feedback ai primit, ce ai schimbat).
 8. Când primești acces: **Production → Create new release** → **promovezi** același AAB sau încarci unul nou (versionCode mai mare) → trimiți la review.
@@ -45,7 +49,7 @@ Regula Google: **minim 12 testeri** care s-au înscris și **au rămas înscriș
 ## 6. Unde încarci fiecare lucru (rezumat)
 | Ce | Fișier | Unde în Play Console |
 |---|---|---|
-| Aplicația | `build/Notis-2.1.1-play.aab` | Testing → Closed testing → Create release |
+| Aplicația | `build/Notis-2.2.1-play.aab` | Testing → Closed testing → Create release |
 | Politica de confidențialitate | URL-ul de mai sus | Policy → App content → Privacy policy |
 | Data safety, rating, permisiuni | `docs/PLAY-CONSOLE-ANSWERS.md` | Policy → App content |
 | Texte magazin (7 limbi) | `listing/*.txt`, `listing/LISTING.md` | Store presence → Main store listing (+ translations) |
@@ -55,6 +59,6 @@ Regula Google: **minim 12 testeri** care s-au înscris și **au rămas înscriș
 
 ## 7. De reținut
 - Numele pachetului `ro.cluj1313.notis` e definitiv.
-- Fiecare versiune nouă pentru Play cere **versionCode mai mare** (următoarea: 19). Spune-mi și îți fac AAB-ul.
+- Fiecare versiune nouă pentru Play cere **versionCode mai mare** (ultima: 20 / 2.2.1; următoarea: 21). Spune-mi și îți fac AAB-ul.
 - Păstrează **notis-release.jks + parolele** într-un loc sigur (stick + manager de parole).
 - Varianta din Play **nu** mai are actualizarea automată din GitHub – se actualizează doar prin Play.

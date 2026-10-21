@@ -1,5 +1,14 @@
-# Upload key (Play App Signing) – Notis
-The AAB is signed with the **existing** release keystore. In Play App Signing this key becomes the **upload key**; Google generates and keeps the **app signing key** (default, recommended option "Let Google manage and protect your app signing key").
+# App signing key (Play App Signing) – Notis
+Decision: **"Use existing app signing key"**. Google Play signs Notis with the **same key as the GitHub APKs**, so the Play version installs **over** the GitHub version (and GitHub updates over Play) — **no uninstall, no data loss**.
+
+### One-time enrollment (before the very first upload!)
+The choice can only be made when the app is created / before the first release. Once Google generates its own key it cannot be switched back.
+1. Play Console → Notis → **Test and release → App integrity → App signing → Choose signing key → "Use existing app signing key from Java keystore"** (option *Export and upload a key from Java keystore*).
+2. Download **encryption_public_key.pem** from that page (it is specific to this app).
+3. On the box: `play/export-signing-key.sh /path/to/encryption_public_key.pem`
+   → writes `/workspace/notis-android/keystore/notis-play-key-export.zip` (encrypted for Google with the .pem; contains the encrypted private key + certificate). **Never commit it**; delete it after upload.
+4. Upload that zip on the same page → **Save**. Play then shows the app signing certificate: its SHA-256 must be `28:2C:B6:E6:…:A1:18` (table below).
+5. Upload key: keep using the same keystore (Play accepts the app signing key as upload key). Optionally register a separate upload key later; it never changes what users get.
 
 | | |
 |---|---|
@@ -14,14 +23,16 @@ The AAB is signed with the **existing** release keystore. In Play App Signing th
 
 **Back up the .jks + passwords offline** (USB stick / password manager). If the upload key is lost, Google can reset it (Play Console → App integrity → "Request upload key reset"), unlike the old pre-App-Signing model.
 
-## Consequence for people who installed the GitHub APK
-Play will deliver Notis signed with **Google's** app signing key, which differs from the GitHub APK key. Android will not install the Play version over the GitHub version ("app not installed / conflicts"). Those users must: **Settings → Backup (export) → uninstall the GitHub APK → install from Play → import the backup.** Uninstalling wipes local notes, so the backup step is essential.
-(Alternative: in Play Console choose "Use my own key" and upload the existing key with Google's PEPK tool – then GitHub and Play builds share a signature. More complex; not recommended unless keeping both channels matters.)
+## GitHub ↔ Play
+Same signature ⇒ Android treats both as the same app. Rules:
+- Each release uses **one versionCode for both channels** (Play AAB and GitHub APK built from the same commit). Android refuses downgrades, so never publish a GitHub APK with a lower versionCode than the Play one.
+- The Play build (`-Pplay=true`) has the GitHub self-updater turned off; updates come from Play.
+- Notis also makes an automatic full backup on the first start of every new version (Settings → Automatic backups), so even an unexpected problem is recoverable.
 
 ## Rebuild
 ```
-cd /workspace/notis-android/src && source ../tools/env.sh && ./sync-web.sh /workspace/notis \
- && ./gradlew --offline -Pplay=true testReleaseUnitTest bundleRelease
+cd /workspace/notis-android-src && source ../notis-android/tools/env.sh && ./sync-web.sh /workspace/notis \
+ && gradle --offline -Pplay=true testReleaseUnitTest bundleRelease
 # -> app/build/outputs/bundle/release/app-release.aab
 ```
-Next Play upload must use **versionCode ≥ 19**. GitHub APK builds (without `-Pplay`) keep the updater.
+Next Play upload must use a **higher versionCode** than the last one uploaded (current: 20 / 2.2.1). GitHub APK builds (without `-Pplay`) keep the updater.

@@ -6,3 +6,5 @@ keystore/
 *.jks
 *.keystore
 signing.properties
+notis-play-key-export*.zip
+*.pem
