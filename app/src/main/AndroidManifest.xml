@@ -15,7 +15,7 @@
     <application
         android:label="Notis"
         android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:allowBackup="false"
         android:usesCleartextTraffic="false"
         android:networkSecurityConfig="@xml/network_security"
