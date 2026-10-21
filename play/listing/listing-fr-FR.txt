@@ -1,0 +1,38 @@
+APP NAME:
+Notis – Notes et rappels
+
+SHORT DESCRIPTION:
+Notes, listes et rappels sur votre téléphone. Sans compte, ni pub, ni pistage.
+
+FULL DESCRIPTION:
+Notis est votre carnet de notes simple et élégant – tout reste sur votre téléphone.
+
+✍️ NOTES ET LISTES
+• Notes rapides ou listes à cocher (courses, tâches, valise)
+• Classement par catégories et recherche instantanée
+• Photos et notes vocales en pièce jointe
+
+⏰ RAPPELS
+• Rappels à l'heure exacte, avec notification et alarme
+• Ils continuent de fonctionner après un redémarrage
+
+📱 WIDGETS
+• Vos listes et notes directement sur l'écran d'accueil
+• Cochez des éléments sans ouvrir l'application
+
+🎨 À VOTRE GOÛT
+• Plusieurs thèmes : clair, sombre, VIP doré, papier et plus
+• Lecture à voix haute des notes (facultatif)
+• La météo de votre ville dans l'application (facultatif)
+
+🔒 LA CONFIDENTIALITÉ D'ABORD
+• Aucun compte, aucune inscription
+• Ni publicité, ni analyse, ni pistage
+• Notes stockées uniquement sur votre appareil
+• Micro et appareil photo utilisés seulement quand vous appuyez sur le bouton
+• Sauvegarde et export à tout moment, dans votre propre fichier
+
+🌍 7 LANGUES
+Română, English, Français, Deutsch, Italiano, Magyar, Русский.
+
+Conçu en Roumanie avec le souci du détail. Simple à utiliser, agréable à regarder.

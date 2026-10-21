@@ -1,0 +1,38 @@
+APP NAME:
+Notis – Notizen & Erinnerungen
+
+SHORT DESCRIPTION:
+Notizen, Listen und Erinnerungen auf dem Handy. Ohne Konto, Werbung, Tracking.
+
+FULL DESCRIPTION:
+Notis ist dein einfaches, elegantes Notizbuch – alles bleibt auf deinem Telefon.
+
+✍️ NOTIZEN UND LISTEN
+• Schnelle Notizen oder Checklisten (Einkauf, Aufgaben, Packliste)
+• Nach Kategorien ordnen und sofort suchen
+• Fotos und Sprachnotizen anhängen
+
+⏰ ERINNERUNGEN
+• Erinnerungen zur exakten Uhrzeit, mit Benachrichtigung und Alarm
+• Funktionieren auch nach einem Neustart weiter
+
+📱 WIDGETS
+• Listen und Notizen direkt auf dem Startbildschirm
+• Einträge abhaken, ohne die App zu öffnen
+
+🎨 GANZ NACH DEINEM GESCHMACK
+• Mehrere Designs: hell, dunkel, Gold-VIP, Papier und mehr
+• Notizen vorlesen lassen (optional)
+• Wetter für deine Stadt direkt in der App (optional)
+
+🔒 DATENSCHUTZ ZUERST
+• Kein Konto, keine Anmeldung
+• Keine Werbung, keine Analyse, kein Tracking
+• Notizen werden nur lokal auf dem Gerät gespeichert
+• Mikrofon und Kamera nur, wenn du auf die Taste tippst
+• Sicherung und Export jederzeit in deine eigene Datei
+
+🌍 7 SPRACHEN
+Română, English, Français, Deutsch, Italiano, Magyar, Русский.
+
+Mit Liebe zum Detail in Rumänien entwickelt. Einfach zu bedienen, schön anzusehen.

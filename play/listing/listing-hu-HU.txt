@@ -1,0 +1,38 @@
+APP NAME:
+Notis – Jegyzet, emlékeztető
+
+SHORT DESCRIPTION:
+Jegyzetek, listák és emlékeztetők a telefonodon. Fiók, reklám és követés nélkül.
+
+FULL DESCRIPTION:
+A Notis egyszerű, elegáns jegyzetfüzeted – minden a telefonodon marad.
+
+✍️ JEGYZETEK ÉS LISTÁK
+• Gyors jegyzetek vagy pipálható listák (bevásárlás, teendők, csomagolás)
+• Kategóriákba rendezés és azonnali keresés
+• Fotók és hangjegyzetek csatolása
+
+⏰ EMLÉKEZTETŐK
+• Emlékeztetők pontos időre, értesítéssel és ébresztővel
+• Újraindítás után is működnek
+
+📱 MODULOK
+• Listák és jegyzetek közvetlenül a kezdőképernyőn
+• Pipálj ki tételeket az alkalmazás megnyitása nélkül
+
+🎨 A TE STÍLUSOD
+• Több téma: világos, sötét, arany VIP, papír és még több
+• Jegyzetek felolvasása (opcionális)
+• A városod időjárása az alkalmazásban (opcionális)
+
+🔒 AZ ADATVÉDELEM AZ ELSŐ
+• Nincs fiók, nincs regisztráció
+• Nincs reklám, analitika vagy követés
+• A jegyzetek csak helyben, az eszközön tárolódnak
+• Mikrofon és kamera csak akkor, ha megnyomod a gombot
+• Mentés és exportálás bármikor, a saját fájlodba
+
+🌍 7 NYELV
+Română, English, Français, Deutsch, Italiano, Magyar, Русский.
+
+Romániában készült, a részletekre figyelve. Egyszerű használni, szép ránézni.

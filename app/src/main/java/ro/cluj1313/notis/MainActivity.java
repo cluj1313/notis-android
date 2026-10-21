@@ -41,7 +41,17 @@ public class MainActivity extends Activity {
         if ((getApplicationInfo().flags & android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0) WebView.setWebContentsDebuggingEnabled(true);
         web = new WebView(this);
         web.setBackgroundColor(0xFF0B0A08);
-        setContentView(web);
+        /* 2.1.1: targetSdk 36 makes edge-to-edge mandatory on Android 16 (the opt-out is ignored) -> pad for system bars, cutout and keyboard ourselves */
+        if (android.os.Build.VERSION.SDK_INT >= 35) {
+            android.widget.FrameLayout root = new android.widget.FrameLayout(this); root.setBackgroundColor(0xFF06111F);
+            root.addView(web, new android.widget.FrameLayout.LayoutParams(-1, -1)); setContentView(root);
+            root.setOnApplyWindowInsetsListener((v, in) -> {
+                android.graphics.Insets sb = in.getInsets(android.view.WindowInsets.Type.systemBars() | android.view.WindowInsets.Type.displayCutout());
+                android.graphics.Insets k = in.getInsets(android.view.WindowInsets.Type.ime());
+                v.setPadding(sb.left, sb.top, sb.right, Math.max(sb.bottom, k.bottom));
+                return android.view.WindowInsets.CONSUMED;
+            });
+        } else setContentView(web);
         WebSettings s = web.getSettings();
         s.setJavaScriptEnabled(true);
         s.setDomStorageEnabled(true);

@@ -1,0 +1,38 @@
+APP NAME:
+Notis – Notes & Reminders
+
+SHORT DESCRIPTION:
+Notes, lists and reminders on your phone. No account, no ads, no tracking.
+
+FULL DESCRIPTION:
+Notis is your simple, elegant notebook – everything stays on your phone.
+
+✍️ NOTES AND LISTS
+• Write quick notes or checklists (shopping, tasks, packing)
+• Organise them by category and search instantly
+• Attach photos and voice notes
+
+⏰ REMINDERS
+• Set reminders for an exact time, with notification and alarm
+• Reminders keep working after your phone restarts
+
+📱 WIDGETS
+• See your lists and notes right on the home screen
+• Tick off items without opening the app
+
+🎨 MAKE IT YOURS
+• Several themes: light, dark, gold VIP, paper and more
+• Read your notes aloud (optional)
+• Weather for your city, right in the app (optional)
+
+🔒 PRIVACY FIRST
+• No account, no sign-up
+• No ads, no analytics, no tracking
+• Notes are stored only locally, on your device
+• Microphone and camera are used only when you tap the button
+• Backup and export any time, to a file you own
+
+🌍 7 LANGUAGES
+Română, English, Français, Deutsch, Italiano, Magyar, Русский.
+
+Made in Romania with care for detail. Simple to use, beautiful to look at.

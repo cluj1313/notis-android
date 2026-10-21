@@ -35,6 +35,7 @@ final class Updater {
 
     /** On launch and on every resume, throttled to once per hour. */
     static void check(final Activity a) {
+        if (BuildConfig.PLAY) return; /* Google Play build: updates come only from Play (no self-update) */
         long last = Store.sp(a).getLong("updChk", 0), now = System.currentTimeMillis();
         if (asking || (now - last < 3600L * 1000 && now >= last)) return;
         Store.sp(a).edit().putLong("updChk", now).apply();

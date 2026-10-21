@@ -2681,7 +2681,6 @@ document.addEventListener('visibilitychange',function(){if(document.hidden&&Obje
  sel.value=nm[cur]?cur:'auto';
  sel.onchange=function(){try{if(sel.value==='auto')localStorage.removeItem('notis_lang');else localStorage.setItem('notis_lang',sel.value)}catch(_){}location.reload()}})();
 try{if(window.NotisNative&&NotisNative.setLang)NotisNative.setLang(NL)}catch(_){}
-if(/[?&]nt_test=1/.test(location.search))window.__T=function(c){return eval(c)};
 function notesOpen(){var pg=$('notesPg');if(pg.classList.contains('show'))return;renderNotes();pg.classList.add('show');document.documentElement.classList.add('jv-notes');}
 function notesClose(fromPop){return;var pg=$('notesPg');if(!pg.classList.contains('show'))return;if(draftId)draftFinish();nFlushAll();pg.classList.remove('show');document.documentElement.classList.remove('jv-notes');
  if(!fromPop&&history.state&&history.state.jvNotes)try{history.back()}catch(_){}}

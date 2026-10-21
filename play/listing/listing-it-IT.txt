@@ -1,0 +1,38 @@
+APP NAME:
+Notis – Note e promemoria
+
+SHORT DESCRIPTION:
+Note, liste e promemoria sul telefono. Senza account, pubblicità o tracciamento.
+
+FULL DESCRIPTION:
+Notis è il tuo taccuino semplice ed elegante – tutto resta sul telefono.
+
+✍️ NOTE E LISTE
+• Note veloci o liste di spunta (spesa, attività, valigia)
+• Organizzale per categoria e cerca all'istante
+• Allega foto e note vocali
+
+⏰ PROMEMORIA
+• Promemoria all'ora esatta, con notifica e sveglia
+• Funzionano anche dopo il riavvio del telefono
+
+📱 WIDGET
+• Liste e note direttamente nella schermata Home
+• Spunta gli elementi senza aprire l'app
+
+🎨 COME PIACE A TE
+• Diversi temi: chiaro, scuro, VIP oro, carta e altri
+• Lettura ad alta voce delle note (facoltativa)
+• Il meteo della tua città nell'app (facoltativo)
+
+🔒 PRIMA DI TUTTO LA PRIVACY
+• Nessun account, nessuna registrazione
+• Niente pubblicità, analisi o tracciamento
+• Note salvate solo in locale, sul dispositivo
+• Microfono e fotocamera usati solo quando tocchi il pulsante
+• Backup ed esportazione in qualsiasi momento, in un tuo file
+
+🌍 7 LINGUE
+Română, English, Français, Deutsch, Italiano, Magyar, Русский.
+
+Creata in Romania con cura per i dettagli. Semplice da usare, bella da vedere.
