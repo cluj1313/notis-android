@@ -24,7 +24,9 @@ import java.io.InputStream;
 
 public class MainActivity extends Activity {
     static final String BASE = "https://cluj1313.github.io/notis/";
-    private static final int FILE_REQ = 41;
+    private static final int FILE_REQ = 41, MIC_REQ = 42, CAM_REQ = 43;
+    private android.webkit.PermissionRequest micReq;
+    private Uri camUri;
     static volatile boolean foreground = false;
     /** true only while the top document is Notis itself (checked by every bridge call) */
     static volatile boolean trusted = false;
@@ -72,9 +74,39 @@ public class MainActivity extends Activity {
             });
         }
         web.setWebChromeClient(new WebChromeClient() {
+            /* microphone for in-note voice recordings: only for Notis itself, only audio, after the Android runtime permission */
+            @Override public void onPermissionRequest(final android.webkit.PermissionRequest r) {
+                runOnUiThread(() -> {
+                    String o = r.getOrigin() == null ? "" : r.getOrigin().toString();
+                    boolean audio = false;
+                    for (String x : r.getResources()) if (android.webkit.PermissionRequest.RESOURCE_AUDIO_CAPTURE.equals(x)) audio = true;
+                    if (!audio || !(BASE.startsWith(o) || o.startsWith("https://cluj1313.github.io"))) { r.deny(); return; }
+                    String[] res = { android.webkit.PermissionRequest.RESOURCE_AUDIO_CAPTURE };
+                    if (Build.VERSION.SDK_INT < 23 || checkSelfPermission(android.Manifest.permission.RECORD_AUDIO) == android.content.pm.PackageManager.PERMISSION_GRANTED) { r.grant(res); return; }
+                    if (micReq != null) micReq.deny();
+                    micReq = r;
+                    requestPermissions(new String[]{ android.Manifest.permission.RECORD_AUDIO }, MIC_REQ);
+                });
+            }
+            @Override public void onPermissionRequestCanceled(android.webkit.PermissionRequest r) { if (micReq == r) micReq = null; }
             @Override public boolean onShowFileChooser(WebView v, ValueCallback<Uri[]> cb, FileChooserParams p) {
                 if (fileCb != null) fileCb.onReceiveValue(null);
                 fileCb = cb;
+                /* <input capture>: system camera app writes into our private cache via CamProvider (no CAMERA permission needed) */
+                if (p.isCaptureEnabled()) {
+                    try {
+                        java.io.File d = new java.io.File(getCacheDir(), "cam"); d.mkdirs();
+                        java.io.File[] old = d.listFiles(); if (old != null) for (java.io.File f : old) f.delete();
+                        String name = "photo-" + System.currentTimeMillis() + ".jpg";
+                        new java.io.File(d, name).createNewFile();
+                        camUri = Uri.parse("content://" + getPackageName() + ".cam/" + name);
+                        Intent ci = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE).putExtra(android.provider.MediaStore.EXTRA_OUTPUT, camUri)
+                            .addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                        ci.setClipData(android.content.ClipData.newRawUri("", camUri));
+                        startActivityForResult(ci, CAM_REQ);
+                        return true;
+                    } catch (Exception e) { camUri = null; /* no camera app: fall back to the picker */ }
+                }
                 /* explicit GET_CONTENT with the page's accept types (image/* for photos, json for backups) */
                 java.util.ArrayList<String> types = new java.util.ArrayList<>();
                 String[] acc = p.getAcceptTypes();
@@ -126,11 +158,27 @@ public class MainActivity extends Activity {
     }
 
     @Override protected void onActivityResult(int req, int res, Intent data) {
+        if (req == CAM_REQ && fileCb != null) {
+            Uri u = camUri; camUri = null;
+            java.io.File f = u == null ? null : new java.io.File(new java.io.File(getCacheDir(), "cam"), u.getLastPathSegment());
+            fileCb.onReceiveValue(res == RESULT_OK && f != null && f.length() > 0 ? new Uri[]{ u } : null);
+            fileCb = null; return;
+        }
         if (req == FILE_REQ && fileCb != null) {
             fileCb.onReceiveValue(pickResult(res, data));
             fileCb = null; return;
         }
         super.onActivityResult(req, res, data);
+    }
+
+    @Override public void onRequestPermissionsResult(int req, String[] perms, int[] res) {
+        if (req == MIC_REQ && micReq != null) {
+            android.webkit.PermissionRequest r = micReq; micReq = null;
+            if (res.length > 0 && res[0] == android.content.pm.PackageManager.PERMISSION_GRANTED) r.grant(new String[]{ android.webkit.PermissionRequest.RESOURCE_AUDIO_CAPTURE });
+            else r.deny();
+            return;
+        }
+        super.onRequestPermissionsResult(req, perms, res);
     }
 
     private static boolean allImages(java.util.List<String> t) { for (String x : t) if (!x.startsWith("image/")) return false; return true; }
@@ -168,6 +216,7 @@ public class MainActivity extends Activity {
         if (p.endsWith(".svg")) return "image/svg+xml";
         if (p.endsWith(".png")) return "image/png";
         if (p.endsWith(".webp")) return "image/webp";
+        if (p.endsWith(".m4a")) return "audio/mp4";
         if (p.endsWith(".json") || p.endsWith(".webmanifest")) return "application/json";
         return "application/octet-stream";
     }
