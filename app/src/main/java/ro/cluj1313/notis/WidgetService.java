@@ -53,13 +53,15 @@ public class WidgetService extends RemoteViewsService {
         String hm = DateFormat.format("HH:mm", t).toString();
         if (t.get(Calendar.YEAR) == n.get(Calendar.YEAR) && t.get(Calendar.DAY_OF_YEAR) == n.get(Calendar.DAY_OF_YEAR)) return hm;
         n.add(Calendar.DAY_OF_YEAR, 1);
-        if (t.get(Calendar.YEAR) == n.get(Calendar.YEAR) && t.get(Calendar.DAY_OF_YEAR) == n.get(Calendar.DAY_OF_YEAR)) return "mâine " + hm;
+        if (t.get(Calendar.YEAR) == n.get(Calendar.YEAR) && t.get(Calendar.DAY_OF_YEAR) == n.get(Calendar.DAY_OF_YEAR)) return Tr.s(c, R.string.tomorrow_at, hm);
         return DateFormat.format("dd.MM HH:mm", t).toString();
     }
 
     /* ---- row builders shared by the inline collection (API 31+) and the legacy factory ---- */
     static RemoteViews listRow(Context c, List<JSONObject> rs, String nid, Themes th, int p) {
             RemoteViews v = new RemoteViews(c.getPackageName(), R.layout.widget_item);
+            v.setTextViewText(R.id.wi_yes, Tr.s(c, R.string.yes)); v.setTextViewText(R.id.wi_no, Tr.s(c, R.string.no));
+            v.setContentDescription(R.id.wi_box, Tr.s(c, R.string.cd_tick)); v.setContentDescription(R.id.wi_x, Tr.s(c, R.string.cd_delete));
             if (p >= rs.size()) return v;
             JSONObject x = rs.get(p);
             /* the launcher recycles row views: always set every visibility explicitly */
@@ -71,7 +73,7 @@ public class WidgetService extends RemoteViewsService {
             if (x.optBoolean("ask")) {
                 v.setViewVisibility(R.id.wi_box, View.GONE); v.setViewVisibility(R.id.wi_x, View.GONE);
                 v.setViewVisibility(R.id.wi_yes, View.VISIBLE); v.setViewVisibility(R.id.wi_no, View.VISIBLE);
-                v.setTextViewText(R.id.wi_text, "Vrei să ștergi „" + t + "”?"); v.setTextColor(R.id.wi_text, th.text);
+                v.setTextViewText(R.id.wi_text, Tr.s(c, R.string.ask_del_named, t)); v.setTextColor(R.id.wi_text, th.text);
                 v.setTextColor(R.id.wi_yes, th.danger); v.setTextColor(R.id.wi_no, th.acc);
                 Intent base = new Intent().putExtra("n", nid).putExtra("i", x.optString("i")).putExtra("b", x.optString("b", ""));
                 v.setOnClickFillInIntent(R.id.wi_row, new Intent(base).putExtra("act", "no"));
@@ -81,7 +83,7 @@ public class WidgetService extends RemoteViewsService {
             }
             if (x.optBoolean("undo")) {
                 v.setViewVisibility(R.id.wi_box, View.GONE); v.setViewVisibility(R.id.wi_x, View.GONE);
-                v.setTextViewText(R.id.wi_text, "Șters „" + t + "” · ANULEAZĂ"); v.setTextColor(R.id.wi_text, th.acc);
+                v.setTextViewText(R.id.wi_text, Tr.s(c, R.string.deleted_named_undo, t)); v.setTextColor(R.id.wi_text, th.acc);
                 v.setOnClickFillInIntent(R.id.wi_row, new Intent().putExtra("n", nid).putExtra("i", x.optString("i")).putExtra("act", "undo"));
                 return v;
             }
@@ -100,6 +102,7 @@ public class WidgetService extends RemoteViewsService {
         }
     static RemoteViews noteRow(Context c, int wid, List<JSONObject> rs, Themes th, int p) {
             RemoteViews v = new RemoteViews(c.getPackageName(), R.layout.note_item);
+            v.setTextViewText(R.id.ni_yes, Tr.s(c, R.string.yes)); v.setTextViewText(R.id.ni_no, Tr.s(c, R.string.no)); v.setContentDescription(R.id.ni_ic, Tr.s(c, R.string.cd_alarm));
             if (p >= rs.size()) return v;
             JSONObject n = rs.get(p);
             v.setViewVisibility(R.id.ni_al, View.VISIBLE); /* recycled row views: reset */
@@ -107,7 +110,7 @@ public class WidgetService extends RemoteViewsService {
             String id = n.optString("id"), txt = n.optString("text").trim();
             if (n.optBoolean("ask")) {
                 String tt = txt.split("\n", 2)[0]; if (tt.length() > 40) tt = tt.substring(0, 40) + "…";
-                v.setTextViewText(R.id.ni_text, "Vrei să ștergi" + (tt.length() > 0 ? " „" + tt + "”" : "") + "?");
+                v.setTextViewText(R.id.ni_text, (tt.length() > 0 ? Tr.s(c, R.string.ask_del_named, tt) : Tr.s(c, R.string.ask_del)));
                 v.setInt(R.id.ni_text, "setMaxLines", 2); v.setTextColor(R.id.ni_text, th.text);
                 v.setViewVisibility(R.id.ni_al, View.GONE); v.setViewVisibility(R.id.ni_del, View.GONE);
                 v.setViewVisibility(R.id.ni_yes, View.VISIBLE); v.setViewVisibility(R.id.ni_no, View.VISIBLE);
@@ -119,7 +122,7 @@ public class WidgetService extends RemoteViewsService {
             }
             if (n.optBoolean("undo")) {
                 String tt = n.optString("title"); if (tt.length() > 40) tt = tt.substring(0, 40) + "…";
-                v.setTextViewText(R.id.ni_text, "Mutată în coș" + (tt.length() > 0 ? " „" + tt + "”" : "") + " · ANULEAZĂ");
+                v.setTextViewText(R.id.ni_text, (tt.length() > 0 ? Tr.s(c, R.string.trashed_named_undo, tt) : Tr.s(c, R.string.trashed_undo)));
                 v.setTextColor(R.id.ni_text, th.acc);
                 v.setViewVisibility(R.id.ni_al, View.GONE); v.setViewVisibility(R.id.ni_del, View.GONE);
                 v.setOnClickFillInIntent(R.id.ni_text, new Intent().putExtra("n", id).putExtra("act", "undo"));
@@ -148,7 +151,7 @@ public class WidgetService extends RemoteViewsService {
             /* expanded row only: "Mută în coș" (two taps within 5 s) */
             if (ex) {
                 v.setViewVisibility(R.id.ni_del, View.VISIBLE);
-                v.setTextViewText(R.id.ni_del, "✕  Șterge");
+                v.setTextViewText(R.id.ni_del, Tr.s(c, R.string.del_btn));
                 v.setTextColor(R.id.ni_del, th.mut);
                 v.setOnClickFillInIntent(R.id.ni_del, new Intent().putExtra("n", id).putExtra("p", p).putExtra("act", "del"));
             } else v.setViewVisibility(R.id.ni_del, View.GONE);

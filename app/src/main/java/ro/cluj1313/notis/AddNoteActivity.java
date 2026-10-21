@@ -30,8 +30,8 @@ public class AddNoteActivity extends Activity {
         if (ids.isEmpty()) { ids.add(""); names.add("General"); }
         String def = Store.defaultTab(s);
         LinearLayout c = Ui.col(this);
-        c.addView(Ui.title(this, "Notiță nouă"));
-        final EditText e = Ui.field(this, "Scrie notița…", true);
+        c.addView(Ui.title(this, Tr.s(this, R.string.new_note)));
+        final EditText e = Ui.field(this, Tr.s(this, R.string.write_note), true);
         c.addView(e, Ui.lp(Ui.MP, Ui.WC, 0));
         LinearLayout r0 = Ui.row(this);
         r0.addView(Ui.text(this, "Tab:", Ui.MUT, 14));
@@ -44,7 +44,7 @@ public class AddNoteActivity extends Activity {
         r0.addView(sp, new LinearLayout.LayoutParams(0, Ui.WC, 1));
         c.addView(r0, Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 8)));
         LinearLayout r = Ui.row(this); r.setGravity(android.view.Gravity.END);
-        Button no = Ui.btn(this, "Renunță", false), ok = Ui.btn(this, "Salvează", true);
+        Button no = Ui.btn(this, Tr.s(this, R.string.cancel), false), ok = Ui.btn(this, Tr.s(this, R.string.save), true);
         r.addView(no); LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(Ui.WC, Ui.WC); p.leftMargin = Ui.dp(this, 10); r.addView(ok, p);
         c.addView(r, Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 14)));
         setContentView(c); setTitle("");
@@ -54,7 +54,7 @@ public class AddNoteActivity extends Activity {
             if (t.trim().length() == 0) { finish(); return; }
             Store.addNote(this, ids.get(Math.max(0, sp.getSelectedItemPosition())), t.trim());
             NotisWidget.refreshAll(this);
-            android.widget.Toast.makeText(this, "Notiță salvată", android.widget.Toast.LENGTH_SHORT).show();
+            android.widget.Toast.makeText(this, Tr.s(this, R.string.note_saved), android.widget.Toast.LENGTH_SHORT).show();
             finish();
         });
         e.requestFocus();

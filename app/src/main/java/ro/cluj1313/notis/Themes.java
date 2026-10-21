@@ -7,6 +7,10 @@ import org.json.JSONObject;
 final class Themes {
     static final String[] IDS = {"auto", "gold", "salon", "exc", "light", "dark", "jad", "lac"};
     static final String[] NAMES = {"Ca în aplicație", "Dark-Gold", "Salon Auriu", "Excalibur", "Light", "Dark (argintiu)", "Jad", "Lac Roșu"};
+    /** localized theme name (2.1.0) */
+    static String name(android.content.Context c, int i) {
+        switch (i) { case 0: return Tr.s(c, R.string.th_app); case 2: return Tr.s(c, R.string.th_salon); case 5: return Tr.s(c, R.string.th_silver); case 6: return Tr.s(c, R.string.th_jade); case 7: return Tr.s(c, R.string.th_lac); default: return NAMES[i]; }
+    }
 
     final String id; final int bg, add, title, text, mut, acc, line, danger;
     private Themes(String id, int bg, int add, int title, int text, int mut, int acc, int line, int danger) {
@@ -41,7 +45,7 @@ final class Themes {
         }
     }
 
-    static String nameOf(String id) { if ("color".equals(id)) return "Color (albastru)"; return nameOf0(id); }
+    static String nameOf(android.content.Context c, String id) { if ("color".equals(id)) return Tr.s(c, R.string.th_color); for (int i = 0; i < IDS.length; i++) if (IDS[i].equals(id)) return name(c, i); return name(c, 0); }
     static String nameOf0(String id) { for (int i = 0; i < IDS.length; i++) if (IDS[i].equals(id)) return NAMES[i]; return NAMES[0]; }
 
     static Themes forWidget(Context c, int wid) {

@@ -46,21 +46,21 @@ public class AlarmActivity extends Activity {
         when.set(Calendar.SECOND, 0); when.set(Calendar.MILLISECOND, 0);
 
         LinearLayout c = Ui.col(this);
-        c.addView(Ui.title(this, "⏰ Alarmă"));
+        c.addView(Ui.title(this, Tr.s(this, R.string.alarm_title)));
         TextView nt = Ui.text(this, note.optString("text").trim(), Ui.TXT, 14); nt.setMaxLines(3); nt.setEllipsize(android.text.TextUtils.TruncateAt.END);
         c.addView(nt);
         final RadioGroup g = new RadioGroup(this);
-        String[] L = {"O dată", "La fiecare oră", "Zilnic", "Săptămânal", "Personalizat"};
+        String[] L = {Tr.s(this, R.string.rep_once), Tr.s(this, R.string.rep_hourly), Tr.s(this, R.string.rep_daily), Tr.s(this, R.string.rep_weekly), Tr.s(this, R.string.rep_custom)};
         int[] ids = {1, 2, 3, 4, 5};
         ColorStateList tint = ColorStateList.valueOf(Ui.GOLD);
         for (int i = 0; i < L.length; i++) { RadioButton r = new RadioButton(this); r.setId(ids[i]); r.setText(L[i]); r.setTextColor(Ui.TXT); r.setButtonTintList(tint); g.addView(r); }
         c.addView(g, Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 8)));
         final LinearLayout custom = Ui.row(this);
-        custom.addView(Ui.text(this, "La fiecare ", Ui.MUT, 14));
+        custom.addView(Ui.text(this, Tr.s(this, R.string.every), Ui.MUT, 14));
         final EditText num = Ui.field(this, "N", false); num.setInputType(InputType.TYPE_CLASS_NUMBER); num.setText("2"); num.setMinWidth(Ui.dp(this, 64));
         custom.addView(num, new LinearLayout.LayoutParams(Ui.dp(this, 72), Ui.WC));
         final Spinner unit = new Spinner(this);
-        ArrayAdapter<String> ua = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, new String[]{"minute", "ore", "zile"}) {
+        ArrayAdapter<String> ua = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, new String[]{Tr.s(this, R.string.u_min), Tr.s(this, R.string.u_hours), Tr.s(this, R.string.u_days)}) {
             @Override public View getView(int p, View cv, ViewGroup pa) { TextView t = (TextView) super.getView(p, cv, pa); t.setTextColor(Ui.GOLD); return t; }
         };
         ua.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); unit.setAdapter(ua); unit.setSelection(1);
@@ -75,14 +75,14 @@ public class AlarmActivity extends Activity {
         LinearLayout dt = Ui.row(this);
         bDate = Ui.btn(this, "", false); bTime = Ui.btn(this, "", false);
         dt.addView(bDate); LinearLayout.LayoutParams p2 = new LinearLayout.LayoutParams(Ui.WC, Ui.WC); p2.leftMargin = Ui.dp(this, 10); dt.addView(bTime, p2);
-        c.addView(Ui.text(this, "Prima dată la:", Ui.MUT, 13), Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 10)));
+        c.addView(Ui.text(this, Tr.s(this, R.string.first_at), Ui.MUT, 13), Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 10)));
         c.addView(dt, Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 4)));
         label();
         bDate.setOnClickListener(v -> new DatePickerDialog(this, (dp, y, m, d) -> { when.set(y, m, d); label(); }, when.get(Calendar.YEAR), when.get(Calendar.MONTH), when.get(Calendar.DAY_OF_MONTH)).show());
         bTime.setOnClickListener(v -> new TimePickerDialog(this, (tp, h, mi) -> { when.set(Calendar.HOUR_OF_DAY, h); when.set(Calendar.MINUTE, mi); label(); }, when.get(Calendar.HOUR_OF_DAY), when.get(Calendar.MINUTE), true).show());
 
         LinearLayout r = Ui.row(this); r.setGravity(android.view.Gravity.END);
-        Button del = Ui.btn(this, "Anulează alarma", false), close = Ui.btn(this, "Închide", false), ok = Ui.btn(this, "Salvează", true);
+        Button del = Ui.btn(this, Tr.s(this, R.string.alarm_cancel), false), close = Ui.btn(this, Tr.s(this, R.string.close), false), ok = Ui.btn(this, Tr.s(this, R.string.save), true);
         if (a != null) r.addView(del);
         LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(Ui.WC, Ui.WC); p.leftMargin = Ui.dp(this, 8);
         r.addView(close, a != null ? p : new LinearLayout.LayoutParams(Ui.WC, Ui.WC));
@@ -91,20 +91,20 @@ public class AlarmActivity extends Activity {
         ScrollView sv = new ScrollView(this); sv.addView(c); setContentView(sv); setTitle("");
 
         close.setOnClickListener(v -> finish());
-        del.setOnClickListener(v -> { Store.setAlarm(this, nid, 0, 0); Scheduler.rescheduleAll(this); NotisWidget.refreshAll(this); Toast.makeText(this, "Alarmă anulată", Toast.LENGTH_SHORT).show(); finish(); });
+        del.setOnClickListener(v -> { Store.setAlarm(this, nid, 0, 0); Scheduler.rescheduleAll(this); NotisWidget.refreshAll(this); Toast.makeText(this, Tr.s(this, R.string.alarm_cancelled), Toast.LENGTH_SHORT).show(); finish(); });
         ok.setOnClickListener(v -> {
             int id = g.getCheckedRadioButtonId(), rp = 0;
             if (id == 2) rp = 60; else if (id == 3) rp = 1440; else if (id == 4) rp = 10080;
             else if (id == 5) { int n; try { n = Integer.parseInt(num.getText().toString().trim()); } catch (Exception e) { n = 0; }
-                if (n <= 0) { Toast.makeText(this, "Alege un interval", Toast.LENGTH_SHORT).show(); return; }
+                if (n <= 0) { Toast.makeText(this, Tr.s(this, R.string.pick_interval), Toast.LENGTH_SHORT).show(); return; }
                 rp = n * (unit.getSelectedItemPosition() == 0 ? 1 : unit.getSelectedItemPosition() == 1 ? 60 : 1440); }
             long at = when.getTimeInMillis(), now = System.currentTimeMillis();
             if (rp > 0 && at < now) at = Store.roll(at, rp, now);
-            if (rp == 0 && at < now - 30000) { Toast.makeText(this, "Ora a trecut deja", Toast.LENGTH_SHORT).show(); return; }
+            if (rp == 0 && at < now - 30000) { Toast.makeText(this, Tr.s(this, R.string.time_passed), Toast.LENGTH_SHORT).show(); return; }
             Store.setAlarm(this, nid, at, rp);
             Scheduler.rescheduleAll(this);
             NotisWidget.refreshAll(this);
-            Toast.makeText(this, "Alarmă setată · " + WidgetService.shortTime(this, at), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, Tr.s(this, R.string.alarm_set, WidgetService.shortTime(this, at)), Toast.LENGTH_SHORT).show();
             if (Build.VERSION.SDK_INT >= 33 && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED)
                 requestPermissions(new String[]{Manifest.permission.POST_NOTIFICATIONS}, 7);
             else finish();

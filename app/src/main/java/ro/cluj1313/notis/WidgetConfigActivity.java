@@ -35,12 +35,12 @@ public class WidgetConfigActivity extends Activity {
         ColorStateList tint = ColorStateList.valueOf(Ui.GOLD);
 
         LinearLayout c = Ui.col(this);
-        c.addView(Ui.title(this, notesW ? "Widget Notițe" : "Widget Listă"));
-        c.addView(Ui.text(this, "Temă", Ui.MUT, 13));
+        c.addView(Ui.title(this, Tr.s(this, notesW ? R.string.cfg_notes_title : R.string.cfg_list_title)));
+        c.addView(Ui.text(this, Tr.s(this, R.string.theme), Ui.MUT, 13));
         final RadioGroup tg = new RadioGroup(this);
         String curT = Store.get(this, "th_" + wid); if (curT == null) curT = getIntent().getBooleanExtra("fromWidget", false) ? "gold" : "auto";
         for (int i = 0; i < Themes.IDS.length; i++) {
-            RadioButton r = new RadioButton(this); r.setId(1000 + i); r.setText(Themes.NAMES[i] + (i == 0 ? "  (" + Themes.nameOf(Themes.fromApp(s.optString("theme", ""))) + ")" : ""));
+            RadioButton r = new RadioButton(this); r.setId(1000 + i); r.setText(Themes.name(this, i) + (i == 0 ? "  (" + Themes.nameOf(this, Themes.fromApp(s.optString("theme", ""))) + ")" : ""));
             r.setTextColor(Ui.TXT); r.setButtonTintList(tint); tg.addView(r);
             if (Themes.IDS[i].equals(curT)) tg.check(1000 + i);
         }
@@ -49,7 +49,7 @@ public class WidgetConfigActivity extends Activity {
 
         final List<String> ids = new ArrayList<>();
         final RadioGroup lg = new RadioGroup(this);
-        c.addView(Ui.text(this, notesW ? "Tab" : "Listă", Ui.MUT, 13), Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 14)));
+        c.addView(Ui.text(this, Tr.s(this, notesW ? R.string.tab : R.string.list), Ui.MUT, 13), Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 14)));
         if (notesW) {
             JSONArray tabs = s.optJSONArray("tabs");
             String cur = Store.notesTab(this, wid, s);
@@ -61,7 +61,7 @@ public class WidgetConfigActivity extends Activity {
             }
         } else {
             ids.add(null);
-            RadioButton r0 = new RadioButton(this); r0.setId(2000); r0.setText("Automat · Cumpărături / cea mai recentă"); r0.setTextColor(Ui.GOLD); r0.setButtonTintList(tint); lg.addView(r0);
+            RadioButton r0 = new RadioButton(this); r0.setId(2000); r0.setText(Tr.s(this, R.string.auto_list)); r0.setTextColor(Ui.GOLD); r0.setButtonTintList(tint); lg.addView(r0);
             String cur = Store.getChoice(this, wid);
             JSONArray lists = s.optJSONArray("lists");
             if (lists != null) for (int i = 0; i < lists.length(); i++) {
@@ -73,11 +73,11 @@ public class WidgetConfigActivity extends Activity {
             }
             if (lg.getCheckedRadioButtonId() == -1) lg.check(2000);
         }
-        if (ids.isEmpty()) c.addView(Ui.text(this, "Deschide aplicația Notis o dată ca să apară listele/taburile.", Ui.MUT, 13));
+        if (ids.isEmpty()) c.addView(Ui.text(this, Tr.s(this, R.string.open_once_lists), Ui.MUT, 13));
         c.addView(lg);
 
         LinearLayout r = Ui.row(this); r.setGravity(android.view.Gravity.END);
-        Button ok = Ui.btn(this, "Salvează", true);
+        Button ok = Ui.btn(this, Tr.s(this, R.string.save), true);
         r.addView(ok);
         c.addView(r, Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 14)));
         ScrollView sv = new ScrollView(this); sv.addView(c); setContentView(sv); setTitle("");

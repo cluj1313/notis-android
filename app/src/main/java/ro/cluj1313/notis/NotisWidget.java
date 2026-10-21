@@ -111,21 +111,22 @@ public class NotisWidget extends AppWidgetProvider {
 
     static void draw(Context c, AppWidgetManager m, int id) {
         RemoteViews v = new RemoteViews(c.getPackageName(), R.layout.widget);
+        v.setContentDescription(R.id.w_pick, Tr.s(c, R.string.cd_pick_list)); v.setContentDescription(R.id.w_cfg, Tr.s(c, R.string.cd_settings)); v.setContentDescription(R.id.w_add, Tr.s(c, R.string.cd_add)); v.setTextViewText(R.id.w_empty, Tr.s(c, R.string.open_once_list));
         Themes th = Themes.forWidget(c, id);
         theme(v, th);
         JSONObject l = Store.listFor(c, id);
         if (l == null) {
             v.setTextViewText(R.id.w_title, "Notis");
-            v.setTextViewText(R.id.w_sub, "nicio listă cu bife încă");
+            v.setTextViewText(R.id.w_sub, Tr.s(c, R.string.no_list_yet));
             v.setOnClickPendingIntent(R.id.w_head, openApp(c, id * 10 + 1, ""));
             v.setOnClickPendingIntent(R.id.w_add, openApp(c, id * 10 + 2, "?a=new"));
         } else {
             JSONArray it = l.optJSONArray("items");
             int n = it == null ? 0 : it.length(), done = 0;
             for (int k = 0; k < n; k++) if (it.optJSONObject(k).optBoolean("d")) done++;
-            v.setTextViewText(R.id.w_title, l.optString("title", "Listă"));
+            v.setTextViewText(R.id.w_title, l.optString("title", Tr.s(c, R.string.list)));
             v.setTextViewText(R.id.w_sub, "☑ " + done + "/" + n);
-            v.setTextViewText(R.id.w_empty, "Lista e goală — apasă + ca să adaugi.");
+            v.setTextViewText(R.id.w_empty, Tr.s(c, R.string.list_empty));
             v.setOnClickPendingIntent(R.id.w_head, openApp(c, id * 10 + 1, "?open=" + Uri.encode(l.optString("id"))));
             Intent add = new Intent(c, AddItemActivity.class).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id).putExtra("n", l.optString("id"));
             add.setData(Uri.parse("notis://additem/" + id));

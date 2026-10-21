@@ -33,8 +33,9 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     static void channel(Context c) {
         NotificationManager nm = c.getSystemService(NotificationManager.class);
-        if (nm.getNotificationChannel(CH) != null) return;
-        NotificationChannel ch = new NotificationChannel(CH, "Alarme notițe", NotificationManager.IMPORTANCE_HIGH);
+        NotificationChannel old = nm.getNotificationChannel(CH); String nm2 = Tr.s(c, R.string.ch_alarms);
+        if (old != null) { if (!nm2.contentEquals(old.getName())) { old.setName(nm2); nm.createNotificationChannel(old); } return; }
+        NotificationChannel ch = new NotificationChannel(CH, nm2, NotificationManager.IMPORTANCE_HIGH);
         ch.enableVibration(true);
         Uri snd = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
         ch.setSound(snd, new AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_ALARM).setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION).build());

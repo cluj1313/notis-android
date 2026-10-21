@@ -26,12 +26,13 @@ public class NotesWidget extends AppWidgetProvider {
 
     static void draw(Context c, AppWidgetManager m, int id) {
         RemoteViews v = new RemoteViews(c.getPackageName(), R.layout.notes_widget);
+        v.setContentDescription(R.id.w_pick, Tr.s(c, R.string.cd_pick_tab)); v.setContentDescription(R.id.w_cfg, Tr.s(c, R.string.cd_settings)); v.setContentDescription(R.id.w_add, Tr.s(c, R.string.cd_add)); v.setTextViewText(R.id.w_empty, Tr.s(c, R.string.no_notes_tab));
         NotisWidget.theme(v, Themes.forWidget(c, id));
         JSONObject s = Store.snapshot(c);
         String tab = Store.notesTab(c, id, s), tn = Store.tabName(s, tab);
         int count = WidgetService.notesOf(s, tab).size();
-        v.setTextViewText(R.id.w_title, tn.length() > 0 ? tn : "Notis · Notițe");
-        v.setTextViewText(R.id.w_sub, tn.length() > 0 ? count + (count == 1 ? " notiță" : " notițe") : "deschide Notis o dată");
+        v.setTextViewText(R.id.w_title, tn.length() > 0 ? tn : Tr.s(c, R.string.w_notes_label));
+        v.setTextViewText(R.id.w_sub, tn.length() > 0 ? Tr.notes(c, count) : Tr.s(c, R.string.open_once));
         v.setOnClickPendingIntent(R.id.w_head, NotisWidget.openApp(c, id * 10 + 1, tn.length() > 0 ? "?tab=" + Uri.encode(tn) : ""));
         Intent add = new Intent(c, AddNoteActivity.class).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id);
         add.setData(Uri.parse("notis://addnote/" + id));

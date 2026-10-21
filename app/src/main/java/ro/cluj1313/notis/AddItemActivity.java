@@ -24,14 +24,14 @@ public class AddItemActivity extends Activity {
         if (nid == null) { finish(); return; }
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE | WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         LinearLayout c = Ui.col(this);
-        c.addView(Ui.title(this, "Adaugă în „" + (l != null ? l.optString("title") : "listă") + "”"));
+        c.addView(Ui.title(this, Tr.s(this, R.string.add_to, l != null ? l.optString("title") : Tr.s(this, R.string.list_lc))));
         final EditText e = Ui.field(this, "ex. lapte", false);
         e.setImeOptions(EditorInfo.IME_ACTION_NEXT | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
         c.addView(e, Ui.lp(Ui.MP, Ui.WC, 0));
-        added = Ui.text(this, "Enter = adaugă și continuă", Ui.MUT, 12);
+        added = Ui.text(this, Tr.s(this, R.string.enter_hint), Ui.MUT, 12);
         c.addView(added, Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 8)));
         LinearLayout r = Ui.row(this); r.setGravity(android.view.Gravity.END);
-        Button add = Ui.btn(this, "Adaugă", false), done = Ui.btn(this, "Gata", true);
+        Button add = Ui.btn(this, Tr.s(this, R.string.add), false), done = Ui.btn(this, Tr.s(this, R.string.done), true);
         r.addView(add); LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(Ui.WC, Ui.WC); p.leftMargin = Ui.dp(this, 10); r.addView(done, p);
         c.addView(r, Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 14)));
         setContentView(c);
@@ -50,7 +50,7 @@ public class AddItemActivity extends Activity {
         if (t.length() == 0) return;
         for (String part : t.split("\n")) { if (part.trim().length() > 0) { Store.addItem(this, nid, null, part.trim()); count++; } }
         e.setText("");
-        added.setText("✓ Adăugat: " + t + (count > 1 ? "   (" + count + " în total)" : ""));
+        added.setText(Tr.s(this, R.string.added, t) + (count > 1 ? Tr.s(this, R.string.added_total, count) : ""));
         added.setTextColor(Ui.GOLD);
         NotisWidget.refreshAll(this);
     }

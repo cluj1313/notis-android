@@ -21,7 +21,7 @@ public class PickActivity extends Activity {
         JSONObject s = Store.snapshot(this);
         List<JSONObject> rows = notes ? Store.pickTabs(s, Store.notesTab(this, wid, s)) : Store.pickLists(s, Store.getChoice(this, wid));
         LinearLayout c = Ui.col(this);
-        c.addView(Ui.title(this, notes ? "Ce tab arată widgetul" : "Ce listă arată widgetul"));
+        c.addView(Ui.title(this, Tr.s(this, notes ? R.string.pick_tab_title : R.string.pick_list_title)));
         LinearLayout box = new LinearLayout(this); box.setOrientation(LinearLayout.VERTICAL);
         int n = 0;
         LinearLayout grp = box; /* rows go into the current group's collapsible body */
@@ -49,13 +49,13 @@ public class PickActivity extends Activity {
             boolean cur = r.optBoolean("cur");
             LinearLayout row = Ui.row(this); int p = Ui.dp(this, 10); row.setPadding(Ui.dp(this, 12), p, Ui.dp(this, 12), p); row.setMinimumHeight(Ui.dp(this, 46));
             GradientDrawable g = new GradientDrawable(); g.setCornerRadius(Ui.dp(this, 12)); g.setColor(cur ? 0x26E8C98A : 0x00000000); if (cur) g.setStroke(Ui.dp(this, 1), 0x99C9A45C); row.setBackground(g);
-            TextView t = Ui.text(this, (cur ? "✓  " : "") + r.optString("title"), cur ? Ui.GOLD : Ui.TXT, 15); t.setMaxLines(1); t.setEllipsize(android.text.TextUtils.TruncateAt.END);
+            TextView t = Ui.text(this, (cur ? "✓  " : "") + ("auto".equals(r.optString("kind")) ? Tr.s(this, R.string.pick_auto) : r.optString("title")), cur ? Ui.GOLD : Ui.TXT, 15); t.setMaxLines(1); t.setEllipsize(android.text.TextUtils.TruncateAt.END);
             row.addView(t, new LinearLayout.LayoutParams(0, Ui.WC, 1));
-            if (r.has("cnt")) { TextView ct = Ui.text(this, r.optString("cnt"), Ui.MUT, 12); ct.setGravity(Gravity.END); row.addView(ct); }
+            if (r.has("cnt")) { TextView ct = Ui.text(this, r.has("n") ? Tr.notes(this, r.optInt("n")) : r.optString("cnt"), Ui.MUT, 12); ct.setGravity(Gravity.END); row.addView(ct); }
             row.setOnClickListener(v -> choose(wid, notes, r));
             grp.addView(row, Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 2)));
         }
-        if (n == 0 || (!notes && n == 1)) c.addView(Ui.text(this, notes ? "Deschide aplicația Notis o dată ca să apară taburile." : "Nu am găsit liste cu bife. Creează una în Notis.", Ui.MUT, 13));
+        if (n == 0 || (!notes && n == 1)) c.addView(Ui.text(this, Tr.s(this, notes ? R.string.open_once_tabs : R.string.no_lists), Ui.MUT, 13));
         ScrollView sv = new ScrollView(this); sv.addView(box);
         c.addView(sv, new LinearLayout.LayoutParams(Ui.MP, Ui.WC, 1));
         setContentView(c);

@@ -25,6 +25,9 @@ final class Bridge {
         NotisWidget.refreshAll(ctx);
         Scheduler.rescheduleAll(ctx);
     }
+    @JavascriptInterface public void setLang(String l) { if (!MainActivity.trusted) return;
+        if (Tr.setLang(ctx, l)) { AlarmReceiver.channel(ctx); NotisWidget.refreshAll(ctx); }
+    }
     /* native recorder fallback (when WebView getUserMedia fails): "ok" | "perm" | "err:..." ; stop returns base64 AAC/m4a */
     @JavascriptInterface public String recStart() { if (!MainActivity.trusted) return "err:untrusted";
         if (ctx.checkSelfPermission(android.Manifest.permission.RECORD_AUDIO) != android.content.pm.PackageManager.PERMISSION_GRANTED) {

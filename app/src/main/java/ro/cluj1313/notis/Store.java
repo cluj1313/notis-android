@@ -337,7 +337,7 @@ final class Store {
         if (tabs != null) for (int i = 0; i < tabs.length(); i++) {
             JSONObject t = tabs.optJSONObject(i); if (t == null || t.optString("id").isEmpty()) continue;
             int n = WidgetService.notesOf(s, t.optString("id")).size();
-            try { out.add(new JSONObject().put("kind", "tab").put("id", t.optString("id")).put("title", t.optString("name")).put("cnt", n + (n == 1 ? " notiță" : " notițe")).put("cur", t.optString("id").equals(current))); } catch (Exception ignored) {}
+            try { out.add(new JSONObject().put("kind", "tab").put("id", t.optString("id")).put("title", t.optString("name")).put("cnt", n + (n == 1 ? " notiță" : " notițe")).put("n", n).put("cur", t.optString("id").equals(current))); } catch (Exception ignored) {}
         }
         return out;
     }
