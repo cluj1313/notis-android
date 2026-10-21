@@ -25,6 +25,14 @@ final class Bridge {
         NotisWidget.refreshAll(ctx);
         Scheduler.rescheduleAll(ctx);
     }
+    /* native recorder fallback (when WebView getUserMedia fails): "ok" | "perm" | "err:..." ; stop returns base64 AAC/m4a */
+    @JavascriptInterface public String recStart() { if (!MainActivity.trusted) return "err:untrusted";
+        if (ctx.checkSelfPermission(android.Manifest.permission.RECORD_AUDIO) != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+            MainActivity a = MainActivity.cur; if (a == null) return "err:noactivity"; a.askMicForBridge(); return "perm"; }
+        return NativeRec.start(new File(ctx.getCacheDir(), "rec.m4a"));
+    }
+    @JavascriptInterface public String recStop() { if (!MainActivity.trusted) return ""; return NativeRec.stop(); }
+    @JavascriptInterface public void recCancel() { if (!MainActivity.trusted) return; NativeRec.cancel(); }
     @JavascriptInterface public String peekPending() { if (!MainActivity.trusted) return ""; return Store.peekPending(ctx); }
     @JavascriptInterface public void ackPending(int k) { if (!MainActivity.trusted) return; Store.ackPending(ctx, k); NotisWidget.refreshAll(ctx); Scheduler.rescheduleAll(ctx); }
 

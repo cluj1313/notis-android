@@ -24,7 +24,8 @@ import java.io.InputStream;
 
 public class MainActivity extends Activity {
     static final String BASE = "https://cluj1313.github.io/notis/";
-    private static final int FILE_REQ = 41, MIC_REQ = 42, CAM_REQ = 43;
+    private static final int FILE_REQ = 41, MIC_REQ = 42, CAM_REQ = 43, MIC_NAT_REQ = 44;
+    static volatile MainActivity cur;
     private android.webkit.PermissionRequest micReq;
     private Uri camUri;
     static volatile boolean foreground = false;
@@ -36,6 +37,7 @@ public class MainActivity extends Activity {
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface"})
     @Override protected void onCreate(Bundle b) {
         super.onCreate(b);
+        cur = this;
         if ((getApplicationInfo().flags & android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0) WebView.setWebContentsDebuggingEnabled(true);
         web = new WebView(this);
         web.setBackgroundColor(0xFF0B0A08);
@@ -80,7 +82,7 @@ public class MainActivity extends Activity {
                     String o = r.getOrigin() == null ? "" : r.getOrigin().toString();
                     boolean audio = false;
                     for (String x : r.getResources()) if (android.webkit.PermissionRequest.RESOURCE_AUDIO_CAPTURE.equals(x)) audio = true;
-                    if (!audio || !(BASE.startsWith(o) || o.startsWith("https://cluj1313.github.io"))) { r.deny(); return; }
+                    if (!audio || !micOriginOk(o)) { r.deny(); return; }
                     String[] res = { android.webkit.PermissionRequest.RESOURCE_AUDIO_CAPTURE };
                     if (Build.VERSION.SDK_INT < 23 || checkSelfPermission(android.Manifest.permission.RECORD_AUDIO) == android.content.pm.PackageManager.PERMISSION_GRANTED) { r.grant(res); return; }
                     if (micReq != null) micReq.deny();
@@ -171,7 +173,22 @@ public class MainActivity extends Activity {
         super.onActivityResult(req, res, data);
     }
 
+    /** Origins allowed to use the microphone: the live site. The offline copy is served by shouldInterceptRequest under the same https origin. */
+    static boolean micOriginOk(String o) {
+        if (o == null) return false;
+        while (o.endsWith("/")) o = o.substring(0, o.length() - 1);
+        return o.equals("https://cluj1313.github.io");
+    }
+    /** native recorder fallback asks for RECORD_AUDIO from the bridge; result goes back to window.__recPerm */
+    void askMicForBridge() { runOnUiThread(() -> requestPermissions(new String[]{ android.Manifest.permission.RECORD_AUDIO }, MIC_NAT_REQ)); }
+    @Override protected void onDestroy() { if (cur == this) cur = null; NativeRec.cancel(); super.onDestroy(); }
+
     @Override public void onRequestPermissionsResult(int req, String[] perms, int[] res) {
+        if (req == MIC_NAT_REQ) {
+            boolean ok = res.length > 0 && res[0] == android.content.pm.PackageManager.PERMISSION_GRANTED;
+            if (web != null) web.evaluateJavascript("window.__recPerm&&window.__recPerm(" + ok + ")", null);
+            return;
+        }
         if (req == MIC_REQ && micReq != null) {
             android.webkit.PermissionRequest r = micReq; micReq = null;
             if (res.length > 0 && res[0] == android.content.pm.PackageManager.PERMISSION_GRANTED) r.grant(new String[]{ android.webkit.PermissionRequest.RESOURCE_AUDIO_CAPTURE });
