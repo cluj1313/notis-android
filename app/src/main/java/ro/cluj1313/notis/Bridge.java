@@ -36,8 +36,19 @@ final class Bridge {
     }
     @JavascriptInterface public String recStop() { if (!MainActivity.trusted) return ""; return NativeRec.stop(); }
     @JavascriptInterface public void recCancel() { if (!MainActivity.trusted) return; NativeRec.cancel(); }
+    /* 2.2.0 system TTS in the app language */
+    @JavascriptInterface public int ttsState() { if (!MainActivity.trusted) return -1; return NativeTts.state(ctx); }
+    @JavascriptInterface public String ttsVoices(String lang) { if (!MainActivity.trusted) return "[]"; return NativeTts.voices(ctx, lang); }
+    @JavascriptInterface public boolean ttsSpeak(String text, String voice, String lang, float rate, float pitch, String id) { if (!MainActivity.trusted) return false; return NativeTts.speak(ctx, text, voice, lang, rate, pitch, id); }
+    @JavascriptInterface public void ttsStop() { if (!MainActivity.trusted) return; NativeTts.stop(); }
+    @JavascriptInterface public boolean ttsInstall() { if (!MainActivity.trusted) return false; return NativeTts.openInstall(ctx); }
     @JavascriptInterface public String peekPending() { if (!MainActivity.trusted) return ""; return Store.peekPending(ctx); }
     @JavascriptInterface public void ackPending(int k) { if (!MainActivity.trusted) return; Store.ackPending(ctx, k); NotisWidget.refreshAll(ctx); Scheduler.rescheduleAll(ctx); }
+
+    /* v57 automatic backups (before updates / migrations), private storage that survives app updates */
+    @JavascriptInterface public boolean autoBackup(String id, String json) { if (!MainActivity.trusted) return false; return AutoBackup.write(ctx.getFilesDir(), id, json); }
+    @JavascriptInterface public String autoBackups() { if (!MainActivity.trusted) return "[]"; return AutoBackup.index(ctx.getFilesDir()); }
+    @JavascriptInterface public String autoBackupGet(String id) { if (!MainActivity.trusted) return ""; return AutoBackup.read(ctx.getFilesDir(), id); }
 
     /** backup export: writes the JSON file into Downloads */
     @JavascriptInterface public boolean saveFile(String name, String content) { if (!MainActivity.trusted) return false;
