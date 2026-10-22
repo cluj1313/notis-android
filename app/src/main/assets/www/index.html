@@ -3186,7 +3186,7 @@ window.nfReadFit=nfReadFit;setTimeout(nfReadFit,300);
 (function(){
 var UT_DEF=[['curent','Curent','kWh','idx'],['gaz','Gaz','m³','idx'],['apa','Apă','m³','idx'],['gunoi','Gunoi','','pay'],['internet','Internet','','pay'],['media','Media','','pay']];
 function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
-function utLoad(){var d=LS.get('ns_util',null);if(!d||!Array.isArray(d.list)){d={list:UT_DEF.map(function(x){return{id:x[0],k:x[0],unit:x[2],mode:x[3],cur:NL==='ro'?'lei':'',rows:[]}}),open:{}}}if(!d.open)d.open={};return d}
+function utLoad(){var d=LS.get('ns_util',null);if(!d||!Array.isArray(d.list)){d={list:UT_DEF.map(function(x){return{id:x[0],k:x[0],unit:x[2],mode:x[3],cur:NL==='ro'?'lei':'',rows:[]}}),open:{}}}if(!d.open)d.open={};d.list.forEach(function(u){if(u.rem&&(u.rows||[]).length){if(u.rem.on){var L=uRows(u).filter(function(r){return !r.rem})[0];if(L)L.rem=u.rem;else return}delete u.rem}}); /* v70: utility-level reminder moves onto its most recent payment entry */return d}
 function medNorm(d){if(!d||!Array.isArray(d.list))d={list:[]};if(!Array.isArray(d.persons)){d.persons=[{id:'me',k:'me'}];d.open=d.open||{};d.open.me=1} /* v65: persons — existing medicines move into the first person, nothing is dropped */
  if(!d.open)d.open={};if(!d.snz)d.snz={};var p0=d.persons[0];d.list.forEach(function(m){if(!m.rep&&!Array.isArray(m.pat)){var n=m.n||3,I=n===1?[0]:n===2?[0,2]:[0,1,2];m.pat=[0,1,2].map(function(i){return I.indexOf(i)>=0?1:0});if(m.c&&Array.isArray(m.c.s)){var o=m.c.s,ns=[];I.forEach(function(si,k){if(o[k])ns[si]=true});m.c.s=ns}} /* v66: n → pattern 1-0-1; today's checks re-indexed by slot */if(!m.p||!d.persons.some(function(x){return x.id===m.p})){if(!p0){p0={id:'me',k:'me'};d.persons.push(p0);d.open.me=1}m.p=p0.id}});return d}
 function medLoad(){return medNorm(LS.get('ns_med',null))}
@@ -3225,19 +3225,21 @@ function rAddM(ds,n,dom){var d=dParse(ds),y=d.getFullYear(),m=d.getMonth()+n;y+=
 function rStep(r,ds){if(r.iv==='d'){var d=dParse(ds);d.setDate(d.getDate()+(Math.max(1,r.days|0)));return dkey(d)}return rAddM(ds,+r.iv||1,r.dom)}
 function rAt(r){var p=(r.hm||'09:00').split(':'),d=dParse(r.next);d.setHours(+p[0],+p[1],0,0);return d.getTime()}
 function rOn(r){return r&&r.on&&r.next}
-function utRoll(){var now=Date.now(),ch=false;UT.list.forEach(function(u){var r=u.rem;if(!rOn(r))return;var at=rAt(r),k=0;if(at>now)return;
-  if(now-at<5*60000&&window.alFire&&!utRoll.f[u.id+at]){utRoll.f[u.id+at]=1;try{alFire({id:'pay-'+u.id,text:'💳 '+uName(u)+' — '+TR('plată'),med:1},null)}catch(_){}}
+function remH(){var o=[];UT.list.forEach(function(u){if(rOn(u.rem))o.push({u:u,r:u.rem,id:'pay-'+u.id,t:'💳 '+uName(u)+' — '+TR('plată')});(u.rows||[]).forEach(function(w){if(rOn(w.rem))o.push({u:u,w:w,r:w.rem,id:'pay-'+u.id+'-'+w.id,t:'💳 '+uName(u)+(w.nt?' · '+w.nt:'')+' — '+fmt(w.amt)+(u.cur?' '+u.cur:'')})})});return o}
+function rShort(r){return r.iv==='d'?(r.days|0)+(NL==='ro'?'z':TR('z')):(+r.iv||1)+(NL==='ro'?'L':TR('L'))}
+function utRoll(){var now=Date.now(),ch=false;remH().forEach(function(h){var r=h.r,at=rAt(r),k=0;if(at>now)return;
+  if(now-at<5*60000&&window.alFire&&!utRoll.f[h.id+at]){utRoll.f[h.id+at]=1;try{alFire({id:h.id,text:h.t,med:1},null)}catch(_){}}
   while(rAt(r)<=now&&k++<2400)r.next=rStep(r,r.next);ch=true});if(ch)utSave();return ch}
 utRoll.f={};
-window.payAlarms=function(){var out=[];if(!noteTabs.some(function(t){return t.kind==='util'}))return out;utRoll();UT.list.forEach(function(u){var r=u.rem;if(!rOn(r))return;
-  var a={id:'pay-'+u.id,text:'💳 '+uName(u)+' — '+TR('plată'),at:rAt(r),rep:0};if(r.iv==='d')a.rep=Math.max(1,r.days|0)*1440;else{a.repM=+r.iv||1;a.dom=r.dom||dParse(r.next).getDate()}out.push(a)});return out};
+window.payAlarms=function(){var out=[];if(!noteTabs.some(function(t){return t.kind==='util'}))return out;utRoll();remH().forEach(function(h){var r=h.r;
+  var a={id:h.id,text:h.t,at:rAt(r),rep:0};if(r.iv==='d')a.rep=Math.max(1,r.days|0)*1440;else{a.repM=+r.iv||1;a.dom=r.dom||dParse(r.next).getDate()}out.push(a)});return out};
 function uName(u){return u.name||TR((UT_DEF.filter(function(x){return x[0]===u.k})[0]||[0,'?'])[1])}
 function uRows(u){return (u.rows||[]).slice().sort(function(a,b){return String(b.d).localeCompare(String(a.d))||(b.ts||0)-(a.ts||0)})}
 function utRender(){var h='<div class="spv sput">';UT.list.forEach(function(u){var o=!!UT.open[u.id],R=uRows(u);
- h+='<div class="spsec'+(o?' open':'')+'" data-u="'+esc(u.id)+'"><div class="sphd" data-a="tog"><span class="spnm'+(u.name?' ux':'')+'">'+esc(uName(u))+'</span><span class="spun ux">'+esc(u.mode==='idx'?(u.unit||''):(u.cur||''))+'</span><span class="spcnt">'+(R.length||'')+'</span>'+(rOn(u.rem)?'<span class="spdue ux">⏰ '+esc(dLbl(u.rem.next))+'</span>':'')+'<button type="button" class="spgear" data-a="cfg" aria-label="Setări">⚙</button><i class="sparr"></i></div>';
+ h+='<div class="spsec'+(o?' open':'')+'" data-u="'+esc(u.id)+'"><div class="sphd" data-a="tog"><span class="spnm'+(u.name?' ux':'')+'">'+esc(uName(u))+'</span><span class="spun ux">'+esc(u.mode==='idx'?(u.unit||''):(u.cur||''))+'</span><span class="spcnt">'+(R.length||'')+'</span>'+(function(){var n=remH().filter(function(h){return h.u===u}).sort(function(a,b){return rAt(a.r)-rAt(b.r)})[0];return n?'<span class="spdue ux">⏰ '+esc(dLbl(n.r.next))+'</span>':''})()+'<button type="button" class="spgear" data-a="cfg" aria-label="Setări">⚙</button><i class="sparr"></i></div>';
  if(o){h+='<div class="spbd">';R.forEach(function(r){
    if(u.mode==='idx')h+='<div class="sprow idx ux" data-r="'+esc(r.id)+'"><span class="c0">'+esc(monLbl(r.d))+'</span><span class="c1">'+fmt(r.a)+'</span><span class="c2">'+fmt(r.b)+'</span><span class="c3">'+(isNaN(r.b-r.a)?'':fmt(Math.round((r.b-r.a)*1000)/1000)+' '+esc(u.unit||''))+'</span></div>';
-   else h+='<div class="sprow pay ux" data-r="'+esc(r.id)+'"><span class="c0">'+esc(dLbl(r.d))+'</span><span class="c3">'+fmt(r.amt)+' '+esc(u.cur||'')+'</span></div>'});
+   else h+='<div class="sprow pay ux" data-r="'+esc(r.id)+'"><span class="c0">'+esc(dLbl(r.d))+(r.nt?' <span class="spnt">'+esc(r.nt)+'</span>':'')+'</span>'+(rOn(r.rem)?'<span class="sprh">⏰ '+esc(dLbl(r.rem.next))+' ·'+esc(rShort(r.rem))+'</span>':'<span></span>')+'<span class="c3">'+fmt(r.amt)+' '+esc(u.cur||'')+'</span></div>'});
   if(!R.length)h+='<div class="spempty">Nicio înregistrare.</div>';
   h+='<button type="button" class="btn spadd" data-a="add">+ '+(u.mode==='idx'?'Adaugă citire':'Adaugă plată')+'</button></div>'}
  h+='</div>'});
@@ -3246,24 +3248,27 @@ function uFind(id){return UT.list.filter(function(u){return u.id===id})[0]}
 function utRow(u,r){var idx=u.mode==='idx',last=uRows(u)[0],isNew=!r;r=r||{id:uid(),d:today(),a:last&&!isNaN(last.b)?last.b:'',b:'',amt:''};
  var b=dOpen(TR(idx?'Citire':'Plată')+' · '+uName(u),'<div class="field"><label>Dată</label><input type="date" id="spD" value="'+esc(r.d)+'"></div>'+
   (idx?'<div class="al2"><div class="field"><label>Index anterior</label><input id="spA" inputmode="decimal" value="'+esc(r.a==null?'':r.a)+'"></div><div class="field"><label>Index actual</label><input id="spB" inputmode="decimal" value="'+esc(r.b==null?'':r.b)+'"></div></div><div class="spdiff ux" id="spDf"></div>'
-   :'<div class="field"><label>Sumă</label><input id="spM" inputmode="decimal" value="'+esc(r.amt==null?'':r.amt)+'"></div>'),
+   :'<div class="field"><label>Sumă</label><input id="spM" inputmode="decimal" value="'+esc(r.amt==null?'':r.amt)+'"></div><div class="field"><label>Notă (opțional)</label><input id="spNt" maxlength="30" value="'+esc(r.nt||'')+'"></div>'+remBlk(r.rem,r.d)),
   function(){var d=$('spD').value||today();if(idx){var a=num($('spA').value),bb=num($('spB').value);if(isNaN(bb)||(!isNaN(a)&&false)){toast(TR('Index invalid'));return false}r.a=isNaN(a)?null:a;r.b=bb}
-   else{var m=num($('spM').value);if(isNaN(m)){toast(TR('Sumă invalidă'));return false}r.amt=m}r.d=d;if(isNew){r.ts=Date.now();u.rows.push(r);var rm=u.rem;if(!idx&&rOn(rm)&&rAt(rm)-Date.now()<7*864e5){rm.next=rStep(rm,rm.next);try{saveNotes(true)}catch(_){}}}utSave();spRender()},
+   else{var m=num($('spM').value);if(isNaN(m)){toast(TR('Sumă invalidă'));return false}var rr=remRead();if(rr===false)return false;r.amt=m;r.nt=$('spNt').value.trim()||undefined;if(rr)r.rem=rr;else if(r.rem)r.rem.on=0}r.d=d;if(isNew){r.ts=Date.now();u.rows.push(r)}utSave();if(!idx){utRoll();try{saveNotes(true)}catch(_){}if(rOn(r.rem))try{alPerm()}catch(_){}}spRender()},
   isNew?null:function(){ask('Ștergi rândul?',function(){u.rows=u.rows.filter(function(x){return x!==r});utSave();jvClose('spModal');spRender()})});
- if(idx){var up=function(){var a=num($('spA').value),bb=num($('spB').value);$('spDf').textContent=isNaN(a)||isNaN(bb)?'':'= '+fmt(Math.round((bb-a)*1000)/1000)+' '+(u.unit||'')};$('spA').oninput=$('spB').oninput=up;up();setTimeout(function(){(isNew?$('spB'):$('spB')).focus()},80)}}
+ if(idx){var up=function(){var a=num($('spA').value),bb=num($('spB').value);$('spDf').textContent=isNaN(a)||isNaN(bb)?'':'= '+fmt(Math.round((bb-a)*1000)/1000)+' '+(u.unit||'')};$('spA').oninput=$('spB').oninput=up;up();setTimeout(function(){(isNew?$('spB'):$('spB')).focus()},80)}else remWire()}
+function remBlk(rm,d){rm=rm||{iv:'1',hm:'09:00'};var nx=rm.next||rStep({iv:rm.iv||'1',days:rm.days||30},d||today());
+ return '<label class="mdal sprem"><input type="checkbox" id="spRo"'+(rm.on?' checked':'')+'> ⏰ Reamintire</label><div id="spRb">'+seg('spRi',[['1',TR('Lunar')],['2',TR('La 2 luni')],['3',TR('La 3 luni')],['6',TR('La 6 luni')],['12',TR('Anual')],['d',TR('La fiecare X zile')]],rm.iv||'1')+
+  '<div class="field" id="spRdf"><label>Zile</label><input id="spRd" type="number" min="1" max="3650" inputmode="numeric" value="'+(rm.days||30)+'"></div><div class="al2"><div class="field"><label>Următoarea plată</label><input type="date" id="spRn" value="'+esc(nx)+'"'+(rm.next?' data-ed="1"':'')+'></div><div class="field"><label>Ora</label><input type="time" id="spRh" value="'+esc(rm.hm||'09:00')+'"></div></div></div>'}
+function remWire(){var auto=function(){var n=$('spRn');if(n.dataset.ed)return;var iv=segVal('spRi')||'1';n.value=rStep({iv:iv,days:parseInt($('spRd').value,10)||30},$('spD').value||today())};
+ var uv=function(){$('spRb').style.display=$('spRo').checked?'':'none';$('spRdf').style.display=segVal('spRi')==='d'?'':'none';auto()};
+ segWire('spRi',uv);$('spRo').onchange=uv;$('spD').addEventListener('change',auto);$('spRd').oninput=auto;$('spRn').onchange=function(){this.dataset.ed='1'};uv()}
+function remRead(){if(!$('spRo').checked)return null;var iv=segVal('spRi')||'1',nx=$('spRn').value;if(!nx){toast(TR('Alege data'));return false}var dd=parseInt($('spRd').value,10);if(iv==='d'&&!(dd>0)){toast(TR('Alege data'));return false}
+ return{on:1,iv:iv,days:iv==='d'?Math.min(3650,dd):undefined,next:nx,hm:$('spRh').value||'09:00',dom:dParse(nx).getDate()}}
 function utCfg(u){var isNew=!u;u=u||{id:uid(),name:'',unit:'',mode:'idx',cur:'lei',rows:[]};var rm=u.rem||{iv:'1',hm:'09:00',next:''};if(!rm.next){var dn=new Date();dn.setMonth(dn.getMonth()+1);rm.next=dkey(dn)}
  dOpen(isNew?TR('Utilitate nouă'):uName(u),'<div class="field"><label>Nume</label><input id="spN" maxlength="30" value="'+esc(uName(u)==='?'?'':uName(u))+'"></div>'+seg('spMd',[['idx',TR('Cu index')],['pay',TR('Doar plată')]],u.mode)+
-  '<div class="al2" style="margin-top:12px"><div class="field" id="spUf"><label>Unitate</label><input id="spU" maxlength="10" value="'+esc(u.unit||'')+'"></div><div class="field"><label>Monedă</label><input id="spC" maxlength="10" value="'+esc(u.cur||'')+'"></div></div>'+
-  '<label class="mdal sprem"><input type="checkbox" id="spRo"'+(rm.on?' checked':'')+'> ⏰ Reamintire plată</label><div id="spRb">'+seg('spRi',[['1',TR('Lunar')],['2',TR('La 2 luni')],['3',TR('La 3 luni')],['6',TR('La 6 luni')],['12',TR('Anual')],['d',TR('La fiecare X zile')]],rm.iv||'1')+
-  '<div class="field" id="spRdf"><label>Zile</label><input id="spRd" type="number" min="1" max="3650" inputmode="numeric" value="'+(rm.days||30)+'"></div><div class="al2"><div class="field"><label>Următoarea plată</label><input type="date" id="spRn" value="'+esc(rm.next||'')+'"></div><div class="field"><label>Ora</label><input type="time" id="spRh" value="'+esc(rm.hm||'09:00')+'"></div></div></div>',
+  '<div class="al2" style="margin-top:12px"><div class="field" id="spUf"><label>Unitate</label><input id="spU" maxlength="10" value="'+esc(u.unit||'')+'"></div><div class="field"><label>Monedă</label><input id="spC" maxlength="10" value="'+esc(u.cur||'')+'"></div></div>',
   function(){var n=$('spN').value.trim();if(!n){toast(TR('Numele e obligatoriu'));return false}if(isNew||n!==uName(u))u.name=n;u.mode=segVal('spMd')||'idx';if(u.mode==='idx'||isNew)u.unit=$('spU').value.trim();u.cur=$('spC').value.trim();
-   if($('spRo').checked){var iv=segVal('spRi')||'1',nx=$('spRn').value;if(!nx){toast(TR('Alege data'));return false}var dd=parseInt($('spRd').value,10);if(iv==='d'&&!(dd>0)){toast(TR('Alege data'));return false}
-    u.rem={on:1,iv:iv,days:iv==='d'?Math.min(3650,dd):undefined,next:nx,hm:$('spRh').value||'09:00',dom:dParse(nx).getDate()};utRoll();try{saveNotes(true)}catch(_){}try{alPerm()}catch(_){}}
-   else if(u.rem){u.rem.on=0;try{saveNotes(true)}catch(_){}}
    if(isNew){UT.list.push(u);UT.open[u.id]=1}utSave();spRender()},
   isNew?null:function(){ask('Ștergi utilitatea?',function(){UT.list=UT.list.filter(function(x){return x!==u});delete UT.open[u.id];utSave();jvClose('spModal');spRender()})});
- if(isNew)$('spN').value='';var uv=function(){$('spUf').style.display=segVal('spMd')==='pay'?'none':'';$('spRb').style.display=$('spRo').checked?'':'none';$('spRdf').style.display=segVal('spRi')==='d'?'':'none'};
- segWire('spMd',uv);segWire('spRi',uv);$('spRo').onchange=uv;uv()}
+ if(isNew)$('spN').value='';var uv=function(){$('spUf').style.display=segVal('spMd')==='pay'?'none':''};
+ segWire('spMd',uv);uv()}
 /* ---- Medicamente ---- */
 var SLOT=['Dimineață','Amiază','Seară'];
 function mSlots(m){if(m.rep>0){var st=m.st||'08:00',p=st.split(':'),t0=+p[0]*60+(+p[1]),k=Math.max(1,Math.min(6,Math.floor(24/m.rep))),a=[];for(var i=0;i<k;i++){var x=(t0+i*m.rep*60)%1440;a.push({lbl:pad(Math.floor(x/60))+':'+pad(x%60),t:pad(Math.floor(x/60))+':'+pad(x%60),al:!!m.ral})}return a}
@@ -3384,7 +3389,7 @@ renderAbList();
 .sparr::after{content:"\25BE";display:inline-block;font-size:22px;line-height:1;color:var(--cyan);transition:transform .2s;transform:rotate(-90deg)}.spsec.open .sparr::after{transform:none}
 .spbd{padding:0 0 10px}
 .sprow{display:grid;align-items:center;padding:8px 2px;border-top:1px solid rgba(var(--lnR),.12);font-size:15.5px;font-variant-numeric:tabular-nums;cursor:pointer;color:var(--txt)}
-.sprow.idx{grid-template-columns:1.1fr 1fr 1fr 1.2fr}.sprow.pay{grid-template-columns:1fr auto}
+.sprow.idx{grid-template-columns:1.1fr 1fr 1fr 1.2fr}.sprow.pay{grid-template-columns:auto 1fr auto;gap:6px}.sprh{color:var(--mut);font-size:11.5px;white-space:nowrap;text-align:right;overflow:hidden;text-overflow:ellipsis}.spnt{color:var(--mut);font-size:12.5px}
 .sprow .c1,.sprow .c2,.sprow .c3{text-align:right}.sprow .c3{color:var(--cyan);font-weight:600}.sprow .c1{color:var(--mut)}
 .spempty{color:var(--mut);font-size:14px;padding:8px 2px}
 .spadd{margin-top:8px;width:100%}.spnew{margin-top:10px;width:100%}

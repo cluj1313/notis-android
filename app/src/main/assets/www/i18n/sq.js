@@ -763,5 +763,9 @@ NOTIS_I18N={
 "Următoarea plată": "Pagesa e radhës",
 "Ora": "Ora",
 "plată": "pagesë",
-"Alege data": "Zgjidhni datën"
+"Alege data": "Zgjidhni datën",
+"⏰ Reamintire": "⏰ Kujtesë",
+"Notă (opțional)": "Shënim (opsional)",
+"L": "M",
+"z": "d"
 };

@@ -763,5 +763,9 @@ NOTIS_I18N={
 "Următoarea plată": "Lần thanh toán tới",
 "Ora": "Giờ",
 "plată": "thanh toán",
-"Alege data": "Chọn ngày"
+"Alege data": "Chọn ngày",
+"⏰ Reamintire": "⏰ Nhắc nhở",
+"Notă (opțional)": "Ghi chú (tùy chọn)",
+"L": "th",
+"z": "ng"
 };

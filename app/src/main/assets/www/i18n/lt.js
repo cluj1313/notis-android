@@ -763,5 +763,9 @@ NOTIS_I18N={
 "Următoarea plată": "Kitas mokėjimas",
 "Ora": "Laikas",
 "plată": "mokėjimas",
-"Alege data": "Pasirinkite datą"
+"Alege data": "Pasirinkite datą",
+"⏰ Reamintire": "⏰ Priminimas",
+"Notă (opțional)": "Pastaba (neprivaloma)",
+"L": "mėn",
+"z": "d"
 };

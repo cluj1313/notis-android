@@ -763,5 +763,9 @@ NOTIS_I18N={
 "Următoarea plată": "Próximo pago",
 "Ora": "Hora",
 "plată": "pago",
-"Alege data": "Elige una fecha"
+"Alege data": "Elige una fecha",
+"⏰ Reamintire": "⏰ Recordatorio",
+"Notă (opțional)": "Nota (opcional)",
+"L": "M",
+"z": "d"
 };

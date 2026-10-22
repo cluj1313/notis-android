@@ -763,5 +763,9 @@ NOTIS_I18N={
 "Următoarea plată": "下次付款",
 "Ora": "時間",
 "plată": "付款",
-"Alege data": "請選擇日期"
+"Alege data": "請選擇日期",
+"⏰ Reamintire": "⏰ 提醒",
+"Notă (opțional)": "備註（選填）",
+"L": "個月",
+"z": "天"
 };

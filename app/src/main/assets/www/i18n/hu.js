@@ -763,5 +763,9 @@ NOTIS_I18N={
 "Următoarea plată": "Következő fizetés",
 "Ora": "Idő",
 "plată": "fizetés",
-"Alege data": "Válassz dátumot"
+"Alege data": "Válassz dátumot",
+"⏰ Reamintire": "⏰ Emlékeztető",
+"Notă (opțional)": "Megjegyzés (nem kötelező)",
+"L": "H",
+"z": "n"
 };

@@ -763,5 +763,9 @@ NOTIS_I18N={
 "Următoarea plată": "Bayaran seterusnya",
 "Ora": "Masa",
 "plată": "bayaran",
-"Alege data": "Pilih tarikh"
+"Alege data": "Pilih tarikh",
+"⏰ Reamintire": "⏰ Peringatan",
+"Notă (opțional)": "Nota (pilihan)",
+"L": "B",
+"z": "h"
 };
