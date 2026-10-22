@@ -778,5 +778,6 @@ NOTIS_I18N={
 "Ștergi tratamentul?": "Kas kustutada ravi?",
 "Distribuie": "Jaga",
 "Importă notița": "Impordi märge",
-"Notiță importată": "Märge imporditud"
+"Notiță importată": "Märge imporditud",
+"Toate": "Kõik"
 };

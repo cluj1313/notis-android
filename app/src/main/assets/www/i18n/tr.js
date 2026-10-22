@@ -778,5 +778,6 @@ NOTIS_I18N={
 "Ștergi tratamentul?": "Tedavi silinsin mi?",
 "Distribuie": "Paylaş",
 "Importă notița": "Notu içe aktar",
-"Notiță importată": "Not içe aktarıldı"
+"Notiță importată": "Not içe aktarıldı",
+"Toate": "Tümü"
 };

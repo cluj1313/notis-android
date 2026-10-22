@@ -778,5 +778,6 @@ NOTIS_I18N={
 "Ștergi tratamentul?": "Törlöd a kezelést?",
 "Distribuie": "Megosztás",
 "Importă notița": "Jegyzet importálása",
-"Notiță importată": "Jegyzet importálva"
+"Notiță importată": "Jegyzet importálva",
+"Toate": "Mind"
 };

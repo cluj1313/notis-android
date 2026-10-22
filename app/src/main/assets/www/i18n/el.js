@@ -778,5 +778,6 @@ NOTIS_I18N={
 "Ștergi tratamentul?": "Διαγραφή της θεραπείας;",
 "Distribuie": "Κοινοποίηση",
 "Importă notița": "Εισαγωγή της σημείωσης",
-"Notiță importată": "Η σημείωση εισήχθη"
+"Notiță importată": "Η σημείωση εισήχθη",
+"Toate": "Όλα"
 };

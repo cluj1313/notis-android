@@ -1,6 +1,6 @@
 /* Notis service worker: app shell cache. HTML = network-first (updates arrive), static = cache-first.
    Voice model files (Mihai, own cache "jarvis-piper-v1") and weather (Open-Meteo) are NOT touched: passed straight to the network. */
-var VERSION='notis-shell-v72';
+var VERSION='notis-shell-v73';
 var SHELL=['./','index.html','manifest.webmanifest?v=47','icons/sc-new-96.png','icons/sc-search-96.png','icons/sc-cart-96.png',
  'icons/favicon.png?v=29','icons/icon-192.png?v=47','icons/icon-512.png?v=47','icons/apple-touch-icon.png?v=47','art/jad-t.svg','art/jad-b.svg','art/lac-t.svg','art/lac-b.svg','art/tus-t.svg','art/tus-b.svg','art/paper.svg','art/neon-b.svg','art/papyrus.svg','art/pap-t.svg','art/pap-b.svg','art/m-sakura.svg','art/lup-d.webp','art/lup-l.webp','art/flag-hdr.webp','art/salon-marble.svg','art/cleo-q.svg','art/cleo-b.svg','art/cleo-l.svg','art/cleo-pap.svg','art/bg-lup-t.webp','art/bg-mist-t.webp','art/bg-forest-t.webp','art/bg-lake-t.webp','art/bg-sea-t.webp','art/bg-snow-t.webp','art/bg-night-t.webp','art/demo-draw.webp','art/demo-rec.m4a','i18n/en.js','i18n/fr.js','i18n/de.js','i18n/it.js','i18n/hu.js','i18n/ru.js','manifest-en.webmanifest','manifest-fr.webmanifest','manifest-de.webmanifest','manifest-it.webmanifest','manifest-hu.webmanifest','manifest-ru.webmanifest'];
 var FONT_HOSTS=/^https:\/\/(fonts\.googleapis\.com|fonts\.gstatic\.com)\//,DSEG=/^https:\/\/cdn\.jsdelivr\.net\/npm\/dseg@/;

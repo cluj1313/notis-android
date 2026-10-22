@@ -778,5 +778,6 @@ NOTIS_I18N={
 "Ștergi tratamentul?": "요법을 삭제할까요?",
 "Distribuie": "공유",
 "Importă notița": "메모 가져오기",
-"Notiță importată": "메모를 가져왔습니다"
+"Notiță importată": "메모를 가져왔습니다",
+"Toate": "전체"
 };

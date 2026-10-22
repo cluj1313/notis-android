@@ -778,5 +778,6 @@ NOTIS_I18N={
 "Ștergi tratamentul?": "Ištrinti gydymą?",
 "Distribuie": "Bendrinti",
 "Importă notița": "Importuoti užrašą",
-"Notiță importată": "Užrašas importuotas"
+"Notiță importată": "Užrašas importuotas",
+"Toate": "Visi"
 };

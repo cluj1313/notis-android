@@ -778,5 +778,6 @@ NOTIS_I18N={
 "Ștergi tratamentul?": "حذف العلاج؟",
 "Distribuie": "مشاركة",
 "Importă notița": "استيراد الملاحظة",
-"Notiță importată": "تم استيراد الملاحظة"
+"Notiță importată": "تم استيراد الملاحظة",
+"Toate": "الكل"
 };

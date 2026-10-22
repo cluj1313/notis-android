@@ -778,5 +778,6 @@ NOTIS_I18N={
 "Ștergi tratamentul?": "Poistetaanko hoito?",
 "Distribuie": "Jaa",
 "Importă notița": "Tuo muistiinpano",
-"Notiță importată": "Muistiinpano tuotu"
+"Notiță importată": "Muistiinpano tuotu",
+"Toate": "Kaikki"
 };

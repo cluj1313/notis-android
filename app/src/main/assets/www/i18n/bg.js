@@ -778,5 +778,6 @@ NOTIS_I18N={
 "Ștergi tratamentul?": "Да се изтрие ли лечението?",
 "Distribuie": "Сподели",
 "Importă notița": "Импортиране на бележката",
-"Notiță importată": "Бележката е импортирана"
+"Notiță importată": "Бележката е импортирана",
+"Toate": "Всички"
 };

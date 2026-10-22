@@ -778,5 +778,6 @@ NOTIS_I18N={
 "Ștergi tratamentul?": "Xóa phương pháp điều trị?",
 "Distribuie": "Chia sẻ",
 "Importă notița": "Nhập ghi chú",
-"Notiță importată": "Đã nhập ghi chú"
+"Notiță importată": "Đã nhập ghi chú",
+"Toate": "Tất cả"
 };

@@ -778,5 +778,6 @@ NOTIS_I18N={
 "Ștergi tratamentul?": "চিকিৎসাটি মুছবেন?",
 "Distribuie": "শেয়ার করুন",
 "Importă notița": "নোটটি ইমপোর্ট করুন",
-"Notiță importată": "নোট ইমপোর্ট হয়েছে"
+"Notiță importată": "নোট ইমপোর্ট হয়েছে",
+"Toate": "সব"
 };
