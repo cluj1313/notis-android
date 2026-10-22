@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Visi",
 "Tab": "Skirtukas",
 "rezultate în notițe blocate": "rezultatai užrakintuose užrašuose",
-"Caută și în notițele blocate": "Ieškoti ir užrakintuose užrašuose"
+"Caută și în notițele blocate": "Ieškoti ir užrakintuose užrašuose",
+"Trage tabul unde vrei": "Nuvilkite skirtuką kur norite"
 };

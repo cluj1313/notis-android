@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "सभी",
 "Tab": "टैब",
 "rezultate în notițe blocate": "लॉक नोट्स में परिणाम",
-"Caută și în notițele blocate": "लॉक नोट्स में भी खोजें"
+"Caută și în notițele blocate": "लॉक नोट्स में भी खोजें",
+"Trage tabul unde vrei": "टैब को जहाँ चाहें खींचें"
 };

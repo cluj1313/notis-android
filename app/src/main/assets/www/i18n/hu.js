@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Mind",
 "Tab": "Lap",
 "rezultate în notițe blocate": "találat zárolt jegyzetekben",
-"Caută și în notițele blocate": "Keresés a zárolt jegyzetekben is"
+"Caută și în notițele blocate": "Keresés a zárolt jegyzetekben is",
+"Trage tabul unde vrei": "Húzd a lapot a kívánt helyre"
 };

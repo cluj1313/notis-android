@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Усі",
 "Tab": "Вкладка",
 "rezultate în notițe blocate": "результатів у заблокованих нотатках",
-"Caută și în notițele blocate": "Шукати й у заблокованих нотатках"
+"Caută și în notițele blocate": "Шукати й у заблокованих нотатках",
+"Trage tabul unde vrei": "Перетягніть вкладку куди потрібно"
 };

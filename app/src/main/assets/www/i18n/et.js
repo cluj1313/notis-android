@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Kõik",
 "Tab": "Vahekaart",
 "rezultate în notițe blocate": "tulemust lukustatud märkmetes",
-"Caută și în notițele blocate": "Otsi ka lukustatud märkmetest"
+"Caută și în notițele blocate": "Otsi ka lukustatud märkmetest",
+"Trage tabul unde vrei": "Lohista vahekaart soovitud kohta"
 };

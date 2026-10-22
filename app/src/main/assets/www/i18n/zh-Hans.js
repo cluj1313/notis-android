@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "全部",
 "Tab": "标签页",
 "rezultate în notițe blocate": "个结果在锁定的笔记中",
-"Caută și în notițele blocate": "也搜索锁定的笔记"
+"Caută și în notițele blocate": "也搜索锁定的笔记",
+"Trage tabul unde vrei": "将标签页拖到想要的位置"
 };

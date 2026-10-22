@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Sve",
 "Tab": "Kartica",
 "rezultate în notițe blocate": "rezultata u zaključanim bilješkama",
-"Caută și în notițele blocate": "Traži i u zaključanim bilješkama"
+"Caută și în notițele blocate": "Traži i u zaključanim bilješkama",
+"Trage tabul unde vrei": "Povucite karticu kamo želite"
 };

@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "All",
 "Tab": "Tab",
 "rezultate în notițe blocate": "results in locked notes",
-"Caută și în notițele blocate": "Also search locked notes"
+"Caută și în notițele blocate": "Also search locked notes",
+"Trage tabul unde vrei": "Drag the tab where you want"
 };

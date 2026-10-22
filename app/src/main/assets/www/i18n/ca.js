@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Tots",
 "Tab": "Pestanya",
 "rezultate în notițe blocate": "resultats en notes bloquejades",
-"Caută și în notițele blocate": "Cerca també a les notes bloquejades"
+"Caută și în notițele blocate": "Cerca també a les notes bloquejades",
+"Trage tabul unde vrei": "Arrossega la pestanya on vulguis"
 };

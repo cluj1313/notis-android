@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Alle",
 "Tab": "Tabblad",
 "rezultate în notițe blocate": "resultaten in vergrendelde notities",
-"Caută și în notițele blocate": "Ook in vergrendelde notities zoeken"
+"Caută și în notițele blocate": "Ook in vergrendelde notities zoeken",
+"Trage tabul unde vrei": "Sleep het tabblad naar de gewenste plek"
 };

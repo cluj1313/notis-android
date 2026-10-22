@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "ทั้งหมด",
 "Tab": "แท็บ",
 "rezultate în notițe blocate": "ผลลัพธ์ในโน้ตที่ล็อก",
-"Caută și în notițele blocate": "ค้นหาในโน้ตที่ล็อกด้วย"
+"Caută și în notițele blocate": "ค้นหาในโน้ตที่ล็อกด้วย",
+"Trage tabul unde vrei": "ลากแท็บไปยังตำแหน่งที่ต้องการ"
 };

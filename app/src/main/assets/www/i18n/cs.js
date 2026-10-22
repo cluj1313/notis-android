@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Vše",
 "Tab": "Karta",
 "rezultate în notițe blocate": "výsledků v zamčených poznámkách",
-"Caută și în notițele blocate": "Hledat i v zamčených poznámkách"
+"Caută și în notițele blocate": "Hledat i v zamčených poznámkách",
+"Trage tabul unde vrei": "Přetáhněte kartu, kam chcete"
 };

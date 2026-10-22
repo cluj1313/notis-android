@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "全部",
 "Tab": "分頁",
 "rezultate în notițe blocate": "個結果在鎖定的筆記中",
-"Caută și în notițele blocate": "也搜尋鎖定的筆記"
+"Caută și în notițele blocate": "也搜尋鎖定的筆記",
+"Trage tabul unde vrei": "將分頁拖到想要的位置"
 };

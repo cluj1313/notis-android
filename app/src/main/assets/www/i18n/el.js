@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Όλα",
 "Tab": "Καρτέλα",
 "rezultate în notițe blocate": "αποτελέσματα σε κλειδωμένες σημειώσεις",
-"Caută și în notițele blocate": "Αναζήτηση και στις κλειδωμένες σημειώσεις"
+"Caută și în notițele blocate": "Αναζήτηση και στις κλειδωμένες σημειώσεις",
+"Trage tabul unde vrei": "Σύρετε την καρτέλα όπου θέλετε"
 };

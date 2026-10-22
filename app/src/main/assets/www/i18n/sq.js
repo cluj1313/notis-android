@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Të gjitha",
 "Tab": "Skedë",
 "rezultate în notițe blocate": "rezultate në shënime të kyçura",
-"Caută și în notițele blocate": "Kërko edhe në shënimet e kyçura"
+"Caută și în notițele blocate": "Kërko edhe në shënimet e kyçura",
+"Trage tabul unde vrei": "Tërhiqe skedën ku të duash"
 };

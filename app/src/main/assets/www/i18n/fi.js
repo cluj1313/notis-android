@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Kaikki",
 "Tab": "Välilehti",
 "rezultate în notițe blocate": "tulosta lukituissa muistiinpanoissa",
-"Caută și în notițele blocate": "Hae myös lukituista muistiinpanoista"
+"Caută și în notițele blocate": "Hae myös lukituista muistiinpanoista",
+"Trage tabul unde vrei": "Vedä välilehti haluamaasi kohtaan"
 };

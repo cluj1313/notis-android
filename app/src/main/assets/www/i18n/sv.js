@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Alla",
 "Tab": "Flik",
 "rezultate în notițe blocate": "träffar i låsta anteckningar",
-"Caută și în notițele blocate": "Sök även i låsta anteckningar"
+"Caută și în notițele blocate": "Sök även i låsta anteckningar",
+"Trage tabul unde vrei": "Dra fliken dit du vill"
 };

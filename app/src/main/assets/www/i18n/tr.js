@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Tümü",
 "Tab": "Sekme",
 "rezultate în notițe blocate": "kilitli notlarda sonuç",
-"Caută și în notițele blocate": "Kilitli notlarda da ara"
+"Caută și în notițele blocate": "Kilitli notlarda da ara",
+"Trage tabul unde vrei": "Sekmeyi istediğiniz yere sürükleyin"
 };

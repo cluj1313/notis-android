@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "전체",
 "Tab": "탭",
 "rezultate în notițe blocate": "개 결과(잠긴 메모)",
-"Caută și în notițele blocate": "잠긴 메모에서도 검색"
+"Caută și în notițele blocate": "잠긴 메모에서도 검색",
+"Trage tabul unde vrei": "탭을 원하는 위치로 끌어 놓으세요"
 };

@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "الكل",
 "Tab": "علامة تبويب",
 "rezultate în notițe blocate": "نتائج في ملاحظات مقفلة",
-"Caută și în notițele blocate": "ابحث أيضًا في الملاحظات المقفلة"
+"Caută și în notițele blocate": "ابحث أيضًا في الملاحظات المقفلة",
+"Trage tabul unde vrei": "اسحب علامة التبويب إلى حيث تريد"
 };

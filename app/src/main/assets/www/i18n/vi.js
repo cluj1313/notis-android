@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Tất cả",
 "Tab": "Thẻ",
 "rezultate în notițe blocate": "kết quả trong ghi chú bị khóa",
-"Caută și în notițele blocate": "Tìm cả trong ghi chú bị khóa"
+"Caută și în notițele blocate": "Tìm cả trong ghi chú bị khóa",
+"Trage tabul unde vrei": "Kéo thẻ đến vị trí bạn muốn"
 };

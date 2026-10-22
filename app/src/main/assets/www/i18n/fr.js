@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Tous",
 "Tab": "Onglet",
 "rezultate în notițe blocate": "résultats dans des notes verrouillées",
-"Caută și în notițele blocate": "Chercher aussi dans les notes verrouillées"
+"Caută și în notițele blocate": "Chercher aussi dans les notes verrouillées",
+"Trage tabul unde vrei": "Faites glisser l’onglet où vous voulez"
 };

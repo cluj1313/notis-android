@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "הכול",
 "Tab": "כרטיסייה",
 "rezultate în notițe blocate": "תוצאות בפתקים נעולים",
-"Caută și în notițele blocate": "חפש גם בפתקים נעולים"
+"Caută și în notițele blocate": "חפש גם בפתקים נעולים",
+"Trage tabul unde vrei": "גרור את הכרטיסייה למקום הרצוי"
 };

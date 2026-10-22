@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Wszystkie",
 "Tab": "Karta",
 "rezultate în notițe blocate": "wyników w zablokowanych notatkach",
-"Caută și în notițele blocate": "Szukaj też w zablokowanych notatkach"
+"Caută și în notițele blocate": "Szukaj też w zablokowanych notatkach",
+"Trage tabul unde vrei": "Przeciągnij kartę w wybrane miejsce"
 };

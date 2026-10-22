@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Alle",
 "Tab": "Tab",
 "rezultate în notițe blocate": "Treffer in gesperrten Notizen",
-"Caută și în notițele blocate": "Auch in gesperrten Notizen suchen"
+"Caută și în notițele blocate": "Auch in gesperrten Notizen suchen",
+"Trage tabul unde vrei": "Tab an die gewünschte Stelle ziehen"
 };

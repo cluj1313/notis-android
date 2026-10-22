@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "すべて",
 "Tab": "タブ",
 "rezultate în notițe blocate": "件（ロックされたメモ）",
-"Caută și în notițele blocate": "ロックされたメモも検索"
+"Caută și în notițele blocate": "ロックされたメモも検索",
+"Trage tabul unde vrei": "タブを好きな位置へドラッグ"
 };

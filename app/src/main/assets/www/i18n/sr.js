@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Сви",
 "Tab": "Картица",
 "rezultate în notițe blocate": "резултата у закључаним белешкама",
-"Caută și în notițele blocate": "Тражи и у закључаним белешкама"
+"Caută și în notițele blocate": "Тражи и у закључаним белешкама",
+"Trage tabul unde vrei": "Превуците картицу где желите"
 };

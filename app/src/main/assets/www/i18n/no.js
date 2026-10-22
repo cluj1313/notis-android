@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Alle",
 "Tab": "Fane",
 "rezultate în notițe blocate": "resultater i låste notater",
-"Caută și în notițele blocate": "Søk også i låste notater"
+"Caută și în notițele blocate": "Søk også i låste notater",
+"Trage tabul unde vrei": "Dra fanen dit du vil"
 };

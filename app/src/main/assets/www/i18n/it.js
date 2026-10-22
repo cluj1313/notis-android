@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Tutti",
 "Tab": "Scheda",
 "rezultate în notițe blocate": "risultati in note bloccate",
-"Caută și în notițele blocate": "Cerca anche nelle note bloccate"
+"Caută și în notițele blocate": "Cerca anche nelle note bloccate",
+"Trage tabul unde vrei": "Trascina la scheda dove vuoi"
 };

@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Todos",
 "Tab": "Separador",
 "rezultate în notițe blocate": "resultados em notas bloqueadas",
-"Caută și în notițele blocate": "Pesquisar também nas notas bloqueadas"
+"Caută și în notițele blocate": "Pesquisar também nas notas bloqueadas",
+"Trage tabul unde vrei": "Arraste o separador para onde quiser"
 };

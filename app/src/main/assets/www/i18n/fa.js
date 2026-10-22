@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "همه",
 "Tab": "زبانه",
 "rezultate în notițe blocate": "نتیجه در یادداشت‌های قفل‌شده",
-"Caută și în notițele blocate": "در یادداشت‌های قفل‌شده هم جستجو کن"
+"Caută și în notițele blocate": "در یادداشت‌های قفل‌شده هم جستجو کن",
+"Trage tabul unde vrei": "زبانه را به هر جا می‌خواهید بکشید"
 };

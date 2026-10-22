@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Vsi",
 "Tab": "Zavihek",
 "rezultate în notițe blocate": "zadetkov v zaklenjenih zapiskih",
-"Caută și în notițele blocate": "Išči tudi v zaklenjenih zapiskih"
+"Caută și în notițele blocate": "Išči tudi v zaklenjenih zapiskih",
+"Trage tabul unde vrei": "Povlecite zavihek, kamor želite"
 };

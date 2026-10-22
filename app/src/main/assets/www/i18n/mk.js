@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Сите",
 "Tab": "Јазиче",
 "rezultate în notițe blocate": "резултати во заклучени белешки",
-"Caută și în notițele blocate": "Барај и во заклучените белешки"
+"Caută și în notițele blocate": "Барај и во заклучените белешки",
+"Trage tabul unde vrei": "Повлечете го јазичето каде што сакате"
 };

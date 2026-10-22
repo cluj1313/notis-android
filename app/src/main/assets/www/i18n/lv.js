@@ -782,5 +782,6 @@ NOTIS_I18N={
 "Toate": "Visi",
 "Tab": "Cilne",
 "rezultate în notițe blocate": "rezultāti bloķētās piezīmēs",
-"Caută și în notițele blocate": "Meklēt arī bloķētās piezīmēs"
+"Caută și în notițele blocate": "Meklēt arī bloķētās piezīmēs",
+"Trage tabul unde vrei": "Velciet cilni, kur vēlaties"
 };
