@@ -746,5 +746,10 @@ NOTIS_I18N={
 "Ștergi persoana și medicamentele ei?": "Törlöd ezt a személyt és a gyógyszereit?",
 "Permite notificările și alarmele pentru Notis, ca să sune la timp": "Engedélyezd az értesítéseket és ébresztéseket a Notis számára, hogy időben szóljon",
 "Pe Xiaomi, permite „Pornire automată” pentru Notis, ca alarmele să sune cu aplicația închisă. Deschid setările?": "Xiaomin engedélyezd az „Automatikus indítás”-t a Notis számára, hogy az ébresztők zárt alkalmazásnál is szóljanak. Megnyitod a beállításokat?",
-"Medicamente": "Gyógyszerek"
+"Medicamente": "Gyógyszerek",
+"Margine laterală": "Oldalsó margó",
+"Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "Koppints: 0 / 1. Az időpont nem kötelező (nincs időpont = nincs ébresztő).",
+"Alege cel puțin o doză": "Válassz legalább egy adagot",
+"Zile de luat": "Szedési napok",
+"Început": "Kezdés"
 };

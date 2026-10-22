@@ -836,6 +836,7 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
 /* v47: background gallery; bamboo + vertical motto removed */#notesPg .ntop::after,#noteFull .ntop::after{display:none!important}:root[data-bg=none] #notesPg>.nwrap::before,:root[data-bg=none] #noteFull>.nwrap::before{display:none}:root[data-bg=mist] #notesPg>.nwrap::before,:root[data-bg=mist] #noteFull>.nwrap::before{background:url(art/bg-mist.webp) center/cover no-repeat;height:100vh;opacity:calc(var(--lupo,.2)*1.15*var(--bgm,1));mix-blend-mode:normal;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%)}:root[data-bg=forest] #notesPg>.nwrap::before,:root[data-bg=forest] #noteFull>.nwrap::before{background:url(art/bg-forest.webp) center/cover no-repeat;height:100vh;opacity:calc(var(--lupo,.2)*1.15*var(--bgm,1));mix-blend-mode:normal;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%)}:root[data-bg=lake] #notesPg>.nwrap::before,:root[data-bg=lake] #noteFull>.nwrap::before{background:url(art/bg-lake.webp) center/cover no-repeat;height:100vh;opacity:calc(var(--lupo,.2)*1.15*var(--bgm,1));mix-blend-mode:normal;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%)}:root[data-bg=sea] #notesPg>.nwrap::before,:root[data-bg=sea] #noteFull>.nwrap::before{background:url(art/bg-sea.webp) center/cover no-repeat;height:100vh;opacity:calc(var(--lupo,.2)*1.15*var(--bgm,1));mix-blend-mode:normal;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%)}:root[data-bg=snow] #notesPg>.nwrap::before,:root[data-bg=snow] #noteFull>.nwrap::before{background:url(art/bg-snow.webp) center/cover no-repeat;height:100vh;opacity:calc(var(--lupo,.2)*1.15*var(--bgm,1));mix-blend-mode:normal;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%)}:root[data-bg=night] #notesPg>.nwrap::before,:root[data-bg=night] #noteFull>.nwrap::before{background:url(art/bg-night.webp) center/cover no-repeat;height:100vh;opacity:calc(var(--lupo,.2)*1.15*var(--bgm,1));mix-blend-mode:normal;-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%);mask-image:linear-gradient(to bottom,rgba(0,0,0,.35),#000 45%)}#demoBan{position:fixed;top:calc(14px + env(safe-area-inset-top));left:calc(50% - 22px);transform:translateX(-50%);z-index:30;display:flex;align-items:center;gap:6px;padding:3px 3px 3px 10px;border-radius:999px;background:#ff8a00;color:#1a1000;font-size:11.5px;box-shadow:0 3px 10px rgba(0,0,0,.3);white-space:nowrap}#demoBan b{letter-spacing:.1em}#demoBan span{display:none}#demoBan button{border:0;border-radius:999px;background:#1a1000;color:#fff;font:inherit;font-weight:700;padding:4px 10px;cursor:pointer}body:has(#notesPg.selm) #demoBan,body:has(#notesPg.nsrch) #demoBan{display:none}.bgkl{display:flex;justify-content:space-between;font-size:11.5px;color:var(--mut);margin-top:2px}.bgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.bgc{position:relative;aspect-ratio:3/4;border-radius:12px;border:2px solid var(--line);background:rgba(var(--s1R),.35) center/cover no-repeat;padding:0;cursor:pointer;overflow:hidden;color:var(--txt);font:inherit;font-size:11px}.bgc span{position:absolute;left:0;right:0;bottom:0;padding:3px 2px;background:rgba(0,0,0,.45);color:#fff;text-align:center;line-height:1.2}.bgc.on{border-color:var(--cyan);box-shadow:0 0 0 2px rgba(var(--acR),.35)}.bgc.on::after{content:"✓";position:absolute;top:4px;right:6px;color:#fff;font-weight:700;text-shadow:0 0 4px #000}.bgc.none{display:flex;align-items:center;justify-content:center;font-size:12px;padding:3px;text-align:center;line-height:1.15;overflow-wrap:anywhere;hyphens:auto}.bgc.none span{display:none}#thRow .thc{flex:1 1 30%;line-height:1.15;text-align:center;padding-left:4px;padding-right:4px}
 .throw{display:flex;gap:8px;flex-wrap:wrap}.thc{flex:1;min-width:0;border-radius:999px;padding:8px 6px;font:inherit;font-size:13.5px;cursor:pointer;border:1px solid var(--line);background:rgba(var(--s1R),.35);color:var(--txt);display:flex;align-items:center;justify-content:center;gap:6px}
 .thc i{width:12px;height:12px;border-radius:50%;flex:none;border:1px solid rgba(128,128,128,.5)}.thc.on{border:2px solid var(--cyan);padding:7px 5px;font-weight:700;box-shadow:0 0 10px rgba(var(--acR),.35)}
+#mdH{display:flex;flex-wrap:nowrap;gap:6px}#mdH .btn{flex:1 1 0;min-width:0;padding-left:4px;padding-right:4px;text-align:center}
 </style>
 </head>
 <body>
@@ -911,6 +912,7 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
 <div class="sec">Fundal</div><div class="field"><div class="bgrid" id="bgRow"><button type="button" class="bgc none" data-bg="none">Fără imagine<span></span></button><button type="button" class="bgc" data-bg="lup" style="background-image:url(art/bg-lup-t.webp)" aria-label="Lup"><span>Lup</span></button><button type="button" class="bgc" data-bg="mist" style="background-image:url(art/bg-mist-t.webp)" aria-label="Munți în ceață"><span>Munți în ceață</span></button><button type="button" class="bgc" data-bg="forest" style="background-image:url(art/bg-forest-t.webp)" aria-label="Pădure"><span>Pădure</span></button><button type="button" class="bgc" data-bg="lake" style="background-image:url(art/bg-lake-t.webp)" aria-label="Lac"><span>Lac</span></button><button type="button" class="bgc" data-bg="sea" style="background-image:url(art/bg-sea-t.webp)" aria-label="Mare"><span>Mare</span></button><button type="button" class="bgc" data-bg="snow" style="background-image:url(art/bg-snow-t.webp)" aria-label="Piscuri"><span>Piscuri</span></button><button type="button" class="bgc" data-bg="night" style="background-image:url(art/bg-night-t.webp)" aria-label="Cer înstelat"><span>Cer înstelat</span></button></div></div>
  <div class="field" id="fBgk"><label for="sBgk">Intensitate fundal <span class="val" id="vBgk"></span></label><input type="range" id="sBgk" min="-10" max="10" step="1" aria-label="Mai estompat ↔ mai intens"><div class="bgkl"><span>mai estompat</span><span>mai intens</span></div></div>
  <div class="field" id="fNrp"><label for="sNrp">Spațiu între notițe <span class="val" id="vNrp"></span></label><input type="range" id="sNrp" min="0" max="14" step="1"></div>
+ <div class="field" id="fSmg"><label for="sSmg">Margine laterală <span class="val" id="vSmg"></span></label><input type="range" id="sSmg" min="0" max="24" step="1"></div>
 <div class="nsx"> <div class="sec">Ceas</div>
  <div class="field"><label>Font</label><div class="fonts" id="fontGrid"></div></div>
  <div class="field"><label>Culoare</label><div class="colors" id="colorRow"></div></div>
@@ -3083,6 +3085,8 @@ alCheck(); /* notes are loaded after alInit: run the alarm catch-up again so not
  var b=document.createElement('button');b.type='button';b.id='nfRestore';b.className='btn pill';b.textContent='↩ Reface';nf.appendChild(b)})();
 /* v35: note row spacing slider */
 function nrpApply(){var v=+LS.get('ns_nrowpad',8);if(!(v>=0&&v<=14))v=8;var R=document.documentElement.style;R.setProperty('--nrp',v+'px');/* v49: below 4px also shrink row height + line height (4..14 unchanged) */if(v<4){R.setProperty('--nrmh',(24+v*3)+'px');R.setProperty('--nrlh',(1.3+v*0.05).toFixed(2))}else{R.removeProperty('--nrmh');R.removeProperty('--nrlh')}var s=$('sNrp');if(s){s.value=v;$('vNrp').textContent=v+'px'}}
+function smgApply(){var v=+LS.get('ns_sidemg',4);if(!(v>=0&&v<=24))v=4;document.documentElement.style.setProperty('--smg',v+'px');var s=$('sSmg');if(s){s.value=v;$('vSmg').textContent=v+'px'}} /* v66: side margin for Utilități/Medicamente cards */
+smgApply();$('sSmg').addEventListener('input',function(){LS.set('ns_sidemg',+this.value);smgApply()});
 nrpApply();$('sNrp').addEventListener('input',function(){LS.set('ns_nrowpad',+this.value);nrpApply()});
 /* v39: app shortcuts (manifest) -> ?a=new | ?a=search | ?tab=<name>; on load and via launchQueue when already open */
 var nsLaunchAt=0,nsLaunchU='';
@@ -3184,7 +3188,7 @@ var UT_DEF=[['curent','Curent','kWh','idx'],['gaz','Gaz','m³','idx'],['apa','Ap
 function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
 function utLoad(){var d=LS.get('ns_util',null);if(!d||!Array.isArray(d.list)){d={list:UT_DEF.map(function(x){return{id:x[0],k:x[0],unit:x[2],mode:x[3],cur:NL==='ro'?'lei':'',rows:[]}}),open:{}}}if(!d.open)d.open={};return d}
 function medNorm(d){if(!d||!Array.isArray(d.list))d={list:[]};if(!Array.isArray(d.persons)){d.persons=[{id:'me',k:'me'}];d.open=d.open||{};d.open.me=1} /* v65: persons — existing medicines move into the first person, nothing is dropped */
- if(!d.open)d.open={};if(!d.snz)d.snz={};var p0=d.persons[0];d.list.forEach(function(m){if(!m.p||!d.persons.some(function(x){return x.id===m.p})){if(!p0){p0={id:'me',k:'me'};d.persons.push(p0);d.open.me=1}m.p=p0.id}});return d}
+ if(!d.open)d.open={};if(!d.snz)d.snz={};var p0=d.persons[0];d.list.forEach(function(m){if(!m.rep&&!Array.isArray(m.pat)){var n=m.n||3,I=n===1?[0]:n===2?[0,2]:[0,1,2];m.pat=[0,1,2].map(function(i){return I.indexOf(i)>=0?1:0});if(m.c&&Array.isArray(m.c.s)){var o=m.c.s,ns=[];I.forEach(function(si,k){if(o[k])ns[si]=true});m.c.s=ns}} /* v66: n → pattern 1-0-1; today's checks re-indexed by slot */if(!m.p||!d.persons.some(function(x){return x.id===m.p})){if(!p0){p0={id:'me',k:'me'};d.persons.push(p0);d.open.me=1}m.p=p0.id}});return d}
 function medLoad(){return medNorm(LS.get('ns_med',null))}
 var UT=utLoad(),MED=medLoad();
 function utSave(){LS.set('ns_util',UT)}
@@ -3246,36 +3250,41 @@ function utCfg(u){var isNew=!u;u=u||{id:uid(),name:'',unit:'',mode:'idx',cur:'le
 /* ---- Medicamente ---- */
 var SLOT=['Dimineață','Amiază','Seară'];
 function mSlots(m){if(m.rep>0){var st=m.st||'08:00',p=st.split(':'),t0=+p[0]*60+(+p[1]),k=Math.max(1,Math.min(6,Math.floor(24/m.rep))),a=[];for(var i=0;i<k;i++){var x=(t0+i*m.rep*60)%1440;a.push({lbl:pad(Math.floor(x/60))+':'+pad(x%60),t:pad(Math.floor(x/60))+':'+pad(x%60),al:!!m.ral})}return a}
- var idx=m.n===1?[0]:m.n===2?[0,2]:[0,1,2];return idx.map(function(i){var t=(m.t||[])[i];return{s:i,lbl:t||TR(SLOT[i]),t:t||'',al:!!(m.al||[])[i]&&!!t}})}
+ var idx=[0,1,2].filter(function(i){return (m.pat||[1,1,1])[i]});return idx.map(function(i){var t=(m.t||[])[i];return{s:i,lbl:t||TR(SLOT[i]),t:t||'',al:!!(m.al||[])[i]&&!!t}})}
 function mChk(m){var d=today();if(!m.c||m.c.d!==d){if(m.c&&m.c.d&&(m.c.s||[]).some(Boolean)){m.h=m.h||{};m.h[m.c.d]=m.c.s;var ks=Object.keys(m.h).sort();while(ks.length>90)delete m.h[ks.shift()]}m.c={d:d,s:[]}}return m.c}
 function pName(p){return p.name||TR('Eu')}
 function pFind(id){return MED.persons.filter(function(p){return p.id===id})[0]}
 function medRender(){var h='<div class="spv spmed">';MED.persons.forEach(function(p){var o=!!MED.open[p.id],L=MED.list.filter(function(m){return m.p===p.id});
- h+='<div class="spsec mdper'+(o?' open':'')+'" data-p="'+esc(p.id)+'"><div class="sphd" data-a="ptog"><span class="spnm'+(p.name?' ux':'')+'">'+esc(pName(p))+'</span><span class="spun"></span><span class="spcnt">'+(L.length||'')+'</span><button type="button" class="spgear" data-a="pcfg" aria-label="Setări">⚙</button><i class="sparr"></i></div>';
+ h+='<div class="spsec mdper'+(o?' open':'')+'" data-p="'+esc(p.id)+'"><div class="sphd" data-a="ptog"><span class="spnm'+(p.name?' ux':'')+'">'+esc(pName(p))+'</span>'+(o?'':'<span class="spcnt">'+(L.length||'')+'</span>')+(o?'<button type="button" class="spgear" data-a="pcfg" aria-label="Setări">⚙</button>':'')+'<i class="sparr"></i></div>';
  if(o){h+='<div class="spbd">'+medRows(L)+'<button type="button" class="btn spadd" data-a="mnew">+ Medicament nou</button></div>'}h+='</div>'});
- return h+'<button type="button" class="btn spnew" data-a="pnew">+ Persoană</button></div>'}
-function medRows(L){var h='';L.forEach(function(m){var c=mChk(m),S=mSlots(m);
- h+='<div class="mdrow'+(S.length>3?' many':'')+'" data-m="'+esc(m.id)+'"><span class="mdnm ux" data-a="medit">'+esc(m.name)+(m.rep>0?'<small class="mdrep">⟳ '+esc(TR(m.rep+' ore'))+'</small>':'')+'</span><span class="mddo">';
- S.forEach(function(s,i){h+='<span class="mdd"><button type="button" class="mdc'+(c.s[i]?' on':'')+'" data-a="mchk" data-i="'+i+'" aria-label="'+esc(s.lbl)+'"></button><small class="'+(s.t?'ux':'')+'">'+(s.al?'⏰':'')+esc(s.lbl)+'</small></span>'});
+ return h+'<button type="button" class="btn spnew spplus" data-a="pnew" aria-label="Persoană nouă" title="Persoană nouă">+</button></div>'} /* v68: collapsed = name only; '+' person under the list; gear only when open; long-press name = settings */
+function mDays(m){if(!(m.days>0))return null;var a=dParse(m.d0||today()),b=dParse(today()),e=Math.round((b-a)/864e5)+1;return{t:m.days,e:Math.max(0,Math.min(m.days,e)),f:e>m.days}}
+function medRows(L){var h='';L.forEach(function(m){var c=mChk(m);
+ var dd=mDays(m);h+='<div class="mdrow'+(dd&&dd.f?' mdfin':'')+'" data-m="'+esc(m.id)+'"><span class="mdnm ux" data-a="medit">'+esc(m.name)+(dd?' <span class="mddays">('+dd.t+'/'+dd.e+')</span>':'')+'</span><span class="mddo">';
+ if(m.rep>0){var on=c.r&&Date.now()-c.r<m.rep*3600000;h+='<span class="mdd"><button type="button" class="mdg ux'+(on?' on':'')+'" data-a="mrep" aria-label="'+esc(TR(m.rep+' ore'))+'">'+m.rep+'</button></span>'}
+ else{var P=m.pat||[1,1,1],T=m.t||[],A=m.al||[];[0,1,2].forEach(function(i){if(i)h+='<span class="mdsep">–</span>';
+  if(P[i])h+='<span class="mdd"><button type="button" class="mdg ux'+(c.s[i]?' on':'')+'" data-a="mchk" data-i="'+i+'" aria-label="'+esc(TR(SLOT[i]))+'">1</button>'+(T[i]?'<small class="ux">'+(A[i]?'⏰':'')+esc(T[i])+'</small>':'')+'</span>';
+  else h+='<span class="mdd"><span class="mdg z ux">0</span></span>'})}
  h+='</span></div>'});if(!L.length)h+='<div class="spempty">Niciun medicament.</div>';return h}
 function pCfg(p){var isNew=!p;p=p||{id:uid(),name:''};
  dOpen(isNew?TR('Persoană nouă'):pName(p),'<div class="field"><label>Nume</label><input id="spN" maxlength="30"></div>',
   function(){var n=$('spN').value.trim();if(!n){toast(TR('Numele e obligatoriu'));return false}if(isNew||n!==pName(p)){p.name=n;delete p.k}if(isNew){MED.persons.push(p);MED.open[p.id]=1}medSave();spRender()},
   isNew?null:function(){ask('Ștergi persoana și medicamentele ei?',function(){MED.persons=MED.persons.filter(function(x){return x!==p});MED.list=MED.list.filter(function(m){return m.p!==p.id});delete MED.open[p.id];medSave();jvClose('spModal');spRender()})});
  $('spN').value=isNew?'':pName(p);setTimeout(function(){$('spN').focus()},80)}
-function medEdit(m,pid){var isNew=!m;m=m||{id:uid(),p:pid,name:'',n:3,t:['08:00','14:00','20:00'],al:[1,1,1],rep:0,st:'08:00',ral:1};var T=(m.t||['08:00','14:00','20:00']).slice(),A=(m.al||[]).slice();
- var dz='';[0,1,2].forEach(function(i){dz+='<div class="mdz" data-s="'+i+'"><span class="mdzl">'+SLOT[i]+'</span><input type="time" id="mdT'+i+'" value="'+esc(T[i]||'')+'"><label class="mdal"><input type="checkbox" id="mdA'+i+'"'+(A[i]?' checked':'')+'> ⏰</label></div>'});
- dOpen(isNew?TR('Medicament nou'):TR('Medicament'),'<div class="field"><label>Nume</label><input id="mdN" maxlength="40" value="'+esc(m.name)+'"></div>'+seg('mdMode',[['fix',TR('Ore fixe')],['rep',TR('Repetitivă')]],m.rep>0?'rep':'fix')+
-  '<div id="mdFix" style="margin-top:12px"><div class="field"><label>Doze pe zi</label>'+seg('mdNn',[[1,'1'],[2,'2'],[3,'3']],m.n||3)+'</div>'+dz+'</div>'+
-  '<div id="mdRep" style="margin-top:12px"><div class="field"><label>Alarmă repetitivă o dată la</label>'+seg('mdH',[[4,TR('4 ore')],[6,TR('6 ore')],[8,TR('8 ore')],[12,TR('12 ore')]],m.rep||6)+'</div><div class="field"><label>Prima doză la</label><input type="time" id="mdSt" value="'+esc(m.st||'08:00')+'"></div><label class="mdal"><input type="checkbox" id="mdRal"'+(m.rep>0?(m.ral?' checked':''):' checked')+'> ⏰ Alarmă</label></div>',
-  function(){var n=$('mdN').value.trim();if(!n){toast(TR('Numele e obligatoriu'));return false}m.name=n;
+function medEdit(m,pid){var isNew=!m;m=m||{id:uid(),p:pid,name:'',pat:[1,0,1],t:['','',''],al:[0,0,0],rep:0,st:'08:00',ral:1};var T=(m.t||['','','']).slice(),A=(m.al||[]).slice(),P=(m.pat||[1,1,1]).slice();
+ var dz='';[0,1,2].forEach(function(i){dz+='<div class="mdz" data-s="'+i+'"><button type="button" class="mdg mdpt ux'+(P[i]?' on1':'')+'" id="mdP'+i+'">'+(P[i]?1:0)+'</button><span class="mdzl">'+SLOT[i]+'</span><input type="time" id="mdT'+i+'" value="'+esc(T[i]||'')+'"><label class="mdal"><input type="checkbox" id="mdA'+i+'"'+(A[i]?' checked':'')+'> ⏰</label></div>'});
+ dOpen(isNew?TR('Medicament nou'):TR('Medicament'),'<div class="field"><label>Nume</label><input id="mdN" maxlength="40" value="'+esc(m.name)+'"></div><div class="al2"><div class="field"><label>Zile de luat</label><input id="mdDz" type="number" min="1" max="999" inputmode="numeric" value="'+(m.days>0?m.days:'')+'"></div><div class="field"><label>Început</label><input id="mdD0" type="date" value="'+esc(m.d0||today())+'"></div></div>'+seg('mdMode',[['fix',TR('Ore fixe')],['rep',TR('Repetitivă')]],m.rep>0?'rep':'fix')+
+  '<div id="mdFix" style="margin-top:12px"><div class="mdhint">Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).</div>'+dz+'</div>'+
+  '<div id="mdRep" style="margin-top:12px"><div class="field"><label>Alarmă repetitivă o dată la</label>'+seg('mdH',[[4,'4'],[6,'6'],[8,'8'],[12,'12']],m.rep||6)+'</div><div class="field"><label>Prima doză la</label><input type="time" id="mdSt" value="'+esc(m.st||'08:00')+'"></div><label class="mdal"><input type="checkbox" id="mdRal"'+(m.rep>0?(m.ral?' checked':''):' checked')+'> ⏰ Alarmă</label></div>',
+  function(){var n=$('mdN').value.trim();if(!n){toast(TR('Numele e obligatoriu'));return false}m.name=n;var dz=parseInt($('mdDz').value,10);if(dz>0){m.days=Math.min(999,dz);m.d0=$('mdD0').value||m.d0||today()}else{delete m.days;delete m.d0}
    if(segVal('mdMode')==='rep'){m.rep=+segVal('mdH')||6;m.st=$('mdSt').value||'08:00';m.ral=$('mdRal').checked?1:0}
-   else{m.rep=0;m.n=+segVal('mdNn')||3;m.t=[0,1,2].map(function(i){return $('mdT'+i).value||''});m.al=[0,1,2].map(function(i){return $('mdA'+i).checked&&$('mdT'+i).value?1:0})}
+   else{m.rep=0;m.pat=[0,1,2].map(function(i){return $('mdP'+i).textContent==='1'?1:0});if(!m.pat.some(Boolean)){toast(TR('Alege cel puțin o doză'));return false}m.n=m.pat.filter(Boolean).length;m.t=[0,1,2].map(function(i){return $('mdT'+i).value||''});m.al=[0,1,2].map(function(i){return m.pat[i]&&$('mdA'+i).checked&&$('mdT'+i).value?1:0})}
    if(isNew)MED.list.push(m);if(m.c)m.c.s=[];medSave();spRender();alPerm()},
   isNew?null:function(){ask('Ștergi medicamentul?',function(){MED.list=MED.list.filter(function(x){return x!==m});medSave();jvClose('spModal');spRender()})});
- var vis=function(){var rep=segVal('mdMode')==='rep',n=+segVal('mdNn')||3;$('mdFix').style.display=rep?'none':'';$('mdRep').style.display=rep?'':'none';
-  var show=n===1?[0]:n===2?[0,2]:[0,1,2];document.querySelectorAll('#spModal .mdz').forEach(function(z){z.style.display=show.indexOf(+z.dataset.s)>=0?'':'none'})};
- segWire('mdMode',vis);segWire('mdNn',vis);segWire('mdH');vis()}
+ var vis=function(){var rep=segVal('mdMode')==='rep';$('mdFix').style.display=rep?'none':'';$('mdRep').style.display=rep?'':'none';
+  [0,1,2].forEach(function(i){var on=$('mdP'+i).textContent==='1';$('mdT'+i).disabled=!on;$('mdA'+i).disabled=!on})};
+ [0,1,2].forEach(function(i){$('mdP'+i).onclick=function(){var on=this.textContent!=='1';this.textContent=on?'1':'0';this.classList.toggle('on1',on);vis()};$('mdT'+i).oninput=function(){if(this.value)$('mdA'+i).checked=true}});
+ segWire('mdMode',vis);segWire('mdH');vis()}
 /* dose alarm instants */
 function hmNext(hm,stepMin,now){var p=hm.split(':'),d=new Date(now);d.setHours(+p[0],+p[1],0,0);var at=d.getTime(),st=(stepMin||1440)*60000;if(at>now)at-=Math.ceil((at-now)/st)*st;while(at<=now)at+=st;return at}
 function medAlarms(){var out=[],now=Date.now();if(!noteTabs.some(function(t){return t.kind==='med'}))return out;
@@ -3297,7 +3306,9 @@ window.spRender=function(){var v=$('spView');if(!v)return;var k=kindOf(),srch=!!
  $('notesPg').classList.toggle('sptab',!!on);if(!on){v.innerHTML='';v.hidden=true;return}v.hidden=false;v.innerHTML=k==='util'?utRender():medRender();
  var has=notes.some(function(n){return !n.del&&n.tab===noteTab&&(n.fd||'')===''&&(n.lock||String(n.text||'').trim())})||noteFolders.some(function(f){return f.tab===noteTab&&!f.del});$('notesPg').classList.toggle('spnone',!has)};
 var rn=renderNotes;renderNotes=function(){var r=rn.apply(this,arguments);try{spRender()}catch(e){console.warn(e)}return r};
-document.addEventListener('click',function(e){var v=$('spView');if(!v||!v.contains(e.target))return;var a=e.target.closest('[data-a]');if(!a)return;var A=a.dataset.a;
+var lpT=0,lpDone=0;document.addEventListener('pointerdown',function(e){var v=$('spView');if(!v||!v.contains(e.target))return;var hd=e.target.closest('.mdper .sphd');lpDone=0;clearTimeout(lpT);if(!hd)return;lpT=setTimeout(function(){var pp=pFind(hd.closest('.mdper').dataset.p);if(pp){lpDone=1;try{navigator.vibrate&&navigator.vibrate(20)}catch(_){}pCfg(pp)}},550)});
+['pointerup','pointercancel','pointermove'].forEach(function(t){document.addEventListener(t,function(e){if(t==='pointermove'&&!(Math.abs(e.movementX)+Math.abs(e.movementY)>6))return;clearTimeout(lpT)})});
+document.addEventListener('click',function(e){var v=$('spView');if(!v||!v.contains(e.target))return;if(lpDone&&e.target.closest('.mdper .sphd')){lpDone=0;e.stopPropagation();return}var a=e.target.closest('[data-a]');if(!a)return;var A=a.dataset.a;
  var su=a.closest('.spsec'),u=su&&uFind(su.dataset.u);
  if(A==='tog'&&u){if(e.target.closest('.spgear'))return;UT.open[u.id]=UT.open[u.id]?0:1;if(!UT.open[u.id])delete UT.open[u.id];utSave();spRender()}
  else if(A==='cfg'&&u){e.stopPropagation();utCfg(u)}
@@ -3306,10 +3317,10 @@ document.addEventListener('click',function(e){var v=$('spView');if(!v||!v.contai
  else if((A==='ptog'||A==='pcfg'||A==='mnew')&&a.closest('.mdper')){var pp=pFind(a.closest('.mdper').dataset.p);if(!pp)return;
   if(A==='pcfg'){e.stopPropagation();pCfg(pp)}else if(A==='mnew')medEdit(null,pp.id);else{if(e.target.closest('.spgear'))return;MED.open[pp.id]=MED.open[pp.id]?0:1;if(!MED.open[pp.id])delete MED.open[pp.id];LS.set('ns_med',MED);spRender()}}
  else{var md=a.closest('.mdrow'),m=md&&MED.list.filter(function(x){return x.id===md.dataset.m})[0];if(!m)return;
-  if(A==='medit')medEdit(m);else if(A==='mchk'){var c=mChk(m),i=+a.dataset.i;c.s[i]=!c.s[i];LS.set('ns_med',MED);spRender()}}});
+  if(A==='medit')medEdit(m);else if(A==='mrep'){var c=mChk(m),on=c.r&&Date.now()-c.r<m.rep*3600000;if(on)c.r=c.rp||0;else{c.rp=c.r||0;c.r=Date.now();c.n=(c.n||0)+1}LS.set('ns_med',MED);spRender()}else if(A==='mchk'){var c=mChk(m),i=+a.dataset.i;c.s[i]=!c.s[i];LS.set('ns_med',MED);spRender()}}});
 document.addEventListener('click',function(e){var v=$('spView');if(!v||!v.contains(e.target))return;var r=e.target.closest('.sprow');if(!r)return;var su=r.closest('.spsec'),u=su&&uFind(su.dataset.u);if(!u)return;var row=(u.rows||[]).filter(function(x){return x.id===r.dataset.r})[0];if(row)utRow(u,row)});
 /* long-press on a medicine = edit */
-(function(){var T=null;document.addEventListener('pointerdown',function(e){var n=e.target.closest&&e.target.closest('#spView .mdrow');if(!n||e.target.closest('.mdc'))return;clearTimeout(T);T=setTimeout(function(){var m=MED.list.filter(function(x){return x.id===n.dataset.m})[0];if(m)medEdit(m)},550)});
+(function(){var T=null;document.addEventListener('pointerdown',function(e){var n=e.target.closest&&e.target.closest('#spView .mdrow');if(!n||e.target.closest('.mdc,.mdg'))return;clearTimeout(T);T=setTimeout(function(){var m=MED.list.filter(function(x){return x.id===n.dataset.m})[0];if(m)medEdit(m)},550)});
  ['pointerup','pointercancel','pointermove'].forEach(function(t){document.addEventListener(t,function(e){if(t!=='pointermove'||Math.abs(e.movementY)>4)clearTimeout(T)})})})();
 /* daily reset while open */
 setInterval(function(){if(kindOf()==='med'&&MED.list.some(function(m){return m.c&&m.c.d!==today()})){MED.list.forEach(mChk);LS.set('ns_med',MED);spRender()}},60000);
@@ -3347,7 +3358,7 @@ renderAbList();
 #notesPg .ntop h2{text-shadow:0 1px 6px rgba(0,0,0,.55)}
 /* v64: special tabs */
 #spView{margin-bottom:12px}#notesPg.sptab.spnone #notesList,#notesPg.sptab.spnone #notesList+*{display:none}#notesPg.sptab.spnone section.card:has(#notesList){display:none}
-.spv{background:rgba(var(--s1R),.86);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:18px;padding:6px 12px 12px;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.spv{background:rgba(var(--s1R),.86);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:14px;padding:4px var(--smg,12px) 8px;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 .spsec{border-bottom:1px solid rgba(var(--lnR),.14)}.spsec:last-of-type{border-bottom:0}
 .sphd{display:flex;align-items:center;gap:8px;padding:12px 0;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .spnm{font-size:16.5px;color:var(--txt);font-weight:600}.spun{color:var(--mut);font-size:13px}.spcnt{margin-left:auto;color:var(--mut);font-size:12px}
@@ -3361,15 +3372,21 @@ renderAbList();
 .spadd{margin-top:8px;width:100%}.spnew{margin-top:10px;width:100%}
 .spdiff{color:var(--cyan);font-size:16px;font-weight:600;text-align:right;min-height:20px}
 .al2>.field{flex:1;min-width:0}
-.mdrow{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(var(--lnR),.14)}
+.mdrow{display:flex;align-items:center;gap:6px;padding:3px 0;border-bottom:1px solid rgba(var(--lnR),.14)}
 .mdnm{flex:1;min-width:0;font-size:16.5px;color:var(--txt);cursor:pointer;overflow-wrap:anywhere}.mdrep{display:block;color:var(--mut);font-size:12px}
 .mddo{display:flex;gap:6px;flex:none}.mdrow.many{flex-wrap:wrap}.mdrow.many .mdnm{flex-basis:100%}.mdrow.many .mddo{width:100%;justify-content:space-between}.mdper .spbd{padding-left:4px}.mdd{display:flex;flex-direction:column;align-items:center;width:52px}
 .mdd small{font-size:11px;color:var(--mut);margin-top:3px;white-space:nowrap}
+.spmed .sphd{padding:6px 0}.spmed .spnm{font-size:15.5px}.spmed .spadd{margin-top:4px;padding-top:6px;padding-bottom:6px}.spmed .spnew{margin-top:6px;padding-top:6px;padding-bottom:6px}.spmed .spbd{padding:0 0 4px}.spmed .mdnm{font-size:15.5px}.spmed .mddo{align-items:flex-start;gap:2px}.spmed .mdd{width:40px}.spmed .mdd small{font-size:10px;margin-top:0}.mdsep{color:var(--mut);font-size:14px;opacity:.6;line-height:30px}.spmed .mdrow{align-items:flex-start}.spmed .mdnm{line-height:30px}#spModal .mdzl{width:96px;flex:none}
+.mdg{width:30px;height:30px;border-radius:50%;border:2px solid transparent;background:transparent;color:var(--txt);font-family:inherit;font-size:17px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums;cursor:pointer;padding:0;display:inline-flex;align-items:center;justify-content:center}.mdg.on{border-color:var(--cyan);color:var(--cyan)}.mdg.z{color:var(--mut);opacity:.45;cursor:default;font-weight:500}
+.mdpt{border-color:var(--line);flex:none}.mdpt.on1{border-color:var(--cyan)}.mdhint{color:var(--mut);font-size:12.5px;margin-bottom:4px}.mdz input:disabled{opacity:.35}
 .mdc{width:32px;height:32px;border-radius:50%;border:2px solid var(--cyan);background:transparent;cursor:pointer;padding:0;position:relative}
 .mdc.on{background:var(--cyan)}.mdc.on::after{content:"";position:absolute;left:10px;top:5px;width:7px;height:13px;border:solid #06121f;border-width:0 3px 3px 0;transform:rotate(45deg)}
 .mdz{display:flex;align-items:center;gap:8px;margin:8px 0}.mdzl{width:88px;color:var(--txt);font-size:14px}.mdz input[type=time]{flex:1;background:rgba(var(--s2R),.8);border:1px solid var(--line);color:var(--txt);border-radius:12px;padding:9px;font:inherit}
 .mdal{display:flex;align-items:center;gap:6px;color:var(--txt);font-size:14px;cursor:pointer}
 #spModal .card{max-height:88vh;overflow:auto}#spModal .mrow{flex-wrap:nowrap;gap:8px}#spModal .mrow .btn{flex:1 1 0;min-width:0;padding-left:6px;padding-right:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#spModal .lbl,#spModal label,#spModal .btn{-webkit-user-select:none;user-select:none}
+/* v68: outer side margin = Setări 'Margine laterală' (default 4px), tighter cards */
+#notesPg .nwrap,#noteFull .nwrap,.wrap{padding-left:var(--smg,4px)!important;padding-right:var(--smg,4px)!important}#notesPg .card,#noteFull .card{padding:12px 8px}.spv{padding:2px 8px 6px}
+.spmed .spplus{width:auto;display:block;margin:6px auto 0;min-width:52px;padding:2px 16px;font-size:22px;line-height:1.2}.mddays{color:var(--mut);font-size:13px;font-variant-numeric:tabular-nums;white-space:nowrap}.mdrow.mdfin{opacity:.45}.mdper.open>.sphd .spgear{margin-left:auto}
 </style>
 </body>
 </html>

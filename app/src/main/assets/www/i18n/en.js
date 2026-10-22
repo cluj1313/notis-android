@@ -746,6 +746,11 @@ NOTIS_I18N={
 "Ștergi persoana și medicamentele ei?": "Delete this person and their medicines?",
 "Permite notificările și alarmele pentru Notis, ca să sune la timp": "Allow notifications and alarms for Notis so it rings on time",
 "Pe Xiaomi, permite „Pornire automată” pentru Notis, ca alarmele să sune cu aplicația închisă. Deschid setările?": "On Xiaomi, allow “Autostart” for Notis so alarms ring with the app closed. Open settings?",
-"Medicamente": "Medicines"
+"Medicamente": "Medicines",
+"Margine laterală": "Side margin",
+"Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "Tap 0 / 1. Time is optional (no time = no alarm).",
+"Alege cel puțin o doză": "Choose at least one dose",
+"Zile de luat": "Days to take",
+"Început": "Start"
 };
 NOTIS_I18N_RX=[[/\b1 (notes|folders)\b/g,function(m,w){return '1 '+w.slice(0,-1)}]];

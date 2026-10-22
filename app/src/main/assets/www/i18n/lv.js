@@ -746,5 +746,10 @@ NOTIS_I18N={
 "Ștergi persoana și medicamentele ei?": "Dzēst šo personu un tās zāles?",
 "Permite notificările și alarmele pentru Notis, ca să sune la timp": "Atļaujiet Notis paziņojumus un modinātājus, lai tas zvanītu laikā",
 "Pe Xiaomi, permite „Pornire automată” pentru Notis, ca alarmele să sune cu aplicația închisă. Deschid setările?": "Xiaomi ierīcē atļaujiet Notis „Automātisko palaišanu”, lai modinātāji zvanītu arī ar aizvērtu lietotni. Atvērt iestatījumus?",
-"Medicamente": "Zāles"
+"Medicamente": "Zāles",
+"Margine laterală": "Sānu mala",
+"Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "Pieskarieties 0 / 1. Laiks nav obligāts (bez laika = bez modinātāja).",
+"Alege cel puțin o doză": "Izvēlieties vismaz vienu devu",
+"Zile de luat": "Lietošanas dienas",
+"Început": "Sākums"
 };

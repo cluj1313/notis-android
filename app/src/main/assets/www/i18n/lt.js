@@ -746,5 +746,10 @@ NOTIS_I18N={
 "Ștergi persoana și medicamentele ei?": "Ištrinti šį asmenį ir jo vaistus?",
 "Permite notificările și alarmele pentru Notis, ca să sune la timp": "Leiskite Notis pranešimus ir žadintuvus, kad skambėtų laiku",
 "Pe Xiaomi, permite „Pornire automată” pentru Notis, ca alarmele să sune cu aplicația închisă. Deschid setările?": "Xiaomi telefone leiskite Notis „Automatinį paleidimą“, kad žadintuvai skambėtų uždarius programą. Atidaryti nustatymus?",
-"Medicamente": "Vaistai"
+"Medicamente": "Vaistai",
+"Margine laterală": "Šoninė paraštė",
+"Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "Bakstelėkite 0 / 1. Laikas neprivalomas (be laiko = be žadintuvo).",
+"Alege cel puțin o doză": "Pasirinkite bent vieną dozę",
+"Zile de luat": "Vartojimo dienos",
+"Început": "Pradžia"
 };

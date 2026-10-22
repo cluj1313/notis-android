@@ -746,6 +746,11 @@ NOTIS_I18N={
 "Ștergi persoana și medicamentele ei?": "Удалить этого человека и его лекарства?",
 "Permite notificările și alarmele pentru Notis, ca să sune la timp": "Разрешите уведомления и будильники для Notis, чтобы он звонил вовремя",
 "Pe Xiaomi, permite „Pornire automată” pentru Notis, ca alarmele să sune cu aplicația închisă. Deschid setările?": "На Xiaomi разрешите «Автозапуск» для Notis, чтобы будильники звонили при закрытом приложении. Открыть настройки?",
-"Medicamente": "Лекарства"
+"Medicamente": "Лекарства",
+"Margine laterală": "Боковой отступ",
+"Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "Нажмите 0 / 1. Время необязательно (без времени = без будильника).",
+"Alege cel puțin o doză": "Выберите хотя бы одну дозу",
+"Zile de luat": "Дней приёма",
+"Început": "Начало"
 };
 NOTIS_I18N_RX=[[/(\d+) (заметки|папки)/g,function(m,n,w){n=+n;var a=n%10,b=n%100,one=a===1&&b!==11,few=a>=2&&a<=4&&(b<12||b>14);var f=w==='заметки'?(one?'заметка':few?'заметки':'заметок'):(one?'папка':few?'папки':'папок');return n+' '+f}]];

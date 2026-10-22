@@ -746,5 +746,10 @@ NOTIS_I18N={
 "Ștergi persoana și medicamentele ei?": "Smazat tuto osobu a její léky?",
 "Permite notificările și alarmele pentru Notis, ca să sune la timp": "Povolte Notis oznámení a budíky, aby zvonil včas",
 "Pe Xiaomi, permite „Pornire automată” pentru Notis, ca alarmele să sune cu aplicația închisă. Deschid setările?": "Na Xiaomi povolte pro Notis „Automatické spuštění“, aby budíky zvonily i se zavřenou aplikací. Otevřít nastavení?",
-"Medicamente": "Léky"
+"Medicamente": "Léky",
+"Margine laterală": "Boční okraj",
+"Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "Klepněte na 0 / 1. Čas je volitelný (bez času = bez budíku).",
+"Alege cel puțin o doză": "Vyberte alespoň jednu dávku",
+"Zile de luat": "Dny užívání",
+"Început": "Začátek"
 };

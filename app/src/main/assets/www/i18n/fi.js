@@ -746,5 +746,10 @@ NOTIS_I18N={
 "Ștergi persoana și medicamentele ei?": "Poistetaanko tämä henkilö ja hänen lääkkeensä?",
 "Permite notificările și alarmele pentru Notis, ca să sune la timp": "Salli Notisille ilmoitukset ja hälytykset, jotta se soi ajallaan",
 "Pe Xiaomi, permite „Pornire automată” pentru Notis, ca alarmele să sune cu aplicația închisă. Deschid setările?": "Salli Xiaomilla Notisille ”Automaattinen käynnistys”, jotta hälytykset soivat sovelluksen ollessa suljettu. Avataanko asetukset?",
-"Medicamente": "Lääkkeet"
+"Medicamente": "Lääkkeet",
+"Margine laterală": "Sivumarginaali",
+"Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "Napauta 0 / 1. Aika on valinnainen (ei aikaa = ei hälytystä).",
+"Alege cel puțin o doză": "Valitse vähintään yksi annos",
+"Zile de luat": "Ottopäivät",
+"Început": "Alku"
 };
