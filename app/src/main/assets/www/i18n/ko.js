@@ -751,5 +751,17 @@ NOTIS_I18N={
 "Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "0 / 1을 탭하세요. 시간은 선택 사항입니다(시간 없음 = 알람 없음).",
 "Alege cel puțin o doză": "최소 한 번의 복용을 선택하세요",
 "Zile de luat": "복용 일수",
-"Început": "시작"
+"Început": "시작",
+"⏰ Reamintire plată": "⏰ 결제 알림",
+"Lunar": "매월",
+"La 2 luni": "2개월마다",
+"La 3 luni": "3개월마다",
+"La 6 luni": "6개월마다",
+"Anual": "매년",
+"La fiecare X zile": "X일마다",
+"Zile": "일수",
+"Următoarea plată": "다음 결제",
+"Ora": "시간",
+"plată": "결제",
+"Alege data": "날짜를 선택하세요"
 };

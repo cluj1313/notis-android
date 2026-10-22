@@ -751,6 +751,17 @@ NOTIS_I18N={
 "Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "Tap 0 / 1. Time is optional (no time = no alarm).",
 "Alege cel puțin o doză": "Choose at least one dose",
 "Zile de luat": "Days to take",
-"Început": "Start"
+"Început": "Start",
+"⏰ Reamintire plată": "⏰ Payment reminder",
+"Lunar": "Monthly",
+"La 2 luni": "Every 2 months",
+"La 3 luni": "Every 3 months",
+"La 6 luni": "Every 6 months",
+"Anual": "Yearly",
+"La fiecare X zile": "Every X days",
+"Zile": "Days",
+"Următoarea plată": "Next payment",
+"Ora": "Time",
+"plată": "payment",
+"Alege data": "Pick a date"
 };
-NOTIS_I18N_RX=[[/\b1 (notes|folders)\b/g,function(m,w){return '1 '+w.slice(0,-1)}]];

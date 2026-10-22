@@ -751,5 +751,17 @@ NOTIS_I18N={
 "Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "Prekni 0 / 1. Ora është opsionale (pa orë = pa alarm).",
 "Alege cel puțin o doză": "Zgjidhni të paktën një dozë",
 "Zile de luat": "Ditë marrjeje",
-"Început": "Fillimi"
+"Început": "Fillimi",
+"⏰ Reamintire plată": "⏰ Kujtesë pagese",
+"Lunar": "Mujore",
+"La 2 luni": "Çdo 2 muaj",
+"La 3 luni": "Çdo 3 muaj",
+"La 6 luni": "Çdo 6 muaj",
+"Anual": "Vjetore",
+"La fiecare X zile": "Çdo X ditë",
+"Zile": "Ditë",
+"Următoarea plată": "Pagesa e radhës",
+"Ora": "Ora",
+"plată": "pagesë",
+"Alege data": "Zgjidhni datën"
 };

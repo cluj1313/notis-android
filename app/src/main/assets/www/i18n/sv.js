@@ -751,5 +751,17 @@ NOTIS_I18N={
 "Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "Tryck 0 / 1. Tid är valfri (ingen tid = inget alarm).",
 "Alege cel puțin o doză": "Välj minst en dos",
 "Zile de luat": "Dagar att ta",
-"Început": "Start"
+"Început": "Start",
+"⏰ Reamintire plată": "⏰ Betalningspåminnelse",
+"Lunar": "Månadsvis",
+"La 2 luni": "Varannan månad",
+"La 3 luni": "Var 3:e månad",
+"La 6 luni": "Var 6:e månad",
+"Anual": "Årligen",
+"La fiecare X zile": "Var X:e dag",
+"Zile": "Dagar",
+"Următoarea plată": "Nästa betalning",
+"Ora": "Tid",
+"plată": "betalning",
+"Alege data": "Välj ett datum"
 };

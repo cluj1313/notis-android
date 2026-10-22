@@ -751,5 +751,17 @@ NOTIS_I18N={
 "Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "Napauta 0 / 1. Aika on valinnainen (ei aikaa = ei hälytystä).",
 "Alege cel puțin o doză": "Valitse vähintään yksi annos",
 "Zile de luat": "Ottopäivät",
-"Început": "Alku"
+"Început": "Alku",
+"⏰ Reamintire plată": "⏰ Maksumuistutus",
+"Lunar": "Kuukausittain",
+"La 2 luni": "2 kuukauden välein",
+"La 3 luni": "3 kuukauden välein",
+"La 6 luni": "6 kuukauden välein",
+"Anual": "Vuosittain",
+"La fiecare X zile": "X päivän välein",
+"Zile": "Päivät",
+"Următoarea plată": "Seuraava maksu",
+"Ora": "Aika",
+"plată": "maksu",
+"Alege data": "Valitse päivämäärä"
 };

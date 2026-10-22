@@ -751,5 +751,17 @@ NOTIS_I18N={
 "Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "点按 0 / 1。时间可选（无时间 = 无闹钟）。",
 "Alege cel puțin o doză": "请至少选择一次用药",
 "Zile de luat": "服药天数",
-"Început": "开始"
+"Început": "开始",
+"⏰ Reamintire plată": "⏰ 付款提醒",
+"Lunar": "每月",
+"La 2 luni": "每2个月",
+"La 3 luni": "每3个月",
+"La 6 luni": "每6个月",
+"Anual": "每年",
+"La fiecare X zile": "每X天",
+"Zile": "天数",
+"Următoarea plată": "下次付款",
+"Ora": "时间",
+"plată": "付款",
+"Alege data": "请选择日期"
 };

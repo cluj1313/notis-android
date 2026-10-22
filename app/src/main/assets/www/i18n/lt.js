@@ -751,5 +751,17 @@ NOTIS_I18N={
 "Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "Bakstelėkite 0 / 1. Laikas neprivalomas (be laiko = be žadintuvo).",
 "Alege cel puțin o doză": "Pasirinkite bent vieną dozę",
 "Zile de luat": "Vartojimo dienos",
-"Început": "Pradžia"
+"Început": "Pradžia",
+"⏰ Reamintire plată": "⏰ Mokėjimo priminimas",
+"Lunar": "Kas mėnesį",
+"La 2 luni": "Kas 2 mėnesius",
+"La 3 luni": "Kas 3 mėnesius",
+"La 6 luni": "Kas 6 mėnesius",
+"Anual": "Kasmet",
+"La fiecare X zile": "Kas X dienų",
+"Zile": "Dienos",
+"Următoarea plată": "Kitas mokėjimas",
+"Ora": "Laikas",
+"plată": "mokėjimas",
+"Alege data": "Pasirinkite datą"
 };

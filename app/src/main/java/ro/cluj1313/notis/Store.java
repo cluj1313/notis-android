@@ -184,6 +184,28 @@ final class Store {
         return at + ((now - at + 1 + st - 1) / st) * st;
     }
 
+    /** 2.2.5: month-based repeat (payment reminders): next instant after now, same day-of-month (dom), clamped to month end, same local time */
+    static long rollMonths(long at, int months, int dom, long now, java.util.TimeZone tz) {
+        if (months <= 0 || at > now) return at;
+        java.util.Calendar c = java.util.Calendar.getInstance(tz); c.setTimeInMillis(at);
+        if (dom <= 0) dom = c.get(java.util.Calendar.DAY_OF_MONTH);
+        int h = c.get(java.util.Calendar.HOUR_OF_DAY), mi = c.get(java.util.Calendar.MINUTE);
+        int y = c.get(java.util.Calendar.YEAR), m = c.get(java.util.Calendar.MONTH);
+        for (int k = 0; k < 2400; k++) {
+            m += months; y += m / 12; m %= 12;
+            java.util.Calendar d = java.util.Calendar.getInstance(tz); d.clear(); d.set(y, m, 1, h, mi, 0);
+            d.set(java.util.Calendar.DAY_OF_MONTH, Math.min(dom, d.getActualMaximum(java.util.Calendar.DAY_OF_MONTH)));
+            if (d.getTimeInMillis() > now) return d.getTimeInMillis();
+        }
+        return at;
+    }
+    /** next ring of an alarm object: minutes-based "rep" or months-based "repM" */
+    static long rollAlarm(JSONObject a, long at, long now) {
+        int rm = a.optInt("repM", 0);
+        if (rm > 0) return rollMonths(at, rm, a.optInt("dom", 0), now, java.util.TimeZone.getDefault());
+        return roll(at, a.optInt("rep"), now);
+    }
+
     private static JSONObject byId(JSONArray a, String id) {
         if (a == null || id == null) return null;
         for (int i = 0; i < a.length(); i++) { JSONObject o = a.optJSONObject(i); if (o != null && id.equals(o.optString("id"))) return o; }
@@ -223,7 +245,7 @@ final class Store {
                         JSONObject a = n.optJSONObject("alarm"); if (a == null) continue;
                         long at = a.optLong("at"); if (at <= 0 || at > p.optLong("at")) continue;
                         int rep = a.optInt("rep");
-                        if (rep > 0) { long nx = roll(at, rep, Math.max(p.optLong("at"), at)); long u = a.optLong("until", 0); if (u > 0 && nx > u) n.remove("alarm"); else { a.put("at", nx); a.remove("snz"); } }
+                        if (rep > 0 || a.optInt("repM", 0) > 0) { long nx = rollAlarm(a, at, Math.max(p.optLong("at"), at)); long u = a.optLong("until", 0); if (u > 0 && nx > u) n.remove("alarm"); else { a.put("at", nx); a.remove("snz"); } }
                         else n.remove("alarm");
                     }
                     continue;

@@ -751,5 +751,17 @@ NOTIS_I18N={
 "Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "แตะ 0 / 1 เวลาไม่บังคับ (ไม่มีเวลา = ไม่มีปลุก)",
 "Alege cel puțin o doză": "เลือกอย่างน้อยหนึ่งโดส",
 "Zile de luat": "จำนวนวันที่ต้องกิน",
-"Început": "เริ่ม"
+"Început": "เริ่ม",
+"⏰ Reamintire plată": "⏰ เตือนชำระเงิน",
+"Lunar": "รายเดือน",
+"La 2 luni": "ทุก 2 เดือน",
+"La 3 luni": "ทุก 3 เดือน",
+"La 6 luni": "ทุก 6 เดือน",
+"Anual": "รายปี",
+"La fiecare X zile": "ทุก X วัน",
+"Zile": "วัน",
+"Următoarea plată": "การชำระครั้งถัดไป",
+"Ora": "เวลา",
+"plată": "ชำระเงิน",
+"Alege data": "เลือกวันที่"
 };

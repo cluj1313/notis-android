@@ -751,5 +751,17 @@ NOTIS_I18N={
 "Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "Ketik 0 / 1. Masa adalah pilihan (tiada masa = tiada penggera).",
 "Alege cel puțin o doză": "Pilih sekurang-kurangnya satu dos",
 "Zile de luat": "Hari pengambilan",
-"Început": "Mula"
+"Început": "Mula",
+"⏰ Reamintire plată": "⏰ Peringatan bayaran",
+"Lunar": "Bulanan",
+"La 2 luni": "Setiap 2 bulan",
+"La 3 luni": "Setiap 3 bulan",
+"La 6 luni": "Setiap 6 bulan",
+"Anual": "Tahunan",
+"La fiecare X zile": "Setiap X hari",
+"Zile": "Hari",
+"Următoarea plată": "Bayaran seterusnya",
+"Ora": "Masa",
+"plată": "bayaran",
+"Alege data": "Pilih tarikh"
 };

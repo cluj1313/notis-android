@@ -751,5 +751,17 @@ NOTIS_I18N={
 "Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "0 / 1 टैप करें। समय वैकल्पिक है (समय नहीं = अलार्म नहीं)।",
 "Alege cel puțin o doză": "कम से कम एक खुराक चुनें",
 "Zile de luat": "लेने के दिन",
-"Început": "शुरुआत"
+"Început": "शुरुआत",
+"⏰ Reamintire plată": "⏰ भुगतान अनुस्मारक",
+"Lunar": "मासिक",
+"La 2 luni": "हर 2 महीने",
+"La 3 luni": "हर 3 महीने",
+"La 6 luni": "हर 6 महीने",
+"Anual": "वार्षिक",
+"La fiecare X zile": "हर X दिन",
+"Zile": "दिन",
+"Următoarea plată": "अगला भुगतान",
+"Ora": "समय",
+"plată": "भुगतान",
+"Alege data": "तारीख चुनें"
 };

@@ -751,5 +751,17 @@ NOTIS_I18N={
 "Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "0 / 1 ট্যাপ করুন। সময় ঐচ্ছিক (সময় নেই = অ্যালার্ম নেই)।",
 "Alege cel puțin o doză": "অন্তত একটি ডোজ বেছে নিন",
 "Zile de luat": "সেবনের দিন",
-"Început": "শুরু"
+"Început": "শুরু",
+"⏰ Reamintire plată": "⏰ পেমেন্ট রিমাইন্ডার",
+"Lunar": "মাসিক",
+"La 2 luni": "প্রতি ২ মাসে",
+"La 3 luni": "প্রতি ৩ মাসে",
+"La 6 luni": "প্রতি ৬ মাসে",
+"Anual": "বার্ষিক",
+"La fiecare X zile": "প্রতি X দিনে",
+"Zile": "দিন",
+"Următoarea plată": "পরবর্তী পেমেন্ট",
+"Ora": "সময়",
+"plată": "পেমেন্ট",
+"Alege data": "তারিখ বেছে নিন"
 };

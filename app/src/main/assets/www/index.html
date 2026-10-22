@@ -3220,10 +3220,21 @@ function dParse(s){var p=String(s||'').split('-');return new Date(+p[0],+p[1]-1,
 function monLbl(s){var d=dParse(s),m='';try{m=d.toLocaleDateString(NL==='ro'?'ro-RO':NL,{month:'short'}).replace('.','')}catch(_){m=String(d.getMonth()+1)}m=m.charAt(0).toUpperCase()+m.slice(1);return d.getFullYear()!==new Date().getFullYear()?m+' '+String(d.getFullYear()).slice(2):m}
 function dLbl(s){var d=dParse(s);return pad(d.getDate())+'.'+pad(d.getMonth()+1)+'.'+d.getFullYear()}
 /* ---- Utilități ---- */
+/* v69: payment reminder u.rem={on,iv:'1'|'2'|'3'|'6'|'12'|'d',days,next:'YYYY-MM-DD',hm,dom}. Months keep the day-of-month (clamped to month end); 'd' = every X days. */
+function rAddM(ds,n,dom){var d=dParse(ds),y=d.getFullYear(),m=d.getMonth()+n;y+=Math.floor(m/12);m=((m%12)+12)%12;var last=new Date(y,m+1,0).getDate();return dkey(new Date(y,m,Math.min(dom||d.getDate(),last)))}
+function rStep(r,ds){if(r.iv==='d'){var d=dParse(ds);d.setDate(d.getDate()+(Math.max(1,r.days|0)));return dkey(d)}return rAddM(ds,+r.iv||1,r.dom)}
+function rAt(r){var p=(r.hm||'09:00').split(':'),d=dParse(r.next);d.setHours(+p[0],+p[1],0,0);return d.getTime()}
+function rOn(r){return r&&r.on&&r.next}
+function utRoll(){var now=Date.now(),ch=false;UT.list.forEach(function(u){var r=u.rem;if(!rOn(r))return;var at=rAt(r),k=0;if(at>now)return;
+  if(now-at<5*60000&&window.alFire&&!utRoll.f[u.id+at]){utRoll.f[u.id+at]=1;try{alFire({id:'pay-'+u.id,text:'💳 '+uName(u)+' — '+TR('plată'),med:1},null)}catch(_){}}
+  while(rAt(r)<=now&&k++<2400)r.next=rStep(r,r.next);ch=true});if(ch)utSave();return ch}
+utRoll.f={};
+window.payAlarms=function(){var out=[];if(!noteTabs.some(function(t){return t.kind==='util'}))return out;utRoll();UT.list.forEach(function(u){var r=u.rem;if(!rOn(r))return;
+  var a={id:'pay-'+u.id,text:'💳 '+uName(u)+' — '+TR('plată'),at:rAt(r),rep:0};if(r.iv==='d')a.rep=Math.max(1,r.days|0)*1440;else{a.repM=+r.iv||1;a.dom=r.dom||dParse(r.next).getDate()}out.push(a)});return out};
 function uName(u){return u.name||TR((UT_DEF.filter(function(x){return x[0]===u.k})[0]||[0,'?'])[1])}
 function uRows(u){return (u.rows||[]).slice().sort(function(a,b){return String(b.d).localeCompare(String(a.d))||(b.ts||0)-(a.ts||0)})}
 function utRender(){var h='<div class="spv sput">';UT.list.forEach(function(u){var o=!!UT.open[u.id],R=uRows(u);
- h+='<div class="spsec'+(o?' open':'')+'" data-u="'+esc(u.id)+'"><div class="sphd" data-a="tog"><span class="spnm'+(u.name?' ux':'')+'">'+esc(uName(u))+'</span><span class="spun ux">'+esc(u.mode==='idx'?(u.unit||''):(u.cur||''))+'</span><span class="spcnt">'+(R.length||'')+'</span><button type="button" class="spgear" data-a="cfg" aria-label="Setări">⚙</button><i class="sparr"></i></div>';
+ h+='<div class="spsec'+(o?' open':'')+'" data-u="'+esc(u.id)+'"><div class="sphd" data-a="tog"><span class="spnm'+(u.name?' ux':'')+'">'+esc(uName(u))+'</span><span class="spun ux">'+esc(u.mode==='idx'?(u.unit||''):(u.cur||''))+'</span><span class="spcnt">'+(R.length||'')+'</span>'+(rOn(u.rem)?'<span class="spdue ux">⏰ '+esc(dLbl(u.rem.next))+'</span>':'')+'<button type="button" class="spgear" data-a="cfg" aria-label="Setări">⚙</button><i class="sparr"></i></div>';
  if(o){h+='<div class="spbd">';R.forEach(function(r){
    if(u.mode==='idx')h+='<div class="sprow idx ux" data-r="'+esc(r.id)+'"><span class="c0">'+esc(monLbl(r.d))+'</span><span class="c1">'+fmt(r.a)+'</span><span class="c2">'+fmt(r.b)+'</span><span class="c3">'+(isNaN(r.b-r.a)?'':fmt(Math.round((r.b-r.a)*1000)/1000)+' '+esc(u.unit||''))+'</span></div>';
    else h+='<div class="sprow pay ux" data-r="'+esc(r.id)+'"><span class="c0">'+esc(dLbl(r.d))+'</span><span class="c3">'+fmt(r.amt)+' '+esc(u.cur||'')+'</span></div>'});
@@ -3237,16 +3248,22 @@ function utRow(u,r){var idx=u.mode==='idx',last=uRows(u)[0],isNew=!r;r=r||{id:ui
   (idx?'<div class="al2"><div class="field"><label>Index anterior</label><input id="spA" inputmode="decimal" value="'+esc(r.a==null?'':r.a)+'"></div><div class="field"><label>Index actual</label><input id="spB" inputmode="decimal" value="'+esc(r.b==null?'':r.b)+'"></div></div><div class="spdiff ux" id="spDf"></div>'
    :'<div class="field"><label>Sumă</label><input id="spM" inputmode="decimal" value="'+esc(r.amt==null?'':r.amt)+'"></div>'),
   function(){var d=$('spD').value||today();if(idx){var a=num($('spA').value),bb=num($('spB').value);if(isNaN(bb)||(!isNaN(a)&&false)){toast(TR('Index invalid'));return false}r.a=isNaN(a)?null:a;r.b=bb}
-   else{var m=num($('spM').value);if(isNaN(m)){toast(TR('Sumă invalidă'));return false}r.amt=m}r.d=d;if(isNew){r.ts=Date.now();u.rows.push(r)}utSave();spRender()},
+   else{var m=num($('spM').value);if(isNaN(m)){toast(TR('Sumă invalidă'));return false}r.amt=m}r.d=d;if(isNew){r.ts=Date.now();u.rows.push(r);var rm=u.rem;if(!idx&&rOn(rm)&&rAt(rm)-Date.now()<7*864e5){rm.next=rStep(rm,rm.next);try{saveNotes(true)}catch(_){}}}utSave();spRender()},
   isNew?null:function(){ask('Ștergi rândul?',function(){u.rows=u.rows.filter(function(x){return x!==r});utSave();jvClose('spModal');spRender()})});
  if(idx){var up=function(){var a=num($('spA').value),bb=num($('spB').value);$('spDf').textContent=isNaN(a)||isNaN(bb)?'':'= '+fmt(Math.round((bb-a)*1000)/1000)+' '+(u.unit||'')};$('spA').oninput=$('spB').oninput=up;up();setTimeout(function(){(isNew?$('spB'):$('spB')).focus()},80)}}
-function utCfg(u){var isNew=!u;u=u||{id:uid(),name:'',unit:'',mode:'idx',cur:'lei',rows:[]};
- dOpen(isNew?TR('Utilitate nouă'):uName(u),'<div class="field"><label>Nume</label><input id="spN" maxlength="30" value="'+esc(u.name||uName(u)==='?'?'':uName(u))+'"></div>'+seg('spMd',[['idx',TR('Cu index')],['pay',TR('Doar plată')]],u.mode)+
-  '<div class="al2" style="margin-top:12px"><div class="field"><label>Unitate</label><input id="spU" maxlength="10" value="'+esc(u.unit||'')+'"></div><div class="field"><label>Monedă</label><input id="spC" maxlength="10" value="'+esc(u.cur||'')+'"></div></div>',
-  function(){var n=$('spN').value.trim();if(!n){toast(TR('Numele e obligatoriu'));return false}if(isNew||n!==uName(u))u.name=n;u.mode=segVal('spMd')||'idx';u.unit=$('spU').value.trim();u.cur=$('spC').value.trim();
+function utCfg(u){var isNew=!u;u=u||{id:uid(),name:'',unit:'',mode:'idx',cur:'lei',rows:[]};var rm=u.rem||{iv:'1',hm:'09:00',next:''};if(!rm.next){var dn=new Date();dn.setMonth(dn.getMonth()+1);rm.next=dkey(dn)}
+ dOpen(isNew?TR('Utilitate nouă'):uName(u),'<div class="field"><label>Nume</label><input id="spN" maxlength="30" value="'+esc(uName(u)==='?'?'':uName(u))+'"></div>'+seg('spMd',[['idx',TR('Cu index')],['pay',TR('Doar plată')]],u.mode)+
+  '<div class="al2" style="margin-top:12px"><div class="field" id="spUf"><label>Unitate</label><input id="spU" maxlength="10" value="'+esc(u.unit||'')+'"></div><div class="field"><label>Monedă</label><input id="spC" maxlength="10" value="'+esc(u.cur||'')+'"></div></div>'+
+  '<label class="mdal sprem"><input type="checkbox" id="spRo"'+(rm.on?' checked':'')+'> ⏰ Reamintire plată</label><div id="spRb">'+seg('spRi',[['1',TR('Lunar')],['2',TR('La 2 luni')],['3',TR('La 3 luni')],['6',TR('La 6 luni')],['12',TR('Anual')],['d',TR('La fiecare X zile')]],rm.iv||'1')+
+  '<div class="field" id="spRdf"><label>Zile</label><input id="spRd" type="number" min="1" max="3650" inputmode="numeric" value="'+(rm.days||30)+'"></div><div class="al2"><div class="field"><label>Următoarea plată</label><input type="date" id="spRn" value="'+esc(rm.next||'')+'"></div><div class="field"><label>Ora</label><input type="time" id="spRh" value="'+esc(rm.hm||'09:00')+'"></div></div></div>',
+  function(){var n=$('spN').value.trim();if(!n){toast(TR('Numele e obligatoriu'));return false}if(isNew||n!==uName(u))u.name=n;u.mode=segVal('spMd')||'idx';if(u.mode==='idx'||isNew)u.unit=$('spU').value.trim();u.cur=$('spC').value.trim();
+   if($('spRo').checked){var iv=segVal('spRi')||'1',nx=$('spRn').value;if(!nx){toast(TR('Alege data'));return false}var dd=parseInt($('spRd').value,10);if(iv==='d'&&!(dd>0)){toast(TR('Alege data'));return false}
+    u.rem={on:1,iv:iv,days:iv==='d'?Math.min(3650,dd):undefined,next:nx,hm:$('spRh').value||'09:00',dom:dParse(nx).getDate()};utRoll();try{saveNotes(true)}catch(_){}try{alPerm()}catch(_){}}
+   else if(u.rem){u.rem.on=0;try{saveNotes(true)}catch(_){}}
    if(isNew){UT.list.push(u);UT.open[u.id]=1}utSave();spRender()},
   isNew?null:function(){ask('Ștergi utilitatea?',function(){UT.list=UT.list.filter(function(x){return x!==u});delete UT.open[u.id];utSave();jvClose('spModal');spRender()})});
- if(isNew)$('spN').value='';segWire('spMd')}
+ if(isNew)$('spN').value='';var uv=function(){$('spUf').style.display=segVal('spMd')==='pay'?'none':'';$('spRb').style.display=$('spRo').checked?'':'none';$('spRdf').style.display=segVal('spRi')==='d'?'':'none'};
+ segWire('spMd',uv);segWire('spRi',uv);$('spRo').onchange=uv;uv()}
 /* ---- Medicamente ---- */
 var SLOT=['Dimineață','Amiază','Seară'];
 function mSlots(m){if(m.rep>0){var st=m.st||'08:00',p=st.split(':'),t0=+p[0]*60+(+p[1]),k=Math.max(1,Math.min(6,Math.floor(24/m.rep))),a=[];for(var i=0;i<k;i++){var x=(t0+i*m.rep*60)%1440;a.push({lbl:pad(Math.floor(x/60))+':'+pad(x%60),t:pad(Math.floor(x/60))+':'+pad(x%60),al:!!m.ral})}return a}
@@ -3287,17 +3304,18 @@ function medEdit(m,pid){var isNew=!m;m=m||{id:uid(),p:pid,name:'',pat:[1,0,1],t:
  segWire('mdMode',vis);segWire('mdH');vis()}
 /* dose alarm instants */
 function hmNext(hm,stepMin,now){var p=hm.split(':'),d=new Date(now);d.setHours(+p[0],+p[1],0,0);var at=d.getTime(),st=(stepMin||1440)*60000;if(at>now)at-=Math.ceil((at-now)/st)*st;while(at<=now)at+=st;return at}
-function medAlarms(){var out=[],now=Date.now();if(!noteTabs.some(function(t){return t.kind==='med'}))return out;
+function medAlarms(){var out=[],now=Date.now();if(!noteTabs.some(function(t){return t.kind==='med'}))return medSnz(out,now);
  var many=MED.persons.length>1;
  MED.list.forEach(function(m){var pp=pFind(m.p),who=pp&&many?' — '+pName(pp):'';if(m.rep>0){if(m.ral)out.push({id:'med-'+m.id+'-r',text:'💊 '+m.name+who,hm:m.st||'08:00',rep:m.rep*60})}
   else mSlots(m).forEach(function(s){if(s.al)out.push({id:'med-'+m.id+'-'+s.s,text:'💊 '+m.name+' · '+TR(SLOT[s.s])+' '+s.t+who,hm:s.t,rep:1440})})});
  out.forEach(function(a){a.at=hmNext(a.hm,a.rep,now)});
- Object.keys(MED.snz||{}).forEach(function(k){var z=MED.snz[k];if(z&&z.at>now)out.push({id:k+'-z',text:z.text,at:z.at,rep:0,snz:1})});return out}
+ return medSnz(out,now)}
+function medSnz(out,now){Object.keys(MED.snz||{}).forEach(function(k){var z=MED.snz[k];if(z&&z.at>now)out.push({id:k+'-z',text:z.text,at:z.at,rep:0,snz:1})});return out}
 window.medSnooze=function(id,text){MED.snz=MED.snz||{};var now=Date.now();for(var k in MED.snz)if(!MED.snz[k]||MED.snz[k].at<now-6e5)delete MED.snz[k];MED.snz[String(id).replace(/-z$/,'')]={at:now+600000,text:text};medSave()};
-window.medSnap=function(){var t=(noteTabs.filter(function(x){return x.kind==='med'})[0]||{}).id||'';return medAlarms().map(function(a){return{id:a.id,tab:'__med',type:'med',title:a.text,text:a.text,upd:'',alarm:{at:a.at,rep:a.rep,until:null,snz:null}}})};
+window.medSnap=function(){var t=(noteTabs.filter(function(x){return x.kind==='med'})[0]||{}).id||'';return medAlarms().concat(payAlarms()).map(function(a){var al={at:a.at,rep:a.rep,until:null,snz:null};if(a.repM){al.repM=a.repM;al.dom=a.dom}return{id:a.id,tab:'__med',type:'med',title:a.text,text:a.text,upd:'',alarm:al}})};
 /* in-page ring (web, or app on screen; native rings when the app is closed) */
 var fired={},boot=Date.now();
-function medTick(){if(DEMO)return;var now=Date.now();
+function medTick(){if(DEMO)return;var now=Date.now();try{if(noteTabs.some(function(t){return t.kind==='util'})&&utRoll())spRender()}catch(_){}
  Object.keys(MED.snz||{}).forEach(function(k){var z=MED.snz[k];if(z&&z.at<=now){delete MED.snz[k];LS.set('ns_med',MED);if(now-z.at<5*60000)try{alFire({id:k+'-z',text:z.text,med:1},null)}catch(_){}}});
  medAlarms().forEach(function(a){if(a.snz)return;var last=a.at-a.rep*60000;if(last>boot&&now-last<5*60000&&!fired[a.id+last]){fired[a.id+last]=1;try{alFire({id:a.id,text:a.text,med:1},null)}catch(_){}}})}
 setInterval(medTick,15000);
@@ -3361,7 +3379,7 @@ renderAbList();
 .spv{background:rgba(var(--s1R),.86);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:14px;padding:4px var(--smg,12px) 8px;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 .spsec{border-bottom:1px solid rgba(var(--lnR),.14)}.spsec:last-of-type{border-bottom:0}
 .sphd{display:flex;align-items:center;gap:8px;padding:12px 0;cursor:pointer;-webkit-tap-highlight-color:transparent}
-.spnm{font-size:16.5px;color:var(--txt);font-weight:600}.spun{color:var(--mut);font-size:13px}.spcnt{margin-left:auto;color:var(--mut);font-size:12px}
+.spnm{font-size:16.5px;color:var(--txt);font-weight:600}.spun{color:var(--mut);font-size:13px}.spcnt{margin-left:auto;color:var(--mut);font-size:12px}.spdue{color:var(--mut);font-size:11.5px;white-space:nowrap;margin-left:6px}.sprem{display:block;margin:12px 0 8px}#spRi{display:grid!important;grid-template-columns:repeat(3,1fr);gap:6px;flex-wrap:wrap}#spRi .btn{border-radius:12px;padding:7px 4px;font-size:13px;min-height:0;height:auto;width:auto;line-height:1.2}
 .spgear{background:none;border:0;color:var(--mut);font-size:17px;padding:2px 6px;cursor:pointer}
 .sparr::after{content:"\25BE";display:inline-block;font-size:22px;line-height:1;color:var(--cyan);transition:transform .2s;transform:rotate(-90deg)}.spsec.open .sparr::after{transform:none}
 .spbd{padding:0 0 10px}

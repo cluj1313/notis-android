@@ -44,7 +44,7 @@ public class WidgetService extends RemoteViewsService {
         if (at <= 0) return 0;
         int rep = a.optInt("rep");
         long now = System.currentTimeMillis();
-        if (rep > 0 && at < now) at = Store.roll(at, rep, now);
+        if ((rep > 0 || a.optInt("repM", 0) > 0) && at < now) at = Store.rollAlarm(a, at, now);
         return at;
     }
 

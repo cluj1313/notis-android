@@ -751,5 +751,17 @@ NOTIS_I18N={
 "Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "Koppints: 0 / 1. Az időpont nem kötelező (nincs időpont = nincs ébresztő).",
 "Alege cel puțin o doză": "Válassz legalább egy adagot",
 "Zile de luat": "Szedési napok",
-"Început": "Kezdés"
+"Început": "Kezdés",
+"⏰ Reamintire plată": "⏰ Fizetési emlékeztető",
+"Lunar": "Havonta",
+"La 2 luni": "2 havonta",
+"La 3 luni": "3 havonta",
+"La 6 luni": "6 havonta",
+"Anual": "Évente",
+"La fiecare X zile": "X naponta",
+"Zile": "Napok",
+"Următoarea plată": "Következő fizetés",
+"Ora": "Idő",
+"plată": "fizetés",
+"Alege data": "Válassz dátumot"
 };

@@ -751,5 +751,17 @@ NOTIS_I18N={
 "Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "Ťuknite na 0 / 1. Čas je voliteľný (bez času = bez budíka).",
 "Alege cel puțin o doză": "Vyberte aspoň jednu dávku",
 "Zile de luat": "Dni užívania",
-"Început": "Začiatok"
+"Început": "Začiatok",
+"⏰ Reamintire plată": "⏰ Pripomienka platby",
+"Lunar": "Mesačne",
+"La 2 luni": "Každé 2 mesiace",
+"La 3 luni": "Každé 3 mesiace",
+"La 6 luni": "Každých 6 mesiacov",
+"Anual": "Ročne",
+"La fiecare X zile": "Každých X dní",
+"Zile": "Dni",
+"Următoarea plată": "Ďalšia platba",
+"Ora": "Čas",
+"plată": "platba",
+"Alege data": "Vyberte dátum"
 };

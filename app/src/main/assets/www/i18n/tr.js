@@ -751,5 +751,17 @@ NOTIS_I18N={
 "Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "0 / 1'e dokunun. Saat isteğe bağlıdır (saat yok = alarm yok).",
 "Alege cel puțin o doză": "En az bir doz seçin",
 "Zile de luat": "Kullanım günü",
-"Început": "Başlangıç"
+"Început": "Başlangıç",
+"⏰ Reamintire plată": "⏰ Ödeme hatırlatıcı",
+"Lunar": "Aylık",
+"La 2 luni": "2 ayda bir",
+"La 3 luni": "3 ayda bir",
+"La 6 luni": "6 ayda bir",
+"Anual": "Yıllık",
+"La fiecare X zile": "X günde bir",
+"Zile": "Gün",
+"Următoarea plată": "Sonraki ödeme",
+"Ora": "Saat",
+"plată": "ödeme",
+"Alege data": "Tarih seçin"
 };

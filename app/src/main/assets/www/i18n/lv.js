@@ -751,5 +751,17 @@ NOTIS_I18N={
 "Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "Pieskarieties 0 / 1. Laiks nav obligāts (bez laika = bez modinātāja).",
 "Alege cel puțin o doză": "Izvēlieties vismaz vienu devu",
 "Zile de luat": "Lietošanas dienas",
-"Început": "Sākums"
+"Început": "Sākums",
+"⏰ Reamintire plată": "⏰ Maksājuma atgādinājums",
+"Lunar": "Ik mēnesi",
+"La 2 luni": "Ik pēc 2 mēnešiem",
+"La 3 luni": "Ik pēc 3 mēnešiem",
+"La 6 luni": "Ik pēc 6 mēnešiem",
+"Anual": "Ik gadu",
+"La fiecare X zile": "Ik pēc X dienām",
+"Zile": "Dienas",
+"Următoarea plată": "Nākamais maksājums",
+"Ora": "Laiks",
+"plată": "maksājums",
+"Alege data": "Izvēlieties datumu"
 };

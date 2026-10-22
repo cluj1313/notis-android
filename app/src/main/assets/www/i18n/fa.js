@@ -751,5 +751,17 @@ NOTIS_I18N={
 "Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "0 / 1 را لمس کنید. زمان اختیاری است (بدون زمان = بدون هشدار).",
 "Alege cel puțin o doză": "حداقل یک دوز انتخاب کنید",
 "Zile de luat": "روزهای مصرف",
-"Început": "شروع"
+"Început": "شروع",
+"⏰ Reamintire plată": "⏰ یادآور پرداخت",
+"Lunar": "ماهانه",
+"La 2 luni": "هر ۲ ماه",
+"La 3 luni": "هر ۳ ماه",
+"La 6 luni": "هر ۶ ماه",
+"Anual": "سالانه",
+"La fiecare X zile": "هر X روز",
+"Zile": "روزها",
+"Următoarea plată": "پرداخت بعدی",
+"Ora": "ساعت",
+"plată": "پرداخت",
+"Alege data": "یک تاریخ انتخاب کنید"
 };

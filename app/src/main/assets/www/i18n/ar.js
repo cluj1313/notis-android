@@ -751,5 +751,17 @@ NOTIS_I18N={
 "Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "المس 0 / 1. الوقت اختياري (بدون وقت = بدون منبه).",
 "Alege cel puțin o doză": "اختر جرعة واحدة على الأقل",
 "Zile de luat": "أيام العلاج",
-"Început": "البداية"
+"Început": "البداية",
+"⏰ Reamintire plată": "⏰ تذكير بالدفع",
+"Lunar": "شهريًا",
+"La 2 luni": "كل شهرين",
+"La 3 luni": "كل 3 أشهر",
+"La 6 luni": "كل 6 أشهر",
+"Anual": "سنويًا",
+"La fiecare X zile": "كل X أيام",
+"Zile": "الأيام",
+"Următoarea plată": "الدفعة التالية",
+"Ora": "الوقت",
+"plată": "دفع",
+"Alege data": "اختر تاريخًا"
 };

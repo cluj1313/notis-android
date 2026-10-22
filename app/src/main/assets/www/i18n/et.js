@@ -751,5 +751,17 @@ NOTIS_I18N={
 "Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "Puuduta 0 / 1. Kellaaeg on valikuline (kellaajata = äratuseta).",
 "Alege cel puțin o doză": "Vali vähemalt üks annus",
 "Zile de luat": "Võtmise päevad",
-"Început": "Algus"
+"Început": "Algus",
+"⏰ Reamintire plată": "⏰ Maksemeeldetuletus",
+"Lunar": "Igakuine",
+"La 2 luni": "Iga 2 kuu järel",
+"La 3 luni": "Iga 3 kuu järel",
+"La 6 luni": "Iga 6 kuu järel",
+"Anual": "Iga-aastane",
+"La fiecare X zile": "Iga X päeva järel",
+"Zile": "Päevad",
+"Următoarea plată": "Järgmine makse",
+"Ora": "Kellaaeg",
+"plată": "makse",
+"Alege data": "Vali kuupäev"
 };

@@ -751,5 +751,17 @@ NOTIS_I18N={
 "Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "0 / 1 をタップ。時刻は任意です（時刻なし＝アラームなし）。",
 "Alege cel puțin o doză": "少なくとも1回分を選んでください",
 "Zile de luat": "服用日数",
-"Început": "開始"
+"Început": "開始",
+"⏰ Reamintire plată": "⏰ 支払いリマインダー",
+"Lunar": "毎月",
+"La 2 luni": "2か月ごと",
+"La 3 luni": "3か月ごと",
+"La 6 luni": "6か月ごと",
+"Anual": "毎年",
+"La fiecare X zile": "X日ごと",
+"Zile": "日数",
+"Următoarea plată": "次回の支払い",
+"Ora": "時刻",
+"plată": "支払い",
+"Alege data": "日付を選択"
 };

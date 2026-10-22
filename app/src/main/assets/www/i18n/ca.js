@@ -751,5 +751,17 @@ NOTIS_I18N={
 "Atinge 0 / 1. Ora e opțională (fără oră = fără alarmă).": "Toca 0 / 1. L'hora és opcional (sense hora = sense alarma).",
 "Alege cel puțin o doză": "Tria almenys una dosi",
 "Zile de luat": "Dies de presa",
-"Început": "Inici"
+"Început": "Inici",
+"⏰ Reamintire plată": "⏰ Recordatori de pagament",
+"Lunar": "Mensual",
+"La 2 luni": "Cada 2 mesos",
+"La 3 luni": "Cada 3 mesos",
+"La 6 luni": "Cada 6 mesos",
+"Anual": "Anual",
+"La fiecare X zile": "Cada X dies",
+"Zile": "Dies",
+"Următoarea plată": "Proper pagament",
+"Ora": "Hora",
+"plată": "pagament",
+"Alege data": "Tria una data"
 };
