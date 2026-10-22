@@ -38,6 +38,10 @@ public class MainActivity extends Activity {
     @Override protected void onCreate(Bundle b) {
         super.onCreate(b);
         cur = this;
+        if (Build.VERSION.SDK_INT >= 33) {
+            backCb = this::handleBack;
+            getOnBackInvokedDispatcher().registerOnBackInvokedCallback(android.window.OnBackInvokedDispatcher.PRIORITY_DEFAULT, backCb);
+        }
         if ((getApplicationInfo().flags & android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0) WebView.setWebContentsDebuggingEnabled(true);
         web = new WebView(this);
         web.setBackgroundColor(0xFF0B0A08);
@@ -165,9 +169,20 @@ public class MainActivity extends Activity {
     }
     @Override protected void onSaveInstanceState(Bundle o) { super.onSaveInstanceState(o); if (web != null) web.saveState(o); }
 
-    @Override public void onBackPressed() {
-        if (web != null && web.canGoBack()) web.goBack(); else super.onBackPressed();
+    private android.window.OnBackInvokedCallback backCb;
+    private boolean backBusy = false;
+    /** Back closes the topmost Notis layer (menu, dialog, note, folder…); only on the main list the app goes to background. */
+    void handleBack() {
+        if (web == null) { moveTaskToBack(true); return; }
+        if (!trusted) { if (web.canGoBack()) web.goBack(); else moveTaskToBack(true); return; }
+        if (backBusy) return;
+        backBusy = true;
+        web.evaluateJavascript("(function(){try{return !!(window.notisHandleBack&&window.notisHandleBack())}catch(e){return false}})()", r -> {
+            backBusy = false;
+            if (!"true".equals(r)) moveTaskToBack(true);
+        });
     }
+    @Override public void onBackPressed() { handleBack(); }
 
     @Override protected void onActivityResult(int req, int res, Intent data) {
         if (req == CAM_REQ && fileCb != null) {
