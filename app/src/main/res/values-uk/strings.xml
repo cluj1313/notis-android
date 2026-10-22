@@ -81,4 +81,5 @@
     <string name="upd_later">Пізніше</string>
     <string name="upd_open">Відкритий</string>
     <plurals name="notes_count"><item quantity="one">%d Примітка</item><item quantity="few">%d Примітки</item><item quantity="many">%d Примітки</item><item quantity="other">%d Примітки</item></plurals>
+    <string name="snooze10">10 хвилин засинути.</string>
 </resources>

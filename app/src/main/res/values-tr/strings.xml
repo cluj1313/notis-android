@@ -81,4 +81,5 @@
     <string name="upd_later">Daha sonra.</string>
     <string name="upd_open">Açık .</string>
     <plurals name="notes_count"><item quantity="one">%d Not:</item><item quantity="few">%d Notlar</item><item quantity="many">%d Notlar</item><item quantity="other">%d Notlar</item></plurals>
+    <string name="snooze10">10 dakika dinlen.</string>
 </resources>

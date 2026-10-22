@@ -81,4 +81,5 @@
     <string name="upd_later">Senere</string>
     <string name="upd_open">Åben</string>
     <plurals name="notes_count"><item quantity="one">%d Bemærkning</item><item quantity="few">%d Bemærkninger</item><item quantity="many">%d Bemærkninger</item><item quantity="other">%d Bemærkninger</item></plurals>
+    <string name="snooze10">Slum 10 min.</string>
 </resources>

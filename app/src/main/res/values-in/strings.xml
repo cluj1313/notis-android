@@ -81,4 +81,5 @@
     <string name="upd_later">Kemudian.</string>
     <string name="upd_open">Buka</string>
     <plurals name="notes_count"><item quantity="one">%d Catatan</item><item quantity="few">%d Catatan</item><item quantity="many">%d Catatan</item><item quantity="other">%d Catatan</item></plurals>
+    <string name="snooze10">Tidur 10 menit</string>
 </resources>

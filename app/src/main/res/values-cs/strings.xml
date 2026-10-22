@@ -81,4 +81,5 @@
     <string name="upd_later">Později.</string>
     <string name="upd_open">Otevřeno.</string>
     <plurals name="notes_count"><item quantity="one">%d Poznámka</item><item quantity="few">%d Poznámky</item><item quantity="many">%d Poznámky</item><item quantity="other">%d Poznámky</item></plurals>
+    <string name="snooze10">Zůstaňte 10 minut.</string>
 </resources>

@@ -156,9 +156,42 @@ public class MainActivity extends Activity {
         web.evaluateJavascript(js, null);
     }
 
+    private static final int NOTIF_REQ = 45;
+    private static boolean permAsked = false;
+    /** "ok" | "notif" | "exact" */
+    static String alarmState(Context c) {
+        android.app.NotificationManager nm = c.getSystemService(android.app.NotificationManager.class);
+        if (Build.VERSION.SDK_INT >= 33 && c.checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) != android.content.pm.PackageManager.PERMISSION_GRANTED) return "notif";
+        if (!nm.areNotificationsEnabled()) return "notif";
+        android.app.NotificationChannel ch = nm.getNotificationChannel(AlarmReceiver.CH);
+        if (ch != null && ch.getImportance() == android.app.NotificationManager.IMPORTANCE_NONE) return "notif";
+        android.app.AlarmManager am = (android.app.AlarmManager) c.getSystemService(Context.ALARM_SERVICE);
+        if (Build.VERSION.SDK_INT >= 31 && !am.canScheduleExactAlarms()) return "exact";
+        return "ok";
+    }
+    void fixAlarmPerms(String st) {
+        runOnUiThread(() -> {
+            try {
+                if (st.equals("notif")) {
+                    if (Build.VERSION.SDK_INT >= 33 && checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) != android.content.pm.PackageManager.PERMISSION_GRANTED
+                            && !permAsked) { permAsked = true; requestPermissions(new String[]{ android.Manifest.permission.POST_NOTIFICATIONS }, NOTIF_REQ); return; }
+                    startActivity(new Intent(android.provider.Settings.ACTION_APP_NOTIFICATION_SETTINGS).putExtra(android.provider.Settings.EXTRA_APP_PACKAGE, getPackageName()));
+                } else if (st.equals("exact") && Build.VERSION.SDK_INT >= 31) {
+                    startActivity(new Intent(android.provider.Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM, Uri.parse("package:" + getPackageName())));
+                }
+            } catch (Exception ignored) {}
+        });
+    }
+
     @Override protected void onResume() {
         super.onResume();
         foreground = true;
+        /* 2.2.3 root-cause fix: on Android 13+ notifications were never requested from the app itself, so alarms fired but stayed silent.
+           Ask once per run when any alarm is scheduled. */
+        if (!permAsked && Build.VERSION.SDK_INT >= 33 && checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+            String sc = Store.get(this, "sched");
+            if (sc != null && sc.length() > 0) { permAsked = true; requestPermissions(new String[]{ android.Manifest.permission.POST_NOTIFICATIONS }, NOTIF_REQ); }
+        }
         Updater.check(this);
         if (web != null) { web.onResume(); web.evaluateJavascript("window.NotisApp&&NotisApp.sync()", null); }
     }

@@ -81,4 +81,5 @@
     <string name="upd_later">Vēlāk</string>
     <string name="upd_open">Atvērtas</string>
     <plurals name="notes_count"><item quantity="one">%d piezīme</item><item quantity="few">%d piezīmes</item><item quantity="many">%d piezīmes</item><item quantity="other">%d piezīmes</item></plurals>
+    <string name="snooze10">10 minūtes.</string>
 </resources>

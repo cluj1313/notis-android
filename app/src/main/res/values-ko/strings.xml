@@ -81,4 +81,5 @@
     <string name="upd_later">나중에</string>
     <string name="upd_open">오픈</string>
     <plurals name="notes_count"><item quantity="one">%d 참고</item><item quantity="few">%d 노트</item><item quantity="many">%d 노트</item><item quantity="other">%d 노트</item></plurals>
+    <string name="snooze10">잠자리 10분</string>
 </resources>

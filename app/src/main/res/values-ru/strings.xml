@@ -81,4 +81,5 @@
     <string name="upd_later">Позже</string>
     <string name="upd_open">Открыть</string>
     <plurals name="notes_count"><item quantity="one">%d заметка</item><item quantity="few">%d заметки</item><item quantity="many">%d заметок</item><item quantity="other">%d заметки</item></plurals>
+    <string name="snooze10">Отложить на 10 мин</string>
 </resources>

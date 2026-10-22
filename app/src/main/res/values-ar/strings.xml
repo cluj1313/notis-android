@@ -81,4 +81,5 @@
     <string name="upd_later">لاحقاً</string>
     <string name="upd_open">مفتوحة</string>
     <plurals name="notes_count"><item quantity="one">%d ملاحظة</item><item quantity="few">%d ملاحظات</item><item quantity="many">%d ملاحظات</item><item quantity="other">%d ملاحظات</item></plurals>
+    <string name="snooze10">غفوة لمدة 10 دقائق</string>
 </resources>

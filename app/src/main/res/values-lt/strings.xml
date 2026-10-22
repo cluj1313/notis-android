@@ -81,4 +81,5 @@
     <string name="upd_later">Vėliau</string>
     <string name="upd_open">Atviras</string>
     <plurals name="notes_count"><item quantity="one">%d Pastaba</item><item quantity="few">%d pastabos</item><item quantity="many">%d pastabos</item><item quantity="other">%d pastabos</item></plurals>
+    <string name="snooze10">10 minučių poilsio.</string>
 </resources>

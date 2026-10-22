@@ -81,4 +81,5 @@
     <string name="upd_later">Kasneje.</string>
     <string name="upd_open">Odprto.</string>
     <plurals name="notes_count"><item quantity="one">%d Opomba</item><item quantity="few">%d Opombe</item><item quantity="many">%d Opombe</item><item quantity="other">%d Opombe</item></plurals>
+    <string name="snooze10">10 minut zaspanosti.</string>
 </resources>

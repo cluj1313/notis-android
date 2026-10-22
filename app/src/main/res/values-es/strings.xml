@@ -81,4 +81,5 @@
     <string name="upd_later">Más tarde .</string>
     <string name="upd_open">Está abierto.</string>
     <plurals name="notes_count"><item quantity="one">%d Nota de la Comisión</item><item quantity="few">%d Las notas</item><item quantity="many">%d Las notas</item><item quantity="other">%d Las notas</item></plurals>
+    <string name="snooze10">Siesta de 10 minutos</string>
 </resources>

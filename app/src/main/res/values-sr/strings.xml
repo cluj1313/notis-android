@@ -81,4 +81,5 @@
     <string name="upd_later">Касније</string>
     <string name="upd_open">Отворено</string>
     <plurals name="notes_count"><item quantity="one">%d Напомена</item><item quantity="few">%d примедбе</item><item quantity="many">%d примедбе</item><item quantity="other">%d примедбе</item></plurals>
+    <string name="snooze10">10 минута заспавања.</string>
 </resources>

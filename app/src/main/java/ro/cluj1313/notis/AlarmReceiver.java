@@ -3,6 +3,7 @@ package ro.cluj1313.notis;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -16,9 +17,19 @@ import org.json.JSONObject;
 public class AlarmReceiver extends BroadcastReceiver {
     static final String CH = "notis_alarms";
 
+    static final String SNOOZE = "ro.cluj1313.notis.SNOOZE";
+
     @Override public void onReceive(Context c, Intent i) {
         String nid = i.getStringExtra("n");
         if (nid == null) return;
+        /* 2.2.3: "Amână 10 min" from the notification — a native one-shot alarm, independent of the web snapshot (notes and medicines) */
+        if (SNOOZE.equals(i.getAction())) {
+            String txt = i.getStringExtra("t"); if (txt == null) txt = "";
+            try { c.getSystemService(NotificationManager.class).cancel(nid.hashCode()); } catch (Exception ignored) {}
+            Scheduler.snooze(c, nid, txt, System.currentTimeMillis() + 600000L);
+            return;
+        }
+        if (i.getBooleanExtra("snz", false)) { Store.put(c, "snz_" + nid, null); show(c, nid, String.valueOf(i.getStringExtra("t"))); return; }
         JSONObject note = null;
         JSONArray ns = Store.snapshot(c).optJSONArray("notes");
         if (ns != null) for (int k = 0; k < ns.length(); k++) if (nid.equals(ns.optJSONObject(k).optString("id"))) note = ns.optJSONObject(k);
@@ -29,6 +40,11 @@ public class AlarmReceiver extends BroadcastReceiver {
         Store.alarmFired(c, nid, now);
         Scheduler.rescheduleAll(c);
         NotisWidget.refreshAll(c);
+    }
+
+    static PendingIntent snoozePi(Context c, String nid, String text) {
+        Intent s = new Intent(c, AlarmReceiver.class).setAction(SNOOZE).setData(Uri.parse("notis://snooze/" + Uri.encode(nid))).putExtra("n", nid).putExtra("t", text);
+        return PendingIntent.getBroadcast(c, 0, s, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
     }
 
     static void channel(Context c) {
@@ -53,7 +69,12 @@ public class AlarmReceiver extends BroadcastReceiver {
             .setCategory(Notification.CATEGORY_ALARM)
             .setAutoCancel(true)
             .setContentIntent(NotisWidget.openApp(c, 800000 + Math.abs(nid.hashCode() % 90000), "?open=" + Uri.encode(nid)))
+            .setFullScreenIntent(NotisWidget.openApp(c, 700000 + Math.abs(nid.hashCode() % 90000), "?open=" + Uri.encode(nid)), true)
+            .setPriority(Notification.PRIORITY_MAX)
+            .setVisibility(Notification.VISIBILITY_PUBLIC)
+            .addAction(new Notification.Action.Builder(null, Tr.s(c, R.string.snooze10), snoozePi(c, nid, text)).build())
             .build();
+        n.flags |= Notification.FLAG_INSISTENT; /* sound repeats until opened / dismissed, like an alarm clock */
         try { c.getSystemService(NotificationManager.class).notify(nid.hashCode(), n); } catch (SecurityException ignored) {}
     }
 }

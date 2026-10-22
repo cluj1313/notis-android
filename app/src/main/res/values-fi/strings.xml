@@ -81,4 +81,5 @@
     <string name="upd_later">Myöhemmin.</string>
     <string name="upd_open">avusta .</string>
     <plurals name="notes_count"><item quantity="one">%d Huomautus</item><item quantity="few">%d Huomautukset</item><item quantity="many">%d Huomautukset</item><item quantity="other">%d Huomautukset</item></plurals>
+    <string name="snooze10">Nuku 10 minuuttia .</string>
 </resources>

@@ -81,4 +81,5 @@
     <string name="upd_later">পরে</string>
     <string name="upd_open">খোলা</string>
     <plurals name="notes_count"><item quantity="one">%d নোট</item><item quantity="few">%d নোট</item><item quantity="many">%d নোট</item><item quantity="other">%d নোট</item></plurals>
+    <string name="snooze10">১০ মিনিটের নিদ্রা</string>
 </resources>

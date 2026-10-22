@@ -81,4 +81,5 @@
     <string name="upd_later">Mais tarde.</string>
     <string name="upd_open">Aberto</string>
     <plurals name="notes_count"><item quantity="one">%d Nota</item><item quantity="few">%d Notas</item><item quantity="many">%d Notas</item><item quantity="other">%d Notas</item></plurals>
+    <string name="snooze10">Durma 10 minutos.</string>
 </resources>

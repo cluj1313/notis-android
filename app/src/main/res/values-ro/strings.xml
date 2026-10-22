@@ -81,4 +81,5 @@
     <string name="upd_later">Mai târziu</string>
     <string name="upd_open">Deschide</string>
     <plurals name="notes_count"><item quantity="one">%d notiță</item><item quantity="few">%d notițe</item><item quantity="other">%d de notițe</item></plurals>
+    <string name="snooze10">Amână 10 min</string>
 </resources>

@@ -81,4 +81,5 @@
     <string name="upd_later">ภายหลัง</string>
     <string name="upd_open">เปิด</string>
     <plurals name="notes_count"><item quantity="one">%d หมายเหตุ</item><item quantity="few">%d หมายเหตุ</item><item quantity="many">%d หมายเหตุ</item><item quantity="other">%d หมายเหตุ</item></plurals>
+    <string name="snooze10">นอน 10 นาที</string>
 </resources>

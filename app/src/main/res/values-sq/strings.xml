@@ -81,4 +81,5 @@
     <string name="upd_later">Më vonë.</string>
     <string name="upd_open">I hapur.</string>
     <plurals name="notes_count"><item quantity="one">%d Shënim</item><item quantity="few">%d Shënime</item><item quantity="many">%d Shënime</item><item quantity="other">%d Shënime</item></plurals>
+    <string name="snooze10">Pushim 10 minuta.</string>
 </resources>

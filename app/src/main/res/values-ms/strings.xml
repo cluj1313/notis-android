@@ -81,4 +81,5 @@
     <string name="upd_later">Kemudian</string>
     <string name="upd_open">Terbuka</string>
     <plurals name="notes_count"><item quantity="one">%d Nota</item><item quantity="few">%d Nota</item><item quantity="many">%d Nota</item><item quantity="other">%d Nota</item></plurals>
+    <string name="snooze10">Tidur 10 minit.</string>
 </resources>

@@ -81,4 +81,5 @@
     <string name="upd_later">बाद में</string>
     <string name="upd_open">खुला</string>
     <plurals name="notes_count"><item quantity="one">%d नोट</item><item quantity="few">%d नोट्स</item><item quantity="many">%d नोट्स</item><item quantity="other">%d नोट्स</item></plurals>
+    <string name="snooze10">10 मिनट की झपकी</string>
 </resources>

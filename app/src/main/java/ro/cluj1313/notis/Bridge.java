@@ -25,6 +25,20 @@ final class Bridge {
         NotisWidget.refreshAll(ctx);
         Scheduler.rescheduleAll(ctx);
     }
+    /** 2.2.3: alarm permissions. ask=true: request notifications / open the exact-alarm or notification settings when missing.
+     *  returns "ok", "notif" (notifications blocked) or "exact" (exact alarms denied) */
+    @JavascriptInterface public String alarmPerms(boolean ask) { if (!MainActivity.trusted) return "";
+        String st = MainActivity.alarmState(ctx);
+        if (ask && !st.equals("ok") && MainActivity.cur != null) MainActivity.cur.fixAlarmPerms(st);
+        return st;
+    }
+    @JavascriptInterface public boolean isXiaomi() { String m = (android.os.Build.MANUFACTURER + " " + android.os.Build.BRAND).toLowerCase(); return m.contains("xiaomi") || m.contains("redmi") || m.contains("poco"); }
+    /** Xiaomi/HyperOS "Autostart" screen (alarms of apps without it may be dropped when the app is closed); falls back to app details */
+    @JavascriptInterface public boolean openAutostart() { if (!MainActivity.trusted) return false;
+        android.content.Intent i = new android.content.Intent().setClassName("com.miui.securitycenter", "com.miui.permcenter.autostart.AutoStartManagementActivity").addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
+        try { ctx.startActivity(i); return true; } catch (Exception e) {
+            try { ctx.startActivity(new android.content.Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS, android.net.Uri.parse("package:" + ctx.getPackageName())).addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)); return true; } catch (Exception e2) { return false; } }
+    }
     @JavascriptInterface public void setLang(String l) { if (!MainActivity.trusted) return;
         if (Tr.setLang(ctx, l)) { AlarmReceiver.channel(ctx); NotisWidget.refreshAll(ctx); }
     }

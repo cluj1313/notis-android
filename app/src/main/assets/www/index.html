@@ -33,7 +33,7 @@ TR.x=function(s){var D=NOTIS_I18N,m,r,i;if(Object.prototype.hasOwnProperty.call(
  for(i=0;i<NOTIS_I18N_RX.length;i++){var x=NOTIS_I18N_RX[i];x[0].lastIndex=0;if(x[0].test(s)){x[0].lastIndex=0;return s.replace(x[0],function(){var g=arguments;return x[1].replace(/\$(\d)/g,function(_,k){var v=g[+k]||'';var q=TR.x(v);return q==null?v:q})})}}
  return null};
 /* DOM pass: static HTML + HTML built from strings. User content (note text, tab/folder names, inputs) is never touched. */
-if(NL!=='ro')(function(){var SKIP='textarea,input,select option[data-u],.t,.nsnip,.nstab,.ntab,.fcrumb,.fcb,.fil,.nfo .t,#nfBlocks,#nfItems,#alTask,#alfTask,[data-mv],[data-fmv],.nbt,script,style,svg';
+if(NL!=='ro')(function(){var SKIP='.ux,textarea,input,select option[data-u],.t,.nsnip,.nstab,.ntab,.fcrumb,.fcb,.fil,.nfo .t,#nfBlocks,#nfItems,#alTask,#alfTask,[data-mv],[data-fmv],.nbt,script,style,svg';
  var AT=['aria-label','title','placeholder','alt'];
  function txt(n){var p=n.parentNode;if(!p||p.nodeType!==1||p.closest(SKIP))return;var v=n.nodeValue;if(!v||!/\S/.test(v)||!/\p{L}/u.test(v))return;var r=TR.x(v);if(r!=null&&r!==v)n.nodeValue=r}
  function el(e){if(e.hasAttribute('data-u'))return;for(var i=0;i<AT.length;i++){var a=e.getAttribute(AT[i]);if(a){var r=TR.x(a);if(r!=null&&r!==a)e.setAttribute(AT[i],r)}}}
@@ -841,9 +841,9 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
 <body>
 <div class="wrap">
  <header>
-  <div class="brand"><div class="orb" id="orb"><img class="orb-img" width="210" height="312" alt="Jarvis" decoding="async"><svg class="orb-race" viewBox="0 0 1152 1712" preserveAspectRatio="none" aria-hidden="true" focusable="false"><defs><mask id="orbHat" maskUnits="userSpaceOnUse" x="0" y="0" width="1152" height="1712"><rect width="1152" height="1712" fill="#fff"/><polygon points="371,280 734,280 737,450 378,450" fill="#000"/></mask></defs><g mask="url(#orbHat)"><path class="rt" d="M1074.5 877A498 527 0 1 1 78.5 877A498 527 0 1 1 1074.5 877Z"/><path class="rm" d="M1074.5 877A498 527 0 1 1 78.5 877A498 527 0 1 1 1074.5 877Z"/><path class="rh" d="M1074.5 877A498 527 0 1 1 78.5 877A498 527 0 1 1 1074.5 877Z"/></g></svg><span class="orb-spark" aria-hidden="true"></span></div><div><h1>JARVIS</h1><small>COMMAND CENTER</small></div></div>
+  <div class="brand"><div class="orb" id="orb"><img class="orb-img" width="210" height="312" alt="Notis" decoding="async"><svg class="orb-race" viewBox="0 0 1152 1712" preserveAspectRatio="none" aria-hidden="true" focusable="false"><defs><mask id="orbHat" maskUnits="userSpaceOnUse" x="0" y="0" width="1152" height="1712"><rect width="1152" height="1712" fill="#fff"/><polygon points="371,280 734,280 737,450 378,450" fill="#000"/></mask></defs><g mask="url(#orbHat)"><path class="rt" d="M1074.5 877A498 527 0 1 1 78.5 877A498 527 0 1 1 1074.5 877Z"/><path class="rm" d="M1074.5 877A498 527 0 1 1 78.5 877A498 527 0 1 1 1074.5 877Z"/><path class="rh" d="M1074.5 877A498 527 0 1 1 78.5 877A498 527 0 1 1 1074.5 877Z"/></g></svg><span class="orb-spark" aria-hidden="true"></span></div><div><h1>NOTIS</h1><small>COMMAND CENTER</small></div></div>
   <div class="right"><div class="clock" id="clock" data-ghost="88.88">--.--</div>
-   <div class="hbtns"><button class="btn pill" id="bSettings">Setări</button><button class="btn pill" id="bShare">Trimite copia</button></div></div>
+   <div class="hbtns"><button class="btn pill" id="bSettings">Setări</button></div></div>
  </header>
 
  <div class="offnote" id="offNote" hidden></div>
@@ -896,12 +896,6 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
 
  <div class="sec">Limbă</div>
  <div class="field"><input type="search" id="sLangQ" class="langq" placeholder="Caută limba…" aria-label="Caută limba" autocomplete="off"><select id="sLang" aria-label="Limbă"></select></div>
- <div class="sec">Temă</div>
- <div class="field"><div class="throw" id="thRow"><button type="button" class="thc" data-th="color"><i style="background:#3fd8ff"></i>Colorat</button><button type="button" class="thc" data-th="dark"><i style="background:#000"></i>Întunecat</button><button type="button" class="thc" data-th="light"><i style="background:#f3f5f8"></i>Luminos</button><button type="button" class="thc" data-th="vip"><i style="background:linear-gradient(135deg,#e8c98a,#a8823f)"></i>VIP</button><button type="button" class="thc" data-th="jad"><i style="background:linear-gradient(135deg,#2f6b58,#0f2a24)"></i>Jad</button><button type="button" class="thc" data-th="lac"><i style="background:linear-gradient(135deg,#a51c22,#5a0f12)"></i>Lac Roșu</button><button type="button" class="thc" data-th="tus"><i style="background:radial-gradient(circle,#1a1a1a 30%,#f2ece0 34%)"></i>Tuș</button><button type="button" class="thc" data-th="pap"><i style="background:linear-gradient(135deg,#e2cfa4,#b8955a)"></i>Papirus</button><button type="button" class="thc" data-th="salon"><i style="background:linear-gradient(135deg,#8a5a17,#e9c77b 55%,#b8862b)"></i>Salon Auriu</button><button type="button" class="thc" data-th="exc"><i style="background:radial-gradient(circle at 35% 35%,#e6ff7a,#c6f21a 40%,#2a3008 75%,#07090c)"></i>Excalibur</button><button type="button" class="thc" data-th="cleo"><i style="background:linear-gradient(135deg,#1b4f86,#0b6f78 50%,#d4a62a)"></i>Cleopatra</button><button type="button" class="thc" data-th="neon"><i style="background:linear-gradient(135deg,#ff3d9a,#29e0ff)"></i><span style="font-size:12px;line-height:1.05">Neon<br>Shanghai</span></button></div><div id="vipRow"><label for="vipInt"><span>Fundal VIP</span><span>întunecat ↔ luminos</span></label><input type="range" id="vipInt" min="0" max="100" step="1"></div></div>
-<div class="sec">Exemple pentru utilizatori noi</div><div class="field"><div class="throw"><button type="button" class="thc" id="bDemo"></button><button type="button" class="thc" id="bDemoReset">Resetează exemplele</button></div><div class="bgkl"><span id="demoHint"></span></div></div>
-<div class="sec">Fundal</div><div class="field"><div class="bgrid" id="bgRow"><button type="button" class="bgc none" data-bg="none">Fără imagine<span></span></button><button type="button" class="bgc" data-bg="lup" style="background-image:url(art/bg-lup-t.webp)" aria-label="Lup"><span>Lup</span></button><button type="button" class="bgc" data-bg="mist" style="background-image:url(art/bg-mist-t.webp)" aria-label="Munți în ceață"><span>Munți în ceață</span></button><button type="button" class="bgc" data-bg="forest" style="background-image:url(art/bg-forest-t.webp)" aria-label="Pădure"><span>Pădure</span></button><button type="button" class="bgc" data-bg="lake" style="background-image:url(art/bg-lake-t.webp)" aria-label="Lac"><span>Lac</span></button><button type="button" class="bgc" data-bg="sea" style="background-image:url(art/bg-sea-t.webp)" aria-label="Mare"><span>Mare</span></button><button type="button" class="bgc" data-bg="snow" style="background-image:url(art/bg-snow-t.webp)" aria-label="Piscuri"><span>Piscuri</span></button><button type="button" class="bgc" data-bg="night" style="background-image:url(art/bg-night-t.webp)" aria-label="Cer înstelat"><span>Cer înstelat</span></button></div></div>
- <div class="field" id="fBgk"><label for="sBgk">Intensitate fundal <span class="val" id="vBgk"></span></label><input type="range" id="sBgk" min="-10" max="10" step="1" aria-label="Mai estompat ↔ mai intens"><div class="bgkl"><span>mai estompat</span><span>mai intens</span></div></div>
- <div class="field" id="fNrp"><label for="sNrp">Spațiu între notițe <span class="val" id="vNrp"></span></label><input type="range" id="sNrp" min="0" max="14" step="1"></div>
  <div class="sec">Voce</div>
  <div class="field"><label for="sEngine">Motor voce</label><select id="sEngine"></select></div>
  <div class="field" id="fPiper"><div class="prow"><span class="ptxt" id="pState">…</span><button type="button" class="btn" id="pDl">Descarcă</button><button type="button" class="btn" id="pDel">Șterge</button></div>
@@ -912,6 +906,11 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
  <div class="field" id="fPitch"><label for="sPitch">Ton (doar vocea telefonului) <span class="val" id="vPitch"></span></label><input type="range" id="sPitch" min="0.5" max="1.5" step="0.05"></div>
  <div class="field"><button type="button" class="btn" id="sTest">Test voce</button></div>
 
+ <div class="sec">Temă</div>
+ <div class="field"><div class="throw" id="thRow"><button type="button" class="thc" data-th="color"><i style="background:#3fd8ff"></i>Colorat</button><button type="button" class="thc" data-th="dark"><i style="background:#000"></i>Întunecat</button><button type="button" class="thc" data-th="light"><i style="background:#f3f5f8"></i>Luminos</button><button type="button" class="thc" data-th="vip"><i style="background:linear-gradient(135deg,#e8c98a,#a8823f)"></i>VIP</button><button type="button" class="thc" data-th="jad"><i style="background:linear-gradient(135deg,#2f6b58,#0f2a24)"></i>Jad</button><button type="button" class="thc" data-th="lac"><i style="background:linear-gradient(135deg,#a51c22,#5a0f12)"></i>Lac Roșu</button><button type="button" class="thc" data-th="tus"><i style="background:radial-gradient(circle,#1a1a1a 30%,#f2ece0 34%)"></i>Tuș</button><button type="button" class="thc" data-th="pap"><i style="background:linear-gradient(135deg,#e2cfa4,#b8955a)"></i>Papirus</button><button type="button" class="thc" data-th="salon"><i style="background:linear-gradient(135deg,#8a5a17,#e9c77b 55%,#b8862b)"></i>Salon Auriu</button><button type="button" class="thc" data-th="exc"><i style="background:radial-gradient(circle at 35% 35%,#e6ff7a,#c6f21a 40%,#2a3008 75%,#07090c)"></i>Excalibur</button><button type="button" class="thc" data-th="cleo"><i style="background:linear-gradient(135deg,#1b4f86,#0b6f78 50%,#d4a62a)"></i>Cleopatra</button><button type="button" class="thc" data-th="neon"><i style="background:linear-gradient(135deg,#ff3d9a,#29e0ff)"></i><span style="font-size:12px;line-height:1.05">Neon<br>Shanghai</span></button></div><div id="vipRow"><label for="vipInt"><span>Fundal VIP</span><span>întunecat ↔ luminos</span></label><input type="range" id="vipInt" min="0" max="100" step="1"></div></div>
+<div class="sec">Fundal</div><div class="field"><div class="bgrid" id="bgRow"><button type="button" class="bgc none" data-bg="none">Fără imagine<span></span></button><button type="button" class="bgc" data-bg="lup" style="background-image:url(art/bg-lup-t.webp)" aria-label="Lup"><span>Lup</span></button><button type="button" class="bgc" data-bg="mist" style="background-image:url(art/bg-mist-t.webp)" aria-label="Munți în ceață"><span>Munți în ceață</span></button><button type="button" class="bgc" data-bg="forest" style="background-image:url(art/bg-forest-t.webp)" aria-label="Pădure"><span>Pădure</span></button><button type="button" class="bgc" data-bg="lake" style="background-image:url(art/bg-lake-t.webp)" aria-label="Lac"><span>Lac</span></button><button type="button" class="bgc" data-bg="sea" style="background-image:url(art/bg-sea-t.webp)" aria-label="Mare"><span>Mare</span></button><button type="button" class="bgc" data-bg="snow" style="background-image:url(art/bg-snow-t.webp)" aria-label="Piscuri"><span>Piscuri</span></button><button type="button" class="bgc" data-bg="night" style="background-image:url(art/bg-night-t.webp)" aria-label="Cer înstelat"><span>Cer înstelat</span></button></div></div>
+ <div class="field" id="fBgk"><label for="sBgk">Intensitate fundal <span class="val" id="vBgk"></span></label><input type="range" id="sBgk" min="-10" max="10" step="1" aria-label="Mai estompat ↔ mai intens"><div class="bgkl"><span>mai estompat</span><span>mai intens</span></div></div>
+ <div class="field" id="fNrp"><label for="sNrp">Spațiu între notițe <span class="val" id="vNrp"></span></label><input type="range" id="sNrp" min="0" max="14" step="1"></div>
 <div class="nsx"> <div class="sec">Ceas</div>
  <div class="field"><label>Font</label><div class="fonts" id="fontGrid"></div></div>
  <div class="field"><label>Culoare</label><div class="colors" id="colorRow"></div></div>
@@ -928,9 +927,10 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
   <div class="bklist" id="jvBkList" style="margin-bottom:8px"></div><div class="bklist" id="bkList"><div class="bkempty">Niciun backup încă.</div></div>
  </div>
  <div class="sec" id="bkAuto">Backup-uri automate</div><div class="field"><div class="hint">Înainte de fiecare actualizare a aplicației, Notis salvează automat tot (notițe, taburi, foldere, poze, înregistrări, desene, setări). Se păstrează ultimele 5 copii.</div><div class="bklist" id="abList"></div></div>
+<div class="sec">Cum funcționează</div><div class="field"><div class="throw"><button type="button" class="thc" id="bDemo"></button><button type="button" class="thc" id="bDemoReset">Resetează exemplele</button></div><div class="bgkl"><span id="demoHint"></span></div></div>
 
  <div class="field"><button type="button" class="btn" id="sShareApp">Trimite aplicația</button></div>
- <div id="fInstall"><div class="sec">Aplicație</div>
+ <div id="fInstall"><div class="sec">Instalează aplicația</div>
  <div class="field"><button type="button" class="btn" id="sInstall">Instalează aplicația</button>
   <div class="hint" id="installHint">Chrome: meniu ⋮ → „Instalează aplicația” / „Adaugă pe ecranul de pornire”.<br>Brave: meniu ⋮ → „Adaugă pe ecranul de pornire” / „Instalează aplicația”.</div></div></div>
 
@@ -955,12 +955,14 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
 <div id="notesPg" aria-label="Notițe"><div class="nwrap"><div class="nselbar" id="nSelBar" role="toolbar" aria-label="Selecție"><button type="button" class="sb" id="selX" aria-label="Ieși din selecție"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><span class="scnt" id="selN">0</span><span class="sgap"></span><button type="button" class="sb" data-sa="col" aria-label="Culoare"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.8-.8 1.8-1.8 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-1 .8-1.8 1.8-1.8H17a4 4 0 0 0 4-4C21 6.6 17 3 12 3z"/><circle cx="7.5" cy="11" r="1.2" fill="currentColor"/><circle cx="10.5" cy="7.2" r="1.2" fill="currentColor"/><circle cx="15" cy="7.5" r="1.2" fill="currentColor"/></svg></button><button type="button" class="sb" data-sa="mv" aria-label="Mută în alt tab"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6H10l2 2h7.5A1.5 1.5 0 0 1 21 9.5v8a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5z"/><path d="M11 13.5h6M14.5 11l2.5 2.5-2.5 2.5"/></svg></button><button type="button" class="sb" data-sa="pin" id="selPin" aria-label="Fixează sus"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6l-1 6 4 4H6l4-4z"/><path d="M12 13v8"/></svg></button><button type="button" class="sb" data-sa="del" aria-label="Mută în coș"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg></button><button type="button" class="sb" data-sa="more" aria-label="Mai multe"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="1.3" fill="currentColor"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/><circle cx="12" cy="19" r="1.3" fill="currentColor"/></svg></button></div><div class="ntop"><button type="button" class="hb" id="notesBack" aria-label="Înapoi">‹</button><h2>NOTIS</h2><div class="nsbox"><input type="search" id="nSearchIn" placeholder="Caută în toate notițele" aria-label="Caută" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" name="ns-q-x" data-lpignore="true" data-1p-ignore="true" data-form-type="other"><button type="button" class="hb" id="nSearchX" aria-label="Închide căutarea">×</button></div><span class="ntools"><button type="button" class="hb" id="nSearch" aria-label="Caută"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L20 20"/></svg></button><button type="button" class="hb" id="nChkNew" aria-label="Listă nouă"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="3.5"/><path d="M8 12.3l2.8 2.8L16.5 9"/></svg></button><button type="button" class="hb" id="nSort" aria-label="Sortare"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h11M4 18h6"/></svg></button></span></div>
  <div class="ntabs" id="noteTabs"></div>
  <div id="nsImp" class="card" hidden><span>Ai notițe în Jarvis?</span><button type="button" class="btn" id="nsImpGo">Importă notițele din Jarvis</button><button type="button" class="hb" id="nsImpX" aria-label="Închide">×</button></div>
+ <div id="spView" hidden></div>
  <section class="card">
  <ul id="notesList"></ul></section></div></div>
 <div class="nhist" id="nHistBar"><button type="button" class="btn pill hist" id="nUndo" aria-label="Anulează" title="Anulează" disabled>↶</button><button type="button" class="btn pill hist" id="nRedo" aria-label="Refă" title="Refă" disabled>↷</button></div>
 <button type="button" id="noteFab" aria-label="Notiță nouă">+</button>
 <div id="noteFull" aria-label="Notiță"><div class="nwrap"><div class="ntop"><button type="button" class="hb" id="nfBack" aria-label="Înapoi">‹</button><h2>NOTIȚĂ</h2><button type="button" class="hb" id="nfSort" aria-label="Sortare"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h11M4 18h6"/></svg></button></div>
  <section class="card nfcard"><textarea id="nfText" aria-label="Textul notiței" autocomplete="off" data-lpignore="true" data-1p-ignore="true" data-form-type="other"></textarea><div id="nfChk"><textarea id="nfTitle" placeholder="Titlu" enterkeyhint="next" autocomplete="off" data-lpignore="true" data-1p-ignore="true" data-form-type="other" rows="1" wrap="off"></textarea><div id="nfItems"></div></div><div id="nfBlocks"></div><div id="nfPh"></div></section><button type="button" class="btn pill hist" id="nfDone" aria-label="Gata, înapoi la listă" title="Gata"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.6 4.6L19 7.5"/></svg></button><div class="nhist nfhist"><button type="button" class="btn pill hist" id="nfUndo" aria-label="Anulează" title="Anulează" disabled>↶</button><button type="button" class="btn pill hist" id="nfRedo" aria-label="Refă" title="Refă" disabled>↷</button><button type="button" class="btn pill hist" id="nfPhoto" aria-label="Atașează" title="Atașează"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5l-8.2 8.2a5 5 0 0 1-7.1-7.1l8.6-8.6a3.4 3.4 0 0 1 4.8 4.8l-8.5 8.5a1.7 1.7 0 0 1-2.4-2.4l7.8-7.8"/></svg></button><button type="button" class="btn pill hist" id="nfChkIns" aria-label="Inserează listă" title="Inserează listă"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="4.5" width="6" height="6" rx="1.5"/><path d="M5 7.6l1.2 1.2 2-2.3M13 7.5h7.5M3.5 15.5h6v4h-6zM13 17.5h7.5"/></svg></button><button type="button" class="btn pill hist" id="nfColor" aria-label="Culoare" title="Culoare"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.8-.8 1.8-1.7 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.2 0-.9.8-1.7 1.7-1.7H16a5 5 0 0 0 5-5C21 6.5 17 3 12 3z"/><circle cx="7.5" cy="11" r="1.1"/><circle cx="10" cy="7" r="1.1"/><circle cx="15" cy="7.5" r="1.1"/></svg></button><button type="button" class="btn pill hist" id="nfMove" aria-label="Mută în tab" title="Mută în tab"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7.5a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M10 13.5h6M13.5 11l2.5 2.5-2.5 2.5"/></svg></button><button type="button" class="btn pill hist" id="nfAlarm" aria-label="Alarmă" title="Alarmă"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="7"/><path d="M12 9.5V13l2.3 1.6M4.5 5.5l3-2.5M19.5 5.5l-3-2.5"/></svg></button></div><input type="file" id="nfPhIn" accept="image/*" multiple hidden><input type="file" id="nfCamIn" accept="image/*" capture="environment" hidden><div id="crop"><div id="cropStage"><img id="cropImg" alt="" draggable="false"><div id="cropFrame"><i class="ch" data-h="tl"></i><i class="ch" data-h="t"></i><i class="ch" data-h="tr"></i><i class="ch" data-h="r"></i><i class="ch" data-h="br"></i><i class="ch" data-h="b"></i><i class="ch" data-h="bl"></i><i class="ch" data-h="l"></i></div></div><div id="cropBar"><button type="button" class="btn pill" id="cropNo">Anulează</button><span id="cropCount"></span><button type="button" class="btn pill hist" id="cropRot" aria-label="Rotește" title="Rotește"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg></button><button type="button" class="btn pill" id="cropOk">Gata</button></div></div><div id="phView"><img id="phImg" alt="" draggable="false"><span id="pvCount"></span></div><button type="button" class="btn pill" id="nfRead">Citește</button></div></div>
+<div class="modal" id="spModal"><div class="card jvdlg"><div class="lbl"><span class="sptitle ux"></span></div><div class="spbody"></div><div class="mrow"><button type="button" class="btn" id="spDel">Șterge</button><button type="button" class="btn" id="spNo">Anulează</button><button type="button" class="btn" id="spSave">Salvează</button></div></div></div>
 <div class="modal" id="cfModal"><div class="card jvdlg"><div class="cftxt">Sigur vrei să ștergi?</div><div class="mrow"><button type="button" class="btn" id="cfNo">Nu</button><button type="button" class="btn dngb" id="cfOk">Șterge</button></div></div></div>
 <div class="modal" id="prModal"><div class="card jvdlg"><div class="lbl"><span id="prTitle">Tab nou</span></div><div class="field"><textarea id="prIn" maxlength="40" enterkeyhint="done" autocomplete="off" data-lpignore="true" data-1p-ignore="true" data-form-type="other" rows="1" wrap="off"></textarea></div><div class="mrow"><button type="button" class="btn" id="prNo">Anulează</button><button type="button" class="btn" id="prOk">Salvează</button></div></div></div>
 <div class="modal" id="pinModal"><div class="card jvdlg" id="pinBox"><div class="lbl"><span id="pinTitle">PIN</span></div>
@@ -1220,7 +1222,7 @@ applyNewsSize(newsScale);
 
 /* ---------- greeting ---------- */
 function greeting(){var h=new Date().getHours();var g=h>=5&&h<12?TR('Bună dimineața'):h>=12&&h<18?TR('Bună ziua'):TR('Bună seara');return cfg.name?g+', '+cfg.name+'.':g+'!'}
-function greetFull(){return greeting()+TR(' Sunt Jarvis, asistentul tău. Cu ce te pot ajuta?')}
+function greetFull(){return greeting()+TR(' Sunt Notis, asistentul tău. Cu ce te pot ajuta?')}
 var greetBusy=false,greetRestoreT=null;
 function renderGreet(force){if(greetBusy&&!force)return;greetBusy=false;
  var seg=prepSeg($('greet'),greetFull());var i=seg.words.length-1;
@@ -1950,7 +1952,7 @@ var BK_CFG_DEF={name:(BLANK||!NS_HASCFG)?'':'Iosif',city:'Gherla',lat:47.03,lon:
 function bkLabel(d){d=d||new Date();return d.getDate()+' '+LUNI_S[d.getMonth()]+' '+d.getFullYear()+' · '+pad(d.getHours())+':'+pad(d.getMinutes())}
 function bkList(){var a=LS.get('ns_backups',[]);return Array.isArray(a)?a:[]}
 function bkSaveList(a){LS.set('ns_backups',a)}
-function bkCollect(){return{ns_cfg:JSON.parse(JSON.stringify(cfg)),ns_tasks:JSON.parse(JSON.stringify(tasks)),ns_shop:JSON.parse(JSON.stringify(shop)),ns_tabs:JSON.parse(JSON.stringify(tabs)),ns_tabcol:JSON.parse(JSON.stringify(tabCol||{})),ns_cardcol:JSON.parse(JSON.stringify(cardCol||{})),ns_newscats:(newsCats||[]).slice(),ns_newssize:newsScale,ns_notes:JSON.parse(JSON.stringify(notes.map(nStore))),ns_notetabs:JSON.parse(JSON.stringify(noteTabs)),ns_notetab:noteTab,ns_folders:JSON.parse(JSON.stringify(noteFolders))}}
+function bkCollect(){return Object.assign({ns_cfg:JSON.parse(JSON.stringify(cfg)),ns_tasks:JSON.parse(JSON.stringify(tasks)),ns_shop:JSON.parse(JSON.stringify(shop)),ns_tabs:JSON.parse(JSON.stringify(tabs)),ns_tabcol:JSON.parse(JSON.stringify(tabCol||{})),ns_cardcol:JSON.parse(JSON.stringify(cardCol||{})),ns_newscats:(newsCats||[]).slice(),ns_newssize:newsScale,ns_notes:JSON.parse(JSON.stringify(notes.map(nStore))),ns_notetabs:JSON.parse(JSON.stringify(noteTabs)),ns_notetab:noteTab,ns_folders:JSON.parse(JSON.stringify(noteFolders))},typeof spCollect==='function'?spCollect():{})}
 function bkUid(){return Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,8)}
 function bkCreate(){var now=new Date(),entry={id:bkUid(),ts:now.toISOString(),label:bkLabel(now),data:bkCollect()};
  var a=bkList();a.unshift(entry);if(a.length>BK_MAX)a=a.slice(0,BK_MAX);bkSaveList(a);renderBkList();toast(TR('Backup salvat · ')+entry.label);return entry}
@@ -1982,7 +1984,7 @@ function bkApply(data){if(!data||typeof data!=='object')throw new Error('empty')
  tabCol=data.ns_tabcol&&typeof data.ns_tabcol==='object'?JSON.parse(JSON.stringify(data.ns_tabcol)):{};
  cardCol=data.ns_cardcol&&typeof data.ns_cardcol==='object'?JSON.parse(JSON.stringify(data.ns_cardcol)):{};
  newsCats=Array.isArray(data.ns_newscats)?data.ns_newscats.slice():(BLANK?['general','ai']:['ai']);
- notes=Array.isArray(data.ns_notes)?JSON.parse(JSON.stringify(data.ns_notes)):[];noteTabs=Array.isArray(data.ns_notetabs)?JSON.parse(JSON.stringify(data.ns_notetabs)):null;noteTab=data.ns_notetab||null;noteFolders=Array.isArray(data.ns_folders)?JSON.parse(JSON.stringify(data.ns_folders)):[];nFolder='';ntMigrate();fdMigrate();LS.set('ns_folders',noteFolders);renderNotes();newsScale=+data.ns_newssize||100;if(!(newsScale>=80&&newsScale<=160))newsScale=100;
+ notes=Array.isArray(data.ns_notes)?JSON.parse(JSON.stringify(data.ns_notes)):[];noteTabs=Array.isArray(data.ns_notetabs)?JSON.parse(JSON.stringify(data.ns_notetabs)):null;noteTab=data.ns_notetab||null;noteFolders=Array.isArray(data.ns_folders)?JSON.parse(JSON.stringify(data.ns_folders)):[];nFolder='';ntMigrate();fdMigrate();if(typeof spApply==='function')spApply(data);LS.set('ns_folders',noteFolders);renderNotes();newsScale=+data.ns_newssize||100;if(!(newsScale>=80&&newsScale<=160))newsScale=100;
  LS.set('ns_tasks',tasks);LS.set('ns_shop',shop);LS.set('ns_tabs',tabs);LS.set('ns_tabcol',tabCol);LS.set('ns_cardcol',cardCol);LS.set('ns_newscats',newsCats);LS.set('ns_newssize',newsScale);
  hUndo=[];hRedo=[];hCur=snap();histBtns();
  applyClock();applyNewsSize(newsScale);renderGreet(true);renderTasks();renderShop();renderTabs();
@@ -2012,7 +2014,7 @@ $('bBkFile').onchange=function(){var f=this.files&&this.files[0];if(!f)return;
 
 /* ---------- share ---------- */
 function summary(){var d=new Date(),tk=dkey(),o=tasks.filter(function(t){return live(t)&&!t.done});
- var L=[TR('JARVIS · ')+ZILE[d.getDay()]+', '+d.getDate()+' '+LUNI[d.getMonth()]+' '+d.getFullYear()+' '+pad(d.getHours())+':'+pad(d.getMinutes()),'',TR('Vremea · ')+cfg.city+': '+wxSentence(wx),''];
+ var L=[TR('Notis · ')+ZILE[d.getDay()]+', '+d.getDate()+' '+LUNI[d.getMonth()]+' '+d.getFullYear()+' '+pad(d.getHours())+':'+pad(d.getMinutes()),'',TR('Vremea · ')+cfg.city+': '+wxSentence(wx),''];
  var az=listFor('azi').filter(function(t){return !t.done}),mn=listFor('maine').filter(function(t){return !t.done});
  if(az.length){L.push(TR('Taskuri pentru azi:'));az.forEach(function(t){L.push('• '+t.text+(t.fromDay&&t.fromDay<tk?' ('+shortDate(t.fromDay)+')':''))});L.push('')}
  if(mn.length){L.push(TR('Taskuri pentru mâine:'));mn.forEach(function(t){L.push('• '+t.text)})}
@@ -2020,15 +2022,6 @@ function summary(){var d=new Date(),tk=dkey(),o=tasks.filter(function(t){return 
 function copy(text){if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(text);
  return new Promise(function(res,rej){var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();
   try{document.execCommand('copy')?res():rej()}catch(e){rej(e)}document.body.removeChild(ta)})}
-function blankURL(){return 'https://cluj1313.github.io/jarvis/blank.html'}
-$('bShare').onclick=function(){var url=blankURL(),text=TR('JARVIS Command Center – aplicația goală (fără date).\n\n👉 Deschide linkul: ')+url+TR('\n\nDin link o poți instala pe telefon ca aplicație (meniu ⋮ → „Instalează aplicația” / „Adaugă pe ecranul de pornire”). Fișierul atașat e doar o copie de rezervă.');
- function shareLink(){if(navigator.share)return navigator.share({title:'JARVIS',text:text,url:url}).catch(function(e){if(e&&e.name!=='AbortError')return copyLink()});return copyLink()}
- function copyLink(){return copy(url).then(function(){toast(TR('Link copiat: ')+url)},function(){prompt(TR('Copiază linkul:'),url)})}
- if(!/^https?:/.test(location.protocol)){copyLink();return}
- fetch(url,{cache:'no-cache'}).then(function(r){if(!r.ok)throw 0;return r.blob()}).then(function(b){
-  var f=new File([b],'jarvis.html',{type:'text/html'});
-  if(navigator.canShare&&navigator.canShare({files:[f]}))return navigator.share({files:[f],title:'JARVIS',text:text}).catch(function(e){if(e&&e.name!=='AbortError')return shareLink()});
-  return shareLink()}).catch(shareLink)};
 
 
 /* ---------- PWA: service worker + install helper ---------- */
@@ -2040,8 +2033,8 @@ $('bShare').onclick=function(){var url=blankURL(),text=TR('JARVIS Command Center
  function upd(){var f=$('fInstall');if(!f)return;f.style.display=standalone()?'none':'';
   $('sInstall').style.display=deferred?'':'none';$('installHint').style.display=deferred?'none':''}
  window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();deferred=e;upd();
-  if(!standalone()&&!LS.get('ns_installTip',false)){LS.set('ns_installTip',true);setTimeout(function(){toast(TR('Poți instala JARVIS ca aplicație: Setări → Instalează aplicația'))},2500)}});
- window.addEventListener('appinstalled',function(){deferred=null;upd();toast(TR('JARVIS a fost instalat'))});
+  if(!standalone()&&!LS.get('ns_installTip',false)){LS.set('ns_installTip',true);setTimeout(function(){toast(TR('Poți instala Notis ca aplicație: Setări → Instalează aplicația'))},2500)}});
+ window.addEventListener('appinstalled',function(){deferred=null;upd();toast(TR('Notis a fost instalat'))});
  $('sInstall').onclick=function(){if(!deferred){upd();return}var d=deferred;d.prompt();
   (d.userChoice||Promise.resolve()).then(function(){deferred=null;upd()})};
  $('bSettings').addEventListener('click',upd);upd();
@@ -2166,19 +2159,24 @@ function alSave(){var t=alGet(alId);if(!t)return closeAlarm();var at=alParse($('
  t.alarm={at:at,rep:rep,until:until||null,snz:null};alPersist(alId);closeAlarm();toast(TR('Alarmă setată · ')+alShort(at));
  alPerm();alSchedule(t)}
 function alRoll(at,rep){var now=Date.now(),st=rep*60000;if(at>now)return at;return at+Math.ceil((now-at+1)/st)*st}
-function alPerm(){try{if(window.Notification&&Notification.permission==='default')Notification.requestPermission().catch(function(){})}catch(_){}}
+function alPerm(){var N=window.NotisNative;if(N&&N.alarmPerms&&!DEMO){try{var st=N.alarmPerms(true);if(st&&st!=='ok'){toast(TR('Permite notificările și alarmele pentru Notis, ca să sune la timp'));return}
+  if(N.isXiaomi&&N.isXiaomi()&&N.openAutostart&&!LS.get('ns_xmhint',0)){LS.set('ns_xmhint',1);setTimeout(function(){var cf=$('cfModal').querySelector('.cftxt'),t0=cf.textContent,ok=$('cfOk'),no=$('cfNo'),o0=ok.textContent,n0=no.textContent,back=function(){cf.textContent=t0;ok.textContent=o0;no.textContent=n0};
+   cf.textContent=TR('Pe Xiaomi, permite „Pornire automată” pentru Notis, ca alarmele să sune cu aplicația închisă. Deschid setările?');ok.textContent=TR('Da');no.textContent=TR('Nu');
+   ok.onclick=function(){jvClose('cfModal');back();try{N.openAutostart()}catch(_){}};no.onclick=function(){jvClose('cfModal');back()};$('cfModal').classList.add('show')},400)}}catch(_){}return}
+ try{if(window.Notification&&Notification.permission==='default')Notification.requestPermission().catch(function(){})}catch(_){}}
 function alSchedule(t){ /* Notification Triggers where supported (feature-detected) */
  try{if(!('showTrigger' in Notification.prototype)||typeof TimestampTrigger==='undefined'||Notification.permission!=='granted'||!navigator.serviceWorker)return;
-  navigator.serviceWorker.ready.then(function(r){var nx=alNext(t);if(nx>Date.now())r.showNotification('⏰ JARVIS',{body:t.text,tag:'jv-al-'+t.id,showTrigger:new TimestampTrigger(nx),requireInteraction:true})})}catch(_){}}
+  navigator.serviceWorker.ready.then(function(r){var nx=alNext(t);if(nx>Date.now())r.showNotification('⏰ Notis',{body:t.text,tag:'jv-al-'+t.id,showTrigger:new TimestampTrigger(nx),requireInteraction:true})})}catch(_){}}
 function alDelete(){var t=alGet(alId);if(t){delete t.alarm;alPersist(alId);toast(TR('Alarmă ștearsă'))}closeAlarm()}
 var alQueue=[],alCur=null,alBeepT=null;
 function alBeep(on){clearInterval(alBeepT);alBeepT=null;if(!on)return;var one=function(){try{unlockAudio();if(!actx)return;var t0=actx.currentTime;[0,.25,.5].forEach(function(o){var g=actx.createGain(),os=actx.createOscillator();os.type='square';os.frequency.value=880;g.gain.setValueAtTime(.0001,t0+o);g.gain.exponentialRampToValueAtTime(.25,t0+o+.02);g.gain.exponentialRampToValueAtTime(.0001,t0+o+.18);os.connect(g);g.connect(actx.destination);os.start(t0+o);os.stop(t0+o+.2)})}catch(_){}
  try{if(navigator.vibrate)navigator.vibrate([400,200,400])}catch(_){}};one();alBeepT=setInterval(one,1500)}
 function alShow(){if(alCur||!alQueue.length)return;alCur=alQueue.shift();$('alfTask').textContent=alCur.text;$('alFire').classList.add('show');alBeep(true)}
-function alFire(t,r){if(t.lock)t={id:t.id,text:t.ltitle||TR('Notiță blocată')};alQueue.push({r:r,text:t.text});alShow();
- try{if(window.Notification&&Notification.permission==='granted'&&navigator.serviceWorker)navigator.serviceWorker.getRegistration().then(function(r){if(r)r.showNotification('⏰ JARVIS',{body:t.text,tag:'jv-al-'+t.id,renotify:true,requireInteraction:true,vibrate:[400,200,400],icon:'icons/icon-192.png'});else new Notification('⏰ JARVIS',{body:t.text})}).catch(function(){})}catch(_){}}
+function alFire(t,r){if(t.lock)t={id:t.id,text:t.ltitle||TR('Notiță blocată')};alQueue.push({r:r,text:t.text,med:t.med?t.id:null});alShow();
+ try{if(window.Notification&&Notification.permission==='granted'&&navigator.serviceWorker)navigator.serviceWorker.getRegistration().then(function(r){if(r)r.showNotification('⏰ Notis',{body:t.text,tag:'jv-al-'+t.id,renotify:true,requireInteraction:true,vibrate:[400,200,400],icon:'icons/icon-192.png'});else new Notification('⏰ Notis',{body:t.text})}).catch(function(){})}catch(_){}}
 function alStop(snooze){alBeep(false);$('alFire').classList.remove('show');var c=alCur;alCur=null;
- if(c&&snooze){var t=alGet(c.r);if(t){if(!t.alarm)t.alarm={at:Date.now()+600000,rep:0,until:null};t.alarm.snz=Date.now()+600000;alPersist(c.r);alSchedule(t);toast(TR('Amânat 10 min'))}}
+ if(c&&snooze&&c.med&&window.medSnooze){medSnooze(c.med,c.text);toast(TR('Amânat 10 min'))}
+ else if(c&&snooze){var t=alGet(c.r);if(t){if(!t.alarm)t.alarm={at:Date.now()+600000,rep:0,until:null};t.alarm.snz=Date.now()+600000;alPersist(c.r);alSchedule(t);toast(TR('Amânat 10 min'))}}
  setTimeout(alShow,300)}
 function alCheck(){var now=Date.now(),chg=[];alAll().forEach(function(e){var t=e.o,a=t.alarm;if(!a||!a.at)return;
  var nx=alNext(t);if(nx>now)return;
@@ -3108,6 +3106,7 @@ if(window.launchQueue&&launchQueue.setConsumer)launchQueue.setConsumer(function(
    else if(n.type==='mix')(n.blocks||[]).forEach(function(b){if(b.t==='chk')mOrder(n,b).forEach(function(x){if(String(x.text||'').trim())it.push(W(x,b.items||[],b.id))})});
    if(it.length||n.type==='check')L.push({id:n.id,tab:n.tab||'',title:title(n)||TR('Listă'),upd:n.updatedAt||n.ts||'',srt:n.isort||'alpha',base:base,items:it});
    NS.push({id:n.id,tab:n.tab||'',type:n.type||'text',title:title(n),text:String(n.text||'').slice(0,4000),upd:n.updatedAt||n.ts||'',alarm:al(n)})});
+  if(typeof medSnap==='function')try{NS=NS.concat(medSnap())}catch(_){}
   return JSON.stringify({v:2,ts:new Date().toISOString(),theme:typeof thCur!=='undefined'?thCur:'color',lang:NL,tabs:noteTabs.filter(function(t){return !t.lk}).map(function(t){return{id:t.id,name:t.name}}),lists:L,notes:NS})}
  function push(){T=null;try{N.saveSnapshot(snap())}catch(_){}}
  function pushSoon(){clearTimeout(T);T=setTimeout(push,250)}
@@ -3179,12 +3178,198 @@ function nfReadFit(){var r=$('nfRead');if(!r||!r.getClientRects().length)return;
  if(r.scrollWidth>r.clientWidth){r.style.fontSize='';r.textContent=r.classList.contains('on')?'🔊…':'🔊'}}
 window.addEventListener('resize',function(){setTimeout(nfReadFit,50)});
 window.nfReadFit=nfReadFit;setTimeout(nfReadFit,300);
+/* ---------- v64: special tabs — Utilități (meter log) + Medicamente (doses + alarms). Data in ns_util / ns_med (localStorage → automatic backup + export). Additive only. ---------- */
+(function(){
+var UT_DEF=[['curent','Curent','kWh','idx'],['gaz','Gaz','m³','idx'],['apa','Apă','m³','idx'],['gunoi','Gunoi','','pay'],['internet','Internet','','pay'],['media','Media','','pay']];
+function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
+function utLoad(){var d=LS.get('ns_util',null);if(!d||!Array.isArray(d.list)){d={list:UT_DEF.map(function(x){return{id:x[0],k:x[0],unit:x[2],mode:x[3],cur:NL==='ro'?'lei':'',rows:[]}}),open:{}}}if(!d.open)d.open={};return d}
+function medNorm(d){if(!d||!Array.isArray(d.list))d={list:[]};if(!Array.isArray(d.persons)){d.persons=[{id:'me',k:'me'}];d.open=d.open||{};d.open.me=1} /* v65: persons — existing medicines move into the first person, nothing is dropped */
+ if(!d.open)d.open={};if(!d.snz)d.snz={};var p0=d.persons[0];d.list.forEach(function(m){if(!m.p||!d.persons.some(function(x){return x.id===m.p})){if(!p0){p0={id:'me',k:'me'};d.persons.push(p0);d.open.me=1}m.p=p0.id}});return d}
+function medLoad(){return medNorm(LS.get('ns_med',null))}
+var UT=utLoad(),MED=medLoad();
+function utSave(){LS.set('ns_util',UT)}
+function medSave(){LS.set('ns_med',MED);try{saveNotes(true)}catch(_){}} /* saveNotes pushes the snapshot (native alarms) */
+window.spReload=function(){UT=utLoad();MED=medLoad()};
+window.spCollect=function(){return{ns_util:JSON.parse(JSON.stringify(UT)),ns_med:JSON.parse(JSON.stringify(MED))}};
+window.spApply=function(d){if(d&&d.ns_util&&Array.isArray(d.ns_util.list)){UT=JSON.parse(JSON.stringify(d.ns_util));if(!UT.open)UT.open={};utSave()}if(d&&d.ns_med&&Array.isArray(d.ns_med.list)){MED=medNorm(JSON.parse(JSON.stringify(d.ns_med)));medSave()}};
+/* ---- tabs: one-time additive migration ---- */
+window.spMigrate=function(){if(LS.get('ns_spmig1',0))return;var ch=false;
+ function fit(kind,names,id,name,color){if(noteTabs.some(function(t){return t.kind===kind}))return;var f=noteTabs.filter(function(t){return names.indexOf(nFold(t.name).trim())>=0})[0];
+  if(f){f.kind=kind}else{var nid=id;while(findNT(nid))nid=id+Math.random().toString(36).slice(2,5);noteTabs.push({id:nid,name:TR(name),color:color,kind:kind})}ch=true}
+ fit('util',['utilitati',nFold(TR('Utilități'))],'ut','Utilități','#5fd38d');fit('med',['medicamente',nFold(TR('Medicamente'))],'med','Medicamente','#ff8a65');
+ LS.set('ns_spmig1',1);if(ch){LS.set('ns_notetabs',noteTabs)}};
+function kindOf(){var t=findNT(noteTab);return t&&t.kind||''}
+/* ---- small dialog ---- */
+var dlg=null;
+function dOpen(title,body,onSave,onDel){var m=$('spModal');m.querySelector('.sptitle').textContent=title;var b=m.querySelector('.spbody');b.innerHTML=body;
+ $('spDel').style.display=onDel?'':'none';$('spDel').onclick=function(){if(onDel)onDel()};$('spSave').onclick=function(){if(onSave()!==false)jvClose('spModal')};$('spNo').onclick=function(){jvClose('spModal')};
+ m.classList.add('show');return b}
+function ask(txt,yes){var cf=$('cfModal').querySelector('.cftxt'),t0=cf.textContent,ok=$('cfOk'),no=$('cfNo'),o0=ok.textContent,n0=no.textContent;cf.textContent=TR(txt);ok.textContent=TR('Da');no.textContent=TR('Nu');
+ var back=function(){cf.textContent=t0;ok.textContent=o0;no.textContent=n0};$('cfOk').onclick=function(){jvClose('cfModal');back();yes()};$('cfNo').onclick=function(){jvClose('cfModal');back()};$('cfModal').classList.add('show')}
+function seg(id,opts,val){return '<div class="alseg" id="'+id+'">'+opts.map(function(o){return '<button type="button" class="btn'+(String(o[0])===String(val)?' on':'')+'" data-v="'+o[0]+'">'+o[1]+'</button>'}).join('')+'</div>'}
+function segWire(id,cb){var s=$(id);s.onclick=function(e){var b=e.target.closest('button');if(!b)return;s.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});if(cb)cb(b.dataset.v)}}
+function segVal(id){var b=$(id).querySelector('.on');return b?b.dataset.v:''}
+function num(v){v=String(v==null?'':v).replace(',','.').trim();if(v==='')return NaN;return +v}
+function fmt(n){if(n==null||isNaN(n))return '';try{return Number(n).toLocaleString(NL==='ro'?'ro-RO':NL,{maximumFractionDigits:3,useGrouping:false})}catch(_){return String(+(+n).toFixed(3))}}
+function today(){return dkey(new Date())}
+function dParse(s){var p=String(s||'').split('-');return new Date(+p[0],+p[1]-1,+p[2])}
+function monLbl(s){var d=dParse(s),m='';try{m=d.toLocaleDateString(NL==='ro'?'ro-RO':NL,{month:'short'}).replace('.','')}catch(_){m=String(d.getMonth()+1)}m=m.charAt(0).toUpperCase()+m.slice(1);return d.getFullYear()!==new Date().getFullYear()?m+' '+String(d.getFullYear()).slice(2):m}
+function dLbl(s){var d=dParse(s);return pad(d.getDate())+'.'+pad(d.getMonth()+1)+'.'+d.getFullYear()}
+/* ---- Utilități ---- */
+function uName(u){return u.name||TR((UT_DEF.filter(function(x){return x[0]===u.k})[0]||[0,'?'])[1])}
+function uRows(u){return (u.rows||[]).slice().sort(function(a,b){return String(b.d).localeCompare(String(a.d))||(b.ts||0)-(a.ts||0)})}
+function utRender(){var h='<div class="spv sput">';UT.list.forEach(function(u){var o=!!UT.open[u.id],R=uRows(u);
+ h+='<div class="spsec'+(o?' open':'')+'" data-u="'+esc(u.id)+'"><div class="sphd" data-a="tog"><span class="spnm'+(u.name?' ux':'')+'">'+esc(uName(u))+'</span><span class="spun ux">'+esc(u.mode==='idx'?(u.unit||''):(u.cur||''))+'</span><span class="spcnt">'+(R.length||'')+'</span><button type="button" class="spgear" data-a="cfg" aria-label="Setări">⚙</button><i class="sparr"></i></div>';
+ if(o){h+='<div class="spbd">';R.forEach(function(r){
+   if(u.mode==='idx')h+='<div class="sprow idx ux" data-r="'+esc(r.id)+'"><span class="c0">'+esc(monLbl(r.d))+'</span><span class="c1">'+fmt(r.a)+'</span><span class="c2">'+fmt(r.b)+'</span><span class="c3">'+(isNaN(r.b-r.a)?'':fmt(Math.round((r.b-r.a)*1000)/1000)+' '+esc(u.unit||''))+'</span></div>';
+   else h+='<div class="sprow pay ux" data-r="'+esc(r.id)+'"><span class="c0">'+esc(dLbl(r.d))+'</span><span class="c3">'+fmt(r.amt)+' '+esc(u.cur||'')+'</span></div>'});
+  if(!R.length)h+='<div class="spempty">Nicio înregistrare.</div>';
+  h+='<button type="button" class="btn spadd" data-a="add">+ '+(u.mode==='idx'?'Adaugă citire':'Adaugă plată')+'</button></div>'}
+ h+='</div>'});
+ return h+'<button type="button" class="btn spnew" data-a="unew">+ Utilitate nouă</button></div>'}
+function uFind(id){return UT.list.filter(function(u){return u.id===id})[0]}
+function utRow(u,r){var idx=u.mode==='idx',last=uRows(u)[0],isNew=!r;r=r||{id:uid(),d:today(),a:last&&!isNaN(last.b)?last.b:'',b:'',amt:''};
+ var b=dOpen(TR(idx?'Citire':'Plată')+' · '+uName(u),'<div class="field"><label>Dată</label><input type="date" id="spD" value="'+esc(r.d)+'"></div>'+
+  (idx?'<div class="al2"><div class="field"><label>Index anterior</label><input id="spA" inputmode="decimal" value="'+esc(r.a==null?'':r.a)+'"></div><div class="field"><label>Index actual</label><input id="spB" inputmode="decimal" value="'+esc(r.b==null?'':r.b)+'"></div></div><div class="spdiff ux" id="spDf"></div>'
+   :'<div class="field"><label>Sumă</label><input id="spM" inputmode="decimal" value="'+esc(r.amt==null?'':r.amt)+'"></div>'),
+  function(){var d=$('spD').value||today();if(idx){var a=num($('spA').value),bb=num($('spB').value);if(isNaN(bb)||(!isNaN(a)&&false)){toast(TR('Index invalid'));return false}r.a=isNaN(a)?null:a;r.b=bb}
+   else{var m=num($('spM').value);if(isNaN(m)){toast(TR('Sumă invalidă'));return false}r.amt=m}r.d=d;if(isNew){r.ts=Date.now();u.rows.push(r)}utSave();spRender()},
+  isNew?null:function(){ask('Ștergi rândul?',function(){u.rows=u.rows.filter(function(x){return x!==r});utSave();jvClose('spModal');spRender()})});
+ if(idx){var up=function(){var a=num($('spA').value),bb=num($('spB').value);$('spDf').textContent=isNaN(a)||isNaN(bb)?'':'= '+fmt(Math.round((bb-a)*1000)/1000)+' '+(u.unit||'')};$('spA').oninput=$('spB').oninput=up;up();setTimeout(function(){(isNew?$('spB'):$('spB')).focus()},80)}}
+function utCfg(u){var isNew=!u;u=u||{id:uid(),name:'',unit:'',mode:'idx',cur:'lei',rows:[]};
+ dOpen(isNew?TR('Utilitate nouă'):uName(u),'<div class="field"><label>Nume</label><input id="spN" maxlength="30" value="'+esc(u.name||uName(u)==='?'?'':uName(u))+'"></div>'+seg('spMd',[['idx',TR('Cu index')],['pay',TR('Doar plată')]],u.mode)+
+  '<div class="al2" style="margin-top:12px"><div class="field"><label>Unitate</label><input id="spU" maxlength="10" value="'+esc(u.unit||'')+'"></div><div class="field"><label>Monedă</label><input id="spC" maxlength="10" value="'+esc(u.cur||'')+'"></div></div>',
+  function(){var n=$('spN').value.trim();if(!n){toast(TR('Numele e obligatoriu'));return false}if(isNew||n!==uName(u))u.name=n;u.mode=segVal('spMd')||'idx';u.unit=$('spU').value.trim();u.cur=$('spC').value.trim();
+   if(isNew){UT.list.push(u);UT.open[u.id]=1}utSave();spRender()},
+  isNew?null:function(){ask('Ștergi utilitatea?',function(){UT.list=UT.list.filter(function(x){return x!==u});delete UT.open[u.id];utSave();jvClose('spModal');spRender()})});
+ if(isNew)$('spN').value='';segWire('spMd')}
+/* ---- Medicamente ---- */
+var SLOT=['Dimineață','Amiază','Seară'];
+function mSlots(m){if(m.rep>0){var st=m.st||'08:00',p=st.split(':'),t0=+p[0]*60+(+p[1]),k=Math.max(1,Math.min(6,Math.floor(24/m.rep))),a=[];for(var i=0;i<k;i++){var x=(t0+i*m.rep*60)%1440;a.push({lbl:pad(Math.floor(x/60))+':'+pad(x%60),t:pad(Math.floor(x/60))+':'+pad(x%60),al:!!m.ral})}return a}
+ var idx=m.n===1?[0]:m.n===2?[0,2]:[0,1,2];return idx.map(function(i){var t=(m.t||[])[i];return{s:i,lbl:t||TR(SLOT[i]),t:t||'',al:!!(m.al||[])[i]&&!!t}})}
+function mChk(m){var d=today();if(!m.c||m.c.d!==d){if(m.c&&m.c.d&&(m.c.s||[]).some(Boolean)){m.h=m.h||{};m.h[m.c.d]=m.c.s;var ks=Object.keys(m.h).sort();while(ks.length>90)delete m.h[ks.shift()]}m.c={d:d,s:[]}}return m.c}
+function pName(p){return p.name||TR('Eu')}
+function pFind(id){return MED.persons.filter(function(p){return p.id===id})[0]}
+function medRender(){var h='<div class="spv spmed">';MED.persons.forEach(function(p){var o=!!MED.open[p.id],L=MED.list.filter(function(m){return m.p===p.id});
+ h+='<div class="spsec mdper'+(o?' open':'')+'" data-p="'+esc(p.id)+'"><div class="sphd" data-a="ptog"><span class="spnm'+(p.name?' ux':'')+'">'+esc(pName(p))+'</span><span class="spun"></span><span class="spcnt">'+(L.length||'')+'</span><button type="button" class="spgear" data-a="pcfg" aria-label="Setări">⚙</button><i class="sparr"></i></div>';
+ if(o){h+='<div class="spbd">'+medRows(L)+'<button type="button" class="btn spadd" data-a="mnew">+ Medicament nou</button></div>'}h+='</div>'});
+ return h+'<button type="button" class="btn spnew" data-a="pnew">+ Persoană</button></div>'}
+function medRows(L){var h='';L.forEach(function(m){var c=mChk(m),S=mSlots(m);
+ h+='<div class="mdrow'+(S.length>3?' many':'')+'" data-m="'+esc(m.id)+'"><span class="mdnm ux" data-a="medit">'+esc(m.name)+(m.rep>0?'<small class="mdrep">⟳ '+esc(TR(m.rep+' ore'))+'</small>':'')+'</span><span class="mddo">';
+ S.forEach(function(s,i){h+='<span class="mdd"><button type="button" class="mdc'+(c.s[i]?' on':'')+'" data-a="mchk" data-i="'+i+'" aria-label="'+esc(s.lbl)+'"></button><small class="'+(s.t?'ux':'')+'">'+(s.al?'⏰':'')+esc(s.lbl)+'</small></span>'});
+ h+='</span></div>'});if(!L.length)h+='<div class="spempty">Niciun medicament.</div>';return h}
+function pCfg(p){var isNew=!p;p=p||{id:uid(),name:''};
+ dOpen(isNew?TR('Persoană nouă'):pName(p),'<div class="field"><label>Nume</label><input id="spN" maxlength="30"></div>',
+  function(){var n=$('spN').value.trim();if(!n){toast(TR('Numele e obligatoriu'));return false}if(isNew||n!==pName(p)){p.name=n;delete p.k}if(isNew){MED.persons.push(p);MED.open[p.id]=1}medSave();spRender()},
+  isNew?null:function(){ask('Ștergi persoana și medicamentele ei?',function(){MED.persons=MED.persons.filter(function(x){return x!==p});MED.list=MED.list.filter(function(m){return m.p!==p.id});delete MED.open[p.id];medSave();jvClose('spModal');spRender()})});
+ $('spN').value=isNew?'':pName(p);setTimeout(function(){$('spN').focus()},80)}
+function medEdit(m,pid){var isNew=!m;m=m||{id:uid(),p:pid,name:'',n:3,t:['08:00','14:00','20:00'],al:[1,1,1],rep:0,st:'08:00',ral:1};var T=(m.t||['08:00','14:00','20:00']).slice(),A=(m.al||[]).slice();
+ var dz='';[0,1,2].forEach(function(i){dz+='<div class="mdz" data-s="'+i+'"><span class="mdzl">'+SLOT[i]+'</span><input type="time" id="mdT'+i+'" value="'+esc(T[i]||'')+'"><label class="mdal"><input type="checkbox" id="mdA'+i+'"'+(A[i]?' checked':'')+'> ⏰</label></div>'});
+ dOpen(isNew?TR('Medicament nou'):TR('Medicament'),'<div class="field"><label>Nume</label><input id="mdN" maxlength="40" value="'+esc(m.name)+'"></div>'+seg('mdMode',[['fix',TR('Ore fixe')],['rep',TR('Repetitivă')]],m.rep>0?'rep':'fix')+
+  '<div id="mdFix" style="margin-top:12px"><div class="field"><label>Doze pe zi</label>'+seg('mdNn',[[1,'1'],[2,'2'],[3,'3']],m.n||3)+'</div>'+dz+'</div>'+
+  '<div id="mdRep" style="margin-top:12px"><div class="field"><label>Alarmă repetitivă o dată la</label>'+seg('mdH',[[4,TR('4 ore')],[6,TR('6 ore')],[8,TR('8 ore')],[12,TR('12 ore')]],m.rep||6)+'</div><div class="field"><label>Prima doză la</label><input type="time" id="mdSt" value="'+esc(m.st||'08:00')+'"></div><label class="mdal"><input type="checkbox" id="mdRal"'+(m.rep>0?(m.ral?' checked':''):' checked')+'> ⏰ Alarmă</label></div>',
+  function(){var n=$('mdN').value.trim();if(!n){toast(TR('Numele e obligatoriu'));return false}m.name=n;
+   if(segVal('mdMode')==='rep'){m.rep=+segVal('mdH')||6;m.st=$('mdSt').value||'08:00';m.ral=$('mdRal').checked?1:0}
+   else{m.rep=0;m.n=+segVal('mdNn')||3;m.t=[0,1,2].map(function(i){return $('mdT'+i).value||''});m.al=[0,1,2].map(function(i){return $('mdA'+i).checked&&$('mdT'+i).value?1:0})}
+   if(isNew)MED.list.push(m);if(m.c)m.c.s=[];medSave();spRender();alPerm()},
+  isNew?null:function(){ask('Ștergi medicamentul?',function(){MED.list=MED.list.filter(function(x){return x!==m});medSave();jvClose('spModal');spRender()})});
+ var vis=function(){var rep=segVal('mdMode')==='rep',n=+segVal('mdNn')||3;$('mdFix').style.display=rep?'none':'';$('mdRep').style.display=rep?'':'none';
+  var show=n===1?[0]:n===2?[0,2]:[0,1,2];document.querySelectorAll('#spModal .mdz').forEach(function(z){z.style.display=show.indexOf(+z.dataset.s)>=0?'':'none'})};
+ segWire('mdMode',vis);segWire('mdNn',vis);segWire('mdH');vis()}
+/* dose alarm instants */
+function hmNext(hm,stepMin,now){var p=hm.split(':'),d=new Date(now);d.setHours(+p[0],+p[1],0,0);var at=d.getTime(),st=(stepMin||1440)*60000;if(at>now)at-=Math.ceil((at-now)/st)*st;while(at<=now)at+=st;return at}
+function medAlarms(){var out=[],now=Date.now();if(!noteTabs.some(function(t){return t.kind==='med'}))return out;
+ var many=MED.persons.length>1;
+ MED.list.forEach(function(m){var pp=pFind(m.p),who=pp&&many?' — '+pName(pp):'';if(m.rep>0){if(m.ral)out.push({id:'med-'+m.id+'-r',text:'💊 '+m.name+who,hm:m.st||'08:00',rep:m.rep*60})}
+  else mSlots(m).forEach(function(s){if(s.al)out.push({id:'med-'+m.id+'-'+s.s,text:'💊 '+m.name+' · '+TR(SLOT[s.s])+' '+s.t+who,hm:s.t,rep:1440})})});
+ out.forEach(function(a){a.at=hmNext(a.hm,a.rep,now)});
+ Object.keys(MED.snz||{}).forEach(function(k){var z=MED.snz[k];if(z&&z.at>now)out.push({id:k+'-z',text:z.text,at:z.at,rep:0,snz:1})});return out}
+window.medSnooze=function(id,text){MED.snz=MED.snz||{};var now=Date.now();for(var k in MED.snz)if(!MED.snz[k]||MED.snz[k].at<now-6e5)delete MED.snz[k];MED.snz[String(id).replace(/-z$/,'')]={at:now+600000,text:text};medSave()};
+window.medSnap=function(){var t=(noteTabs.filter(function(x){return x.kind==='med'})[0]||{}).id||'';return medAlarms().map(function(a){return{id:a.id,tab:'__med',type:'med',title:a.text,text:a.text,upd:'',alarm:{at:a.at,rep:a.rep,until:null,snz:null}}})};
+/* in-page ring (web, or app on screen; native rings when the app is closed) */
+var fired={},boot=Date.now();
+function medTick(){if(DEMO)return;var now=Date.now();
+ Object.keys(MED.snz||{}).forEach(function(k){var z=MED.snz[k];if(z&&z.at<=now){delete MED.snz[k];LS.set('ns_med',MED);if(now-z.at<5*60000)try{alFire({id:k+'-z',text:z.text,med:1},null)}catch(_){}}});
+ medAlarms().forEach(function(a){if(a.snz)return;var last=a.at-a.rep*60000;if(last>boot&&now-last<5*60000&&!fired[a.id+last]){fired[a.id+last]=1;try{alFire({id:a.id,text:a.text,med:1},null)}catch(_){}}})}
+setInterval(medTick,15000);
+/* ---- render into the notes page ---- */
+window.spRender=function(){var v=$('spView');if(!v)return;var k=kindOf(),srch=!!nFold(nQ).trim(),on=k&&!nTrash&&!srch&&!tbHidden(noteTab)&&!nFolder;
+ $('notesPg').classList.toggle('sptab',!!on);if(!on){v.innerHTML='';v.hidden=true;return}v.hidden=false;v.innerHTML=k==='util'?utRender():medRender();
+ var has=notes.some(function(n){return !n.del&&n.tab===noteTab&&(n.fd||'')===''&&(n.lock||String(n.text||'').trim())})||noteFolders.some(function(f){return f.tab===noteTab&&!f.del});$('notesPg').classList.toggle('spnone',!has)};
+var rn=renderNotes;renderNotes=function(){var r=rn.apply(this,arguments);try{spRender()}catch(e){console.warn(e)}return r};
+document.addEventListener('click',function(e){var v=$('spView');if(!v||!v.contains(e.target))return;var a=e.target.closest('[data-a]');if(!a)return;var A=a.dataset.a;
+ var su=a.closest('.spsec'),u=su&&uFind(su.dataset.u);
+ if(A==='tog'&&u){if(e.target.closest('.spgear'))return;UT.open[u.id]=UT.open[u.id]?0:1;if(!UT.open[u.id])delete UT.open[u.id];utSave();spRender()}
+ else if(A==='cfg'&&u){e.stopPropagation();utCfg(u)}
+ else if(A==='add'&&u)utRow(u);else if(A==='unew')utCfg(null);
+ else if(A==='pnew')pCfg(null);
+ else if((A==='ptog'||A==='pcfg'||A==='mnew')&&a.closest('.mdper')){var pp=pFind(a.closest('.mdper').dataset.p);if(!pp)return;
+  if(A==='pcfg'){e.stopPropagation();pCfg(pp)}else if(A==='mnew')medEdit(null,pp.id);else{if(e.target.closest('.spgear'))return;MED.open[pp.id]=MED.open[pp.id]?0:1;if(!MED.open[pp.id])delete MED.open[pp.id];LS.set('ns_med',MED);spRender()}}
+ else{var md=a.closest('.mdrow'),m=md&&MED.list.filter(function(x){return x.id===md.dataset.m})[0];if(!m)return;
+  if(A==='medit')medEdit(m);else if(A==='mchk'){var c=mChk(m),i=+a.dataset.i;c.s[i]=!c.s[i];LS.set('ns_med',MED);spRender()}}});
+document.addEventListener('click',function(e){var v=$('spView');if(!v||!v.contains(e.target))return;var r=e.target.closest('.sprow');if(!r)return;var su=r.closest('.spsec'),u=su&&uFind(su.dataset.u);if(!u)return;var row=(u.rows||[]).filter(function(x){return x.id===r.dataset.r})[0];if(row)utRow(u,row)});
+/* long-press on a medicine = edit */
+(function(){var T=null;document.addEventListener('pointerdown',function(e){var n=e.target.closest&&e.target.closest('#spView .mdrow');if(!n||e.target.closest('.mdc'))return;clearTimeout(T);T=setTimeout(function(){var m=MED.list.filter(function(x){return x.id===n.dataset.m})[0];if(m)medEdit(m)},550)});
+ ['pointerup','pointercancel','pointermove'].forEach(function(t){document.addEventListener(t,function(e){if(t!=='pointermove'||Math.abs(e.movementY)>4)clearTimeout(T)})})})();
+/* daily reset while open */
+setInterval(function(){if(kindOf()==='med'&&MED.list.some(function(m){return m.c&&m.c.d!==today()})){MED.list.forEach(mChk);LS.set('ns_med',MED);spRender()}},60000);
+/* notification tap ?open=med-… → Medicamente tab */
+var nl=nsLaunch;nsLaunch=function(u){try{var q=new URL(u,location.href).searchParams.get('open');if(q&&q.indexOf('med-')===0){var t=noteTabs.filter(function(x){return x.kind==='med'})[0];var mp=MED.list.filter(function(m){return m.id===q.split('-')[1]})[0];if(mp){MED.open[mp.p]=1;LS.set('ns_med',MED)}if(t){if($('noteFull').classList.contains('show'))fullClose();notesOpen();noteTab=t.id;nFolder='';saveNotes(true);renderNotes()}return}}catch(_){}return nl.apply(this,arguments)};
+spMigrate();renderNotes();
+})();
 window.NOTIS_BOOTED=true;
 if(NOTIS_AB.changed&&!DEMO){try{localStorage.setItem('ns_lastver',NOTIS_AB.cur)}catch(_){}
  var rec0=NOTIS_AB.rec;phDump().then(function(p){rec0.photos=p;return abStore(rec0)}).then(renderAbList)}
 renderAbList();
 })();
 
+/* v60: Setări — every section is a collapsible dropdown (default closed, state remembered in nt_secopen) */
+(function(){var card=document.querySelector('#modal .card');if(!card)return;
+ var st={};try{st=JSON.parse(localStorage.getItem('nt_secopen')||'{}')||{}}catch(e){st={}}
+ var secs=[].slice.call(card.querySelectorAll('.sec'));
+ secs.forEach(function(h,i){var par=h.parentNode,box=document.createElement('div');box.className='secb';
+  var n=h.nextSibling;while(n){var nx=n.nextSibling;if(n.nodeType===1&&(n.classList.contains('sec')||n.classList.contains('mrow')||n.querySelector('.sec')))break;box.appendChild(n);n=nx}
+  par.insertBefore(box,h.nextSibling);h.classList.add('sect');h.setAttribute('role','button');h.setAttribute('tabindex','0');
+  var set=function(o){h.classList.toggle('open',o);h.setAttribute('aria-expanded',o?'true':'false')};set(!!st[i]);
+  var tg=function(){var o=!h.classList.contains('open');set(o);st[i]=o?1:0;try{localStorage.setItem('nt_secopen',JSON.stringify(st))}catch(e){}};
+  h.addEventListener('click',tg);h.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tg()}})});
+ var css=document.createElement('style');css.textContent='#modal .sect{cursor:pointer;display:flex;align-items:center;justify-content:space-between;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;padding-bottom:4px}'+
+  '#modal .sect::after{content:"\\25BE";font-size:28px;line-height:1;letter-spacing:0;transition:transform .2s;transform:rotate(-90deg)}#modal .sect.open::after{transform:none}'+
+  '#modal .secb{display:none}#modal .sect.open+.secb{display:block}';document.head.appendChild(css)})();
 </script>
+<style id="v64css">
+/* v64: clearer tab strip over photo backgrounds */
+#noteTabs{position:relative}
+#noteTabs .ntab{background-color:rgba(var(--s1R),.84);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);text-shadow:0 1px 2px rgba(0,0,0,.35)}
+#noteTabs .ntab.on{background:linear-gradient(color-mix(in srgb,var(--nc) 24%,transparent),color-mix(in srgb,var(--nc) 24%,transparent)),rgba(var(--s1R),.88)}
+#noteTabs .ntab:not(.on):not(.nadd1){opacity:1}
+:root[data-theme=light] #noteTabs .ntab,:root[data-theme=tus] #noteTabs .ntab,:root[data-theme=pap] #noteTabs .ntab,:root[data-theme=cleo] #noteTabs .ntab,:root[data-theme=salon] #noteTabs .ntab{text-shadow:none}
+#notesPg .ntop h2{text-shadow:0 1px 6px rgba(0,0,0,.55)}
+/* v64: special tabs */
+#spView{margin-bottom:12px}#notesPg.sptab.spnone #notesList,#notesPg.sptab.spnone #notesList+*{display:none}#notesPg.sptab.spnone section.card:has(#notesList){display:none}
+.spv{background:rgba(var(--s1R),.86);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:18px;padding:6px 12px 12px;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.spsec{border-bottom:1px solid rgba(var(--lnR),.14)}.spsec:last-of-type{border-bottom:0}
+.sphd{display:flex;align-items:center;gap:8px;padding:12px 0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.spnm{font-size:16.5px;color:var(--txt);font-weight:600}.spun{color:var(--mut);font-size:13px}.spcnt{margin-left:auto;color:var(--mut);font-size:12px}
+.spgear{background:none;border:0;color:var(--mut);font-size:17px;padding:2px 6px;cursor:pointer}
+.sparr::after{content:"\25BE";display:inline-block;font-size:22px;line-height:1;color:var(--cyan);transition:transform .2s;transform:rotate(-90deg)}.spsec.open .sparr::after{transform:none}
+.spbd{padding:0 0 10px}
+.sprow{display:grid;align-items:center;padding:8px 2px;border-top:1px solid rgba(var(--lnR),.12);font-size:15.5px;font-variant-numeric:tabular-nums;cursor:pointer;color:var(--txt)}
+.sprow.idx{grid-template-columns:1.1fr 1fr 1fr 1.2fr}.sprow.pay{grid-template-columns:1fr auto}
+.sprow .c1,.sprow .c2,.sprow .c3{text-align:right}.sprow .c3{color:var(--cyan);font-weight:600}.sprow .c1{color:var(--mut)}
+.spempty{color:var(--mut);font-size:14px;padding:8px 2px}
+.spadd{margin-top:8px;width:100%}.spnew{margin-top:10px;width:100%}
+.spdiff{color:var(--cyan);font-size:16px;font-weight:600;text-align:right;min-height:20px}
+.al2>.field{flex:1;min-width:0}
+.mdrow{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid rgba(var(--lnR),.14)}
+.mdnm{flex:1;min-width:0;font-size:16.5px;color:var(--txt);cursor:pointer;overflow-wrap:anywhere}.mdrep{display:block;color:var(--mut);font-size:12px}
+.mddo{display:flex;gap:6px;flex:none}.mdrow.many{flex-wrap:wrap}.mdrow.many .mdnm{flex-basis:100%}.mdrow.many .mddo{width:100%;justify-content:space-between}.mdper .spbd{padding-left:4px}.mdd{display:flex;flex-direction:column;align-items:center;width:52px}
+.mdd small{font-size:11px;color:var(--mut);margin-top:3px;white-space:nowrap}
+.mdc{width:32px;height:32px;border-radius:50%;border:2px solid var(--cyan);background:transparent;cursor:pointer;padding:0;position:relative}
+.mdc.on{background:var(--cyan)}.mdc.on::after{content:"";position:absolute;left:10px;top:5px;width:7px;height:13px;border:solid #06121f;border-width:0 3px 3px 0;transform:rotate(45deg)}
+.mdz{display:flex;align-items:center;gap:8px;margin:8px 0}.mdzl{width:88px;color:var(--txt);font-size:14px}.mdz input[type=time]{flex:1;background:rgba(var(--s2R),.8);border:1px solid var(--line);color:var(--txt);border-radius:12px;padding:9px;font:inherit}
+.mdal{display:flex;align-items:center;gap:6px;color:var(--txt);font-size:14px;cursor:pointer}
+#spModal .card{max-height:88vh;overflow:auto}#spModal .mrow{flex-wrap:nowrap;gap:8px}#spModal .mrow .btn{flex:1 1 0;min-width:0;padding-left:6px;padding-right:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#spModal .lbl,#spModal label,#spModal .btn{-webkit-user-select:none;user-select:none}
+</style>
 </body>
 </html>
