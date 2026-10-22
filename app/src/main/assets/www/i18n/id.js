@@ -767,5 +767,16 @@ NOTIS_I18N={
 "⏰ Reamintire": "⏰ Pengingat",
 "Notă (opțional)": "Catatan (opsional)",
 "L": "B",
-"z": "h"
+"z": "h",
+"Folosite": "Digunakan",
+"Nefolosite încă": "Belum digunakan",
+"Tratamente alternative": "Pengobatan alternatif",
+"Simptome": "Gejala",
+"Cum se administrează": "Cara minum",
+"Atenție": "Perhatian",
+"Tratament nou": "Pengobatan baru",
+"Ștergi tratamentul?": "Hapus pengobatan?",
+"Distribuie": "Bagikan",
+"Importă notița": "Impor catatan",
+"Notiță importată": "Catatan diimpor"
 };

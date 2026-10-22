@@ -767,5 +767,16 @@ NOTIS_I18N={
 "⏰ Reamintire": "⏰ Подсетник",
 "Notă (opțional)": "Белешка (опционо)",
 "L": "М",
-"z": "д"
+"z": "д",
+"Folosite": "Коришћени",
+"Nefolosite încă": "Још некоришћени",
+"Tratamente alternative": "Алтернативни третмани",
+"Simptome": "Симптоми",
+"Cum se administrează": "Како се узима",
+"Atenție": "Пажња",
+"Tratament nou": "Нови третман",
+"Ștergi tratamentul?": "Обрисати третман?",
+"Distribuie": "Подели",
+"Importă notița": "Увези белешку",
+"Notiță importată": "Белешка је увезена"
 };

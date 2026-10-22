@@ -767,5 +767,16 @@ NOTIS_I18N={
 "⏰ Reamintire": "⏰ Muistutus",
 "Notă (opțional)": "Huomautus (valinnainen)",
 "L": "kk",
-"z": "pv"
+"z": "pv",
+"Folosite": "Käytetyt",
+"Nefolosite încă": "Ei vielä käytetty",
+"Tratamente alternative": "Vaihtoehtoiset hoidot",
+"Simptome": "Oireet",
+"Cum se administrează": "Miten otetaan",
+"Atenție": "Huomio",
+"Tratament nou": "Uusi hoito",
+"Ștergi tratamentul?": "Poistetaanko hoito?",
+"Distribuie": "Jaa",
+"Importă notița": "Tuo muistiinpano",
+"Notiță importată": "Muistiinpano tuotu"
 };

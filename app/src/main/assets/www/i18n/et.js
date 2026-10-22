@@ -767,5 +767,16 @@ NOTIS_I18N={
 "⏰ Reamintire": "⏰ Meeldetuletus",
 "Notă (opțional)": "Märkus (valikuline)",
 "L": "K",
-"z": "p"
+"z": "p",
+"Folosite": "Kasutatud",
+"Nefolosite încă": "Veel kasutamata",
+"Tratamente alternative": "Alternatiivravi",
+"Simptome": "Sümptomid",
+"Cum se administrează": "Kuidas võtta",
+"Atenție": "Tähelepanu",
+"Tratament nou": "Uus ravi",
+"Ștergi tratamentul?": "Kas kustutada ravi?",
+"Distribuie": "Jaga",
+"Importă notița": "Impordi märge",
+"Notiță importată": "Märge imporditud"
 };

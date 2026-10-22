@@ -767,5 +767,16 @@ NOTIS_I18N={
 "⏰ Reamintire": "⏰ 알림",
 "Notă (opțional)": "메모 (선택)",
 "L": "개월",
-"z": "일"
+"z": "일",
+"Folosite": "사용함",
+"Nefolosite încă": "아직 사용 안 함",
+"Tratamente alternative": "대체 요법",
+"Simptome": "증상",
+"Cum se administrează": "복용 방법",
+"Atenție": "주의",
+"Tratament nou": "새 요법",
+"Ștergi tratamentul?": "요법을 삭제할까요?",
+"Distribuie": "공유",
+"Importă notița": "메모 가져오기",
+"Notiță importată": "메모를 가져왔습니다"
 };

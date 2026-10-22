@@ -767,5 +767,16 @@ NOTIS_I18N={
 "⏰ Reamintire": "⏰ یادآوری",
 "Notă (opțional)": "یادداشت (اختیاری)",
 "L": "م",
-"z": "ر"
+"z": "ر",
+"Folosite": "استفاده‌شده",
+"Nefolosite încă": "هنوز استفاده نشده",
+"Tratamente alternative": "درمان‌های جایگزین",
+"Simptome": "علائم",
+"Cum se administrează": "نحوه مصرف",
+"Atenție": "هشدار",
+"Tratament nou": "درمان جدید",
+"Ștergi tratamentul?": "درمان حذف شود؟",
+"Distribuie": "اشتراک‌گذاری",
+"Importă notița": "وارد کردن یادداشت",
+"Notiță importată": "یادداشت وارد شد"
 };

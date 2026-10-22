@@ -767,5 +767,16 @@ NOTIS_I18N={
 "⏰ Reamintire": "⏰ Υπενθύμιση",
 "Notă (opțional)": "Σημείωση (προαιρετικά)",
 "L": "Μ",
-"z": "η"
+"z": "η",
+"Folosite": "Χρησιμοποιημένα",
+"Nefolosite încă": "Δεν έχουν χρησιμοποιηθεί ακόμη",
+"Tratamente alternative": "Εναλλακτικές θεραπείες",
+"Simptome": "Συμπτώματα",
+"Cum se administrează": "Τρόπος λήψης",
+"Atenție": "Προσοχή",
+"Tratament nou": "Νέα θεραπεία",
+"Ștergi tratamentul?": "Διαγραφή της θεραπείας;",
+"Distribuie": "Κοινοποίηση",
+"Importă notița": "Εισαγωγή της σημείωσης",
+"Notiță importată": "Η σημείωση εισήχθη"
 };

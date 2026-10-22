@@ -767,5 +767,16 @@ NOTIS_I18N={
 "⏰ Reamintire": "⏰ תזכורת",
 "Notă (opțional)": "הערה (אופציונלי)",
 "L": "ח",
-"z": "י"
+"z": "י",
+"Folosite": "בשימוש",
+"Nefolosite încă": "עדיין לא בשימוש",
+"Tratamente alternative": "טיפולים חלופיים",
+"Simptome": "תסמינים",
+"Cum se administrează": "אופן הנטילה",
+"Atenție": "זהירות",
+"Tratament nou": "טיפול חדש",
+"Ștergi tratamentul?": "למחוק את הטיפול?",
+"Distribuie": "שיתוף",
+"Importă notița": "ייבוא הפתק",
+"Notiță importată": "הפתק יובא"
 };

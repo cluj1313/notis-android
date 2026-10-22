@@ -144,8 +144,12 @@ public class MainActivity extends Activity {
     }
 
     private static String query(Intent i) {
-        String q = i == null ? null : i.getStringExtra("q");
-        return q == null ? "" : q;
+        if (i == null) return "";
+        String q = i.getStringExtra("q");
+        if (q != null) return q;
+        if (Intent.ACTION_VIEW.equals(i.getAction()) && i.getData() != null) return ShareLink.query(i.getData().toString());
+        if (Intent.ACTION_SEND.equals(i.getAction())) return ShareLink.query(i.getStringExtra(Intent.EXTRA_TEXT));
+        return "";
     }
 
     @Override protected void onNewIntent(Intent i) {

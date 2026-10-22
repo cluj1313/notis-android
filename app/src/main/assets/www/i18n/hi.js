@@ -767,5 +767,16 @@ NOTIS_I18N={
 "⏰ Reamintire": "⏰ रिमाइंडर",
 "Notă (opțional)": "नोट (वैकल्पिक)",
 "L": "मा",
-"z": "दि"
+"z": "दि",
+"Folosite": "इस्तेमाल की गईं",
+"Nefolosite încă": "अभी इस्तेमाल नहीं हुईं",
+"Tratamente alternative": "वैकल्पिक उपचार",
+"Simptome": "लक्षण",
+"Cum se administrează": "कैसे लें",
+"Atenție": "सावधानी",
+"Tratament nou": "नया उपचार",
+"Ștergi tratamentul?": "उपचार हटाएँ?",
+"Distribuie": "साझा करें",
+"Importă notița": "नोट आयात करें",
+"Notiță importată": "नोट आयात हुआ"
 };

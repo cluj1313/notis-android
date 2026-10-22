@@ -1,5 +1,6 @@
 package ro.cluj1313.notis;
 
+import android.content.Intent;
 import android.content.ContentValues;
 import android.content.Context;
 import android.net.Uri;
@@ -17,6 +18,21 @@ final class Bridge {
     private final Context ctx;
     Bridge(Context c) { ctx = c.getApplicationContext(); }
 
+    @JavascriptInterface public void shareText(String text, String title) { if (!MainActivity.trusted || text == null) return;
+        final android.app.Activity a = MainActivity.cur; final Context c = a != null ? a : ctx;
+        Intent s = new Intent(Intent.ACTION_SEND).setType("text/plain").putExtra(Intent.EXTRA_TEXT, text);
+        if (title != null && title.length() > 0) s.putExtra(Intent.EXTRA_SUBJECT, title);
+        Intent go = null;
+        for (String pk : new String[]{"com.whatsapp", "com.whatsapp.w4b"}) {
+            Intent w = new Intent(s).setPackage(pk);
+            if (w.resolveActivity(ctx.getPackageManager()) != null) { go = w; break; }
+        }
+        if (go == null) go = Intent.createChooser(s, title);
+        if (a == null) go.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        final Intent fin = go;
+        Runnable r = () -> { try { c.startActivity(fin); } catch (Exception e) { try { Intent ch = Intent.createChooser(s, title); if (a == null) ch.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); c.startActivity(ch); } catch (Exception ignored) {} } };
+        if (a != null) a.runOnUiThread(r); else r.run();
+    }
     @JavascriptInterface public boolean isNative() { if (!MainActivity.trusted) return false; return true; }
     @JavascriptInterface public String version() { if (!MainActivity.trusted) return ""; try { return ctx.getPackageManager().getPackageInfo(ctx.getPackageName(), 0).versionName; } catch (Exception e) { return ""; } }
 

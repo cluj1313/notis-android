@@ -767,5 +767,16 @@ NOTIS_I18N={
 "⏰ Reamintire": "⏰ Nhắc nhở",
 "Notă (opțional)": "Ghi chú (tùy chọn)",
 "L": "th",
-"z": "ng"
+"z": "ng",
+"Folosite": "Đã dùng",
+"Nefolosite încă": "Chưa dùng",
+"Tratamente alternative": "Phương pháp điều trị thay thế",
+"Simptome": "Triệu chứng",
+"Cum se administrează": "Cách dùng",
+"Atenție": "Lưu ý",
+"Tratament nou": "Phương pháp mới",
+"Ștergi tratamentul?": "Xóa phương pháp điều trị?",
+"Distribuie": "Chia sẻ",
+"Importă notița": "Nhập ghi chú",
+"Notiță importată": "Đã nhập ghi chú"
 };

@@ -767,5 +767,16 @@ NOTIS_I18N={
 "⏰ Reamintire": "⏰ Priminimas",
 "Notă (opțional)": "Pastaba (neprivaloma)",
 "L": "mėn",
-"z": "d"
+"z": "d",
+"Folosite": "Naudoti",
+"Nefolosite încă": "Dar nenaudoti",
+"Tratamente alternative": "Alternatyvus gydymas",
+"Simptome": "Simptomai",
+"Cum se administrează": "Kaip vartoti",
+"Atenție": "Dėmesio",
+"Tratament nou": "Naujas gydymas",
+"Ștergi tratamentul?": "Ištrinti gydymą?",
+"Distribuie": "Bendrinti",
+"Importă notița": "Importuoti užrašą",
+"Notiță importată": "Užrašas importuotas"
 };

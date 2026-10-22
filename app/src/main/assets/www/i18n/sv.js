@@ -767,5 +767,16 @@ NOTIS_I18N={
 "⏰ Reamintire": "⏰ Påminnelse",
 "Notă (opțional)": "Anteckning (valfri)",
 "L": "M",
-"z": "d"
+"z": "d",
+"Folosite": "Använda",
+"Nefolosite încă": "Inte använda än",
+"Tratamente alternative": "Alternativa behandlingar",
+"Simptome": "Symtom",
+"Cum se administrează": "Så tas det",
+"Atenție": "Varning",
+"Tratament nou": "Ny behandling",
+"Ștergi tratamentul?": "Radera behandlingen?",
+"Distribuie": "Dela",
+"Importă notița": "Importera anteckningen",
+"Notiță importată": "Anteckningen importerad"
 };

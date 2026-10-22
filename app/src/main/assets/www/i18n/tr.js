@@ -767,5 +767,16 @@ NOTIS_I18N={
 "⏰ Reamintire": "⏰ Hatırlatıcı",
 "Notă (opțional)": "Not (isteğe bağlı)",
 "L": "A",
-"z": "g"
+"z": "g",
+"Folosite": "Kullanılanlar",
+"Nefolosite încă": "Henüz kullanılmayanlar",
+"Tratamente alternative": "Alternatif tedaviler",
+"Simptome": "Belirtiler",
+"Cum se administrează": "Nasıl alınır",
+"Atenție": "Dikkat",
+"Tratament nou": "Yeni tedavi",
+"Ștergi tratamentul?": "Tedavi silinsin mi?",
+"Distribuie": "Paylaş",
+"Importă notița": "Notu içe aktar",
+"Notiță importată": "Not içe aktarıldı"
 };

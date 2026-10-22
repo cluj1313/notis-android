@@ -767,5 +767,16 @@ NOTIS_I18N={
 "⏰ Reamintire": "⏰ Atgādinājums",
 "Notă (opțional)": "Piezīme (neobligāti)",
 "L": "mēn",
-"z": "d"
+"z": "d",
+"Folosite": "Lietoti",
+"Nefolosite încă": "Vēl nelietoti",
+"Tratamente alternative": "Alternatīvā ārstēšana",
+"Simptome": "Simptomi",
+"Cum se administrează": "Kā lietot",
+"Atenție": "Uzmanību",
+"Tratament nou": "Jauna ārstēšana",
+"Ștergi tratamentul?": "Dzēst ārstēšanu?",
+"Distribuie": "Kopīgot",
+"Importă notița": "Importēt piezīmi",
+"Notiță importată": "Piezīme importēta"
 };

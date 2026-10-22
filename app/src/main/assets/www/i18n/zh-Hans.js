@@ -767,5 +767,16 @@ NOTIS_I18N={
 "⏰ Reamintire": "⏰ 提醒",
 "Notă (opțional)": "备注（可选）",
 "L": "个月",
-"z": "天"
+"z": "天",
+"Folosite": "已使用",
+"Nefolosite încă": "尚未使用",
+"Tratamente alternative": "替代疗法",
+"Simptome": "症状",
+"Cum se administrează": "服用方法",
+"Atenție": "注意",
+"Tratament nou": "新疗法",
+"Ștergi tratamentul?": "删除该疗法？",
+"Distribuie": "分享",
+"Importă notița": "导入笔记",
+"Notiță importată": "笔记已导入"
 };

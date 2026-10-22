@@ -767,5 +767,16 @@ NOTIS_I18N={
 "⏰ Reamintire": "⏰ Erinnerung",
 "Notă (opțional)": "Notiz (optional)",
 "L": "M",
-"z": "T"
+"z": "T",
+"Folosite": "Verwendet",
+"Nefolosite încă": "Noch nicht verwendet",
+"Tratamente alternative": "Alternative Behandlungen",
+"Simptome": "Symptome",
+"Cum se administrează": "Einnahme",
+"Atenție": "Achtung",
+"Tratament nou": "Neue Behandlung",
+"Ștergi tratamentul?": "Behandlung löschen?",
+"Distribuie": "Teilen",
+"Importă notița": "Notiz importieren",
+"Notiță importată": "Notiz importiert"
 };
