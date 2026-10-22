@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "Kongsi",
 "Importă notița": "Import nota",
 "Notiță importată": "Nota diimport",
-"Toate": "Semua"
+"Toate": "Semua",
+"Tab": "Tab",
+"rezultate în notițe blocate": "hasil dalam nota berkunci",
+"Caută și în notițele blocate": "Cari juga dalam nota berkunci"
 };

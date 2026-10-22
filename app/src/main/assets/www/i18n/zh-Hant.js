@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "分享",
 "Importă notița": "匯入筆記",
 "Notiță importată": "筆記已匯入",
-"Toate": "全部"
+"Toate": "全部",
+"Tab": "分頁",
+"rezultate în notițe blocate": "個結果在鎖定的筆記中",
+"Caută și în notițele blocate": "也搜尋鎖定的筆記"
 };

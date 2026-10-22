@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "שיתוף",
 "Importă notița": "ייבוא הפתק",
 "Notiță importată": "הפתק יובא",
-"Toate": "הכול"
+"Toate": "הכול",
+"Tab": "כרטיסייה",
+"rezultate în notițe blocate": "תוצאות בפתקים נעולים",
+"Caută și în notițele blocate": "חפש גם בפתקים נעולים"
 };

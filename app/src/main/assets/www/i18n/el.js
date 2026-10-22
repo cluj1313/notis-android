@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "Κοινοποίηση",
 "Importă notița": "Εισαγωγή της σημείωσης",
 "Notiță importată": "Η σημείωση εισήχθη",
-"Toate": "Όλα"
+"Toate": "Όλα",
+"Tab": "Καρτέλα",
+"rezultate în notițe blocate": "αποτελέσματα σε κλειδωμένες σημειώσεις",
+"Caută și în notițele blocate": "Αναζήτηση και στις κλειδωμένες σημειώσεις"
 };

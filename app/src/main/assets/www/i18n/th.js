@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "แชร์",
 "Importă notița": "นำเข้าโน้ต",
 "Notiță importată": "นำเข้าโน้ตแล้ว",
-"Toate": "ทั้งหมด"
+"Toate": "ทั้งหมด",
+"Tab": "แท็บ",
+"rezultate în notițe blocate": "ผลลัพธ์ในโน้ตที่ล็อก",
+"Caută și în notițele blocate": "ค้นหาในโน้ตที่ล็อกด้วย"
 };

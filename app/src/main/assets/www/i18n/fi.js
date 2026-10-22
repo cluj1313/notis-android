@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "Jaa",
 "Importă notița": "Tuo muistiinpano",
 "Notiță importată": "Muistiinpano tuotu",
-"Toate": "Kaikki"
+"Toate": "Kaikki",
+"Tab": "Välilehti",
+"rezultate în notițe blocate": "tulosta lukituissa muistiinpanoissa",
+"Caută și în notițele blocate": "Hae myös lukituista muistiinpanoista"
 };

@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "Kopīgot",
 "Importă notița": "Importēt piezīmi",
 "Notiță importată": "Piezīme importēta",
-"Toate": "Visi"
+"Toate": "Visi",
+"Tab": "Cilne",
+"rezultate în notițe blocate": "rezultāti bloķētās piezīmēs",
+"Caută și în notițele blocate": "Meklēt arī bloķētās piezīmēs"
 };

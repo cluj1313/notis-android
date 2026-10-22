@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "Del",
 "Importă notița": "Importér noten",
 "Notiță importată": "Note importeret",
-"Toate": "Alle"
+"Toate": "Alle",
+"Tab": "Fane",
+"rezultate în notițe blocate": "resultater i låste noter",
+"Caută și în notițele blocate": "Søg også i låste noter"
 };

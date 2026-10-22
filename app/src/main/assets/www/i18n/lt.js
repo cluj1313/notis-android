@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "Bendrinti",
 "Importă notița": "Importuoti užrašą",
 "Notiță importată": "Užrašas importuotas",
-"Toate": "Visi"
+"Toate": "Visi",
+"Tab": "Skirtukas",
+"rezultate în notițe blocate": "rezultatai užrakintuose užrašuose",
+"Caută și în notițele blocate": "Ieškoti ir užrakintuose užrašuose"
 };

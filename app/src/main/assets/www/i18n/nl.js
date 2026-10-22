@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "Delen",
 "Importă notița": "Notitie importeren",
 "Notiță importată": "Notitie geïmporteerd",
-"Toate": "Alle"
+"Toate": "Alle",
+"Tab": "Tabblad",
+"rezultate în notițe blocate": "resultaten in vergrendelde notities",
+"Caută și în notițele blocate": "Ook in vergrendelde notities zoeken"
 };

@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "Сподели",
 "Importă notița": "Импортиране на бележката",
 "Notiță importată": "Бележката е импортирана",
-"Toate": "Всички"
+"Toate": "Всички",
+"Tab": "Раздел",
+"rezultate în notițe blocate": "резултата в заключени бележки",
+"Caută și în notițele blocate": "Търси и в заключените бележки"
 };

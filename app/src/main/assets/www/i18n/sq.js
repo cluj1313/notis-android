@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "Ndaj",
 "Importă notița": "Importo shënimin",
 "Notiță importată": "Shënimi u importua",
-"Toate": "Të gjitha"
+"Toate": "Të gjitha",
+"Tab": "Skedë",
+"rezultate în notițe blocate": "rezultate në shënime të kyçura",
+"Caută și în notițele blocate": "Kërko edhe në shënimet e kyçura"
 };

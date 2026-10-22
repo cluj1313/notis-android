@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "Megosztás",
 "Importă notița": "Jegyzet importálása",
 "Notiță importată": "Jegyzet importálva",
-"Toate": "Mind"
+"Toate": "Mind",
+"Tab": "Lap",
+"rezultate în notițe blocate": "találat zárolt jegyzetekben",
+"Caută și în notițele blocate": "Keresés a zárolt jegyzetekben is"
 };

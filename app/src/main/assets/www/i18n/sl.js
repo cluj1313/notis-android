@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "Deli",
 "Importă notița": "Uvozi zapisek",
 "Notiță importată": "Zapisek uvožen",
-"Toate": "Vsi"
+"Toate": "Vsi",
+"Tab": "Zavihek",
+"rezultate în notițe blocate": "zadetkov v zaklenjenih zapiskih",
+"Caută și în notițele blocate": "Išči tudi v zaklenjenih zapiskih"
 };

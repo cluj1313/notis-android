@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "Paylaş",
 "Importă notița": "Notu içe aktar",
 "Notiță importată": "Not içe aktarıldı",
-"Toate": "Tümü"
+"Toate": "Tümü",
+"Tab": "Sekme",
+"rezultate în notițe blocate": "kilitli notlarda sonuç",
+"Caută și în notițele blocate": "Kilitli notlarda da ara"
 };

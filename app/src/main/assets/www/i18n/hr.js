@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "Podijeli",
 "Importă notița": "Uvezi bilješku",
 "Notiță importată": "Bilješka uvezena",
-"Toate": "Sve"
+"Toate": "Sve",
+"Tab": "Kartica",
+"rezultate în notițe blocate": "rezultata u zaključanim bilješkama",
+"Caută și în notițele blocate": "Traži i u zaključanim bilješkama"
 };

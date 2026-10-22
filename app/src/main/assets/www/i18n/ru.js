@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "Поделиться",
 "Importă notița": "Импортировать заметку",
 "Notiță importată": "Заметка импортирована",
-"Toate": "Все"
+"Toate": "Все",
+"Tab": "Вкладка",
+"rezultate în notițe blocate": "результатов в заблокированных заметках",
+"Caută și în notițele blocate": "Искать и в заблокированных заметках"
 };

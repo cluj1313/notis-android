@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "Jaga",
 "Importă notița": "Impordi märge",
 "Notiță importată": "Märge imporditud",
-"Toate": "Kõik"
+"Toate": "Kõik",
+"Tab": "Vahekaart",
+"rezultate în notițe blocate": "tulemust lukustatud märkmetes",
+"Caută și în notițele blocate": "Otsi ka lukustatud märkmetest"
 };

@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "শেয়ার করুন",
 "Importă notița": "নোটটি ইমপোর্ট করুন",
 "Notiță importată": "নোট ইমপোর্ট হয়েছে",
-"Toate": "সব"
+"Toate": "সব",
+"Tab": "ট্যাব",
+"rezultate în notițe blocate": "লক করা নোটে ফলাফল",
+"Caută și în notițele blocate": "লক করা নোটেও খুঁজুন"
 };

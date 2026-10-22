@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "साझा करें",
 "Importă notița": "नोट आयात करें",
 "Notiță importată": "नोट आयात हुआ",
-"Toate": "सभी"
+"Toate": "सभी",
+"Tab": "टैब",
+"rezultate în notițe blocate": "लॉक नोट्स में परिणाम",
+"Caută și în notițele blocate": "लॉक नोट्स में भी खोजें"
 };

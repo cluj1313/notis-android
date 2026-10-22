@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "공유",
 "Importă notița": "메모 가져오기",
 "Notiță importată": "메모를 가져왔습니다",
-"Toate": "전체"
+"Toate": "전체",
+"Tab": "탭",
+"rezultate în notițe blocate": "개 결과(잠긴 메모)",
+"Caută și în notițele blocate": "잠긴 메모에서도 검색"
 };

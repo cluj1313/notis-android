@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "Chia sẻ",
 "Importă notița": "Nhập ghi chú",
 "Notiță importată": "Đã nhập ghi chú",
-"Toate": "Tất cả"
+"Toate": "Tất cả",
+"Tab": "Thẻ",
+"rezultate în notițe blocate": "kết quả trong ghi chú bị khóa",
+"Caută și în notițele blocate": "Tìm cả trong ghi chú bị khóa"
 };

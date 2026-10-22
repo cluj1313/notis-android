@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "Zdieľať",
 "Importă notița": "Importovať poznámku",
 "Notiță importată": "Poznámka importovaná",
-"Toate": "Všetky"
+"Toate": "Všetky",
+"Tab": "Karta",
+"rezultate în notițe blocate": "výsledkov v zamknutých poznámkach",
+"Caută și în notițele blocate": "Hľadať aj v zamknutých poznámkach"
 };

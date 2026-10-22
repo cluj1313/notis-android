@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "Bagikan",
 "Importă notița": "Impor catatan",
 "Notiță importată": "Catatan diimpor",
-"Toate": "Semua"
+"Toate": "Semua",
+"Tab": "Tab",
+"rezultate în notițe blocate": "hasil di catatan terkunci",
+"Caută și în notițele blocate": "Cari juga di catatan terkunci"
 };

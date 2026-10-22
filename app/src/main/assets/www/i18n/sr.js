@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "Подели",
 "Importă notița": "Увези белешку",
 "Notiță importată": "Белешка је увезена",
-"Toate": "Сви"
+"Toate": "Сви",
+"Tab": "Картица",
+"rezultate în notițe blocate": "резултата у закључаним белешкама",
+"Caută și în notițele blocate": "Тражи и у закључаним белешкама"
 };

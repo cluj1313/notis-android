@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "Dela",
 "Importă notița": "Importera anteckningen",
 "Notiță importată": "Anteckningen importerad",
-"Toate": "Alla"
+"Toate": "Alla",
+"Tab": "Flik",
+"rezultate în notițe blocate": "träffar i låsta anteckningar",
+"Caută și în notițele blocate": "Sök även i låsta anteckningar"
 };

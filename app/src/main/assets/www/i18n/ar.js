@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "مشاركة",
 "Importă notița": "استيراد الملاحظة",
 "Notiță importată": "تم استيراد الملاحظة",
-"Toate": "الكل"
+"Toate": "الكل",
+"Tab": "علامة تبويب",
+"rezultate în notițe blocate": "نتائج في ملاحظات مقفلة",
+"Caută și în notițele blocate": "ابحث أيضًا في الملاحظات المقفلة"
 };

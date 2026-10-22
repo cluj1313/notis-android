@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "Udostępnij",
 "Importă notița": "Importuj notatkę",
 "Notiță importată": "Notatka zaimportowana",
-"Toate": "Wszystkie"
+"Toate": "Wszystkie",
+"Tab": "Karta",
+"rezultate în notițe blocate": "wyników w zablokowanych notatkach",
+"Caută și în notițele blocate": "Szukaj też w zablokowanych notatkach"
 };

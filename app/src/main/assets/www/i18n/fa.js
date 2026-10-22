@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "اشتراک‌گذاری",
 "Importă notița": "وارد کردن یادداشت",
 "Notiță importată": "یادداشت وارد شد",
-"Toate": "همه"
+"Toate": "همه",
+"Tab": "زبانه",
+"rezultate în notițe blocate": "نتیجه در یادداشت‌های قفل‌شده",
+"Caută și în notițele blocate": "در یادداشت‌های قفل‌شده هم جستجو کن"
 };

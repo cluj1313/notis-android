@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "Teilen",
 "Importă notița": "Notiz importieren",
 "Notiță importată": "Notiz importiert",
-"Toate": "Alle"
+"Toate": "Alle",
+"Tab": "Tab",
+"rezultate în notițe blocate": "Treffer in gesperrten Notizen",
+"Caută și în notițele blocate": "Auch in gesperrten Notizen suchen"
 };

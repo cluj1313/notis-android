@@ -779,5 +779,8 @@ NOTIS_I18N={
 "Distribuie": "共有",
 "Importă notița": "メモをインポート",
 "Notiță importată": "メモをインポートしました",
-"Toate": "すべて"
+"Toate": "すべて",
+"Tab": "タブ",
+"rezultate în notițe blocate": "件（ロックされたメモ）",
+"Caută și în notițele blocate": "ロックされたメモも検索"
 };
