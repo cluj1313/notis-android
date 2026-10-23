@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "lut sinar",
 "opac": "legap",
 "📌 Fixează": "📌 Semat",
-"📌 Anulează fixarea": "📌 Nyahsemat"
+"📌 Anulează fixarea": "📌 Nyahsemat",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "Tekan lama folder: ✎ Nama semula, 📌 Semat, ↕️ Pindah, 🔒 Kunci, 🗑 Padam (masuk ke tong sampah dan boleh dipulihkan). Folder dalam folder: buka folder dan ketik butang folder di atas. Nota baharu yang dibuat dalam folder kekal di dalamnya. Lihat contoh dalam tab Pelbagai.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Anda berada di Pelbagai › Pelanggan › 2026. Buat seberapa banyak tahap yang anda mahu: buka folder dan ketik butang folder di atas. 📌 Semat: tekan lama folder, atau pilih nota dan ketik 📌.",
+"↕️ Mută": "↕️ Pindah",
+"↔️ Mută": "↔️ Pindah",
+"↕️ Mută în alt tab": "↕️ Pindah ke tab lain"
 };

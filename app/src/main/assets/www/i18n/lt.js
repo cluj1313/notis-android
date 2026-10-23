@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "skaidru",
 "opac": "neskaidru",
 "📌 Fixează": "📌 Prisegti",
-"📌 Anulează fixarea": "📌 Atsegti"
+"📌 Anulează fixarea": "📌 Atsegti",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "Ilgai paspauskite aplanką: ✎ Pervadinti, 📌 Prisegti, ↕️ Pasitrauk, 🔒 Užrakinti, 🗑 Ištrinti (patenka į šiukšlinę, galima atkurti). Aplankas aplanke: atidarykite aplanką ir viršuje palieskite aplanko mygtuką. Aplanke sukurti nauji užrašai lieka jame. Pavyzdžius rasite skirtuke Įvairūs.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Esate Įvairūs › Klientai › 2026. Lygių gali būti kiek norite: atidarykite aplanką ir viršuje palieskite aplanko mygtuką. 📌 Prisegti: ilgai paspauskite aplanką arba pažymėkite užrašus ir palieskite 📌.",
+"↕️ Mută": "↕️ Pasitrauk",
+"↔️ Mută": "↔️ Pasitrauk",
+"↕️ Mută în alt tab": "↕️ Perkelti į kitą skirtuką"
 };

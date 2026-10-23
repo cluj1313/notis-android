@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "prozirno",
 "opac": "neprozirno",
 "📌 Fixează": "📌 Prikvači",
-"📌 Anulează fixarea": "📌 Otkvači"
+"📌 Anulează fixarea": "📌 Otkvači",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "Dugo pritisnite mapu: ✎ Preimenovanje, 📌 Prikvači, ↕️ Pomaknite se., 🔒 Zaključaj., 🗑 Izbriši (ide u koš i može se vratiti). Mapa u mapi: otvorite mapu i dodirnite gumb mape na vrhu. Nove bilješke stvorene u mapi ostaju u njoj. Pogledajte primjere u kartici Razno.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Nalazite se u Razno › Klijenti › 2026. Razina može biti koliko želite: otvorite mapu i dodirnite gumb mape na vrhu. 📌 Prikvači: dugo pritisnite mapu ili odaberite bilješke i dodirnite 📌.",
+"↕️ Mută": "↕️ Pomaknite se.",
+"↔️ Mută": "↔️ Pomaknite se.",
+"↕️ Mută în alt tab": "↕️ Preseliti na drugi karticu"
 };

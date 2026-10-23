@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "прозоро",
 "opac": "непрозоро",
 "📌 Fixează": "📌 Закріпити",
-"📌 Anulează fixarea": "📌 Відкріпити"
+"📌 Anulează fixarea": "📌 Відкріпити",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "Довге натискання на папку: ✎ Перейменування, 📌 Закріпити, ↕️ Рухатись., 🔒 Замкнення, 🗑 Видалити (потрапляє в кошик, можна відновити). Папка в папці: відкрийте папку й торкніться кнопки папки вгорі. Нові нотатки, створені в папці, залишаються в ній. Приклади — на вкладці «Різне».",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Ви в Різне › Клієнти › 2026. Скільки завгодно рівнів: відкрийте папку й торкніться кнопки папки вгорі. 📌 Закріпити: довге натискання на папку або виберіть нотатки й торкніться 📌.",
+"↕️ Mută": "↕️ Рухатись.",
+"↔️ Mută": "↔️ Рухатись.",
+"↕️ Mută în alt tab": "↕️ Перейти на іншу вкладку"
 };

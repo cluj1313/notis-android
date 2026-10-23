@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "διαφανές",
 "opac": "αδιαφανές",
 "📌 Fixează": "📌 Καρφίτσωμα",
-"📌 Anulează fixarea": "📌 Ξεκαρφίτσωμα"
+"📌 Anulează fixarea": "📌 Ξεκαρφίτσωμα",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "Παρατεταμένο πάτημα σε φάκελο: ✎ Μετονομασία, 📌 Καρφίτσωμα, ↕️ Κουνήσου., 🔒 Κλείδωμα ., 🗑 Διαγραφή (πηγαίνει στον κάδο και μπορεί να επαναφερθεί). Φάκελος μέσα σε φάκελο: ανοίξτε τον φάκελο και πατήστε το κουμπί φακέλου επάνω. Οι νέες σημειώσεις που δημιουργούνται σε φάκελο μένουν σε αυτόν. Δείτε τα παραδείγματα στην καρτέλα Διάφορα.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Είστε στο Διάφορα › Πελάτες › 2026. Όσα επίπεδα θέλετε: ανοίξτε έναν φάκελο και πατήστε το κουμπί φακέλου επάνω. 📌 Καρφίτσωμα: παρατεταμένο πάτημα σε φάκελο ή επιλέξτε σημειώσεις και πατήστε 📌.",
+"↕️ Mută": "↕️ Κουνήσου.",
+"↔️ Mută": "↔️ Κουνήσου.",
+"↕️ Mută în alt tab": "↕️ Πηγαίνετε σε άλλη καρτέλα"
 };

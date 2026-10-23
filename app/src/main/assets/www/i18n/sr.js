@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "провидно",
 "opac": "непровидно",
 "📌 Fixează": "📌 Закачи",
-"📌 Anulează fixarea": "📌 Откачи"
+"📌 Anulează fixarea": "📌 Откачи",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "Дуго притисните фасциклу: ✎ Преименовање, 📌 Закачи, ↕️ Помери се., 🔒 Затварање, 🗑 Избриши (иде у корпу и може се вратити). Фасцикла у фасцикли: отворите фасциклу и додирните дугме фасцикле на врху. Нове белешке направљене у фасцикли остају у њој. Погледајте примере на картици Разно.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Налазите се у Разно › Клијенти › 2026. Нивоа може бити колико желите: отворите фасциклу и додирните дугме фасцикле на врху. 📌 Закачи: дуго притисните фасциклу или изаберите белешке и додирните 📌.",
+"↕️ Mută": "↕️ Помери се.",
+"↔️ Mută": "↔️ Помери се.",
+"↕️ Mută în alt tab": "↕️ Прелазак на другу картицу"
 };

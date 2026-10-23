@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "透明",
 "opac": "不透明",
 "📌 Fixează": "📌 固定",
-"📌 Anulează fixarea": "📌 固定を解除"
+"📌 Anulează fixarea": "📌 固定を解除",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "フォルダを長押し：✎ 改名、📌 固定、↕️ 移動する、🔒 ロック、🗑 削除 （ゴミ箱に移動し、復元できます）フォルダ内のフォルダ：フォルダを開いて、上部のフォルダボタンをタップします。フォルダ内で作成した新しいメモはそのフォルダに残ります。その他タブの例をご覧ください。",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "現在地：その他 › 顧客 › 2026。階層はいくつでも作れます：フォルダを開いて、上部のフォルダボタンをタップします。📌 固定：フォルダを長押しするか、メモを選択して📌をタップします。",
+"↕️ Mută": "↕️ 移動する",
+"↔️ Mută": "↔️ 移動する",
+"↕️ Mută în alt tab": "↕️ 別のタブに移動"
 };

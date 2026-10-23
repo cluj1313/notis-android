@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "e tejdukshme",
 "opac": "e patejdukshme",
 "📌 Fixează": "📌 Fikso",
-"📌 Anulează fixarea": "📌 Hiq fiksimin"
+"📌 Anulează fixarea": "📌 Hiq fiksimin",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "Shtyp gjatë një dosje: ✎ Riemërimi, 📌 Fikso, ↕️ Lëviz, 🔒 Qellim, 🗑 Fshi (shkon në kosh dhe mund të rikthehet). Dosje brenda dosjes: hap dosjen dhe prek butonin e dosjes lart. Shënimet e reja të krijuara në një dosje mbeten aty. Shih shembujt në skedën Të ndryshme.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Je në Të ndryshme › Klientët › 2026. Sa nivele të duash: hap një dosje dhe prek butonin e dosjes lart. 📌 Fikso: shtyp gjatë një dosje, ose zgjidh shënime dhe prek 📌.",
+"↕️ Mută": "↕️ Lëviz",
+"↔️ Mută": "↔️ Lëviz",
+"↕️ Mută în alt tab": "↕️ Lëviz në një skedë tjetër"
 };

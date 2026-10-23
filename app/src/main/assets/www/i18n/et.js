@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "läbipaistev",
 "opac": "läbipaistmatu",
 "📌 Fixează": "📌 Kinnita",
-"📌 Anulează fixarea": "📌 Vabasta"
+"📌 Anulează fixarea": "📌 Vabasta",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "Vajuta kausta pikalt: ✎ Nimi ümber nimetamine, 📌 Kinnita, ↕️ Liigu., 🔒 Lukustamine, 🗑 Kustuta (läheb prügikasti ja seda saab taastada). Kaust kaustas: ava kaust ja puuduta üleval kausta nuppu. Kaustas loodud uued märkmed jäävad sinna. Vaata näiteid vahekaardil Muu.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Oled asukohas Muu › Kliendid › 2026. Tasemeid võib olla nii palju kui soovid: ava kaust ja puuduta üleval kausta nuppu. 📌 Kinnita: vajuta kausta pikalt või vali märkmed ja puuduta 📌.",
+"↕️ Mută": "↕️ Liigu.",
+"↔️ Mută": "↔️ Liigu.",
+"↕️ Mută în alt tab": "↕️ Liikuda teise kaardile"
 };

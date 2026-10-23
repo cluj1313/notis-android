@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "पारदर्शी",
 "opac": "अपारदर्शी",
 "📌 Fixează": "📌 पिन करें",
-"📌 Anulează fixarea": "📌 पिन हटाएँ"
+"📌 Anulează fixarea": "📌 पिन हटाएँ",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "फ़ोल्डर को देर तक दबाएँ: ✎ नाम बदलें, 📌 पिन करें, ↕️ आगे बढ़ना, 🔒 ताला, 🗑 हटाएँ (ट्रैश में जाता है और वापस लाया जा सकता है). फ़ोल्डर के अंदर फ़ोल्डर: फ़ोल्डर खोलें और ऊपर फ़ोल्डर बटन टैप करें। फ़ोल्डर में बनाए गए नए नोट उसी में रहते हैं। विविध टैब में उदाहरण देखें।",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "आप विविध › ग्राहक › 2026 में हैं। जितने चाहें उतने स्तर: कोई फ़ोल्डर खोलें और ऊपर फ़ोल्डर बटन टैप करें। 📌 पिन करें: फ़ोल्डर को देर तक दबाएँ, या नोट चुनकर 📌 टैप करें।",
+"↕️ Mută": "↕️ आगे बढ़ना",
+"↔️ Mută": "↔️ आगे बढ़ना",
+"↕️ Mută în alt tab": "↕️ किसी अन्य टैब पर जाएँ"
 };

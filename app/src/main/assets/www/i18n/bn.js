@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "স্বচ্ছ",
 "opac": "অস্বচ্ছ",
 "📌 Fixează": "📌 পিন করুন",
-"📌 Anulează fixarea": "📌 পিন সরান"
+"📌 Anulează fixarea": "📌 পিন সরান",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "ফোল্ডারে দীর্ঘক্ষণ চাপুন: ✎ নাম পরিবর্তন করুন, 📌 পিন করুন, ↕️ সরান, 🔒 লক, 🗑 মুছুন (ট্র্যাশে যায় এবং ফিরিয়ে আনা যায়). ফোল্ডারের ভেতরে ফোল্ডার: ফোল্ডারটি খুলুন এবং ওপরের ফোল্ডার বোতামে ট্যাপ করুন। ফোল্ডারে তৈরি নতুন নোট সেখানেই থাকে। বিবিধ ট্যাবে উদাহরণগুলো দেখুন।",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "আপনি বিবিধ › ক্লায়েন্ট › 2026-এ আছেন। যত খুশি স্তর: একটি ফোল্ডার খুলুন এবং ওপরের ফোল্ডার বোতামে ট্যাপ করুন। 📌 পিন করুন: ফোল্ডারে দীর্ঘক্ষণ চাপুন, অথবা নোট বেছে নিয়ে 📌 ট্যাপ করুন।",
+"↕️ Mută": "↕️ সরান",
+"↔️ Mută": "↔️ সরান",
+"↕️ Mută în alt tab": "↕️ অন্য ট্যাবে যান"
 };

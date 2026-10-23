@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "透明",
 "opac": "不透明",
 "📌 Fixează": "📌 置頂",
-"📌 Anulează fixarea": "📌 取消置頂"
+"📌 Anulează fixarea": "📌 取消置頂",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "長按資料夾：✎ 改名、📌 置頂、↕️ 移動、🔒 鎖定、🗑 刪除 （移至垃圾桶，可復原）資料夾中的資料夾：開啟資料夾，然後點按頂端的資料夾按鈕。在資料夾中新增的筆記會留在其中。請查看「雜項」分頁中的範例。",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "你在 雜項 › 客戶 › 2026。層級數量不限：開啟資料夾，然後點按頂端的資料夾按鈕。📌 置頂：長按資料夾，或選取筆記後點按 📌。",
+"↕️ Mută": "↕️ 移動",
+"↔️ Mută": "↔️ 移動",
+"↕️ Mută în alt tab": "↕️ 移動到另一個卡片"
 };

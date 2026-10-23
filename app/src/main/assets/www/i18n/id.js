@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "transparan",
 "opac": "pekat",
 "📌 Fixează": "📌 Sematkan",
-"📌 Anulează fixarea": "📌 Lepas sematan"
+"📌 Anulează fixarea": "📌 Lepas sematan",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "Tekan lama folder: ✎ Mengganti nama, 📌 Sematkan, ↕️ Pindah, 🔒 Kunci, 🗑 Hapus (masuk ke sampah dan bisa dipulihkan). Folder di dalam folder: buka folder lalu ketuk tombol folder di atas. Catatan baru yang dibuat di folder tetap di dalamnya. Lihat contoh di tab Lain-lain.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Anda berada di Lain-lain › Klien › 2026. Buat level sebanyak yang Anda mau: buka folder lalu ketuk tombol folder di atas. 📌 Sematkan: tekan lama folder, atau pilih catatan lalu ketuk 📌.",
+"↕️ Mută": "↕️ Pindah",
+"↔️ Mută": "↔️ Pindah",
+"↕️ Mută în alt tab": "↕️ Pindah ke tab lain"
 };

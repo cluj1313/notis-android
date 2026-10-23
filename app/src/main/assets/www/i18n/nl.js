@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "transparant",
 "opac": "dekkend",
 "📌 Fixează": "📌 Vastzetten",
-"📌 Anulează fixarea": "📌 Losmaken"
+"📌 Anulează fixarea": "📌 Losmaken",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "Houd een map ingedrukt: ✎ Hernoem, 📌 Vastzetten, ↕️ Verplaatsen ., 🔒 Vergrendelen, 🗑 Verwijderen (gaat naar de prullenbak en kan worden hersteld). Map in een map: open de map en tik bovenaan op de mapknop. Nieuwe notities die in een map worden gemaakt, blijven daarin. Bekijk de voorbeelden in het tabblad Diversen.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Je bent in Diversen › Klanten › 2026. Zoveel niveaus als je wilt: open een map en tik bovenaan op de mapknop. 📌 Vastzetten: houd een map ingedrukt, of selecteer notities en tik op 📌.",
+"↕️ Mută": "↕️ Verplaatsen .",
+"↔️ Mută": "↔️ Verplaatsen .",
+"↕️ Mută în alt tab": "↕️ Verplaats naar een ander tabblad"
 };

@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "átlátszó",
 "opac": "átlátszatlan",
 "📌 Fixează": "📌 Kitűzés",
-"📌 Anulează fixarea": "📌 Kitűzés megszüntetése"
+"📌 Anulează fixarea": "📌 Kitűzés megszüntetése",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "Tartsd nyomva a mappát: ✎ Átnevezés, 📌 Kitűzés, ↕️ Áthelyezés, 🔒 Zárolás, 🗑 Törlés (a kukába kerül, visszaállítható). Mappa a mappában: nyisd meg a mappát, és koppints fent a mappa gombra. A mappában létrehozott új jegyzetek benne maradnak. Lásd a példákat a(z) Egyéb lapon.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Itt vagy: Egyéb › Ügyfelek › 2026. Annyi szintet hozhatsz létre, amennyit szeretnél: nyiss meg egy mappát, és koppints fent a mappa gombra. 📌 Kitűzés: tarts nyomva egy mappát, vagy jelölj ki jegyzeteket, és koppints a 📌-re.",
+"↕️ Mută": "↕️ Áthelyezés",
+"↔️ Mută": "↔️ Áthelyezés",
+"↕️ Mută în alt tab": "↕️ Másik fülre"
 };

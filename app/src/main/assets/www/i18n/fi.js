@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "läpinäkyvä",
 "opac": "peittävä",
 "📌 Fixează": "📌 Kiinnitä",
-"📌 Anulează fixarea": "📌 Irrota"
+"📌 Anulează fixarea": "📌 Irrota",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "Paina kansiota pitkään: ✎ Nimi muutetaan, 📌 Kiinnitä, ↕️ Siir titre, 🔒 Lukitse ., 🗑 Poista (siirtyy roskakoriin ja on palautettavissa). Kansio kansiossa: avaa kansio ja napauta ylhäällä olevaa kansiopainiketta. Kansioon luodut uudet muistiinpanot pysyvät siinä. Katso esimerkit välilehdeltä Sekalaista.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Olet kohteessa Sekalaista › Asiakkaat › 2026. Tasoja voi olla niin monta kuin haluat: avaa kansio ja napauta ylhäällä olevaa kansiopainiketta. 📌 Kiinnitä: paina kansiota pitkään tai valitse muistiinpanoja ja napauta 📌.",
+"↕️ Mută": "↕️ Siir titre",
+"↔️ Mută": "↔️ Siir titre",
+"↕️ Mută în alt tab": "↕️ Siirry toiseen välilehtiin"
 };

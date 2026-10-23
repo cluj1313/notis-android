@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "transparent",
 "opac": "opaque",
 "📌 Fixează": "📌 Épingler",
-"📌 Anulează fixarea": "📌 Désépingler"
+"📌 Anulează fixarea": "📌 Désépingler",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "Appui long sur un dossier: ✎ Renommer, 📌 Épingler, ↕️ Déplacer, 🔒 Verrouiller, 🗑 Supprimer (va à la corbeille, restaurable). Dossier dans un dossier : ouvrez le dossier et touchez le bouton dossier en haut. Les nouvelles notes créées dans un dossier y restent. Voir les exemples de l’onglet Divers.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Vous êtes dans Divers › Clients › 2026. Autant de niveaux que vous voulez : ouvrez un dossier et touchez le bouton dossier en haut. 📌 Épingler: appui long sur un dossier, ou sélectionnez des notes et touchez 📌.",
+"↕️ Mută": "↕️ Déplacer",
+"↔️ Mută": "↔️ Déplacer",
+"↕️ Mută în alt tab": "↕️ Déplacer vers un autre onglet"
 };

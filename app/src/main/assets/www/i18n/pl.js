@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "przezroczyste",
 "opac": "nieprzezroczyste",
 "📌 Fixează": "📌 Przypnij",
-"📌 Anulează fixarea": "📌 Odepnij"
+"📌 Anulează fixarea": "📌 Odepnij",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "Przytrzymaj folder: ✎ Zmiana nazwy, 📌 Przypnij, ↕️ Ruszaj się ., 🔒 Zamknij ., 🗑 Usuń (trafia do kosza, można go przywrócić). Folder w folderze: otwórz folder i dotknij przycisku folderu na górze. Nowe notatki utworzone w folderze zostają w nim. Zobacz przykłady w karcie Różne.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Jesteś w Różne › Klienci › 2026. Możesz tworzyć dowolnie wiele poziomów: otwórz folder i dotknij przycisku folderu na górze. 📌 Przypnij: przytrzymaj folder albo zaznacz notatki i dotknij 📌.",
+"↕️ Mută": "↕️ Ruszaj się .",
+"↔️ Mută": "↔️ Ruszaj się .",
+"↕️ Mută în alt tab": "↕️ Przenieść na inną kartę"
 };

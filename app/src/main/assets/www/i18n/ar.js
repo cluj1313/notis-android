@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "شفاف",
 "opac": "معتم",
 "📌 Fixează": "📌 تثبيت",
-"📌 Anulează fixarea": "📌 إلغاء التثبيت"
+"📌 Anulează fixarea": "📌 إلغاء التثبيت",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "اضغط مطولاً على مجلد: ✎ Fig.، 📌 تثبيت، ↕️ تحرك، 🔒 قفل، 🗑 حذف (ينتقل إلى سلة المهملات ويمكن استعادته). مجلد داخل مجلد: افتح المجلد واضغط زر المجلد في الأعلى. تبقى الملاحظات الجديدة التي تُنشأ في مجلد داخله. اطّلع على الأمثلة في تبويب متفرقات.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "أنت في متفرقات › العملاء › 2026. أنشئ ما تشاء من المستويات: افتح مجلداً واضغط زر المجلد في الأعلى. 📌 تثبيت: اضغط مطولاً على مجلد، أو حدّد ملاحظات واضغط 📌.",
+"↕️ Mută": "↕️ تحرك",
+"↔️ Mută": "↔️ تحرك",
+"↕️ Mută în alt tab": "↕️ انتقل إلى علامة تبويب أخرى"
 };

@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "transparent",
 "opac": "deckend",
 "📌 Fixează": "📌 Anheften",
-"📌 Anulează fixarea": "📌 Loslösen"
+"📌 Anulează fixarea": "📌 Loslösen",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "Ordner lange drücken: ✎ Umbenennen, 📌 Anheften, ↕️ Verschieben, 🔒 Sperren, 🗑 Löschen (kommt in den Papierkorb, wiederherstellbar). Ordner im Ordner: Ordner öffnen und oben auf die Ordner-Schaltfläche tippen. Neue Notizen in einem Ordner bleiben darin. Beispiele im Tab Sonstiges.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Du bist in Sonstiges › Kunden › 2026. Beliebig viele Ebenen: Ordner öffnen und oben auf die Ordner-Schaltfläche tippen. 📌 Anheften: Ordner lange drücken oder Notizen auswählen und 📌 tippen.",
+"↕️ Mută": "↕️ Verschieben",
+"↔️ Mută": "↔️ Verschieben",
+"↕️ Mută în alt tab": "↕️ In anderen Tab"
 };

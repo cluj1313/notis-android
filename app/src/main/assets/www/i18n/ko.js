@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "투명",
 "opac": "불투명",
 "📌 Fixează": "📌 고정",
-"📌 Anulează fixarea": "📌 고정 해제"
+"📌 Anulează fixarea": "📌 고정 해제",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "폴더를 길게 누르기: ✎ 명칭 변경, 📌 고정, ↕️ 움직여, 🔒 잠금, 🗑 삭제 (휴지통으로 이동하며 복원할 수 있습니다). 폴더 안의 폴더: 폴더를 열고 상단의 폴더 버튼을 탭하세요. 폴더에서 만든 새 메모는 그 폴더에 남습니다. 기타 탭의 예시를 확인하세요.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "현재 위치: 기타 › 고객 › 2026. 원하는 만큼 단계를 만들 수 있습니다: 폴더를 열고 상단의 폴더 버튼을 탭하세요. 📌 고정: 폴더를 길게 누르거나, 메모를 선택하고 📌을 탭하세요.",
+"↕️ Mută": "↕️ 움직여",
+"↔️ Mută": "↔️ 움직여",
+"↕️ Mută în alt tab": "↕️ 다른 탭으로 이동"
 };

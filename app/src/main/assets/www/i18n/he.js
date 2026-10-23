@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "שקוף",
 "opac": "אטום",
 "📌 Fixează": "📌 הצמדה",
-"📌 Anulează fixarea": "📌 ביטול הצמדה"
+"📌 Anulează fixarea": "📌 ביטול הצמדה",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "לחיצה ארוכה על תיקייה: ✎ שינוי שם, 📌 הצמדה, ↕️ זוזו., 🔒 מנעול, 🗑 מחיקה (עוברת לסל המחזור וניתן לשחזר). תיקייה בתוך תיקייה: פתחו את התיקייה והקישו על כפתור התיקייה למעלה. פתקים חדשים שנוצרים בתיקייה נשארים בה. ראו את הדוגמאות בכרטיסייה שונות.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "אתם ב־שונות › לקוחות › 2026. כמה רמות שתרצו: פתחו תיקייה והקישו על כפתור התיקייה למעלה. 📌 הצמדה: לחיצה ארוכה על תיקייה, או בחרו פתקים והקישו 📌.",
+"↕️ Mută": "↕️ זוזו.",
+"↔️ Mută": "↔️ זוזו.",
+"↕️ Mută în alt tab": "↕️ לעבור לטבלה אחרת"
 };

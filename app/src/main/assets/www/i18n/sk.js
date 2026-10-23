@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "priehľadné",
 "opac": "nepriehľadné",
 "📌 Fixează": "📌 Pripnúť",
-"📌 Anulează fixarea": "📌 Odopnúť"
+"📌 Anulează fixarea": "📌 Odopnúť",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "Podržte prst na priečinku: ✎ Názov sa zmení, 📌 Pripnúť, ↕️ Pohyb ., 🔒 Zamknite ., 🗑 Odstrániť (ide do koša a dá sa obnoviť). Priečinok v priečinku: otvorte priečinok a ťuknite hore na tlačidlo priečinka. Nové poznámky vytvorené v priečinku v ňom zostanú. Pozrite si príklady na karte Rôzne.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Ste v Rôzne › Klienti › 2026. Úrovní môže byť koľko chcete: otvorte priečinok a ťuknite hore na tlačidlo priečinka. 📌 Pripnúť: podržte prst na priečinku, alebo vyberte poznámky a ťuknite na 📌.",
+"↕️ Mută": "↕️ Pohyb .",
+"↔️ Mută": "↔️ Pohyb .",
+"↕️ Mută în alt tab": "↕️ Presun na inú kartu"
 };

@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "شفاف",
 "opac": "مات",
 "📌 Fixează": "📌 سنجاق کردن",
-"📌 Anulează fixarea": "📌 برداشتن سنجاق"
+"📌 Anulează fixarea": "📌 برداشتن سنجاق",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "روی پوشه نگه دارید: ✎ تغییر نام، 📌 سنجاق کردن، ↕️ حرکت کن، 🔒 قفل کن، 🗑 حذف (به سطل زباله می‌رود و قابل بازیابی است). پوشه درون پوشه: پوشه را باز کنید و دکمهٔ پوشه در بالا را بزنید. یادداشت‌های جدیدی که در پوشه ساخته می‌شوند در آن می‌مانند. نمونه‌ها را در زبانهٔ متفرقه ببینید.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "شما در متفرقه › مشتریان › 2026 هستید. هر چند سطح که بخواهید: پوشه‌ای را باز کنید و دکمهٔ پوشه در بالا را بزنید. 📌 سنجاق کردن: روی پوشه نگه دارید، یا یادداشت‌ها را انتخاب کنید و 📌 را بزنید.",
+"↕️ Mută": "↕️ حرکت کن",
+"↔️ Mută": "↔️ حرکت کن",
+"↕️ Mută în alt tab": "↕️ به یک تب دیگر بروید"
 };

@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "genomskinlig",
 "opac": "ogenomskinlig",
 "📌 Fixează": "📌 Fäst",
-"📌 Anulează fixarea": "📌 Lossa"
+"📌 Anulează fixarea": "📌 Lossa",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "Håll ned på en mapp: ✎ Omdöma, 📌 Fäst, ↕️ Flytta., 🔒 Lås, 🗑 Radera (hamnar i papperskorgen och kan återställas). Mapp i mapp: öppna mappen och tryck på mappknappen överst. Nya anteckningar som skapas i en mapp stannar där. Se exemplen på fliken Övrigt.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Du är i Övrigt › Kunder › 2026. Hur många nivåer du vill: öppna en mapp och tryck på mappknappen överst. 📌 Fäst: håll ned på en mapp, eller markera anteckningar och tryck på 📌.",
+"↕️ Mută": "↕️ Flytta.",
+"↔️ Mută": "↔️ Flytta.",
+"↕️ Mută în alt tab": "↕️ Flytta till en annan flik"
 };

@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "caurspīdīgs",
 "opac": "necaurspīdīgs",
 "📌 Fixează": "📌 Piespraust",
-"📌 Anulează fixarea": "📌 Atspraust"
+"📌 Anulează fixarea": "📌 Atspraust",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "Ilgi turiet mapi: ✎ Pārnosaukums, 📌 Piespraust, ↕️ Nomieriniet, 🔒 Aizsargāt, 🗑 Dzēst (nonāk atkritnē, to var atjaunot). Mape mapē: atveriet mapi un augšā pieskarieties mapes pogai. Mapē izveidotās jaunās piezīmes paliek tajā. Skatiet piemērus cilnē Dažādi.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Jūs esat Dažādi › Klienti › 2026. Līmeņu var būt cik vien vēlaties: atveriet mapi un augšā pieskarieties mapes pogai. 📌 Piespraust: ilgi turiet mapi vai atlasiet piezīmes un pieskarieties 📌.",
+"↕️ Mută": "↕️ Nomieriniet",
+"↔️ Mută": "↔️ Nomieriniet",
+"↕️ Mută în alt tab": "↕️ Pārvietot uz citu lapu"
 };

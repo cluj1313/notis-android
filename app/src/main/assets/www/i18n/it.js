@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "trasparente",
 "opac": "opaco",
 "📌 Fixează": "📌 Fissa in alto",
-"📌 Anulează fixarea": "📌 Sblocca dall'alto"
+"📌 Anulează fixarea": "📌 Sblocca dall'alto",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "Tieni premuto su una cartella: ✎ Rinomina, 📌 Fissa in alto, ↕️ Sposta, 🔒 Blocca, 🗑 Elimina (va nel cestino e si può ripristinare). Cartella in una cartella: apri la cartella e tocca il pulsante cartella in alto. Le nuove note create in una cartella restano lì. Vedi gli esempi nella scheda Varie.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Sei in Varie › Clienti › 2026. Puoi creare quanti livelli vuoi: apri una cartella e tocca il pulsante cartella in alto. 📌 Fissa in alto: tieni premuto su una cartella, oppure seleziona delle note e tocca 📌.",
+"↕️ Mută": "↕️ Sposta",
+"↔️ Mută": "↔️ Sposta",
+"↕️ Mută în alt tab": "↕️ Sposta in altra scheda"
 };

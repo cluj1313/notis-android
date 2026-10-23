@@ -799,5 +799,10 @@ NOTIS_I18N={
 "transparent": "transparent",
 "opac": "opaque",
 "📌 Fixează": "📌 Pin",
-"📌 Anulează fixarea": "📌 Unpin"
+"📌 Anulează fixarea": "📌 Unpin",
+"Ține apăsat pe folder: ✎ Redenumește, 📌 Fixează, ↕️ Mută, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "Long-press a folder: ✎ Rename, 📌 Pin, ↕️ Move, 🔒 Lock, 🗑 Delete (goes to the trash and can be restored). Folder inside a folder: open the folder and tap the folder button at the top. New notes created in a folder stay in it. See the examples in the Misc tab.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "You’re in Misc › Clients › 2026. Add as many levels as you like: open a folder and tap the folder button at the top. 📌 Pin: long-press a folder, or select notes and tap 📌.",
+"↕️ Mută": "↕️ Move",
+"↔️ Mută": "↔️ Move",
+"↕️ Mută în alt tab": "↕️ Move to another tab"
 };
