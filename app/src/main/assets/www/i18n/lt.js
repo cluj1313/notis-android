@@ -842,5 +842,17 @@ NOTIS_I18N={
 "Jarvis – asistentul tău zilnic": "Jarvis – tavo kasdienis asistentas",
 "Stil taburi": "Skirtukų stilius",
 "Pilule": "Piliulės",
-"Căsuțe": "Langeliai"
+"Căsuțe": "Langeliai",
+"Sunet alarmă": "Žadintuvo garsas",
+"Ascultă": "Klausyti",
+"Implicit (telefon)": "Numatytasis (telefonas)",
+"Clopoțel": "Varpelis",
+"Marimba": "Marimba",
+"Digital": "Skaitmeninis",
+"Harpă": "Arfa",
+"Sunet din telefon": "Telefono garsas",
+"Alege din telefon…": "Pasirinkti iš telefono…",
+"Fișier audio…": "Garso failas…",
+"Sună la alarme cât timp notificarea e deschisă. Dacă sunetul ales nu mai poate fi redat, Notis folosește sunetul de alarmă al telefonului.": "Skamba per žadintuvus, kol pranešimas atidarytas. Jei pasirinkto garso nebegalima paleisti, Notis naudoja telefono žadintuvo garsą.",
+"Poți asculta sunetele aici. Sunetele din telefon se aleg în aplicația Android.": "Čia galite paklausyti garsų. Telefono garsai pasirenkami Android programėlėje."
 };

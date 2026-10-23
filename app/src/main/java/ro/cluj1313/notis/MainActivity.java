@@ -24,7 +24,7 @@ import java.io.InputStream;
 
 public class MainActivity extends Activity {
     static final String BASE = "https://cluj1313.github.io/notis/";
-    private static final int FILE_REQ = 41, MIC_REQ = 42, CAM_REQ = 43, MIC_NAT_REQ = 44;
+    private static final int FILE_REQ = 41, MIC_REQ = 42, CAM_REQ = 43, MIC_NAT_REQ = 44, SND_REQ = 45, SNDF_REQ = 46;
     static volatile MainActivity cur;
     private android.webkit.PermissionRequest micReq;
     private Uri camUri;
@@ -190,6 +190,7 @@ public class MainActivity extends Activity {
     @Override protected void onResume() {
         super.onResume();
         foreground = true;
+        if (RingService.active()) AlarmSound.stop(); /* 2.4.9: opening Notis silences a ringing custom alarm */
         /* 2.2.3 root-cause fix: on Android 13+ notifications were never requested from the app itself, so alarms fired but stayed silent.
            Ask once per run when any alarm is scheduled. */
         if (!permAsked && Build.VERSION.SDK_INT >= 33 && checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) != android.content.pm.PackageManager.PERMISSION_GRANTED) {
@@ -221,7 +222,36 @@ public class MainActivity extends Activity {
     }
     @Override public void onBackPressed() { handleBack(); }
 
+    /** 2.4.9: Setări › Sunet alarmă — system ringtone picker (alarm + notification + ringtone sounds) */
+    boolean pickAlarmSound() {
+        Intent i = new Intent(android.media.RingtoneManager.ACTION_RINGTONE_PICKER)
+            .putExtra(android.media.RingtoneManager.EXTRA_RINGTONE_TYPE, android.media.RingtoneManager.TYPE_ALL)
+            .putExtra(android.media.RingtoneManager.EXTRA_RINGTONE_SHOW_DEFAULT, true)
+            .putExtra(android.media.RingtoneManager.EXTRA_RINGTONE_SHOW_SILENT, false)
+            .putExtra(android.media.RingtoneManager.EXTRA_RINGTONE_DEFAULT_URI, android.media.RingtoneManager.getDefaultUri(android.media.RingtoneManager.TYPE_ALARM));
+        String k = AlarmSound.key(this);
+        if (k.startsWith("u:")) i.putExtra(android.media.RingtoneManager.EXTRA_RINGTONE_EXISTING_URI, Uri.parse(k.substring(2)));
+        try { startActivityForResult(i, SND_REQ); return true; } catch (Exception e) { return false; }
+    }
+    boolean pickAlarmFile() {
+        Intent i = new Intent(Intent.ACTION_OPEN_DOCUMENT).addCategory(Intent.CATEGORY_OPENABLE).setType("audio/*")
+            .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+        try { startActivityForResult(i, SNDF_REQ); return true; } catch (Exception e) { return false; }
+    }
+    private void alSndDone() { if (web != null) web.evaluateJavascript("window.notisAlSnd&&notisAlSnd(" + JSONObject.quote(AlarmSound.list(this)) + ")", null); }
+
     @Override protected void onActivityResult(int req, int res, Intent data) {
+        if (req == SND_REQ) {
+            Uri u = res == RESULT_OK && data != null ? data.getParcelableExtra(android.media.RingtoneManager.EXTRA_RINGTONE_PICKED_URI) : null;
+            if (u != null) { if (android.provider.Settings.System.DEFAULT_ALARM_ALERT_URI.equals(u) || android.provider.Settings.System.DEFAULT_RINGTONE_URI.equals(u) || android.provider.Settings.System.DEFAULT_NOTIFICATION_URI.equals(u)) AlarmSound.set(this, "default", ""); else AlarmSound.set(this, "u:" + u, AlarmSound.title(this, u)); }
+            alSndDone(); return;
+        }
+        if (req == SNDF_REQ) {
+            Uri u = res == RESULT_OK && data != null ? data.getData() : null;
+            if (u != null) { try { getContentResolver().takePersistableUriPermission(u, Intent.FLAG_GRANT_READ_URI_PERMISSION); } catch (Exception ignored) {}
+                AlarmSound.set(this, "u:" + u, AlarmSound.title(this, u)); }
+            alSndDone(); return;
+        }
         if (req == CAM_REQ && fileCb != null) {
             Uri u = camUri; camUri = null;
             java.io.File f = u == null ? null : new java.io.File(new java.io.File(getCacheDir(), "cam"), u.getLastPathSegment());
@@ -296,6 +326,7 @@ public class MainActivity extends Activity {
         if (p.endsWith(".png")) return "image/png";
         if (p.endsWith(".webp")) return "image/webp";
         if (p.endsWith(".m4a")) return "audio/mp4";
+        if (p.endsWith(".mp3")) return "audio/mpeg";
         if (p.endsWith(".json") || p.endsWith(".webmanifest")) return "application/json";
         return "application/octet-stream";
     }

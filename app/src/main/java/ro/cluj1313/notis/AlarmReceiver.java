@@ -25,6 +25,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         /* 2.2.3: "Amână 10 min" from the notification — a native one-shot alarm, independent of the web snapshot (notes and medicines) */
         if (SNOOZE.equals(i.getAction())) {
             String txt = i.getStringExtra("t"); if (txt == null) txt = "";
+            AlarmSound.stop();
             try { c.getSystemService(NotificationManager.class).cancel(nid.hashCode()); } catch (Exception ignored) {}
             Scheduler.snooze(c, nid, txt, System.currentTimeMillis() + 600000L);
             return;
@@ -58,10 +59,21 @@ public class AlarmReceiver extends BroadcastReceiver {
         nm.createNotificationChannel(ch);
     }
 
-    static void show(Context c, String nid, String text) {
-        channel(c);
+    static final String CH2 = "notis_alarms_custom";
+    /** 2.4.9: silent channel for alarms whose sound Notis plays itself (RingService); vibration stays on */
+    static void channel2(Context c) {
+        NotificationManager nm = c.getSystemService(NotificationManager.class);
+        NotificationChannel old = nm.getNotificationChannel(CH2); String nm2 = Tr.s(c, R.string.ch_alarms);
+        if (old != null) { if (!nm2.contentEquals(old.getName())) { old.setName(nm2); nm.createNotificationChannel(old); } return; }
+        NotificationChannel ch = new NotificationChannel(CH2, nm2, NotificationManager.IMPORTANCE_HIGH);
+        ch.enableVibration(true); ch.setVibrationPattern(new long[]{0, 600, 400, 600, 400, 600});
+        ch.setSound(null, null);
+        nm.createNotificationChannel(ch);
+    }
+
+    static Notification build(Context c, String ch, String nid, String text) {
         String first = text.split("\n")[0];
-        Notification n = new Notification.Builder(c, CH)
+        Notification.Builder b = new Notification.Builder(c, ch)
             .setSmallIcon(R.drawable.ic_stat_alarm)
             .setContentTitle("⏰ " + (first.length() > 0 ? first : "Notis"))
             .setContentText(text)
@@ -72,9 +84,31 @@ public class AlarmReceiver extends BroadcastReceiver {
             .setFullScreenIntent(NotisWidget.openApp(c, 700000 + Math.abs(nid.hashCode() % 90000), "?open=" + Uri.encode(nid)), true)
             .setPriority(Notification.PRIORITY_MAX)
             .setVisibility(Notification.VISIBILITY_PUBLIC)
-            .addAction(new Notification.Action.Builder(null, Tr.s(c, R.string.snooze10), snoozePi(c, nid, text)).build())
-            .build();
-        n.flags |= Notification.FLAG_INSISTENT; /* sound repeats until opened / dismissed, like an alarm clock */
-        try { c.getSystemService(NotificationManager.class).notify(nid.hashCode(), n); } catch (SecurityException ignored) {}
+            .addAction(new Notification.Action.Builder(null, Tr.s(c, R.string.snooze10), snoozePi(c, nid, text)).build());
+        if (CH2.equals(ch)) b.setDeleteIntent(PendingIntent.getService(c, 0, new Intent(c, RingService.class).setAction(RingService.STOP), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE));
+        Notification n = b.build();
+        if (CH.equals(ch)) n.flags |= Notification.FLAG_INSISTENT; /* sound repeats until opened / dismissed, like an alarm clock */
+        return n;
+    }
+
+    static void show(Context c, String nid, String text) {
+        /* 2.4.9: a chosen sound is played by Notis itself; if it cannot be opened (file deleted / permission lost) or the service cannot start, the default ringing channel is used, so an alarm is never silent */
+        if (!AlarmSound.isDefault(c) && AlarmSound.readable(c, AlarmSound.uriFor(c, AlarmSound.key(c)))) {
+            try { channel2(c); if (RingService.start(c, nid.hashCode(), build(c, CH2, nid, text))) return; } catch (Exception ignored) {}
+        }
+        channel(c);
+        try { c.getSystemService(NotificationManager.class).notify(nid.hashCode(), build(c, CH, nid, text)); } catch (SecurityException ignored) {}
+    }
+
+    /** RingService could not go foreground: post the same alarm on the loud default channel instead */
+    static void loudFallback(Context c, int id, Notification n) {
+        channel(c);
+        try {
+            Notification m = new Notification.Builder(c, CH).setSmallIcon(R.drawable.ic_stat_alarm).setContentTitle(n.extras.getCharSequence(Notification.EXTRA_TITLE)).setContentText(n.extras.getCharSequence(Notification.EXTRA_TEXT))
+                .setStyle(new Notification.BigTextStyle().bigText(n.extras.getCharSequence(Notification.EXTRA_TEXT))).setCategory(Notification.CATEGORY_ALARM).setAutoCancel(true)
+                .setContentIntent(n.contentIntent).setFullScreenIntent(n.fullScreenIntent, true).setPriority(Notification.PRIORITY_MAX).setVisibility(Notification.VISIBILITY_PUBLIC).setActions(n.actions == null ? new Notification.Action[0] : n.actions).build();
+            m.flags |= Notification.FLAG_INSISTENT;
+            c.getSystemService(NotificationManager.class).notify(id, m);
+        } catch (Exception ignored) {}
     }
 }

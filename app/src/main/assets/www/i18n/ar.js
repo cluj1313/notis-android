@@ -842,5 +842,17 @@ NOTIS_I18N={
 "Jarvis – asistentul tău zilnic": "Jarvis – مساعدك اليومي",
 "Stil taburi": "نمط علامات التبويب",
 "Pilule": "حبوب",
-"Căsuțe": "مربعات"
+"Căsuțe": "مربعات",
+"Sunet alarmă": "صوت المنبه",
+"Ascultă": "استمع",
+"Implicit (telefon)": "الافتراضي (الهاتف)",
+"Clopoțel": "جرس صغير",
+"Marimba": "ماريمبا",
+"Digital": "رقمي",
+"Harpă": "قيثارة",
+"Sunet din telefon": "صوت من الهاتف",
+"Alege din telefon…": "اختر من الهاتف…",
+"Fișier audio…": "ملف صوتي…",
+"Sună la alarme cât timp notificarea e deschisă. Dacă sunetul ales nu mai poate fi redat, Notis folosește sunetul de alarmă al telefonului.": "يرنّ عند المنبهات ما دام الإشعار مفتوحًا. إذا تعذّر تشغيل الصوت المختار، يستخدم Notis صوت منبه الهاتف.",
+"Poți asculta sunetele aici. Sunetele din telefon se aleg în aplicația Android.": "يمكنك الاستماع إلى الأصوات هنا. تُختار أصوات الهاتف في تطبيق Android."
 };

@@ -842,5 +842,17 @@ NOTIS_I18N={
 "Jarvis – asistentul tău zilnic": "Jarvis – trợ lý hằng ngày của bạn",
 "Stil taburi": "Kiểu thẻ",
 "Pilule": "Viên thuốc",
-"Căsuțe": "Ô vuông"
+"Căsuțe": "Ô vuông",
+"Sunet alarmă": "Âm báo thức",
+"Ascultă": "Nghe thử",
+"Implicit (telefon)": "Mặc định (điện thoại)",
+"Clopoțel": "Chuông nhỏ",
+"Marimba": "Marimba",
+"Digital": "Kỹ thuật số",
+"Harpă": "Đàn hạc",
+"Sunet din telefon": "Âm từ điện thoại",
+"Alege din telefon…": "Chọn từ điện thoại…",
+"Fișier audio…": "Tệp âm thanh…",
+"Sună la alarme cât timp notificarea e deschisă. Dacă sunetul ales nu mai poate fi redat, Notis folosește sunetul de alarmă al telefonului.": "Đổ chuông khi báo thức trong lúc thông báo còn mở. Nếu âm đã chọn không phát được nữa, Notis dùng âm báo thức của điện thoại.",
+"Poți asculta sunetele aici. Sunetele din telefon se aleg în aplicația Android.": "Bạn có thể nghe thử các âm ở đây. Âm từ điện thoại được chọn trong ứng dụng Android."
 };

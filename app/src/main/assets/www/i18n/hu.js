@@ -842,5 +842,17 @@ NOTIS_I18N={
 "Jarvis – asistentul tău zilnic": "Jarvis – a napi asszisztensed",
 "Stil taburi": "Fülstílus",
 "Pilule": "Kapszulák",
-"Căsuțe": "Dobozok"
+"Căsuțe": "Dobozok",
+"Sunet alarmă": "Ébresztőhang",
+"Ascultă": "Meghallgatás",
+"Implicit (telefon)": "Alapértelmezett (telefon)",
+"Clopoțel": "Csengettyű",
+"Marimba": "Marimba",
+"Digital": "Digitális",
+"Harpă": "Hárfa",
+"Sunet din telefon": "Telefonhang",
+"Alege din telefon…": "Választás a telefonról…",
+"Fișier audio…": "Hangfájl…",
+"Sună la alarme cât timp notificarea e deschisă. Dacă sunetul ales nu mai poate fi redat, Notis folosește sunetul de alarmă al telefonului.": "Ébresztéskor szól, amíg az értesítés nyitva van. Ha a választott hang már nem játszható le, a Notis a telefon ébresztőhangját használja.",
+"Poți asculta sunetele aici. Sunetele din telefon se aleg în aplicația Android.": "Itt meghallgathatod a hangokat. A telefon hangjait az Android-alkalmazásban választhatod ki."
 };

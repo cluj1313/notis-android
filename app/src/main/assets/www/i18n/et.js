@@ -842,5 +842,17 @@ NOTIS_I18N={
 "Jarvis – asistentul tău zilnic": "Jarvis – sinu igapäevane abiline",
 "Stil taburi": "Vahelehtede stiil",
 "Pilule": "Pillid",
-"Căsuțe": "Kastid"
+"Căsuțe": "Kastid",
+"Sunet alarmă": "Äratuse heli",
+"Ascultă": "Kuula",
+"Implicit (telefon)": "Vaikimisi (telefon)",
+"Clopoțel": "Kelluke",
+"Marimba": "Marimba",
+"Digital": "Digitaalne",
+"Harpă": "Harf",
+"Sunet din telefon": "Telefoni heli",
+"Alege din telefon…": "Vali telefonist…",
+"Fișier audio…": "Helifail…",
+"Sună la alarme cât timp notificarea e deschisă. Dacă sunetul ales nu mai poate fi redat, Notis folosește sunetul de alarmă al telefonului.": "Heliseb äratustel, kuni teavitus on avatud. Kui valitud heli ei saa enam esitada, kasutab Notis telefoni äratusheli.",
+"Poți asculta sunetele aici. Sunetele din telefon se aleg în aplicația Android.": "Siin saad helisid kuulata. Telefoni helid valitakse Androidi rakenduses."
 };

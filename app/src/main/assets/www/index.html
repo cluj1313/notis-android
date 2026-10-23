@@ -848,6 +848,16 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
 .tsrow{display:flex;gap:6px}.tsc{flex:1;padding:7px 8px;border-radius:10px;border:1px solid var(--line);background:rgba(var(--s1R),.35);color:var(--txt);font:inherit;font-size:13px;cursor:pointer}.tsc.on{border-color:var(--cyan);background:rgba(var(--acR),.2);font-weight:700}
 </style><style>/* v80: solid colour background + card opacity */:root[data-bg=color] #notesPg>.nwrap::before,:root[data-bg=color] #noteFull>.nwrap::before{display:block!important;background:var(--bgcol,#1b3a5c)!important;opacity:1!important;height:100vh;mix-blend-mode:normal!important;-webkit-mask-image:none!important;mask-image:none!important;filter:none!important}.bgc.bgcol{background:var(--bgcol,#1b3a5c)}.bgc.bgcol::after{content:"";position:absolute;inset:0;border-radius:inherit;background:conic-gradient(from 0deg,#f44,#fd4,#4f6,#4df,#46f,#f4d,#f44);opacity:.28;pointer-events:none}.bgc.bgcol{position:relative}.bgpick{display:none;margin-top:10px}:root[data-bg=color] .bgpick{display:block}.bgsw{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}.bgsw button{width:34px;height:34px;border-radius:50%;border:2px solid rgba(var(--lnR),.35);padding:0;cursor:pointer}.bgsw button.on{border-color:var(--cyan);box-shadow:0 0 0 2px var(--cyan)}.bgnat{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}.bgnat input{width:56px;height:34px;border:1px solid var(--line);border-radius:8px;background:none;padding:2px}.bghue{display:block;margin:6px 0}.bghue span{display:block;font-size:13px;color:var(--mut)}.bghue input{width:100%}#bgHue{-webkit-appearance:none;appearance:none;height:14px;border-radius:7px;background:linear-gradient(90deg,red,#ff0,lime,cyan,blue,#f0f,red)}:root.cdo-low #notesPg .card,:root.cdo-low #noteFull .nfcard{text-shadow:0 1px 2px rgba(0,0,0,.85),0 0 6px rgba(0,0,0,.5)}:root.cdo-low.cdo-lt #notesPg .card,:root.cdo-low.cdo-lt #noteFull .nfcard{text-shadow:0 0 2px rgba(255,255,255,.95),0 0 6px rgba(255,255,255,.75)}</style>
 <style>#notesList .pdiv{list-style:none;height:0;margin:4px 6px;border-top:1px solid rgba(var(--acR),.35);padding:0;pointer-events:none}#notesList .nfo.nsel{background:rgba(var(--acR),.16);border-radius:10px}</style>
+<style id="v94alsnd">
+/* v94: Setări › Sunet alarmă */
+.alsl{display:flex;flex-direction:column;gap:4px}
+.alsr{display:flex;align-items:center;gap:6px}
+.alsr .alsn{flex:1;min-width:0;text-align:left;padding:7px 10px;border-radius:10px;border:1px solid rgba(var(--lnR),.18);background:rgba(var(--lnR),.05);color:var(--txt);font:inherit;font-size:14px;cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.alsr.on .alsn{border-color:var(--cyan2);background:rgba(var(--acR),.18);font-weight:600}
+.alsr .alsn small{color:var(--mut);font-weight:normal;margin-left:6px}
+.alsr .alsp{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid rgba(var(--lnR),.25);background:transparent;color:var(--cyan2);font-size:13px;cursor:pointer;padding:0}
+.alsr .alsp.pl{background:var(--cyan2);color:#000}
+</style>
 <style id="v92oswald">
 /* v92: Oswald (OFL, bundled) for Setări section headers; unsupported scripts fall back */
 @font-face{font-family:"Oswald";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/oswald-500-cyrillic-ext.woff2) format("woff2");unicode-range:U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F}
@@ -953,6 +963,7 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
   <div class="bklist" id="jvBkList" style="margin-bottom:8px"></div><div class="bklist" id="bkList"><div class="bkempty">Niciun backup încă.</div></div>
  </div>
  <div class="sec" id="bkAuto">Backup-uri automate</div><div class="field"><div class="hint">Înainte de fiecare actualizare a aplicației, Notis salvează automat tot (notițe, taburi, foldere, poze, înregistrări, desene, setări). Se păstrează ultimele 5 copii.</div><div class="bklist" id="abList"></div></div>
+<div class="sec">Sunet alarmă</div><div class="field" id="alsField"><div class="alsl" id="alsList"></div><div class="hint" id="alsHint"></div></div>
 <div class="sec">Cum funcționează</div><div class="field"><div class="throw"><button type="button" class="thc" id="bDemo"></button><button type="button" class="thc" id="bDemoReset">Resetează exemplele</button></div><div class="bgkl"><span id="demoHint"></span></div></div>
 
  <div class="sec secact" id="sShareApp" role="button" tabindex="0">Distribuie aplicația</div>
@@ -2197,7 +2208,10 @@ function alSchedule(t){ /* Notification Triggers where supported (feature-detect
   navigator.serviceWorker.ready.then(function(r){var nx=alNext(t);if(nx>Date.now())r.showNotification('⏰ Notis',{body:t.text,tag:'jv-al-'+t.id,showTrigger:new TimestampTrigger(nx),requireInteraction:true})})}catch(_){}}
 function alDelete(){var t=alGet(alId);if(t){delete t.alarm;alPersist(alId);toast(TR('Alarmă ștearsă'))}closeAlarm()}
 var alQueue=[],alCur=null,alBeepT=null;
-function alBeep(on){clearInterval(alBeepT);alBeepT=null;if(!on)return;var one=function(){try{unlockAudio();if(!actx)return;var t0=actx.currentTime;[0,.25,.5].forEach(function(o){var g=actx.createGain(),os=actx.createOscillator();os.type='square';os.frequency.value=880;g.gain.setValueAtTime(.0001,t0+o);g.gain.exponentialRampToValueAtTime(.25,t0+o+.02);g.gain.exponentialRampToValueAtTime(.0001,t0+o+.18);os.connect(g);g.connect(actx.destination);os.start(t0+o);os.stop(t0+o+.2)})}catch(_){}
+var alRingA=null;function alRing(on){var k=(cfg.alSnd&&cfg.alSnd.k)||'default';try{if(alRingA){alRingA.pause();alRingA=null}}catch(_){}try{if(window.NotisNative&&NotisNative.ringStop)NotisNative.ringStop()}catch(_){}if(!on||k==='default')return false;
+ try{if(window.NotisNative&&NotisNative.ringStart){NotisNative.ringStart();return true}}catch(_){}
+ if(k.indexOf('b:')===0){try{alRingA=new Audio('snd/'+k.slice(2)+'.mp3');alRingA.loop=true;var pr=alRingA.play();if(pr&&pr.catch)pr.catch(function(){});return true}catch(_){}}return false}
+function alBeep(on){clearInterval(alBeepT);alBeepT=null;var cus=alRing(on);if(!on)return;var one=function(){try{if(cus)throw 0;unlockAudio();if(!actx)return;var t0=actx.currentTime;[0,.25,.5].forEach(function(o){var g=actx.createGain(),os=actx.createOscillator();os.type='square';os.frequency.value=880;g.gain.setValueAtTime(.0001,t0+o);g.gain.exponentialRampToValueAtTime(.25,t0+o+.02);g.gain.exponentialRampToValueAtTime(.0001,t0+o+.18);os.connect(g);g.connect(actx.destination);os.start(t0+o);os.stop(t0+o+.2)})}catch(_){}
  try{if(navigator.vibrate)navigator.vibrate([400,200,400])}catch(_){}};one();alBeepT=setInterval(one,1500)}
 function alShow(){if(alCur||!alQueue.length)return;alCur=alQueue.shift();$('alfTask').textContent=alCur.text;$('alFire').classList.add('show');alBeep(true)}
 function alFire(t,r){if(t.lock)t={id:t.id,text:t.ltitle||TR('Notiță blocată')};alQueue.push({r:r,text:t.text,med:t.med?t.id:null});alShow();
@@ -2903,6 +2917,33 @@ $('sShareJarvis').onclick=function(){var U=JARVIS_SHARE_URL,ti='Jarvis',all=TR('
  try{if(window.NotisNative&&NotisNative.shareText){NotisNative.shareText(all,ti);return}}catch(_){}
  if(navigator.share){navigator.share({title:ti,text:all}).catch(function(e){if(!e||e.name!=='AbortError')fb()});return}fb()};
 $('sShareJarvis').addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();this.click()}});
+/* v94: alarm sound picker. cfg.alSnd={k:'default'|'b:<id>'|'u:<uri>',n:name}; native rings it (RingService), browser previews bundled snd/<id>.mp3 */
+var ALS=[['clopotel','Clopoțel'],['marimba','Marimba'],['digital','Digital'],['dimineata','Dimineață'],['harpa','Harpă'],['urgent','Urgent']];
+function alsNat(){try{return !!(window.NotisNative&&NotisNative.listAlarmSounds)}catch(_){return false}}
+if(!cfg.alSnd||!cfg.alSnd.k)cfg.alSnd={k:'default',n:''};
+var alsAud=null,alsPlay='';
+function alsStop(){try{if(alsAud){alsAud.pause();alsAud=null}}catch(_){}try{if(alsNat())NotisNative.previewAlarmSound('')}catch(_){}alsPlay='';alsRender()}
+function alsPreview(k){if(alsPlay===k){alsStop();return}alsStop();alsPlay=k;
+ if(alsNat()){try{NotisNative.previewAlarmSound(k)}catch(_){}setTimeout(function(){if(alsPlay===k){alsPlay='';alsRender()}},7000)}
+ else if(k.indexOf('b:')===0){try{alsAud=new Audio('snd/'+k.slice(2)+'.mp3');alsAud.onended=function(){alsPlay='';alsAud=null;alsRender()};alsAud.play().catch(function(){})}catch(_){}}
+ alsRender()}
+function alsSet(k,n){cfg.alSnd={k:k,n:n||''};saveCfg();try{if(alsNat())NotisNative.setAlarmSound(k,n||'')}catch(_){}alsRender()}
+window.notisAlSnd=function(j){try{var o=typeof j==='string'?JSON.parse(j):j;if(o&&o.cur){cfg.alSnd={k:o.cur,n:o.name||''};saveCfg()}}catch(_){}alsRender()};
+function alsRender(){var L=$('alsList');if(!L)return;L.innerHTML='';var cur=cfg.alSnd.k,nat=alsNat();
+ function row(k,label,sub,pv,act){var r=document.createElement('div');r.className='alsr'+(k&&cur===k||(k==='u:'&&cur.indexOf('u:')===0)?' on':'');
+  var b=document.createElement('button');b.type='button';b.className='alsn';b.textContent=label;if(sub){var sm=document.createElement('small');sm.textContent=sub;b.appendChild(sm)}
+  b.onclick=act;r.appendChild(b);
+  if(pv){var p=document.createElement('button');p.type='button';p.className='alsp'+(alsPlay===pv?' pl':'');p.textContent=alsPlay===pv?'■':'▶';p.setAttribute('aria-label',TR('Ascultă'));p.onclick=function(){alsPreview(pv)};r.appendChild(p)}
+  L.appendChild(r)}
+ if(nat)row('default',TR('Implicit (telefon)'),'', 'default',function(){alsSet('default','')});
+ ALS.forEach(function(x){var k='b:'+x[0];row(k,TR(x[1]),'',k,function(){alsSet(k,'');})});
+ if(nat){if(cur.indexOf('u:')===0)row('u:','📱 '+(cfg.alSnd.n||TR('Sunet din telefon')),'',cur,function(){});
+  row('_p',TR('Alege din telefon…'),'',null,function(){alsStop();try{NotisNative.pickPhoneAlarmSound()}catch(_){}});
+  row('_f',TR('Fișier audio…'),'',null,function(){alsStop();try{NotisNative.pickAlarmFile()}catch(_){}})}
+ var h=$('alsHint');if(h)h.textContent=nat?TR('Sună la alarme cât timp notificarea e deschisă. Dacă sunetul ales nu mai poate fi redat, Notis folosește sunetul de alarmă al telefonului.'):TR('Poți asculta sunetele aici. Sunetele din telefon se aleg în aplicația Android.')}
+try{new MutationObserver(function(){if(alsPlay&&!$('modal').classList.contains('show'))alsStop()}).observe($('modal'),{attributes:true,attributeFilter:['class']})}catch(_){}
+try{if(alsNat()){var _o=JSON.parse(NotisNative.listAlarmSounds()||'{}');if(_o.cur&&_o.cur!=='default'&&cfg.alSnd.k==='default')cfg.alSnd={k:_o.cur,n:_o.name||''};else NotisNative.setAlarmSound(cfg.alSnd.k,cfg.alSnd.n||'')}}catch(_){}
+alsRender();
 /* v10: IME-safe single-line fields. Never rewrite values while composing; a newline in a checklist item = Enter (Android IMEs send keyCode 229, no reliable keydown) */
 var imeOn=false,imeEnter=null,lastKeyAct=0;
 document.addEventListener('compositionstart',function(){imeOn=true},true);

@@ -34,6 +34,14 @@ final class Bridge {
         if (a != null) a.runOnUiThread(r); else r.run();
     }
     /* 2.3.3: launcher icon choice via activity-alias (one enabled at a time) */
+    /* 2.4.9: Setări › Sunet alarmă */
+    @JavascriptInterface public String listAlarmSounds() { if (!MainActivity.trusted) return "{}"; return AlarmSound.list(ctx); }
+    @JavascriptInterface public void setAlarmSound(String k, String name) { if (!MainActivity.trusted || k == null) return; if (!(k.equals("default") || k.startsWith("b:") || k.startsWith("u:"))) return; AlarmSound.set(ctx, k, name == null ? "" : name); }
+    @JavascriptInterface public void previewAlarmSound(String k) { if (!MainActivity.trusted) return; if (k == null || k.isEmpty()) AlarmSound.stop(); else AlarmSound.play(ctx, k, false, 8000); }
+    @JavascriptInterface public void ringStart() { if (!MainActivity.trusted) return; AlarmSound.play(ctx, null, true, 180000); }
+    @JavascriptInterface public void ringStop() { if (!MainActivity.trusted) return; AlarmSound.stop(); }
+    @JavascriptInterface public boolean pickPhoneAlarmSound() { MainActivity m = MainActivity.cur; if (!MainActivity.trusted || m == null) return false; m.runOnUiThread(m::pickAlarmSound); return true; }
+    @JavascriptInterface public boolean pickAlarmFile() { MainActivity m = MainActivity.cur; if (!MainActivity.trusted || m == null) return false; m.runOnUiThread(m::pickAlarmFile); return true; }
     @JavascriptInterface public String iconGet() { if (!MainActivity.trusted) return ""; return IconSwitch.get(ctx); }
     @JavascriptInterface public boolean iconSet(String k) { if (!MainActivity.trusted) return false; return IconSwitch.set(ctx, k); }
     @JavascriptInterface public boolean isNative() { if (!MainActivity.trusted) return false; return true; }
