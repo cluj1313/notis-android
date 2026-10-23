@@ -33,6 +33,9 @@ final class Bridge {
         Runnable r = () -> { try { c.startActivity(fin); } catch (Exception e) { try { Intent ch = Intent.createChooser(s, title); if (a == null) ch.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); c.startActivity(ch); } catch (Exception ignored) {} } };
         if (a != null) a.runOnUiThread(r); else r.run();
     }
+    /* 2.3.3: launcher icon choice via activity-alias (one enabled at a time) */
+    @JavascriptInterface public String iconGet() { if (!MainActivity.trusted) return ""; return IconSwitch.get(ctx); }
+    @JavascriptInterface public boolean iconSet(String k) { if (!MainActivity.trusted) return false; return IconSwitch.set(ctx, k); }
     @JavascriptInterface public boolean isNative() { if (!MainActivity.trusted) return false; return true; }
     @JavascriptInterface public String version() { if (!MainActivity.trusted) return ""; try { return ctx.getPackageManager().getPackageInfo(ctx.getPackageName(), 0).versionName; } catch (Exception e) { return ""; } }
 

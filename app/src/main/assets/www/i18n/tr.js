@@ -783,5 +783,12 @@ NOTIS_I18N={
 "Tab": "Sekme",
 "rezultate în notițe blocate": "kilitli notlarda sonuç",
 "Caută și în notițele blocate": "Kilitli notlarda da ara",
-"Trage tabul unde vrei": "Sekmeyi istediğiniz yere sürükleyin"
+"Trage tabul unde vrei": "Sekmeyi istediğiniz yere sürükleyin",
+"Iconiță": "Simge",
+"Nouă": "Yeni",
+"Clasică": "Klasik",
+"În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.": "Tarayıcıda yüklü uygulamanın simgesi değiştirilemez. Simgeyi Android için Notis uygulamasında seçebilirsin.",
+"După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.": "Değişiklikten sonra ana ekranın yeni simgeyi göstermesi birkaç saniye sürebilir.",
+"Iconiță schimbată. Poate dura câteva secunde.": "Simge değiştirildi. Birkaç saniye sürebilir.",
+"Nu s-a putut schimba iconița": "Simge değiştirilemedi"
 };

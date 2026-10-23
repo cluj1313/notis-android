@@ -783,5 +783,12 @@ NOTIS_I18N={
 "Tab": "Καρτέλα",
 "rezultate în notițe blocate": "αποτελέσματα σε κλειδωμένες σημειώσεις",
 "Caută și în notițele blocate": "Αναζήτηση και στις κλειδωμένες σημειώσεις",
-"Trage tabul unde vrei": "Σύρετε την καρτέλα όπου θέλετε"
+"Trage tabul unde vrei": "Σύρετε την καρτέλα όπου θέλετε",
+"Iconiță": "Εικονίδιο",
+"Nouă": "Νέο",
+"Clasică": "Κλασικό",
+"În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.": "Στο πρόγραμμα περιήγησης δεν μπορεί να αλλάξει το εικονίδιο της εγκατεστημένης εφαρμογής. Μπορείς να το επιλέξεις στην εφαρμογή Notis για Android.",
+"După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.": "Μετά την αλλαγή, η αρχική οθόνη μπορεί να χρειαστεί λίγα δευτερόλεπτα για να δείξει το νέο εικονίδιο.",
+"Iconiță schimbată. Poate dura câteva secunde.": "Το εικονίδιο άλλαξε. Μπορεί να πάρει λίγα δευτερόλεπτα.",
+"Nu s-a putut schimba iconița": "Δεν ήταν δυνατή η αλλαγή του εικονιδίου"
 };

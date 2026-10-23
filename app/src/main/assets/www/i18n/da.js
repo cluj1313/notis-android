@@ -783,5 +783,12 @@ NOTIS_I18N={
 "Tab": "Fane",
 "rezultate în notițe blocate": "resultater i låste noter",
 "Caută și în notițele blocate": "Søg også i låste noter",
-"Trage tabul unde vrei": "Træk fanen hen, hvor du vil"
+"Trage tabul unde vrei": "Træk fanen hen, hvor du vil",
+"Iconiță": "Ikon",
+"Nouă": "Nyt",
+"Clasică": "Klassisk",
+"În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.": "I browseren kan den installerede apps ikon ikke ændres. Du kan vælge det i Notis-appen til Android.",
+"După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.": "Efter skiftet kan startskærmen bruge et par sekunder på at vise det nye ikon.",
+"Iconiță schimbată. Poate dura câteva secunde.": "Ikonet er ændret. Det kan tage et par sekunder.",
+"Nu s-a putut schimba iconița": "Ikonet kunne ikke ændres"
 };

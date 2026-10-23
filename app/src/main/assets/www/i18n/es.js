@@ -783,5 +783,12 @@ NOTIS_I18N={
 "Tab": "Pestaña",
 "rezultate în notițe blocate": "resultados en notas bloqueadas",
 "Caută și în notițele blocate": "Buscar también en notas bloqueadas",
-"Trage tabul unde vrei": "Arrastra la pestaña donde quieras"
+"Trage tabul unde vrei": "Arrastra la pestaña donde quieras",
+"Iconiță": "Icono",
+"Nouă": "Nuevo",
+"Clasică": "Clásico",
+"În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.": "En el navegador no se puede cambiar el icono de la app instalada. Puedes elegirlo en la app Notis para Android.",
+"După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.": "Tras el cambio, la pantalla de inicio puede tardar unos segundos en mostrar el nuevo icono.",
+"Iconiță schimbată. Poate dura câteva secunde.": "Icono cambiado. Puede tardar unos segundos.",
+"Nu s-a putut schimba iconița": "No se pudo cambiar el icono"
 };

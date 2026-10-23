@@ -783,5 +783,12 @@ NOTIS_I18N={
 "Tab": "Tabblad",
 "rezultate în notițe blocate": "resultaten in vergrendelde notities",
 "Caută și în notițele blocate": "Ook in vergrendelde notities zoeken",
-"Trage tabul unde vrei": "Sleep het tabblad naar de gewenste plek"
+"Trage tabul unde vrei": "Sleep het tabblad naar de gewenste plek",
+"Iconiță": "Pictogram",
+"Nouă": "Nieuw",
+"Clasică": "Klassiek",
+"În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.": "In de browser kan het pictogram van de geïnstalleerde app niet worden gewijzigd. Je kunt het kiezen in de Notis-app voor Android.",
+"După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.": "Na het wisselen kan het startscherm een paar seconden nodig hebben om het nieuwe pictogram te tonen.",
+"Iconiță schimbată. Poate dura câteva secunde.": "Pictogram gewijzigd. Dit kan een paar seconden duren.",
+"Nu s-a putut schimba iconița": "Pictogram kon niet worden gewijzigd"
 };

@@ -783,5 +783,12 @@ NOTIS_I18N={
 "Tab": "علامة تبويب",
 "rezultate în notițe blocate": "نتائج في ملاحظات مقفلة",
 "Caută și în notițele blocate": "ابحث أيضًا في الملاحظات المقفلة",
-"Trage tabul unde vrei": "اسحب علامة التبويب إلى حيث تريد"
+"Trage tabul unde vrei": "اسحب علامة التبويب إلى حيث تريد",
+"Iconiță": "الأيقونة",
+"Nouă": "جديدة",
+"Clasică": "كلاسيكية",
+"În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.": "لا يمكن تغيير أيقونة التطبيق المثبّت في المتصفح. يمكنك اختيارها في تطبيق Notis لنظام Android.",
+"După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.": "بعد التغيير قد تحتاج الشاشة الرئيسية بضع ثوانٍ لعرض الأيقونة الجديدة.",
+"Iconiță schimbată. Poate dura câteva secunde.": "تم تغيير الأيقونة. قد يستغرق ذلك بضع ثوانٍ.",
+"Nu s-a putut schimba iconița": "تعذّر تغيير الأيقونة"
 };

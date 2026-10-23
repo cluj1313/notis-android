@@ -783,5 +783,12 @@ NOTIS_I18N={
 "Tab": "Lap",
 "rezultate în notițe blocate": "találat zárolt jegyzetekben",
 "Caută și în notițele blocate": "Keresés a zárolt jegyzetekben is",
-"Trage tabul unde vrei": "Húzd a lapot a kívánt helyre"
+"Trage tabul unde vrei": "Húzd a lapot a kívánt helyre",
+"Iconiță": "Ikon",
+"Nouă": "Új",
+"Clasică": "Klasszikus",
+"În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.": "A böngészőben a telepített alkalmazás ikonja nem módosítható. A Notis Android-alkalmazásban választhatod ki.",
+"După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.": "A váltás után a kezdőképernyőnek néhány másodperc kellhet az új ikon megjelenítéséhez.",
+"Iconiță schimbată. Poate dura câteva secunde.": "Ikon módosítva. Ez néhány másodpercig tarthat.",
+"Nu s-a putut schimba iconița": "Nem sikerült módosítani az ikont"
 };

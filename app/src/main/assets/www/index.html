@@ -43,9 +43,9 @@ if(NL!=='ro')(function(){var SKIP='.ux,textarea,input,select option[data-u],.t,.
  TR.walk=walkN;
  document.addEventListener('DOMContentLoaded',function(){var lm=document.querySelector('link[rel=manifest]');if(lm)lm.href='manifest-'+NL+'.webmanifest?v=57'})})();
 </script>
-<link rel="manifest" href="manifest.webmanifest?v=47">
-<link rel="icon" type="image/png" sizes="48x48" href="icons/favicon.png?v=29">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=47">
+<link rel="manifest" href="manifest.webmanifest?v=78">
+<link rel="icon" type="image/png" sizes="48x48" href="icons/favicon.png?v=78">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=78">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Notis">
@@ -913,6 +913,7 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
  <div class="field" id="fBgk"><label for="sBgk">Intensitate fundal <span class="val" id="vBgk"></span></label><input type="range" id="sBgk" min="-10" max="10" step="1" aria-label="Mai estompat ↔ mai intens"><div class="bgkl"><span>mai estompat</span><span>mai intens</span></div></div>
  <div class="field" id="fNrp"><label for="sNrp">Spațiu între notițe <span class="val" id="vNrp"></span></label><input type="range" id="sNrp" min="0" max="14" step="1"></div>
  <div class="field" id="fSmg"><label for="sSmg">Margine laterală <span class="val" id="vSmg"></span></label><input type="range" id="sSmg" min="0" max="24" step="1"></div>
+<div class="sec">Iconiță</div><div class="field" id="icoField"><div class="icrow" id="icoRow"><button type="button" class="icc" data-ico="new"><img src="icons/icon-192.png?v=78" alt=""><span>Nouă</span></button><button type="button" class="icc" data-ico="classic"><img src="icons/classic-icon-192.png?v=78" alt=""><span>Clasică</span></button></div><div class="hint" id="icoHint"></div></div>
 <div class="nsx"> <div class="sec">Ceas</div>
  <div class="field"><label>Font</label><div class="fonts" id="fontGrid"></div></div>
  <div class="field"><label>Culoare</label><div class="colors" id="colorRow"></div></div>
@@ -3522,6 +3523,15 @@ if(NOTIS_AB.changed&&!DEMO){try{localStorage.setItem('ns_lastver',NOTIS_AB.cur)}
 renderAbList();
 })();
 
+
+/* v78: Setări → Iconiță (Android: activity-alias via NotisNative.iconSet; PWA: installed icon can't change) */
+(function(){var row=document.getElementById('icoRow'),hint=document.getElementById('icoHint');if(!row)return;var N=window.NotisNative,nat=!!(N&&N.iconSet&&N.iconGet);
+ var css=document.createElement('style');css.textContent='#icoRow{display:flex;gap:14px}#icoRow .icc{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 6px;border-radius:14px;border:2px solid var(--line);background:rgba(var(--s1R),.35);color:var(--txt);font:inherit;font-size:13px;cursor:pointer}#icoRow .icc img{width:64px;height:64px;border-radius:16px}#icoRow .icc.cur{border-color:var(--cyan);box-shadow:0 0 0 1px var(--cyan)}#icoField .hint{font-size:12px;opacity:.75;margin-top:8px;line-height:1.35}#icoRow.off .icc{opacity:.55;cursor:default}';document.head.appendChild(css);
+ function mark(k){row.querySelectorAll('.icc').forEach(function(b){b.classList.toggle('cur',b.dataset.ico===k)})}
+ if(!nat){row.classList.add('off');mark('new');hint.textContent=TR('În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.');return}
+ var cur='new';try{cur=N.iconGet()||'new'}catch(e){}mark(cur);hint.textContent=TR('După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.');
+ row.addEventListener('click',function(e){var b=e.target.closest('.icc');if(!b||b.dataset.ico===cur)return;var ok=false;try{ok=N.iconSet(b.dataset.ico)}catch(x){}
+  var T=function(m){m=TR(m);if(typeof toast=='function')return toast(m);var t=document.getElementById('toast');if(!t)return;t.textContent=m;t.classList.add('show');clearTimeout(T._t);T._t=setTimeout(function(){t.classList.remove('show')},3000)};if(ok){cur=b.dataset.ico;mark(cur);T('Iconiță schimbată. Poate dura câteva secunde.')}else T('Nu s-a putut schimba iconița')})})();
 /* v60: Setări — every section is a collapsible dropdown (default closed, state remembered in nt_secopen) */
 (function(){var card=document.querySelector('#modal .card');if(!card)return;
  var st={};try{st=JSON.parse(localStorage.getItem('nt_secopen')||'{}')||{}}catch(e){st={}}

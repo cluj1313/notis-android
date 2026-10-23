@@ -783,5 +783,12 @@ NOTIS_I18N={
 "Tab": "Välilehti",
 "rezultate în notițe blocate": "tulosta lukituissa muistiinpanoissa",
 "Caută și în notițele blocate": "Hae myös lukituista muistiinpanoista",
-"Trage tabul unde vrei": "Vedä välilehti haluamaasi kohtaan"
+"Trage tabul unde vrei": "Vedä välilehti haluamaasi kohtaan",
+"Iconiță": "Kuvake",
+"Nouă": "Uusi",
+"Clasică": "Klassinen",
+"În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.": "Selaimessa asennetun sovelluksen kuvaketta ei voi vaihtaa. Voit valita sen Notis-sovelluksessa Androidille.",
+"După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.": "Vaihdon jälkeen aloitusnäyttö voi tarvita muutaman sekunnin uuden kuvakkeen näyttämiseen.",
+"Iconiță schimbată. Poate dura câteva secunde.": "Kuvake vaihdettu. Tämä voi kestää muutaman sekunnin.",
+"Nu s-a putut schimba iconița": "Kuvaketta ei voitu vaihtaa"
 };

@@ -783,5 +783,12 @@ NOTIS_I18N={
 "Tab": "Вкладка",
 "rezultate în notițe blocate": "результатов в заблокированных заметках",
 "Caută și în notițele blocate": "Искать и в заблокированных заметках",
-"Trage tabul unde vrei": "Перетащите вкладку куда нужно"
+"Trage tabul unde vrei": "Перетащите вкладку куда нужно",
+"Iconiță": "Значок",
+"Nouă": "Новый",
+"Clasică": "Классический",
+"În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.": "В браузере значок установленного приложения изменить нельзя. Его можно выбрать в приложении Notis для Android.",
+"După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.": "После смены главному экрану может понадобиться несколько секунд, чтобы показать новый значок.",
+"Iconiță schimbată. Poate dura câteva secunde.": "Значок изменён. Это может занять несколько секунд.",
+"Nu s-a putut schimba iconița": "Не удалось изменить значок"
 };

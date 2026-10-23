@@ -783,5 +783,12 @@ NOTIS_I18N={
 "Tab": "Cilne",
 "rezultate în notițe blocate": "rezultāti bloķētās piezīmēs",
 "Caută și în notițele blocate": "Meklēt arī bloķētās piezīmēs",
-"Trage tabul unde vrei": "Velciet cilni, kur vēlaties"
+"Trage tabul unde vrei": "Velciet cilni, kur vēlaties",
+"Iconiță": "Ikona",
+"Nouă": "Jaunā",
+"Clasică": "Klasiskā",
+"În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.": "Pārlūkā instalētās lietotnes ikonu nevar mainīt. To var izvēlēties Notis lietotnē Android ierīcēm.",
+"După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.": "Pēc maiņas sākuma ekrānam var būt vajadzīgas dažas sekundes, lai parādītu jauno ikonu.",
+"Iconiță schimbată. Poate dura câteva secunde.": "Ikona nomainīta. Tas var aizņemt dažas sekundes.",
+"Nu s-a putut schimba iconița": "Ikonu neizdevās nomainīt"
 };

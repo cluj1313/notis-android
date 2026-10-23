@@ -783,5 +783,12 @@ NOTIS_I18N={
 "Tab": "タブ",
 "rezultate în notițe blocate": "件（ロックされたメモ）",
 "Caută și în notițele blocate": "ロックされたメモも検索",
-"Trage tabul unde vrei": "タブを好きな位置へドラッグ"
+"Trage tabul unde vrei": "タブを好きな位置へドラッグ",
+"Iconiță": "アイコン",
+"Nouă": "新しい",
+"Clasică": "クラシック",
+"În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.": "ブラウザでは、インストール済みアプリのアイコンは変更できません。Android 版 Notis アプリで選べます。",
+"După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.": "変更後、ホーム画面に新しいアイコンが表示されるまで数秒かかることがあります。",
+"Iconiță schimbată. Poate dura câteva secunde.": "アイコンを変更しました。数秒かかることがあります。",
+"Nu s-a putut schimba iconița": "アイコンを変更できませんでした"
 };

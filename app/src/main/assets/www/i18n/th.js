@@ -783,5 +783,12 @@ NOTIS_I18N={
 "Tab": "แท็บ",
 "rezultate în notițe blocate": "ผลลัพธ์ในโน้ตที่ล็อก",
 "Caută și în notițele blocate": "ค้นหาในโน้ตที่ล็อกด้วย",
-"Trage tabul unde vrei": "ลากแท็บไปยังตำแหน่งที่ต้องการ"
+"Trage tabul unde vrei": "ลากแท็บไปยังตำแหน่งที่ต้องการ",
+"Iconiță": "ไอคอน",
+"Nouă": "ใหม่",
+"Clasică": "คลาสสิก",
+"În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.": "ในเบราว์เซอร์ ไม่สามารถเปลี่ยนไอคอนของแอปที่ติดตั้งได้ คุณเลือกได้ในแอป Notis สำหรับ Android",
+"După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.": "หลังเปลี่ยน หน้าจอหลักอาจใช้เวลาสักครู่ในการแสดงไอคอนใหม่",
+"Iconiță schimbată. Poate dura câteva secunde.": "เปลี่ยนไอคอนแล้ว อาจใช้เวลาสักครู่",
+"Nu s-a putut schimba iconița": "เปลี่ยนไอคอนไม่ได้"
 };

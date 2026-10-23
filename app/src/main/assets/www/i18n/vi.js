@@ -783,5 +783,12 @@ NOTIS_I18N={
 "Tab": "Thẻ",
 "rezultate în notițe blocate": "kết quả trong ghi chú bị khóa",
 "Caută și în notițele blocate": "Tìm cả trong ghi chú bị khóa",
-"Trage tabul unde vrei": "Kéo thẻ đến vị trí bạn muốn"
+"Trage tabul unde vrei": "Kéo thẻ đến vị trí bạn muốn",
+"Iconiță": "Biểu tượng",
+"Nouă": "Mới",
+"Clasică": "Cổ điển",
+"În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.": "Trong trình duyệt, không thể đổi biểu tượng của ứng dụng đã cài. Bạn có thể chọn trong ứng dụng Notis cho Android.",
+"După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.": "Sau khi đổi, màn hình chính có thể cần vài giây để hiện biểu tượng mới.",
+"Iconiță schimbată. Poate dura câteva secunde.": "Đã đổi biểu tượng. Có thể mất vài giây.",
+"Nu s-a putut schimba iconița": "Không thể đổi biểu tượng"
 };

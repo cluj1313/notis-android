@@ -783,5 +783,12 @@ NOTIS_I18N={
 "Tab": "Skirtukas",
 "rezultate în notițe blocate": "rezultatai užrakintuose užrašuose",
 "Caută și în notițele blocate": "Ieškoti ir užrakintuose užrašuose",
-"Trage tabul unde vrei": "Nuvilkite skirtuką kur norite"
+"Trage tabul unde vrei": "Nuvilkite skirtuką kur norite",
+"Iconiță": "Piktograma",
+"Nouă": "Nauja",
+"Clasică": "Klasikinė",
+"În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.": "Naršyklėje įdiegtos programos piktogramos pakeisti negalima. Ją gali pasirinkti Notis programėlėje, skirtoje Android.",
+"După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.": "Po pakeitimo pradžios ekranui gali prireikti kelių sekundžių, kad parodytų naują piktogramą.",
+"Iconiță schimbată. Poate dura câteva secunde.": "Piktograma pakeista. Tai gali užtrukti kelias sekundes.",
+"Nu s-a putut schimba iconița": "Nepavyko pakeisti piktogramos"
 };

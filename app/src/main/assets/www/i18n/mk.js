@@ -783,5 +783,12 @@ NOTIS_I18N={
 "Tab": "Јазиче",
 "rezultate în notițe blocate": "резултати во заклучени белешки",
 "Caută și în notițele blocate": "Барај и во заклучените белешки",
-"Trage tabul unde vrei": "Повлечете го јазичето каде што сакате"
+"Trage tabul unde vrei": "Повлечете го јазичето каде што сакате",
+"Iconiță": "Икона",
+"Nouă": "Нова",
+"Clasică": "Класична",
+"În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.": "Во прелистувачот иконата на инсталираната апликација не може да се промени. Можеш да ја избереш во апликацијата Notis за Android.",
+"După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.": "По промената, на почетниот екран може да му требаат неколку секунди за да ја прикаже новата икона.",
+"Iconiță schimbată. Poate dura câteva secunde.": "Иконата е променета. Може да потрае неколку секунди.",
+"Nu s-a putut schimba iconița": "Иконата не можеше да се промени"
 };

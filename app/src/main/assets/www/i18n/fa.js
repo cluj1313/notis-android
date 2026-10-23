@@ -783,5 +783,12 @@ NOTIS_I18N={
 "Tab": "زبانه",
 "rezultate în notițe blocate": "نتیجه در یادداشت‌های قفل‌شده",
 "Caută și în notițele blocate": "در یادداشت‌های قفل‌شده هم جستجو کن",
-"Trage tabul unde vrei": "زبانه را به هر جا می‌خواهید بکشید"
+"Trage tabul unde vrei": "زبانه را به هر جا می‌خواهید بکشید",
+"Iconiță": "آیکون",
+"Nouă": "جدید",
+"Clasică": "کلاسیک",
+"În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.": "در مرورگر نمی‌توان آیکون برنامهٔ نصب‌شده را تغییر داد. می‌توانید آن را در برنامهٔ Notis برای Android انتخاب کنید.",
+"După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.": "پس از تغییر، صفحهٔ اصلی ممکن است چند ثانیه برای نمایش آیکون جدید زمان نیاز داشته باشد.",
+"Iconiță schimbată. Poate dura câteva secunde.": "آیکون تغییر کرد. ممکن است چند ثانیه طول بکشد.",
+"Nu s-a putut schimba iconița": "تغییر آیکون ممکن نشد"
 };

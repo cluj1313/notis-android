@@ -783,5 +783,12 @@ NOTIS_I18N={
 "Tab": "分頁",
 "rezultate în notițe blocate": "個結果在鎖定的筆記中",
 "Caută și în notițele blocate": "也搜尋鎖定的筆記",
-"Trage tabul unde vrei": "將分頁拖到想要的位置"
+"Trage tabul unde vrei": "將分頁拖到想要的位置",
+"Iconiță": "圖示",
+"Nouă": "新版",
+"Clasică": "經典",
+"În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.": "在瀏覽器中無法變更已安裝應用程式的圖示。你可以在 Android 版 Notis 應用程式中選擇。",
+"După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.": "變更後，主畫面可能需要幾秒鐘才會顯示新圖示。",
+"Iconiță schimbată. Poate dura câteva secunde.": "圖示已變更，可能需要幾秒鐘。",
+"Nu s-a putut schimba iconița": "無法變更圖示"
 };

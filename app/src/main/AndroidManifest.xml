@@ -36,10 +36,6 @@
             android:windowSoftInputMode="adjustResize"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|keyboard|smallestScreenSize|uiMode|density">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
@@ -51,6 +47,13 @@
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>
+        <!-- 2.3.3: launcher icon choice (Setări → Iconiță). Exactly one alias is enabled; MainActivity itself stays enabled for widgets, alarms, notifications, links. -->
+        <activity-alias android:name=".LauncherNew" android:targetActivity=".MainActivity" android:exported="true" android:enabled="true" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round">
+            <intent-filter><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.LAUNCHER" /></intent-filter>
+        </activity-alias>
+        <activity-alias android:name=".LauncherClassic" android:targetActivity=".MainActivity" android:exported="true" android:enabled="false" android:icon="@mipmap/icc_launcher" android:roundIcon="@mipmap/icc_launcher_round">
+            <intent-filter><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.LAUNCHER" /></intent-filter>
+        </activity-alias>
         <activity android:name=".WidgetConfigActivity" android:exported="true" android:label="@string/cfg_label" android:theme="@style/NotisDialog" android:excludeFromRecents="true" android:noHistory="true" android:taskAffinity="ro.cluj1313.notis.widgetui">
             <intent-filter><action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" /></intent-filter>
         </activity>
