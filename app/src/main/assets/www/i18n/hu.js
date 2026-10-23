@@ -813,5 +813,7 @@ NOTIS_I18N={
 "👁 Previzualizare": "👁 Előnézet",
 "Nu s-a putut încărca imaginea": "Nem sikerült betölteni a képet",
 "Distribuie aplicația": "Alkalmazás megosztása",
-"Notis – notițe, liste și memento-uri": "Notis – jegyzetek, listák és emlékeztetők"
+"Notis – notițe, liste și memento-uri": "Notis – jegyzetek, listák és emlékeztetők",
+"Distribuie Jarvis": "Jarvis megosztása",
+"Jarvis – asistentul tău zilnic": "Jarvis – a napi asszisztensed"
 };

@@ -813,5 +813,7 @@ NOTIS_I18N={
 "👁 Previzualizare": "👁 Pratonton",
 "Nu s-a putut încărca imaginea": "Imej tidak dapat dimuatkan",
 "Distribuie aplicația": "Kongsi aplikasi",
-"Notis – notițe, liste și memento-uri": "Notis – nota, senarai dan peringatan"
+"Notis – notițe, liste și memento-uri": "Notis – nota, senarai dan peringatan",
+"Distribuie Jarvis": "Kongsi Jarvis",
+"Jarvis – asistentul tău zilnic": "Jarvis – pembantu harian anda"
 };

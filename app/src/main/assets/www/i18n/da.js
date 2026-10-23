@@ -813,5 +813,7 @@ NOTIS_I18N={
 "👁 Previzualizare": "👁 Eksempel",
 "Nu s-a putut încărca imaginea": "Billedet kunne ikke indlæses",
 "Distribuie aplicația": "Del appen",
-"Notis – notițe, liste și memento-uri": "Notis – noter, lister og påmindelser"
+"Notis – notițe, liste și memento-uri": "Notis – noter, lister og påmindelser",
+"Distribuie Jarvis": "Del Jarvis",
+"Jarvis – asistentul tău zilnic": "Jarvis – din daglige assistent"
 };

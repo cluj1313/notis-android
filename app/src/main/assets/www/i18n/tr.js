@@ -813,5 +813,7 @@ NOTIS_I18N={
 "👁 Previzualizare": "👁 Önizleme",
 "Nu s-a putut încărca imaginea": "Görsel yüklenemedi",
 "Distribuie aplicația": "Uygulamayı paylaş",
-"Notis – notițe, liste și memento-uri": "Notis – notlar, listeler ve hatırlatıcılar"
+"Notis – notițe, liste și memento-uri": "Notis – notlar, listeler ve hatırlatıcılar",
+"Distribuie Jarvis": "Jarvis'i paylaş",
+"Jarvis – asistentul tău zilnic": "Jarvis – günlük asistanın"
 };

@@ -813,5 +813,7 @@ NOTIS_I18N={
 "👁 Previzualizare": "👁 Vista previa",
 "Nu s-a putut încărca imaginea": "No se pudo cargar la imagen",
 "Distribuie aplicația": "Compartir la app",
-"Notis – notițe, liste și memento-uri": "Notis – notas, listas y recordatorios"
+"Notis – notițe, liste și memento-uri": "Notis – notas, listas y recordatorios",
+"Distribuie Jarvis": "Compartir Jarvis",
+"Jarvis – asistentul tău zilnic": "Jarvis – tu asistente diario"
 };

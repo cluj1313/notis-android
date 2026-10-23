@@ -937,6 +937,7 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
 <div class="sec">Cum funcționează</div><div class="field"><div class="throw"><button type="button" class="thc" id="bDemo"></button><button type="button" class="thc" id="bDemoReset">Resetează exemplele</button></div><div class="bgkl"><span id="demoHint"></span></div></div>
 
  <div class="sec secact" id="sShareApp" role="button" tabindex="0">Distribuie aplicația</div>
+ <div class="sec secact" id="sShareJarvis" role="button" tabindex="0">Distribuie Jarvis</div>
  <div id="fInstall"><div class="sec">Instalează aplicația</div>
  <div class="field"><button type="button" class="btn" id="sInstall">Instalează aplicația</button>
   <div class="hint" id="installHint">Chrome: meniu ⋮ → „Instalează aplicația” / „Adaugă pe ecranul de pornire”.<br>Brave: meniu ⋮ → „Adaugă pe ecranul de pornire” / „Instalează aplicația”.</div></div></div>
@@ -2875,6 +2876,14 @@ $('sShareApp').onclick=function(){var U='https://cluj1313.github.io/notis/apk/',
  try{if(window.NotisNative&&NotisNative.shareText){NotisNative.shareText(all,ti);return}}catch(_){}
  if(navigator.share){navigator.share({title:ti,text:all}).catch(function(e){if(!e||e.name!=='AbortError')fb()});return}fb()};
 $('sShareApp').addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();this.click()}});
+var JARVIS_SHARE_URL='https://cluj1313.github.io/jarvis/';
+$('sShareJarvis').onclick=function(){var U=JARVIS_SHARE_URL,ti='Jarvis',all=TR('Jarvis – asistentul tău zilnic')+'\n'+U;
+ function cp(){var ok=function(){toast(TR('Link copiat'))};try{if(navigator.clipboard&&navigator.clipboard.writeText)return navigator.clipboard.writeText(all).then(ok,leg)}catch(_){}leg();
+  function leg(){var ta=document.createElement('textarea');ta.value=all;document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(_){}ta.remove();ok()}}
+ function fb(){var w=null;try{w=window.open('https://wa.me/?text='+encodeURIComponent(all),'_blank')}catch(_){}if(!w)cp()}
+ try{if(window.NotisNative&&NotisNative.shareText){NotisNative.shareText(all,ti);return}}catch(_){}
+ if(navigator.share){navigator.share({title:ti,text:all}).catch(function(e){if(!e||e.name!=='AbortError')fb()});return}fb()};
+$('sShareJarvis').addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();this.click()}});
 /* v10: IME-safe single-line fields. Never rewrite values while composing; a newline in a checklist item = Enter (Android IMEs send keyCode 229, no reliable keydown) */
 var imeOn=false,imeEnter=null,lastKeyAct=0;
 document.addEventListener('compositionstart',function(){imeOn=true},true);
