@@ -815,5 +815,8 @@ NOTIS_I18N={
 "Distribuie aplicația": "اشتراک‌گذاری برنامه",
 "Notis – notițe, liste și memento-uri": "Notis – یادداشت‌ها، فهرست‌ها و یادآورها",
 "Distribuie Jarvis": "اشتراک‌گذاری Jarvis",
-"Jarvis – asistentul tău zilnic": "Jarvis – دستیار روزانهٔ شما"
+"Jarvis – asistentul tău zilnic": "Jarvis – دستیار روزانهٔ شما",
+"Stil taburi": "سبک زبانه‌ها",
+"Pilule": "قرصی",
+"Căsuțe": "جعبه‌ای"
 };

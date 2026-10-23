@@ -815,5 +815,8 @@ NOTIS_I18N={
 "Distribuie aplicația": "Kongsi aplikasi",
 "Notis – notițe, liste și memento-uri": "Notis – nota, senarai dan peringatan",
 "Distribuie Jarvis": "Kongsi Jarvis",
-"Jarvis – asistentul tău zilnic": "Jarvis – pembantu harian anda"
+"Jarvis – asistentul tău zilnic": "Jarvis – pembantu harian anda",
+"Stil taburi": "Gaya tab",
+"Pilule": "Pil",
+"Căsuțe": "Kotak"
 };

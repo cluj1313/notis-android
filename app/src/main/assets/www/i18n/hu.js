@@ -815,5 +815,8 @@ NOTIS_I18N={
 "Distribuie aplicația": "Alkalmazás megosztása",
 "Notis – notițe, liste și memento-uri": "Notis – jegyzetek, listák és emlékeztetők",
 "Distribuie Jarvis": "Jarvis megosztása",
-"Jarvis – asistentul tău zilnic": "Jarvis – a napi asszisztensed"
+"Jarvis – asistentul tău zilnic": "Jarvis – a napi asszisztensed",
+"Stil taburi": "Fülstílus",
+"Pilule": "Kapszulák",
+"Căsuțe": "Dobozok"
 };

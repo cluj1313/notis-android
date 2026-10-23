@@ -815,5 +815,8 @@ NOTIS_I18N={
 "Distribuie aplicația": "Kopīgot lietotni",
 "Notis – notițe, liste și memento-uri": "Notis – piezīmes, saraksti un atgādinājumi",
 "Distribuie Jarvis": "Kopīgot Jarvis",
-"Jarvis – asistentul tău zilnic": "Jarvis – tavs ikdienas asistents"
+"Jarvis – asistentul tău zilnic": "Jarvis – tavs ikdienas asistents",
+"Stil taburi": "Cilņu stils",
+"Pilule": "Tabletes",
+"Căsuțe": "Kastītes"
 };

@@ -815,5 +815,8 @@ NOTIS_I18N={
 "Distribuie aplicația": "مشاركة التطبيق",
 "Notis – notițe, liste și memento-uri": "Notis – ملاحظات وقوائم وتذكيرات",
 "Distribuie Jarvis": "مشاركة Jarvis",
-"Jarvis – asistentul tău zilnic": "Jarvis – مساعدك اليومي"
+"Jarvis – asistentul tău zilnic": "Jarvis – مساعدك اليومي",
+"Stil taburi": "نمط علامات التبويب",
+"Pilule": "حبوب",
+"Căsuțe": "مربعات"
 };
