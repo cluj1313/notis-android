@@ -807,5 +807,9 @@ NOTIS_I18N={
 "↕️ Mută în alt tab": "↕️ לעבור לטבלה אחרת",
 "📛 Redenumește": "📛 שינוי שם",
 "📦 Mută": "📦 זוזו.",
-"📦 Mută în alt tab": "📦 לעבור לטבלה אחרת"
+"📦 Mută în alt tab": "📦 לעבור לטבלה אחרת",
+"Imagine din galerie": "תמונה מהגלריה",
+"Previzualizare": "תצוגה מקדימה",
+"👁 Previzualizare": "👁 תצוגה מקדימה",
+"Nu s-a putut încărca imaginea": "לא ניתן היה לטעון את התמונה"
 };

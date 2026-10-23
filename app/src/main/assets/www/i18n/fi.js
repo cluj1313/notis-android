@@ -807,5 +807,9 @@ NOTIS_I18N={
 "↕️ Mută în alt tab": "↕️ Siirry toiseen välilehtiin",
 "📛 Redenumește": "📛 Nimi muutetaan",
 "📦 Mută": "📦 Siir titre",
-"📦 Mută în alt tab": "📦 Siirry toiseen välilehtiin"
+"📦 Mută în alt tab": "📦 Siirry toiseen välilehtiin",
+"Imagine din galerie": "Kuva galleriasta",
+"Previzualizare": "Esikatselu",
+"👁 Previzualizare": "👁 Esikatselu",
+"Nu s-a putut încărca imaginea": "Kuvaa ei voitu ladata"
 };

@@ -807,5 +807,9 @@ NOTIS_I18N={
 "↕️ Mută în alt tab": "↕️ Lëviz në një skedë tjetër",
 "📛 Redenumește": "📛 Riemërimi",
 "📦 Mută": "📦 Lëviz",
-"📦 Mută în alt tab": "📦 Lëviz në një skedë tjetër"
+"📦 Mută în alt tab": "📦 Lëviz në një skedë tjetër",
+"Imagine din galerie": "Imazh nga galeria",
+"Previzualizare": "Pamje paraprake",
+"👁 Previzualizare": "👁 Pamje paraprake",
+"Nu s-a putut încărca imaginea": "Imazhi nuk u ngarkua dot"
 };

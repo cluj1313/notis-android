@@ -807,5 +807,9 @@ NOTIS_I18N={
 "↕️ Mută în alt tab": "↕️ Pindah ke tab lain",
 "📛 Redenumește": "📛 Nama semula",
 "📦 Mută": "📦 Pindah",
-"📦 Mută în alt tab": "📦 Pindah ke tab lain"
+"📦 Mută în alt tab": "📦 Pindah ke tab lain",
+"Imagine din galerie": "Imej daripada galeri",
+"Previzualizare": "Pratonton",
+"👁 Previzualizare": "👁 Pratonton",
+"Nu s-a putut încărca imaginea": "Imej tidak dapat dimuatkan"
 };

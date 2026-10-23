@@ -807,5 +807,9 @@ NOTIS_I18N={
 "↕️ Mută în alt tab": "↕️ অন্য ট্যাবে যান",
 "📛 Redenumește": "📛 নাম পরিবর্তন করুন",
 "📦 Mută": "📦 সরান",
-"📦 Mută în alt tab": "📦 অন্য ট্যাবে যান"
+"📦 Mută în alt tab": "📦 অন্য ট্যাবে যান",
+"Imagine din galerie": "গ্যালারি থেকে ছবি",
+"Previzualizare": "প্রিভিউ",
+"👁 Previzualizare": "👁 প্রিভিউ",
+"Nu s-a putut încărca imaginea": "ছবিটি লোড করা যায়নি"
 };

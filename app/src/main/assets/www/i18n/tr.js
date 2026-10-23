@@ -807,5 +807,9 @@ NOTIS_I18N={
 "↕️ Mută în alt tab": "↕️ Başka sekmeye geç",
 "📛 Redenumește": "📛 Yeniden Kullanmak (Renaissance)",
 "📦 Mută": "📦 Kımıldayın .",
-"📦 Mută în alt tab": "📦 Başka sekmeye geç"
+"📦 Mută în alt tab": "📦 Başka sekmeye geç",
+"Imagine din galerie": "Galeriden görsel",
+"Previzualizare": "Önizleme",
+"👁 Previzualizare": "👁 Önizleme",
+"Nu s-a putut încărca imaginea": "Görsel yüklenemedi"
 };

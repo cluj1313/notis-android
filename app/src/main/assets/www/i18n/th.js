@@ -807,5 +807,9 @@ NOTIS_I18N={
 "↕️ Mută în alt tab": "↕️ เลื่อนไปที่แท็บอื่น",
 "📛 Redenumește": "📛 เปลี่ยนชื่อ",
 "📦 Mută": "📦 ขยับ",
-"📦 Mută în alt tab": "📦 เลื่อนไปที่แท็บอื่น"
+"📦 Mută în alt tab": "📦 เลื่อนไปที่แท็บอื่น",
+"Imagine din galerie": "รูปภาพจากแกลเลอรี",
+"Previzualizare": "ดูตัวอย่าง",
+"👁 Previzualizare": "👁 ดูตัวอย่าง",
+"Nu s-a putut încărca imaginea": "ไม่สามารถโหลดรูปภาพได้"
 };

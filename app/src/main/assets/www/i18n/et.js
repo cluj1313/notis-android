@@ -807,5 +807,9 @@ NOTIS_I18N={
 "↕️ Mută în alt tab": "↕️ Liikuda teise kaardile",
 "📛 Redenumește": "📛 Nimi ümber nimetamine",
 "📦 Mută": "📦 Liigu.",
-"📦 Mută în alt tab": "📦 Liikuda teise kaardile"
+"📦 Mută în alt tab": "📦 Liikuda teise kaardile",
+"Imagine din galerie": "Pilt galeriist",
+"Previzualizare": "Eelvaade",
+"👁 Previzualizare": "👁 Eelvaade",
+"Nu s-a putut încărca imaginea": "Pilti ei õnnestunud laadida"
 };

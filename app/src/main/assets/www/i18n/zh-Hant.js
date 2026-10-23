@@ -807,5 +807,9 @@ NOTIS_I18N={
 "↕️ Mută în alt tab": "↕️ 移動到另一個卡片",
 "📛 Redenumește": "📛 改名",
 "📦 Mută": "📦 移動",
-"📦 Mută în alt tab": "📦 移動到另一個卡片"
+"📦 Mută în alt tab": "📦 移動到另一個卡片",
+"Imagine din galerie": "圖庫中的圖片",
+"Previzualizare": "預覽",
+"👁 Previzualizare": "👁 預覽",
+"Nu s-a putut încărca imaginea": "無法載入圖片"
 };

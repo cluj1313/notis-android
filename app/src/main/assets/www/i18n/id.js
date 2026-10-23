@@ -807,5 +807,9 @@ NOTIS_I18N={
 "↕️ Mută în alt tab": "↕️ Pindah ke tab lain",
 "📛 Redenumește": "📛 Mengganti nama",
 "📦 Mută": "📦 Pindah",
-"📦 Mută în alt tab": "📦 Pindah ke tab lain"
+"📦 Mută în alt tab": "📦 Pindah ke tab lain",
+"Imagine din galerie": "Gambar dari galeri",
+"Previzualizare": "Pratinjau",
+"👁 Previzualizare": "👁 Pratinjau",
+"Nu s-a putut încărca imaginea": "Gambar tidak dapat dimuat"
 };

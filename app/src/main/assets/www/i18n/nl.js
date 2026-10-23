@@ -807,5 +807,9 @@ NOTIS_I18N={
 "↕️ Mută în alt tab": "↕️ Verplaats naar een ander tabblad",
 "📛 Redenumește": "📛 Hernoem",
 "📦 Mută": "📦 Verplaatsen .",
-"📦 Mută în alt tab": "📦 Verplaats naar een ander tabblad"
+"📦 Mută în alt tab": "📦 Verplaats naar een ander tabblad",
+"Imagine din galerie": "Afbeelding uit galerij",
+"Previzualizare": "Voorbeeld",
+"👁 Previzualizare": "👁 Voorbeeld",
+"Nu s-a putut încărca imaginea": "Afbeelding kon niet worden geladen"
 };

@@ -807,5 +807,9 @@ NOTIS_I18N={
 "↕️ Mută în alt tab": "↕️ Flytt til en annen fane",
 "📛 Redenumește": "📛 Omdøpe",
 "📦 Mută": "📦 Flytt",
-"📦 Mută în alt tab": "📦 Flytt til en annen fane"
+"📦 Mută în alt tab": "📦 Flytt til en annen fane",
+"Imagine din galerie": "Bilde fra galleriet",
+"Previzualizare": "Forhåndsvisning",
+"👁 Previzualizare": "👁 Forhåndsvisning",
+"Nu s-a putut încărca imaginea": "Kunne ikke laste inn bildet"
 };

@@ -807,5 +807,9 @@ NOTIS_I18N={
 "↕️ Mută în alt tab": "↕️ Perkelti į kitą skirtuką",
 "📛 Redenumește": "📛 Pervadinti",
 "📦 Mută": "📦 Pasitrauk",
-"📦 Mută în alt tab": "📦 Perkelti į kitą skirtuką"
+"📦 Mută în alt tab": "📦 Perkelti į kitą skirtuką",
+"Imagine din galerie": "Vaizdas iš galerijos",
+"Previzualizare": "Peržiūra",
+"👁 Previzualizare": "👁 Peržiūra",
+"Nu s-a putut încărca imaginea": "Nepavyko įkelti vaizdo"
 };

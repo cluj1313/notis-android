@@ -807,5 +807,9 @@ NOTIS_I18N={
 "↕️ Mută în alt tab": "↕️ Preseliti na drugi karticu",
 "📛 Redenumește": "📛 Preimenovanje",
 "📦 Mută": "📦 Pomaknite se.",
-"📦 Mută în alt tab": "📦 Preseliti na drugi karticu"
+"📦 Mută în alt tab": "📦 Preseliti na drugi karticu",
+"Imagine din galerie": "Slika iz galerije",
+"Previzualizare": "Pregled",
+"👁 Previzualizare": "👁 Pregled",
+"Nu s-a putut încărca imaginea": "Slika se nije mogla učitati"
 };

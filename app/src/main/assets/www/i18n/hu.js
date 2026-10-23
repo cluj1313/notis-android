@@ -807,5 +807,9 @@ NOTIS_I18N={
 "↕️ Mută în alt tab": "↕️ Másik fülre",
 "📛 Redenumește": "📛 Átnevezés",
 "📦 Mută": "📦 Áthelyezés",
-"📦 Mută în alt tab": "📦 Másik fülre"
+"📦 Mută în alt tab": "📦 Másik fülre",
+"Imagine din galerie": "Kép a galériából",
+"Previzualizare": "Előnézet",
+"👁 Previzualizare": "👁 Előnézet",
+"Nu s-a putut încărca imaginea": "Nem sikerült betölteni a képet"
 };

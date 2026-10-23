@@ -807,5 +807,9 @@ NOTIS_I18N={
 "↕️ Mută în alt tab": "↕️ Mover para outra aba",
 "📛 Redenumește": "📛 Renomear",
 "📦 Mută": "📦 Mova-se .",
-"📦 Mută în alt tab": "📦 Mover para outra aba"
+"📦 Mută în alt tab": "📦 Mover para outra aba",
+"Imagine din galerie": "Imagem da galeria",
+"Previzualizare": "Pré-visualizar",
+"👁 Previzualizare": "👁 Pré-visualizar",
+"Nu s-a putut încărca imaginea": "Não foi possível carregar a imagem"
 };

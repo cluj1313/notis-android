@@ -807,5 +807,9 @@ NOTIS_I18N={
 "↕️ Mută în alt tab": "↕️ Flytta till en annan flik",
 "📛 Redenumește": "📛 Omdöma",
 "📦 Mută": "📦 Flytta.",
-"📦 Mută în alt tab": "📦 Flytta till en annan flik"
+"📦 Mută în alt tab": "📦 Flytta till en annan flik",
+"Imagine din galerie": "Bild från galleriet",
+"Previzualizare": "Förhandsvisning",
+"👁 Previzualizare": "👁 Förhandsvisning",
+"Nu s-a putut încărca imaginea": "Det gick inte att läsa in bilden"
 };
