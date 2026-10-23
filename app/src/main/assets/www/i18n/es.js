@@ -638,7 +638,7 @@ NOTIS_I18N={
 "Vorbesc (": "Hablando (",
 "Tab „": "- ¿ Qué? “",
 "” creat": "” creado",
-" + text": " + el texto",
+" + text": " + texto",
 "din ": "desde ",
 " min": " el tiempo",
 " h": " h",

@@ -185,7 +185,7 @@ NOTIS_I18N={
 "Albastru": "Kék",
 "Indigo": "Indigó",
 "Smarald": "Smaragd",
-"Lime": "Lime",
+"Lime": "Limezöld",
 "Maro": "Barna",
 "Vișiniu": "Bordó",
 "Ardezie": "Palaszürke",

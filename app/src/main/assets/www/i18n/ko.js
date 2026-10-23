@@ -185,7 +185,7 @@ NOTIS_I18N={
 "Albastru": "파란색",
 "Indigo": "인디고",
 "Smarald": "에메랄드",
-"Lime": "Lime",
+"Lime": "라임색",
 "Maro": "갈색",
 "Vișiniu": "바르고뉴",
 "Ardezie": "스레이트",

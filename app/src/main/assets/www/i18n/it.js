@@ -185,7 +185,7 @@ NOTIS_I18N={
 "Albastru": "Blu",
 "Indigo": "Indaco",
 "Smarald": "Smeraldo",
-"Lime": "Lime",
+"Lime": "Verde lime",
 "Maro": "Marrone",
 "Vișiniu": "Bordeaux",
 "Ardezie": "Ardesia",
