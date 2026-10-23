@@ -797,5 +797,7 @@ NOTIS_I18N={
 "Luminozitate": "Ndriçimi",
 "Opacitate carduri": "Patejdukshmëria e kartave",
 "transparent": "e tejdukshme",
-"opac": "e patejdukshme"
+"opac": "e patejdukshme",
+"📌 Fixează": "📌 Fikso",
+"📌 Anulează fixarea": "📌 Hiq fiksimin"
 };

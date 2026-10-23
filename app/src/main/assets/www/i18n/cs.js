@@ -797,5 +797,7 @@ NOTIS_I18N={
 "Luminozitate": "Jas",
 "Opacitate carduri": "Neprůhlednost karet",
 "transparent": "průhledné",
-"opac": "neprůhledné"
+"opac": "neprůhledné",
+"📌 Fixează": "📌 Připnout",
+"📌 Anulează fixarea": "📌 Odepnout"
 };

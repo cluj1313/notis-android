@@ -797,5 +797,7 @@ NOTIS_I18N={
 "Luminozitate": "चमक",
 "Opacitate carduri": "कार्ड की अपारदर्शिता",
 "transparent": "पारदर्शी",
-"opac": "अपारदर्शी"
+"opac": "अपारदर्शी",
+"📌 Fixează": "📌 पिन करें",
+"📌 Anulează fixarea": "📌 पिन हटाएँ"
 };

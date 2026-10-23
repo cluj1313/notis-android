@@ -797,5 +797,7 @@ NOTIS_I18N={
 "Luminozitate": "Độ sáng",
 "Opacitate carduri": "Độ đục của thẻ",
 "transparent": "trong suốt",
-"opac": "đục"
+"opac": "đục",
+"📌 Fixează": "📌 Ghim",
+"📌 Anulează fixarea": "📌 Bỏ ghim"
 };

@@ -797,5 +797,7 @@ NOTIS_I18N={
 "Luminozitate": "Lysstyrke",
 "Opacitate carduri": "Kortenes dækkevne",
 "transparent": "gennemsigtig",
-"opac": "uigennemsigtig"
+"opac": "uigennemsigtig",
+"📌 Fixează": "📌 Fastgør",
+"📌 Anulează fixarea": "📌 Frigør"
 };

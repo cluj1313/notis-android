@@ -797,5 +797,7 @@ NOTIS_I18N={
 "Luminozitate": "Spilgtums",
 "Opacitate carduri": "Kartīšu necaurredzamība",
 "transparent": "caurspīdīgs",
-"opac": "necaurspīdīgs"
+"opac": "necaurspīdīgs",
+"📌 Fixează": "📌 Piespraust",
+"📌 Anulează fixarea": "📌 Atspraust"
 };

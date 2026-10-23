@@ -797,5 +797,7 @@ NOTIS_I18N={
 "Luminozitate": "روشنایی",
 "Opacitate carduri": "کدری کارت‌ها",
 "transparent": "شفاف",
-"opac": "مات"
+"opac": "مات",
+"📌 Fixează": "📌 سنجاق کردن",
+"📌 Anulează fixarea": "📌 برداشتن سنجاق"
 };

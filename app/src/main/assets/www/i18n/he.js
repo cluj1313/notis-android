@@ -797,5 +797,7 @@ NOTIS_I18N={
 "Luminozitate": "בהירות",
 "Opacitate carduri": "אטימות הכרטיסים",
 "transparent": "שקוף",
-"opac": "אטום"
+"opac": "אטום",
+"📌 Fixează": "📌 הצמדה",
+"📌 Anulează fixarea": "📌 ביטול הצמדה"
 };

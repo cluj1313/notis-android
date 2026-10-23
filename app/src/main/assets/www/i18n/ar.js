@@ -797,5 +797,7 @@ NOTIS_I18N={
 "Luminozitate": "السطوع",
 "Opacitate carduri": "عتامة البطاقات",
 "transparent": "شفاف",
-"opac": "معتم"
+"opac": "معتم",
+"📌 Fixează": "📌 تثبيت",
+"📌 Anulează fixarea": "📌 إلغاء التثبيت"
 };

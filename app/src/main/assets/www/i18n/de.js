@@ -797,5 +797,7 @@ NOTIS_I18N={
 "Luminozitate": "Helligkeit",
 "Opacitate carduri": "Deckkraft der Karten",
 "transparent": "transparent",
-"opac": "deckend"
+"opac": "deckend",
+"📌 Fixează": "📌 Anheften",
+"📌 Anulează fixarea": "📌 Loslösen"
 };

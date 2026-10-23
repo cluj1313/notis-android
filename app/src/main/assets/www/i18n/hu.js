@@ -797,5 +797,7 @@ NOTIS_I18N={
 "Luminozitate": "Világosság",
 "Opacitate carduri": "Kártyák átlátszatlansága",
 "transparent": "átlátszó",
-"opac": "átlátszatlan"
+"opac": "átlátszatlan",
+"📌 Fixează": "📌 Kitűzés",
+"📌 Anulează fixarea": "📌 Kitűzés megszüntetése"
 };
