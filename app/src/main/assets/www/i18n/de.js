@@ -804,5 +804,8 @@ NOTIS_I18N={
 "Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Du bist in Sonstiges › Kunden › 2026. Beliebig viele Ebenen: Ordner öffnen und oben auf die Ordner-Schaltfläche tippen. 📌 Anheften: Ordner lange drücken oder Notizen auswählen und 📌 tippen.",
 "↕️ Mută": "↕️ Verschieben",
 "↔️ Mută": "↔️ Verschieben",
-"↕️ Mută în alt tab": "↕️ In anderen Tab"
+"↕️ Mută în alt tab": "↕️ In anderen Tab",
+"📛 Redenumește": "📛 Umbenennen",
+"📦 Mută": "📦 Verschieben",
+"📦 Mută în alt tab": "📦 In anderen Tab"
 };

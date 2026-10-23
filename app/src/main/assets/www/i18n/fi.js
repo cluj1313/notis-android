@@ -804,5 +804,8 @@ NOTIS_I18N={
 "Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Olet kohteessa Sekalaista › Asiakkaat › 2026. Tasoja voi olla niin monta kuin haluat: avaa kansio ja napauta ylhäällä olevaa kansiopainiketta. 📌 Kiinnitä: paina kansiota pitkään tai valitse muistiinpanoja ja napauta 📌.",
 "↕️ Mută": "↕️ Siir titre",
 "↔️ Mută": "↔️ Siir titre",
-"↕️ Mută în alt tab": "↕️ Siirry toiseen välilehtiin"
+"↕️ Mută în alt tab": "↕️ Siirry toiseen välilehtiin",
+"📛 Redenumește": "📛 Nimi muutetaan",
+"📦 Mută": "📦 Siir titre",
+"📦 Mută în alt tab": "📦 Siirry toiseen välilehtiin"
 };

@@ -804,5 +804,8 @@ NOTIS_I18N={
 "Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Itt vagy: Egyéb › Ügyfelek › 2026. Annyi szintet hozhatsz létre, amennyit szeretnél: nyiss meg egy mappát, és koppints fent a mappa gombra. 📌 Kitűzés: tarts nyomva egy mappát, vagy jelölj ki jegyzeteket, és koppints a 📌-re.",
 "↕️ Mută": "↕️ Áthelyezés",
 "↔️ Mută": "↔️ Áthelyezés",
-"↕️ Mută în alt tab": "↕️ Másik fülre"
+"↕️ Mută în alt tab": "↕️ Másik fülre",
+"📛 Redenumește": "📛 Átnevezés",
+"📦 Mută": "📦 Áthelyezés",
+"📦 Mută în alt tab": "📦 Másik fülre"
 };

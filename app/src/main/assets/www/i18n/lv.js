@@ -804,5 +804,8 @@ NOTIS_I18N={
 "Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Jūs esat Dažādi › Klienti › 2026. Līmeņu var būt cik vien vēlaties: atveriet mapi un augšā pieskarieties mapes pogai. 📌 Piespraust: ilgi turiet mapi vai atlasiet piezīmes un pieskarieties 📌.",
 "↕️ Mută": "↕️ Nomieriniet",
 "↔️ Mută": "↔️ Nomieriniet",
-"↕️ Mută în alt tab": "↕️ Pārvietot uz citu lapu"
+"↕️ Mută în alt tab": "↕️ Pārvietot uz citu lapu",
+"📛 Redenumește": "📛 Pārnosaukums",
+"📦 Mută": "📦 Nomieriniet",
+"📦 Mută în alt tab": "📦 Pārvietot uz citu lapu"
 };

@@ -43,9 +43,9 @@ if(NL!=='ro')(function(){var SKIP='.ux,textarea,input,select option[data-u],.t,.
  TR.walk=walkN;
  document.addEventListener('DOMContentLoaded',function(){var lm=document.querySelector('link[rel=manifest]');if(lm)lm.href='manifest-'+NL+'.webmanifest?v=57'})})();
 </script>
-<link rel="manifest" href="manifest.webmanifest?v=82">
-<link rel="icon" type="image/png" sizes="48x48" href="icons/favicon.png?v=82">
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=82">
+<link rel="manifest" href="manifest.webmanifest?v=83">
+<link rel="icon" type="image/png" sizes="48x48" href="icons/favicon.png?v=83">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png?v=83">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Notis">
@@ -916,7 +916,7 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
  <div class="field" id="fNrp"><label for="sNrp">Spațiu între notițe <span class="val" id="vNrp"></span></label><input type="range" id="sNrp" min="0" max="14" step="1"></div>
  <div class="field" id="fSmg"><label for="sSmg">Margine laterală <span class="val" id="vSmg"></span></label><input type="range" id="sSmg" min="0" max="24" step="1"></div>
 <div class="field" id="fCdo"><label for="sCdo">Opacitate carduri <span class="val" id="vCdo"></span></label><input type="range" id="sCdo" min="0" max="100" step="1"><div class="bgkl"><span>transparent</span><span>opac</span></div></div>
-<div class="sec">Iconiță</div><div class="field" id="icoField"><div class="icrow" id="icoRow"><button type="button" class="icc" data-ico="new"><img src="icons/icon-192.png?v=82" alt=""><span>Nouă</span></button><button type="button" class="icc" data-ico="classic"><img src="icons/classic-icon-192.png?v=82" alt=""><span>Clasică</span></button></div><div class="hint" id="icoHint"></div></div>
+<div class="sec">Iconiță</div><div class="field" id="icoField"><div class="icrow" id="icoRow"><button type="button" class="icc" data-ico="new"><img src="icons/icon-192.png?v=83" alt=""><span>Nouă</span></button><button type="button" class="icc" data-ico="classic"><img src="icons/classic-icon-192.png?v=83" alt=""><span>Clasică</span></button></div><div class="hint" id="icoHint"></div></div>
 <div class="nsx"> <div class="sec">Ceas</div>
  <div class="field"><label>Font</label><div class="fonts" id="fontGrid"></div></div>
  <div class="field"><label>Culoare</label><div class="colors" id="colorRow"></div></div>
@@ -1661,16 +1661,16 @@ function lpMove(T,urg){var c=lpCur;lpClose();if(!c)return;var o=dndObj(c.S,c.id)
  if(T.key===c.S.key){r.u[c.id]=U}else{if(U)r.ids.unshift(c.id);else r.ids.push(c.id);r.u[c.id]=U}
  dndApply(c.S,T,c.id,r.ids,r.u);toast(urg==null?TR('Mutat în ')+(T.n||''):(U?TR('Marcat urgent'):TR('Marcat normal')))}
 function lpOpen(li,S){var o=dndObj(S,li.dataset.id);if(!o)return;lpCur={li:li,S:S,id:li.dataset.id};var m=$('lpMenu'),box=$('lpBox');
- box.innerHTML='<button data-a="al">⏰ Alarmă</button><button data-a="ed">✎ Editează</button><button data-a="mv">↕️ Mută</button><button data-a="x" class="dng">× Șterge</button>';
+ box.innerHTML='<button data-a="al">⏰ Alarmă</button><button data-a="ed">✎ Editează</button><button data-a="mv">📦 Mută</button><button data-a="x" class="dng">× Șterge</button>';
  m.classList.add('show');li.classList.add('jv-lpon');lpPos()}
 function lpPos(){var c=lpCur;if(!c)return;var r=c.li.getBoundingClientRect(),box=$('lpBox'),h=box.offsetHeight,w=box.offsetWidth,vh=window.innerHeight;
  var top=r.bottom+6;if(top+h>vh-10)top=Math.max(10,r.top-h-6);box.style.top=top+'px';box.style.left=Math.max(12,Math.min(window.innerWidth-w-12,r.left+24))+'px'}
 function lpMoveMenu(){var c=lpCur,o=dndObj(c.S,c.id),box=$('lpBox'),h='<div class="lph">Mută în</div>';
  lpLists().forEach(function(L,i){h+='<button data-mv="'+i+'"'+(L.key===c.S.key?' class="cur"':'')+'>'+esc(L.n)+(L.key===c.S.key?' ✓':'')+'</button>'});
  h+='<button data-a="urg">'+(o.urgent?TR('● Normal'):TR('● Urgent'))+'</button>';box.innerHTML=h;lpPos()}
-function lpTabOpen(hd){lpCur={li:hd,tabHd:true};$('lpBox').innerHTML='<button data-a="ren">✎ Redenumește</button><button data-a="tdel" class="dng">🗑 Șterge tabul</button>';$('lpMenu').classList.add('show');hd.classList.add('jv-lpon');lpPos()}
-function lpNTOpen(b){lpCur={li:b,nt:b.dataset.id};$('lpBox').innerHTML='<button data-a="ntren">✎ Redenumește</button><button data-a="ntmv">↔️ Mută</button><button data-a="ntcol">🎨 Culoare</button>'+((findNT(b.dataset.id)||{}).lk?'<button data-a="ntunl">🔓 Deblochează</button>':'<button data-a="ntlock">🔒 Blochează</button>')+'<button data-a="ntdel" class="dng">🗑 Șterge tabul</button>';$('lpMenu').classList.add('show');b.classList.add('jv-lpon');lpPos()}
-function lpNoteOpen(li){if((findN(li.dataset.id)||{}).del){lpCur={li:li,note:true};$('lpBox').innerHTML='<button data-a="nrest">↩ Reface</button><button data-a="npurge" class="dng">× Șterge definitiv</button>';$('lpMenu').classList.add('show');lpPos();return}lpCur={li:li,note:true};try{var _sn=findN(li.dataset.id);nShP=_sn&&!(_sn.lock&&!_sn._key)?nSharePrep(_sn):null}catch(_){nShP=null}$('lpBox').innerHTML='<button data-a="nal">⏰ Alarmă</button><button data-a="ned">✎ Editează</button><button data-a="nshr">📤 Trimite</button><button data-a="ndrag">✥ Mută (drag &amp; drop)</button><button data-a="nmv">↕️ Mută în alt tab</button>'+((findN(li.dataset.id)||{}).pin?'<button data-a="npin">📌 Anulează fixarea</button>':'<button data-a="npin">📌 Fixează</button>')+''+((findN(li.dataset.id)||{}).lock?'<button data-a="nunl">🔓 Deblochează</button>':'<button data-a="nlock">🔒 Blochează</button>')+'<button data-a="ndel" class="dng">× Șterge</button>';$('lpMenu').classList.add('show');li.classList.add('jv-lpon');lpPos()}
+function lpTabOpen(hd){lpCur={li:hd,tabHd:true};$('lpBox').innerHTML='<button data-a="ren">📛 Redenumește</button><button data-a="tdel" class="dng">🗑 Șterge tabul</button>';$('lpMenu').classList.add('show');hd.classList.add('jv-lpon');lpPos()}
+function lpNTOpen(b){lpCur={li:b,nt:b.dataset.id};$('lpBox').innerHTML='<button data-a="ntren">📛 Redenumește</button><button data-a="ntmv">📦 Mută</button><button data-a="ntcol">🎨 Culoare</button>'+((findNT(b.dataset.id)||{}).lk?'<button data-a="ntunl">🔓 Deblochează</button>':'<button data-a="ntlock">🔒 Blochează</button>')+'<button data-a="ntdel" class="dng">🗑 Șterge tabul</button>';$('lpMenu').classList.add('show');b.classList.add('jv-lpon');lpPos()}
+function lpNoteOpen(li){if((findN(li.dataset.id)||{}).del){lpCur={li:li,note:true};$('lpBox').innerHTML='<button data-a="nrest">↩ Reface</button><button data-a="npurge" class="dng">× Șterge definitiv</button>';$('lpMenu').classList.add('show');lpPos();return}lpCur={li:li,note:true};try{var _sn=findN(li.dataset.id);nShP=_sn&&!(_sn.lock&&!_sn._key)?nSharePrep(_sn):null}catch(_){nShP=null}$('lpBox').innerHTML='<button data-a="nal">⏰ Alarmă</button><button data-a="ned">✎ Editează</button><button data-a="nshr">📤 Trimite</button><button data-a="ndrag">✥ Mută (drag &amp; drop)</button><button data-a="nmv">📦 Mută în alt tab</button>'+((findN(li.dataset.id)||{}).pin?'<button data-a="npin">📌 Anulează fixarea</button>':'<button data-a="npin">📌 Fixează</button>')+''+((findN(li.dataset.id)||{}).lock?'<button data-a="nunl">🔓 Deblochează</button>':'<button data-a="nlock">🔒 Blochează</button>')+'<button data-a="ndel" class="dng">× Șterge</button>';$('lpMenu').classList.add('show');li.classList.add('jv-lpon');lpPos()}
 function lpClose(){$('lpMenu').classList.remove('show');if(lpCur&&lpCur.li)lpCur.li.classList.remove('jv-lpon');lpCur=null}
 $('lpMenu').addEventListener('click',function(e){if(lpJust){lpJust=false;return}var c=lpCur;if(!c){lpClose();return}var b=e.target.closest('button');if(!b){lpClose();return}if(c.sel){selPop(b);return}if(c.fd){fdAct(b,c);return}if(b.dataset.a&&/^at(img|cam|drw|rec)$/.test(b.dataset.a)){var aa=b.dataset.a;lpClose();atDo(aa);return}if(b.dataset.a==='fnew'){lpClose();fdNew(noteTab,nFolder);return}
  if(b.dataset.mv!=null){var T=lpLists()[+b.dataset.mv];if(T.key===c.S.key){lpClose();return}lpMove(T);return}
@@ -2694,7 +2694,7 @@ function fdPin(f,ok){pinShow({title:'🔒 '+f.name+TR(' · introdu PIN-ul'),done
 function fdUnlock(f){fdPin(f,function(){delete f.lk;delete fdOpen[f.id];saveNotes();renderNotes();toast(TR('Folder deblocat'))})}
 function fdMenu(li){var f=findF(li.dataset.fid);if(!f)return;lpCur={li:li,fd:f.id};var h;
  if(f.del)h='<button data-a="frest">↩ Reface</button><button data-a="fpurge" class="dng">× Șterge definitiv</button>';
- else h='<div class="lph">'+FD_IC+' '+esc(f.name)+'</div><button data-a="fren">✎ Redenumește</button>'+(f.pin?'<button data-a="fpin">📌 Anulează fixarea</button>':'<button data-a="fpin">📌 Fixează</button>')+'<button data-a="fmv">↕️ Mută</button>'+(f.lk?'<button data-a="funl">🔓 Deblochează</button>':'<button data-a="flock">🔒 Blochează</button>')+'<button data-a="fdel" class="dng">🗑 Șterge</button>';
+ else h='<div class="lph">'+FD_IC+' '+esc(f.name)+'</div><button data-a="fren">📛 Redenumește</button>'+(f.pin?'<button data-a="fpin">📌 Anulează fixarea</button>':'<button data-a="fpin">📌 Fixează</button>')+'<button data-a="fmv">📦 Mută</button>'+(f.lk?'<button data-a="funl">🔓 Deblochează</button>':'<button data-a="flock">🔒 Blochează</button>')+'<button data-a="fdel" class="dng">🗑 Șterge</button>';
  $('lpBox').innerHTML=h;$('lpMenu').classList.add('show');li.classList.add('jv-lpon');lpPos()}
 function fdAct(b,c){var f=findF(c.fd);if(!f){lpClose();return}
  if(b.dataset.ffd!=null){var k=b.dataset.ffd;lpClose();fdMove(f,k);return}

@@ -804,5 +804,8 @@ NOTIS_I18N={
 "Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Nalazite se u Razno › Klijenti › 2026. Razina može biti koliko želite: otvorite mapu i dodirnite gumb mape na vrhu. 📌 Prikvači: dugo pritisnite mapu ili odaberite bilješke i dodirnite 📌.",
 "↕️ Mută": "↕️ Pomaknite se.",
 "↔️ Mută": "↔️ Pomaknite se.",
-"↕️ Mută în alt tab": "↕️ Preseliti na drugi karticu"
+"↕️ Mută în alt tab": "↕️ Preseliti na drugi karticu",
+"📛 Redenumește": "📛 Preimenovanje",
+"📦 Mută": "📦 Pomaknite se.",
+"📦 Mută în alt tab": "📦 Preseliti na drugi karticu"
 };

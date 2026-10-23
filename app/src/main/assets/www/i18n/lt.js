@@ -804,5 +804,8 @@ NOTIS_I18N={
 "Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Esate Įvairūs › Klientai › 2026. Lygių gali būti kiek norite: atidarykite aplanką ir viršuje palieskite aplanko mygtuką. 📌 Prisegti: ilgai paspauskite aplanką arba pažymėkite užrašus ir palieskite 📌.",
 "↕️ Mută": "↕️ Pasitrauk",
 "↔️ Mută": "↔️ Pasitrauk",
-"↕️ Mută în alt tab": "↕️ Perkelti į kitą skirtuką"
+"↕️ Mută în alt tab": "↕️ Perkelti į kitą skirtuką",
+"📛 Redenumește": "📛 Pervadinti",
+"📦 Mută": "📦 Pasitrauk",
+"📦 Mută în alt tab": "📦 Perkelti į kitą skirtuką"
 };

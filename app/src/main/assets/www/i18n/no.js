@@ -804,5 +804,8 @@ NOTIS_I18N={
 "Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "Du er i Diverse › Kunder › 2026. Så mange nivåer du vil: åpne en mappe og trykk på mappeknappen øverst. 📌 Fest: hold inne på en mappe, eller velg notater og trykk på 📌.",
 "↕️ Mută": "↕️ Flytt",
 "↔️ Mută": "↔️ Flytt",
-"↕️ Mută în alt tab": "↕️ Flytt til en annen fane"
+"↕️ Mută în alt tab": "↕️ Flytt til en annen fane",
+"📛 Redenumește": "📛 Omdøpe",
+"📦 Mută": "📦 Flytt",
+"📦 Mută în alt tab": "📦 Flytt til en annen fane"
 };

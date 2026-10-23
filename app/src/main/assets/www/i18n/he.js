@@ -804,5 +804,8 @@ NOTIS_I18N={
 "Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe un folder sau selectează notițe și atinge 📌.": "אתם ב־שונות › לקוחות › 2026. כמה רמות שתרצו: פתחו תיקייה והקישו על כפתור התיקייה למעלה. 📌 הצמדה: לחיצה ארוכה על תיקייה, או בחרו פתקים והקישו 📌.",
 "↕️ Mută": "↕️ זוזו.",
 "↔️ Mută": "↔️ זוזו.",
-"↕️ Mută în alt tab": "↕️ לעבור לטבלה אחרת"
+"↕️ Mută în alt tab": "↕️ לעבור לטבלה אחרת",
+"📛 Redenumește": "📛 שינוי שם",
+"📦 Mută": "📦 זוזו.",
+"📦 Mută în alt tab": "📦 לעבור לטבלה אחרת"
 };
