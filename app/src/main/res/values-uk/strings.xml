@@ -82,4 +82,8 @@
     <string name="upd_open">Відкритий</string>
     <plurals name="notes_count"><item quantity="one">%d Примітка</item><item quantity="few">%d Примітки</item><item quantity="many">%d Примітки</item><item quantity="other">%d Примітки</item></plurals>
     <string name="snooze10">10 хвилин засинути.</string>
+    <string name="edit_btn">✎  Редагувати</string>
+    <string name="cd_edit">Редагувати</string>
+    <string name="edit_item">Редагувати пункт</string>
+    <string name="edit_note">Редагувати нотатку</string>
 </resources>

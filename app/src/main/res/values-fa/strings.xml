@@ -82,4 +82,8 @@
     <string name="upd_open">باز</string>
     <plurals name="notes_count"><item quantity="one">%d يادداشت</item><item quantity="few">%d یادداشت ها</item><item quantity="many">%d یادداشت ها</item><item quantity="other">%d یادداشت ها</item></plurals>
     <string name="snooze10">10 دقيقه خواب</string>
+    <string name="edit_btn">✎  ویرایش</string>
+    <string name="cd_edit">ویرایش</string>
+    <string name="edit_item">ویرایش مورد</string>
+    <string name="edit_note">ویرایش یادداشت</string>
 </resources>

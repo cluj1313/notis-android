@@ -82,4 +82,8 @@
     <string name="upd_open">开放</string>
     <plurals name="notes_count"><item quantity="one">%d 注意事项</item><item quantity="few">%d 备注</item><item quantity="many">%d 备注</item><item quantity="other">%d 备注</item></plurals>
     <string name="snooze10">休息10分钟</string>
+    <string name="edit_btn">✎  编辑</string>
+    <string name="cd_edit">编辑</string>
+    <string name="edit_item">编辑项目</string>
+    <string name="edit_note">编辑笔记</string>
 </resources>

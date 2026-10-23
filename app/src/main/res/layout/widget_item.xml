@@ -7,5 +7,6 @@
     </LinearLayout>
     <TextView android:id="@+id/wi_no" android:layout_width="wrap_content" android:layout_height="34dp" android:gravity="center" android:paddingStart="12dp" android:paddingEnd="12dp" android:textSize="14sp" android:textStyle="bold" android:text="@string/no" android:visibility="gone" />
     <TextView android:id="@+id/wi_yes" android:layout_width="wrap_content" android:layout_height="34dp" android:gravity="center" android:paddingStart="12dp" android:paddingEnd="12dp" android:layout_marginEnd="2dp" android:textSize="14sp" android:textStyle="bold" android:text="@string/yes" android:visibility="gone" />
+    <ImageView android:id="@+id/wi_ed" android:layout_width="34dp" android:layout_height="34dp" android:src="@drawable/ic_edit" android:padding="8dp" android:contentDescription="@string/cd_edit" />
     <ImageView android:id="@+id/wi_x" android:layout_width="34dp" android:layout_height="34dp" android:src="@drawable/ic_x" android:padding="8dp" android:contentDescription="@string/cd_delete" />
 </LinearLayout>

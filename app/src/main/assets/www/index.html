@@ -4,6 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,interactive-widget=resizes-content">
 <meta name="theme-color" content="#06111f">
+<script>/* v95: display settings mirrored in native storage (survives app updates even if the WebView loses its last localStorage writes) */
+var NSP_KEYS=['ns_nrowpad','ns_sidemg','ns_bgk','ns_cardop','ns_cardcol','ns_bg','ns_bgcol','ns_theme','ns_tabst','ns_newssize','ns_tabcol'];
+function nspOn(){try{return !!(window.NotisNative&&NotisNative.prefSet&&NotisNative.prefGetAll)&&localStorage.getItem('notis_demo')!=='1'}catch(e){return false}}
+function nspPush(k){try{if(nspOn())NotisNative.prefSet(k,localStorage.getItem(k))}catch(e){}}
+function nspPushAll(){NSP_KEYS.forEach(nspPush)}
+(function(){try{if(!nspOn())return;var m=JSON.parse(NotisNative.prefGetAll()||'{}')||{};NSP_KEYS.forEach(function(k){var lv=localStorage.getItem(k);
+ if(Object.prototype.hasOwnProperty.call(m,k)&&typeof m[k]==='string'){if(lv!==m[k])localStorage.setItem(k,m[k])}else if(lv!==null)NotisNative.prefSet(k,lv)})}catch(e){}})();
+</script>
 <script>try{var _t=JSON.parse(localStorage.getItem('ns_theme'));if(_t&&_t!=='color')document.documentElement.setAttribute('data-theme',_t)}catch(e){}</script>
 <script>/* v55 i18n: one dictionary file per language in i18n/<code>.js (keys = Romanian source text). Romanian = built-in, no file. */
 var NOTIS_LANGS=[['ro','Română','Romanian','Română'],['en','English','English','Engleză'],['fr','Français','French','Franceză'],['de','Deutsch','German','Germană'],['it','Italiano','Italian','Italiană'],['hu','Magyar','Hungarian','Maghiară'],['ru','Русский','Russian','Rusă'],
@@ -1186,7 +1194,7 @@ function NOTIS_ABraw(){var raw={};for(var i=0;i<localStorage.length;i++){var k=l
 /* write a raw snapshot back: keys created after the snapshot are removed, every snapshot key is restored byte-for-byte */
 function NOTIS_ABput(raw){var ks=[];for(var i=0;i<localStorage.length;i++)ks.push(localStorage.key(i));
  ks.forEach(function(k){if(k&&k.indexOf('demo:')!==0&&!/^ns_(premig|lastver|migfail)/.test(k)&&k.indexOf('notis_demo')!==0&&!/^ns_(wx|news)/.test(k)&&!(k in raw))localStorage.removeItem(k)});
- Object.keys(raw).forEach(function(k){localStorage.setItem(k,raw[k])})}
+ Object.keys(raw).forEach(function(k){localStorage.setItem(k,raw[k])});try{nspPushAll()}catch(_){}}
 NOTIS_AB.restore=function(why){var R=NOTIS_AB;if(!R.changed||R.restored||!R.raw)return false;R.restored=true;
  try{NOTIS_ABput(R.raw);localStorage.setItem('ns_migfail',JSON.stringify({ver:R.cur,why:String(why||''),ts:new Date().toISOString()}))}catch(e){return false}
  var once=false;try{once=sessionStorage.getItem('ns_abreload')===R.cur;sessionStorage.setItem('ns_abreload',R.cur)}catch(_){}
@@ -1213,7 +1221,7 @@ function demoReset(){try{Object.keys(localStorage).filter(function(k){return k.i
 document.documentElement.classList.add('notis');
 /* Notis: one-time copy of Jarvis notes (same origin), Jarvis data untouched */
 var NS_IMPORTED=false;
-var LS={get:function(k,d){try{var v=localStorage.getItem(PFX+k);return v?JSON.parse(v):d}catch(e){return d}},set:function(k,v){try{localStorage.setItem(PFX+k,JSON.stringify(v))}catch(e){}}};
+var LS={get:function(k,d){try{var v=localStorage.getItem(PFX+k);return v?JSON.parse(v):d}catch(e){return d}},set:function(k,v){try{localStorage.setItem(PFX+k,JSON.stringify(v));if(!PFX&&NSP_KEYS.indexOf(k)>=0)nspPush(k)}catch(e){}}};
 /* v21: drop AI/search keys */
 (function(){['ns_gkey','ns_skey','ns_chat','ns_gmodel','ns_gauto','ns_gnosearch'].forEach(function(k){try{localStorage.removeItem(PFX+k)}catch(e){}})})();
 var ZILE=[TR('Duminică'),TR('Luni'),TR('Marți'),TR('Miercuri'),TR('Joi'),TR('Vineri'),TR('Sâmbătă')];
@@ -3229,7 +3237,7 @@ bgkApply(LS.get('ns_bgk',0));$('sBgk').addEventListener('input',function(){bgkAp
  var _th=thApply;thApply=function(t){_th(t);apply()}})();
 /* v80: backup carries card opacity + solid colour background */
 (function(){function wrap(){var c=window.spCollect,a=window.spApply;if(!c||c._v80)return;window.spCollect=function(){var o=c.apply(this,arguments)||{};o.ns_cardop=LS.get('ns_cardop',null);o.ns_bgcol=LS.get('ns_bgcol',null);o.ns_bg=LS.get('ns_bg','lup');return o};window.spCollect._v80=1;
- window.spApply=function(d){var r=a&&a.apply(this,arguments);try{if(d&&'ns_cardop' in d){if(d.ns_cardop===null)localStorage.removeItem(PFX+'ns_cardop');else LS.set('ns_cardop',d.ns_cardop)}if(d&&d.ns_bgcol)bgColSet(d.ns_bgcol);if(d&&d.ns_bg){LS.set('ns_bg',d.ns_bg);bgApply(d.ns_bg)}cdoApply()}catch(_){}return r}}
+ window.spApply=function(d){var r=a&&a.apply(this,arguments);try{if(d&&'ns_cardop' in d){if(d.ns_cardop===null){localStorage.removeItem(PFX+'ns_cardop');if(!PFX)nspPush('ns_cardop')}else LS.set('ns_cardop',d.ns_cardop)}if(d&&d.ns_bgcol)bgColSet(d.ns_bgcol);if(d&&d.ns_bg){LS.set('ns_bg',d.ns_bg);bgApply(d.ns_bg)}cdoApply()}catch(_){}return r}}
  wrap();if(!window.spCollect||!window.spCollect._v80)window.addEventListener('load',wrap)})();
 /* v90: tab style (Pilule / Căsuțe) */
 (function(){var R=document.documentElement;function ap(v){v=v==='box'?'box':'pill';if(v==='box')R.setAttribute('data-tabst','box');else R.removeAttribute('data-tabst');document.querySelectorAll('#tstRow .tsc').forEach(function(b){b.classList.toggle('on',b.dataset.ts===v)})}
@@ -3292,6 +3300,10 @@ function nrpApply(){var v=+LS.get('ns_nrowpad',8);if(!(v>=0&&v<=14))v=8;var R=do
 function smgApply(){var v=+LS.get('ns_sidemg',4);if(!(v>=0&&v<=24))v=4;document.documentElement.style.setProperty('--smg',v+'px');var s=$('sSmg');if(s){s.value=v;$('vSmg').textContent=v+'px'}} /* v66: side margin for Utilități/Medicamente cards */
 smgApply();$('sSmg').addEventListener('input',function(){LS.set('ns_sidemg',+this.value);smgApply()});
 nrpApply();$('sNrp').addEventListener('input',function(){LS.set('ns_nrowpad',+this.value);nrpApply()});
+/* v95: row spacing, side margin and background intensity also travel in manual backups */
+(function(){function wrap(){var c=window.spCollect,a=window.spApply;if(!c||c._v95)return;window.spCollect=function(){var o=c.apply(this,arguments)||{};o.ns_nrowpad=LS.get('ns_nrowpad',8);o.ns_sidemg=LS.get('ns_sidemg',4);o.ns_bgk=LS.get('ns_bgk',0);return o};window.spCollect._v95=1;
+ window.spApply=function(d){var r=a&&a.apply(this,arguments);try{if(d&&typeof d.ns_nrowpad==='number'){LS.set('ns_nrowpad',d.ns_nrowpad);nrpApply()}if(d&&typeof d.ns_sidemg==='number'){LS.set('ns_sidemg',d.ns_sidemg);smgApply()}if(d&&typeof d.ns_bgk==='number'){LS.set('ns_bgk',d.ns_bgk);if(window.bgkApply)bgkApply(d.ns_bgk)}}catch(_){}return r}}
+ wrap();if(!window.spCollect||!window.spCollect._v95)window.addEventListener('load',wrap)})();
 /* v39: app shortcuts (manifest) -> ?a=new | ?a=search | ?tab=<name>; on load and via launchQueue when already open */
 var nsLaunchAt=0,nsLaunchU='';
 function nsLaunch(u){var U;try{U=new URL(u,location.href)}catch(_){return}var q=U.searchParams,a=q.get('a'),tb=q.get('tab'),op=q.get('open');if(!a&&tb==null&&!op)return;
@@ -3376,9 +3388,12 @@ if(window.launchQueue&&launchQueue.setConsumer)launchQueue.setConsumer(function(
   if(op==='rn'){if(!n||!n.del)return false;var t9=n.delTab||n.tab;if(!findNT(t9))t9=(findNT('general')||noteTabs[0]).id;n.tab=t9;delete n.del;delete n.delTab;return true}
   if(!n||n.lock||n.del)return false;
   if(op==='dn'){n.del=now;n.delTab=n.tab;return true}
+  /* v95: widget edit — text note (en) / list item (ei), same id, alarm, done state and position */
+  if(op==='en'){var tx=String(c.text||'');if((n.type&&n.type!=='text')||!tx.trim()||n.text===tx)return false;n.text=tx;n.updatedAt=n.editedAt=now;return true}
   if(op==='al'){if(c.a&&c.a.at)n.alarm={at:+c.a.at,rep:+c.a.rep||0,until:c.a.until||null,snz:null};else if(n.alarm)delete n.alarm;else return false;try{alSchedule(n)}catch(_){}return true}
   if(op==='ar'){var A=n.alarm;if(!A||!A.at||A.at>c.at)return false;if(A.snz&&A.snz<=c.at)A.snz=null;if(A.rep){var st=A.rep*60000;A.at=A.at+Math.ceil((c.at-A.at+1)/st)*st;if(A.at<Date.now())A.at=alRoll(A.at,A.rep);if(A.until&&A.at>A.until)delete n.alarm}else delete n.alarm;return true}
   var arr=chkArr(n,c.b,op==='ai');if(!arr)return false;
+  if(op==='ei'){var et=String(c.t||'').trim(),eh=false;if(!et)return false;arr.forEach(function(x){if(x.id===c.i&&String(x.text||'').trim()!==et){x.text=et;x.updatedAt=now;eh=true}});if(eh)touch(n);return eh}
   if(op==='ai'){if(arr.some(function(x){return x.id===c.i})||!String(c.t||'').trim())return false;
    var st=wri[c.n+'|'+c.i],X=c.x||null,obj,at=arr.length;
    if(st&&st.it){obj=st.it;at=st.k}else if(X){obj={id:c.i,text:String(X.t||c.t).trim(),done:!!X.d,createdAt:X.c||now,updatedAt:X.u||X.c||now};if(X.o>=0)at=X.o}

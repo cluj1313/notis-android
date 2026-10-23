@@ -82,4 +82,8 @@
     <string name="upd_open">Está abierto.</string>
     <plurals name="notes_count"><item quantity="one">%d Nota de la Comisión</item><item quantity="few">%d Las notas</item><item quantity="many">%d Las notas</item><item quantity="other">%d Las notas</item></plurals>
     <string name="snooze10">Siesta de 10 minutos</string>
+    <string name="edit_btn">✎  Editar</string>
+    <string name="cd_edit">Editar</string>
+    <string name="edit_item">Editar elemento</string>
+    <string name="edit_note">Editar nota</string>
 </resources>

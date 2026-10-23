@@ -82,4 +82,8 @@
     <string name="upd_open">Открыть</string>
     <plurals name="notes_count"><item quantity="one">%d заметка</item><item quantity="few">%d заметки</item><item quantity="many">%d заметок</item><item quantity="other">%d заметки</item></plurals>
     <string name="snooze10">Отложить на 10 мин</string>
+    <string name="edit_btn">✎  Изменить</string>
+    <string name="cd_edit">Изменить</string>
+    <string name="edit_item">Изменить пункт</string>
+    <string name="edit_note">Изменить заметку</string>
 </resources>

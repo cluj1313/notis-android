@@ -82,4 +82,8 @@
     <string name="upd_open">Açık .</string>
     <plurals name="notes_count"><item quantity="one">%d Not:</item><item quantity="few">%d Notlar</item><item quantity="many">%d Notlar</item><item quantity="other">%d Notlar</item></plurals>
     <string name="snooze10">10 dakika dinlen.</string>
+    <string name="edit_btn">✎  Düzenle</string>
+    <string name="cd_edit">Düzenle</string>
+    <string name="edit_item">Öğeyi düzenle</string>
+    <string name="edit_note">Notu düzenle</string>
 </resources>

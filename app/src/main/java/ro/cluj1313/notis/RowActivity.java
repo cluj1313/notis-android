@@ -16,7 +16,9 @@ public class RowActivity extends Activity {
         String nid = i.getStringExtra("n");
         if (nid != null) {
             String act = i.getStringExtra("act");
-            if ("alarm".equals(act)) {
+            if ("edit".equals(act)) {
+                startActivity(new Intent(this, EditActivity.class).putExtra("k", "n").putExtra("n", nid));
+            } else if ("alarm".equals(act)) {
                 startActivity(new Intent(this, AlarmActivity.class).putExtra("n", nid));
             } else if ("del".equals(act)) {
                 try { Store.putAsk(this, wid, new JSONObject().put("k", "n").put("n", nid)); } catch (Exception ignored) {}

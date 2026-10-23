@@ -82,4 +82,8 @@
     <string name="upd_open">Öppet</string>
     <plurals name="notes_count"><item quantity="one">%d Anmärkning</item><item quantity="few">%d Anmärkningar</item><item quantity="many">%d Anmärkningar</item><item quantity="other">%d Anmärkningar</item></plurals>
     <string name="snooze10">Sömn 10 minuter.</string>
+    <string name="edit_btn">✎  Redigera</string>
+    <string name="cd_edit">Redigera</string>
+    <string name="edit_item">Redigera objekt</string>
+    <string name="edit_note">Redigera anteckning</string>
 </resources>

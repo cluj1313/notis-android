@@ -61,17 +61,17 @@ public class WidgetService extends RemoteViewsService {
     static RemoteViews listRow(Context c, List<JSONObject> rs, String nid, Themes th, int p) {
             RemoteViews v = new RemoteViews(c.getPackageName(), R.layout.widget_item);
             v.setTextViewText(R.id.wi_yes, Tr.s(c, R.string.yes)); v.setTextViewText(R.id.wi_no, Tr.s(c, R.string.no));
-            v.setContentDescription(R.id.wi_box, Tr.s(c, R.string.cd_tick)); v.setContentDescription(R.id.wi_x, Tr.s(c, R.string.cd_delete));
+            v.setContentDescription(R.id.wi_box, Tr.s(c, R.string.cd_tick)); v.setContentDescription(R.id.wi_x, Tr.s(c, R.string.cd_delete)); v.setContentDescription(R.id.wi_ed, Tr.s(c, R.string.cd_edit));
             if (p >= rs.size()) return v;
             JSONObject x = rs.get(p);
             /* the launcher recycles row views: always set every visibility explicitly */
-            v.setViewVisibility(R.id.wi_box, View.VISIBLE); v.setViewVisibility(R.id.wi_x, View.VISIBLE);
+            v.setViewVisibility(R.id.wi_box, View.VISIBLE); v.setViewVisibility(R.id.wi_x, View.VISIBLE); v.setViewVisibility(R.id.wi_ed, View.VISIBLE);
             v.setViewVisibility(R.id.wi_yes, View.GONE); v.setViewVisibility(R.id.wi_no, View.GONE);
             try {
             boolean d = x.optBoolean("d");
             String t = x.optString("t");
             if (x.optBoolean("ask")) {
-                v.setViewVisibility(R.id.wi_box, View.GONE); v.setViewVisibility(R.id.wi_x, View.GONE);
+                v.setViewVisibility(R.id.wi_box, View.GONE); v.setViewVisibility(R.id.wi_x, View.GONE); v.setViewVisibility(R.id.wi_ed, View.GONE);
                 v.setViewVisibility(R.id.wi_yes, View.VISIBLE); v.setViewVisibility(R.id.wi_no, View.VISIBLE);
                 v.setTextViewText(R.id.wi_text, Tr.s(c, R.string.ask_del_named, t)); v.setTextColor(R.id.wi_text, th.text);
                 v.setTextColor(R.id.wi_yes, th.danger); v.setTextColor(R.id.wi_no, th.acc);
@@ -82,7 +82,7 @@ public class WidgetService extends RemoteViewsService {
                 return v;
             }
             if (x.optBoolean("undo")) {
-                v.setViewVisibility(R.id.wi_box, View.GONE); v.setViewVisibility(R.id.wi_x, View.GONE);
+                v.setViewVisibility(R.id.wi_box, View.GONE); v.setViewVisibility(R.id.wi_x, View.GONE); v.setViewVisibility(R.id.wi_ed, View.GONE);
                 v.setTextViewText(R.id.wi_text, Tr.s(c, R.string.deleted_named_undo, t)); v.setTextColor(R.id.wi_text, th.acc);
                 v.setOnClickFillInIntent(R.id.wi_row, new Intent().putExtra("n", nid).putExtra("i", x.optString("i")).putExtra("act", "undo"));
                 return v;
@@ -97,6 +97,8 @@ public class WidgetService extends RemoteViewsService {
             v.setOnClickFillInIntent(R.id.wi_row, f);
             Intent g = new Intent().putExtra("n", nid).putExtra("i", x.optString("i")).putExtra("b", x.optString("b", "")).putExtra("t", t).putExtra("d", d).putExtra("p", p).putExtra("act", "del");
             v.setOnClickFillInIntent(R.id.wi_x, g);
+            v.setImageViewResource(R.id.wi_ed, R.drawable.ic_edit); v.setInt(R.id.wi_ed, "setColorFilter", th.mut);
+            v.setOnClickFillInIntent(R.id.wi_ed, new Intent().putExtra("n", nid).putExtra("i", x.optString("i")).putExtra("b", x.optString("b", "")).putExtra("act", "edit"));
             } catch (Exception e) { v.setTextViewText(R.id.wi_text, x.optString("t")); }
             return v;
         }
@@ -112,7 +114,7 @@ public class WidgetService extends RemoteViewsService {
                 String tt = txt.split("\n", 2)[0]; if (tt.length() > 40) tt = tt.substring(0, 40) + "…";
                 v.setTextViewText(R.id.ni_text, (tt.length() > 0 ? Tr.s(c, R.string.ask_del_named, tt) : Tr.s(c, R.string.ask_del)));
                 v.setInt(R.id.ni_text, "setMaxLines", 2); v.setTextColor(R.id.ni_text, th.text);
-                v.setViewVisibility(R.id.ni_al, View.GONE); v.setViewVisibility(R.id.ni_del, View.GONE);
+                v.setViewVisibility(R.id.ni_al, View.GONE); v.setViewVisibility(R.id.ni_del, View.GONE); v.setViewVisibility(R.id.ni_edit, View.GONE);
                 v.setViewVisibility(R.id.ni_yes, View.VISIBLE); v.setViewVisibility(R.id.ni_no, View.VISIBLE);
                 v.setTextColor(R.id.ni_yes, th.danger); v.setTextColor(R.id.ni_no, th.acc);
                 v.setOnClickFillInIntent(R.id.ni_text, new Intent().putExtra("n", id).putExtra("act", "no"));
@@ -124,7 +126,7 @@ public class WidgetService extends RemoteViewsService {
                 String tt = n.optString("title"); if (tt.length() > 40) tt = tt.substring(0, 40) + "…";
                 v.setTextViewText(R.id.ni_text, (tt.length() > 0 ? Tr.s(c, R.string.trashed_named_undo, tt) : Tr.s(c, R.string.trashed_undo)));
                 v.setTextColor(R.id.ni_text, th.acc);
-                v.setViewVisibility(R.id.ni_al, View.GONE); v.setViewVisibility(R.id.ni_del, View.GONE);
+                v.setViewVisibility(R.id.ni_al, View.GONE); v.setViewVisibility(R.id.ni_del, View.GONE); v.setViewVisibility(R.id.ni_edit, View.GONE);
                 v.setOnClickFillInIntent(R.id.ni_text, new Intent().putExtra("n", id).putExtra("act", "undo"));
                 return v;
             }
@@ -155,6 +157,13 @@ public class WidgetService extends RemoteViewsService {
                 v.setTextColor(R.id.ni_del, th.mut);
                 v.setOnClickFillInIntent(R.id.ni_del, new Intent().putExtra("n", id).putExtra("p", p).putExtra("act", "del"));
             } else v.setViewVisibility(R.id.ni_del, View.GONE);
+            /* 2.5.0: expanded text note: "✎ Editează" next to "✕ Șterge" */
+            if (ex && "text".equals(n.optString("type", "text")) && !n.optBoolean("med") && id.length() > 0) {
+                v.setViewVisibility(R.id.ni_edit, View.VISIBLE);
+                v.setTextViewText(R.id.ni_edit, Tr.s(c, R.string.edit_btn));
+                v.setTextColor(R.id.ni_edit, th.acc);
+                v.setOnClickFillInIntent(R.id.ni_edit, new Intent().putExtra("n", id).putExtra("act", "edit"));
+            } else v.setViewVisibility(R.id.ni_edit, View.GONE);
             v.setOnClickFillInIntent(R.id.ni_text, new Intent().putExtra("n", id).putExtra("act", "expand"));
             v.setOnClickFillInIntent(R.id.ni_al, new Intent().putExtra("n", id).putExtra("act", "alarm"));
             return v;

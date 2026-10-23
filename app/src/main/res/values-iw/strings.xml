@@ -82,4 +82,8 @@
     <string name="upd_open">פתוח.</string>
     <plurals name="notes_count"><item quantity="one">%d הערה</item><item quantity="few">%d הערות</item><item quantity="many">%d הערות</item><item quantity="other">%d הערות</item></plurals>
     <string name="snooze10">תנומה של 10 דקות.</string>
+    <string name="edit_btn">✎  עריכה</string>
+    <string name="cd_edit">עריכה</string>
+    <string name="edit_item">עריכת פריט</string>
+    <string name="edit_note">עריכת פתק</string>
 </resources>

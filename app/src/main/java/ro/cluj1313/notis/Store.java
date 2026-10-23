@@ -162,6 +162,22 @@ final class Store {
         try { addOp(c, new JSONObject().put("op", "an").put("n", id).put("tab", tab == null ? "" : tab).put("text", text)); } catch (Exception ignored) {}
         return id;
     }
+    /** 2.5.0: edit in place; "d" = current done state so an older web app (which treats unknown ops as a tick) changes nothing */
+    static void editItem(Context c, String nid, String bid, String iid, String text, boolean done) {
+        try { JSONObject o = new JSONObject().put("op", "ei").put("n", nid).put("i", iid).put("t", text).put("d", done); if (bid != null && bid.length() > 0) o.put("b", bid); addOp(c, o); } catch (Exception ignored) {}
+    }
+    static void editNote(Context c, String nid, String text) {
+        try { addOp(c, new JSONObject().put("op", "en").put("n", nid).put("text", text)); } catch (Exception ignored) {}
+    }
+    /** pure: the note (by id) or list item (by list id + block + item id) in a snapshot, or null */
+    static JSONObject find(JSONObject s, boolean note, String nid, String bid, String iid) {
+        if (s == null || nid == null) return null;
+        if (note) return byId(s.optJSONArray("notes"), nid);
+        JSONObject l = byId(s.optJSONArray("lists"), nid); JSONArray it = l == null ? null : l.optJSONArray("items");
+        String b = bid == null ? "" : bid;
+        if (it != null && iid != null) for (int j = 0; j < it.length(); j++) { JSONObject x = it.optJSONObject(j); if (x != null && iid.equals(x.optString("i")) && (b.length() == 0 || b.equals(x.optString("b", "")))) return x; }
+        return null;
+    }
     /** note -> app trash (restorable there); applied by the web app as op "dn" */
     static void deleteNote(Context c, String nid) {
         try { addOp(c, new JSONObject().put("op", "dn").put("n", nid)); } catch (Exception ignored) {}
@@ -236,6 +252,7 @@ final class Store {
                     }
                     continue;
                 }
+                if (op.equals("en")) { JSONObject n = byId(notes, nid); String txt = p.optString("text"); if (n != null && txt.trim().length() > 0) { n.put("text", txt); if (!"check".equals(n.optString("type")) ) n.put("title", txt.trim().split("\n")[0]); } continue; }
                 if (op.equals("dn")) { drop(notes, nid); drop(lists, nid); continue; }
                 if (op.equals("rn")) { JSONObject cp = p.optJSONObject("note"); if (cp != null && byId(notes, nid) == null) notes.put(new JSONObject(cp.toString())); continue; }
                 if (op.equals("al") || op.equals("ar")) {
@@ -268,6 +285,7 @@ final class Store {
                     insertAt(it, kk < 0 ? it.length() : Math.min(kk, it.length()), x);
                 } }
                 else if (op.equals("ri")) { if (at >= 0) it.remove(at); }
+                else if (op.equals("ei")) { if (at >= 0 && p.optString("t").trim().length() > 0) { JSONObject y = it.getJSONObject(at); y.put("t", p.optString("t").trim()); y.put("u", iso(p.optLong("ts", System.currentTimeMillis()))); } }
                 else if (at >= 0) { JSONObject y = it.getJSONObject(at); if (y.optBoolean("d") != p.optBoolean("d")) { y.put("d", p.optBoolean("d")); y.put("u", iso(p.optLong("ts", System.currentTimeMillis()))); } }
             }
         } catch (Exception ignored) {}

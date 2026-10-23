@@ -82,4 +82,8 @@
     <string name="upd_open">Ανοιχτό</string>
     <plurals name="notes_count"><item quantity="one">%d Σημείωση</item><item quantity="few">%d Σημειώσεις</item><item quantity="many">%d Σημειώσεις</item><item quantity="other">%d Σημειώσεις</item></plurals>
     <string name="snooze10">Κλείσε 10 λεπτά.</string>
+    <string name="edit_btn">✎  Επεξεργασία</string>
+    <string name="cd_edit">Επεξεργασία</string>
+    <string name="edit_item">Επεξεργασία στοιχείου</string>
+    <string name="edit_note">Επεξεργασία σημείωσης</string>
 </resources>

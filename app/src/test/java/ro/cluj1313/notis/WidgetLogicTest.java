@@ -98,4 +98,22 @@ public class WidgetLogicTest {
         assertEquals(2, rows.size()); for (JSONObject r : rows) assertFalse(r.optBoolean("undo"));
         assertEquals("Birou\ncapse", rows.get(1).optString("text"));
     }
+
+    @Test public void editKeepsIdDonePositionAndAlarm() throws Exception {
+        JSONObject s0 = snap(); s0.getJSONArray("notes").getJSONObject(0).put("alarm", new JSONObject().put("at", 123L).put("rep", 0));
+        list(s0).getJSONArray("items").getJSONObject(1).put("d", true);
+        JSONArray p = new JSONArray()
+            .put(new JSONObject().put("op", "ei").put("n", "L").put("i", "b").put("t", "  Cablu USB-C ").put("d", true).put("ts", 1L))
+            .put(new JSONObject().put("op", "ei").put("n", "L").put("i", "a").put("t", "   ").put("d", false))
+            .put(new JSONObject().put("op", "en").put("n", "n1").put("text", "Birou nou\ncapse, hârtie"));
+        JSONObject s = Store.overlay(s0, p);
+        JSONObject b = item(list(s), "b");
+        assertEquals("Cablu USB-C", b.optString("t")); assertTrue(b.optBoolean("d")); assertEquals(3, b.optInt("o"));
+        assertEquals(1, list(s).getJSONArray("items").toString().split("\"i\":\"b\"").length - 1);
+        assertEquals("Apă", item(list(s), "a").optString("t"));
+        JSONObject n = s.getJSONArray("notes").getJSONObject(0);
+        assertEquals("n1", n.optString("id")); assertEquals("Birou nou\ncapse, hârtie", n.optString("text")); assertEquals("Birou nou", n.optString("title"));
+        assertEquals(123L, n.getJSONObject("alarm").optLong("at"));
+        assertNotNull(Store.find(s, false, "L", "", "b")); assertNull(Store.find(s, false, "L", "", "zz")); assertEquals("n1", Store.find(s, true, "n1", null, null).optString("id"));
+    }
 }

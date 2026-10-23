@@ -82,4 +82,8 @@
     <string name="upd_open">Отворена.</string>
     <plurals name="notes_count"><item quantity="one">%d Бележка</item><item quantity="few">%d бележки</item><item quantity="many">%d бележки</item><item quantity="other">%d бележки</item></plurals>
     <string name="snooze10">10 минути задрямка.</string>
+    <string name="edit_btn">✎  Редактирай</string>
+    <string name="cd_edit">Редактирай</string>
+    <string name="edit_item">Редактиране на елемент</string>
+    <string name="edit_note">Редактиране на бележка</string>
 </resources>

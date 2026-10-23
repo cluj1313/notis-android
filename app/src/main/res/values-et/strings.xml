@@ -82,4 +82,8 @@
     <string name="upd_open">Avada</string>
     <plurals name="notes_count"><item quantity="one">%d märkus</item><item quantity="few">%d märkused</item><item quantity="many">%d märkused</item><item quantity="other">%d märkused</item></plurals>
     <string name="snooze10">10 minutit uinumist.</string>
+    <string name="edit_btn">✎  Muuda</string>
+    <string name="cd_edit">Muuda</string>
+    <string name="edit_item">Muuda kirjet</string>
+    <string name="edit_note">Muuda märkmet</string>
 </resources>

@@ -82,4 +82,8 @@
     <string name="upd_open">已開放</string>
     <plurals name="notes_count"><item quantity="one">%d 註:沒有</item><item quantity="few">%d 註冊方式</item><item quantity="many">%d 註冊方式</item><item quantity="other">%d 註冊方式</item></plurals>
     <string name="snooze10">休息10分鐘</string>
+    <string name="edit_btn">✎  編輯</string>
+    <string name="cd_edit">編輯</string>
+    <string name="edit_item">編輯項目</string>
+    <string name="edit_note">編輯筆記</string>
 </resources>

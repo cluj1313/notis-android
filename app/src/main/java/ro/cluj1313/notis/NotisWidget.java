@@ -143,10 +143,12 @@ public class NotisWidget extends AppWidgetProvider {
         if (Build.VERSION.SDK_INT >= 31) v.setRemoteAdapter(R.id.w_list, WidgetService.listItems(c, id));
         else v.setRemoteAdapter(R.id.w_list, svc);
         v.setEmptyView(R.id.w_list, R.id.w_empty);
-        Intent t = new Intent(c, ListActReceiver.class).setAction(ACT).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id);
+        /* 2.5.0: rows go through a no-UI activity (✎ opens the edit dialog; activity starts from a broadcast are blocked on Android 10+) */
+        Intent t = new Intent(c, ListRowActivity.class).setAction(ACT).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id)
+            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
         t.setData(Uri.parse("notis://listact/" + id));
         int fl = PendingIntent.FLAG_UPDATE_CURRENT | (Build.VERSION.SDK_INT >= 31 ? PendingIntent.FLAG_MUTABLE : 0);
-        v.setPendingIntentTemplate(R.id.w_list, PendingIntent.getBroadcast(c, id, t, fl));
+        v.setPendingIntentTemplate(R.id.w_list, PendingIntent.getActivity(c, id + 200000, t, fl));
         m.updateAppWidget(id, v);
     }
 }

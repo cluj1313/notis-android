@@ -82,4 +82,8 @@
     <string name="upd_open">Megnyitás</string>
     <plurals name="notes_count"><item quantity="one">%d jegyzet</item><item quantity="other">%d jegyzet</item></plurals>
     <string name="snooze10">Halasztás 10 perc</string>
+    <string name="edit_btn">✎  Szerkesztés</string>
+    <string name="cd_edit">Szerkesztés</string>
+    <string name="edit_item">Tétel szerkesztése</string>
+    <string name="edit_note">Jegyzet szerkesztése</string>
 </resources>

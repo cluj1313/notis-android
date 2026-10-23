@@ -83,4 +83,8 @@
     <string name="upd_open">Open</string>
     <plurals name="notes_count"><item quantity="one">%d note</item><item quantity="other">%d notes</item></plurals>
     <string name="snooze10">Snooze 10 min</string>
+    <string name="edit_btn">✎  Edit</string>
+    <string name="cd_edit">Edit</string>
+    <string name="edit_item">Edit item</string>
+    <string name="edit_note">Edit note</string>
 </resources>
