@@ -811,5 +811,7 @@ NOTIS_I18N={
 "Imagine din galerie": "গ্যালারি থেকে ছবি",
 "Previzualizare": "প্রিভিউ",
 "👁 Previzualizare": "👁 প্রিভিউ",
-"Nu s-a putut încărca imaginea": "ছবিটি লোড করা যায়নি"
+"Nu s-a putut încărca imaginea": "ছবিটি লোড করা যায়নি",
+"Distribuie aplicația": "অ্যাপ শেয়ার করুন",
+"Notis – notițe, liste și memento-uri": "Notis – নোট, তালিকা ও রিমাইন্ডার"
 };

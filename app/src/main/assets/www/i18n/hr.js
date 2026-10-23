@@ -811,5 +811,7 @@ NOTIS_I18N={
 "Imagine din galerie": "Slika iz galerije",
 "Previzualizare": "Pregled",
 "👁 Previzualizare": "👁 Pregled",
-"Nu s-a putut încărca imaginea": "Slika se nije mogla učitati"
+"Nu s-a putut încărca imaginea": "Slika se nije mogla učitati",
+"Distribuie aplicația": "Podijeli aplikaciju",
+"Notis – notițe, liste și memento-uri": "Notis – bilješke, popisi i podsjetnici"
 };

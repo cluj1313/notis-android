@@ -811,5 +811,7 @@ NOTIS_I18N={
 "Imagine din galerie": "Imazh nga galeria",
 "Previzualizare": "Pamje paraprake",
 "👁 Previzualizare": "👁 Pamje paraprake",
-"Nu s-a putut încărca imaginea": "Imazhi nuk u ngarkua dot"
+"Nu s-a putut încărca imaginea": "Imazhi nuk u ngarkua dot",
+"Distribuie aplicația": "Ndaj aplikacionin",
+"Notis – notițe, liste și memento-uri": "Notis – shënime, lista dhe kujtesa"
 };

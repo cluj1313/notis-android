@@ -811,5 +811,7 @@ NOTIS_I18N={
 "Imagine din galerie": "Kuva galleriasta",
 "Previzualizare": "Esikatselu",
 "👁 Previzualizare": "👁 Esikatselu",
-"Nu s-a putut încărca imaginea": "Kuvaa ei voitu ladata"
+"Nu s-a putut încărca imaginea": "Kuvaa ei voitu ladata",
+"Distribuie aplicația": "Jaa sovellus",
+"Notis – notițe, liste și memento-uri": "Notis – muistiinpanot, listat ja muistutukset"
 };

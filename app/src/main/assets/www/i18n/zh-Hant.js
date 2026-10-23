@@ -811,5 +811,7 @@ NOTIS_I18N={
 "Imagine din galerie": "圖庫中的圖片",
 "Previzualizare": "預覽",
 "👁 Previzualizare": "👁 預覽",
-"Nu s-a putut încărca imaginea": "無法載入圖片"
+"Nu s-a putut încărca imaginea": "無法載入圖片",
+"Distribuie aplicația": "分享應用程式",
+"Notis – notițe, liste și memento-uri": "Notis – 筆記、清單和提醒"
 };

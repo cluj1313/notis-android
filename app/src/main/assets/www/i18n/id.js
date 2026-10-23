@@ -811,5 +811,7 @@ NOTIS_I18N={
 "Imagine din galerie": "Gambar dari galeri",
 "Previzualizare": "Pratinjau",
 "👁 Previzualizare": "👁 Pratinjau",
-"Nu s-a putut încărca imaginea": "Gambar tidak dapat dimuat"
+"Nu s-a putut încărca imaginea": "Gambar tidak dapat dimuat",
+"Distribuie aplicația": "Bagikan aplikasi",
+"Notis – notițe, liste și memento-uri": "Notis – catatan, daftar, dan pengingat"
 };

@@ -811,5 +811,7 @@ NOTIS_I18N={
 "Imagine din galerie": "Imagem da galeria",
 "Previzualizare": "Pré-visualizar",
 "👁 Previzualizare": "👁 Pré-visualizar",
-"Nu s-a putut încărca imaginea": "Não foi possível carregar a imagem"
+"Nu s-a putut încărca imaginea": "Não foi possível carregar a imagem",
+"Distribuie aplicația": "Partilhar a app",
+"Notis – notițe, liste și memento-uri": "Notis – notas, listas e lembretes"
 };

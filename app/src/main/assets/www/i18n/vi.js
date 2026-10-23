@@ -811,5 +811,7 @@ NOTIS_I18N={
 "Imagine din galerie": "Ảnh từ thư viện",
 "Previzualizare": "Xem trước",
 "👁 Previzualizare": "👁 Xem trước",
-"Nu s-a putut încărca imaginea": "Không thể tải ảnh"
+"Nu s-a putut încărca imaginea": "Không thể tải ảnh",
+"Distribuie aplicația": "Chia sẻ ứng dụng",
+"Notis – notițe, liste și memento-uri": "Notis – ghi chú, danh sách và lời nhắc"
 };

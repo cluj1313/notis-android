@@ -811,5 +811,7 @@ NOTIS_I18N={
 "Imagine din galerie": "Billede fra galleri",
 "Previzualizare": "Eksempel",
 "👁 Previzualizare": "👁 Eksempel",
-"Nu s-a putut încărca imaginea": "Billedet kunne ikke indlæses"
+"Nu s-a putut încărca imaginea": "Billedet kunne ikke indlæses",
+"Distribuie aplicația": "Del appen",
+"Notis – notițe, liste și memento-uri": "Notis – noter, lister og påmindelser"
 };

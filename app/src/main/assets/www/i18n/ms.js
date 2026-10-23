@@ -811,5 +811,7 @@ NOTIS_I18N={
 "Imagine din galerie": "Imej daripada galeri",
 "Previzualizare": "Pratonton",
 "👁 Previzualizare": "👁 Pratonton",
-"Nu s-a putut încărca imaginea": "Imej tidak dapat dimuatkan"
+"Nu s-a putut încărca imaginea": "Imej tidak dapat dimuatkan",
+"Distribuie aplicația": "Kongsi aplikasi",
+"Notis – notițe, liste și memento-uri": "Notis – nota, senarai dan peringatan"
 };

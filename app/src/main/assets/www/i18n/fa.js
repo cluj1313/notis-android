@@ -811,5 +811,7 @@ NOTIS_I18N={
 "Imagine din galerie": "تصویر از گالری",
 "Previzualizare": "پیش‌نمایش",
 "👁 Previzualizare": "👁 پیش‌نمایش",
-"Nu s-a putut încărca imaginea": "بارگیری تصویر ممکن نشد"
+"Nu s-a putut încărca imaginea": "بارگیری تصویر ممکن نشد",
+"Distribuie aplicația": "اشتراک‌گذاری برنامه",
+"Notis – notițe, liste și memento-uri": "Notis – یادداشت‌ها، فهرست‌ها و یادآورها"
 };

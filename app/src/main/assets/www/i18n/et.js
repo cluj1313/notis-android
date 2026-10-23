@@ -811,5 +811,7 @@ NOTIS_I18N={
 "Imagine din galerie": "Pilt galeriist",
 "Previzualizare": "Eelvaade",
 "👁 Previzualizare": "👁 Eelvaade",
-"Nu s-a putut încărca imaginea": "Pilti ei õnnestunud laadida"
+"Nu s-a putut încărca imaginea": "Pilti ei õnnestunud laadida",
+"Distribuie aplicația": "Jaga rakendust",
+"Notis – notițe, liste și memento-uri": "Notis – märkmed, loendid ja meeldetuletused"
 };

@@ -811,5 +811,7 @@ NOTIS_I18N={
 "Imagine din galerie": "รูปภาพจากแกลเลอรี",
 "Previzualizare": "ดูตัวอย่าง",
 "👁 Previzualizare": "👁 ดูตัวอย่าง",
-"Nu s-a putut încărca imaginea": "ไม่สามารถโหลดรูปภาพได้"
+"Nu s-a putut încărca imaginea": "ไม่สามารถโหลดรูปภาพได้",
+"Distribuie aplicația": "แชร์แอป",
+"Notis – notițe, liste și memento-uri": "Notis – โน้ต รายการ และการเตือน"
 };

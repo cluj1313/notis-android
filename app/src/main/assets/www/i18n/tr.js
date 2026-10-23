@@ -811,5 +811,7 @@ NOTIS_I18N={
 "Imagine din galerie": "Galeriden görsel",
 "Previzualizare": "Önizleme",
 "👁 Previzualizare": "👁 Önizleme",
-"Nu s-a putut încărca imaginea": "Görsel yüklenemedi"
+"Nu s-a putut încărca imaginea": "Görsel yüklenemedi",
+"Distribuie aplicația": "Uygulamayı paylaş",
+"Notis – notițe, liste și memento-uri": "Notis – notlar, listeler ve hatırlatıcılar"
 };

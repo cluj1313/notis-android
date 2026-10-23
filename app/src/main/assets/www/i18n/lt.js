@@ -811,5 +811,7 @@ NOTIS_I18N={
 "Imagine din galerie": "Vaizdas iš galerijos",
 "Previzualizare": "Peržiūra",
 "👁 Previzualizare": "👁 Peržiūra",
-"Nu s-a putut încărca imaginea": "Nepavyko įkelti vaizdo"
+"Nu s-a putut încărca imaginea": "Nepavyko įkelti vaizdo",
+"Distribuie aplicația": "Bendrinti programėlę",
+"Notis – notițe, liste și memento-uri": "Notis – užrašai, sąrašai ir priminimai"
 };

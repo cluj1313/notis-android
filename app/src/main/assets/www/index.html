@@ -936,7 +936,7 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
  <div class="sec" id="bkAuto">Backup-uri automate</div><div class="field"><div class="hint">Înainte de fiecare actualizare a aplicației, Notis salvează automat tot (notițe, taburi, foldere, poze, înregistrări, desene, setări). Se păstrează ultimele 5 copii.</div><div class="bklist" id="abList"></div></div>
 <div class="sec">Cum funcționează</div><div class="field"><div class="throw"><button type="button" class="thc" id="bDemo"></button><button type="button" class="thc" id="bDemoReset">Resetează exemplele</button></div><div class="bgkl"><span id="demoHint"></span></div></div>
 
- <div class="field"><button type="button" class="btn" id="sShareApp">Trimite aplicația</button></div>
+ <div class="sec secact" id="sShareApp" role="button" tabindex="0">Distribuie aplicația</div>
  <div id="fInstall"><div class="sec">Instalează aplicația</div>
  <div class="field"><button type="button" class="btn" id="sInstall">Instalează aplicația</button>
   <div class="hint" id="installHint">Chrome: meniu ⋮ → „Instalează aplicația” / „Adaugă pe ecranul de pornire”.<br>Brave: meniu ⋮ → „Adaugă pe ecranul de pornire” / „Instalează aplicația”.</div></div></div>
@@ -2867,10 +2867,14 @@ function nsRenderJv(){var box=$('jvBkList');if(!box)return;var a=nsJvBackups();b
  a.forEach(function(x){var row=document.createElement('div');row.className='bkrow';var l=document.createElement('div');l.className='bklbl';l.textContent=TR('Backup Jarvis din ')+(x.e.label||x.e.ts||'')+' · '+x.s.notes.length+TR(' notițe');row.appendChild(l);
   var ac=document.createElement('div');ac.className='bkacts';var b=document.createElement('button');b.type='button';b.className='btn';b.textContent=TR('Importă');b.onclick=function(){var n=nsMerge(x.s);try{localStorage.setItem('ns_impban','off')}catch(_){}nsBanner();nsMsg(n,1)};ac.appendChild(b);row.appendChild(ac);box.appendChild(row)})}
 function nsBanner(){var el=$('nsImp');if(!el)return;var off=false;try{off=localStorage.getItem('ns_impban')==='off'}catch(_){}el.hidden=off||nsReal()>0}
-$('sShareApp').onclick=function(){var U='https://cluj1313.github.io/notis/',d={title:TR('Notis'),text:TR('Aplicația de notițe Notis — deschide linkul în Chrome/Brave și instalează:'),url:U};
- function cp(){var ok=function(){toast(TR('Link copiat'))};try{if(navigator.clipboard&&navigator.clipboard.writeText)return navigator.clipboard.writeText(U).then(ok,leg)}catch(_){}leg();
-  function leg(){var ta=document.createElement('textarea');ta.value=U;document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(_){}ta.remove();ok()}}
- if(navigator.share)navigator.share(d).catch(function(e){if(!e||e.name!=='AbortError')cp()});else cp()};
+/* v88: Setări → Distribuie aplicația (same order as note Share: native/WhatsApp → share sheet → wa.me → clipboard) */
+$('sShareApp').onclick=function(){var U='https://cluj1313.github.io/notis/apk/',ti='Notis',all=TR('Notis – notițe, liste și memento-uri')+'\n'+U;
+ function cp(){var ok=function(){toast(TR('Link copiat'))};try{if(navigator.clipboard&&navigator.clipboard.writeText)return navigator.clipboard.writeText(all).then(ok,leg)}catch(_){}leg();
+  function leg(){var ta=document.createElement('textarea');ta.value=all;document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(_){}ta.remove();ok()}}
+ function fb(){var w=null;try{w=window.open('https://wa.me/?text='+encodeURIComponent(all),'_blank')}catch(_){}if(!w)cp()}
+ try{if(window.NotisNative&&NotisNative.shareText){NotisNative.shareText(all,ti);return}}catch(_){}
+ if(navigator.share){navigator.share({title:ti,text:all}).catch(function(e){if(!e||e.name!=='AbortError')fb()});return}fb()};
+$('sShareApp').addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();this.click()}});
 /* v10: IME-safe single-line fields. Never rewrite values while composing; a newline in a checklist item = Enter (Android IMEs send keyCode 229, no reliable keydown) */
 var imeOn=false,imeEnter=null,lastKeyAct=0;
 document.addEventListener('compositionstart',function(){imeOn=true},true);
@@ -3615,7 +3619,7 @@ renderAbList();
 /* v60: Setări — every section is a collapsible dropdown (default closed, state remembered in nt_secopen) */
 (function(){var card=document.querySelector('#modal .card');if(!card)return;
  var st={};try{st=JSON.parse(localStorage.getItem('nt_secopen')||'{}')||{}}catch(e){st={}}
- var secs=[].slice.call(card.querySelectorAll('.sec'));
+ var secs=[].slice.call(card.querySelectorAll('.sec:not(.secact)'));
  secs.forEach(function(h,i){var par=h.parentNode,box=document.createElement('div');box.className='secb';
   var n=h.nextSibling;while(n){var nx=n.nextSibling;if(n.nodeType===1&&(n.classList.contains('sec')||n.classList.contains('mrow')||n.querySelector('.sec')))break;box.appendChild(n);n=nx}
   par.insertBefore(box,h.nextSibling);h.classList.add('sect');h.setAttribute('role','button');h.setAttribute('tabindex','0');
@@ -3624,7 +3628,7 @@ renderAbList();
   h.addEventListener('click',tg);h.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tg()}})});
  var css=document.createElement('style');css.textContent='#modal .sect{cursor:pointer;display:flex;align-items:center;justify-content:space-between;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;padding-bottom:4px}'+
   '#modal .sect::after{content:"\\25BE";font-size:28px;line-height:1;letter-spacing:0;transition:transform .2s;transform:rotate(-90deg)}#modal .sect.open::after{transform:none}'+
-  '#modal .secb{display:none}#modal .sect.open+.secb{display:block}';document.head.appendChild(css)})();
+  '#modal .secact{cursor:pointer;display:flex;align-items:center;justify-content:space-between;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;padding-bottom:4px}#modal .secact::after{content:"\\25BE";font-size:28px;line-height:1;letter-spacing:0;transform:rotate(-90deg)}'+'#modal .secb{display:none}#modal .sect.open+.secb{display:block}';document.head.appendChild(css)})();
 </script>
 <style id="v64css">
 /* v64: clearer tab strip over photo backgrounds */
