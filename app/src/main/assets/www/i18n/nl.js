@@ -790,5 +790,12 @@ NOTIS_I18N={
 "În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.": "In de browser kan het pictogram van de geïnstalleerde app niet worden gewijzigd. Je kunt het kiezen in de Notis-app voor Android.",
 "După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.": "Na het wisselen kan het startscherm een paar seconden nodig hebben om het nieuwe pictogram te tonen.",
 "Iconiță schimbată. Poate dura câteva secunde.": "Pictogram gewijzigd. Dit kan een paar seconden duren.",
-"Nu s-a putut schimba iconița": "Pictogram kon niet worden gewijzigd"
+"Nu s-a putut schimba iconița": "Pictogram kon niet worden gewijzigd",
+"Culoare simplă": "Effen kleur",
+"Alege culoarea": "Kies een kleur",
+"Nuanță": "Tint",
+"Luminozitate": "Helderheid",
+"Opacitate carduri": "Dekking van kaarten",
+"transparent": "transparant",
+"opac": "dekkend"
 };

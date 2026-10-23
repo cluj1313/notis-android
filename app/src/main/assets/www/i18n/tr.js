@@ -790,5 +790,12 @@ NOTIS_I18N={
 "În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.": "Tarayıcıda yüklü uygulamanın simgesi değiştirilemez. Simgeyi Android için Notis uygulamasında seçebilirsin.",
 "După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.": "Değişiklikten sonra ana ekranın yeni simgeyi göstermesi birkaç saniye sürebilir.",
 "Iconiță schimbată. Poate dura câteva secunde.": "Simge değiştirildi. Birkaç saniye sürebilir.",
-"Nu s-a putut schimba iconița": "Simge değiştirilemedi"
+"Nu s-a putut schimba iconița": "Simge değiştirilemedi",
+"Culoare simplă": "Düz renk",
+"Alege culoarea": "Renk seç",
+"Nuanță": "Ton",
+"Luminozitate": "Parlaklık",
+"Opacitate carduri": "Kart opaklığı",
+"transparent": "saydam",
+"opac": "opak"
 };

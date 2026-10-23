@@ -790,5 +790,12 @@ NOTIS_I18N={
 "În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.": "Di browser, ikon aplikasi yang terpasang tidak bisa diubah. Kamu bisa memilihnya di aplikasi Notis untuk Android.",
 "După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.": "Setelah diganti, layar utama mungkin perlu beberapa detik untuk menampilkan ikon baru.",
 "Iconiță schimbată. Poate dura câteva secunde.": "Ikon diganti. Mungkin perlu beberapa detik.",
-"Nu s-a putut schimba iconița": "Ikon tidak dapat diganti"
+"Nu s-a putut schimba iconița": "Ikon tidak dapat diganti",
+"Culoare simplă": "Warna polos",
+"Alege culoarea": "Pilih warna",
+"Nuanță": "Rona",
+"Luminozitate": "Kecerahan",
+"Opacitate carduri": "Opasitas kartu",
+"transparent": "transparan",
+"opac": "pekat"
 };

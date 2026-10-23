@@ -790,5 +790,12 @@ NOTIS_I18N={
 "În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.": "בדפדפן לא ניתן לשנות את סמל האפליקציה המותקנת. אפשר לבחור אותו באפליקציית Notis ל-Android.",
 "După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.": "אחרי השינוי, מסך הבית עשוי להזדקק לכמה שניות כדי להציג את הסמל החדש.",
 "Iconiță schimbată. Poate dura câteva secunde.": "הסמל שונה. זה עשוי לקחת כמה שניות.",
-"Nu s-a putut schimba iconița": "לא ניתן לשנות את הסמל"
+"Nu s-a putut schimba iconița": "לא ניתן לשנות את הסמל",
+"Culoare simplă": "צבע אחיד",
+"Alege culoarea": "בחירת צבע",
+"Nuanță": "גוון",
+"Luminozitate": "בהירות",
+"Opacitate carduri": "אטימות הכרטיסים",
+"transparent": "שקוף",
+"opac": "אטום"
 };

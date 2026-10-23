@@ -790,5 +790,12 @@ NOTIS_I18N={
 "În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.": "Naršyklėje įdiegtos programos piktogramos pakeisti negalima. Ją gali pasirinkti Notis programėlėje, skirtoje Android.",
 "După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.": "Po pakeitimo pradžios ekranui gali prireikti kelių sekundžių, kad parodytų naują piktogramą.",
 "Iconiță schimbată. Poate dura câteva secunde.": "Piktograma pakeista. Tai gali užtrukti kelias sekundes.",
-"Nu s-a putut schimba iconița": "Nepavyko pakeisti piktogramos"
+"Nu s-a putut schimba iconița": "Nepavyko pakeisti piktogramos",
+"Culoare simplă": "Vientisa spalva",
+"Alege culoarea": "Pasirinkti spalvą",
+"Nuanță": "Atspalvis",
+"Luminozitate": "Šviesumas",
+"Opacitate carduri": "Kortelių neskaidrumas",
+"transparent": "skaidru",
+"opac": "neskaidru"
 };

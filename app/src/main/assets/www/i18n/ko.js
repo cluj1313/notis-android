@@ -790,5 +790,12 @@ NOTIS_I18N={
 "În browser, iconița aplicației instalate nu se poate schimba. O poți alege în aplicația Notis pentru Android.": "브라우저에서는 설치된 앱의 아이콘을 바꿀 수 없습니다. Android용 Notis 앱에서 선택할 수 있습니다.",
 "După schimbare, ecranul telefonului poate avea nevoie de câteva secunde ca să arate noua iconiță.": "변경 후 홈 화면에 새 아이콘이 표시되기까지 몇 초 걸릴 수 있습니다.",
 "Iconiță schimbată. Poate dura câteva secunde.": "아이콘이 변경되었습니다. 몇 초 걸릴 수 있습니다.",
-"Nu s-a putut schimba iconița": "아이콘을 변경할 수 없습니다"
+"Nu s-a putut schimba iconița": "아이콘을 변경할 수 없습니다",
+"Culoare simplă": "단색",
+"Alege culoarea": "색상 선택",
+"Nuanță": "색조",
+"Luminozitate": "밝기",
+"Opacitate carduri": "카드 불투명도",
+"transparent": "투명",
+"opac": "불투명"
 };
