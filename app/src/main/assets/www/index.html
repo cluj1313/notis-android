@@ -397,7 +397,7 @@ ul.tasks{list-style:none;margin:0;padding:0}
 html.jv-notes body{overflow:hidden}
 #notesPg .nwrap{max-width:560px;margin:0 auto;padding:18px 16px 40px}
 #notesPg .ntop{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-#notesPg .ntop .hdrico{flex:none;width:30px;height:30px;margin-right:-4px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.25))}
+#notesPg .ntop .hdrico{cursor:pointer;-webkit-tap-highlight-color:transparent;flex:none;width:30px;height:30px;margin-right:-4px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.25))}
 #notesBack{width:38px;height:38px;font-size:24px;line-height:1}
 #notesPg h2{margin:0;font-size:18px;letter-spacing:.18em;color:var(--cyan);font-weight:700}
 #notesList{list-style:none;margin:14px 0 0;padding:0}
@@ -3130,9 +3130,9 @@ if(DEMO){var db0=document.createElement('div');db0.id='demoBan';db0.innerHTML='<
 else if(!nsReal()&&!NS_IMPORTED){var off0=null;try{off0=localStorage.getItem('notis_demo_offered')}catch(_){}if(!off0)setTimeout(function(){try{localStorage.setItem('notis_demo_offered','1')}catch(_){}var cf=$('cfModal').querySelector('.cftxt'),t0=cf.textContent,ok=$('cfOk'),o0=ok.textContent;cf.textContent=TR('Bun venit! Vrei să vezi exemple care arată ce poate face Notis? (Sunt separate; ieși oricând.)');ok.textContent=TR('Arată exemple');var back=function(){cf.textContent=t0;ok.textContent=o0};jvConfirm(function(){back();demoSet(true)});var no=$('cfNo').onclick;$('cfNo').onclick=function(){back();no&&no()}},900)}
 notesOpen();if(NS_IMPORTED)setTimeout(function(){toast(TR('Am importat notițele din Jarvis'))},400);
 /* Notis v37: tap on the NOTIS title opens Setări (the only entry point) */
-(function(){var h=document.querySelector('#notesPg .ntop h2'),x0=0,y0=0,mv=false;
+(function(){[document.querySelector('#notesPg .ntop h2'),document.getElementById('hdrIco')].forEach(function(h){if(!h)return;var x0=0,y0=0,mv=false;
  h.addEventListener('pointerdown',function(e){x0=e.clientX;y0=e.clientY;mv=false});h.addEventListener('pointermove',function(e){if(Math.abs(e.clientX-x0)>10||Math.abs(e.clientY-y0)>10)mv=true});
- h.addEventListener('click',function(){if(mv)return;$('bSettings').onclick()});h.addEventListener('contextmenu',function(e){e.preventDefault()})})();
+ h.addEventListener('click',function(){if(mv)return;$('bSettings').onclick()});h.addEventListener('contextmenu',function(e){e.preventDefault()})})})();
 /* v23: themes */
 var TH_META={color:'#06111f',dark:'#000000',light:'#f3f5f8',vip:'#121110'};
 function thHex(r,g,b){return '#'+[r,g,b].map(function(x){return ('0'+Math.round(x).toString(16)).slice(-2)}).join('')}
@@ -3662,8 +3662,8 @@ renderAbList();
   var tg=function(){var o=!h.classList.contains('open');set(o);st[i]=o?1:0;try{localStorage.setItem('nt_secopen',JSON.stringify(st))}catch(e){}};
   h.addEventListener('click',tg);h.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tg()}})});
  var css=document.createElement('style');css.textContent='#modal .sect{cursor:pointer;display:flex;align-items:center;justify-content:space-between;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;padding-bottom:4px}'+
-  '#modal .sect::after{content:"\\25BE";font-size:28px;line-height:1;letter-spacing:0;transition:transform .2s;transform:rotate(-90deg)}#modal .sect.open::after{transform:none}'+
-  '#modal .secact{cursor:pointer;display:flex;align-items:center;justify-content:space-between;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;padding-bottom:4px}#modal .secact::after{content:"\\25BE";font-size:28px;line-height:1;letter-spacing:0;transform:rotate(-90deg)}'+'#modal .secb{display:none}#modal .sect.open+.secb{display:block}';document.head.appendChild(css)})();
+  '#modal .sect::after{content:none;display:none}'+
+  '#modal .secact{cursor:pointer;display:flex;align-items:center;justify-content:space-between;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;padding-bottom:4px}#modal .secact::after{content:none;display:none}'+'#modal .secb{display:none}#modal .sect.open+.secb{display:block}';document.head.appendChild(css)})();
 </script>
 <style id="v64css">
 /* v64: clearer tab strip over photo backgrounds */
