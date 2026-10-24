@@ -24,14 +24,23 @@ final class NativeStt {
         try { return SpeechRecognizer.isRecognitionAvailable(a); } catch (Exception e) { return false; }
     }
 
-    private static ComponentName googleSvc(MainActivity a) {
+    /** v117: ordered candidates. 2.7.1 picked the first "com.google.android*" service, which on recent phones is
+     *  Android System Intelligence (com.google.android.as, on-device only, refuses third-party apps / Romanian) -> error -> dialog.
+     *  Now: Google app, then Speech Services by Google, then the system default; never com.google.android.as. */
+    private static List<ComponentName> cands(MainActivity a) {
+        List<ComponentName> out = new ArrayList<>();
+        ComponentName gsa = null, tts = null, other = null;
         try {
             List<ResolveInfo> l = a.getPackageManager().queryIntentServices(new Intent(RecognitionService.SERVICE_INTERFACE), 0);
-            for (ResolveInfo r : l) if (r.serviceInfo != null && r.serviceInfo.packageName.startsWith("com.google.android"))
-                return new ComponentName(r.serviceInfo.packageName, r.serviceInfo.name);
+            for (ResolveInfo r : l) { if (r.serviceInfo == null) continue; String p = r.serviceInfo.packageName; ComponentName c = new ComponentName(p, r.serviceInfo.name);
+                if (p.equals("com.google.android.googlequicksearchbox")) gsa = c; else if (p.equals("com.google.android.tts")) tts = c; else if (!p.equals("com.google.android.as") && other == null) other = c; }
         } catch (Exception ignored) {}
-        return null;
+        if (gsa != null) out.add(gsa);
+        if (tts != null) out.add(tts);
+        out.add(null); // system default
+        return out;
     }
+    private static List<ComponentName> cl; private static int ci; private static String lng;
 
     static Intent intent(String lang) {
         Intent i = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -52,15 +61,29 @@ final class NativeStt {
 
     static void start(final MainActivity a, final String lang) {
         release();
-        lastPart = ""; gotFinal = false;
-        if (!anyService(a)) { if (!dialog(a, lang)) a.sttJs("err", "noservice"); return; }
+        lastPart = ""; gotFinal = false; lng = lang;
+        if (!anyService(a)) { a.sttJs("dbg", "no RecognitionService visible"); if (!dialog(a, lang)) a.sttJs("err", "noservice"); return; }
+        cl = cands(a); ci = 0;
+        attempt(a);
+    }
+
+    private static void next(MainActivity a, String why) {
+        a.sttJs("dbg", "fail " + why);
+        release();
+        if (++ci < cl.size()) { attempt(a); return; }
+        if (!dialog(a, lng)) a.sttJs("err", "noservice");
+    }
+
+    private static void attempt(final MainActivity a) {
+        final ComponentName g = cl.get(ci);
+        final int my = ci;
         try {
-            ComponentName g = googleSvc(a);
             sr = g != null ? SpeechRecognizer.createSpeechRecognizer(a, g) : SpeechRecognizer.createSpeechRecognizer(a);
             a.sttJs("dbg", "svc " + (g != null ? g.flattenToShortString() : "default"));
             sr.setRecognitionListener(new RecognitionListener() {
+                boolean heard;
                 @Override public void onReadyForSpeech(Bundle b) { a.sttJs("dbg", "ready"); }
-                @Override public void onBeginningOfSpeech() { a.sttJs("dbg", "begin"); }
+                @Override public void onBeginningOfSpeech() { heard = true; a.sttJs("dbg", "begin"); }
                 @Override public void onRmsChanged(float v) {}
                 @Override public void onBufferReceived(byte[] b) {}
                 @Override public void onEndOfSpeech() { a.sttJs("dbg", "eos"); }
@@ -70,6 +93,7 @@ final class NativeStt {
                 }
                 @Override public void onEvent(int t, Bundle b) {}
                 @Override public void onError(int e) {
+                    if (my != ci) return;
                     a.sttJs("dbg", "error " + e);
                     if (lastPart.length() > 0 && !gotFinal) { gotFinal = true; a.sttJs("final", lastPart); a.sttJs("end", ""); release(); return; }
                     String k;
@@ -77,16 +101,17 @@ final class NativeStt {
                         case SpeechRecognizer.ERROR_NO_MATCH: case SpeechRecognizer.ERROR_SPEECH_TIMEOUT: k = "nomatch"; break;
                         case SpeechRecognizer.ERROR_NETWORK: case SpeechRecognizer.ERROR_NETWORK_TIMEOUT: k = "network"; break;
                         case SpeechRecognizer.ERROR_INSUFFICIENT_PERMISSIONS: k = "perm"; break;
-                        case SpeechRecognizer.ERROR_RECOGNIZER_BUSY: case 10 /* TOO_MANY_REQUESTS */: k = "busy"; break;
-                        case 12 /* LANGUAGE_NOT_SUPPORTED */: case 13 /* LANGUAGE_UNAVAILABLE */: k = "lang"; break;
+                        case SpeechRecognizer.ERROR_RECOGNIZER_BUSY: case 10: k = "busy"; break;
+                        case 12: case 13: k = "lang"; break;
                         default: k = "e" + e;
                     }
-                    release();
-                    // Service-level failures: let the Google dialog try instead.
-                    if ((k.equals("lang") || e == SpeechRecognizer.ERROR_CLIENT || e == SpeechRecognizer.ERROR_SERVER || e == 11) && dialog(a, lang)) return;
-                    a.sttJs("err", k);
+                    // A real "nothing heard" after speech started is a user result, not a service failure.
+                    if (k.equals("nomatch") && heard) { release(); a.sttJs("err", k); return; }
+                    if (k.equals("perm") || k.equals("network")) { release(); a.sttJs("err", k); return; }
+                    next(a, (g != null ? g.getPackageName() : "default") + " e" + e);
                 }
                 @Override public void onResults(Bundle b) {
+                    if (my != ci) return;
                     String t = first(b);
                     if (t == null || t.length() == 0) t = lastPart;
                     a.sttJs("dbg", "results " + (t == null ? 0 : t.length()));
@@ -95,12 +120,8 @@ final class NativeStt {
                     release();
                 }
             });
-            sr.startListening(intent(lang));
-        } catch (Exception ex) {
-            a.sttJs("dbg", "ex " + ex);
-            release();
-            if (!dialog(a, lang)) a.sttJs("err", "noservice");
-        }
+            sr.startListening(intent(lng));
+        } catch (Exception ex) { next(a, "ex " + ex); }
     }
 
     private static String first(Bundle b) {
@@ -108,12 +129,23 @@ final class NativeStt {
         return r != null && !r.isEmpty() ? r.get(0) : null;
     }
 
-    /** Result of the RecognizerIntent dialog. */
+    /** Result of the RecognizerIntent dialog. onActivityResult runs BEFORE onResume, while the WebView is still paused,
+     *  so the text is queued and delivered by MainActivity.onResume -> deliver(), retried until JS acknowledges. */
+    static String pending; static int pendingTries;
     static void dialogResult(MainActivity a, int res, Intent data) {
         ArrayList<String> r = data == null ? null : data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-        if (res == MainActivity.RESULT_OK && r != null && !r.isEmpty() && r.get(0).length() > 0) { a.sttJs("final", r.get(0)); a.sttJs("end", ""); }
-        else if (res == MainActivity.RESULT_OK) a.sttJs("err", "nomatch");
-        else a.sttJs("end", "");
+        String t = r != null && !r.isEmpty() ? r.get(0) : null;
+        pending = res == MainActivity.RESULT_OK ? (t != null && t.length() > 0 ? "F" + t : "N") : "C";
+        pendingTries = 0;
+    }
+    static void deliver(final MainActivity a) {
+        if (pending == null || a.web == null) return;
+        final String p = pending;
+        String kind = p.startsWith("F") ? "final" : p.equals("N") ? "nomatch" : "cancel";
+        a.web.evaluateJavascript("(function(){try{return window.__sttDeliver?__sttDeliver(" + org.json.JSONObject.quote(kind) + "," + org.json.JSONObject.quote(p.startsWith("F") ? p.substring(1) : "") + "):'no'}catch(e){return 'x'+e}})()", v -> {
+            if (v != null && v.contains("ok")) { if (pending == p) pending = null; return; }
+            if (++pendingTries < 25) a.web.postDelayed(() -> deliver(a), 400); else pending = null;
+        });
     }
 
     static void stop() {

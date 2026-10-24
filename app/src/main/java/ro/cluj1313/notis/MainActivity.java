@@ -34,7 +34,7 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity {
     static volatile boolean foreground = false;
     /** true only while the top document is Notis itself (checked by every bridge call) */
     static volatile boolean trusted = false;
-    private WebView web;
+    WebView web;
     private ValueCallback<Uri[]> fileCb;
 
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface"})
@@ -205,7 +205,7 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity {
             if (sc != null && sc.length() > 0) { permAsked = true; requestPermissions(new String[]{ android.Manifest.permission.POST_NOTIFICATIONS }, NOTIF_REQ); }
         }
         Updater.check(this);
-        if (web != null) { web.onResume(); web.evaluateJavascript("window.NotisApp&&NotisApp.sync()", null); }
+        if (web != null) { web.onResume(); if (NativeStt.pending != null) web.postDelayed(() -> NativeStt.deliver(this), 150); else web.evaluateJavascript("window.NotisApp&&NotisApp.sync()", null); }
     }
     @Override protected void onPause() {
         foreground = false;
