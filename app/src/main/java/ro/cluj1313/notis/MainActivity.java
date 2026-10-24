@@ -44,6 +44,9 @@ public class MainActivity extends Activity {
         }
         if ((getApplicationInfo().flags & android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0) WebView.setWebContentsDebuggingEnabled(true);
         web = new WebView(this);
+        // 2.5.3: a native long-press on an image (header icon) must not start drag/menu and cancel the 6 s JS hold; text selection elsewhere unaffected
+        web.setOnLongClickListener(v -> { WebView.HitTestResult r = web.getHitTestResult(); int t = r == null ? 0 : r.getType(); return t == WebView.HitTestResult.IMAGE_TYPE || t == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE; });
+        web.setHapticFeedbackEnabled(false);
         web.setBackgroundColor(0xFF0B0A08);
         /* 2.1.1: targetSdk 36 makes edge-to-edge mandatory on Android 16 (the opt-out is ignored) -> pad for system bars, cutout and keyboard ourselves */
         if (android.os.Build.VERSION.SDK_INT >= 35) {

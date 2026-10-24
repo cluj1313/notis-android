@@ -3700,7 +3700,7 @@ spMigrate();renderNotes();
 })();
 /* v96: Setări → TABURI (bibliotecă: ordine drag & drop, bifă vizibil/ascuns, PIN 4/6 opțional), DESIGN (Teme · Stil taburi · Fundal · Setări fine · Iconiță), iconiță urgență, Comunică cu creatorul, Versiune. Additive: hidden tab = t.off, nothing deleted. */
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v97';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v98';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};
@@ -3840,11 +3840,21 @@ var NEWS_URL='https://cluj1313.github.io/notis-news/creator.json';
  function hash(pw,ch,salt,it){return base(pw,ch).then(function(k){return crypto.subtle.deriveBits({name:'PBKDF2',salt:salt,iterations:it,hash:'SHA-256'},k,256)}).then(h64)}
  function aes(pw,ch,salt,it){return base(pw,ch).then(function(k){return crypto.subtle.deriveKey({name:'PBKDF2',salt:salt,iterations:it,hash:'SHA-256'},k,{name:'AES-GCM',length:256},false,['encrypt','decrypt'])})}
  var css=document.createElement('style');css.textContent='#hdrIco{-webkit-touch-callout:none;user-select:none;-webkit-user-select:none}#crx{position:fixed;inset:0;z-index:11;background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;padding:14px}#crx .crc{background:#141416;border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:14px;width:100%;max-width:400px;max-height:92vh;overflow:auto;color:#fff;display:flex;flex-direction:column;gap:9px}#crx h3{font-family:Oswald,sans-serif;margin:0 0 2px;font-size:20px;display:flex;justify-content:space-between;align-items:center}#crx h3 button{background:none;border:0;color:#fff;font-size:22px}#crx .crf{position:relative}#crx input,#crx textarea{width:100%;box-sizing:border-box;padding:9px 40px 9px 10px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:#0c0c0e;color:#fff;font-size:15px}#crx textarea{min-height:80px;padding-right:10px;resize:vertical}#crx .eye{position:absolute;right:4px;top:50%;transform:translateY(-50%);background:none;border:0;font-size:18px;opacity:.55;padding:4px 6px}#crx .eye.on{opacity:1}#crx .crb{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}#crx .crb button{padding:9px 14px;border-radius:10px;border:0;background:#3fd8ff;color:#000;font-weight:700}#crx .crb button.alt{background:rgba(255,255,255,.12);color:#fff}#crx .cre{color:#ff8a8a;font-size:13px;min-height:16px}#crx .hint{font-size:12px;opacity:.65}';document.head.appendChild(css);
- /* long-press 6 s; a normal tap still opens Setari */
- var tm=0,x0=0,y0=0;ico.addEventListener('pointerdown',function(e){x0=e.clientX;y0=e.clientY;clearTimeout(tm);tm=setTimeout(function(){tm=0;swallow=Date.now();try{navigator.vibrate&&navigator.vibrate(40)}catch(_){}open()},6000)});
- ['pointerup','pointercancel','pointerleave'].forEach(function(ev){ico.addEventListener(ev,function(){clearTimeout(tm);tm=0})});
- ico.addEventListener('pointermove',function(e){if(Math.abs(e.clientX-x0)>10||Math.abs(e.clientY-y0)>10){clearTimeout(tm);tm=0}});
- document.addEventListener('click',function(e){if(swallow&&Date.now()-swallow<3000&&ico.contains(e.target)){e.stopImmediatePropagation();e.preventDefault();swallow=0}},true);
+ /* v98: robust 6 s hold. Root cause v97: on a touch long-press Chrome/WebView fires pointercancel (image drag / long-press menu), which cleared the timer. Now: no drag, touch-action:none, pointercancel/leave ignored, finger lift tracked via pointerup+touchend, 15px tolerance, progress ring. */
+ ico.setAttribute('draggable','false');ico.style.touchAction='none';ico.addEventListener('dragstart',function(e){e.preventDefault()});ico.addEventListener('contextmenu',function(e){e.preventDefault()});
+ var tm=0,x0=0,y0=0,t0=0,ring=null,raf=0,HOLD=6000;
+ function ringShow(){var r=ico.getBoundingClientRect(),d=Math.max(r.width,r.height)+14;ring=document.createElement('div');ring.id='crRing';ring.style.cssText='position:fixed;pointer-events:none;z-index:20;border-radius:50%;left:'+(r.left+r.width/2-d/2)+'px;top:'+(r.top+r.height/2-d/2)+'px;width:'+d+'px;height:'+d+'px;-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 2px));mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 2px));opacity:.85';document.body.appendChild(ring);
+  (function f(){if(!ring)return;var k=Math.min(1,(Date.now()-t0)/HOLD)*360;ring.style.background='conic-gradient(#3fd8ff '+k+'deg,rgba(255,255,255,.12) 0)';raf=requestAnimationFrame(f)})()}
+ function stop(){clearTimeout(tm);tm=0;cancelAnimationFrame(raf);if(ring){ring.remove();ring=null}}
+ function start(x,y){if(tm)return;x0=x;y0=y;t0=Date.now();tm=setTimeout(function(){stop();swallow=Date.now();try{navigator.vibrate&&navigator.vibrate(60)}catch(_){}open()},HOLD);setTimeout(function(){if(tm&&!ring)ringShow()},350)}
+ function mv(x,y){if(tm&&(Math.abs(x-x0)>15||Math.abs(y-y0)>15))stop()}
+ ico.addEventListener('pointerdown',function(e){start(e.clientX,e.clientY)});
+ ico.addEventListener('touchstart',function(e){var t=e.touches[0];if(t)start(t.clientX,t.clientY)},{passive:true});
+ document.addEventListener('pointermove',function(e){mv(e.clientX,e.clientY)},true);
+ document.addEventListener('touchmove',function(e){var t=e.touches[0];if(t)mv(t.clientX,t.clientY)},{passive:true,capture:true});
+ ['pointerup','touchend','mouseup'].forEach(function(ev){document.addEventListener(ev,function(){if(tm)stop()},true)});
+ document.addEventListener('visibilitychange',function(){if(document.hidden)stop()});
+ document.addEventListener('click',function(e){if(swallow&&Date.now()-swallow<4000&&ico.contains(e.target)){e.stopImmediatePropagation();e.preventDefault();swallow=0}},true);
  function fld(id,ph,type,eye){return '<div class="crf"><input id="'+id+'" type="'+(type||'text')+'" placeholder="'+esc(ph)+'" autocomplete="off" autocapitalize="off" spellcheck="false"'+(id==='crCh'?' maxlength="4"':'')+'>'+(eye?'<button type="button" class="eye" data-f="'+id+'" aria-label="'+esc(TR('Arată / ascunde'))+'">👁</button>':'')+'</div>'}
  function ui(title,body){var o=$('crx');if(!o){o=document.createElement('div');o.id='crx';document.body.appendChild(o)}
   o.innerHTML='<div class="crc"><h3><span>🔐 '+esc(title)+'</span><button type="button" id="crX" aria-label="'+esc(TR('Închide'))+'">×</button></h3>'+body+'<div class="cre" id="crE"></div></div>';
