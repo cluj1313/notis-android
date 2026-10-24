@@ -929,5 +929,8 @@ NOTIS_I18N={
 "✉️ Comunică cu creatorul aplicației\nÎn Setări scrii, în română sau în engleză, ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Contacter le créateur de l’app\nDans les paramètres, écrivez en roumain ou en anglais ce que vous souhaitez modifier ou ajouter, puis appuyez “Envoyer le message”: votre application de messagerie s'ouvre. Chaque utilisateur obtient une réponse.",
 "ℹ️ Versiune\nUltimul rând din Setări arată versiunea. Atinge-l ca să verifici: ✓ Ultima versiune sau 🆕 Update nou. Dacă e un update, atinge-l din nou ca să-l instalezi.": "ℹ️ Version\nLa dernière ligne des paramètres montre la version. Appuyez dessus pour vérifier: ✓ La dernière version ou 🆕 Une nouvelle mise à jour. S'il y a une mise à jour, appuyez à nouveau pour l'installer.",
 "✎ Editează din widget\nÎn widgetul Listă, ✎ de pe un rând schimbă textul elementului. În widgetul Notițe, desfă o notiță și atinge ✎ Editează ca s-o modifici fără să deschizi aplicația.": "✎ Modifier à partir du widget\nDans le widget Liste, ✎ sur une ligne modifie le texte de l'élément. Dans le widget Notes, élargir une note et appuyer ✎ Modifiez pour le modifier sans ouvrir l'application.",
-"Fontul telefonului": "Police du téléphone"
+"Fontul telefonului": "Police du téléphone",
+"Deblocare cu amprenta": "Déverrouillage par empreinte",
+"Folosește PIN-ul": "Utiliser le code PIN",
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Ouvrez avec votre empreinte ce qui est verrouillé par 🔒 PIN. Saisissez le PIN une fois, ensuite l’empreinte suffit. Le PIN reste toujours valable."
 };

@@ -9,8 +9,8 @@ android {
         applicationId 'ro.cluj1313.notis'
         minSdk 26
         targetSdk 36
-        versionCode 54
-        versionName '2.5.5'
+        versionCode 55
+        versionName '2.5.6'
         /* -Pplay=true -> Google Play bundle: built-in GitHub updater disabled */
         buildConfigField 'boolean', 'PLAY', (project.findProperty('play') == 'true') ? 'true' : 'false'
     }
@@ -32,6 +32,7 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.biometric:biometric:1.1.0'
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.json:json:20240303'
 }

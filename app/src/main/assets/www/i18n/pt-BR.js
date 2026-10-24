@@ -929,5 +929,8 @@ NOTIS_I18N={
 "✉️ Comunică cu creatorul aplicației\nÎn Setări scrii, în română sau în engleză, ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Falar com o criador do app\nEm Configurações, escreva em romeno ou inglês o que deseja alterar ou adicionar, depois toque “Enviar mensagem”O aplicativo de e-mail abre. Todos os utilizadores têm uma resposta.",
 "ℹ️ Versiune\nUltimul rând din Setări arată versiunea. Atinge-l ca să verifici: ✓ Ultima versiune sau 🆕 Update nou. Dacă e un update, atinge-l din nou ca să-l instalezi.": "ℹ️ Versão\nA última linha das Configurações mostra a versão. Toque nele para verificar: ✓ Última versão ou 🆕 Nova atualização. Se houver uma atualização, toque novamente para instalá-la.",
 "✎ Editează din widget\nÎn widgetul Listă, ✎ de pe un rând schimbă textul elementului. În widgetul Notițe, desfă o notiță și atinge ✎ Editează ca s-o modifici fără să deschizi aplicația.": "✎ Editar do widget\nNo widget Lista, ✎ em uma linha altera o texto do elemento. No widget Notas, expanda uma nota e toque ✎ Edite para alterá-lo sem abrir o aplicativo.",
-"Fontul telefonului": "Fonte do celular"
+"Fontul telefonului": "Fonte do celular",
+"Deblocare cu amprenta": "Desbloqueio por digital",
+"Folosește PIN-ul": "Usar PIN",
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Abra com a digital o que está bloqueado com 🔒 PIN. Digite o PIN uma vez; depois basta a digital. O PIN continua sempre válido."
 };

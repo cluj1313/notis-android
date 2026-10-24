@@ -929,5 +929,8 @@ NOTIS_I18N={
 "✉️ Comunică cu creatorul aplicației\nÎn Setări scrii, în română sau în engleză, ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Contact the app creator\nIn Settings, write in Romanian or English what you would like changed or added, then tap “Send message”: your email app opens. Every user gets an answer.",
 "ℹ️ Versiune\nUltimul rând din Setări arată versiunea. Atinge-l ca să verifici: ✓ Ultima versiune sau 🆕 Update nou. Dacă e un update, atinge-l din nou ca să-l instalezi.": "ℹ️ Version\nThe last row in Settings shows the version. Tap it to check: ✓ Latest version or 🆕 New update. If there is an update, tap it again to install it.",
 "✎ Editează din widget\nÎn widgetul Listă, ✎ de pe un rând schimbă textul elementului. În widgetul Notițe, desfă o notiță și atinge ✎ Editează ca s-o modifici fără să deschizi aplicația.": "✎ Edit from the widget\nIn the List widget, ✎ on a row changes the item text. In the Notes widget, expand a note and tap ✎ Edit to change it without opening the app.",
-"Fontul telefonului": "Phone font"
+"Fontul telefonului": "Phone font",
+"Deblocare cu amprenta": "Fingerprint unlock",
+"Folosește PIN-ul": "Use PIN",
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Open 🔒 PIN-locked items with your fingerprint. Enter the PIN once, then your fingerprint is enough. The PIN always keeps working."
 };

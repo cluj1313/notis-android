@@ -929,5 +929,8 @@ NOTIS_I18N={
 "✉️ Comunică cu creatorul aplicației\nÎn Setări scrii, în română sau în engleză, ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Contacta amb el creador de l’app\nEn Configuracions, escriviu en romànic o anglès el que voleu canviar o afegir, després toqueu “Envia el missatge”: s' دهد la la seva aplicació de correu electrònic. amb amb amb amb temos de amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb amb",
 "ℹ️ Versiune\nUltimul rând din Setări arată versiunea. Atinge-l ca să verifici: ✓ Ultima versiune sau 🆕 Update nou. Dacă e un update, atinge-l din nou ca să-l instalezi.": "ℹ️ Versió\nL'última fila de Configuracions mostra la versió. Toca per comprovar: ✓ Última versió o 🆕 Una nova actualització. Si hi ha una actualització, torna a tocar-la per instal·lar-la.",
 "✎ Editează din widget\nÎn widgetul Listă, ✎ de pe un rând schimbă textul elementului. În widgetul Notițe, desfă o notiță și atinge ✎ Editează ca s-o modifici fără să deschizi aplicația.": "✎ Editar des del widget\nleith ✎ en una línia canvia el text de l'element. En el widget Notes, expandeix una nota i toca ✎ Edita per canviar-lo sense obrir l'aplicació.",
-"Fontul telefonului": "Tipus de lletra del telèfon"
+"Fontul telefonului": "Tipus de lletra del telèfon",
+"Deblocare cu amprenta": "Desbloqueig amb empremta",
+"Folosește PIN-ul": "Utilitza el PIN",
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Obre amb l’empremta el que està bloquejat amb 🔒 PIN. Introdueix el PIN una vegada i després n’hi ha prou amb l’empremta. El PIN sempre continua funcionant."
 };

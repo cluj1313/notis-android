@@ -929,5 +929,8 @@ NOTIS_I18N={
 "✉️ Comunică cu creatorul aplicației\nÎn Setări scrii, în română sau în engleză, ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Liên hệ nhà phát triển ứng dụng\nTrong Cài đặt, viết bằng tiếng Romania hoặc tiếng Anh những gì bạn muốn thay đổi hoặc thêm vào, sau đó nhấn “Gửi tin nhắn”: ứng dụng email của bạn mở. Mỗi người dùng đều có câu trả lời.",
 "ℹ️ Versiune\nUltimul rând din Setări arată versiunea. Atinge-l ca să verifici: ✓ Ultima versiune sau 🆕 Update nou. Dacă e un update, atinge-l din nou ca să-l instalezi.": "ℹ️ Phiên bản\nDòng cuối cùng trong cài đặt hiển thị phiên bản. Nhấp vào nó để kiểm tra: ✓ Phiên bản mới nhất hoặc 🆕 Thông tin mới. Nếu có bản cập nhật, nhấn lại để cài đặt nó.",
 "✎ Editează din widget\nÎn widgetul Listă, ✎ de pe un rând schimbă textul elementului. În widgetul Notițe, desfă o notiță și atinge ✎ Editează ca s-o modifici fără să deschizi aplicația.": "✎ chỉnh sửa từ widget\nTrong danh sách widget, ✎ trên một hàng thay đổi văn bản mục. Trong tiện ích Lưu ý, mở rộng một ghi chú và nhấn ✎ Chỉnh sửa để thay đổi nó mà không cần mở ứng dụng.",
-"Fontul telefonului": "Phông chữ của điện thoại"
+"Fontul telefonului": "Phông chữ của điện thoại",
+"Deblocare cu amprenta": "Mở khóa bằng vân tay",
+"Folosește PIN-ul": "Dùng mã PIN",
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Mở bằng vân tay những mục bị khóa 🔒 PIN. Nhập PIN một lần, sau đó chỉ cần vân tay. Mã PIN luôn còn hiệu lực."
 };

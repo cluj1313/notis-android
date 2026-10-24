@@ -929,5 +929,8 @@ NOTIS_I18N={
 "✉️ Comunică cu creatorul aplicației\nÎn Setări scrii, în română sau în engleză, ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ ติดต่อผู้สร้างแอป\nในการตั้งค่า กรอกในภาษาโรมาเนียหรือภาษาอังกฤษ สิ่งที่คุณต้องการเปลี่ยนหรือเพิ่ม “ส่งข้อความ”: แอพอีเมลของคุณจะเปิด ผู้ใช้ทุกคนจะได้รับคําตอบ",
 "ℹ️ Versiune\nUltimul rând din Setări arată versiunea. Atinge-l ca să verifici: ✓ Ultima versiune sau 🆕 Update nou. Dacă e un update, atinge-l din nou ca să-l instalezi.": "ℹ️ เวอร์ชัน\nแถวสุดท้ายในการตั้งค่าแสดงให้เห็นเวอร์ชั่น กดมันเพื่อตรวจสอบ: ✓ เวอร์ชั่นล่าสุด หรือ 🆕 อัพเดทใหม่ หากมีการอัพเดท, กดมันอีกครั้งเพื่อติดตั้งมัน.",
 "✎ Editează din widget\nÎn widgetul Listă, ✎ de pe un rând schimbă textul elementului. În widgetul Notițe, desfă o notiță și atinge ✎ Editează ca s-o modifici fără să deschizi aplicația.": "✎ แก้ไขจากวิดเจต\nในวิดเจ็ตรายการ ✎ ในแถวเปลี่ยนข้อความของรายการ ในวิดเจต ข้อความ ขยายข้อความ และแตะ ✎ แก้ไขเพื่อเปลี่ยนมันโดยไม่ต้องเปิดแอพ",
-"Fontul telefonului": "แบบอักษรของโทรศัพท์"
+"Fontul telefonului": "แบบอักษรของโทรศัพท์",
+"Deblocare cu amprenta": "ปลดล็อกด้วยลายนิ้วมือ",
+"Folosește PIN-ul": "ใช้ PIN",
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "เปิดสิ่งที่ล็อกด้วย 🔒 PIN ด้วยลายนิ้วมือ ป้อน PIN ครั้งแรกครั้งเดียว จากนั้นใช้ลายนิ้วมือได้เลย PIN ยังใช้ได้เสมอ"
 };

@@ -929,5 +929,8 @@ NOTIS_I18N={
 "✉️ Comunică cu creatorul aplicației\nÎn Setări scrii, în română sau în engleză, ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Kapcsolat az alkalmazás készítőjével\nA Beállításokba írja meg román vagy angol nyelven, amit szeretne megváltoztatni vagy hozzáadni, majd tapolja meg “Üzenet küldése”Az e-mail alkalmazás megnyitódik. Minden felhasználó megkapja a választ.",
 "ℹ️ Versiune\nUltimul rând din Setări arată versiunea. Atinge-l ca să verifici: ✓ Ultima versiune sau 🆕 Update nou. Dacă e un update, atinge-l din nou ca să-l instalezi.": "ℹ️ Verzió\nA beállítások utolsó sorában látható a verzió. Nyomja meg, hogy ellenőrizze: ✓ Legújabb verzió vagy 🆕 Új frissítés. Ha van frissítés, akkor újra nyomja meg, hogy telepítse.",
 "✎ Editează din widget\nÎn widgetul Listă, ✎ de pe un rând schimbă textul elementului. În widgetul Notițe, desfă o notiță și atinge ✎ Editează ca s-o modifici fără să deschizi aplicația.": "✎ Szerkesztés a widgetből\nA List widgetben: ✎ egy sorban módosítja az elem szövegét. A Megjegyzések widgetben bővíts egy megjegyzést, és nyomja meg ✎ Szerkesztés az alkalmazás megnyitása nélkül.",
-"Fontul telefonului": "A telefon betűtípusa"
+"Fontul telefonului": "A telefon betűtípusa",
+"Deblocare cu amprenta": "Feloldás ujjlenyomattal",
+"Folosește PIN-ul": "PIN használata",
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Nyisd meg ujjlenyomattal, ami 🔒 PIN-nel zárolt. Egyszer add meg a PIN-t, utána elég az ujjlenyomat. A PIN mindig érvényes marad."
 };

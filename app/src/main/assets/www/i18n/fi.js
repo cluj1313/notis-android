@@ -929,5 +929,8 @@ NOTIS_I18N={
 "✉️ Comunică cu creatorul aplicației\nÎn Setări scrii, în română sau în engleză, ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Ota yhteyttä sovelluksen tekijään\nKirjoita asetuksissa englanniksi tai romaniksi, mitä haluat muuttaa tai lisätä, ja paina sitten “Lähetä viesti”Sähköposti-sovelluksesi avautuu. Jokainen käyttäjä saa vastauksen.",
 "ℹ️ Versiune\nUltimul rând din Setări arată versiunea. Atinge-l ca să verifici: ✓ Ultima versiune sau 🆕 Update nou. Dacă e un update, atinge-l din nou ca să-l instalezi.": "ℹ️ Versio\nAsetusten viimeinen rivi näyttää version. Koskettaa tarkistaaksesi: ✓ Uusin versio tai 🆕 Uusi päivitys. Jos on päivitys, paina sitä uudelleen asennettavaksi.",
 "✎ Editează din widget\nÎn widgetul Listă, ✎ de pe un rând schimbă textul elementului. În widgetul Notițe, desfă o notiță și atinge ✎ Editează ca s-o modifici fără să deschizi aplicația.": "✎ Muokkaa widgestä\nLuettelo widgetissä, ✎ rivin tekstin muuttaminen. Laajennetaan muistiinpano ja napsautetaan ✎ Muokkaa sen muuttamiseksi avaamatta sovellusta.",
-"Fontul telefonului": "Puhelimen fontti"
+"Fontul telefonului": "Puhelimen fontti",
+"Deblocare cu amprenta": "Avaus sormenjäljellä",
+"Folosește PIN-ul": "Käytä PIN-koodia",
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Avaa 🔒 PIN-koodilla lukitut kohteet sormenjäljellä. Anna PIN kerran, sen jälkeen sormenjälki riittää. PIN toimii aina."
 };

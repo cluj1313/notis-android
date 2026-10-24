@@ -929,5 +929,8 @@ NOTIS_I18N={
 "✉️ Comunică cu creatorul aplicației\nÎn Setări scrii, în română sau în engleză, ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Sazināties ar lietotnes autoru\nIestādēs uzrakstīt rumāņu vai angļu valodā, ko vēlaties mainīt vai pievienot, tad nospiediet “Sūtīt ziņu”Atveras jūsu e-pasta aplikācija. Katram lietotājam ቤተሰብ null koum зни.",
 "ℹ️ Versiune\nUltimul rând din Setări arată versiunea. Atinge-l ca să verifici: ✓ Ultima versiune sau 🆕 Update nou. Dacă e un update, atinge-l din nou ca să-l instalezi.": "ℹ️ Versija\nPēdējā rindā iestatījumos ir versija. Tīkājiet to, lai pārbaudītu: ✓ Pēdējā versija vai 🆕 Jaunais atjauninājums. Ja ir atjauninājums, noklikšķiniet uz to vēlreiz, lai to instalētu.",
 "✎ Editează din widget\nÎn widgetul Listă, ✎ de pe un rând schimbă textul elementului. În widgetul Notițe, desfă o notiță și atinge ✎ Editează ca s-o modifici fără să deschizi aplicația.": "✎ Redigāt no widget\nSaraksta widget ቤተሰብ null koum зни above ✎ Spēlesnildzs mainās numura tekstā. Piezīmes widgetā paplašināt piezīmi un piespiest ✎ Edit to mainīt, neiatverot lietotni.",
-"Fontul telefonului": "Tālruņa fonts"
+"Fontul telefonului": "Tālruņa fonts",
+"Deblocare cu amprenta": "Atbloķēšana ar pirksta nospiedumu",
+"Folosește PIN-ul": "Izmantot PIN",
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Atver ar pirksta nospiedumu to, kas bloķēts ar 🔒 PIN. Ievadi PIN vienreiz, pēc tam pietiek ar nospiedumu. PIN vienmēr ir derīgs."
 };

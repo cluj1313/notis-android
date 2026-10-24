@@ -929,5 +929,8 @@ NOTIS_I18N={
 "✉️ Comunică cu creatorul aplicației\nÎn Setări scrii, în română sau în engleză, ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Contactar con el creador de la app\nEn Configuración, escriba en rumano o en inglés lo que desea cambiar o añadir, luego toque “Enviar mensaje”Se abre su aplicación de correo electrónico. Cada usuario tiene una respuesta.",
 "ℹ️ Versiune\nUltimul rând din Setări arată versiunea. Atinge-l ca să verifici: ✓ Ultima versiune sau 🆕 Update nou. Dacă e un update, atinge-l din nou ca să-l instalezi.": "ℹ️ Versión\nLa última fila de Configuración muestra la versión. Toque para comprobar: ✓ Última versión o 🆕 Una nueva actualización. Si hay una actualización, toque de nuevo para instalarla.",
 "✎ Editează din widget\nÎn widgetul Listă, ✎ de pe un rând schimbă textul elementului. În widgetul Notițe, desfă o notiță și atinge ✎ Editează ca s-o modifici fără să deschizi aplicația.": "✎ Editar desde el widget\nEn el widget de la lista, ✎ en una fila cambia el texto del elemento. En el widget Notas, expanda una nota y toque ✎ Editar para cambiarlo sin abrir la aplicación.",
-"Fontul telefonului": "Fuente del teléfono"
+"Fontul telefonului": "Fuente del teléfono",
+"Deblocare cu amprenta": "Desbloqueo con huella",
+"Folosește PIN-ul": "Usar PIN",
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Abre con tu huella lo bloqueado con 🔒 PIN. Introduce el PIN una vez y después basta la huella. El PIN siempre sigue funcionando."
 };

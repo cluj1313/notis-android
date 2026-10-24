@@ -929,5 +929,8 @@ NOTIS_I18N={
 "✉️ Comunică cu creatorul aplicației\nÎn Setări scrii, în română sau în engleză, ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Hubungi pencipta aplikasi\nDalam tetapan, tulis dalam bahasa Romania atau Inggeris apa yang anda mahu diubah atau ditambah, kemudian ketuk “Hantar mesej”: aplikasi e-mel anda dibuka. Setiap pengguna mendapat sahih.",
 "ℹ️ Versiune\nUltimul rând din Setări arată versiunea. Atinge-l ca să verifici: ✓ Ultima versiune sau 🆕 Update nou. Dacă e un update, atinge-l din nou ca să-l instalezi.": "ℹ️ Versi\nBaris terakhir dalam Tetapan menunjukkan versi. Ketuk untuk menyemak: ✓ Versi terkini atau 🆕 Kemas kini baru. Jika ada kemas kini, ketik lagi untuk memasangnya.",
 "✎ Editează din widget\nÎn widgetul Listă, ✎ de pe un rând schimbă textul elementului. În widgetul Notițe, desfă o notiță și atinge ✎ Editează ca s-o modifici fără să deschizi aplicația.": "✎ Edit dari widget\nDalam widget sahih. ✎ . A change the item text on a row changes the item text. Dalam widget Notes, meluaskan nota dan ketuk ✎ Edit untuk mengubahnya tanpa membuka aplikasi.",
-"Fontul telefonului": "Fon telefon"
+"Fontul telefonului": "Fon telefon",
+"Deblocare cu amprenta": "Buka kunci dengan cap jari",
+"Folosește PIN-ul": "Guna PIN",
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Buka item yang dikunci 🔒 PIN dengan cap jari. Masukkan PIN sekali, kemudian cap jari sudah memadai. PIN sentiasa berfungsi."
 };

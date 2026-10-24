@@ -22,10 +22,13 @@ import android.webkit.WebViewClient;
 import org.json.JSONObject;
 import java.io.InputStream;
 
-public class MainActivity extends Activity {
+public class MainActivity extends androidx.fragment.app.FragmentActivity {
     static final String BASE = "https://cluj1313.github.io/notis/";
     private static final int FILE_REQ = 41, MIC_REQ = 42, CAM_REQ = 43, MIC_NAT_REQ = 44, SND_REQ = 45, SNDF_REQ = 46;
     static volatile MainActivity cur;
+    WebView bioWeb;
+    /** 2.5.6: biometric result back to JS */
+    void bioJs(String key, String pin) { if (bioWeb == null) return; bioWeb.evaluateJavascript("window.__bioRes&&__bioRes(" + JSONObject.quote(key) + "," + (pin == null ? "null" : JSONObject.quote(pin)) + ")", null); }
     private android.webkit.PermissionRequest micReq;
     private Uri camUri;
     static volatile boolean foreground = false;
@@ -68,6 +71,7 @@ public class MainActivity extends Activity {
         s.setCacheMode(WebSettings.LOAD_DEFAULT);
         s.setUserAgentString(s.getUserAgentString() + " NotisAndroid/" + Updater.mine(this));
         web.addJavascriptInterface(new Bridge(this), "NotisNative");
+        bioWeb = web;
         web.setWebViewClient(new WebViewClient() {
             @Override public WebResourceResponse shouldInterceptRequest(WebView v, WebResourceRequest r) {
                 /* no foreign frames: the NotisNative bridge must only ever be reachable from https://cluj1313.github.io/notis/ */

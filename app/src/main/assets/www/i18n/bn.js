@@ -929,5 +929,8 @@ NOTIS_I18N={
 "✉️ Comunică cu creatorul aplicației\nÎn Setări scrii, în română sau în engleză, ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ অ্যাপ নির্মাতার সাথে যোগাযোগ\nসেটিংসে, আপনি কি পরিবর্তন বা যোগ করতে চান তা রোমানিয়ান বা ইংরেজিতে লিখুন, তারপর আলতো চাপুন “বার্তা পাঠান”: আপনার ইমেইল অ্যাপ খুলবে। প্রত্যেক ব্যবহারকারী একটি উত্তর পায়।",
 "ℹ️ Versiune\nUltimul rând din Setări arată versiunea. Atinge-l ca să verifici: ✓ Ultima versiune sau 🆕 Update nou. Dacă e un update, atinge-l din nou ca să-l instalezi.": "ℹ️ সংস্করণ\nসেটিংসের শেষ সারিতে সংস্করণ দেখানো হয়েছে। চেক করতে এটিতে আলতো চাপুনঃ ✓ সর্বশেষ সংস্করণ অথবা 🆕 নতুন আপডেট যদি কোনও আপডেট থাকে, তাহলে এটি ইনস্টল করতে আবার এটিতে আলতো waste করুন.",
 "✎ Editează din widget\nÎn widgetul Listă, ✎ de pe un rând schimbă textul elementului. În widgetul Notițe, desfă o notiță și atinge ✎ Editează ca s-o modifici fără să deschizi aplicația.": "✎ উইজেট থেকে সম্পাদনা করুন\nতালিকা উইজেটে, ✎ একটি লাইনে আইটেম টেক্সট পরিবর্তন করে। নোটস উইজেটে, একটি নোট প্রসারিত করুন এবং আলতো চাপুন ✎ অ্যাপটি না খোলার জন্য এটি পরিবর্তন করতে সম্পাদনা করুন।",
-"Fontul telefonului": "ফোনের ফন্ট"
+"Fontul telefonului": "ফোনের ফন্ট",
+"Deblocare cu amprenta": "আঙুলের ছাপে আনলক",
+"Folosește PIN-ul": "PIN ব্যবহার করুন",
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "🔒 PIN দিয়ে লক করা জিনিস আঙুলের ছাপে খুলুন। একবার PIN দিন, তারপর আঙুলের ছাপই যথেষ্ট। PIN সবসময় কাজ করে।"
 };

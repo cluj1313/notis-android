@@ -992,6 +992,7 @@ html[data-font] body,html[data-font] button,html[data-font] input,html[data-font
   <div class="bklist" id="jvBkList" style="margin-bottom:8px"></div><div class="bklist" id="bkList"><div class="bkempty">Niciun backup încă.</div></div>
  </div>
  <div class="sec" id="bkAuto">Backup-uri automate</div><div class="field"><div class="hint">Înainte de fiecare actualizare a aplicației, Notis salvează automat tot (notițe, taburi, foldere, poze, înregistrări, desene, setări). Se păstrează ultimele 5 copii.</div><div class="bklist" id="abList"></div></div>
+<div id="fBio" style="display:none"><div class="sec">Deblocare cu amprenta</div><div class="field"><label class="chk"><input type="checkbox" id="bioOn"> Deblocare cu amprenta</label><div class="hint">Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.</div></div></div>
 <div class="sec">Sunet alarmă</div><div class="field" id="alsField"><div class="alsl" id="alsList"></div><div class="hint" id="alsHint"></div></div>
 <div class="sec">Cum funcționează</div><div class="field"><div class="throw"><button type="button" class="thc" id="bDemo"></button><button type="button" class="thc" id="bDemoReset">Resetează exemplele</button></div><div class="bgkl"><span id="demoHint"></span></div></div>
 
@@ -2365,7 +2366,7 @@ function xRows(q){var qs=q.split(/\s+/).filter(Boolean),R=[],lk=0,enc=0;XR=[];
  if(lk||enc)h+='<li class="nxl"><span class="nxlt">🔒 '+(lk?lk+' '+esc(TR('rezultate în notițe blocate')):esc(TR('Caută și în notițele blocate')))+'</span><button type="button" class="btn pill">'+esc(TR('🔓 Deblochează'))+'</button></li>';
  return h}
 function xTab(id){if(draftId)draftFinish();if(SX.t[id])tabOpen[id]=1;noteTab=id;nFolder='';saveNotes();nSearchClose()}
-function xUnlock(){pinShow({title:TR('Introdu PIN-ul'),done:function(pin){var P=[];
+function xUnlock(){pinShow({bio:'x',title:TR('Introdu PIN-ul'),done:function(pin){var P=[];
  noteTabs.forEach(function(t){if(t.lk&&!SX.t[t.id])P.push(tbTry(t,pin).then(function(ok){if(ok)SX.t[t.id]=1;return ok}))});
  noteFolders.forEach(function(f){if(f.lk&&!f.del&&!SX.f[f.id])P.push(fdTry(f,pin).then(function(ok){if(ok)SX.f[f.id]=1;return ok}))});
  notes.forEach(function(n){if(n.lock&&!n.del&&!SX.n[n.id])P.push(lkTry(n,pin).then(function(r){if(r){SX.n[n.id]=xPlain(r.o);return true}return false}))});
@@ -2458,11 +2459,21 @@ function lkApply(n,o){if(o.type)n.type=o.type;else delete n.type;n.text=o.text||
 function lkStrip(n){delete n._key;delete n.title;delete n.items;delete n.blocks;delete n.type;n.text='';renderNotes()}
 function lkReseal(n){var key=n._key;if(!key||!n.lock)return Promise.resolve();n.ltitle=nTitle0(n);return lkEnc(key,b64d(n.lock.salt),n).then(function(l){n.lock=l;saveNotes(true);nLockCache[n.id]=l})}
 var pinSt=null;
-function pinShow(o){pinSt=o;var pl=o.len===6?6:4,pd=$('pinDots');while(pd.children.length<pl)pd.appendChild(document.createElement('i'));while(pd.children.length>pl)pd.removeChild(pd.lastChild);$('pinIn').maxLength=pl;$('pinTitle').textContent=o.title;$('pinWarn').style.display=o.warn?'':'none';$('pinMsg').textContent=o.msg||'';var i=$('pinIn');i.value='';pinDots();$('pinModal').classList.add('show');setTimeout(function(){try{i.focus()}catch(_){}},50)}
+function pinShow(o){if(o.bio&&!o._bp){o._bp=1;o.bio=(typeof PFX==='string'?PFX:'')+o.bio}pinSt=o;var pl=o.len===6?6:4,pd=$('pinDots');while(pd.children.length<pl)pd.appendChild(document.createElement('i'));while(pd.children.length>pl)pd.removeChild(pd.lastChild);$('pinIn').maxLength=pl;$('pinTitle').textContent=o.title;$('pinWarn').style.display=o.warn?'':'none';$('pinMsg').textContent=o.msg||'';var i=$('pinIn');i.value='';pinDots();$('pinModal').classList.add('show');if(bioCan(o)){o.bioW=true;try{if(!NotisNative.bioAuth(o.bio,o.title,TR('Folosește PIN-ul')))o.bioW=false}catch(_){o.bioW=false}}if(!o.bioW)setTimeout(function(){try{i.focus()}catch(_){}},50)}
+/* 2.5.6: fingerprint for 🔒 PIN prompts (Android). Only prompts that pass o.bio use it. */
+function bioNat(){try{return !!(window.NotisNative&&NotisNative.bioAvail&&NotisNative.bioAvail())}catch(_){return false}}
+function bioOnG(){var v=localStorage.getItem('ns_bio');return v===null?true:v==='1'}
+function bioCan(o){if(!o||!o.bio||!bioOnG()||!bioNat())return false;try{return NotisNative.bioHas(o.bio)}catch(_){return false}}
+function bioSv(k,p){if(!k||!bioOnG()||!bioNat())return;try{NotisNative.bioSave(k,p)}catch(_){}}
+function bioRm(k){k=(typeof PFX==='string'?PFX:'')+k;try{if(window.NotisNative&&NotisNative.bioDel)NotisNative.bioDel(k)}catch(_){}}
+(function(){var f=$('fBio'),c=$('bioOn');if(!f||!c||!bioNat())return;f.style.display='';c.checked=bioOnG();c.addEventListener('change',function(){localStorage.setItem('ns_bio',c.checked?'1':'0');if(!c.checked){try{NotisNative.bioClear()}catch(_){}}})})();
+window.__bioRes=function(k,pin){var o=pinSt;if(!o||o.bio!==k||!o.bioW)return;o.bioW=false;var i=$('pinIn');function man(){if(pinSt===o){$('pinMsg').textContent='';setTimeout(function(){try{i.focus()}catch(_){}},50)}}
+ if(pin==null){man();return}o.busy=true;$('pinMsg').textContent='…';Promise.resolve(o.done(pin)).then(function(r){o.busy=false;if(r===true){if(pinSt===o)pinHide()}else{bioDk(k);man()}},function(){o.busy=false;bioDk(k);man()})};
+function bioDk(k){try{NotisNative.bioDel(k)}catch(_){}}
 function pinDots(){var v=$('pinIn').value;[].forEach.call($('pinDots').children,function(d,k){d.classList.toggle('on',k<v.length)})}
 function pinHide(){$('pinModal').classList.remove('show');pinSt=null;try{$('pinIn').blur()}catch(_){}}
 function pinErr(m){$('pinMsg').textContent=m;var b=$('pinBox');b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');try{if(navigator.vibrate)navigator.vibrate(120)}catch(_){}$('pinIn').value='';pinDots()}
-$('pinIn').addEventListener('input',function(){var pl=pinSt&&pinSt.len===6?6:4;this.value=this.value.replace(/\D/g,'').slice(0,pl);pinDots();if(this.value.length===pl&&pinSt&&!pinSt.busy){var o=pinSt,v=this.value;o.busy=true;$('pinMsg').textContent='…';Promise.resolve(o.done(v)).then(function(r){o.busy=false;if(r===true){if(pinSt===o)pinHide()}else if(pinSt===o)pinErr(r||TR('PIN greșit'))},function(){o.busy=false;if(pinSt===o)pinErr(TR('PIN greșit'))})}});
+$('pinIn').addEventListener('input',function(){var pl=pinSt&&pinSt.len===6?6:4;this.value=this.value.replace(/\D/g,'').slice(0,pl);pinDots();if(this.value.length===pl&&pinSt&&!pinSt.busy){var o=pinSt,v=this.value;o.busy=true;$('pinMsg').textContent='…';Promise.resolve(o.done(v)).then(function(r){o.busy=false;if(r===true){if(o.bio)bioSv(o.bio,v);if(pinSt===o)pinHide()}else if(pinSt===o)pinErr(r||TR('PIN greșit'))},function(){o.busy=false;if(pinSt===o)pinErr(TR('PIN greșit'))})}});
 $('pinDots').addEventListener('click',function(){try{$('pinIn').focus()}catch(_){}});
 $('pinCancel').addEventListener('click',pinHide);$('pinModal').addEventListener('click',function(e){if(e.target===this)pinHide()});
 function lkLock(id){var n=findN(id);if(!n||n.lock)return;if(!window.crypto||!crypto.subtle){toast(TR('Criptarea nu e disponibilă aici'));return}
@@ -2513,10 +2524,10 @@ function nShareNow(P){var txt=P.txt;if(!P.ready){if(txt&&navigator.share){nShSen
  nShMenu(P,0)}
 function nShareAsk(P){nShMenu(P,0)}
 function nShare(id){var n=findN(id);if(!n)return;
- if(n.lock&&!n._key){pinShow({title:TR('Introdu PIN-ul'),done:function(pin){return lkTry(n,pin).then(function(r){if(!r)return TR('PIN greșit');var o={id:n.id,_key:r.k,isort:n.isort,createdAt:n.createdAt,ts:n.ts};lkApply(o,r.o);var P=nSharePrep(o);P.p.then(function(){setTimeout(function(){if(P.files.length)nShMenu(P,0);else if(P.txt)nShSheet(TR('Trimite notița'),[{t:'📤 Trimite',f:function(){nShSend({text:P.txt},null,function(){nCopySync(P.txt)})}}]);else toast(TR('Notița e goală'))},0)});return true})}});return}
+ if(n.lock&&!n._key){pinShow({bio:'n:'+n.id,title:TR('Introdu PIN-ul'),done:function(pin){return lkTry(n,pin).then(function(r){if(!r)return TR('PIN greșit');var o={id:n.id,_key:r.k,isort:n.isort,createdAt:n.createdAt,ts:n.ts};lkApply(o,r.o);var P=nSharePrep(o);P.p.then(function(){setTimeout(function(){if(P.files.length)nShMenu(P,0);else if(P.txt)nShSheet(TR('Trimite notița'),[{t:'📤 Trimite',f:function(){nShSend({text:P.txt},null,function(){nCopySync(P.txt)})}}]);else toast(TR('Notița e goală'))},0)});return true})}});return}
  var P=nShP&&nShP.id===id?nShP:null;if(!P||P.txt!==nShareText(n))P=nSharePrep(n);nShareNow(P)}
-function lkOpen(id){var n=findN(id);if(!n||!n.lock)return;pinShow({title:TR('Introdu PIN-ul'),done:function(pin){return lkTry(n,pin).then(function(r){if(!r)return TR('PIN greșit');lkApply(n,r.o);n._key=r.k;setTimeout(function(){fullOpen(id)},0);return true})}})}
-function lkUnlock(id){var n=findN(id);if(!n||!n.lock)return;pinShow({title:TR('Introdu PIN-ul'),done:function(pin){return lkTry(n,pin).then(function(r){if(!r)return TR('PIN greșit');phUnlockAll(n.id,r.k).catch(function(e){console.warn(e)});lkApply(n,r.o);delete n.lock;delete n._key;delete n.ltitle;nHistReset();saveNotes();renderNotes();toast(TR('Notiță deblocată'));return true})}})}
+function lkOpen(id){var n=findN(id);if(!n||!n.lock)return;pinShow({bio:'n:'+id,title:TR('Introdu PIN-ul'),done:function(pin){return lkTry(n,pin).then(function(r){if(!r)return TR('PIN greșit');lkApply(n,r.o);n._key=r.k;setTimeout(function(){fullOpen(id)},0);return true})}})}
+function lkUnlock(id){var n=findN(id);if(!n||!n.lock)return;pinShow({bio:'n:'+id,title:TR('Introdu PIN-ul'),done:function(pin){return lkTry(n,pin).then(function(r){if(!r)return TR('PIN greșit');phUnlockAll(n.id,r.k).catch(function(e){console.warn(e)});lkApply(n,r.o);delete n.lock;delete n._key;delete n.ltitle;nHistReset();saveNotes();renderNotes();bioRm('n:'+n.id);toast(TR('Notiță deblocată'));return true})}})}
 /* v54: checklist notes */
 function chkSync(n){n.text=[(n.title||'').trim()].concat((n.items||[]).map(function(x){return x.text.trim()})).filter(Boolean).join('\n')}
 function ciNew(done){var now=new Date().toISOString();return{id:ntUid(),text:'',done:!!done,createdAt:now,updatedAt:now}}
@@ -2758,7 +2769,7 @@ function fdLock(f){if(!window.crypto||!crypto.subtle){toast(TR('Criptarea nu e d
   var salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12));return lkDerive(p2,salt).then(function(k){return crypto.subtle.encrypt({name:'AES-GCM',iv:iv},k,new TextEncoder().encode('notis-folder:'+f.id))}).then(function(ct){f.lk=JSON.stringify({v:1,salt:b64e(salt),iv:b64e(iv),ct:b64e(ct)});delete fdOpen[f.id];if(fdChain(nFolder).some(function(x){return x.id===f.id}))fdGo(f.parent||'');saveNotes();renderNotes();toast(TR('Folder blocat'));return true})}})}
  s1()}
 function fdTry(f,pin){try{var L=JSON.parse(f.lk)}catch(_){return Promise.resolve(false)}return lkDerive(pin,b64d(L.salt)).then(function(k){return crypto.subtle.decrypt({name:'AES-GCM',iv:b64d(L.iv)},k,b64d(L.ct))}).then(function(b){return new TextDecoder().decode(b)==='notis-folder:'+f.id}).catch(function(){return false})}
-function fdPin(f,ok){pinShow({title:'🔒 '+f.name+TR(' · introdu PIN-ul'),done:function(p){return fdTry(f,p).then(function(r){if(!r)return TR('PIN greșit');setTimeout(ok,0);return true})}})}
+function fdPin(f,ok){pinShow({bio:'f:'+f.id,title:'🔒 '+f.name+TR(' · introdu PIN-ul'),done:function(p){return fdTry(f,p).then(function(r){if(!r)return TR('PIN greșit');setTimeout(ok,0);return true})}})}
 function fdUnlock(f){fdPin(f,function(){delete f.lk;delete fdOpen[f.id];saveNotes();renderNotes();toast(TR('Folder deblocat'))})}
 function fdMenu(li){var f=findF(li.dataset.fid);if(!f)return;lpCur={li:li,fd:f.id};var h;
  if(f.del)h='<button data-a="frest">↩ Reface</button><button data-a="fpurge" class="dng">× Șterge definitiv</button>';
@@ -2849,7 +2860,7 @@ $('nfBlocks').addEventListener('click',function(e){var w=e.target.closest('.nba'
 var tabOpen={};
 function tbHidden(id){var t=findNT(id);return !!(t&&t.lk&&!tabOpen[id])}
 function tbTry(t,pin){try{var L=JSON.parse(t.lk)}catch(_){return Promise.resolve(false)}return lkDerive(pin,b64d(L.salt)).then(function(k){return crypto.subtle.decrypt({name:'AES-GCM',iv:b64d(L.iv)},k,b64d(L.ct))}).then(function(b){return new TextDecoder().decode(b)==='notis-tab:'+t.id}).catch(function(){return false})}
-function tbPin(t,ok){pinShow({title:'🔒 '+t.name+TR(' · introdu PIN-ul'),done:function(p){return tbTry(t,p).then(function(r){if(!r)return TR('PIN greșit');setTimeout(ok,0);return true})}})}
+function tbPin(t,ok){pinShow({bio:'t:'+t.id,title:'🔒 '+t.name+TR(' · introdu PIN-ul'),done:function(p){return tbTry(t,p).then(function(r){if(!r)return TR('PIN greșit');setTimeout(ok,0);return true})}})}
 function tbOpenLocked(id){var t=findNT(id);if(!t)return;tbPin(t,function(){tabOpen[id]=1;renderNotes()})}
 function tbLock(id){var t=findNT(id);if(!t||t.lk)return;if(!window.crypto||!crypto.subtle){toast(TR('Criptarea nu e disponibilă aici'));return}
  function s1(msg){pinShow({title:TR('PIN pentru tabul „')+t.name+'”',msg:msg,done:function(p1){setTimeout(function(){s2(p1)},0);return true}})}
@@ -3732,7 +3743,7 @@ spMigrate();renderNotes();
 })();
 /* v96: Setări → TABURI (bibliotecă: ordine drag & drop, bifă vizibil/ascuns, PIN 4/6 opțional), DESIGN (Teme · Stil taburi · Fundal · Setări fine · Iconiță), iconiță urgență, Comunică cu creatorul, Versiune. Additive: hidden tab = t.off, nothing deleted. */
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v100';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v101';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};
@@ -3797,10 +3808,10 @@ window.urgPre=function(n){if(!n||n.del)return '';var t=findNT(n.tab);if(!isUrgTa
    var salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12));return lkDerive(p2,salt).then(function(k){return crypto.subtle.encrypt({name:'AES-GCM',iv:iv},k,new TextEncoder().encode('notis-lib'))}).then(function(ct){LS.set('ns_libpin',{n:pl,salt:b64e(salt),iv:b64e(iv),ct:b64e(ct)});unl=true;render();toast(TR('Biblioteca e protejată cu PIN'));return true})}})}
   s1()}
  function pinTry(p){var L=pinGet();return lkDerive(p,b64d(L.salt)).then(function(k){return crypto.subtle.decrypt({name:'AES-GCM',iv:b64d(L.iv)},k,b64d(L.ct))}).then(function(b){return new TextDecoder().decode(b)==='notis-lib'}).catch(function(){return false})}
- function unlock(then){var L=pinGet();pinShow({len:L.n,title:'🔒 '+TR('Bibliotecă')+TR(' · introdu PIN-ul'),done:function(p){return pinTry(p).then(function(ok){if(!ok)return TR('PIN greșit');unl=true;setTimeout(function(){render();if(then)then()},0);return true})}})}
+ function unlock(then){var L=pinGet();pinShow({bio:'lib',len:L.n,title:'🔒 '+TR('Bibliotecă')+TR(' · introdu PIN-ul'),done:function(p){return pinTry(p).then(function(ok){if(!ok)return TR('PIN greșit');unl=true;setTimeout(function(){render();if(then)then()},0);return true})}})}
  $('tbLock').addEventListener('click',function(){var pp=$('tbPinPick');if(!pinGet()){pp.classList.toggle('on');return}
   if(!unl){unlock();return}
-  ask('Elimini PIN-ul Bibliotecii?',function(){localStorage.removeItem('ns_libpin');render();toast(TR('PIN eliminat'))})});
+  ask('Elimini PIN-ul Bibliotecii?',function(){localStorage.removeItem('ns_libpin');bioRm('lib');render();toast(TR('PIN eliminat'))})});
  $('tbPinPick').addEventListener('click',function(e){var b=e.target.closest('[data-pl]');if(!b)return;this.classList.remove('on');pinMake(+b.dataset.pl)});
  function ask(txt,yes){var cf=$('cfModal').querySelector('.cftxt'),ok=$('cfOk'),no=$('cfNo'),t0=cf.textContent,o0=ok.textContent,n0=no.textContent;cf.textContent=TR(txt);ok.textContent=TR('Da');no.textContent=TR('Nu');var rs=function(){setTimeout(function(){cf.textContent=t0;ok.textContent=o0;no.textContent=n0},300)};jvConfirm(function(){rs();yes()});var n1=no.onclick;no.onclick=function(){rs();if(n1)n1()}}
  /* opening TABURI while locked asks for the PIN first */

@@ -929,5 +929,8 @@ NOTIS_I18N={
 "✉️ Comunică cu creatorul aplicației\nÎn Setări scrii, în română sau în engleză, ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ تماس با سازندهٔ برنامه\nدر تنظیمات، آنچه را که می خواهید تغییر دهید یا اضافه کنید را به زبان رومانیایی یا انگلیسی بنویسید، سپس روی “ارسال پیام”در s: هر کاربر جوابي مي گيره",
 "ℹ️ Versiune\nUltimul rând din Setări arată versiunea. Atinge-l ca să verifici: ✓ Ultima versiune sau 🆕 Update nou. Dacă e un update, atinge-l din nou ca să-l instalezi.": "ℹ️ نسخه\nآخرین ردیف تنظیمات نسخه را نشان می دهد. برای چک کردن روی آن بزنید: ✓ آخرین نسخه یا 🆕 به روز رساني جديد اگر به روز رسانی وجود داشته باشد، دوباره آن را لمس کنید تا آن را نصب کنید.",
 "✎ Editează din widget\nÎn widgetul Listă, ✎ de pe un rând schimbă textul elementului. În widgetul Notițe, desfă o notiță și atinge ✎ Editează ca s-o modifici fără să deschizi aplicația.": "✎ ویرایش از ویجت\nدر ویجت لیست ✎ در یک ردیف متن آیتم را تغییر می دهد. در ویجت یادداشت ها، یک یادداشت را گسترش دهید و ضربه بزنید ✎ برای تغییر آن بدون باز کردن برنامه ویرایش کنید.",
-"Fontul telefonului": "فونت گوشی"
+"Fontul telefonului": "فونت گوشی",
+"Deblocare cu amprenta": "باز کردن قفل با اثر انگشت",
+"Folosește PIN-ul": "استفاده از PIN",
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "مواردی را که با 🔒 PIN قفل شده‌اند با اثر انگشت باز کنید. یک بار PIN را وارد کنید، سپس اثر انگشت کافی است. PIN همیشه معتبر می‌ماند."
 };

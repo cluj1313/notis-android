@@ -929,5 +929,8 @@ NOTIS_I18N={
 "✉️ Comunică cu creatorul aplicației\nÎn Setări scrii, în română sau în engleză, ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Επικοινωνία με τον δημιουργό\nΣτις Ρυθμίσεις, γράψτε στα Ρουμανικά ή στα Αγγλικά τι θέλετε να αλλάξετε ή να προσθέσετε, στη συνέχεια πατήστε “Αποστολή μηνύματος”Η εφαρμογή ηλεκτρονικού ταχυδρομείου σας ανοίγει. Κάθε χρήστης παίρνει μια απάντηση.",
 "ℹ️ Versiune\nUltimul rând din Setări arată versiunea. Atinge-l ca să verifici: ✓ Ultima versiune sau 🆕 Update nou. Dacă e un update, atinge-l din nou ca să-l instalezi.": "ℹ️ Έκδοση\nΗ τελευταία γραμμή στις Ρυθμίσεις δείχνει την έκδοση. Πατήστε το για να ελέγξετε: ✓ Τελευταία έκδοση ή 🆕 Νέα ενημέρωση. Ανόρθωση τουliv dim.",
 "✎ Editează din widget\nÎn widgetul Listă, ✎ de pe un rând schimbă textul elementului. În widgetul Notițe, desfă o notiță și atinge ✎ Editează ca s-o modifici fără să deschizi aplicația.": "✎ Επεξεργασία από το widget\nΣτο widget λίστας, ✎ σε μια γραμμή αλλάζει το κείμενο στοιχείου. Στο widget Σημειώσεις, επεκτείνει μια σημείωση και πατάει ✎ Επεξεργαστείτε για να το αλλάξετε χωρίς να ανοίξετε την εφαρμογή.",
-"Fontul telefonului": "Γραμματοσειρά τηλεφώνου"
+"Fontul telefonului": "Γραμματοσειρά τηλεφώνου",
+"Deblocare cu amprenta": "Ξεκλείδωμα με δακτυλικό αποτύπωμα",
+"Folosește PIN-ul": "Χρήση PIN",
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Ανοίξτε με το δακτυλικό αποτύπωμα ό,τι είναι κλειδωμένο με 🔒 PIN. Εισάγετε το PIN μία φορά, μετά αρκεί το αποτύπωμα. Το PIN ισχύει πάντα."
 };

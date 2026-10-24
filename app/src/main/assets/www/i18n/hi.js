@@ -929,5 +929,8 @@ NOTIS_I18N={
 "✉️ Comunică cu creatorul aplicației\nÎn Setări scrii, în română sau în engleză, ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ ऐप निर्माता से संपर्क करें\nसेटिंग्स में, रोमानियाई या अंग्रेजी में लिखें कि आप क्या बदलना या जोड़ना चाहते हैं, फिर टैप करें “संदेश भेजें”: आपका ईमेल ऐप खुलता है. प्रत्येक उपयोगकर्ता को एक उत्तर मिलता है।",
 "ℹ️ Versiune\nUltimul rând din Setări arată versiunea. Atinge-l ca să verifici: ✓ Ultima versiune sau 🆕 Update nou. Dacă e un update, atinge-l din nou ca să-l instalezi.": "ℹ️ संस्करण\nसेटिंग्स में अंतिम पंक्ति संस्करण दिखाता है. जाँच करने के लिए इसे टैप करें: ✓ नवीनतम संस्करण या 🆕 नया अपडेट। यदि कोई अद्यतन है, तो इसे स्थापित करने के लिए फिर से टैप करें.",
 "✎ Editează din widget\nÎn widgetul Listă, ✎ de pe un rând schimbă textul elementului. În widgetul Notițe, desfă o notiță și atinge ✎ Editează ca s-o modifici fără să deschizi aplicația.": "✎ विजेट से संपादित करें\nसूची विजेट में, ✎ एक पंक्ति पर आइटम पाठ बदलता है. नोट्स विजेट में, एक नोट का विस्तार करें और टैप करें ✎ एप्लिकेशन खोले बिना इसे बदलने के लिए संपादित करें.",
-"Fontul telefonului": "फ़ोन का फ़ॉन्ट"
+"Fontul telefonului": "फ़ोन का फ़ॉन्ट",
+"Deblocare cu amprenta": "फ़िंगरप्रिंट से अनलॉक",
+"Folosește PIN-ul": "PIN का उपयोग करें",
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "🔒 PIN से लॉक चीज़ें अपने फ़िंगरप्रिंट से खोलें। एक बार PIN डालें, फिर फ़िंगरप्रिंट काफ़ी है। PIN हमेशा काम करता रहता है।"
 };

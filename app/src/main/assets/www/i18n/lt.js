@@ -929,5 +929,8 @@ NOTIS_I18N={
 "✉️ Comunică cu creatorul aplicației\nÎn Setări scrii, în română sau în engleză, ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Susisiekti su programėlės kūrėju\nPasirinkimuose parašykite rumunų ar anglų kalba, ką norite pakeisti ar pridėti, tada spustelėkite “Siųsti žinutę”Jūsų el. pašto nutinka. Kiekvienas vartotojas gauna atsakymą.",
 "ℹ️ Versiune\nUltimul rând din Setări arată versiunea. Atinge-l ca să verifici: ✓ Ultima versiune sau 🆕 Update nou. Dacă e un update, atinge-l din nou ca să-l instalezi.": "ℹ️ Versija\nPaskutinėje nustatymų eilutėje rodoma versija. Paspauskite jį patikrinti: ✓ Naujausia versija arba 🆕 Nauja informacija. Jei yra naujovė, ją įdiegti vėl palieskite.",
 "✎ Editează din widget\nÎn widgetul Listă, ✎ de pe un rând schimbă textul elementului. În widgetul Notițe, desfă o notiță și atinge ✎ Editează ca s-o modifici fără să deschizi aplicația.": "✎ Redaguoti iš įrankio\nSąrašo vidžete ✎ Pažvelkite į tai, ką matote. Įrašų vidžete išplėskite įrašą ir palieskite ✎ Redaguokite, kad pakeistumėte ją neatidarę programos.",
-"Fontul telefonului": "Telefono šriftas"
+"Fontul telefonului": "Telefono šriftas",
+"Deblocare cu amprenta": "Atrakinimas piršto atspaudu",
+"Folosește PIN-ul": "Naudoti PIN",
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Atidarykite piršto atspaudu tai, kas užrakinta 🔒 PIN kodu. Įveskite PIN kartą, vėliau pakaks atspaudo. PIN visada galioja."
 };

@@ -44,6 +44,13 @@ final class Bridge {
     @JavascriptInterface public boolean pickAlarmFile() { MainActivity m = MainActivity.cur; if (!MainActivity.trusted || m == null) return false; m.runOnUiThread(m::pickAlarmFile); return true; }
     @JavascriptInterface public String iconGet() { if (!MainActivity.trusted) return ""; return IconSwitch.get(ctx); }
     @JavascriptInterface public boolean iconSet(String k) { if (!MainActivity.trusted) return false; return IconSwitch.set(ctx, k); }
+    /* 2.5.6: biometric unlock for PIN prompts (never for the creator menu) */
+    @JavascriptInterface public boolean bioAvail() { if (!MainActivity.trusted) return false; return BioLock.avail(ctx); }
+    @JavascriptInterface public boolean bioHas(String k) { if (!MainActivity.trusted) return false; return BioLock.has(ctx, k); }
+    @JavascriptInterface public void bioSave(String k, String pin) { if (!MainActivity.trusted) return; BioLock.save(ctx, k, pin); }
+    @JavascriptInterface public void bioDel(String k) { if (!MainActivity.trusted) return; BioLock.del(ctx, k); }
+    @JavascriptInterface public void bioClear() { if (!MainActivity.trusted) return; BioLock.clear(ctx); }
+    @JavascriptInterface public boolean bioAuth(String k, String title, String neg) { final MainActivity m = MainActivity.cur; if (!MainActivity.trusted || m == null || !BioLock.has(ctx, k)) return false; m.runOnUiThread(() -> BioLock.auth(m, k, title, neg)); return true; }
     /* 2.5.1 */
     @JavascriptInterface public void updCheck() { final MainActivity m = MainActivity.cur; if (!MainActivity.trusted || m == null) return; m.runOnUiThread(() -> { Store.sp(m).edit().putLong("updChk", 0).apply(); Updater.check(m); }); }
     @JavascriptInterface public void newsSet(boolean on, String lang) { if (!MainActivity.trusted) return; NewsReceiver.set(ctx, on, lang); }

@@ -929,5 +929,8 @@ NOTIS_I18N={
 "✉️ Comunică cu creatorul aplicației\nÎn Setări scrii, în română sau în engleză, ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Kontakto krijuesin e aplikacionit\nNë cilësimet, shkruani në rumunisht ose anglisht atë që dëshironi кін e shtoni, pastaj prekni “Dërgo mesazhin”hapet aplikacioni juaj i lash. Çdo përdorues merr një përgjigje.",
 "ℹ️ Versiune\nUltimul rând din Setări arată versiunea. Atinge-l ca să verifici: ✓ Ultima versiune sau 🆕 Update nou. Dacă e un update, atinge-l din nou ca să-l instalezi.": "ℹ️ Versioni\nRreshti i fundit në cilësime tregon versionin. Shtypni për të kontrolluar: ✓ Versioni i fundit ose 🆕 Një përditësim i ri. Nëse ka një përditësim, prekni përsëri për ta instaluar atë.",
 "✎ Editează din widget\nÎn widgetul Listă, ✎ de pe un rând schimbă textul elementului. În widgetul Notițe, desfă o notiță și atinge ✎ Editează ca s-o modifici fără să deschizi aplicația.": "✎ Redaktimi nga widget\nNë widget List, ✎ në një rresht ndryshon tekstin e elementit. Në widget Notat, zgjeroni një shënim dhe prekni ✎ Për ta ndryshuar pa hapur aplikacionin.",
-"Fontul telefonului": "Shkronjat e telefonit"
+"Fontul telefonului": "Shkronjat e telefonit",
+"Deblocare cu amprenta": "Shkyçje me gjurmë gishti",
+"Folosește PIN-ul": "Përdor PIN-in",
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Hap me gjurmë gishti atë që është kyçur me 🔒 PIN. Fut PIN-in një herë, pastaj mjafton gjurma. PIN-i mbetet gjithmonë i vlefshëm."
 };

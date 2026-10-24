@@ -929,5 +929,8 @@ NOTIS_I18N={
 "✉️ Comunică cu creatorul aplicației\nÎn Setări scrii, în română sau în engleză, ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Контактирај аутора апликације\nУ подешавању, напишите на румунском или енглеском језику шта желите да промените или доданете, а затим додирните “Пошаљи поруку”Отвара се ваша апликација за е-пошту. Сваки корисник добија одговор.",
 "ℹ️ Versiune\nUltimul rând din Setări arată versiunea. Atinge-l ca să verifici: ✓ Ultima versiune sau 🆕 Update nou. Dacă e un update, atinge-l din nou ca să-l instalezi.": "ℹ️ Верзија\nПоследњи ред у подешавању приказује верзију. Потицајте га да бисте проверили: ✓ Последња верзија или 🆕 Нови ажурирање. Ако постоји ажурирање, поново га додирните да бисте га инсталирали.",
 "✎ Editează din widget\nÎn widgetul Listă, ✎ de pe un rând schimbă textul elementului. În widgetul Notițe, desfă o notiță și atinge ✎ Editează ca s-o modifici fără să deschizi aplicația.": "✎ Изменити са виџета\nУ виџету Листа, ✎ на линији мења текст ставке. У виджету Белешке, проширите белешку и додирните ✎ Измените га да бисте га променили без отварања апликације.",
-"Fontul telefonului": "Фонт телефона"
+"Fontul telefonului": "Фонт телефона",
+"Deblocare cu amprenta": "Откључавање отиском прста",
+"Folosește PIN-ul": "Користи PIN",
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Отварај отиском прста оно што је закључано 🔒 PIN-ом. Унеси PIN једном, затим је довољан отисак. PIN увек важи."
 };

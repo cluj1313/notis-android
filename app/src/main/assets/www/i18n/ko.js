@@ -929,5 +929,8 @@ NOTIS_I18N={
 "✉️ Comunică cu creatorul aplicației\nÎn Setări scrii, în română sau în engleză, ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ 앱 제작자에게 연락\n설정에서 루마니아어 또는 영어로 변경하거나 추가하고 싶은 것을 입력하고 “메시지 보내기”이메일 앱이 열립니다. 모든 사용자는 답을 얻습니다.",
 "ℹ️ Versiune\nUltimul rând din Setări arată versiunea. Atinge-l ca să verifici: ✓ Ultima versiune sau 🆕 Update nou. Dacă e un update, atinge-l din nou ca să-l instalezi.": "ℹ️ 버전\n설정의 마지막 줄에서 버전이 표시됩니다. 확인하기 위해 누르세요: ✓ 최신 버전 또는 🆕 새로운 업데이트 업데이트가 있으면 다시 누르면 설치가 됩니다.",
 "✎ Editează din widget\nÎn widgetul Listă, ✎ de pe un rând schimbă textul elementului. În widgetul Notițe, desfă o notiță și atinge ✎ Editează ca s-o modifici fără să deschizi aplicația.": "✎ 위젯에서 편집\n목록 위젯에서, ✎ 한 줄에 항목 텍스트를 변경합니다. 메모 위젯에서 메모를 확장하고 누르십시오 ✎ 앱을 열지 않고 변경할 수 있습니다.",
-"Fontul telefonului": "휴대폰 글꼴"
+"Fontul telefonului": "휴대폰 글꼴",
+"Deblocare cu amprenta": "지문으로 잠금 해제",
+"Folosește PIN-ul": "PIN 사용",
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "🔒 PIN으로 잠긴 항목을 지문으로 엽니다. 처음 한 번 PIN을 입력하면 이후에는 지문만으로 충분합니다. PIN은 항상 사용할 수 있습니다."
 };

@@ -929,5 +929,8 @@ NOTIS_I18N={
 "✉️ Comunică cu creatorul aplicației\nÎn Setări scrii, în română sau în engleză, ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Võta ühendust rakenduse loojaga\nKirjuta Rumeenia või inglise keeles, mida soovid muuta või lisada, siis vajuta “Saada sõnum”liwagrupper liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa liwa Iga kasutaja saab vastuse.",
 "ℹ️ Versiune\nUltimul rând din Setări arată versiunea. Atinge-l ca să verifici: ✓ Ultima versiune sau 🆕 Update nou. Dacă e un update, atinge-l din nou ca să-l instalezi.": "ℹ️ Versioon\nSeadete viimane rida näitab versiooni. Vajutage sellele, et kontrollida: ✓ Viimane versioon või 🆕 Uus värskendus. Kui uuendused on olemas, vajutage neid uuesti installimiseks.",
 "✎ Editează din widget\nÎn widgetul Listă, ✎ de pe un rând schimbă textul elementului. În widgetul Notițe, desfă o notiță și atinge ✎ Editează ca s-o modifici fără să deschizi aplicația.": "✎ Editeerida widgetist\nNimekirja widgetis ✎ rida muudab elemendi teksti. Märkused widget, laiendada märkust ja vajuta ✎ Editeeri, et muuta seda ilma rakenduse avamata.",
-"Fontul telefonului": "Telefoni kirjatüüp"
+"Fontul telefonului": "Telefoni kirjatüüp",
+"Deblocare cu amprenta": "Avamine sõrmejäljega",
+"Folosește PIN-ul": "Kasuta PIN-koodi",
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Ava 🔒 PIN-koodiga lukustatu sõrmejäljega. Sisesta PIN üks kord, seejärel piisab sõrmejäljest. PIN kehtib alati."
 };
