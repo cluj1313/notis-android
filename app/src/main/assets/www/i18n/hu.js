@@ -996,5 +996,9 @@ NOTIS_I18N={
 "Vorbește acum…": "Beszélj most…",
 "Dictarea nu e disponibilă pe acest telefon": "A diktálás nem érhető el ezen a telefonon",
 "Dictarea nu e disponibilă în acest browser": "A diktálás nem érhető el ebben a böngészőben",
-"Coș de gunoi": "Kuka"
+"Coș de gunoi": "Kuka",
+"Lipsește serviciul de recunoaștere vocală Google": "Hiányzik a Google beszédfelismerő szolgáltatása",
+"Fără internet pentru dictare": "Nincs internet a diktáláshoz",
+"Recunoașterea vocală e ocupată, încearcă din nou": "A beszédfelismerés foglalt, próbáld újra",
+"Limba nu e disponibilă pentru dictare": "A nyelv nem érhető el diktáláshoz"
 };

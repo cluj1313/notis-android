@@ -996,5 +996,9 @@ NOTIS_I18N={
 "Vorbește acum…": "지금 말하세요…",
 "Dictarea nu e disponibilă pe acest telefon": "이 휴대폰에서는 받아쓰기를 사용할 수 없어요",
 "Dictarea nu e disponibilă în acest browser": "이 브라우저에서는 받아쓰기를 사용할 수 없어요",
-"Coș de gunoi": "휴지통"
+"Coș de gunoi": "휴지통",
+"Lipsește serviciul de recunoaștere vocală Google": "Google 음성 인식 서비스가 없습니다",
+"Fără internet pentru dictare": "받아쓰기에 필요한 인터넷 연결이 없습니다",
+"Recunoașterea vocală e ocupată, încearcă din nou": "음성 인식이 사용 중입니다. 다시 시도하세요",
+"Limba nu e disponibilă pentru dictare": "받아쓰기에 사용할 수 없는 언어입니다"
 };

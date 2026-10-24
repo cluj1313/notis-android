@@ -248,6 +248,7 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity {
     private void alSndDone() { if (web != null) web.evaluateJavascript("window.notisAlSnd&&notisAlSnd(" + JSONObject.quote(AlarmSound.list(this)) + ")", null); }
 
     @Override protected void onActivityResult(int req, int res, Intent data) {
+        if (req == NativeStt.INTENT_REQ) { NativeStt.dialogResult(this, res, data); return; }
         if (req == SND_REQ) {
             Uri u = res == RESULT_OK && data != null ? data.getParcelableExtra(android.media.RingtoneManager.EXTRA_RINGTONE_PICKED_URI) : null;
             if (u != null) { if (android.provider.Settings.System.DEFAULT_ALARM_ALERT_URI.equals(u) || android.provider.Settings.System.DEFAULT_RINGTONE_URI.equals(u) || android.provider.Settings.System.DEFAULT_NOTIFICATION_URI.equals(u)) AlarmSound.set(this, "default", ""); else AlarmSound.set(this, "u:" + u, AlarmSound.title(this, u)); }

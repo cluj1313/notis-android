@@ -996,5 +996,9 @@ NOTIS_I18N={
 "Vorbește acum…": "Spreek nu…",
 "Dictarea nu e disponibilă pe acest telefon": "Dicteren is niet beschikbaar op deze telefoon",
 "Dictarea nu e disponibilă în acest browser": "Dicteren is niet beschikbaar in deze browser",
-"Coș de gunoi": "Prullenbak"
+"Coș de gunoi": "Prullenbak",
+"Lipsește serviciul de recunoaștere vocală Google": "Spraakherkenningsdienst van Google ontbreekt",
+"Fără internet pentru dictare": "Geen internet voor dicteren",
+"Recunoașterea vocală e ocupată, încearcă din nou": "Spraakherkenning is bezet, probeer het opnieuw",
+"Limba nu e disponibilă pentru dictare": "Taal niet beschikbaar voor dicteren"
 };

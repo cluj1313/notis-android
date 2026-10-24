@@ -996,5 +996,9 @@ NOTIS_I18N={
 "Vorbește acum…": "Μίλα τώρα…",
 "Dictarea nu e disponibilă pe acest telefon": "Η υπαγόρευση δεν είναι διαθέσιμη σε αυτό το τηλέφωνο",
 "Dictarea nu e disponibilă în acest browser": "Η υπαγόρευση δεν είναι διαθέσιμη σε αυτό το πρόγραμμα περιήγησης",
-"Coș de gunoi": "Κάδος"
+"Coș de gunoi": "Κάδος",
+"Lipsește serviciul de recunoaștere vocală Google": "Λείπει η υπηρεσία αναγνώρισης φωνής της Google",
+"Fără internet pentru dictare": "Δεν υπάρχει internet για υπαγόρευση",
+"Recunoașterea vocală e ocupată, încearcă din nou": "Η αναγνώριση φωνής είναι απασχολημένη, δοκίμασε ξανά",
+"Limba nu e disponibilă pentru dictare": "Η γλώσσα δεν είναι διαθέσιμη για υπαγόρευση"
 };

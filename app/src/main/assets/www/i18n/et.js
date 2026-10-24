@@ -996,5 +996,9 @@ NOTIS_I18N={
 "Vorbește acum…": "Räägi nüüd…",
 "Dictarea nu e disponibilă pe acest telefon": "Dikteerimine pole selles telefonis saadaval",
 "Dictarea nu e disponibilă în acest browser": "Dikteerimine pole selles brauseris saadaval",
-"Coș de gunoi": "Prügikast"
+"Coș de gunoi": "Prügikast",
+"Lipsește serviciul de recunoaștere vocală Google": "Google'i kõnetuvastusteenus puudub",
+"Fără internet pentru dictare": "Dikteerimiseks pole internetti",
+"Recunoașterea vocală e ocupată, încearcă din nou": "Kõnetuvastus on hõivatud, proovi uuesti",
+"Limba nu e disponibilă pentru dictare": "Keel pole dikteerimiseks saadaval"
 };

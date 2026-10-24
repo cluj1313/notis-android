@@ -996,5 +996,9 @@ NOTIS_I18N={
 "Vorbește acum…": "Şimdi konuş…",
 "Dictarea nu e disponibilă pe acest telefon": "Bu telefonda dikte kullanılamıyor",
 "Dictarea nu e disponibilă în acest browser": "Bu tarayıcıda dikte kullanılamıyor",
-"Coș de gunoi": "Çöp kutusu"
+"Coș de gunoi": "Çöp kutusu",
+"Lipsește serviciul de recunoaștere vocală Google": "Google ses tanıma hizmeti eksik",
+"Fără internet pentru dictare": "Dikte için internet yok",
+"Recunoașterea vocală e ocupată, încearcă din nou": "Ses tanıma meşgul, tekrar dene",
+"Limba nu e disponibilă pentru dictare": "Dil dikte için kullanılamıyor"
 };

@@ -996,5 +996,9 @@ NOTIS_I18N={
 "Vorbește acum…": "Fol tani…",
 "Dictarea nu e disponibilă pe acest telefon": "Diktimi nuk ofrohet në këtë telefon",
 "Dictarea nu e disponibilă în acest browser": "Diktimi nuk ofrohet në këtë shfletues",
-"Coș de gunoi": "Koshi"
+"Coș de gunoi": "Koshi",
+"Lipsește serviciul de recunoaștere vocală Google": "Mungon shërbimi i njohjes së zërit nga Google",
+"Fără internet pentru dictare": "Nuk ka internet për diktim",
+"Recunoașterea vocală e ocupată, încearcă din nou": "Njohja e zërit është e zënë, provo përsëri",
+"Limba nu e disponibilă pentru dictare": "Gjuha nuk është e disponueshme për diktim"
 };

@@ -996,5 +996,9 @@ NOTIS_I18N={
 "Vorbește acum…": "Fale agora…",
 "Dictarea nu e disponibilă pe acest telefon": "O ditado não está disponível neste telemóvel",
 "Dictarea nu e disponibilă în acest browser": "O ditado não está disponível neste navegador",
-"Coș de gunoi": "Lixo"
+"Coș de gunoi": "Lixo",
+"Lipsește serviciul de recunoaștere vocală Google": "Falta o serviço de reconhecimento de voz da Google",
+"Fără internet pentru dictare": "Sem internet para o ditado",
+"Recunoașterea vocală e ocupată, încearcă din nou": "O reconhecimento de voz está ocupado, tenta novamente",
+"Limba nu e disponibilă pentru dictare": "Idioma indisponível para o ditado"
 };

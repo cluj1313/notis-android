@@ -996,5 +996,9 @@ NOTIS_I18N={
 "Vorbește acum…": "พูดได้เลย…",
 "Dictarea nu e disponibilă pe acest telefon": "โทรศัพท์นี้ไม่รองรับการพิมพ์ด้วยเสียง",
 "Dictarea nu e disponibilă în acest browser": "เบราว์เซอร์นี้ไม่รองรับการพิมพ์ด้วยเสียง",
-"Coș de gunoi": "ถังขยะ"
+"Coș de gunoi": "ถังขยะ",
+"Lipsește serviciul de recunoaștere vocală Google": "ไม่มีบริการจดจำเสียงของ Google",
+"Fără internet pentru dictare": "ไม่มีอินเทอร์เน็ตสำหรับการพิมพ์ด้วยเสียง",
+"Recunoașterea vocală e ocupată, încearcă din nou": "การจดจำเสียงไม่ว่าง ลองอีกครั้ง",
+"Limba nu e disponibilă pentru dictare": "ภาษานี้ใช้กับการพิมพ์ด้วยเสียงไม่ได้"
 };

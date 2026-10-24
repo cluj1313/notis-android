@@ -996,5 +996,9 @@ NOTIS_I18N={
 "Vorbește acum…": "अब बोलें…",
 "Dictarea nu e disponibilă pe acest telefon": "इस फ़ोन पर डिक्टेशन उपलब्ध नहीं है",
 "Dictarea nu e disponibilă în acest browser": "इस ब्राउज़र में डिक्टेशन उपलब्ध नहीं है",
-"Coș de gunoi": "ट्रैश"
+"Coș de gunoi": "ट्रैश",
+"Lipsește serviciul de recunoaștere vocală Google": "Google वॉइस पहचान सेवा मौजूद नहीं है",
+"Fără internet pentru dictare": "डिक्टेशन के लिए इंटरनेट नहीं है",
+"Recunoașterea vocală e ocupată, încearcă din nou": "वॉइस पहचान व्यस्त है, फिर से कोशिश करें",
+"Limba nu e disponibilă pentru dictare": "डिक्टेशन के लिए भाषा उपलब्ध नहीं है"
 };

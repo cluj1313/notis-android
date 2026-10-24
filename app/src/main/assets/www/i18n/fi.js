@@ -996,5 +996,9 @@ NOTIS_I18N={
 "Vorbește acum…": "Puhu nyt…",
 "Dictarea nu e disponibilă pe acest telefon": "Sanelu ei ole käytettävissä tässä puhelimessa",
 "Dictarea nu e disponibilă în acest browser": "Sanelu ei ole käytettävissä tässä selaimessa",
-"Coș de gunoi": "Roskakori"
+"Coș de gunoi": "Roskakori",
+"Lipsește serviciul de recunoaștere vocală Google": "Googlen puheentunnistuspalvelu puuttuu",
+"Fără internet pentru dictare": "Ei internetiä sanelua varten",
+"Recunoașterea vocală e ocupată, încearcă din nou": "Puheentunnistus on varattu, yritä uudelleen",
+"Limba nu e disponibilă pentru dictare": "Kieli ei ole käytettävissä sanelussa"
 };

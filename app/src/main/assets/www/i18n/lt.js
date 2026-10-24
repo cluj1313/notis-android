@@ -996,5 +996,9 @@ NOTIS_I18N={
 "Vorbește acum…": "Kalbėkite dabar…",
 "Dictarea nu e disponibilă pe acest telefon": "Diktavimas šiame telefone nepasiekiamas",
 "Dictarea nu e disponibilă în acest browser": "Diktavimas šioje naršyklėje nepasiekiamas",
-"Coș de gunoi": "Šiukšlinė"
+"Coș de gunoi": "Šiukšlinė",
+"Lipsește serviciul de recunoaștere vocală Google": "Trūksta „Google“ kalbos atpažinimo paslaugos",
+"Fără internet pentru dictare": "Diktavimui nėra interneto",
+"Recunoașterea vocală e ocupată, încearcă din nou": "Kalbos atpažinimas užimtas, bandyk dar kartą",
+"Limba nu e disponibilă pentru dictare": "Kalba diktavimui nepasiekiama"
 };

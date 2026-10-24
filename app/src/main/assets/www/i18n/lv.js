@@ -996,5 +996,9 @@ NOTIS_I18N={
 "Vorbește acum…": "Runā tagad…",
 "Dictarea nu e disponibilă pe acest telefon": "Diktēšana šajā tālrunī nav pieejama",
 "Dictarea nu e disponibilă în acest browser": "Diktēšana šajā pārlūkā nav pieejama",
-"Coș de gunoi": "Miskaste"
+"Coș de gunoi": "Miskaste",
+"Lipsește serviciul de recunoaștere vocală Google": "Trūkst Google runas atpazīšanas pakalpojuma",
+"Fără internet pentru dictare": "Nav interneta diktēšanai",
+"Recunoașterea vocală e ocupată, încearcă din nou": "Runas atpazīšana ir aizņemta, mēģini vēlreiz",
+"Limba nu e disponibilă pentru dictare": "Valoda diktēšanai nav pieejama"
 };

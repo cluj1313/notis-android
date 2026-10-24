@@ -996,5 +996,9 @@ NOTIS_I18N={
 "Vorbește acum…": "Govori zdaj…",
 "Dictarea nu e disponibilă pe acest telefon": "Narekovanje na tem telefonu ni na voljo",
 "Dictarea nu e disponibilă în acest browser": "Narekovanje v tem brskalniku ni na voljo",
-"Coș de gunoi": "Koš"
+"Coș de gunoi": "Koš",
+"Lipsește serviciul de recunoaștere vocală Google": "Manjka Googlova storitev za prepoznavanje govora",
+"Fără internet pentru dictare": "Ni interneta za narekovanje",
+"Recunoașterea vocală e ocupată, încearcă din nou": "Prepoznavanje govora je zasedeno, poskusi znova",
+"Limba nu e disponibilă pentru dictare": "Jezik ni na voljo za narekovanje"
 };

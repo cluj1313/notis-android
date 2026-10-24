@@ -996,5 +996,9 @@ NOTIS_I18N={
 "Vorbește acum…": "تحدث الآن…",
 "Dictarea nu e disponibilă pe acest telefon": "الإملاء غير متاح على هذا الهاتف",
 "Dictarea nu e disponibilă în acest browser": "الإملاء غير متاح في هذا المتصفح",
-"Coș de gunoi": "سلة المهملات"
+"Coș de gunoi": "سلة المهملات",
+"Lipsește serviciul de recunoaștere vocală Google": "خدمة التعرف على الكلام من Google غير موجودة",
+"Fără internet pentru dictare": "لا يوجد إنترنت للإملاء",
+"Recunoașterea vocală e ocupată, încearcă din nou": "التعرف على الكلام مشغول، حاول مرة أخرى",
+"Limba nu e disponibilă pentru dictare": "اللغة غير متاحة للإملاء"
 };

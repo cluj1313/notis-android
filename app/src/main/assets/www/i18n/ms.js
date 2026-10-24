@@ -996,5 +996,9 @@ NOTIS_I18N={
 "Vorbește acum…": "Bercakap sekarang…",
 "Dictarea nu e disponibilă pe acest telefon": "Imlak tidak tersedia pada telefon ini",
 "Dictarea nu e disponibilă în acest browser": "Imlak tidak tersedia dalam pelayar ini",
-"Coș de gunoi": "Tong sampah"
+"Coș de gunoi": "Tong sampah",
+"Lipsește serviciul de recunoaștere vocală Google": "Perkhidmatan pengecaman suara Google tiada",
+"Fără internet pentru dictare": "Tiada internet untuk imlak",
+"Recunoașterea vocală e ocupată, încearcă din nou": "Pengecaman suara sedang sibuk, cuba lagi",
+"Limba nu e disponibilă pentru dictare": "Bahasa tidak tersedia untuk imlak"
 };

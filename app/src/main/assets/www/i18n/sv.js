@@ -996,5 +996,9 @@ NOTIS_I18N={
 "Vorbește acum…": "Tala nu…",
 "Dictarea nu e disponibilă pe acest telefon": "Diktering är inte tillgänglig på den här telefonen",
 "Dictarea nu e disponibilă în acest browser": "Diktering är inte tillgänglig i den här webbläsaren",
-"Coș de gunoi": "Papperskorg"
+"Coș de gunoi": "Papperskorg",
+"Lipsește serviciul de recunoaștere vocală Google": "Googles taligenkänningstjänst saknas",
+"Fără internet pentru dictare": "Inget internet för diktering",
+"Recunoașterea vocală e ocupată, încearcă din nou": "Taligenkänningen är upptagen, försök igen",
+"Limba nu e disponibilă pentru dictare": "Språket är inte tillgängligt för diktering"
 };

@@ -876,6 +876,7 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
 
 /* v115: thin chevron on open settings sections (tap header to fold) */
 #modal .sect.open::after{content:''!important;display:block!important;flex:none;width:18px;height:18px;margin-left:auto;margin-right:0;opacity:.75;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpolyline points='6 15 12 9 18 15' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpolyline points='6 15 12 9 18 15' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+#dictLive{position:fixed;left:12px;right:12px;bottom:calc(140px + env(safe-area-inset-bottom));z-index:60;padding:8px 12px;border-radius:12px;background:rgba(10,25,45,.92);color:#cfe9ff;font-size:15px;line-height:1.35;font-style:italic;box-shadow:0 4px 18px rgba(0,0,0,.35);pointer-events:none}
 </style>
 <style>/* v90: tab style Căsuțe (box tabs) */
 :root[data-tabst=box] #noteTabs{gap:4px;padding:2px 2px 0;margin-bottom:10px;border-bottom:4px solid var(--cyan);align-items:flex-end}
@@ -2489,21 +2490,29 @@ document.addEventListener('pointerup',function(e){var d=ndrag;if(!d||!d.on||e.po
 var dict={on:false,rec:null,el:null,s:0,e:0};
 document.addEventListener('focusout',function(e){var t=e.target;if(t&&t.closest&&t.closest('#noteFull')&&(t.tagName==='TEXTAREA'||(t.tagName==='INPUT'&&/^(text|search)?$/.test(t.type||''))||t.isContentEditable)){dict.el=t;try{dict.s=t.selectionStart;dict.e=t.selectionEnd}catch(_){}}},true);
 function dictLang(){return NL==='ro'?'ro-RO':(NL||'ro-RO')}
-function dictIns(txt){txt=String(txt||'').trim();if(!txt)return;var el=dict.el;if(!el||!document.contains(el)||!el.closest('#noteFull'))el=$('nfText');if(!el||el.offsetParent===null&&el!==$('nfText')){el=$('nfText')}
+function dictIns(txt){txt=String(txt||'').trim();if(!txt)return;var el=dict.el;if(!el||!document.contains(el)||!el.closest('#noteFull'))el=$('nfText');if(!el||el.offsetParent===null){el=$('nfText');if(el.offsetParent===null){var c=[].filter.call($('noteFull').querySelectorAll('textarea,input[type=text],[contenteditable=true]'),function(x){return x.offsetParent!==null&&x.id!=='nfTitle'});el=c[c.length-1]||$('nfText')}}
  if(el.isContentEditable){el.focus();try{document.execCommand('insertText',false,txt+' ')}catch(_){el.textContent+=' '+txt}return}
  var v=el.value||'',s=dict.el===el&&dict.s!=null?Math.min(dict.s,v.length):v.length,en=dict.el===el&&dict.e!=null?Math.min(dict.e,v.length):s;
  var pre=v.slice(0,s),ins=(pre&&!/\s$/.test(pre)?' ':'')+txt+' ';el.value=pre+ins+v.slice(en);var p=s+ins.length;dict.el=el;dict.s=dict.e=p;try{el.setSelectionRange(p,p)}catch(_){}
  el.dispatchEvent(new Event('input',{bubbles:true}))}
 function dictUi(on){dict.on=on;var b=$('nfMic');if(b){b.classList.toggle('rec',on);b.setAttribute('aria-pressed',on?'true':'false')}}
 function dictNative(){try{return !!(window.NotisNative&&NotisNative.sttStart)}catch(_){return false}}
-window.__stt=function(k,t){if(k==='final')dictIns(t);else if(k==='err'){dictUi(false);if(t&&t!=='nomatch'&&t!=='timeout')toast(TR('Dictarea nu a mers')+(t?' ('+t+')':''));else if(t)toast(TR('Nu am auzit nimic'))}else if(k==='end')dictUi(false)};
+window.__sttLog=[];
+function dictLive(t){var d=$('dictLive');if(!t){if(d)d.remove();return}if(!d){d=document.createElement('div');d.id='dictLive';$('noteFull').appendChild(d)}d.textContent=t}
+var DICT_ERR={nomatch:'Nu am auzit nimic',timeout:'Nu am auzit nimic',noservice:'Lipsește serviciul de recunoaștere vocală Google',network:'Fără internet pentru dictare',busy:'Recunoașterea vocală e ocupată, încearcă din nou',lang:'Limba nu e disponibilă pentru dictare',perm:'Fără acces la microfon'};
+window.__stt=function(k,t){try{__sttLog.push(k+':'+t);if(__sttLog.length>40)__sttLog.shift()}catch(_){}
+ if(k==='part'){dict.part=t;dictLive(t)}
+ else if(k==='final'){dict.part='';dictLive('');dictIns(t);dict.got=1}
+ else if(k==='err'){var p=dict.part;dict.part='';dictLive('');if(p&&!dict.got){dictIns(p);dictUi(false);return}dictUi(false);toast(DICT_ERR[t]?TR(DICT_ERR[t]):TR('Dictarea nu a mers')+(t?' ('+t+')':''))}
+ else if(k==='end'){if(dict.part&&!dict.got)dictIns(dict.part);dict.part='';dictLive('');dictUi(false)}};
 window.__sttPerm=function(ok){if(ok)dictStart();else{dictUi(false);toast(TR('Fără acces la microfon'))}};
-function dictStart(){if(dictNative()){var r='';try{r=NotisNative.sttStart(dictLang())}catch(e){r='err:'+e}if(r==='ok'){dictUi(true);toast(TR('Vorbește acum…'))}else if(r==='perm'){}else{dictUi(false);toast(TR('Dictarea nu e disponibilă pe acest telefon'))}return}
+function dictStart(){dict.got=0;dict.part='';if(dictNative()){var r='';try{r=NotisNative.sttStart(dictLang())}catch(e){r='err:'+e}if(r==='ok'){dictUi(true);toast(TR('Vorbește acum…'))}else if(r==='perm'){}else{dictUi(false);toast(r==='err:noservice'?TR(DICT_ERR.noservice):TR('Dictarea nu e disponibilă pe acest telefon'))}return}
  var SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){toast(TR('Dictarea nu e disponibilă în acest browser'));return}
  try{var rc=new SR();rc.lang=dictLang();rc.continuous=true;rc.interimResults=false;rc.onresult=function(ev){for(var i=ev.resultIndex;i<ev.results.length;i++)if(ev.results[i].isFinal)dictIns(ev.results[i][0].transcript)};
   rc.onerror=function(ev){window.__stt('err',ev.error==='not-allowed'?'':(ev.error==='no-speech'?'nomatch':ev.error));if(ev.error==='not-allowed')toast(TR('Fără acces la microfon'))};rc.onend=function(){dict.rec=null;dictUi(false)};rc.start();dict.rec=rc;dictUi(true);toast(TR('Vorbește acum…'))}catch(e){dictUi(false);toast(TR('Dictarea nu a mers'))}}
 function dictStop(){if(dictNative()){try{NotisNative.sttStop()}catch(_){}}else if(dict.rec){try{dict.rec.stop()}catch(_){}}dictUi(false)}
 document.addEventListener('pointerdown',function(e){if(e.target.closest&&e.target.closest('#nfMic'))e.preventDefault()},true);
+document.addEventListener('pointerdown',function(e){if(!(e.target.closest&&e.target.closest('#nfMic')))return;var a=document.activeElement;if(a&&a.closest&&a.closest('#noteFull')&&(a.tagName==='TEXTAREA'||a.tagName==='INPUT'||a.isContentEditable)){dict.el=a;try{dict.s=a.selectionStart;dict.e=a.selectionEnd}catch(_){}}},true);
 document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('#nfMic');if(!b)return;e.preventDefault();e.stopPropagation();if(dict.on)dictStop();else dictStart()});
 
 function nFlush(){clearTimeout(nSaveT);nSaveT=null;saveNotes();var on=fullId&&findN(fullId);if(on&&on.lock&&on._key)lkReseal(on)}
@@ -3873,7 +3882,7 @@ spMigrate();renderNotes();
 })();
 /* v96: Setări → TABURI (bibliotecă: ordine drag & drop, bifă vizibil/ascuns, PIN 4/6 opțional), DESIGN (Teme · Stil taburi · Fundal · Setări fine · Iconiță), iconiță urgență, Comunică cu creatorul, Versiune. Additive: hidden tab = t.off, nothing deleted. */
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v115';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v116';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};

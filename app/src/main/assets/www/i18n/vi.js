@@ -996,5 +996,9 @@ NOTIS_I18N={
 "Vorbește acum…": "Hãy nói…",
 "Dictarea nu e disponibilă pe acest telefon": "Điện thoại này không hỗ trợ đọc chính tả",
 "Dictarea nu e disponibilă în acest browser": "Trình duyệt này không hỗ trợ đọc chính tả",
-"Coș de gunoi": "Thùng rác"
+"Coș de gunoi": "Thùng rác",
+"Lipsește serviciul de recunoaștere vocală Google": "Thiếu dịch vụ nhận dạng giọng nói của Google",
+"Fără internet pentru dictare": "Không có internet để đọc chính tả",
+"Recunoașterea vocală e ocupată, încearcă din nou": "Nhận dạng giọng nói đang bận, hãy thử lại",
+"Limba nu e disponibilă pentru dictare": "Ngôn ngữ không khả dụng để đọc chính tả"
 };

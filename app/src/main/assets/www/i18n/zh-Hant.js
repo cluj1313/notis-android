@@ -996,5 +996,9 @@ NOTIS_I18N={
 "Vorbește acum…": "請說話…",
 "Dictarea nu e disponibilă pe acest telefon": "此手機不支援語音輸入",
 "Dictarea nu e disponibilă în acest browser": "此瀏覽器不支援語音輸入",
-"Coș de gunoi": "垃圾桶"
+"Coș de gunoi": "垃圾桶",
+"Lipsește serviciul de recunoaștere vocală Google": "缺少 Google 語音辨識服務",
+"Fără internet pentru dictare": "沒有網路，無法聽寫",
+"Recunoașterea vocală e ocupată, încearcă din nou": "語音辨識忙碌中，請再試一次",
+"Limba nu e disponibilă pentru dictare": "該語言不支援聽寫"
 };

@@ -996,5 +996,9 @@ NOTIS_I18N={
 "Vorbește acum…": "Parla ara…",
 "Dictarea nu e disponibilă pe acest telefon": "El dictat no està disponible en aquest telèfon",
 "Dictarea nu e disponibilă în acest browser": "El dictat no està disponible en aquest navegador",
-"Coș de gunoi": "Paperera"
+"Coș de gunoi": "Paperera",
+"Lipsește serviciul de recunoaștere vocală Google": "Falta el servei de reconeixement de veu de Google",
+"Fără internet pentru dictare": "No hi ha internet per al dictat",
+"Recunoașterea vocală e ocupată, încearcă din nou": "El reconeixement de veu està ocupat, torna-ho a provar",
+"Limba nu e disponibilă pentru dictare": "L'idioma no està disponible per al dictat"
 };

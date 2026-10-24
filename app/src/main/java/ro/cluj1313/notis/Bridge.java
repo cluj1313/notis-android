@@ -96,7 +96,6 @@ final class Bridge {
     }
     /* v115 dictation: "ok" | "perm" (result to window.__sttPerm) | "err:..." */
     @JavascriptInterface public String sttStart(final String lang) { if (!MainActivity.trusted) return "err:untrusted";
-        if (!android.speech.SpeechRecognizer.isRecognitionAvailable(ctx)) return "err:unavailable";
         final MainActivity a = MainActivity.cur; if (a == null) return "err:noactivity";
         if (ctx.checkSelfPermission(android.Manifest.permission.RECORD_AUDIO) != android.content.pm.PackageManager.PERMISSION_GRANTED) { a.askMicForStt(); return "perm"; }
         a.runOnUiThread(() -> NativeStt.start(a, lang)); return "ok";

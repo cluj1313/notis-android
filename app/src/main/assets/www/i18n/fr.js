@@ -996,5 +996,9 @@ NOTIS_I18N={
 "Vorbește acum…": "Parlez maintenant…",
 "Dictarea nu e disponibilă pe acest telefon": "La dictée n'est pas disponible sur ce téléphone",
 "Dictarea nu e disponibilă în acest browser": "La dictée n'est pas disponible dans ce navigateur",
-"Coș de gunoi": "Corbeille"
+"Coș de gunoi": "Corbeille",
+"Lipsește serviciul de recunoaștere vocală Google": "Le service de reconnaissance vocale Google est absent",
+"Fără internet pentru dictare": "Pas d'internet pour la dictée",
+"Recunoașterea vocală e ocupată, încearcă din nou": "La reconnaissance vocale est occupée, réessaie",
+"Limba nu e disponibilă pentru dictare": "Langue non disponible pour la dictée"
 };
