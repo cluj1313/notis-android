@@ -3700,7 +3700,7 @@ spMigrate();renderNotes();
 })();
 /* v96: Setări → TABURI (bibliotecă: ordine drag & drop, bifă vizibil/ascuns, PIN 4/6 opțional), DESIGN (Teme · Stil taburi · Fundal · Setări fine · Iconiță), iconiță urgență, Comunică cu creatorul, Versiune. Additive: hidden tab = t.off, nothing deleted. */
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v98';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v99';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};
@@ -3848,13 +3848,15 @@ var NEWS_URL='https://cluj1313.github.io/notis-news/creator.json';
  function stop(){clearTimeout(tm);tm=0;cancelAnimationFrame(raf);if(ring){ring.remove();ring=null}}
  function start(x,y){if(tm)return;x0=x;y0=y;t0=Date.now();tm=setTimeout(function(){stop();swallow=Date.now();try{navigator.vibrate&&navigator.vibrate(60)}catch(_){}open()},HOLD);setTimeout(function(){if(tm&&!ring)ringShow()},350)}
  function mv(x,y){if(tm&&(Math.abs(x-x0)>15||Math.abs(y-y0)>15))stop()}
- ico.addEventListener('pointerdown',function(e){start(e.clientX,e.clientY)});
- ico.addEventListener('touchstart',function(e){var t=e.touches[0];if(t)start(t.clientX,t.clientY)},{passive:true});
+ /* v99: the NOTIS title also arms the hold; ring stays around the icon so it is visible under the finger */
+ var ttl=document.querySelector('#notesPg .ntop h2'),HT=[ico].concat(ttl?[ttl]:[]);if(ttl){ttl.style.touchAction='none';ttl.style.userSelect='none';ttl.style.webkitUserSelect='none';ttl.style.webkitTouchCallout='none';ttl.addEventListener('contextmenu',function(e){e.preventDefault()})}
+ HT.forEach(function(el){el.addEventListener('pointerdown',function(e){start(e.clientX,e.clientY)});
+ el.addEventListener('touchstart',function(e){var t=e.touches[0];if(t)start(t.clientX,t.clientY)},{passive:true})});
  document.addEventListener('pointermove',function(e){mv(e.clientX,e.clientY)},true);
  document.addEventListener('touchmove',function(e){var t=e.touches[0];if(t)mv(t.clientX,t.clientY)},{passive:true,capture:true});
  ['pointerup','touchend','mouseup'].forEach(function(ev){document.addEventListener(ev,function(){if(tm)stop()},true)});
  document.addEventListener('visibilitychange',function(){if(document.hidden)stop()});
- document.addEventListener('click',function(e){if(swallow&&Date.now()-swallow<4000&&ico.contains(e.target)){e.stopImmediatePropagation();e.preventDefault();swallow=0}},true);
+ document.addEventListener('click',function(e){if(swallow&&Date.now()-swallow<4000&&HT.some(function(el){return el.contains(e.target)})){e.stopImmediatePropagation();e.preventDefault();swallow=0}},true);
  function fld(id,ph,type,eye){return '<div class="crf"><input id="'+id+'" type="'+(type||'text')+'" placeholder="'+esc(ph)+'" autocomplete="off" autocapitalize="off" spellcheck="false"'+(id==='crCh'?' maxlength="4"':'')+'>'+(eye?'<button type="button" class="eye" data-f="'+id+'" aria-label="'+esc(TR('Arată / ascunde'))+'">👁</button>':'')+'</div>'}
  function ui(title,body){var o=$('crx');if(!o){o=document.createElement('div');o.id='crx';document.body.appendChild(o)}
   o.innerHTML='<div class="crc"><h3><span>🔐 '+esc(title)+'</span><button type="button" id="crX" aria-label="'+esc(TR('Închide'))+'">×</button></h3>'+body+'<div class="cre" id="crE"></div></div>';
