@@ -941,6 +941,7 @@ NOTIS_I18N={
 "Normală": "보통",
 "Rapidă": "빠름",
 "Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "터치하지 않은 시간(분): 그 후 회전하는 동전이 나타납니다. 한 번 탭하면 원래 위치로 돌아갑니다.",
-"Vrei să modifici durata de inactivitate sau vrei s-o oprești cu totul?": "비활성 시간을 바꾸거나 완전히 끄시겠어요?",
-"O poți reactiva din": "다시 켜려면:"
+"O poți reactiva din": "다시 켜려면:",
+"Nu mai arăta": "다시 표시 안 함",
+"Modifică durata": "시간 변경"
 };

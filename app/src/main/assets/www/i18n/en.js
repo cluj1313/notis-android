@@ -941,6 +941,7 @@ NOTIS_I18N={
 "Normală": "Normal",
 "Rapidă": "Fast",
 "Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Minutes without touching: then the spinning coin appears. One tap takes you back to where you were.",
-"Vrei să modifici durata de inactivitate sau vrei s-o oprești cu totul?": "Want to change the idle time or turn it off completely?",
-"O poți reactiva din": "You can turn it back on in"
+"O poți reactiva din": "You can turn it back on in",
+"Nu mai arăta": "Don't show again",
+"Modifică durata": "Change duration"
 };

@@ -941,6 +941,7 @@ NOTIS_I18N={
 "Normală": "Normál",
 "Rapidă": "Gyors",
 "Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Percek érintés nélkül: utána megjelenik a forgó érme. Egy koppintás visszavisz oda, ahol voltál.",
-"Vrei să modifici durata de inactivitate sau vrei s-o oprești cu totul?": "Módosítanád a tétlenségi időt, vagy teljesen kikapcsolnád?",
-"O poți reactiva din": "Újra bekapcsolhatod itt:"
+"O poți reactiva din": "Újra bekapcsolhatod itt:",
+"Nu mai arăta": "Ne mutasd többet",
+"Modifică durata": "Időtartam módosítása"
 };

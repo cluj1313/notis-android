@@ -941,6 +941,7 @@ NOTIS_I18N={
 "Normală": "Bình thường",
 "Rapidă": "Nhanh",
 "Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Số phút không chạm: sau đó đồng xu xoay xuất hiện. Chạm một lần để quay lại chỗ cũ.",
-"Vrei să modifici durata de inactivitate sau vrei s-o oprești cu totul?": "Bạn muốn đổi thời gian không hoạt động hay tắt hẳn?",
-"O poți reactiva din": "Bạn có thể bật lại trong"
+"O poți reactiva din": "Bạn có thể bật lại trong",
+"Nu mai arăta": "Không hiện lại",
+"Modifică durata": "Đổi thời gian"
 };

@@ -941,6 +941,7 @@ NOTIS_I18N={
 "Normală": "Normal",
 "Rapidă": "Cepat",
 "Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Menit tanpa sentuhan: lalu koin berputar muncul. Satu ketukan membawa Anda kembali ke tempat semula.",
-"Vrei să modifici durata de inactivitate sau vrei s-o oprești cu totul?": "Ingin mengubah durasi tidak aktif atau mematikannya sama sekali?",
-"O poți reactiva din": "Anda bisa mengaktifkannya lagi di"
+"O poți reactiva din": "Anda bisa mengaktifkannya lagi di",
+"Nu mai arăta": "Jangan tampilkan lagi",
+"Modifică durata": "Ubah durasi"
 };

@@ -941,6 +941,7 @@ NOTIS_I18N={
 "Normală": "Įprastas",
 "Rapidă": "Greitas",
 "Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Minutės be prisilietimo: tada pasirodo besisukanti moneta. Vienas palietimas grąžina ten, kur buvote.",
-"Vrei să modifici durata de inactivitate sau vrei s-o oprești cu totul?": "Norite pakeisti neveiklumo laiką ar visai išjungti?",
-"O poți reactiva din": "Vėl įjungti galite čia:"
+"O poți reactiva din": "Vėl įjungti galite čia:",
+"Nu mai arăta": "Daugiau nerodyti",
+"Modifică durata": "Keisti trukmę"
 };
