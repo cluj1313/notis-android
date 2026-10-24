@@ -975,6 +975,7 @@ NOTIS_I18N={
 "Trimite idei sau probleme direct creatorului aplicației.": "Envie ideias ou problemas diretamente ao criador da app.",
 "Citește noutățile și răspunsurile primite de la creator.": "Leia novidades e respostas do criador.",
 "Știai că?": "Sabia que?",
+"m": "m",
 "Sfat": "Dica",
 "Știu opțiunea": "Já sei",
 "Nu mai arăta info": "Não mostrar mais info",

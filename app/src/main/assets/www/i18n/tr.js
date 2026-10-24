@@ -975,6 +975,7 @@ NOTIS_I18N={
 "Trimite idei sau probleme direct creatorului aplicației.": "Fikir veya sorunları doğrudan uygulamanın geliştiricisine gönderin.",
 "Citește noutățile și răspunsurile primite de la creator.": "Geliştiriciden gelen haberleri ve yanıtları okuyun.",
 "Știai că?": "Biliyor muydunuz?",
+"m": "dk",
 "Sfat": "İpucu",
 "Știu opțiunea": "Biliyorum",
 "Nu mai arăta info": "Bilgiyi bir daha gösterme",
