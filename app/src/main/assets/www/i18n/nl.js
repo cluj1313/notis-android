@@ -974,6 +974,7 @@ NOTIS_I18N={
 "Comunică cu creatorul": "Contact met de maker",
 "Trimite idei sau probleme direct creatorului aplicației.": "Stuur ideeën of problemen direct naar de maker van de app.",
 "Citește noutățile și răspunsurile primite de la creator.": "Lees nieuws en antwoorden van de maker.",
+"Știai că?": "Wist je dat?",
 "Sfat": "Tip",
 "Știu opțiunea": "Ken ik al",
 "Nu mai arăta info": "Info niet meer tonen",

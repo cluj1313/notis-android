@@ -974,6 +974,7 @@ NOTIS_I18N={
 "Comunică cu creatorul": "Kontakt s tvůrcem",
 "Trimite idei sau probleme direct creatorului aplicației.": "Posílejte nápady či problémy přímo tvůrci aplikace.",
 "Citește noutățile și răspunsurile primite de la creator.": "Čtěte novinky a odpovědi od tvůrce.",
+"Știai că?": "Víte, že?",
 "Sfat": "Tip",
 "Știu opțiunea": "Už vím",
 "Nu mai arăta info": "Info už nezobrazovat",

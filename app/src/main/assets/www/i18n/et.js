@@ -974,6 +974,7 @@ NOTIS_I18N={
 "Comunică cu creatorul": "Võta loojaga ühendust",
 "Trimite idei sau probleme direct creatorului aplicației.": "Saada ideid või probleeme otse rakenduse loojale.",
 "Citește noutățile și răspunsurile primite de la creator.": "Loe loojalt uudiseid ja vastuseid.",
+"Știai că?": "Kas teadsid?",
 "Sfat": "Nõuanne",
 "Știu opțiunea": "Tean seda",
 "Nu mai arăta info": "Ära näita enam infot",

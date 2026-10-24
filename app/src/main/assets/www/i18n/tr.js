@@ -974,6 +974,7 @@ NOTIS_I18N={
 "Comunică cu creatorul": "Geliştiriciyle iletişim",
 "Trimite idei sau probleme direct creatorului aplicației.": "Fikir veya sorunları doğrudan uygulamanın geliştiricisine gönderin.",
 "Citește noutățile și răspunsurile primite de la creator.": "Geliştiriciden gelen haberleri ve yanıtları okuyun.",
+"Știai că?": "Biliyor muydunuz?",
 "Sfat": "İpucu",
 "Știu opțiunea": "Biliyorum",
 "Nu mai arăta info": "Bilgiyi bir daha gösterme",

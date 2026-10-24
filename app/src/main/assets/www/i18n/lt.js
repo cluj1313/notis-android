@@ -974,6 +974,7 @@ NOTIS_I18N={
 "Comunică cu creatorul": "Susisiekite su kūrėju",
 "Trimite idei sau probleme direct creatorului aplicației.": "Siųskite idėjas ar problemas tiesiai programėlės kūrėjui.",
 "Citește noutățile și răspunsurile primite de la creator.": "Skaitykite kūrėjo naujienas ir atsakymus.",
+"Știai că?": "Ar žinojote?",
 "Sfat": "Patarimas",
 "Știu opțiunea": "Žinau",
 "Nu mai arăta info": "Daugiau nerodyti info",

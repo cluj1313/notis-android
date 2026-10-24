@@ -974,6 +974,7 @@ NOTIS_I18N={
 "Comunică cu creatorul": "Sazinies ar veidotāju",
 "Trimite idei sau probleme direct creatorului aplicației.": "Sūti idejas vai problēmas tieši lietotnes veidotājam.",
 "Citește noutățile și răspunsurile primite de la creator.": "Lasi jaunumus un atbildes no veidotāja.",
+"Știai că?": "Vai zināji?",
 "Sfat": "Padoms",
 "Știu opțiunea": "Es zinu",
 "Nu mai arăta info": "Vairs nerādīt info",
