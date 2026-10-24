@@ -839,6 +839,7 @@ NOTIS_I18N={
 "Distribuie aplicația": "Del appen",
 "Notis – notițe, liste și memento-uri": "Notis – notater, lister og påminnelser",
 "Distribuie Jarvis": "Del Jarvis",
+"Distribuie Notis": "Del Notis",
 "Jarvis – asistentul tău zilnic": "Jarvis – din daglige assistent",
 "Stil taburi": "Fanestil",
 "Pilule": "Piller",

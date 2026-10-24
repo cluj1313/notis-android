@@ -1038,8 +1038,8 @@ html[data-font] body,html[data-font] button,html[data-font] input,html[data-font
 <div class="sec">Sunet alarmă</div><div class="field" id="alsField"><div class="alsl" id="alsList"></div><div class="hint" id="alsHint"></div></div>
 <div class="sec">Cum funcționează</div><div class="field"><div class="throw"><button type="button" class="thc" id="bDemo"></button><button type="button" class="thc" id="bDemoReset">Resetează exemplele</button></div><div class="bgkl"><span id="demoHint"></span></div></div>
 
- <div class="sec secact" id="sShareApp" role="button" tabindex="0">Distribuie aplicația</div>
- <div class="sec secact" id="sShareJarvis" role="button" tabindex="0">Distribuie Jarvis</div>
+ <div class="sec secact shRow" id="sShareApp" role="button" tabindex="0"><img class="shApp" src="icons/notis-96.png" alt="" width="22" height="22"><span class="shL">Distribuie Notis</span><svg class="shI" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.3 10.8l7.4-4.4M8.3 13.2l7.4 4.4"/></svg></div>
+ <div class="sec secact shRow" id="sShareJarvis" role="button" tabindex="0"><img class="shApp" src="icons/jarvis-96.png" alt="" width="22" height="22"><span class="shL">Distribuie Jarvis</span><svg class="shI" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.3 10.8l7.4-4.4M8.3 13.2l7.4 4.4"/></svg></div>
  <div id="fInstall"><div class="sec">Instalează aplicația</div>
  <div class="field"><button type="button" class="btn" id="sInstall">Instalează aplicația</button>
   <div class="hint" id="installHint">Chrome: meniu ⋮ → „Instalează aplicația” / „Adaugă pe ecranul de pornire”.<br>Brave: meniu ⋮ → „Adaugă pe ecranul de pornire” / „Instalează aplicația”.</div></div></div>
@@ -3785,7 +3785,7 @@ spMigrate();renderNotes();
 })();
 /* v96: Setări → TABURI (bibliotecă: ordine drag & drop, bifă vizibil/ascuns, PIN 4/6 opțional), DESIGN (Teme · Stil taburi · Fundal · Setări fine · Iconiță), iconiță urgență, Comunică cu creatorul, Versiune. Additive: hidden tab = t.off, nothing deleted. */
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v113';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v114';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};
@@ -4017,7 +4017,7 @@ renderAbList();
   h.addEventListener('click',tg);h.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tg()}})});
  var css=document.createElement('style');css.textContent='#modal .sect{cursor:pointer;display:flex;align-items:center;justify-content:space-between;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;padding-bottom:4px}'+
   '#modal .sect::after{content:none;display:none}'+
-  '#modal .secact{cursor:pointer;display:flex;align-items:center;justify-content:space-between;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;padding-bottom:4px}#modal .secact::after{content:none;display:none}'+'#modal .secb{display:none}#modal .sect.open+.secb{display:block}';document.head.appendChild(css)})();
+  '#modal .secact{cursor:pointer;display:flex;align-items:center;justify-content:space-between;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;padding-bottom:4px}#modal .secact::after{content:none;display:none}#modal .secact.shRow{justify-content:flex-start;gap:10px}#modal .shRow .shApp{width:22px;height:22px;border-radius:6px;flex:none;object-fit:cover}#modal .shRow .shL{flex:1;min-width:0;font:inherit!important;letter-spacing:inherit!important;text-transform:inherit!important;color:inherit!important;opacity:1!important}#modal .shRow .shI{width:20px;height:20px;flex:none;color:var(--cyan)}'+'#modal .secb{display:none}#modal .sect.open+.secb{display:block}';document.head.appendChild(css)})();
 </script>
 
 <style id="v64css">

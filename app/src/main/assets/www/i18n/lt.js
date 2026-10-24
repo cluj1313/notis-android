@@ -839,6 +839,7 @@ NOTIS_I18N={
 "Distribuie aplicația": "Bendrinti programėlę",
 "Notis – notițe, liste și memento-uri": "Notis – užrašai, sąrašai ir priminimai",
 "Distribuie Jarvis": "Bendrinti Jarvis",
+"Distribuie Notis": "Bendrinti Notis",
 "Jarvis – asistentul tău zilnic": "Jarvis – tavo kasdienis asistentas",
 "Stil taburi": "Skirtukų stilius",
 "Pilule": "Piliulės",

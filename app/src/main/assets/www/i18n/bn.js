@@ -839,6 +839,7 @@ NOTIS_I18N={
 "Distribuie aplicația": "অ্যাপ শেয়ার করুন",
 "Notis – notițe, liste și memento-uri": "Notis – নোট, তালিকা ও রিমাইন্ডার",
 "Distribuie Jarvis": "Jarvis শেয়ার করুন",
+"Distribuie Notis": "Notis শেয়ার করুন",
 "Jarvis – asistentul tău zilnic": "Jarvis – আপনার দৈনন্দিন সহকারী",
 "Stil taburi": "ট্যাবের ধরন",
 "Pilule": "পিল",

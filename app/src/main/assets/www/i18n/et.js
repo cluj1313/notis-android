@@ -839,6 +839,7 @@ NOTIS_I18N={
 "Distribuie aplicația": "Jaga rakendust",
 "Notis – notițe, liste și memento-uri": "Notis – märkmed, loendid ja meeldetuletused",
 "Distribuie Jarvis": "Jaga Jarvist",
+"Distribuie Notis": "Jaga Notist",
 "Jarvis – asistentul tău zilnic": "Jarvis – sinu igapäevane abiline",
 "Stil taburi": "Vahelehtede stiil",
 "Pilule": "Pillid",

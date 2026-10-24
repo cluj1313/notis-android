@@ -839,6 +839,7 @@ NOTIS_I18N={
 "Distribuie aplicația": "Partager l’application",
 "Notis – notițe, liste și memento-uri": "Notis – notes, listes et rappels",
 "Distribuie Jarvis": "Partager Jarvis",
+"Distribuie Notis": "Partager Notis",
 "Jarvis – asistentul tău zilnic": "Jarvis – votre assistant quotidien",
 "Stil taburi": "Style des onglets",
 "Pilule": "Pilules",
