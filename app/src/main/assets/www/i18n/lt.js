@@ -932,5 +932,13 @@ NOTIS_I18N={
 "Fontul telefonului": "Telefono šriftas",
 "Deblocare cu amprenta": "Atrakinimas piršto atspaudu",
 "Folosește PIN-ul": "Naudoti PIN",
-"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Atidarykite piršto atspaudu tai, kas užrakinta 🔒 PIN kodu. Įveskite PIN kartą, vėliau pakaks atspaudo. PIN visada galioja."
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Atidarykite piršto atspaudu tai, kas užrakinta 🔒 PIN kodu. Įveskite PIN kartą, vėliau pakaks atspaudo. PIN visada galioja.",
+"Protecție ecran": "Ekrano užsklanda",
+"Dezactivat": "Išjungta",
+"Personalizat": "Pasirinktinis",
+"Viteza de rotire": "Sukimosi greitis",
+"Lentă": "Lėtas",
+"Normală": "Įprastas",
+"Rapidă": "Greitas",
+"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Minutės be prisilietimo: tada pasirodo besisukanti moneta. Vienas palietimas grąžina ten, kur buvote."
 };

@@ -932,5 +932,13 @@ NOTIS_I18N={
 "Fontul telefonului": "Lettertype van de telefoon",
 "Deblocare cu amprenta": "Ontgrendelen met vingerafdruk",
 "Folosește PIN-ul": "Pincode gebruiken",
-"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Open met je vingerafdruk wat met 🔒 pincode is vergrendeld. Voer de pincode één keer in, daarna volstaat je vingerafdruk. De pincode blijft altijd werken."
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Open met je vingerafdruk wat met 🔒 pincode is vergrendeld. Voer de pincode één keer in, daarna volstaat je vingerafdruk. De pincode blijft altijd werken.",
+"Protecție ecran": "Schermbeveiliging",
+"Dezactivat": "Uit",
+"Personalizat": "Aangepast",
+"Viteza de rotire": "Draaisnelheid",
+"Lentă": "Langzaam",
+"Normală": "Normaal",
+"Rapidă": "Snel",
+"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Minuten zonder aanraken: daarna verschijnt de draaiende munt. Eén tik brengt je terug waar je was."
 };

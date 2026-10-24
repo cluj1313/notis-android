@@ -932,5 +932,13 @@ NOTIS_I18N={
 "Fontul telefonului": "Γραμματοσειρά τηλεφώνου",
 "Deblocare cu amprenta": "Ξεκλείδωμα με δακτυλικό αποτύπωμα",
 "Folosește PIN-ul": "Χρήση PIN",
-"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Ανοίξτε με το δακτυλικό αποτύπωμα ό,τι είναι κλειδωμένο με 🔒 PIN. Εισάγετε το PIN μία φορά, μετά αρκεί το αποτύπωμα. Το PIN ισχύει πάντα."
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Ανοίξτε με το δακτυλικό αποτύπωμα ό,τι είναι κλειδωμένο με 🔒 PIN. Εισάγετε το PIN μία φορά, μετά αρκεί το αποτύπωμα. Το PIN ισχύει πάντα.",
+"Protecție ecran": "Προφύλαξη οθόνης",
+"Dezactivat": "Ανενεργό",
+"Personalizat": "Προσαρμογή",
+"Viteza de rotire": "Ταχύτητα περιστροφής",
+"Lentă": "Αργή",
+"Normală": "Κανονική",
+"Rapidă": "Γρήγορη",
+"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Λεπτά χωρίς άγγιγμα: μετά εμφανίζεται το νόμισμα που γυρίζει. Ένα άγγιγμα σε επιστρέφει εκεί που ήσουν."
 };

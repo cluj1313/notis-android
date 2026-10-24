@@ -932,5 +932,13 @@ NOTIS_I18N={
 "Fontul telefonului": "Huruf ponsel",
 "Deblocare cu amprenta": "Buka kunci dengan sidik jari",
 "Folosește PIN-ul": "Gunakan PIN",
-"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Buka item yang dikunci 🔒 PIN dengan sidik jari. Masukkan PIN sekali, lalu sidik jari sudah cukup. PIN tetap selalu berlaku."
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Buka item yang dikunci 🔒 PIN dengan sidik jari. Masukkan PIN sekali, lalu sidik jari sudah cukup. PIN tetap selalu berlaku.",
+"Protecție ecran": "Screensaver",
+"Dezactivat": "Mati",
+"Personalizat": "Kustom",
+"Viteza de rotire": "Kecepatan putar",
+"Lentă": "Lambat",
+"Normală": "Normal",
+"Rapidă": "Cepat",
+"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Menit tanpa sentuhan: lalu koin berputar muncul. Satu ketukan membawa Anda kembali ke tempat semula."
 };

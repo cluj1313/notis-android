@@ -932,5 +932,13 @@ NOTIS_I18N={
 "Fontul telefonului": "휴대폰 글꼴",
 "Deblocare cu amprenta": "지문으로 잠금 해제",
 "Folosește PIN-ul": "PIN 사용",
-"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "🔒 PIN으로 잠긴 항목을 지문으로 엽니다. 처음 한 번 PIN을 입력하면 이후에는 지문만으로 충분합니다. PIN은 항상 사용할 수 있습니다."
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "🔒 PIN으로 잠긴 항목을 지문으로 엽니다. 처음 한 번 PIN을 입력하면 이후에는 지문만으로 충분합니다. PIN은 항상 사용할 수 있습니다.",
+"Protecție ecran": "화면 보호기",
+"Dezactivat": "끔",
+"Personalizat": "사용자 지정",
+"Viteza de rotire": "회전 속도",
+"Lentă": "느림",
+"Normală": "보통",
+"Rapidă": "빠름",
+"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "터치하지 않은 시간(분): 그 후 회전하는 동전이 나타납니다. 한 번 탭하면 원래 위치로 돌아갑니다."
 };

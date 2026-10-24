@@ -932,5 +932,13 @@ NOTIS_I18N={
 "Fontul telefonului": "A telefon betűtípusa",
 "Deblocare cu amprenta": "Feloldás ujjlenyomattal",
 "Folosește PIN-ul": "PIN használata",
-"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Nyisd meg ujjlenyomattal, ami 🔒 PIN-nel zárolt. Egyszer add meg a PIN-t, utána elég az ujjlenyomat. A PIN mindig érvényes marad."
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Nyisd meg ujjlenyomattal, ami 🔒 PIN-nel zárolt. Egyszer add meg a PIN-t, utána elég az ujjlenyomat. A PIN mindig érvényes marad.",
+"Protecție ecran": "Képernyővédő",
+"Dezactivat": "Ki",
+"Personalizat": "Egyéni",
+"Viteza de rotire": "Forgási sebesség",
+"Lentă": "Lassú",
+"Normală": "Normál",
+"Rapidă": "Gyors",
+"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Percek érintés nélkül: utána megjelenik a forgó érme. Egy koppintás visszavisz oda, ahol voltál."
 };

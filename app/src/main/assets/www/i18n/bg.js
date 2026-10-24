@@ -932,5 +932,13 @@ NOTIS_I18N={
 "Fontul telefonului": "Шрифт на телефона",
 "Deblocare cu amprenta": "Отключване с пръстов отпечатък",
 "Folosește PIN-ul": "Използвай ПИН",
-"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Отваряй с пръстов отпечатък заключеното с 🔒 ПИН. Въведи ПИН-а веднъж, после стига отпечатъкът. ПИН-ът винаги остава валиден."
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "Отваряй с пръстов отпечатък заключеното с 🔒 ПИН. Въведи ПИН-а веднъж, после стига отпечатъкът. ПИН-ът винаги остава валиден.",
+"Protecție ecran": "Скрийнсейвър",
+"Dezactivat": "Изключен",
+"Personalizat": "Персонализиран",
+"Viteza de rotire": "Скорост на въртене",
+"Lentă": "Бавна",
+"Normală": "Нормална",
+"Rapidă": "Бърза",
+"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Минути без докосване: след това се появява въртящата се монета. Едно докосване те връща там, където беше."
 };

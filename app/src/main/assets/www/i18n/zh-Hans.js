@@ -932,5 +932,13 @@ NOTIS_I18N={
 "Fontul telefonului": "手机字体",
 "Deblocare cu amprenta": "指纹解锁",
 "Folosește PIN-ul": "使用 PIN",
-"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "用指纹打开 🔒 PIN 锁定的内容。先输入一次 PIN，之后用指纹即可。PIN 始终有效。"
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "用指纹打开 🔒 PIN 锁定的内容。先输入一次 PIN，之后用指纹即可。PIN 始终有效。",
+"Protecție ecran": "屏幕保护",
+"Dezactivat": "关闭",
+"Personalizat": "自定义",
+"Viteza de rotire": "旋转速度",
+"Lentă": "慢",
+"Normală": "正常",
+"Rapidă": "快",
+"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "无触摸的分钟数：之后会出现旋转的硬币。轻触一下即可回到原处。"
 };

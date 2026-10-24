@@ -932,5 +932,13 @@ NOTIS_I18N={
 "Fontul telefonului": "فونت گوشی",
 "Deblocare cu amprenta": "باز کردن قفل با اثر انگشت",
 "Folosește PIN-ul": "استفاده از PIN",
-"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "مواردی را که با 🔒 PIN قفل شده‌اند با اثر انگشت باز کنید. یک بار PIN را وارد کنید، سپس اثر انگشت کافی است. PIN همیشه معتبر می‌ماند."
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "مواردی را که با 🔒 PIN قفل شده‌اند با اثر انگشت باز کنید. یک بار PIN را وارد کنید، سپس اثر انگشت کافی است. PIN همیشه معتبر می‌ماند.",
+"Protecție ecran": "محافظ صفحه",
+"Dezactivat": "خاموش",
+"Personalizat": "سفارشی",
+"Viteza de rotire": "سرعت چرخش",
+"Lentă": "آهسته",
+"Normală": "معمولی",
+"Rapidă": "سریع",
+"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "دقیقه‌ها بدون لمس: سپس سکهٔ چرخان ظاهر می‌شود. یک لمس شما را به جایی که بودید برمی‌گرداند."
 };

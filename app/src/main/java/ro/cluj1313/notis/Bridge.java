@@ -59,7 +59,7 @@ final class Bridge {
     @JavascriptInterface public String version() { if (!MainActivity.trusted) return ""; try { return ctx.getPackageManager().getPackageInfo(ctx.getPackageName(), 0).versionName; } catch (Exception e) { return ""; } }
 
     /* 2.5.0: display settings mirrored in native prefs (committed to disk at once) so app updates can't roll them back */
-    private static final java.util.Set<String> UIK = new java.util.HashSet<>(java.util.Arrays.asList("ns_nrowpad", "ns_sidemg", "ns_bgk", "ns_cardop", "ns_cardcol", "ns_bg", "ns_bgcol", "ns_theme", "ns_tabst", "ns_newssize", "ns_tabcol", "ns_font"));
+    private static final java.util.Set<String> UIK = new java.util.HashSet<>(java.util.Arrays.asList("ns_nrowpad", "ns_sidemg", "ns_bgk", "ns_cardop", "ns_cardcol", "ns_bg", "ns_bgcol", "ns_theme", "ns_tabst", "ns_newssize", "ns_tabcol", "ns_font", "ns_ssaver", "ns_ssspd"));
     private android.content.SharedPreferences ui() { return ctx.getApplicationContext().getSharedPreferences("notis_ui", Context.MODE_PRIVATE); }
     @JavascriptInterface public void prefSet(String k, String v) { if (!MainActivity.trusted || k == null || !UIK.contains(k)) return; if (v != null && v.length() > 20000) return;
         android.content.SharedPreferences.Editor e = ui().edit(); if (v == null) e.remove(k); else e.putString(k, v); e.commit(); }

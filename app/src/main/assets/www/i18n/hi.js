@@ -932,5 +932,13 @@ NOTIS_I18N={
 "Fontul telefonului": "फ़ोन का फ़ॉन्ट",
 "Deblocare cu amprenta": "फ़िंगरप्रिंट से अनलॉक",
 "Folosește PIN-ul": "PIN का उपयोग करें",
-"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "🔒 PIN से लॉक चीज़ें अपने फ़िंगरप्रिंट से खोलें। एक बार PIN डालें, फिर फ़िंगरप्रिंट काफ़ी है। PIN हमेशा काम करता रहता है।"
+"Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.": "🔒 PIN से लॉक चीज़ें अपने फ़िंगरप्रिंट से खोलें। एक बार PIN डालें, फिर फ़िंगरप्रिंट काफ़ी है। PIN हमेशा काम करता रहता है।",
+"Protecție ecran": "स्क्रीनसेवर",
+"Dezactivat": "बंद",
+"Personalizat": "कस्टम",
+"Viteza de rotire": "घूमने की गति",
+"Lentă": "धीमी",
+"Normală": "सामान्य",
+"Rapidă": "तेज़",
+"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "बिना छुए मिनट: फिर घूमता सिक्का दिखता है। एक टैप आपको वहीं लौटा देता है जहाँ आप थे।"
 };
