@@ -947,6 +947,8 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
  <div class="field" id="fPitch"><label for="sPitch">Ton (doar vocea telefonului) <span class="val" id="vPitch"></span></label><input type="range" id="sPitch" min="0.5" max="1.5" step="0.05"></div>
  <div class="field"><button type="button" class="btn" id="sTest">Test voce</button></div>
 
+ <div class="sec" id="secTabs">Taburi</div>
+ <div class="field" id="tbLib"><button type="button" class="tblk" id="tbLock"><span>Bibliotecă</span><i></i><b id="tbLockS"></b><span>🔒</span></button><div class="tbpin" id="tbPinPick"><button type="button" class="btn" data-pl="4">PIN 4</button><button type="button" class="btn" data-pl="6">PIN 6</button></div><ul class="tbl" id="tbUser"></ul><div class="tbsep"></div><div class="tbex" id="tbExL">Taburi exemplu</div><ul class="tbl" id="tbEx"></ul><div class="hint" id="tbHint">Trage de ≡ ca să schimbi ordinea. Bifa arată tabul pe pagina principală; tabul debifat rămâne salvat aici, cu tot ce conține.</div><div class="tbuic" id="tbUic"></div></div>
  <div class="sec pvsec">Temă<button type="button" class="peekb" aria-label="Previzualizare">👁 Previzualizare</button></div>
  <div class="field"><div class="throw" id="thRow"><button type="button" class="thc" data-th="color"><i style="background:#3fd8ff"></i>Colorat</button><button type="button" class="thc" data-th="dark"><i style="background:#000"></i>Întunecat</button><button type="button" class="thc" data-th="light"><i style="background:#f3f5f8"></i>Luminos</button><button type="button" class="thc" data-th="vip"><i style="background:linear-gradient(135deg,#e8c98a,#a8823f)"></i>VIP</button><button type="button" class="thc" data-th="jad"><i style="background:linear-gradient(135deg,#2f6b58,#0f2a24)"></i>Jad</button><button type="button" class="thc" data-th="lac"><i style="background:linear-gradient(135deg,#a51c22,#5a0f12)"></i>Lac Roșu</button><button type="button" class="thc" data-th="tus"><i style="background:radial-gradient(circle,#1a1a1a 30%,#f2ece0 34%)"></i>Tuș</button><button type="button" class="thc" data-th="pap"><i style="background:linear-gradient(135deg,#e2cfa4,#b8955a)"></i>Papirus</button><button type="button" class="thc" data-th="salon"><i style="background:linear-gradient(135deg,#8a5a17,#e9c77b 55%,#b8862b)"></i>Salon Auriu</button><button type="button" class="thc" data-th="exc"><i style="background:radial-gradient(circle at 35% 35%,#e6ff7a,#c6f21a 40%,#2a3008 75%,#07090c)"></i>Excalibur</button><button type="button" class="thc" data-th="cleo"><i style="background:linear-gradient(135deg,#1b4f86,#0b6f78 50%,#d4a62a)"></i>Cleopatra</button><button type="button" class="thc" data-th="neon"><i style="background:linear-gradient(135deg,#ff3d9a,#29e0ff)"></i><span style="font-size:12px;line-height:1.05">Neon<br>Shanghai</span></button></div><div id="vipRow"><label for="vipInt"><span>Fundal VIP</span><span>întunecat ↔ luminos</span></label><input type="range" id="vipInt" min="0" max="100" step="1"></div></div>
 <div class="field" id="fTst"><label>Stil taburi</label><div class="tsrow" id="tstRow"><button type="button" class="tsc" data-ts="pill">Pilule</button><button type="button" class="tsc" data-ts="box">Căsuțe</button></div></div><div class="sec pvsec">Fundal<button type="button" class="peekb" aria-label="Previzualizare">👁 Previzualizare</button></div><div class="field"><div class="bgrid" id="bgRow"><button type="button" class="bgc none" data-bg="none">Fără imagine<span></span></button><button type="button" class="bgc" data-bg="lup" style="background-image:url(art/bg-lup-t.webp)" aria-label="Lup"><span>Lup</span></button><button type="button" class="bgc" data-bg="mist" style="background-image:url(art/bg-mist-t.webp)" aria-label="Munți în ceață"><span>Munți în ceață</span></button><button type="button" class="bgc" data-bg="forest" style="background-image:url(art/bg-forest-t.webp)" aria-label="Pădure"><span>Pădure</span></button><button type="button" class="bgc" data-bg="lake" style="background-image:url(art/bg-lake-t.webp)" aria-label="Lac"><span>Lac</span></button><button type="button" class="bgc" data-bg="sea" style="background-image:url(art/bg-sea-t.webp)" aria-label="Mare"><span>Mare</span></button><button type="button" class="bgc" data-bg="snow" style="background-image:url(art/bg-snow-t.webp)" aria-label="Piscuri"><span>Piscuri</span></button><button type="button" class="bgc" data-bg="night" style="background-image:url(art/bg-night-t.webp)" aria-label="Cer înstelat"><span>Cer înstelat</span></button><button type="button" class="bgc bgcol" data-bg="color" aria-label="Culoare simplă"><span>Culoare simplă</span></button><button type="button" class="bgc bgph" data-bg="photo" aria-label="Imagine din galerie"><span>Imagine din galerie</span></button><input type="file" id="bgFile" accept="image/*" hidden></div><div class="bgpick" id="bgPick"><div class="bgsw" id="bgSw"></div><label class="bgnat">Alege culoarea <input type="color" id="bgColor" value="#1b3a5c"></label><label class="bghue"><span>Nuanță</span><input type="range" id="bgHue" min="0" max="360" step="1"></label><label class="bghue"><span>Luminozitate</span><input type="range" id="bgLum" min="4" max="96" step="1"></label></div></div>
@@ -980,6 +982,10 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
  <div class="field"><button type="button" class="btn" id="sInstall">Instalează aplicația</button>
   <div class="hint" id="installHint">Chrome: meniu ⋮ → „Instalează aplicația” / „Adaugă pe ecranul de pornire”.<br>Brave: meniu ⋮ → „Adaugă pe ecranul de pornire” / „Instalează aplicația”.</div></div></div>
 
+ <div class="sec" id="secNews">Mesaje de la creator</div><div class="field" id="fNews"><label class="chk"><input type="checkbox" id="nwOn"> Primesc mesaje de la creator</label><div id="nwList"></div></div>
+<div class="sec" id="secMsg">Comunică cu creatorul aplicației</div>
+ <div class="field" id="fMsg"><div class="hint" id="cmInfo"></div><textarea id="cmTx" class="ux" rows="4" maxlength="2000"></textarea><button type="button" class="btn" id="cmSend">Trimite mesajul</button><div class="hint" id="cmNo" style="display:none;margin-top:6px"></div></div>
+ <div class="sec secact" id="sVer" role="button" tabindex="0"><span id="sVerL">Versiune</span><span class="sverv" id="sVerV"></span></div>
  <div class="mrow"><button class="btn" id="sCancel">Anulează</button><button class="btn" id="sSave">Salvează</button></div>
 </div></div>
 <div class="modal" id="tabModal"><div class="card"><div class="lbl"><span id="tmTitle">Tab nou</span></div>
@@ -2295,7 +2301,7 @@ function findNT(id){for(var i=0;i<noteTabs.length;i++)if(noteTabs[i].id===id)ret
 function nDate(n){var d=new Date(n.ts);return d.getDate()+' '+LUNI_S[d.getMonth()]}
 function setHTML(el,h){if(el.innerHTML!==h)el.innerHTML=h} /* v48: no rebuild when unchanged, so a tap that blurs the input still lands */
 function renderNoteTabs(){var box=$('noteTabs');if(!box)return;var h='';
- noteTabs.forEach(function(t){h+='<button type="button" class="ntab'+(t.id===noteTab?' on':'')+'" data-id="'+esc(t.id)+'"'+(t.color?' style="--nc:'+esc(t.color)+'"':'')+'>'+esc(t.name)+(t.lk?'<i class="tbl" aria-label="blocat">'+FD_LK+'</i>':'')+'</button>'});
+ if(window.ntFixCur)ntFixCur();noteTabs.forEach(function(t){if(t.off)return;h+='<button type="button" class="ntab'+(t.id===noteTab?' on':'')+'" data-id="'+esc(t.id)+'"'+(t.color?' style="--nc:'+esc(t.color)+'"':'')+'>'+esc(t.name)+(t.lk?'<i class="tbl" aria-label="blocat">'+FD_LK+'</i>':'')+'</button>'});
  setHTML(box,h+'<button type="button" class="ntab nadd1" aria-label="Tab nou">+</button>')}
 function ntSortOf(id){var t=findNT(id||noteTab);return (t&&t.sort)||'manual'}
 var nQ='';function nFold(x){return String(x||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase()}
@@ -2307,7 +2313,7 @@ function renderNotes(){renderNoteTabs();if(nFolder){var fC=findF(nFolder);if(!fC
  if(!nTrash&&!srch){var P=list.filter(function(n){return n.pin});if(P.length)list=P.concat(list.filter(function(n){return !n.pin}))}
  fdRest='';fdPinN=0;h+=fdHead(srch);var pgOn=!nTrash&&!srch,pgDone=!pgOn,pgAny=fdPinN>0||list.some(function(n){return n.pin});function pgFlush(){if(pgDone)return;pgDone=true;if(pgAny&&(fdRest||list.some(function(n){return !n.pin})))h+='<li class="pdiv" aria-hidden="true"></li>';h+=fdRest}
  list.forEach(function(n){if(!n.pin)pgFlush();var pr='';if(n.type==='check'){var it=(n.items||[]).filter(function(x){return x.text.trim()});pr='☑ '+it.filter(function(x){return x.done}).length+'/'+it.length+' · '}else if(n.type==='mix'){var it2=[];(n.blocks||[]).forEach(function(b){if(b.t==='chk')it2=it2.concat((b.items||[]).filter(function(x){return x.text.trim()}))});if(it2.length)pr='☑ '+it2.filter(function(x){return x.done}).length+'/'+it2.length+' · ';if((n.blocks||[]).some(function(b){return b.t==='aud'}))pr='🎙 '+pr}
-  if(n.lock)pr='';h+='<li class="note'+(n.lock&&!n.ltitle?' nlocked':'')+(n.color?' ncol':'')+(n.del?' ndel':'')+(selIds[n.id]?' nsel':'')+'" data-id="'+esc(n.id)+'"'+(n.color?' style="--nc:'+esc(ncT(n.color))+'"':'')+'><span class="t">'+(n.lock?esc(n.ltitle||TR('Notiță blocată')):srch?(nSnipHL(n.text.trim().split('\n')[0],q.split(/\s+/))||esc(n.text.trim().split('\n')[0])):esc(n.text.trim().split('\n')[0]))+'</span><small class="nts">'+(n.pin&&!n.del?'<span class="npin">📌</span> ':'')+(alNext(n)?'⏰ ':'')+(n.lock?'🔒 ':'')+pr+(n.del&&nTrash&&!srch?TR('șters ')+nDateOf(n.del):nDate(n))+(srch&&n.del?' · <span class="nstab">🗑 Coș</span>':'')+(srch&&!n.del?(function(){var tb=findNT(n.tab);return tb?' · <span class="nstab"'+(tb.color?' style="--nc:'+esc(tb.color)+'"':'')+'>'+esc(tb.name)+(n.fd?' › '+esc(fdNames(n.fd).join(' › ')):'')+'</span>':''})():'')+'</small>'+(srch?(n.lock?xLkSnip(n,q):nSnips(n,q)):'')+'<i class="nck" aria-hidden="true"></i></li>'});
+  if(n.lock)pr='';h+='<li class="note'+(n.lock&&!n.ltitle?' nlocked':'')+(n.color?' ncol':'')+(n.del?' ndel':'')+(selIds[n.id]?' nsel':'')+'" data-id="'+esc(n.id)+'"'+(n.color?' style="--nc:'+esc(ncT(n.color))+'"':'')+'><span class="t">'+(window.urgPre?urgPre(n):'')+(n.lock?esc(n.ltitle||TR('Notiță blocată')):srch?(nSnipHL(n.text.trim().split('\n')[0],q.split(/\s+/))||esc(n.text.trim().split('\n')[0])):esc(n.text.trim().split('\n')[0]))+'</span><small class="nts">'+(n.pin&&!n.del?'<span class="npin">📌</span> ':'')+(alNext(n)?'⏰ ':'')+(n.lock?'🔒 ':'')+pr+(n.del&&nTrash&&!srch?TR('șters ')+nDateOf(n.del):nDate(n))+(srch&&n.del?' · <span class="nstab">🗑 Coș</span>':'')+(srch&&!n.del?(function(){var tb=findNT(n.tab);return tb?' · <span class="nstab"'+(tb.color?' style="--nc:'+esc(tb.color)+'"':'')+'>'+esc(tb.name)+(n.fd?' › '+esc(fdNames(n.fd).join(' › ')):'')+'</span>':''})():'')+'</small>'+(srch?(n.lock?xLkSnip(n,q):nSnips(n,q)):'')+'<i class="nck" aria-hidden="true"></i></li>'});
  pgFlush();if(srch)h+=xRows(q);setHTML(ul,h&&(h.indexOf('class="note')>=0||h.indexOf('class="nfo')>=0||h.indexOf('class="nxr')>=0)?h:(h||'')+'<li class="empty">'+(srch?TR('Niciun rezultat.'):nTrash?TR('Coșul e gol.'):TR('Nicio notiță.'))+'</li>')}
 function nDateOf(iso){try{var d=new Date(iso);return d.toLocaleDateString(NL==='ro'?'ro-RO':NL,{day:'numeric',month:'short'}).replace('.','')}catch(_){return ''}}
 /* v21: search snippets — matching lines in context, matches underlined */
@@ -2433,11 +2439,11 @@ function lkApply(n,o){if(o.type)n.type=o.type;else delete n.type;n.text=o.text||
 function lkStrip(n){delete n._key;delete n.title;delete n.items;delete n.blocks;delete n.type;n.text='';renderNotes()}
 function lkReseal(n){var key=n._key;if(!key||!n.lock)return Promise.resolve();n.ltitle=nTitle0(n);return lkEnc(key,b64d(n.lock.salt),n).then(function(l){n.lock=l;saveNotes(true);nLockCache[n.id]=l})}
 var pinSt=null;
-function pinShow(o){pinSt=o;$('pinTitle').textContent=o.title;$('pinWarn').style.display=o.warn?'':'none';$('pinMsg').textContent=o.msg||'';var i=$('pinIn');i.value='';pinDots();$('pinModal').classList.add('show');setTimeout(function(){try{i.focus()}catch(_){}},50)}
+function pinShow(o){pinSt=o;var pl=o.len===6?6:4,pd=$('pinDots');while(pd.children.length<pl)pd.appendChild(document.createElement('i'));while(pd.children.length>pl)pd.removeChild(pd.lastChild);$('pinIn').maxLength=pl;$('pinTitle').textContent=o.title;$('pinWarn').style.display=o.warn?'':'none';$('pinMsg').textContent=o.msg||'';var i=$('pinIn');i.value='';pinDots();$('pinModal').classList.add('show');setTimeout(function(){try{i.focus()}catch(_){}},50)}
 function pinDots(){var v=$('pinIn').value;[].forEach.call($('pinDots').children,function(d,k){d.classList.toggle('on',k<v.length)})}
 function pinHide(){$('pinModal').classList.remove('show');pinSt=null;try{$('pinIn').blur()}catch(_){}}
 function pinErr(m){$('pinMsg').textContent=m;var b=$('pinBox');b.classList.remove('shake');void b.offsetWidth;b.classList.add('shake');try{if(navigator.vibrate)navigator.vibrate(120)}catch(_){}$('pinIn').value='';pinDots()}
-$('pinIn').addEventListener('input',function(){this.value=this.value.replace(/\D/g,'').slice(0,4);pinDots();if(this.value.length===4&&pinSt&&!pinSt.busy){var o=pinSt,v=this.value;o.busy=true;$('pinMsg').textContent='…';Promise.resolve(o.done(v)).then(function(r){o.busy=false;if(r===true){if(pinSt===o)pinHide()}else if(pinSt===o)pinErr(r||TR('PIN greșit'))},function(){o.busy=false;if(pinSt===o)pinErr(TR('PIN greșit'))})}});
+$('pinIn').addEventListener('input',function(){var pl=pinSt&&pinSt.len===6?6:4;this.value=this.value.replace(/\D/g,'').slice(0,pl);pinDots();if(this.value.length===pl&&pinSt&&!pinSt.busy){var o=pinSt,v=this.value;o.busy=true;$('pinMsg').textContent='…';Promise.resolve(o.done(v)).then(function(r){o.busy=false;if(r===true){if(pinSt===o)pinHide()}else if(pinSt===o)pinErr(r||TR('PIN greșit'))},function(){o.busy=false;if(pinSt===o)pinErr(TR('PIN greșit'))})}});
 $('pinDots').addEventListener('click',function(){try{$('pinIn').focus()}catch(_){}});
 $('pinCancel').addEventListener('click',pinHide);$('pinModal').addEventListener('click',function(e){if(e.target===this)pinHide()});
 function lkLock(id){var n=findN(id);if(!n||n.lock)return;if(!window.crypto||!crypto.subtle){toast(TR('Criptarea nu e disponibilă aici'));return}
@@ -2623,7 +2629,7 @@ $('noteTabs').addEventListener('click',function(e){var b=e.target.closest('.ntab
  if(nFolder||fdHist)fdGo('');noteTab=b.dataset.id;saveNotes();renderNotes()});
 /* v22: horizontal swipe on the list switches tabs */
 function ntChipShow(){var c=document.querySelector('#noteTabs .ntab.on');if(c&&c.scrollIntoView)try{c.scrollIntoView({inline:'nearest',block:'nearest'})}catch(_){}}
-function ntGo(d){var i=noteTabs.findIndex(function(t){return t.id===noteTab}),j=i+d;if(i<0||j<0||j>=noteTabs.length)return false;if(draftId)draftFinish();noteTab=noteTabs[j].id;saveNotes();renderNotes();ntChipShow();
+function ntGo(d){var VT=noteTabs.filter(function(t){return !t.off}),i=VT.findIndex(function(t){return t.id===noteTab}),j=i+d;if(i<0||j<0||j>=VT.length)return false;if(draftId)draftFinish();noteTab=VT[j].id;saveNotes();renderNotes();ntChipShow();
  var ul=$('notesList');ul.classList.remove('nsw-l','nsw-r');void ul.offsetWidth;ul.classList.add(d>0?'nsw-l':'nsw-r');setTimeout(function(){ul.classList.remove('nsw-l','nsw-r')},200);return true}
 (function(){var pg=$('notesPg'),S=null;
  function blocked(t){return nQ||nTrash||pg.classList.contains('nsrch')||ndrag||$('noteFull').classList.contains('show')||document.querySelector('.modal.show')||$('lpMenu').classList.contains('show')||(t.closest&&t.closest('#noteTabs,input,textarea,select,.ntop,#shModal,#crop,#phView'))}
@@ -2682,7 +2688,7 @@ var TM=null,TMt=0;
 function tmEl(){return TM&&$('noteTabs').querySelector('.ntab[data-id="'+(window.CSS&&CSS.escape?CSS.escape(TM.id):TM.id)+'"]')}
 function tmArm(id){TM={id:id,pid:null,on:0};var b=tmEl();if(!b){TM=null;return}b.classList.add('tmv');$('noteTabs').classList.add('tmon');try{navigator.vibrate&&navigator.vibrate(15)}catch(_){}toast(TR('Trage tabul unde vrei'))}
 function tmEnd(save){var d=TM;if(!d)return;TM=null;TMt=Date.now();var box=$('noteTabs');box.classList.remove('tmon');var b=box.querySelector('.tmv');if(b)b.classList.remove('tmv');
- if(save){var ids=[].map.call(box.querySelectorAll('.ntab[data-id]'),function(x){return x.dataset.id});if(ids.length===noteTabs.length&&ids.join()!==noteTabs.map(function(t){return t.id}).join()){noteTabs.sort(function(a,b){return ids.indexOf(a.id)-ids.indexOf(b.id)});saveNotes()}}renderNotes()}
+ if(save){var ids=[].map.call(box.querySelectorAll('.ntab[data-id]'),function(x){return x.dataset.id});var VT=noteTabs.filter(function(t){return !t.off});if(ids.length===VT.length&&ids.join()!==VT.map(function(t){return t.id}).join()){ntApplyOrder(ids);saveNotes()}}renderNotes()}
 function tmMove(x){var b=tmEl(),box=$('noteTabs');if(!b)return;var r0=box.getBoundingClientRect();if(x<r0.left+30)box.scrollLeft-=10;else if(x>r0.right-30)box.scrollLeft+=10;
  var ts=[].filter.call(box.querySelectorAll('.ntab[data-id]'),function(t){return t!==b});for(var i=0;i<ts.length;i++){var r=ts[i].getBoundingClientRect();if(x<r.left+r.width/2){if(b.nextSibling!==ts[i])box.insertBefore(b,ts[i]);return}}var add=box.querySelector('.nadd1');if(b.nextSibling!==add)box.insertBefore(b,add)}
 window.addEventListener('pointerdown',function(e){if(!TM)return;var b=e.target.closest&&e.target.closest('.ntab.tmv');e.stopImmediatePropagation();if(!b){e.preventDefault();tmEnd(false);return}TM.on=1;TM.pid=e.pointerId;b.classList.add('tmdn')},true);
@@ -3549,7 +3555,7 @@ function medRender(){if(VLIB)return libRender();var h='<div class="spv spmed">'+
  return h+'<button type="button" class="btn spnew spplus" data-a="pnew" aria-label="Persoană nouă" title="Persoană nouă">+</button></div>'} /* v68: collapsed = name only; '+' person under the list; gear only when open; long-press name = settings */
 function mDays(m){if(!(m.days>0))return null;var a=dParse(m.d0||today()),b=dParse(today()),e=Math.round((b-a)/864e5)+1;return{t:m.days,e:Math.max(0,Math.min(m.days,e)),f:e>=m.days}}
 function medRows(L){var h='';L.forEach(function(m){var c=mChk(m);
- var dd=mDays(m);h+='<div class="mdrow'+(dd&&dd.f?' mdfin':'')+'" data-m="'+esc(m.id)+'"><span class="mdnm ux" data-a="medit">'+esc(m.name)+(dd?' <span class="mddays">('+dd.t+'/'+dd.e+')</span>':'')+'</span><span class="mddo">';
+ var dd=mDays(m);h+='<div class="mdrow'+(dd&&dd.f?' mdfin':'')+'" data-m="'+esc(m.id)+'"><span class="mdnm ux" data-a="medit">💊 '+esc(m.name)+(dd?' <span class="mddays">('+dd.t+'/'+dd.e+')</span>':'')+'</span><span class="mddo">';
  if(m.rep>0){var on=c.r&&Date.now()-c.r<m.rep*3600000;h+='<span class="mdd"><button type="button" class="mdg ux'+(on?' on':'')+'" data-a="mrep" aria-label="'+esc(TR(m.rep+' ore'))+'">'+m.rep+'</button></span>'}
  else{var P=m.pat||[1,1,1],T=m.t||[],A=m.al||[];[0,1,2].forEach(function(i){if(i)h+='<span class="mdsep">–</span>';
   if(P[i])h+='<span class="mdd"><button type="button" class="mdg ux'+(c.s[i]?' on':'')+'" data-a="mchk" data-i="'+i+'" aria-label="'+esc(TR(SLOT[i]))+'">1</button>'+(T[i]?'<small class="ux">'+(A[i]?'⏰':'')+esc(T[i])+'</small>':'')+'</span>';
@@ -3692,6 +3698,128 @@ setInterval(function(){if(kindOf()==='med'&&MED.list.some(function(m){return m.c
 var nl=nsLaunch;nsLaunch=function(u){try{var q=new URL(u,location.href).searchParams.get('open');if(q&&q.indexOf('med-')===0){var t=noteTabs.filter(function(x){return x.kind==='med'})[0];var mp=MED.list.filter(function(m){return m.id===q.split('-')[1]})[0];if(mp){MED.open[mp.p]=1;LS.set('ns_med',MED)}if(t){if($('noteFull').classList.contains('show'))fullClose();notesOpen();noteTab=t.id;nFolder='';saveNotes(true);renderNotes()}return}}catch(_){}return nl.apply(this,arguments)};
 spMigrate();renderNotes();
 })();
+/* v96: Setări → TABURI (bibliotecă: ordine drag & drop, bifă vizibil/ascuns, PIN 4/6 opțional), DESIGN (Teme · Stil taburi · Fundal · Setări fine · Iconiță), iconiță urgență, Comunică cu creatorul, Versiune. Additive: hidden tab = t.off, nothing deleted. */
+var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v96';
+var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
+function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
+window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};
+function isUrgTab(t){if(!t)return false;var f=nFold(t.name).trim();return t.id==='u'||f==='urgente'||f===nFold(TR('URGENȚE')).trim()}
+window.urgPre=function(n){if(!n||n.del)return '';var t=findNT(n.tab);if(!isUrgTab(t))return '';return '<span class="upre" aria-hidden="true">'+esc(LS.get('ns_urgico','🚨'))+'</span> '};
+(function(){var M=$('modal');if(!M)return;var card=M.querySelector('.card');
+ var css=document.createElement('style');css.textContent=
+ '#tbLib .tbl{list-style:none;margin:6px 0;padding:0}#tbLib .tbr{display:flex;align-items:center;gap:10px;padding:7px 4px;border-bottom:1px solid var(--line);background:transparent;touch-action:pan-y}#tbLib .tbr.drg{background:rgba(var(--s1R),.9);box-shadow:0 4px 14px rgba(0,0,0,.4);border-radius:10px;position:relative;z-index:3}'+
+ '#tbLib .tbh{cursor:grab;font-size:20px;opacity:.7;padding:0 6px;touch-action:none;-webkit-user-select:none;user-select:none}#tbLib .tbd{width:12px;height:12px;border-radius:50%;flex:none;background:var(--tc,var(--cyan))}#tbLib .tbn{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#tbLib .tbr.off .tbn{opacity:.5}'+
+ '#tbLib input[type=checkbox]{width:22px;height:22px;accent-color:var(--cyan);flex:none;margin:0}#tbLib .tbui{background:none;border:1px solid var(--line);border-radius:8px;font-size:17px;padding:2px 6px;color:inherit;cursor:pointer}'+
+ '#tbLib .tbsep{height:1px;background:var(--line);margin:10px 0 4px;opacity:.8}#tbLib .tbex{font-size:12px;opacity:.7;text-transform:uppercase;letter-spacing:.06em}#tbLib .hint{font-size:12px;opacity:.75;line-height:1.35;margin-top:6px}'+
+ '#tbLib .tblk{display:flex;align-items:center;gap:8px;width:100%;background:rgba(var(--s1R),.35);border:1px solid var(--line);border-radius:12px;padding:9px 12px;color:var(--txt);font:inherit;cursor:pointer}#tbLib .tblk i{flex:1;border-bottom:2px dotted var(--line);height:0;margin-top:8px}#tbLib .tblk b{font-weight:400;font-size:12px;opacity:.75}'+
+ '#tbLib .tbpin{display:none;gap:8px;margin-top:6px}#tbLib .tbpin.on{display:flex}#tbLib .tbpin .btn{flex:1}#tbLib.lkd .tbl,#tbLib.lkd .tbsep,#tbLib.lkd .tbex,#tbLib.lkd #tbHint{display:none}'+
+ '#tbLib .tbuic{display:none;flex-wrap:wrap;gap:6px;margin-top:8px}#tbLib .tbuic.on{display:flex}#tbLib .tbuic button{font-size:20px;width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:rgba(var(--s1R),.35);cursor:pointer}#tbLib .tbuic button.cur{border-color:var(--cyan);box-shadow:0 0 0 1px var(--cyan)}'+
+ '#dsgn .dsub{border-top:1px solid var(--line)}#dsgn .dsub:first-child{border-top:0}#dsgn .dsh{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 2px;font-family:Oswald,sans-serif;font-weight:400;font-size:16px;letter-spacing:.03em;cursor:pointer;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}#dsgn .dsb{display:none;padding-bottom:8px}#dsgn .dsub.open>.dsb{display:block}#dsgn .dsub.open>.dsh{color:var(--cyan)}'+
+ '#fMsg textarea{width:100%;box-sizing:border-box;margin:8px 0;min-height:84px;resize:vertical}#fMsg .hint{font-size:12.5px;opacity:.8;line-height:1.4;white-space:pre-line}#sVer .sverv{font-size:13px;opacity:.85;font-family:system-ui,sans-serif;font-weight:400;letter-spacing:0;text-transform:none}.upre{margin-right:2px}';
+ document.head.appendChild(css);
+ /* ---- DESIGN ---- */
+ var thH=[].filter.call(card.querySelectorAll('.sec.pvsec'),function(x){return x.nextElementSibling&&x.nextElementSibling.querySelector('#thRow')})[0];
+ var bgH=[].filter.call(card.querySelectorAll('.sec.pvsec'),function(x){return x.nextElementSibling&&x.nextElementSibling.querySelector('#bgRow')})[0];
+ var icF=$('icoField'),icH=icF&&icF.previousElementSibling;
+ if(thH&&bgH&&icF){var D=document.createElement('div');D.className='sec';D.textContent=TR('Design');var B=document.createElement('div');B.className='field';B.id='dsgn';
+  var ds={};try{ds=JSON.parse(localStorage.getItem('nt_dsub')||'{}')||{}}catch(e){}
+  function sub(k,title,peek,els){var w=document.createElement('div');w.className='dsub'+(ds[k]?' open':'');var h=document.createElement('div');h.className='dsh';h.setAttribute('role','button');h.setAttribute('tabindex','0');var sp=document.createElement('span');sp.textContent=title;h.appendChild(sp);if(peek)h.appendChild(peek);var b=document.createElement('div');b.className='dsb';els.forEach(function(e){if(e)b.appendChild(e)});w.appendChild(h);w.appendChild(b);
+   var tg=function(e){if(e&&e.target.closest('.peekb'))return;var o=!w.classList.contains('open');w.classList.toggle('open',o);ds[k]=o?1:0;try{localStorage.setItem('nt_dsub',JSON.stringify(ds))}catch(_){}};h.addEventListener('click',tg);h.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tg()}});B.appendChild(w)}
+  thH.parentNode.insertBefore(D,thH);thH.parentNode.insertBefore(B,thH);
+  var thF=thH.nextElementSibling,bgF=bgH.nextElementSibling;
+  sub('th',TR('Teme'),thH.querySelector('.peekb'),[thF]);
+  sub('ts',TR('Stil taburi'),null,[$('fTst')]);
+  sub('bg',TR('Fundal'),bgH.querySelector('.peekb'),[bgF]);
+  sub('fine',TR('Setări fine'),null,[$('fBgk'),$('fNrp'),$('fSmg'),$('fCdo')]);
+  sub('ico',TR('Iconiță'),null,[icF]);
+  var tsl=$('fTst')&&$('fTst').querySelector('label');if(tsl)tsl.style.display='none';
+  [thH,bgH,icH].forEach(function(x){if(x&&x.classList.contains('sec'))x.remove()})}
+ /* ---- TABURI / Bibliotecă ---- */
+ var EX=[['util','ut','Utilități','#5fd38d'],['med','med','Medicamente','#ff8a65']];
+ var lib=$('tbLib'),uU=$('tbUser'),uE=$('tbEx'),unl=false;
+ function pinGet(){var p=LS.get('ns_libpin',null);return p&&p.ct?p:null}
+ function locked(){return !!pinGet()&&!unl}
+ function row(t,ex){var on=t?!t.off:false,id=t?t.id:'x:'+ex[0];return '<li class="tbr'+(on?'':' off')+'" data-id="'+esc(id)+'"'+((t&&t.color)||ex?' style="--tc:'+esc((t&&t.color)||ex[3])+'"':'')+'><span class="tbh" aria-label="'+esc(TR('Mută'))+'">≡</span><span class="tbd"></span><span class="tbn ux">'+esc(t?t.name:TR(ex[2]))+'</span>'+(t&&isUrgTab(t)?'<button type="button" class="tbui" data-ui="1" aria-label="'+esc(TR('Iconiță urgență'))+'">'+esc(LS.get('ns_urgico','🚨'))+'</button>':'')+'<input type="checkbox"'+(on?' checked':'')+' aria-label="'+esc(TR('Arată pe pagina principală'))+'"></li>'}
+ function render(){lib.classList.toggle('lkd',locked());var p=pinGet();$('tbLockS').textContent=p?(unl?TR('deblocată'):TR('protejată cu PIN')):TR('fără PIN');
+  if(locked()){uU.innerHTML='';uE.innerHTML='';return}
+  var hu='',he='';noteTabs.forEach(function(t){if(t.kind)he+=row(t);else hu+=row(t)});EX.forEach(function(x){if(!noteTabs.some(function(t){return t.kind===x[0]}))he+=row(null,x)});
+  uU.innerHTML=hu;uE.innerHTML=he;var ui=$('tbUic'),cur=LS.get('ns_urgico','🚨');ui.innerHTML=URG_ICONS.map(function(c){return '<button type="button" class="'+(c===cur?'cur':'')+'" data-c="'+c+'">'+c+'</button>'}).join('')}
+ window.tbLibRender=render;
+ function commit(){saveNotes();renderNotes();render()}
+ lib.addEventListener('change',function(e){var c=e.target;if(c.type!=='checkbox')return;var li=c.closest('.tbr'),id=li.dataset.id;
+  if(id.indexOf('x:')===0){if(!c.checked)return;var x=EX.filter(function(q){return 'x:'+q[0]===id})[0];var nid=x[1];while(findNT(nid))nid=x[1]+Math.random().toString(36).slice(2,5);noteTabs.push({id:nid,name:TR(x[2]),color:x[3],kind:x[0]});commit();toast(TR('Tab activat'));return}
+  var t=findNT(id);if(!t)return;if(!c.checked&&noteTabs.filter(function(q){return !q.off&&q!==t}).length===0){c.checked=true;toast(TR('Cel puțin un tab rămâne vizibil'));return}
+  if(c.checked)delete t.off;else t.off=1;commit()});
+ lib.addEventListener('click',function(e){var b=e.target.closest('[data-ui]');if(b){$('tbUic').classList.toggle('on');return}var c=e.target.closest('#tbUic button');if(c){LS.set('ns_urgico',c.dataset.c);$('tbUic').classList.remove('on');render();renderNotes();toast(TR('Iconiță urgență')+': '+c.dataset.c)}});
+ /* drag & drop by ≡ inside its own group */
+ var dr=null;lib.addEventListener('pointerdown',function(e){var h=e.target.closest('.tbh');if(!h)return;e.preventDefault();var li=h.closest('.tbr'),ul=li.parentNode;try{h.setPointerCapture(e.pointerId)}catch(_){}dr={li:li,ul:ul,y:e.clientY,h:h};li.classList.add('drg')});
+ lib.addEventListener('pointermove',function(e){if(!dr)return;var li=dr.li,dy=e.clientY-dr.y;li.style.transform='translateY('+dy+'px)';var sib=dy<0?li.previousElementSibling:li.nextElementSibling;if(sib){var r=sib.getBoundingClientRect(),m=r.top+r.height/2,lr=li.getBoundingClientRect(),c=lr.top+lr.height/2;if((dy<0&&c<m)||(dy>0&&c>m)){var before=li.getBoundingClientRect().top;dr.ul.insertBefore(li,dy<0?sib:sib.nextSibling);li.style.transform='';var after=li.getBoundingClientRect().top;dr.y+=after-before;li.style.transform='translateY('+(e.clientY-dr.y)+'px)'}}});
+ function end(){if(!dr)return;var li=dr.li,ul=dr.ul;li.style.transform='';li.classList.remove('drg');dr=null;var ids=[].map.call(ul.children,function(x){return x.dataset.id}).filter(function(x){return x.indexOf('x:')!==0});var old=noteTabs.filter(function(t){return ids.indexOf(t.id)>=0}).map(function(t){return t.id});if(ids.join()!==old.join()){ntApplyOrder(ids);commit()}}
+ lib.addEventListener('pointerup',end);lib.addEventListener('pointercancel',end);
+ /* PIN lock */
+ function pinMake(pl){if(!window.crypto||!crypto.subtle){toast(TR('Criptarea nu e disponibilă aici'));return}
+  function s1(msg){pinShow({len:pl,title:TR('Alege un PIN pentru Bibliotecă'),msg:msg,done:function(p1){setTimeout(function(){s2(p1)},0);return true}})}
+  function s2(p1){pinShow({len:pl,title:TR('Confirmă PIN-ul'),done:function(p2){if(p2!==p1){setTimeout(function(){s1(TR('PIN-urile nu se potrivesc'))},0);return true}
+   var salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12));return lkDerive(p2,salt).then(function(k){return crypto.subtle.encrypt({name:'AES-GCM',iv:iv},k,new TextEncoder().encode('notis-lib'))}).then(function(ct){LS.set('ns_libpin',{n:pl,salt:b64e(salt),iv:b64e(iv),ct:b64e(ct)});unl=true;render();toast(TR('Biblioteca e protejată cu PIN'));return true})}})}
+  s1()}
+ function pinTry(p){var L=pinGet();return lkDerive(p,b64d(L.salt)).then(function(k){return crypto.subtle.decrypt({name:'AES-GCM',iv:b64d(L.iv)},k,b64d(L.ct))}).then(function(b){return new TextDecoder().decode(b)==='notis-lib'}).catch(function(){return false})}
+ function unlock(then){var L=pinGet();pinShow({len:L.n,title:'🔒 '+TR('Bibliotecă')+TR(' · introdu PIN-ul'),done:function(p){return pinTry(p).then(function(ok){if(!ok)return TR('PIN greșit');unl=true;setTimeout(function(){render();if(then)then()},0);return true})}})}
+ $('tbLock').addEventListener('click',function(){var pp=$('tbPinPick');if(!pinGet()){pp.classList.toggle('on');return}
+  if(!unl){unlock();return}
+  ask('Elimini PIN-ul Bibliotecii?',function(){localStorage.removeItem('ns_libpin');render();toast(TR('PIN eliminat'))})});
+ $('tbPinPick').addEventListener('click',function(e){var b=e.target.closest('[data-pl]');if(!b)return;this.classList.remove('on');pinMake(+b.dataset.pl)});
+ function ask(txt,yes){var cf=$('cfModal').querySelector('.cftxt'),ok=$('cfOk'),no=$('cfNo'),t0=cf.textContent,o0=ok.textContent,n0=no.textContent;cf.textContent=TR(txt);ok.textContent=TR('Da');no.textContent=TR('Nu');var rs=function(){setTimeout(function(){cf.textContent=t0;ok.textContent=o0;no.textContent=n0},300)};jvConfirm(function(){rs();yes()});var n1=no.onclick;no.onclick=function(){rs();if(n1)n1()}}
+ /* opening TABURI while locked asks for the PIN first */
+ var sh=$('secTabs');sh.addEventListener('click',function(e){if(locked()&&!sh.classList.contains('open')){e.stopImmediatePropagation();unlock(function(){sh.click()})}});
+ new MutationObserver(function(){if(M.classList.contains('show')){render();if(locked())setTimeout(function(){sh.classList.remove('open');sh.setAttribute('aria-expanded','false')},0)}else{unl=false;$('tbUic').classList.remove('on');$('tbPinPick').classList.remove('on')}}).observe(M,{attributes:true,attributeFilter:['class']});
+ render();
+ /* ---- Comunică cu creatorul ---- */
+ function ver(){var v='';try{if(window.NotisNative&&NotisNative.version)v=String(NotisNative.version()||'')}catch(_){}return v}
+ $('cmInfo').textContent=TR('Scrie în română sau în engleză. Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.')+'\n'+TR('Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori. Fiecare utilizator primește un răspuns.')+'\n'+TR('Oricine își poate spune părerea; cererile utilizatorilor Pro și Unlimited au prioritate.');
+ $('cmTx').placeholder=TR('Mesajul tău…');
+ $('cmSend').addEventListener('click',function(){var tx=$('cmTx').value.trim();if(!tx){toast(TR('Scrie mai întâi mesajul'));return}
+  var v=ver(),meta='Notis '+(v?v+' · ':'')+'web '+NOTIS_WEB_REL+' · '+NOTIS_TIER+' · '+NL,body=tx+'\n\n—\n'+meta,subj='Notis – '+TR('mesaj pentru creator');
+  var mt='mailto:'+CREATOR_CONTACT+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body),gone=false,nb=$('cmNo');nb.style.display='none';
+  var mark=function(){gone=true};window.addEventListener('blur',mark,{once:true});document.addEventListener('visibilitychange',mark,{once:true});
+  var noMail=function(){nb.innerHTML=esc(TR('Nu s-a deschis nicio aplicație de email. Scrie-ne la:'))+' <b class="ux" style="user-select:all">'+esc(CREATOR_CONTACT)+'</b>'+(CREATOR_CONTACT?' <button type="button" class="btn" id="cmCp">'+esc(TR('Copiază'))+'</button>':'');nb.style.display='block';
+   var cp=$('cmCp');if(cp)cp.onclick=function(){try{navigator.clipboard.writeText(CREATOR_CONTACT).then(function(){toast(TR('Copiat'))})}catch(_){}}};
+  if(!CREATOR_CONTACT){noMail();return}
+  try{location.href=mt}catch(_){noMail();return}
+  setTimeout(function(){if(!gone&&!document.hidden)noMail()},1500)});
+ /* ---- Versiune ---- */
+ var vb=$('sVer'),vv=$('sVerV'),newer=null;$('sVerL').textContent=TR('Versiune');
+ function vn(s){return String(s||'').replace(/[^0-9.]/g,'').split('.').map(function(x){return +x||0})}
+ function gt(a,b){a=vn(a);b=vn(b);for(var i=0;i<3;i++){if((a[i]||0)!==(b[i]||0))return (a[i]||0)>(b[i]||0)}return false}
+ function show(st){var v=ver();vv.textContent=(v?v:'web '+NOTIS_WEB_REL)+' · '+st}
+ function check(){show(TR('se verifică…'));var v=ver();
+  if(v){fetch('https://api.github.com/repos/cluj1313/notis-android/releases/latest',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){var t=String(j.tag_name||'');if(t&&gt(t,v)){newer=t.replace(/^v/,'');show('🆕 '+TR('Update nou')+': '+newer)}else{newer=null;show('✓ '+TR('Ultima versiune'))}}).catch(function(){show(TR('verificare indisponibilă'))});return}
+  fetch('sw.js',{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var m=/notis-shell-v(\d+)/.exec(t),n=m?+m[1]:0;if(n>+NOTIS_WEB_REL.slice(1)){newer='v'+n;show('🆕 '+TR('Update nou')+': web v'+n)}else{newer=null;show('✓ '+TR('Ultima versiune'))}}).catch(function(){show(TR('verificare indisponibilă'))})}
+ vb.addEventListener('click',function(){if(newer){if(ver()){try{if(NotisNative.updCheck){NotisNative.updCheck();return}}catch(_){}location.href='https://cluj1313.github.io/notis/apk/'}else location.reload();return}check()});
+ vb.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();vb.click()}});
+ var vck=0;new MutationObserver(function(){if(M.classList.contains('show')&&Date.now()-vck>60000){vck=Date.now();check()}}).observe(M,{attributes:true,attributeFilter:['class']});show('');
+})();
+try{renderNotes()}catch(_){}
+
+/* v96: opt-in messages from the creator (creator.json; news.json is the AI-news feed). Off by default; no send button in-app. */
+(function(){var K='ns_news',KS='ns_newsSeen',KB='ns_newsBox',N=window.NotisNative,nat=!!(N&&N.newsSet);
+ var get=function(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(_){return d}},put=function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(_){}};
+ var css=document.createElement('style');css.textContent='#fNews .chk{display:flex;align-items:center;gap:10px;flex-direction:row}#fNews .chk input{width:20px;height:20px;margin:0;flex:none}#nwList{margin-top:6px}#nwList .nwi{padding:7px 0;border-top:1px solid rgba(255,255,255,.08)}#nwList .nwd{font-size:11px;opacity:.6}#nwList .nwt{font-weight:600}#nwList .nwb{font-size:13px;opacity:.85;white-space:pre-wrap}#nwCard{position:fixed;left:12px;right:12px;top:12px;z-index:9999;background:rgba(20,20,22,.97);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:12px 40px 12px 14px;box-shadow:0 8px 30px rgba(0,0,0,.5);color:#fff}#nwCard .nwx{position:absolute;right:8px;top:6px;background:none;border:0;color:#fff;font-size:20px}#nwCard .nwh{font-size:11px;opacity:.6;margin-bottom:3px}';document.head.appendChild(css);
+ var loc=function(m){var o=m.lang&&m.lang[NL];return{t:(o&&o.title)||m.title||'',b:(o&&o.body)||m.body||''}};
+ function render(){var L=$('nwList');if(!L)return;var B=get(KB,[]);L.innerHTML=B.length?B.slice().reverse().map(function(m){var x=loc(m);return '<div class="nwi"><div class="nwd">'+esc(m.date||'')+'</div><div class="nwt ux">'+esc(x.t)+'</div><div class="nwb ux">'+esc(x.b)+'</div></div>'}).join(''):'<div class="hint">'+esc(TR('Niciun mesaj încă'))+'</div>'}
+ function card(list){if(!list.length)return;var m=list[0],x=loc(m),c=document.createElement('div');c.id='nwCard';c.innerHTML='<div class="nwh">'+esc(TR('Mesaj nou de la creator'))+'</div><div class="ux" style="font-weight:600">'+esc(x.t)+'</div><div class="ux" style="font-size:13px;opacity:.85;white-space:pre-wrap">'+esc(x.b)+'</div><button type="button" class="nwx" aria-label="x">×</button>';
+  c.querySelector('.nwx').onclick=function(){c.remove();card(list.slice(1))};document.body.appendChild(c)}
+ function poll(){if(!get(K,false))return;fetch('creator.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){var a=(j&&j.messages)||[],S=get(KS,[]),B=get(KB,[]),first=!get('ns_newsPrimed',false),fresh=[];
+  a.forEach(function(m){if(!m||!m.id||S.indexOf(m.id)>=0)return;S.push(m.id);B.push(m);if(!first)fresh.push(m);if(nat&&N.newsSeen)try{N.newsSeen(String(m.id))}catch(_){}});
+  B=B.slice(-50);put(KS,S);put(KB,B);put('ns_newsPrimed',true);render();card(fresh);
+  if(!nat&&fresh.length&&window.Notification&&Notification.permission==='granted')fresh.forEach(function(m){var x=loc(m);try{new Notification(x.t,{body:x.b,icon:'icon-192.png'})}catch(_){}})}).catch(function(){})}
+ var cb=$('nwOn');cb.checked=!!get(K,false);
+ cb.addEventListener('change',function(){put(K,cb.checked);if(nat)try{N.newsSet(cb.checked,NL)}catch(_){}
+  if(cb.checked){if(!nat&&window.Notification&&Notification.permission==='default')try{Notification.requestPermission()}catch(_){}poll()}});
+ if(nat&&get(K,false))try{N.newsSet(true,NL)}catch(_){}
+ render();setTimeout(poll,2500);document.addEventListener('visibilitychange',function(){if(!document.hidden)poll()});
+})();
+
 window.NOTIS_BOOTED=true;
 if(NOTIS_AB.changed&&!DEMO){try{localStorage.setItem('ns_lastver',NOTIS_AB.cur)}catch(_){}
  var rec0=NOTIS_AB.rec;phDump().then(function(p){rec0.photos=p;return abStore(rec0)}).then(renderAbList)}

@@ -6,5 +6,5 @@ import android.content.Intent;
 
 /** re-arm note alarms after reboot, app update, or time/zone change */
 public class BootReceiver extends BroadcastReceiver {
-    @Override public void onReceive(Context c, Intent i) { Scheduler.rescheduleAll(c); NotisWidget.refreshAll(c); }
+    @Override public void onReceive(Context c, Intent i) { Scheduler.rescheduleAll(c); NotisWidget.refreshAll(c); NewsReceiver.arm(c); }
 }

@@ -44,6 +44,10 @@ final class Bridge {
     @JavascriptInterface public boolean pickAlarmFile() { MainActivity m = MainActivity.cur; if (!MainActivity.trusted || m == null) return false; m.runOnUiThread(m::pickAlarmFile); return true; }
     @JavascriptInterface public String iconGet() { if (!MainActivity.trusted) return ""; return IconSwitch.get(ctx); }
     @JavascriptInterface public boolean iconSet(String k) { if (!MainActivity.trusted) return false; return IconSwitch.set(ctx, k); }
+    /* 2.5.1 */
+    @JavascriptInterface public void updCheck() { final MainActivity m = MainActivity.cur; if (!MainActivity.trusted || m == null) return; m.runOnUiThread(() -> { Store.sp(m).edit().putLong("updChk", 0).apply(); Updater.check(m); }); }
+    @JavascriptInterface public void newsSet(boolean on, String lang) { if (!MainActivity.trusted) return; NewsReceiver.set(ctx, on, lang); }
+    @JavascriptInterface public void newsSeen(String id) { if (!MainActivity.trusted) return; NewsReceiver.seen(ctx, id); }
     @JavascriptInterface public boolean isNative() { if (!MainActivity.trusted) return false; return true; }
     @JavascriptInterface public String version() { if (!MainActivity.trusted) return ""; try { return ctx.getPackageManager().getPackageInfo(ctx.getPackageName(), 0).versionName; } catch (Exception e) { return ""; } }
 

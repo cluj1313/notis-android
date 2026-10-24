@@ -1,6 +1,6 @@
 /* Notis service worker: app shell cache. HTML = network-first (updates arrive), static = cache-first.
    Voice model files (Mihai, own cache "jarvis-piper-v1") and weather (Open-Meteo) are NOT touched: passed straight to the network. */
-var VERSION='notis-shell-v95';
+var VERSION='notis-shell-v96';
 var SHELL=['./','index.html','manifest.webmanifest?v=86','icons/sc-new-96.png','icons/sc-search-96.png','icons/sc-cart-96.png',
  'icons/favicon.png?v=86','icons/icon-192.png?v=86','icons/classic-icon-192.png?v=86','icons/icon-512.png?v=86','icons/apple-touch-icon.png?v=86','art/jad-t.svg','art/jad-b.svg','art/lac-t.svg','art/lac-b.svg','art/tus-t.svg','art/tus-b.svg','art/paper.svg','art/neon-b.svg','art/papyrus.svg','art/pap-t.svg','art/pap-b.svg','art/m-sakura.svg','art/lup-d.webp','art/lup-l.webp','art/salon-marble.svg','art/cleo-q.svg','art/cleo-b.svg','art/cleo-l.svg','art/cleo-pap.svg','art/bg-lup-t.webp','art/bg-mist-t.webp','art/bg-forest-t.webp','art/bg-lake-t.webp','art/bg-sea-t.webp','art/bg-snow-t.webp','art/bg-night-t.webp','art/hdr-new@1x.webp','art/hdr-new@2x.webp','art/hdr-new@3x.webp','art/hdr-classic@1x.webp','art/hdr-classic@2x.webp','art/hdr-classic@3x.webp','art/ic-ren@1x.webp','art/ic-ren@2x.webp','art/ic-ren@3x.webp','art/ic-mv@1x.webp','art/ic-mv@2x.webp','art/ic-mv@3x.webp','art/demo-draw.webp','art/demo-rec.m4a','snd/clopotel.mp3','snd/marimba.mp3','snd/digital.mp3','snd/dimineata.mp3','snd/harpa.mp3','snd/urgent.mp3','fonts/oswald-500-cyrillic-ext.woff2','fonts/oswald-500-cyrillic.woff2','fonts/oswald-500-latin-ext.woff2','fonts/oswald-500-latin.woff2','fonts/oswald-500-vietnamese.woff2','i18n/en.js','i18n/fr.js','i18n/de.js','i18n/it.js','i18n/hu.js','i18n/ru.js','manifest-en.webmanifest','manifest-fr.webmanifest','manifest-de.webmanifest','manifest-it.webmanifest','manifest-hu.webmanifest','manifest-ru.webmanifest'];
 var FONT_HOSTS=/^https:\/\/(fonts\.googleapis\.com|fonts\.gstatic\.com)\//,DSEG=/^https:\/\/cdn\.jsdelivr\.net\/npm\/dseg@/;
@@ -16,7 +16,7 @@ self.addEventListener('fetch',function(e){var r=e.request;var url=r.url;
    e.respondWith(fetch(r).then(function(res){if(res&&res.ok){var cp=res.clone();caches.open(VERSION).then(function(c){c.put(strip(url),cp)})}return res}).catch(function(){
     return caches.open(VERSION).then(function(c){return c.match(strip(url)).then(function(h){return h||c.match(/blank\.html$/.test(path)?'blank.html':'index.html',{ignoreSearch:true})})})}));return}
   if(/\.js$/.test(path)&&/sw\.js$/.test(path))return;
-  if(/news\.json$/.test(path)){ /* network-first — never sticky-stale */
+  if(/(news|creator)\.json$/.test(path)){ /* network-first — never sticky-stale */
    var fresh=/[?&]fresh=/.test(url); /* manual refresh: no cache fallback, so the app can report the failure */
    e.respondWith(fetch(r,fresh?{cache:'no-store'}:undefined).then(function(res){if(res&&res.ok){var cp=res.clone();caches.open(VERSION).then(function(c){c.put(strip(url),cp)})}return res}).catch(function(err){
     if(fresh)throw err;return caches.open(VERSION).then(function(c){return c.match(strip(url))})}));return}

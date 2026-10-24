@@ -76,6 +76,7 @@
         </receiver>
         <receiver android:name=".AlarmReceiver" android:exported="false" />
         <receiver android:name=".ListActReceiver" android:exported="false" />
+        <receiver android:name=".NewsReceiver" android:exported="false" />
         <receiver android:name=".BootReceiver" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
