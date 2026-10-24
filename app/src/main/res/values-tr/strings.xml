@@ -86,4 +86,5 @@
     <string name="cd_edit">Düzenle</string>
     <string name="edit_item">Öğeyi düzenle</string>
     <string name="edit_note">Notu düzenle</string>
+    <string name="alarm_stop">Durdur</string>
 </resources>

@@ -976,6 +976,7 @@ NOTIS_I18N={
 "Citește noutățile și răspunsurile primite de la creator.": "Beri novice in odgovore ustvarjalca.",
 "Știai că?": "Ali ste vedeli?",
 "m": "m",
+"Oprește": "Ustavi",
 "Sfat": "Nasvet",
 "Știu opțiunea": "To že vem",
 "Nu mai arăta info": "Ne prikaži več informacij",

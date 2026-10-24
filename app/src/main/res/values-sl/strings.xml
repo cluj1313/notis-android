@@ -86,4 +86,5 @@
     <string name="cd_edit">Uredi</string>
     <string name="edit_item">Uredi element</string>
     <string name="edit_note">Uredi zapisek</string>
+    <string name="alarm_stop">Ustavi</string>
 </resources>

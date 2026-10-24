@@ -86,4 +86,5 @@
     <string name="cd_edit">Redigera</string>
     <string name="edit_item">Redigera objekt</string>
     <string name="edit_note">Redigera anteckning</string>
+    <string name="alarm_stop">Stoppa</string>
 </resources>

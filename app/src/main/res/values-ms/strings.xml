@@ -86,4 +86,5 @@
     <string name="cd_edit">Sunting</string>
     <string name="edit_item">Sunting item</string>
     <string name="edit_note">Sunting nota</string>
+    <string name="alarm_stop">Hentikan</string>
 </resources>

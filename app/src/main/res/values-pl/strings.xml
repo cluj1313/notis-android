@@ -86,4 +86,5 @@
     <string name="cd_edit">Edytuj</string>
     <string name="edit_item">Edytuj pozycję</string>
     <string name="edit_note">Edytuj notatkę</string>
+    <string name="alarm_stop">Zatrzymaj</string>
 </resources>

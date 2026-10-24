@@ -86,4 +86,5 @@
     <string name="cd_edit">עריכה</string>
     <string name="edit_item">עריכת פריט</string>
     <string name="edit_note">עריכת פתק</string>
+    <string name="alarm_stop">עצור</string>
 </resources>

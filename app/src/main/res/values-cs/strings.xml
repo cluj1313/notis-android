@@ -86,4 +86,5 @@
     <string name="cd_edit">Upravit</string>
     <string name="edit_item">Upravit položku</string>
     <string name="edit_note">Upravit poznámku</string>
+    <string name="alarm_stop">Zastavit</string>
 </resources>

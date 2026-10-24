@@ -976,6 +976,7 @@ NOTIS_I18N={
 "Citește noutățile și răspunsurile primite de la creator.": "Geliştiriciden gelen haberleri ve yanıtları okuyun.",
 "Știai că?": "Biliyor muydunuz?",
 "m": "dk",
+"Oprește": "Durdur",
 "Sfat": "İpucu",
 "Știu opțiunea": "Biliyorum",
 "Nu mai arăta info": "Bilgiyi bir daha gösterme",

@@ -86,4 +86,5 @@
     <string name="cd_edit">Rediger</string>
     <string name="edit_item">Rediger punkt</string>
     <string name="edit_note">Rediger note</string>
+    <string name="alarm_stop">Stands</string>
 </resources>

@@ -86,4 +86,5 @@
     <string name="cd_edit">Ndrysho</string>
     <string name="edit_item">Ndrysho artikullin</string>
     <string name="edit_note">Ndrysho shënimin</string>
+    <string name="alarm_stop">Ndalo</string>
 </resources>

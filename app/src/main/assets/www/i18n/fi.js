@@ -976,6 +976,7 @@ NOTIS_I18N={
 "Citește noutățile și răspunsurile primite de la creator.": "Lue tekijän uutiset ja vastaukset.",
 "Știai că?": "Tiesitkö?",
 "m": "m",
+"Oprește": "Pysäytä",
 "Sfat": "Vinkki",
 "Știu opțiunea": "Tiedän jo",
 "Nu mai arăta info": "Älä näytä infoa enää",

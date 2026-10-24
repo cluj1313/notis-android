@@ -86,4 +86,5 @@
     <string name="cd_edit">संपादित करें</string>
     <string name="edit_item">आइटम संपादित करें</string>
     <string name="edit_note">नोट संपादित करें</string>
+    <string name="alarm_stop">रोकें</string>
 </resources>

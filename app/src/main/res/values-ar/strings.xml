@@ -86,4 +86,5 @@
     <string name="cd_edit">تعديل</string>
     <string name="edit_item">تعديل العنصر</string>
     <string name="edit_note">تعديل الملاحظة</string>
+    <string name="alarm_stop">إيقاف</string>
 </resources>

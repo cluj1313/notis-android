@@ -86,4 +86,5 @@
     <string name="cd_edit">Изменить</string>
     <string name="edit_item">Изменить пункт</string>
     <string name="edit_note">Изменить заметку</string>
+    <string name="alarm_stop">Стоп</string>
 </resources>

@@ -18,11 +18,18 @@ public class AlarmReceiver extends BroadcastReceiver {
     static final String CH = "notis_alarms";
 
     static final String SNOOZE = "ro.cluj1313.notis.SNOOZE";
+    static final String STOPA = "ro.cluj1313.notis.ALARM_STOP";
 
     @Override public void onReceive(Context c, Intent i) {
         String nid = i.getStringExtra("n");
         if (nid == null) return;
         /* 2.2.3: "Amână 10 min" from the notification — a native one-shot alarm, independent of the web snapshot (notes and medicines) */
+        /* 2.6.6: "Stop" from the notification — silence and dismiss only; the alarm data / next occurrence stay untouched */
+        if (STOPA.equals(i.getAction())) {
+            AlarmSound.stop();
+            try { c.getSystemService(NotificationManager.class).cancel(nid.hashCode()); } catch (Exception ignored) {}
+            return;
+        }
         if (SNOOZE.equals(i.getAction())) {
             String txt = i.getStringExtra("t"); if (txt == null) txt = "";
             AlarmSound.stop();
@@ -45,6 +52,11 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     static PendingIntent snoozePi(Context c, String nid, String text) {
         Intent s = new Intent(c, AlarmReceiver.class).setAction(SNOOZE).setData(Uri.parse("notis://snooze/" + Uri.encode(nid))).putExtra("n", nid).putExtra("t", text);
+        return PendingIntent.getBroadcast(c, 0, s, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+    }
+
+    static PendingIntent stopPi(Context c, String nid) {
+        Intent s = new Intent(c, AlarmReceiver.class).setAction(STOPA).setData(Uri.parse("notis://stop/" + Uri.encode(nid))).putExtra("n", nid);
         return PendingIntent.getBroadcast(c, 0, s, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
     }
 
@@ -84,7 +96,8 @@ public class AlarmReceiver extends BroadcastReceiver {
             .setFullScreenIntent(NotisWidget.openApp(c, 700000 + Math.abs(nid.hashCode() % 90000), "?open=" + Uri.encode(nid)), true)
             .setPriority(Notification.PRIORITY_MAX)
             .setVisibility(Notification.VISIBILITY_PUBLIC)
-            .addAction(new Notification.Action.Builder(null, Tr.s(c, R.string.snooze10), snoozePi(c, nid, text)).build());
+            .addAction(new Notification.Action.Builder(null, Tr.s(c, R.string.snooze10), snoozePi(c, nid, text)).build())
+            .addAction(new Notification.Action.Builder(null, Tr.s(c, R.string.alarm_stop), stopPi(c, nid)).build());
         if (CH2.equals(ch)) b.setDeleteIntent(PendingIntent.getService(c, 0, new Intent(c, RingService.class).setAction(RingService.STOP), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE));
         Notification n = b.build();
         if (CH.equals(ch)) n.flags |= Notification.FLAG_INSISTENT; /* sound repeats until opened / dismissed, like an alarm clock */

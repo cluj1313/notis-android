@@ -86,4 +86,5 @@
     <string name="cd_edit">সম্পাদনা</string>
     <string name="edit_item">আইটেম সম্পাদনা</string>
     <string name="edit_note">নোট সম্পাদনা</string>
+    <string name="alarm_stop">থামান</string>
 </resources>

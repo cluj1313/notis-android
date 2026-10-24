@@ -86,4 +86,5 @@
     <string name="cd_edit">ویرایش</string>
     <string name="edit_item">ویرایش مورد</string>
     <string name="edit_note">ویرایش یادداشت</string>
+    <string name="alarm_stop">توقف</string>
 </resources>

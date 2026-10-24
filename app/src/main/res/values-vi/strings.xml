@@ -86,4 +86,5 @@
     <string name="cd_edit">Sửa</string>
     <string name="edit_item">Sửa mục</string>
     <string name="edit_note">Sửa ghi chú</string>
+    <string name="alarm_stop">Dừng</string>
 </resources>

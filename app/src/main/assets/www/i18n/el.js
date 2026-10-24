@@ -976,6 +976,7 @@ NOTIS_I18N={
 "Citește noutățile și răspunsurile primite de la creator.": "Διάβασε νέα και απαντήσεις από τον δημιουργό.",
 "Știai că?": "Το ήξερες;",
 "m": "λ",
+"Oprește": "Διακοπή",
 "Sfat": "Συμβουλή",
 "Știu opțiunea": "Το ξέρω",
 "Nu mai arăta info": "Μην εμφανίζεις άλλο πληροφορίες",

@@ -86,4 +86,5 @@
     <string name="cd_edit">Rediģēt</string>
     <string name="edit_item">Rediģēt vienumu</string>
     <string name="edit_note">Rediģēt piezīmi</string>
+    <string name="alarm_stop">Apturēt</string>
 </resources>

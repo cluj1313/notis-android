@@ -976,6 +976,7 @@ NOTIS_I18N={
 "Citește noutățile și răspunsurile primite de la creator.": "Skaitykite kūrėjo naujienas ir atsakymus.",
 "Știai că?": "Ar žinojote?",
 "m": "m",
+"Oprește": "Sustabdyti",
 "Sfat": "Patarimas",
 "Știu opțiunea": "Žinau",
 "Nu mai arăta info": "Daugiau nerodyti info",

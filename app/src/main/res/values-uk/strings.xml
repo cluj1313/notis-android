@@ -86,4 +86,5 @@
     <string name="cd_edit">Редагувати</string>
     <string name="edit_item">Редагувати пункт</string>
     <string name="edit_note">Редагувати нотатку</string>
+    <string name="alarm_stop">Стоп</string>
 </resources>

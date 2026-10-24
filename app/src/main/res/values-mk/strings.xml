@@ -86,4 +86,5 @@
     <string name="cd_edit">Уреди</string>
     <string name="edit_item">Уреди ставка</string>
     <string name="edit_note">Уреди белешка</string>
+    <string name="alarm_stop">Запри</string>
 </resources>

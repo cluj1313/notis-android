@@ -86,4 +86,5 @@
     <string name="cd_edit">Ubah</string>
     <string name="edit_item">Ubah item</string>
     <string name="edit_note">Ubah catatan</string>
+    <string name="alarm_stop">Hentikan</string>
 </resources>

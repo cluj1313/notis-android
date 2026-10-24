@@ -86,4 +86,5 @@
     <string name="cd_edit">Muuda</string>
     <string name="edit_item">Muuda kirjet</string>
     <string name="edit_note">Muuda märkmet</string>
+    <string name="alarm_stop">Peata</string>
 </resources>

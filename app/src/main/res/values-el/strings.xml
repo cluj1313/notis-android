@@ -86,4 +86,5 @@
     <string name="cd_edit">Επεξεργασία</string>
     <string name="edit_item">Επεξεργασία στοιχείου</string>
     <string name="edit_note">Επεξεργασία σημείωσης</string>
+    <string name="alarm_stop">Διακοπή</string>
 </resources>

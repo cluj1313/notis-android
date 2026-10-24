@@ -86,4 +86,5 @@
     <string name="cd_edit">Bewerken</string>
     <string name="edit_item">Item bewerken</string>
     <string name="edit_note">Notitie bewerken</string>
+    <string name="alarm_stop">Stoppen</string>
 </resources>

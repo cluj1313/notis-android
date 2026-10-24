@@ -86,4 +86,5 @@
     <string name="cd_edit">Szerkesztés</string>
     <string name="edit_item">Tétel szerkesztése</string>
     <string name="edit_note">Jegyzet szerkesztése</string>
+    <string name="alarm_stop">Leállítás</string>
 </resources>

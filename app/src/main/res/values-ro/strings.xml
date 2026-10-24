@@ -86,4 +86,5 @@
     <string name="cd_edit">Editează</string>
     <string name="edit_item">Editează elementul</string>
     <string name="edit_note">Editează notița</string>
+    <string name="alarm_stop">Oprește</string>
 </resources>

@@ -976,6 +976,7 @@ NOTIS_I18N={
 "Citește noutățile și răspunsurile primite de la creator.": "Olvasd el a készítő híreit és válaszait.",
 "Știai că?": "Tudtad?",
 "m": "p",
+"Oprește": "Leállítás",
 "Sfat": "Tipp",
 "Știu opțiunea": "Ismerem",
 "Nu mai arăta info": "Ne mutasd többé az infót",

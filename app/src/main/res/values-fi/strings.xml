@@ -86,4 +86,5 @@
     <string name="cd_edit">Muokkaa</string>
     <string name="edit_item">Muokkaa kohdetta</string>
     <string name="edit_note">Muokkaa muistiinpanoa</string>
+    <string name="alarm_stop">Pysäytä</string>
 </resources>
