@@ -20,6 +20,7 @@ public class EditActivity extends Activity {
         if (nid == null || cur == null || (!note && iid == null)) { finish(); return; }
         final String old = note ? cur.optString("text") : cur.optString("t");
         final boolean done = cur.optBoolean("d");
+        Ui.useWidget(this, getIntent().getIntExtra("w", 0));
         LinearLayout c = Ui.col(this);
         c.addView(Ui.title(this, Tr.s(this, note ? R.string.edit_note : R.string.edit_item)));
         final EditText e = Ui.field(this, "", note);
@@ -27,7 +28,7 @@ public class EditActivity extends Activity {
         c.addView(e, Ui.lp(Ui.MP, Ui.WC, 0));
         LinearLayout r = Ui.row(this); r.setGravity(android.view.Gravity.END);
         Button no = Ui.btn(this, Tr.s(this, R.string.cancel), false), ok = Ui.btn(this, Tr.s(this, R.string.save), true);
-        r.addView(no); LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(Ui.WC, Ui.WC); p.leftMargin = Ui.dp(this, 10); r.addView(ok, p);
+        r.addView(no, new LinearLayout.LayoutParams(0, Ui.WC, 1)); LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(0, Ui.WC, 1); p.leftMargin = Ui.dp(this, 10); r.addView(ok, p);
         c.addView(r, Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 14)));
         setContentView(c); setTitle("");
         no.setOnClickListener(v -> finish());

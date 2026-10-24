@@ -45,6 +45,7 @@ public class AlarmActivity extends Activity {
         if (cur > 0) when.setTimeInMillis(cur); else { when.add(Calendar.HOUR_OF_DAY, 1); when.set(Calendar.MINUTE, 0); }
         when.set(Calendar.SECOND, 0); when.set(Calendar.MILLISECOND, 0);
 
+        Ui.useWidget(this, getIntent().getIntExtra("w", 0));
         LinearLayout c = Ui.col(this);
         c.addView(Ui.title(this, Tr.s(this, R.string.alarm_title)));
         TextView nt = Ui.text(this, note.optString("text").trim(), Ui.TXT, 14); nt.setMaxLines(3); nt.setEllipsize(android.text.TextUtils.TruncateAt.END);
@@ -53,7 +54,7 @@ public class AlarmActivity extends Activity {
         String[] L = {Tr.s(this, R.string.rep_once), Tr.s(this, R.string.rep_hourly), Tr.s(this, R.string.rep_daily), Tr.s(this, R.string.rep_weekly), Tr.s(this, R.string.rep_custom)};
         int[] ids = {1, 2, 3, 4, 5};
         ColorStateList tint = ColorStateList.valueOf(Ui.GOLD);
-        for (int i = 0; i < L.length; i++) { RadioButton r = new RadioButton(this); r.setId(ids[i]); r.setText(L[i]); r.setTextColor(Ui.TXT); r.setButtonTintList(tint); g.addView(r); }
+        for (int i = 0; i < L.length; i++) { RadioButton r = new RadioButton(this); r.setId(ids[i]); r.setText(L[i]); r.setTextColor(Ui.TXT); r.setTextSize(15); r.setButtonTintList(tint); g.addView(r); }
         c.addView(g, Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 8)));
         final LinearLayout custom = Ui.row(this);
         custom.addView(Ui.text(this, Tr.s(this, R.string.every), Ui.MUT, 14));
@@ -74,20 +75,21 @@ public class AlarmActivity extends Activity {
 
         LinearLayout dt = Ui.row(this);
         bDate = Ui.btn(this, "", false); bTime = Ui.btn(this, "", false);
-        dt.addView(bDate); LinearLayout.LayoutParams p2 = new LinearLayout.LayoutParams(Ui.WC, Ui.WC); p2.leftMargin = Ui.dp(this, 10); dt.addView(bTime, p2);
+        dt.addView(bDate, new LinearLayout.LayoutParams(0, Ui.WC, 3)); LinearLayout.LayoutParams p2 = new LinearLayout.LayoutParams(0, Ui.WC, 2); p2.leftMargin = Ui.dp(this, 10); dt.addView(bTime, p2);
         c.addView(Ui.text(this, Tr.s(this, R.string.first_at), Ui.MUT, 13), Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 10)));
         c.addView(dt, Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 4)));
         label();
         bDate.setOnClickListener(v -> new DatePickerDialog(this, (dp, y, m, d) -> { when.set(y, m, d); label(); }, when.get(Calendar.YEAR), when.get(Calendar.MONTH), when.get(Calendar.DAY_OF_MONTH)).show());
         bTime.setOnClickListener(v -> new TimePickerDialog(this, (tp, h, mi) -> { when.set(Calendar.HOUR_OF_DAY, h); when.set(Calendar.MINUTE, mi); label(); }, when.get(Calendar.HOUR_OF_DAY), when.get(Calendar.MINUTE), true).show());
 
-        LinearLayout r = Ui.row(this); r.setGravity(android.view.Gravity.END);
+        /* 2.5.5: Salvează alone on a full-width row; Anulează alarma + Închide share the row below — no squeezed / wrapped buttons */
         Button del = Ui.btn(this, Tr.s(this, R.string.alarm_cancel), false), close = Ui.btn(this, Tr.s(this, R.string.close), false), ok = Ui.btn(this, Tr.s(this, R.string.save), true);
-        if (a != null) r.addView(del);
-        LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(Ui.WC, Ui.WC); p.leftMargin = Ui.dp(this, 8);
-        r.addView(close, a != null ? p : new LinearLayout.LayoutParams(Ui.WC, Ui.WC));
-        LinearLayout.LayoutParams p3 = new LinearLayout.LayoutParams(Ui.WC, Ui.WC); p3.leftMargin = Ui.dp(this, 8); r.addView(ok, p3);
-        c.addView(r, Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 16)));
+        c.addView(ok, Ui.lp(Ui.MP, Ui.dp(this, 44), Ui.dp(this, 16)));
+        LinearLayout r = Ui.row(this);
+        if (a != null) r.addView(del, new LinearLayout.LayoutParams(0, Ui.dp(this, 40), 1));
+        LinearLayout.LayoutParams p = new LinearLayout.LayoutParams(0, Ui.dp(this, 40), 1); if (a != null) p.leftMargin = Ui.dp(this, 8);
+        r.addView(close, p);
+        c.addView(r, Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 8)));
         ScrollView sv = new ScrollView(this); sv.addView(c); setContentView(sv); setTitle("");
 
         close.setOnClickListener(v -> finish());

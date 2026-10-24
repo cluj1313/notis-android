@@ -10,7 +10,7 @@ public class ListRowActivity extends Activity {
         super.onCreate(b);
         Intent i = getIntent();
         if ("edit".equals(i.getStringExtra("act"))) {
-            startActivity(new Intent(this, EditActivity.class).putExtra("k", "i").putExtra("n", i.getStringExtra("n")).putExtra("i", i.getStringExtra("i")).putExtra("b", i.getStringExtra("b")));
+            startActivity(new Intent(this, EditActivity.class).putExtra("w", i.getIntExtra(android.appwidget.AppWidgetManager.EXTRA_APPWIDGET_ID, 0)).putExtra("k", "i").putExtra("n", i.getStringExtra("n")).putExtra("i", i.getStringExtra("i")).putExtra("b", i.getStringExtra("b")));
         } else {
             i.setAction(NotisWidget.ACT);
             NotisWidget.handleAct(this, i);

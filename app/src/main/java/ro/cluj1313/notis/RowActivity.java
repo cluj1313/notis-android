@@ -17,9 +17,9 @@ public class RowActivity extends Activity {
         if (nid != null) {
             String act = i.getStringExtra("act");
             if ("edit".equals(act)) {
-                startActivity(new Intent(this, EditActivity.class).putExtra("k", "n").putExtra("n", nid));
+                startActivity(new Intent(this, EditActivity.class).putExtra("w", i.getIntExtra(android.appwidget.AppWidgetManager.EXTRA_APPWIDGET_ID, 0)).putExtra("k", "n").putExtra("n", nid));
             } else if ("alarm".equals(act)) {
-                startActivity(new Intent(this, AlarmActivity.class).putExtra("n", nid));
+                startActivity(new Intent(this, AlarmActivity.class).putExtra("w", i.getIntExtra(android.appwidget.AppWidgetManager.EXTRA_APPWIDGET_ID, 0)).putExtra("n", nid));
             } else if ("del".equals(act)) {
                 try { Store.putAsk(this, wid, new JSONObject().put("k", "n").put("n", nid)); } catch (Exception ignored) {}
                 NotisWidget.refreshAll(this);
