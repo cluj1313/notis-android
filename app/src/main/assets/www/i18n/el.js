@@ -940,5 +940,7 @@ NOTIS_I18N={
 "Lentă": "Αργή",
 "Normală": "Κανονική",
 "Rapidă": "Γρήγορη",
-"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Λεπτά χωρίς άγγιγμα: μετά εμφανίζεται το νόμισμα που γυρίζει. Ένα άγγιγμα σε επιστρέφει εκεί που ήσουν."
+"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Λεπτά χωρίς άγγιγμα: μετά εμφανίζεται το νόμισμα που γυρίζει. Ένα άγγιγμα σε επιστρέφει εκεί που ήσουν.",
+"Vrei să modifici durata de inactivitate sau vrei s-o oprești cu totul?": "Θέλεις να αλλάξεις τον χρόνο αδράνειας ή να την απενεργοποιήσεις εντελώς;",
+"O poți reactiva din": "Μπορείς να την ενεργοποιήσεις ξανά από"
 };

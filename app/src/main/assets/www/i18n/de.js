@@ -940,5 +940,7 @@ NOTIS_I18N={
 "Lentă": "Langsam",
 "Normală": "Normal",
 "Rapidă": "Schnell",
-"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Minuten ohne Berührung: danach erscheint die drehende Münze. Ein Tippen bringt dich zurück, wo du warst."
+"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Minuten ohne Berührung: danach erscheint die drehende Münze. Ein Tippen bringt dich zurück, wo du warst.",
+"Vrei să modifici durata de inactivitate sau vrei s-o oprești cu totul?": "Möchtest du die Inaktivitätsdauer ändern oder ihn ganz ausschalten?",
+"O poți reactiva din": "Du kannst ihn wieder aktivieren unter"
 };

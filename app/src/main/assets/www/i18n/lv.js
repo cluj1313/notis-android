@@ -940,5 +940,7 @@ NOTIS_I18N={
 "Lentă": "Lēns",
 "Normală": "Parasts",
 "Rapidă": "Ātrs",
-"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Minūtes bez pieskāriena: tad parādās griežamā monēta. Viens pieskāriens atgriež tur, kur biji."
+"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Minūtes bez pieskāriena: tad parādās griežamā monēta. Viens pieskāriens atgriež tur, kur biji.",
+"Vrei să modifici durata de inactivitate sau vrei s-o oprești cu totul?": "Vai vēlies mainīt dīkstāves laiku vai pilnībā to izslēgt?",
+"O poți reactiva din": "To var atkal ieslēgt sadaļā"
 };

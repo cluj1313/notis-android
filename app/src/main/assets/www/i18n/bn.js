@@ -940,5 +940,7 @@ NOTIS_I18N={
 "Lentă": "ধীর",
 "Normală": "স্বাভাবিক",
 "Rapidă": "দ্রুত",
-"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "না ছুঁয়ে মিনিট: তারপর ঘুরন্ত মুদ্রা দেখা যায়। একটি ট্যাপ আপনাকে আগের জায়গায় ফিরিয়ে দেয়।"
+"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "না ছুঁয়ে মিনিট: তারপর ঘুরন্ত মুদ্রা দেখা যায়। একটি ট্যাপ আপনাকে আগের জায়গায় ফিরিয়ে দেয়।",
+"Vrei să modifici durata de inactivitate sau vrei s-o oprești cu totul?": "নিষ্ক্রিয়তার সময় বদলাতে চান, নাকি পুরোপুরি বন্ধ করতে চান?",
+"O poți reactiva din": "আবার চালু করতে পারেন এখান থেকে:"
 };

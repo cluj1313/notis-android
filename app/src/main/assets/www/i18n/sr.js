@@ -940,5 +940,7 @@ NOTIS_I18N={
 "Lentă": "Спора",
 "Normală": "Нормална",
 "Rapidă": "Брза",
-"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Минути без додира: затим се појављује новчић који се окреће. Један додир те враћа где си био."
+"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Минути без додира: затим се појављује новчић који се окреће. Један додир те враћа где си био.",
+"Vrei să modifici durata de inactivitate sau vrei s-o oprești cu totul?": "Желиш ли да промениш време неактивности или да га потпуно искључиш?",
+"O poți reactiva din": "Можеш га поново укључити у"
 };

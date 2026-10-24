@@ -940,5 +940,7 @@ NOTIS_I18N={
 "Lentă": "Hidas",
 "Normală": "Normaali",
 "Rapidă": "Nopea",
-"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Minuutit ilman kosketusta: sitten näkyviin tulee pyörivä kolikko. Yksi napautus vie takaisin sinne, missä olit."
+"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Minuutit ilman kosketusta: sitten näkyviin tulee pyörivä kolikko. Yksi napautus vie takaisin sinne, missä olit.",
+"Vrei să modifici durata de inactivitate sau vrei s-o oprești cu totul?": "Haluatko muuttaa käyttämättömyysaikaa vai poistaa sen kokonaan käytöstä?",
+"O poți reactiva din": "Voit ottaa sen uudelleen käyttöön kohdassa"
 };

@@ -940,5 +940,7 @@ NOTIS_I18N={
 "Lentă": "Повільна",
 "Normală": "Звичайна",
 "Rapidă": "Швидка",
-"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Хвилини без дотиків: потім з’явиться монета, що обертається. Один дотик поверне туди, де ви були."
+"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Хвилини без дотиків: потім з’явиться монета, що обертається. Один дотик поверне туди, де ви були.",
+"Vrei să modifici durata de inactivitate sau vrei s-o oprești cu totul?": "Бажаєте змінити час бездіяльності чи повністю вимкнути заставку?",
+"O poți reactiva din": "Увімкнути знову можна в"
 };

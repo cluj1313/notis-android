@@ -940,5 +940,7 @@ NOTIS_I18N={
 "Lentă": "Aeglane",
 "Normală": "Tavaline",
 "Rapidă": "Kiire",
-"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Minutid ilma puudutuseta: siis ilmub pöörlev münt. Üks puudutus viib tagasi sinna, kus olid."
+"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Minutid ilma puudutuseta: siis ilmub pöörlev münt. Üks puudutus viib tagasi sinna, kus olid.",
+"Vrei să modifici durata de inactivitate sau vrei s-o oprești cu totul?": "Kas soovid muuta jõudeoleku aega või selle täiesti välja lülitada?",
+"O poți reactiva din": "Saad selle uuesti sisse lülitada:"
 };

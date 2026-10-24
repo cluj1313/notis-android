@@ -940,5 +940,7 @@ NOTIS_I18N={
 "Lentă": "E ngadaltë",
 "Normală": "Normale",
 "Rapidă": "E shpejtë",
-"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Minuta pa prekje: pastaj shfaqet monedha që rrotullohet. Një prekje të kthen aty ku ishe."
+"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Minuta pa prekje: pastaj shfaqet monedha që rrotullohet. Një prekje të kthen aty ku ishe.",
+"Vrei să modifici durata de inactivitate sau vrei s-o oprești cu totul?": "Dëshiron të ndryshosh kohën e mosveprimit apo ta fikësh plotësisht?",
+"O poți reactiva din": "Mund ta riaktivizosh te"
 };

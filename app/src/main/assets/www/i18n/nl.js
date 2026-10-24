@@ -940,5 +940,7 @@ NOTIS_I18N={
 "Lentă": "Langzaam",
 "Normală": "Normaal",
 "Rapidă": "Snel",
-"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Minuten zonder aanraken: daarna verschijnt de draaiende munt. Eén tik brengt je terug waar je was."
+"Minute fără atingere: apoi apare moneda care se învârte. O atingere te duce înapoi unde erai.": "Minuten zonder aanraken: daarna verschijnt de draaiende munt. Eén tik brengt je terug waar je was.",
+"Vrei să modifici durata de inactivitate sau vrei s-o oprești cu totul?": "Wil je de inactiviteitsduur wijzigen of hem helemaal uitzetten?",
+"O poți reactiva din": "Je kunt hem weer aanzetten via"
 };
