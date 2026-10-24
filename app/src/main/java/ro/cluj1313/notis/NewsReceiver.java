@@ -20,7 +20,7 @@ import org.json.JSONObject;
 
 /** 2.5.1: opt-in "messages from the creator". Polls news.json ~every 6h (inexact alarm), notifies unseen ids. Off by default. */
 public class NewsReceiver extends BroadcastReceiver {
-    static final String URLS = "https://cluj1313.github.io/notis/creator.json", CH = "news";
+    static final String URLS = "https://cluj1313.github.io/notis-news/creator.json", CH = "news";
     static SharedPreferences p(Context c) { return c.getSharedPreferences("news", Context.MODE_PRIVATE); }
     static PendingIntent pi(Context c) { return PendingIntent.getBroadcast(c, 77, new Intent(c, NewsReceiver.class), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE); }
 

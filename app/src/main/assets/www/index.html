@@ -3700,7 +3700,7 @@ spMigrate();renderNotes();
 })();
 /* v96: Setări → TABURI (bibliotecă: ordine drag & drop, bifă vizibil/ascuns, PIN 4/6 opțional), DESIGN (Teme · Stil taburi · Fundal · Setări fine · Iconiță), iconiță urgență, Comunică cu creatorul, Versiune. Additive: hidden tab = t.off, nothing deleted. */
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v96';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v97';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};
@@ -3802,14 +3802,15 @@ window.urgPre=function(n){if(!n||n.del)return '';var t=findNT(n.tab);if(!isUrgTa
 try{renderNotes()}catch(_){}
 
 /* v96: opt-in messages from the creator (creator.json; news.json is the AI-news feed). Off by default; no send button in-app. */
+var NEWS_URL='https://cluj1313.github.io/notis-news/creator.json';
 (function(){var K='ns_news',KS='ns_newsSeen',KB='ns_newsBox',N=window.NotisNative,nat=!!(N&&N.newsSet);
  var get=function(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(_){return d}},put=function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(_){}};
- var css=document.createElement('style');css.textContent='#fNews .chk{display:flex;align-items:center;gap:10px;flex-direction:row}#fNews .chk input{width:20px;height:20px;margin:0;flex:none}#nwList{margin-top:6px}#nwList .nwi{padding:7px 0;border-top:1px solid rgba(255,255,255,.08)}#nwList .nwd{font-size:11px;opacity:.6}#nwList .nwt{font-weight:600}#nwList .nwb{font-size:13px;opacity:.85;white-space:pre-wrap}#nwCard{position:fixed;left:12px;right:12px;top:12px;z-index:9999;background:rgba(20,20,22,.97);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:12px 40px 12px 14px;box-shadow:0 8px 30px rgba(0,0,0,.5);color:#fff}#nwCard .nwx{position:absolute;right:8px;top:6px;background:none;border:0;color:#fff;font-size:20px}#nwCard .nwh{font-size:11px;opacity:.6;margin-bottom:3px}';document.head.appendChild(css);
+ var css=document.createElement('style');css.textContent='#fNews .chk{display:flex;align-items:center;gap:10px;flex-direction:row}#fNews .chk input{width:20px;height:20px;margin:0;flex:none}#nwList{margin-top:6px}#nwList .nwi{padding:7px 0;border-top:1px solid rgba(255,255,255,.08)}#nwList .nwd{font-size:11px;opacity:.6}#nwList .nwt{font-weight:600}#nwList .nwb{font-size:13px;opacity:.85;white-space:pre-wrap}#nwCard{position:fixed;left:12px;right:12px;top:12px;z-index:9999;background:rgba(20,20,22,.97);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:12px 40px 12px 14px;box-shadow:0 8px 30px rgba(0,0,0,.5);color:#fff}#nwCard .nwx{position:absolute;right:8px;top:6px;background:none;border:0;color:#fff;font-size:20px}#nwCard .nwh{font-size:11px;opacity:.6;margin-bottom:3px}#nwOb{position:fixed;inset:0;z-index:13;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;padding:18px}#nwOb .obc{background:#18181b;border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:16px;max-width:380px;color:#fff;display:flex;flex-direction:column;gap:12px}#nwOb .obh{font-family:Oswald,sans-serif;font-size:20px}#nwOb .obt{font-size:14px;opacity:.9;line-height:1.4}#nwOb .obk{display:flex;align-items:center;gap:10px;font-weight:600}#nwOb .obk input{width:22px;height:22px;margin:0}#nwOb button{align-self:flex-end;padding:9px 18px;border-radius:10px;border:0;background:#3fd8ff;color:#000;font-weight:700}';document.head.appendChild(css);
  var loc=function(m){var o=m.lang&&m.lang[NL];return{t:(o&&o.title)||m.title||'',b:(o&&o.body)||m.body||''}};
  function render(){var L=$('nwList');if(!L)return;var B=get(KB,[]);L.innerHTML=B.length?B.slice().reverse().map(function(m){var x=loc(m);return '<div class="nwi"><div class="nwd">'+esc(m.date||'')+'</div><div class="nwt ux">'+esc(x.t)+'</div><div class="nwb ux">'+esc(x.b)+'</div></div>'}).join(''):'<div class="hint">'+esc(TR('Niciun mesaj încă'))+'</div>'}
  function card(list){if(!list.length)return;var m=list[0],x=loc(m),c=document.createElement('div');c.id='nwCard';c.innerHTML='<div class="nwh">'+esc(TR('Mesaj nou de la creator'))+'</div><div class="ux" style="font-weight:600">'+esc(x.t)+'</div><div class="ux" style="font-size:13px;opacity:.85;white-space:pre-wrap">'+esc(x.b)+'</div><button type="button" class="nwx" aria-label="x">×</button>';
   c.querySelector('.nwx').onclick=function(){c.remove();card(list.slice(1))};document.body.appendChild(c)}
- function poll(){if(!get(K,false))return;fetch('creator.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){var a=(j&&j.messages)||[],S=get(KS,[]),B=get(KB,[]),first=!get('ns_newsPrimed',false),fresh=[];
+ function poll(){if(!get(K,false))return;fetch(NEWS_URL+'?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){var a=(j&&j.messages)||[],S=get(KS,[]),B=get(KB,[]),first=!get('ns_newsPrimed',false),fresh=[];
   a.forEach(function(m){if(!m||!m.id||S.indexOf(m.id)>=0)return;S.push(m.id);B.push(m);if(!first)fresh.push(m);if(nat&&N.newsSeen)try{N.newsSeen(String(m.id))}catch(_){}});
   B=B.slice(-50);put(KS,S);put(KB,B);put('ns_newsPrimed',true);render();card(fresh);
   if(!nat&&fresh.length&&window.Notification&&Notification.permission==='granted')fresh.forEach(function(m){var x=loc(m);try{new Notification(x.t,{body:x.b,icon:'icon-192.png'})}catch(_){}})}).catch(function(){})}
@@ -3817,7 +3818,62 @@ try{renderNotes()}catch(_){}
  cb.addEventListener('change',function(){put(K,cb.checked);if(nat)try{N.newsSet(cb.checked,NL)}catch(_){}
   if(cb.checked){if(!nat&&window.Notification&&Notification.permission==='default')try{Notification.requestPermission()}catch(_){}poll()}});
  if(nat&&get(K,false))try{N.newsSet(true,NL)}catch(_){}
+
+ /* v97: onboarding step – new users get creator messages ON by default, can switch off here or anytime in Setari. Existing users keep their setting. */
+ (function(){if(get('ns_newsOb',false))return;var fresh=get('ns_newsObPend',false);
+  if(!fresh){var off=null;try{off=localStorage.getItem('notis_demo_offered')}catch(_){}fresh=!off&&!nsReal()}
+  if(!fresh){put('ns_newsOb',true);return}
+  put('ns_newsObPend',true);if(localStorage.getItem(K)===null){put(K,true);cb.checked=true;if(nat)try{N.newsSet(true,NL)}catch(_){}}
+  var t0=Date.now();(function wait(){var cf=$('cfModal');if(Date.now()-t0<1800||(cf&&cf.classList.contains('show'))||document.querySelector('#nwOb')){if(!document.querySelector('#nwOb'))setTimeout(wait,500);return}
+   var o=document.createElement('div');o.id='nwOb';o.innerHTML='<div class="obc"><div class="obh">📣 '+esc(TR('Mesaje de la creator'))+'</div><div class="obt">'+esc(TR('Din când în când creatorul aplicației trimite anunțuri scurte: noutăți, sfaturi și actualizări. Le poți opri aici sau oricând din Setări.'))+'</div><label class="obk"><input type="checkbox" id="obOn"'+(get(K,true)?' checked':'')+'> <span>'+esc(TR('Primesc mesaje de la creator'))+'</span></label><button type="button" id="obGo">'+esc(TR('Continuă'))+'</button></div>';
+   document.body.appendChild(o);$('obGo').onclick=function(){var v=$('obOn').checked;put(K,v);cb.checked=v;if(nat)try{N.newsSet(v,NL)}catch(_){}put('ns_newsOb',true);try{localStorage.removeItem('ns_newsObPend')}catch(_){}o.remove();if(v)poll()}})()})();
  render();setTimeout(poll,2500);document.addEventListener('visibilitychange',function(){if(!document.hidden)poll()});
+})();
+
+/* v97: secret creator menu – hold the header icon 6 s. Only a salted PBKDF2 hash of password+secret char is stored; the GitHub token is AES-GCM encrypted with a key derived from them. */
+(function(){var ico=$('hdrIco');if(!ico||!(window.crypto&&crypto.subtle))return;
+ var KH='ns_crsec',KT='ns_crtok',IT=200000,REPO='cluj1313/notis-news',FILE='creator.json',sess=null,swallow=0;
+ var get=function(k){try{return JSON.parse(localStorage.getItem(k))}catch(_){return null}},put=function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(_){}};
+ var enc=new TextEncoder(),h64=function(u){return btoa(String.fromCharCode.apply(null,new Uint8Array(u)))},d64=function(s){return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0)})};
+ var u8b64=function(s){return btoa(unescape(encodeURIComponent(s)))},b64u8=function(s){return decodeURIComponent(escape(atob(s.replace(/\s/g,''))))};
+ function base(pw,ch){return crypto.subtle.importKey('raw',enc.encode(pw+'\u241F'+ch),'PBKDF2',false,['deriveBits','deriveKey'])}
+ function hash(pw,ch,salt,it){return base(pw,ch).then(function(k){return crypto.subtle.deriveBits({name:'PBKDF2',salt:salt,iterations:it,hash:'SHA-256'},k,256)}).then(h64)}
+ function aes(pw,ch,salt,it){return base(pw,ch).then(function(k){return crypto.subtle.deriveKey({name:'PBKDF2',salt:salt,iterations:it,hash:'SHA-256'},k,{name:'AES-GCM',length:256},false,['encrypt','decrypt'])})}
+ var css=document.createElement('style');css.textContent='#hdrIco{-webkit-touch-callout:none;user-select:none;-webkit-user-select:none}#crx{position:fixed;inset:0;z-index:11;background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;padding:14px}#crx .crc{background:#141416;border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:14px;width:100%;max-width:400px;max-height:92vh;overflow:auto;color:#fff;display:flex;flex-direction:column;gap:9px}#crx h3{font-family:Oswald,sans-serif;margin:0 0 2px;font-size:20px;display:flex;justify-content:space-between;align-items:center}#crx h3 button{background:none;border:0;color:#fff;font-size:22px}#crx .crf{position:relative}#crx input,#crx textarea{width:100%;box-sizing:border-box;padding:9px 40px 9px 10px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:#0c0c0e;color:#fff;font-size:15px}#crx textarea{min-height:80px;padding-right:10px;resize:vertical}#crx .eye{position:absolute;right:4px;top:50%;transform:translateY(-50%);background:none;border:0;font-size:18px;opacity:.55;padding:4px 6px}#crx .eye.on{opacity:1}#crx .crb{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}#crx .crb button{padding:9px 14px;border-radius:10px;border:0;background:#3fd8ff;color:#000;font-weight:700}#crx .crb button.alt{background:rgba(255,255,255,.12);color:#fff}#crx .cre{color:#ff8a8a;font-size:13px;min-height:16px}#crx .hint{font-size:12px;opacity:.65}';document.head.appendChild(css);
+ /* long-press 6 s; a normal tap still opens Setari */
+ var tm=0,x0=0,y0=0;ico.addEventListener('pointerdown',function(e){x0=e.clientX;y0=e.clientY;clearTimeout(tm);tm=setTimeout(function(){tm=0;swallow=Date.now();try{navigator.vibrate&&navigator.vibrate(40)}catch(_){}open()},6000)});
+ ['pointerup','pointercancel','pointerleave'].forEach(function(ev){ico.addEventListener(ev,function(){clearTimeout(tm);tm=0})});
+ ico.addEventListener('pointermove',function(e){if(Math.abs(e.clientX-x0)>10||Math.abs(e.clientY-y0)>10){clearTimeout(tm);tm=0}});
+ document.addEventListener('click',function(e){if(swallow&&Date.now()-swallow<3000&&ico.contains(e.target)){e.stopImmediatePropagation();e.preventDefault();swallow=0}},true);
+ function fld(id,ph,type,eye){return '<div class="crf"><input id="'+id+'" type="'+(type||'text')+'" placeholder="'+esc(ph)+'" autocomplete="off" autocapitalize="off" spellcheck="false"'+(id==='crCh'?' maxlength="4"':'')+'>'+(eye?'<button type="button" class="eye" data-f="'+id+'" aria-label="'+esc(TR('Arată / ascunde'))+'">👁</button>':'')+'</div>'}
+ function ui(title,body){var o=$('crx');if(!o){o=document.createElement('div');o.id='crx';document.body.appendChild(o)}
+  o.innerHTML='<div class="crc"><h3><span>🔐 '+esc(title)+'</span><button type="button" id="crX" aria-label="'+esc(TR('Închide'))+'">×</button></h3>'+body+'<div class="cre" id="crE"></div></div>';
+  $('crX').onclick=close;o.querySelectorAll('.eye').forEach(function(b){b.onclick=function(){var i=$(b.dataset.f),sh=i.type==='password';i.type=sh?'text':'password';b.classList.toggle('on',sh)}})}
+ function err(t){var e=$('crE');if(e)e.textContent=t||''}
+ function close(){sess=null;var o=$('crx');if(o)o.remove()}
+ function ask(txt,yes){var cf=$('cfModal').querySelector('.cftxt'),t0=cf.textContent;cf.textContent=txt;jvConfirm(function(){cf.textContent=t0;yes()});var no=$('cfNo').onclick;$('cfNo').onclick=function(){cf.textContent=t0;no&&no()}}
+ function open(){if(get(KH))unlock();else setup()}
+ function setup(){ui(TR('Meniu creator'),fld('crP1',TR('Parolă'),'password',1)+fld('crP2',TR('Repetă parola'),'password',1)+fld('crCh',TR('Caracter secret'),'password',1)+'<div class="hint">'+esc(TR('Minim 8 caractere'))+'</div><div class="crb"><button type="button" id="crGo">'+esc(TR('Creează'))+'</button></div>');
+  $('crGo').onclick=function(){var a=$('crP1').value,b=$('crP2').value,c=$('crCh').value;if(a.length<8)return err(TR('Minim 8 caractere'));if(a!==b)return err(TR('Parolele nu coincid'));if(!c)return err(TR('Alege un caracter secret'));
+   var salt=crypto.getRandomValues(new Uint8Array(16));err('…');hash(a,c,salt,IT).then(function(h){put(KH,{salt:h64(salt),hash:h,iter:IT});sess={pw:a,ch:c};main()})}}
+ function unlock(){ui(TR('Meniu creator'),fld('crP1',TR('Parolă'),'password',1)+fld('crCh',TR('Caracter secret'),'password',1)+'<div class="crb"><button type="button" class="alt" id="crRs">'+esc(TR('Resetează'))+'</button><button type="button" id="crGo">'+esc(TR('Deblochează'))+'</button></div>');
+  $('crRs').onclick=function(){ask(TR('Resetezi meniul creator? Parola și tokenul se șterg de pe acest dispozitiv.'),function(){try{localStorage.removeItem(KH);localStorage.removeItem(KT)}catch(_){}setup()})};
+  $('crGo').onclick=function(){var a=$('crP1').value,c=$('crCh').value,H=get(KH);err('…');hash(a,c,d64(H.salt),H.iter||IT).then(function(h){if(h!==H.hash)return err(TR('Parolă sau caracter greșit'));sess={pw:a,ch:c};main()})}}
+ function main(){if(!sess)return close();if(!get(KT))return tokForm();compose()}
+ function tokForm(){ui(TR('Meniu creator'),'<div class="hint">'+esc(TR('Lipește tokenul GitHub (o singură dată)'))+'</div>'+fld('crTk','github_pat_…','password',1)+'<div class="crb"><button type="button" id="crGo">'+esc(TR('Salvează tokenul'))+'</button></div>');
+  $('crGo').onclick=function(){var t=$('crTk').value.trim();if(t.length<20)return err(TR('Trimiterea a eșuat'));var salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12));
+   aes(sess.pw,sess.ch,salt,IT).then(function(k){return crypto.subtle.encrypt({name:'AES-GCM',iv:iv},k,enc.encode(t))}).then(function(ct){put(KT,{salt:h64(salt),iv:h64(iv),ct:h64(ct),iter:IT});toast(TR('Tokenul e salvat criptat pe acest dispozitiv'));compose()})}}
+ function token(){var T=get(KT);return aes(sess.pw,sess.ch,d64(T.salt),T.iter||IT).then(function(k){return crypto.subtle.decrypt({name:'AES-GCM',iv:d64(T.iv)},k,d64(T.ct))}).then(function(b){return new TextDecoder().decode(b)})}
+ function compose(){ui(TR('Meniu creator'),fld('crT',TR('Titlu'))+'<textarea id="crB" placeholder="'+esc(TR('Mesaj'))+'"></textarea>'+fld('crTe',TR('Titlu EN (opțional)'))+'<textarea id="crBe" placeholder="'+esc(TR('Mesaj EN (opțional)'))+'"></textarea><div class="crb"><button type="button" class="alt" id="crDt">'+esc(TR('Șterge tokenul'))+'</button><button type="button" id="crGo">'+esc(TR('Trimite'))+'</button></div>');
+  $('crDt').onclick=function(){ask(TR('Șterge tokenul')+'?',function(){try{localStorage.removeItem(KT)}catch(_){}tokForm()})};
+  $('crGo').onclick=function(){var t=$('crT').value.trim(),b=$('crB').value.trim(),te=$('crTe').value.trim(),be=$('crBe').value.trim();if(!t||!b)return err(TR('Completează titlul și mesajul'));
+   var go=$('crGo');go.disabled=true;err(TR('Se trimite…'));var tok,url='https://api.github.com/repos/'+REPO+'/contents/'+FILE,hd;
+   token().then(function(x){tok=x;hd={'Authorization':'Bearer '+tok,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};return fetch(url+'?ref=main&t='+Date.now(),{headers:hd,cache:'no-store'})}).then(function(r){if(!r.ok)throw new Error('GET '+r.status);return r.json()}).then(function(f){
+    var j;try{j=JSON.parse(b64u8(f.content))}catch(_){j={messages:[]}}if(!j||!Array.isArray(j.messages))j={messages:[]};
+    var now=new Date(),m={id:'m'+Math.floor(now.getTime()/1000),date:now.toISOString().slice(0,10),title:t,body:b};if(te||be)m.lang={en:{title:te||t,body:be||b}};
+    j.messages.push(m);j.messages=j.messages.slice(-50);
+    return fetch(url,{method:'PUT',headers:hd,body:JSON.stringify({message:'news: '+t.slice(0,60),content:u8b64(JSON.stringify(j,null,1)+'\n'),sha:f.sha,branch:'main'})})}).then(function(r){if(!r.ok)throw new Error('PUT '+r.status);
+    toast(TR('Mesaj trimis tuturor'));['crT','crB','crTe','crBe'].forEach(function(i){$(i).value=''});err('');go.disabled=false}).catch(function(e){go.disabled=false;err(TR('Trimiterea a eșuat')+' ('+(e&&e.message||e)+')')})}}
 })();
 
 window.NOTIS_BOOTED=true;
