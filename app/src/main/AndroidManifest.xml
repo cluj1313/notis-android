@@ -16,6 +16,7 @@
     <uses-feature android:name="android.hardware.microphone" android:required="false" />
     <uses-feature android:name="android.hardware.camera" android:required="false" />
     <queries>
+        <intent><action android:name="android.speech.RecognitionService" /></intent>
         <intent><action android:name="android.intent.action.TTS_SERVICE" /></intent>
         <intent><action android:name="android.speech.tts.engine.INSTALL_TTS_DATA" /></intent>
         <intent><action android:name="com.android.settings.TTS_SETTINGS" /></intent>

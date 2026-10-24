@@ -983,5 +983,18 @@ NOTIS_I18N={
 "Nu mai arăta info": "不再显示信息",
 "Afișează sfaturi": "显示提示",
 "Resetează sfaturile": "重置提示",
-"Sfaturile au fost resetate": "提示已重置"
+"Sfaturile au fost resetate": "提示已重置",
+"Ștergi eticheta": "删除标签",
+"Notițele rămân.": "笔记会保留。",
+"Eticheta există deja": "标签已存在",
+"Etichete": "标签",
+"Nicio etichetă încă. Creează una mai jos.": "还没有标签。在下方创建一个。",
+"Etichetă nouă": "新标签",
+"Dictarea nu a mers": "语音输入失败",
+"Nu am auzit nimic": "我什么也没听到",
+"Fără acces la microfon": "无法使用麦克风",
+"Vorbește acum…": "请说话…",
+"Dictarea nu e disponibilă pe acest telefon": "此手机不支持语音输入",
+"Dictarea nu e disponibilă în acest browser": "此浏览器不支持语音输入",
+"Coș de gunoi": "回收站"
 };

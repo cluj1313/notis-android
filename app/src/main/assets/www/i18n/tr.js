@@ -983,5 +983,18 @@ NOTIS_I18N={
 "Nu mai arăta info": "Bilgiyi bir daha gösterme",
 "Afișează sfaturi": "İpuçlarını göster",
 "Resetează sfaturile": "İpuçlarını sıfırla",
-"Sfaturile au fost resetate": "İpuçları sıfırlandı"
+"Sfaturile au fost resetate": "İpuçları sıfırlandı",
+"Ștergi eticheta": "Etiketi sil",
+"Notițele rămân.": "Notlar kalır.",
+"Eticheta există deja": "Etiket zaten var",
+"Etichete": "Etiketler",
+"Nicio etichetă încă. Creează una mai jos.": "Henüz etiket yok. Aşağıdan bir tane oluştur.",
+"Etichetă nouă": "Yeni etiket",
+"Dictarea nu a mers": "Dikte başarısız oldu",
+"Nu am auzit nimic": "Hiçbir şey duymadım",
+"Fără acces la microfon": "Mikrofon erişimi yok",
+"Vorbește acum…": "Şimdi konuş…",
+"Dictarea nu e disponibilă pe acest telefon": "Bu telefonda dikte kullanılamıyor",
+"Dictarea nu e disponibilă în acest browser": "Bu tarayıcıda dikte kullanılamıyor",
+"Coș de gunoi": "Çöp kutusu"
 };

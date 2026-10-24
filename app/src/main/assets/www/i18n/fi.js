@@ -983,5 +983,18 @@ NOTIS_I18N={
 "Nu mai arăta info": "Älä näytä infoa enää",
 "Afișează sfaturi": "Näytä vinkit",
 "Resetează sfaturile": "Nollaa vinkit",
-"Sfaturile au fost resetate": "Vinkit nollattu"
+"Sfaturile au fost resetate": "Vinkit nollattu",
+"Ștergi eticheta": "Poista tunniste",
+"Notițele rămân.": "Muistiinpanot säilyvät.",
+"Eticheta există deja": "Tunniste on jo olemassa",
+"Etichete": "Tunnisteet",
+"Nicio etichetă încă. Creează una mai jos.": "Ei vielä tunnisteita. Luo yksi alla.",
+"Etichetă nouă": "Uusi tunniste",
+"Dictarea nu a mers": "Sanelu epäonnistui",
+"Nu am auzit nimic": "En kuullut mitään",
+"Fără acces la microfon": "Ei mikrofonin käyttöoikeutta",
+"Vorbește acum…": "Puhu nyt…",
+"Dictarea nu e disponibilă pe acest telefon": "Sanelu ei ole käytettävissä tässä puhelimessa",
+"Dictarea nu e disponibilă în acest browser": "Sanelu ei ole käytettävissä tässä selaimessa",
+"Coș de gunoi": "Roskakori"
 };

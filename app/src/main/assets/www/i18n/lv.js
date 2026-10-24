@@ -983,5 +983,18 @@ NOTIS_I18N={
 "Nu mai arăta info": "Vairs nerādīt info",
 "Afișează sfaturi": "Rādīt padomus",
 "Resetează sfaturile": "Atiestatīt padomus",
-"Sfaturile au fost resetate": "Padomi atiestatīti"
+"Sfaturile au fost resetate": "Padomi atiestatīti",
+"Ștergi eticheta": "Dzēst birku",
+"Notițele rămân.": "Piezīmes paliek.",
+"Eticheta există deja": "Birka jau pastāv",
+"Etichete": "Birkas",
+"Nicio etichetă încă. Creează una mai jos.": "Vēl nav birku. Izveido vienu zemāk.",
+"Etichetă nouă": "Jauna birka",
+"Dictarea nu a mers": "Diktēšana neizdevās",
+"Nu am auzit nimic": "Neko nedzirdēju",
+"Fără acces la microfon": "Nav piekļuves mikrofonam",
+"Vorbește acum…": "Runā tagad…",
+"Dictarea nu e disponibilă pe acest telefon": "Diktēšana šajā tālrunī nav pieejama",
+"Dictarea nu e disponibilă în acest browser": "Diktēšana šajā pārlūkā nav pieejama",
+"Coș de gunoi": "Miskaste"
 };

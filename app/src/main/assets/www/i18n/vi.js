@@ -983,5 +983,18 @@ NOTIS_I18N={
 "Nu mai arăta info": "Không hiện thông tin nữa",
 "Afișează sfaturi": "Hiện mẹo",
 "Resetează sfaturile": "Đặt lại mẹo",
-"Sfaturile au fost resetate": "Đã đặt lại mẹo"
+"Sfaturile au fost resetate": "Đã đặt lại mẹo",
+"Ștergi eticheta": "Xóa nhãn",
+"Notițele rămân.": "Ghi chú vẫn còn.",
+"Eticheta există deja": "Nhãn đã tồn tại",
+"Etichete": "Nhãn",
+"Nicio etichetă încă. Creează una mai jos.": "Chưa có nhãn. Tạo một nhãn bên dưới.",
+"Etichetă nouă": "Nhãn mới",
+"Dictarea nu a mers": "Đọc chính tả thất bại",
+"Nu am auzit nimic": "Tôi không nghe thấy gì",
+"Fără acces la microfon": "Không có quyền truy cập micrô",
+"Vorbește acum…": "Hãy nói…",
+"Dictarea nu e disponibilă pe acest telefon": "Điện thoại này không hỗ trợ đọc chính tả",
+"Dictarea nu e disponibilă în acest browser": "Trình duyệt này không hỗ trợ đọc chính tả",
+"Coș de gunoi": "Thùng rác"
 };

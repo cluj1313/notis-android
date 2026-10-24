@@ -59,7 +59,7 @@ final class Bridge {
     @JavascriptInterface public String version() { if (!MainActivity.trusted) return ""; try { return ctx.getPackageManager().getPackageInfo(ctx.getPackageName(), 0).versionName; } catch (Exception e) { return ""; } }
 
     /* 2.5.0: display settings mirrored in native prefs (committed to disk at once) so app updates can't roll them back */
-    private static final java.util.Set<String> UIK = new java.util.HashSet<>(java.util.Arrays.asList("ns_nrowpad", "ns_sidemg", "ns_bgk", "ns_cardop", "ns_cardcol", "ns_bg", "ns_bgcol", "ns_theme", "ns_tabst", "ns_newssize", "ns_tabcol", "ns_font", "ns_ssaver", "ns_ssspd", "ns_tipoff", "ns_tipseen", "ns_tipi"));
+    private static final java.util.Set<String> UIK = new java.util.HashSet<>(java.util.Arrays.asList("ns_nrowpad", "ns_sidemg", "ns_bgk", "ns_cardop", "ns_cardcol", "ns_bg", "ns_bgcol", "ns_theme", "ns_tabst", "ns_newssize", "ns_tabcol", "ns_font", "ns_ssaver", "ns_ssspd", "ns_tipoff", "ns_tipseen", "ns_tipi", "ns_labels"));
     private android.content.SharedPreferences ui() { return ctx.getApplicationContext().getSharedPreferences("notis_ui", Context.MODE_PRIVATE); }
     @JavascriptInterface public void prefSet(String k, String v) { if (!MainActivity.trusted || k == null || !UIK.contains(k)) return; if (v != null && v.length() > 20000) return;
         android.content.SharedPreferences.Editor e = ui().edit(); if (v == null) e.remove(k); else e.putString(k, v); e.commit(); }
@@ -94,6 +94,14 @@ final class Bridge {
             MainActivity a = MainActivity.cur; if (a == null) return "err:noactivity"; a.askMicForBridge(); return "perm"; }
         return NativeRec.start(new File(ctx.getCacheDir(), "rec.m4a"));
     }
+    /* v115 dictation: "ok" | "perm" (result to window.__sttPerm) | "err:..." */
+    @JavascriptInterface public String sttStart(final String lang) { if (!MainActivity.trusted) return "err:untrusted";
+        if (!android.speech.SpeechRecognizer.isRecognitionAvailable(ctx)) return "err:unavailable";
+        final MainActivity a = MainActivity.cur; if (a == null) return "err:noactivity";
+        if (ctx.checkSelfPermission(android.Manifest.permission.RECORD_AUDIO) != android.content.pm.PackageManager.PERMISSION_GRANTED) { a.askMicForStt(); return "perm"; }
+        a.runOnUiThread(() -> NativeStt.start(a, lang)); return "ok";
+    }
+    @JavascriptInterface public void sttStop() { if (!MainActivity.trusted) return; MainActivity a = MainActivity.cur; if (a != null) a.runOnUiThread(NativeStt::stop); }
     @JavascriptInterface public String recStop() { if (!MainActivity.trusted) return ""; return NativeRec.stop(); }
     @JavascriptInterface public void recCancel() { if (!MainActivity.trusted) return; NativeRec.cancel(); }
     /* 2.2.0 system TTS in the app language */

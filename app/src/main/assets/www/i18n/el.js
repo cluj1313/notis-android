@@ -983,5 +983,18 @@ NOTIS_I18N={
 "Nu mai arăta info": "Μην εμφανίζεις άλλο πληροφορίες",
 "Afișează sfaturi": "Εμφάνιση συμβουλών",
 "Resetează sfaturile": "Επαναφορά συμβουλών",
-"Sfaturile au fost resetate": "Οι συμβουλές επαναφέρθηκαν"
+"Sfaturile au fost resetate": "Οι συμβουλές επαναφέρθηκαν",
+"Ștergi eticheta": "Διαγραφή ετικέτας",
+"Notițele rămân.": "Οι σημειώσεις μένουν.",
+"Eticheta există deja": "Η ετικέτα υπάρχει ήδη",
+"Etichete": "Ετικέτες",
+"Nicio etichetă încă. Creează una mai jos.": "Δεν υπάρχουν ετικέτες ακόμα. Δημιούργησε μία παρακάτω.",
+"Etichetă nouă": "Νέα ετικέτα",
+"Dictarea nu a mers": "Η υπαγόρευση απέτυχε",
+"Nu am auzit nimic": "Δεν άκουσα τίποτα",
+"Fără acces la microfon": "Χωρίς πρόσβαση στο μικρόφωνο",
+"Vorbește acum…": "Μίλα τώρα…",
+"Dictarea nu e disponibilă pe acest telefon": "Η υπαγόρευση δεν είναι διαθέσιμη σε αυτό το τηλέφωνο",
+"Dictarea nu e disponibilă în acest browser": "Η υπαγόρευση δεν είναι διαθέσιμη σε αυτό το πρόγραμμα περιήγησης",
+"Coș de gunoi": "Κάδος"
 };

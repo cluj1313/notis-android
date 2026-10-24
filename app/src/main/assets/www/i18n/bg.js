@@ -983,5 +983,18 @@ NOTIS_I18N={
 "Nu mai arăta info": "Не показвай повече инфо",
 "Afișează sfaturi": "Показвай съвети",
 "Resetează sfaturile": "Нулирай съветите",
-"Sfaturile au fost resetate": "Съветите са нулирани"
+"Sfaturile au fost resetate": "Съветите са нулирани",
+"Ștergi eticheta": "Изтриване на етикета",
+"Notițele rămân.": "Бележките остават.",
+"Eticheta există deja": "Етикетът вече съществува",
+"Etichete": "Етикети",
+"Nicio etichetă încă. Creează una mai jos.": "Още няма етикети. Създайте един по-долу.",
+"Etichetă nouă": "Нов етикет",
+"Dictarea nu a mers": "Диктовката не успя",
+"Nu am auzit nimic": "Не чух нищо",
+"Fără acces la microfon": "Няма достъп до микрофона",
+"Vorbește acum…": "Говорете сега…",
+"Dictarea nu e disponibilă pe acest telefon": "Диктовката не е налична на този телефон",
+"Dictarea nu e disponibilă în acest browser": "Диктовката не е налична в този браузър",
+"Coș de gunoi": "Кошче"
 };

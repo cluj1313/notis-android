@@ -983,5 +983,18 @@ NOTIS_I18N={
 "Nu mai arăta info": "जानकारी फिर न दिखाएँ",
 "Afișează sfaturi": "सुझाव दिखाएँ",
 "Resetează sfaturile": "सुझाव रीसेट करें",
-"Sfaturile au fost resetate": "सुझाव रीसेट हो गए"
+"Sfaturile au fost resetate": "सुझाव रीसेट हो गए",
+"Ștergi eticheta": "लेबल हटाएँ",
+"Notițele rămân.": "नोट्स बने रहेंगे।",
+"Eticheta există deja": "लेबल पहले से मौजूद है",
+"Etichete": "लेबल",
+"Nicio etichetă încă. Creează una mai jos.": "अभी कोई लेबल नहीं। नीचे एक बनाएँ।",
+"Etichetă nouă": "नया लेबल",
+"Dictarea nu a mers": "डिक्टेशन विफल रहा",
+"Nu am auzit nimic": "मुझे कुछ सुनाई नहीं दिया",
+"Fără acces la microfon": "माइक्रोफ़ोन की पहुँच नहीं",
+"Vorbește acum…": "अब बोलें…",
+"Dictarea nu e disponibilă pe acest telefon": "इस फ़ोन पर डिक्टेशन उपलब्ध नहीं है",
+"Dictarea nu e disponibilă în acest browser": "इस ब्राउज़र में डिक्टेशन उपलब्ध नहीं है",
+"Coș de gunoi": "ट्रैश"
 };

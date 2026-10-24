@@ -983,5 +983,18 @@ NOTIS_I18N={
 "Nu mai arăta info": "Daugiau nerodyti info",
 "Afișează sfaturi": "Rodyti patarimus",
 "Resetează sfaturile": "Atstatyti patarimus",
-"Sfaturile au fost resetate": "Patarimai atstatyti"
+"Sfaturile au fost resetate": "Patarimai atstatyti",
+"Ștergi eticheta": "Ištrinti žymą",
+"Notițele rămân.": "Užrašai lieka.",
+"Eticheta există deja": "Žyma jau yra",
+"Etichete": "Žymos",
+"Nicio etichetă încă. Creează una mai jos.": "Žymų dar nėra. Sukurkite vieną žemiau.",
+"Etichetă nouă": "Nauja žyma",
+"Dictarea nu a mers": "Diktavimas nepavyko",
+"Nu am auzit nimic": "Nieko negirdėjau",
+"Fără acces la microfon": "Nėra prieigos prie mikrofono",
+"Vorbește acum…": "Kalbėkite dabar…",
+"Dictarea nu e disponibilă pe acest telefon": "Diktavimas šiame telefone nepasiekiamas",
+"Dictarea nu e disponibilă în acest browser": "Diktavimas šioje naršyklėje nepasiekiamas",
+"Coș de gunoi": "Šiukšlinė"
 };

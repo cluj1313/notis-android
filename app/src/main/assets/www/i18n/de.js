@@ -983,5 +983,18 @@ NOTIS_I18N={
 "Nu mai arăta info": "Info nicht mehr anzeigen",
 "Afișează sfaturi": "Tipps anzeigen",
 "Resetează sfaturile": "Tipps zurücksetzen",
-"Sfaturile au fost resetate": "Tipps wurden zurückgesetzt"
+"Sfaturile au fost resetate": "Tipps wurden zurückgesetzt",
+"Ștergi eticheta": "Etikett löschen",
+"Notițele rămân.": "Die Notizen bleiben.",
+"Eticheta există deja": "Etikett existiert bereits",
+"Etichete": "Etiketten",
+"Nicio etichetă încă. Creează una mai jos.": "Noch keine Etiketten. Erstelle unten eins.",
+"Etichetă nouă": "Neues Etikett",
+"Dictarea nu a mers": "Diktat fehlgeschlagen",
+"Nu am auzit nimic": "Ich habe nichts gehört",
+"Fără acces la microfon": "Kein Mikrofonzugriff",
+"Vorbește acum…": "Jetzt sprechen…",
+"Dictarea nu e disponibilă pe acest telefon": "Diktat ist auf diesem Handy nicht verfügbar",
+"Dictarea nu e disponibilă în acest browser": "Diktat ist in diesem Browser nicht verfügbar",
+"Coș de gunoi": "Papierkorb"
 };

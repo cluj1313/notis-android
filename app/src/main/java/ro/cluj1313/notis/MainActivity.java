@@ -24,7 +24,7 @@ import java.io.InputStream;
 
 public class MainActivity extends androidx.fragment.app.FragmentActivity {
     static final String BASE = "https://cluj1313.github.io/notis/";
-    private static final int FILE_REQ = 41, MIC_REQ = 42, CAM_REQ = 43, MIC_NAT_REQ = 44, SND_REQ = 45, SNDF_REQ = 46;
+    private static final int FILE_REQ = 41, MIC_REQ = 42, CAM_REQ = 43, MIC_NAT_REQ = 44, SND_REQ = 45, SNDF_REQ = 46, STT_REQ = 47;
     static volatile MainActivity cur;
     WebView bioWeb;
     /** 2.5.6: biometric result back to JS */
@@ -280,9 +280,16 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity {
     }
     /** native recorder fallback asks for RECORD_AUDIO from the bridge; result goes back to window.__recPerm */
     void askMicForBridge() { runOnUiThread(() -> requestPermissions(new String[]{ android.Manifest.permission.RECORD_AUDIO }, MIC_NAT_REQ)); }
-    @Override protected void onDestroy() { if (cur == this) cur = null; NativeRec.cancel(); super.onDestroy(); }
+    void askMicForStt() { runOnUiThread(() -> requestPermissions(new String[]{ android.Manifest.permission.RECORD_AUDIO }, STT_REQ)); }
+    void sttJs(String k, String t) { runOnUiThread(() -> { if (web != null) web.evaluateJavascript("window.__stt&&window.__stt(" + JSONObject.quote(k) + "," + JSONObject.quote(t == null ? "" : t) + ")", null); }); }
+    @Override protected void onDestroy() { if (cur == this) cur = null; NativeRec.cancel(); NativeStt.stop(); super.onDestroy(); }
 
     @Override public void onRequestPermissionsResult(int req, String[] perms, int[] res) {
+        if (req == STT_REQ) {
+            boolean ok = res.length > 0 && res[0] == android.content.pm.PackageManager.PERMISSION_GRANTED;
+            if (web != null) web.evaluateJavascript("window.__sttPerm&&window.__sttPerm(" + ok + ")", null);
+            return;
+        }
         if (req == MIC_NAT_REQ) {
             boolean ok = res.length > 0 && res[0] == android.content.pm.PackageManager.PERMISSION_GRANTED;
             if (web != null) web.evaluateJavascript("window.__recPerm&&window.__recPerm(" + ok + ")", null);

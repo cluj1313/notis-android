@@ -983,5 +983,18 @@ NOTIS_I18N={
 "Nu mai arăta info": "Ära näita enam infot",
 "Afișează sfaturi": "Näita nõuandeid",
 "Resetează sfaturile": "Lähtesta nõuanded",
-"Sfaturile au fost resetate": "Nõuanded lähtestati"
+"Sfaturile au fost resetate": "Nõuanded lähtestati",
+"Ștergi eticheta": "Kustuta silt",
+"Notițele rămân.": "Märkmed jäävad alles.",
+"Eticheta există deja": "Silt on juba olemas",
+"Etichete": "Sildid",
+"Nicio etichetă încă. Creează una mai jos.": "Silte veel pole. Loo üks allpool.",
+"Etichetă nouă": "Uus silt",
+"Dictarea nu a mers": "Dikteerimine ebaõnnestus",
+"Nu am auzit nimic": "Ma ei kuulnud midagi",
+"Fără acces la microfon": "Mikrofonile puudub juurdepääs",
+"Vorbește acum…": "Räägi nüüd…",
+"Dictarea nu e disponibilă pe acest telefon": "Dikteerimine pole selles telefonis saadaval",
+"Dictarea nu e disponibilă în acest browser": "Dikteerimine pole selles brauseris saadaval",
+"Coș de gunoi": "Prügikast"
 };

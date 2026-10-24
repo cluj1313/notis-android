@@ -983,5 +983,18 @@ NOTIS_I18N={
 "Nu mai arăta info": "لا تعرض المعلومات مجددًا",
 "Afișează sfaturi": "عرض النصائح",
 "Resetează sfaturile": "إعادة ضبط النصائح",
-"Sfaturile au fost resetate": "تمت إعادة ضبط النصائح"
+"Sfaturile au fost resetate": "تمت إعادة ضبط النصائح",
+"Ștergi eticheta": "حذف التصنيف",
+"Notițele rămân.": "تبقى الملاحظات.",
+"Eticheta există deja": "التصنيف موجود بالفعل",
+"Etichete": "التصنيفات",
+"Nicio etichetă încă. Creează una mai jos.": "لا توجد تصنيفات بعد. أنشئ واحدًا بالأسفل.",
+"Etichetă nouă": "تصنيف جديد",
+"Dictarea nu a mers": "فشل الإملاء",
+"Nu am auzit nimic": "لم أسمع شيئًا",
+"Fără acces la microfon": "لا يوجد وصول إلى الميكروفون",
+"Vorbește acum…": "تحدث الآن…",
+"Dictarea nu e disponibilă pe acest telefon": "الإملاء غير متاح على هذا الهاتف",
+"Dictarea nu e disponibilă în acest browser": "الإملاء غير متاح في هذا المتصفح",
+"Coș de gunoi": "سلة المهملات"
 };

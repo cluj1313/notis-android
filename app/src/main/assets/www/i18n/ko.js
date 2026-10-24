@@ -983,5 +983,18 @@ NOTIS_I18N={
 "Nu mai arăta info": "정보 다시 표시 안 함",
 "Afișează sfaturi": "팁 표시",
 "Resetează sfaturile": "팁 초기화",
-"Sfaturile au fost resetate": "팁이 초기화되었습니다"
+"Sfaturile au fost resetate": "팁이 초기화되었습니다",
+"Ștergi eticheta": "라벨 삭제",
+"Notițele rămân.": "메모는 그대로 남아요.",
+"Eticheta există deja": "라벨이 이미 있어요",
+"Etichete": "라벨",
+"Nicio etichetă încă. Creează una mai jos.": "아직 라벨이 없어요. 아래에서 만들어 보세요.",
+"Etichetă nouă": "새 라벨",
+"Dictarea nu a mers": "받아쓰기에 실패했어요",
+"Nu am auzit nimic": "아무것도 들리지 않았어요",
+"Fără acces la microfon": "마이크 접근 권한 없음",
+"Vorbește acum…": "지금 말하세요…",
+"Dictarea nu e disponibilă pe acest telefon": "이 휴대폰에서는 받아쓰기를 사용할 수 없어요",
+"Dictarea nu e disponibilă în acest browser": "이 브라우저에서는 받아쓰기를 사용할 수 없어요",
+"Coș de gunoi": "휴지통"
 };

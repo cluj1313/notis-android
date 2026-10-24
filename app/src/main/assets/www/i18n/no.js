@@ -983,5 +983,18 @@ NOTIS_I18N={
 "Nu mai arăta info": "Ikke vis info igjen",
 "Afișează sfaturi": "Vis tips",
 "Resetează sfaturile": "Tilbakestill tips",
-"Sfaturile au fost resetate": "Tipsene er tilbakestilt"
+"Sfaturile au fost resetate": "Tipsene er tilbakestilt",
+"Ștergi eticheta": "Slette etiketten",
+"Notițele rămân.": "Notatene blir.",
+"Eticheta există deja": "Etiketten finnes allerede",
+"Etichete": "Etiketter",
+"Nicio etichetă încă. Creează una mai jos.": "Ingen etiketter ennå. Lag en nedenfor.",
+"Etichetă nouă": "Ny etikett",
+"Dictarea nu a mers": "Diktering mislyktes",
+"Nu am auzit nimic": "Jeg hørte ingenting",
+"Fără acces la microfon": "Ingen tilgang til mikrofonen",
+"Vorbește acum…": "Snakk nå…",
+"Dictarea nu e disponibilă pe acest telefon": "Diktering er ikke tilgjengelig på denne telefonen",
+"Dictarea nu e disponibilă în acest browser": "Diktering er ikke tilgjengelig i denne nettleseren",
+"Coș de gunoi": "Papirkurv"
 };

@@ -983,5 +983,18 @@ NOTIS_I18N={
 "Nu mai arăta info": "Ne mutasd többé az infót",
 "Afișează sfaturi": "Tippek mutatása",
 "Resetează sfaturile": "Tippek visszaállítása",
-"Sfaturile au fost resetate": "A tippek visszaállítva"
+"Sfaturile au fost resetate": "A tippek visszaállítva",
+"Ștergi eticheta": "Címke törlése",
+"Notițele rămân.": "A jegyzetek megmaradnak.",
+"Eticheta există deja": "A címke már létezik",
+"Etichete": "Címkék",
+"Nicio etichetă încă. Creează una mai jos.": "Még nincsenek címkék. Hozz létre egyet lent.",
+"Etichetă nouă": "Új címke",
+"Dictarea nu a mers": "A diktálás nem sikerült",
+"Nu am auzit nimic": "Nem hallottam semmit",
+"Fără acces la microfon": "Nincs hozzáférés a mikrofonhoz",
+"Vorbește acum…": "Beszélj most…",
+"Dictarea nu e disponibilă pe acest telefon": "A diktálás nem érhető el ezen a telefonon",
+"Dictarea nu e disponibilă în acest browser": "A diktálás nem érhető el ebben a böngészőben",
+"Coș de gunoi": "Kuka"
 };
