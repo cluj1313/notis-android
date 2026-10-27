@@ -1,6 +1,7 @@
 <resources>
     <!-- v2.5.5: minimal system splash (Android 12+): same background, no icon; the spinning icon is drawn by the web splash -->
     <style name="NotisTheme" parent="android:Theme.Material.NoActionBar">
+        <item name="android:textColorHighlight">#2E78B4FF</item>
         <item name="android:windowBackground">@color/bg</item>
         <item name="android:statusBarColor">@color/bg</item>
         <item name="android:navigationBarColor">@color/bg</item>
