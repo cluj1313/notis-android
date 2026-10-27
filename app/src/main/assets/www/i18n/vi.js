@@ -1009,5 +1009,7 @@ NOTIS_I18N={
 "Suni?": "Gọi?",
 "Deschizi locația?": "Mở vị trí?",
 "Deschizi linkul?": "Mở liên kết?",
-"Atinge icoana pentru a ieși": "Chạm vào biểu tượng để thoát"
+"Atinge icoana pentru a ieși": "Chạm vào biểu tượng để thoát",
+"Trage de colțuri sau mută chenarul": "Kéo các góc hoặc di chuyển khung",
+"Se încarcă imaginea…": "Đang tải ảnh…"
 };

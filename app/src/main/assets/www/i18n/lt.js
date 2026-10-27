@@ -1009,5 +1009,7 @@ NOTIS_I18N={
 "Suni?": "Skambinti?",
 "Deschizi locația?": "Atidaryti vietą?",
 "Deschizi linkul?": "Atidaryti nuorodą?",
-"Atinge icoana pentru a ieși": "Palieskite piktogramą, kad išeitumėte"
+"Atinge icoana pentru a ieși": "Palieskite piktogramą, kad išeitumėte",
+"Trage de colțuri sau mută chenarul": "Tempkite kampus arba perkelkite rėmelį",
+"Se încarcă imaginea…": "Įkeliamas vaizdas…"
 };

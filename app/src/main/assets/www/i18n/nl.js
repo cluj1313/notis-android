@@ -1009,5 +1009,7 @@ NOTIS_I18N={
 "Suni?": "Bellen?",
 "Deschizi locația?": "Locatie openen?",
 "Deschizi linkul?": "Link openen?",
-"Atinge icoana pentru a ieși": "Tik op het pictogram om af te sluiten"
+"Atinge icoana pentru a ieși": "Tik op het pictogram om af te sluiten",
+"Trage de colțuri sau mută chenarul": "Sleep de hoeken of verplaats het kader",
+"Se încarcă imaginea…": "Afbeelding laden…"
 };

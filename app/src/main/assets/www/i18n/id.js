@@ -1009,5 +1009,7 @@ NOTIS_I18N={
 "Suni?": "Telepon?",
 "Deschizi locația?": "Buka lokasi?",
 "Deschizi linkul?": "Buka tautan?",
-"Atinge icoana pentru a ieși": "Sentuh ikon untuk keluar"
+"Atinge icoana pentru a ieși": "Sentuh ikon untuk keluar",
+"Trage de colțuri sau mută chenarul": "Seret sudut atau geser bingkai",
+"Se încarcă imaginea…": "Memuat gambar…"
 };

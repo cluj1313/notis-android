@@ -1009,5 +1009,7 @@ NOTIS_I18N={
 "Suni?": "Позвати?",
 "Deschizi locația?": "Отворити локацију?",
 "Deschizi linkul?": "Отворити везу?",
-"Atinge icoana pentru a ieși": "Додирните икону за излаз"
+"Atinge icoana pentru a ieși": "Додирните икону за излаз",
+"Trage de colțuri sau mută chenarul": "Превуците углове или померите оквир",
+"Se încarcă imaginea…": "Учитавање слике…"
 };

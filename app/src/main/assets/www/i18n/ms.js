@@ -1009,5 +1009,7 @@ NOTIS_I18N={
 "Suni?": "Panggil?",
 "Deschizi locația?": "Buka lokasi?",
 "Deschizi linkul?": "Buka pautan?",
-"Atinge icoana pentru a ieși": "Sentuh ikon untuk keluar"
+"Atinge icoana pentru a ieși": "Sentuh ikon untuk keluar",
+"Trage de colțuri sau mută chenarul": "Seret sudut atau alihkan bingkai",
+"Se încarcă imaginea…": "Memuatkan imej…"
 };

@@ -1009,5 +1009,7 @@ NOTIS_I18N={
 "Suni?": "전화할까요?",
 "Deschizi locația?": "위치를 열까요?",
 "Deschizi linkul?": "링크를 열까요?",
-"Atinge icoana pentru a ieși": "종료하려면 아이콘을 터치하세요"
+"Atinge icoana pentru a ieși": "종료하려면 아이콘을 터치하세요",
+"Trage de colțuri sau mută chenarul": "모서리를 끌거나 프레임을 이동하세요",
+"Se încarcă imaginea…": "이미지 불러오는 중…"
 };

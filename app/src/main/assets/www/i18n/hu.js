@@ -1009,5 +1009,7 @@ NOTIS_I18N={
 "Suni?": "Hívod?",
 "Deschizi locația?": "Megnyitod a helyet?",
 "Deschizi linkul?": "Megnyitod a linket?",
-"Atinge icoana pentru a ieși": "Kilépéshez érintsd meg az ikont"
+"Atinge icoana pentru a ieși": "Kilépéshez érintsd meg az ikont",
+"Trage de colțuri sau mută chenarul": "Húzd a sarkokat vagy mozgasd a keretet",
+"Se încarcă imaginea…": "Kép betöltése…"
 };

@@ -1009,5 +1009,7 @@ NOTIS_I18N={
 "Suni?": "Helistada?",
 "Deschizi locația?": "Avada asukoht?",
 "Deschizi linkul?": "Avada link?",
-"Atinge icoana pentru a ieși": "Väljumiseks puuduta ikooni"
+"Atinge icoana pentru a ieși": "Väljumiseks puuduta ikooni",
+"Trage de colțuri sau mută chenarul": "Lohista nurki või liiguta raami",
+"Se încarcă imaginea…": "Pildi laadimine…"
 };

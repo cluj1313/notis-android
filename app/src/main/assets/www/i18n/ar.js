@@ -1009,5 +1009,7 @@ NOTIS_I18N={
 "Suni?": "اتصال؟",
 "Deschizi locația?": "فتح الموقع؟",
 "Deschizi linkul?": "فتح الرابط؟",
-"Atinge icoana pentru a ieși": "المس الأيقونة للخروج"
+"Atinge icoana pentru a ieși": "المس الأيقونة للخروج",
+"Trage de colțuri sau mută chenarul": "اسحب الزوايا أو حرّك الإطار",
+"Se încarcă imaginea…": "جارٍ تحميل الصورة…"
 };

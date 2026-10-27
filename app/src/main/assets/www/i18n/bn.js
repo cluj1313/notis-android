@@ -1009,5 +1009,7 @@ NOTIS_I18N={
 "Suni?": "কল করবেন?",
 "Deschizi locația?": "অবস্থান খুলবেন?",
 "Deschizi linkul?": "লিঙ্ক খুলবেন?",
-"Atinge icoana pentru a ieși": "বের হতে আইকনে স্পর্শ করুন"
+"Atinge icoana pentru a ieși": "বের হতে আইকনে স্পর্শ করুন",
+"Trage de colțuri sau mută chenarul": "কোণগুলো টানুন বা ফ্রেম সরান",
+"Se încarcă imaginea…": "ছবি লোড হচ্ছে…"
 };

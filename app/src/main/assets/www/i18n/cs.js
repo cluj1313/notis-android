@@ -1009,5 +1009,7 @@ NOTIS_I18N={
 "Suni?": "Zavolat?",
 "Deschizi locația?": "Otevřít polohu?",
 "Deschizi linkul?": "Otevřít odkaz?",
-"Atinge icoana pentru a ieși": "Klepnutím na ikonu ukončíte"
+"Atinge icoana pentru a ieși": "Klepnutím na ikonu ukončíte",
+"Trage de colțuri sau mută chenarul": "Táhněte za rohy nebo posuňte rámeček",
+"Se încarcă imaginea…": "Načítání obrázku…"
 };

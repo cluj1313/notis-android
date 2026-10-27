@@ -1009,5 +1009,7 @@ NOTIS_I18N={
 "Suni?": "कॉल करें?",
 "Deschizi locația?": "स्थान खोलें?",
 "Deschizi linkul?": "लिंक खोलें?",
-"Atinge icoana pentru a ieși": "बाहर निकलने के लिए आइकन छुएँ"
+"Atinge icoana pentru a ieși": "बाहर निकलने के लिए आइकन छुएँ",
+"Trage de colțuri sau mută chenarul": "कोनों को खींचें या फ़्रेम खिसकाएँ",
+"Se încarcă imaginea…": "छवि लोड हो रही है…"
 };

@@ -1009,5 +1009,7 @@ NOTIS_I18N={
 "Suni?": "Aransın mı?",
 "Deschizi locația?": "Konum açılsın mı?",
 "Deschizi linkul?": "Bağlantı açılsın mı?",
-"Atinge icoana pentru a ieși": "Çıkmak için simgeye dokunun"
+"Atinge icoana pentru a ieși": "Çıkmak için simgeye dokunun",
+"Trage de colțuri sau mută chenarul": "Köşeleri sürükleyin veya çerçeveyi taşıyın",
+"Se încarcă imaginea…": "Görsel yükleniyor…"
 };

@@ -1009,5 +1009,7 @@ NOTIS_I18N={
 "Suni?": "撥打？",
 "Deschizi locația?": "開啟位置？",
 "Deschizi linkul?": "開啟連結？",
-"Atinge icoana pentru a ieși": "輕觸圖示退出"
+"Atinge icoana pentru a ieși": "輕觸圖示退出",
+"Trage de colțuri sau mută chenarul": "拖曳角落或移動邊框",
+"Se încarcă imaginea…": "正在載入圖片…"
 };

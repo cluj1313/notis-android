@@ -1009,5 +1009,7 @@ NOTIS_I18N={
 "Suni?": "Soitetaanko?",
 "Deschizi locația?": "Avataanko sijainti?",
 "Deschizi linkul?": "Avataanko linkki?",
-"Atinge icoana pentru a ieși": "Poistu napauttamalla kuvaketta"
+"Atinge icoana pentru a ieși": "Poistu napauttamalla kuvaketta",
+"Trage de colțuri sau mută chenarul": "Vedä kulmista tai siirrä kehystä",
+"Se încarcă imaginea…": "Ladataan kuvaa…"
 };
