@@ -1006,6 +1006,9 @@ html[data-font] body,html[data-font] button,html[data-font] input,html[data-font
 .crm .crag1{--sc:#7dd3fc;border-style:dashed}
 .crm .crag1 .crplus{color:var(--cyan);font-size:18px;line-height:1;flex:0 0 auto}
 .crm .cragp{--sc:#94a3b8;border-style:dashed}
+.crm .crchs,#crmSheet .crchs{font-size:12.5px;padding:1px 7px;max-width:38%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#crmSheet .crstp{margin:2px 0 0}
+#crmSheet .crwork .crad{margin:4px 0 2px}
 </style>
 </head>
 <body>
@@ -4417,7 +4420,7 @@ function render(){var p=C.sub,h='<div class="spv crm">'+'<div class="alseg utsub
  else if(!V.L.length)h+='<div class="crempty"><div>'+esc(TR('Niciun rezultat'))+'</div></div>';
  else{if(Q.trim())h+='<div class="crmut crres">'+V.L.length+' '+esc(TR('rezultate'))+'</div>';
   V.L.forEach(function(c){var s=stOf(c.st),o=over(c),ra=remAt(c),l=last(c);
-  h+='<div class="crc" data-id="'+esc(c.id)+'" style="--sc:'+esc(s.c)+'"><div class="crr"><span class="crnm ux">'+esc(c.name||'—')+'</span><span class="crchip ux">'+esc(stName(s))+'</span></div><div class="crr">'+(c.tel[0]&&shown(p,'tel')?telH(c.tel[0]):'<span></span>')+'<span class="crmut">'+(l?esc(TR('ultim'))+': '+fT(l):'')+'</span></div>'+(ra?'<div class="crr"><span class="crmut ux">'+esc(c.firm&&shown(p,'firm')?c.firm:city(c))+'</span><span class="'+(o?'crred':'crmut')+'">'+(o?'<i class="crdot"></i>':'')+'⏰ '+esc(fTH(ra))+'</span></div>':'')+'</div>'})}
+  h+='<div class="crc" data-id="'+esc(c.id)+'" style="--sc:'+esc(s.c)+'"><div class="crr"><span class="crnm ux">'+esc(c.name||'—')+'</span><span class="crchip ux" style="--sc:'+esc(s.c)+'">'+esc(stName(s))+'</span></div><div class="crr">'+(c.tel[0]&&shown(p,'tel')?telH(c.tel[0]):'<span></span>')+'<span class="crmut">'+(l?esc(TR('ultim'))+': '+fT(l):'')+'</span></div>'+(ra?'<div class="crr"><span class="crmut ux">'+esc(c.firm&&shown(p,'firm')?c.firm:city(c))+'</span><span class="'+(o?'crred':'crmut')+'">'+(o?'<i class="crdot"></i>':'')+'⏰ '+esc(fTH(ra))+'</span></div>':'')+'</div>'})}
  h+=agH();
  return h+'</div></div>'}
 window.crmRender=render;
@@ -4444,24 +4447,22 @@ function dlgClose(){var m=$('crmDlg');if(m){m.classList.remove('show');m.innerHT
 window.__crmBack=function(){var d=$('crmDlg');if(d&&d.classList.contains('show')){dlgClose();return true}var s=$('crmSheet');if(s&&s.classList.contains('show')){shClose();rr();return true}return false};
 (function(){var hb=window.notisHandleBack;window.notisHandleBack=function(){var top=['cfModal','pinModal','alFire'].some(function(i){var e=$(i);return e&&e.classList.contains('show')});if(!top&&window.__crmBack())return true;return hb?hb.apply(this,arguments):false}})();
 /* ---- client sheet ---- */
-var OPN={d:0,h:1,n:0};
+var OPN={d:0,h:1,n:0,w:0};
 function fixC(c){if(!c)return c;if(!Array.isArray(c.tel))c.tel=c.tel?[String(c.tel)]:[];if(!Array.isArray(c.hist))c.hist=[];if(!Array.isArray(c.work))c.work=[];if(!c.cf||typeof c.cf!=='object')c.cf={};if(!c.rem||typeof c.rem!=='object')c.rem={on:0};return c}
 function prParse(v){v=String(v||'').replace(/[\s\u00a0']/g,'');if(!v)return '';if(/^\d{1,3}(\.\d{3})+(,\d+)?$/.test(v))v=v.replace(/\./g,'');v=v.replace(',','.');var n=+v;return isFinite(n)&&n>=0?Math.round(n*100)/100:NaN}
-function clientOpen(c,isNew){fixC(c);crmShow=fixC(JSON.parse(JSON.stringify(c)));crmShow._new=isNew?1:0;if(isNew)OPN.d=1;shRender()}
+function clientOpen(c,isNew){fixC(c);OPN.w=0;crmShow=fixC(JSON.parse(JSON.stringify(c)));crmShow._new=isNew?1:0;if(isNew)OPN.d=1;shRender()}
 function shRefresh(){if(crmShow&&$('crmSheet')&&$('crmSheet').classList.contains('show'))shRender()}
 function fldIn(lbl,k,v,ty){return '<label class="crf"><span>'+esc(lbl)+'</span><input class="ux" data-f="'+esc(k)+'" type="'+(ty||'text')+'" value="'+esc(v||'')+'" autocomplete="off" data-lpignore="true"'+(ty==='tel'?' inputmode="tel"':'')+'></label>'}
 function shRender(){var c=crmShow,p=c.grp,s=stOf(c.st),h='';
- var T=shown(p,'tel')?c.tel.filter(Boolean):[];h+='<div class="crr crhd"><span class="crnm crbig ux">'+esc(c.name||TR('Client nou'))+'</span>'+(T[0]?telH(T[0],'crtel'):'')+'</div>';
+ var T=shown(p,'tel')?c.tel.filter(Boolean):[];h+='<div class="crr crhd"><span class="crnm crbig ux">'+esc(c.name||TR('Client nou'))+'</span><span class="crchip crchs ux" style="--sc:'+esc(s.c)+'">'+esc(stName(s))+'</span>'+(T[0]?telH(T[0],'crtel'):'')+'</div>';
  T.slice(1).forEach(function(t){h+='<div class="crr crr1">'+telH(t,'crtel')+'</div>'});
  h+='<hr class="crhr">';if(c.addr&&shown(p,'addr'))h+='<div class="crln"><span class="crlk" data-k="a" data-v="'+esc(c.addr)+'">📍 '+esc(c.addr)+'</span></div><hr class="crhr">';
  h+=workH(c);
- h+='<div class="crr crln"><span class="crmut">'+esc(TR('Stare'))+'</span><span class="crchip ux" style="--sc:'+esc(s.c)+'">'+esc(stName(s))+'</span></div>';
  if(c.email&&shown(p,'email'))h+='<div><span class="crlk" data-k="e" data-v="'+esc(c.email)+'">✉︎ '+esc(c.email)+'</span></div>';
  if(p==='firm'&&shown(p,'firm')&&(c.firm||c.cui))h+='<div class="crmut ux">🏢 '+esc([c.firm,c.cui?'CUI '+c.cui:''].filter(Boolean).join(' · '))+'</div>';
- h+='<div class="crsec"><div class="crh">'+esc(TR('Stare'))+'</div>'+C.st.map(function(x){return '<label class="crrow" style="--sc:'+esc(x.c)+'"><span><i class="crsw"></i><span class="ux">'+esc(stName(x))+'</span></span><input type="checkbox" data-st="'+esc(x.id)+'"'+(x.id===c.st?' checked':'')+'></label>'}).join('')+'</div>';
  var r=c.rem||{};h+='<div class="crsec"><label class="crrow"><span>⏰ '+esc(TR('Reamintire'))+'</span><input type="checkbox" data-rem="on"'+(r.on?' checked':'')+'></label><div class="crr2"><input type="date" data-rem="d" value="'+esc(r.d||dkey(new Date(Date.now()+864e5)))+'"><input type="time" data-rem="hm" value="'+esc(r.hm||'10:00')+'"></div>'+(r.on&&over(c)?'<div class="crred"><i class="crdot"></i>'+esc(TR('Reamintire depășită'))+'</div>':'')+'</div>';
  h+='<div class="crsec"><button type="button" class="crcol'+(OPN.d?' open':'')+'" data-o="d">'+esc(TR('Date client'))+'<i class="sparr"></i></button>';
- if(OPN.d){h+=fldIn(TR('Nume'),'name',c.name);if(shown(p,'tel')){h+=fldIn(TR('Telefon'),'tel0',c.tel[0],'tel');h+=fldIn(TR('Telefon 2'),'tel1',c.tel[1],'tel')}
+ if(OPN.d){h+='<div class="crf"><span>'+esc(TR('Stare'))+'</span><div class="crchips crstp">'+C.st.map(function(x){return '<button type="button" class="crch'+(x.id===c.st?' on':'')+'" data-st="'+esc(x.id)+'" style="--sc:'+esc(x.c)+'"><span class="ux">'+esc(stName(x))+'</span></button>'}).join('')+'</div></div>';h+=fldIn(TR('Nume'),'name',c.name);if(shown(p,'tel')){h+=fldIn(TR('Telefon'),'tel0',c.tel[0],'tel');h+=fldIn(TR('Telefon 2'),'tel1',c.tel[1],'tel')}
   if(shown(p,'addr'))h+=fldIn(TR('Adresă'),'addr',c.addr);if(shown(p,'email'))h+=fldIn(TR('Email'),'email',c.email,'email');
   if(p==='firm'&&shown(p,'firm')){h+=fldIn(TR('Firmă'),'firm',c.firm);h+=fldIn('CUI','cui',c.cui)}
   C.fld[p].forEach(function(f){h+=fldIn(f.n,'cf:'+f.id,c.cf[f.id],f.t==='num'?'number':f.t==='date'?'date':'text')})}
@@ -4474,7 +4475,8 @@ function shRender(){var c=crmShow,p=c.grp,s=stOf(c.st),h='';
 function wk(d){var x=new Date(d+'T12:00:00');x.setDate(x.getDate()-((x.getDay()+6)%7));return dkey(x)}
 function money(n){var v=Math.round(n*100)/100;try{return v.toLocaleString(NL,{maximumFractionDigits:2})}catch(_){return String(v)}}
 function cur(){return C.cur||TR('lei')}
-function workH(c){var W=(c.work||[]).slice().sort(function(a,b){return a.d<b.d?1:a.d>b.d?-1:0}),h='<div class="crwork"><div class="crr"><span class="crh">'+esc(TR('Lucrări'))+'</span><button type="button" class="crlk" data-c="wadd">＋ '+esc(TR('Adaugă lucrare'))+'</button></div>';
+function workH(c){var T0,h,W=(c.work||[]).slice().sort(function(a,b){return a.d<b.d?1:a.d>b.d?-1:0}),T0=0;W.forEach(function(w){if(w.pr!==''&&w.pr!=null&&!isNaN(+w.pr))T0+=+w.pr});h='<div class="crsec crwork"><button type="button" class="crcol'+(OPN.w?' open':'')+'" data-o="w">'+esc(TR('Lucrări'))+' <span class="crmut">'+W.length+'</span>'+(C.tot&&T0?'<span class="crtot ux">'+esc(money(T0))+' '+esc(cur())+'</span>':'')+'<i class="sparr"></i></button>';
+ if(!OPN.w)return h+'</div>';h+='<button type="button" class="crlk crad" data-c="wadd">＋ '+esc(TR('Adaugă lucrare'))+'</button>';
  if(!W.length)return h+'<div class="crmut">'+esc(TR('Nicio lucrare încă. Adaugă data, denumirea lucrării și prețul.'))+'</div></div>';
  var ys=[];W.forEach(function(w){var y=String(w.d).slice(0,4);if(ys.indexOf(y)<0)ys.push(y)});
  ys.forEach(function(y,yi){var L=W.filter(function(w){return String(w.d).slice(0,4)===y}),tot=0;L.forEach(function(w){if(w.pr!==''&&w.pr!=null&&!isNaN(+w.pr))tot+=+w.pr});var yo=OPN.y&&y in OPN.y?OPN.y[y]:yi===0;
@@ -4504,7 +4506,7 @@ function shareTxt(c){var p=c.grp,L=[c.name];c.tel.forEach(function(t){L.push('�
 function shareStr(t,title){try{if(window.NotisNative&&NotisNative.shareText){NotisNative.shareText(t,title);return}}catch(_){}if(navigator.share){navigator.share({title:title,text:t}).catch(function(){});return}try{navigator.clipboard.writeText(t);toast(TR('Copiat'))}catch(_){}}
 document.addEventListener('click',function(e){var m=$('crmSheet');if(!m||!m.contains(e.target)||!crmShow||!m.querySelector('.crcl'))return;var c=crmShow,t=e.target;
  var l=t.closest('.crlk[data-k]');if(l){e.preventDefault();grab();lnk(C.list.filter(function(x){return x.id===c.id})[0]||null,l.dataset.k,l.dataset.v);return}
- var st=t.closest('[data-st]');if(st){grab();c.st=st.dataset.st;shRender();return}
+ var st=t.closest('[data-st]');if(st){grab();c.st=st.dataset.st;if(!c._new){var so=C.list.filter(function(x){return x.id===c.id})[0];if(so){so.st=c.st;save();rr()}}shRender();return}
  var o=t.closest('[data-o]');if(o){grab();OPN[o.dataset.o]=OPN[o.dataset.o]?0:1;shRender();return}
  var ti=t.closest('.crti');if(ti){grab();var hh=c.hist.filter(function(x){return x.id===ti.dataset.h})[0];if(hh)discDlg(c,hh,false,true);return}
  var b=t.closest('[data-c]');if(!b)return;var A=b.dataset.c;
@@ -4624,7 +4626,7 @@ window.crmMig=mig;try{mig();renderNotes()}catch(e){console.warn(e)}
 
 /* v96: Setări → TABURI (bibliotecă: ordine drag & drop, bifă vizibil/ascuns, PIN 4/6 opțional), DESIGN (Teme · Stil taburi · Fundal · Setări fine · Iconiță), iconiță urgență, Comunică cu creatorul, Versiune. Additive: hidden tab = t.off, nothing deleted. */
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v147';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v148';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};
