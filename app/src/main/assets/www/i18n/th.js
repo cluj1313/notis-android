@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "หากต้องการให้เปลี่ยน แก้ไข หรือเพิ่มสิ่งใด ส่งข้อความที่นี่",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "ผู้ช่วยเสมือนจะดูแลการติดต่อครั้งแรกและตรวจว่ามีผู้ใช้อื่นขอสิ่งเดียวกันไว้แล้วหรือไม่",
 "Fiecare utilizator primește un răspuns.": "ผู้ใช้ทุกคนจะได้รับคำตอบ",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ ติดต่อผู้สร้างแอป\nในการตั้งค่า เขียนสิ่งที่คุณอยากให้เปลี่ยนหรือเพิ่ม แล้วแตะ “ส่งข้อความ”: แอปอีเมลจะเปิดขึ้น ผู้ใช้ทุกคนจะได้รับคำตอบ"
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ ติดต่อผู้สร้างแอป\nในการตั้งค่า เขียนสิ่งที่คุณอยากให้เปลี่ยนหรือเพิ่ม แล้วแตะ “ส่งข้อความ”: แอปอีเมลจะเปิดขึ้น ผู้ใช้ทุกคนจะได้รับคำตอบ",
+"Voci de citire": "เสียงอ่าน",
+"(inclus)": "(รวมมาให้)",
+"Alte limbi": "ภาษาอื่น",
+"Automat (limba aplicației)": "อัตโนมัติ (ภาษาของแอป)",
+"Vocea principală": "เสียงหลัก",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "ภาษาโรมาเนียและอังกฤษรวมมาให้และใช้งานออฟไลน์ได้ สำหรับภาษาอื่นให้ดาวน์โหลดเสียงที่นี่ ถ้าไม่มีจะใช้เสียงของโทรศัพท์",
+"Descarci vocea ": "ดาวน์โหลดเสียง ",
+" Ești pe date mobile: se consumă date.": " คุณกำลังใช้อินเทอร์เน็ตมือถือ: จะใช้ข้อมูล",
+" Recomandat pe Wi-Fi.": " แนะนำให้ใช้ Wi‑Fi",
+"Vocea e gata": "เสียงพร้อมแล้ว",
+"Descărcare anulată": "ยกเลิกการดาวน์โหลดแล้ว",
+"Nu am putut descărca vocea": "ดาวน์โหลดเสียงไม่สำเร็จ"
 };

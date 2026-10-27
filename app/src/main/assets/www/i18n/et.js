@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Kui soovid midagi muuta, kohandada või lisada, saada siia sõnum.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "Virtuaalne assistent tegeleb esimese suhtlusega ja kontrollib, kas teised kasutajad on sama soovi juba esitanud.",
 "Fiecare utilizator primește un răspuns.": "Iga kasutaja saab vastuse.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Võta ühendust rakenduse loojaga\nKirjuta seadetes, mida soovid muuta või lisada, ja vajuta „Saada sõnum“: avaneb e‑posti rakendus. Iga kasutaja saab vastuse."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Võta ühendust rakenduse loojaga\nKirjuta seadetes, mida soovid muuta või lisada, ja vajuta „Saada sõnum“: avaneb e‑posti rakendus. Iga kasutaja saab vastuse.",
+"Voci de citire": "Lugemishääled",
+"(inclus)": "(kaasas)",
+"Alte limbi": "Muud keeled",
+"Automat (limba aplicației)": "Automaatne (rakenduse keel)",
+"Vocea principală": "Peamine hääl",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Rumeenia ja inglise keel on kaasas ning töötavad võrguühenduseta. Teiste keelte jaoks laadi hääl siit alla; ilma selleta kasutatakse telefoni häält.",
+"Descarci vocea ": "Laadi alla hääl ",
+" Ești pe date mobile: se consumă date.": " Kasutad mobiilset andmesidet: see kulutab andmemahtu.",
+" Recomandat pe Wi-Fi.": " Soovitatav on Wi‑Fi.",
+"Vocea e gata": "Hääl on valmis",
+"Descărcare anulată": "Allalaadimine tühistati",
+"Nu am putut descărca vocea": "Häält ei õnnestunud alla laadida"
 };

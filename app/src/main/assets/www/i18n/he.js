@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "אם תרצו שמשהו ישתנה, יתוקן או יתווסף, שלחו כאן הודעה.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "העוזר הווירטואלי מטפל בפנייה הראשונה ובודק אם משתמשים אחרים כבר ביקשו אותו דבר.",
 "Fiecare utilizator primește un răspuns.": "כל משתמש מקבל תשובה.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ פנייה ליוצר האפליקציה\nבהגדרות כתוב מה היית רוצה לשנות או להוסיף, ואז הקש „שלח הודעה”: אפליקציית הדוא״ל נפתחת. כל משתמש מקבל תשובה."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ פנייה ליוצר האפליקציה\nבהגדרות כתוב מה היית רוצה לשנות או להוסיף, ואז הקש „שלח הודעה”: אפליקציית הדוא״ל נפתחת. כל משתמש מקבל תשובה.",
+"Voci de citire": "קולות הקראה",
+"(inclus)": "(כלול)",
+"Alte limbi": "שפות נוספות",
+"Automat (limba aplicației)": "אוטומטי (שפת האפליקציה)",
+"Vocea principală": "קול ראשי",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "רומנית ואנגלית כלולות ופועלות גם במצב לא מקוון. לשפות אחרות הורד את הקול כאן; בלעדיו ישמש קול הטלפון.",
+"Descarci vocea ": "להוריד את הקול ",
+" Ești pe date mobile: se consumă date.": " אתה בחבילת גלישה: ייצרכו נתונים.",
+" Recomandat pe Wi-Fi.": " מומלץ Wi‑Fi.",
+"Vocea e gata": "הקול מוכן",
+"Descărcare anulată": "ההורדה בוטלה",
+"Nu am putut descărca vocea": "לא ניתן היה להוריד את הקול"
 };

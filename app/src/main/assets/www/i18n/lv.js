@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Ja vēlaties kaut ko mainīt, pielāgot vai pievienot, sūtiet ziņu šeit.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "Virtuālais asistents veic pirmo saziņu un pārbauda, vai citi lietotāji jau nav iesnieguši tādu pašu pieprasījumu.",
 "Fiecare utilizator primește un răspuns.": "Katrs lietotājs saņem atbildi.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Sazināties ar lietotnes autoru\nIestatījumos uzraksti, ko vēlies mainīt vai pievienot, un pieskaries “Sūtīt ziņu”: atveras e‑pasta lietotne. Katrs lietotājs saņem atbildi."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Sazināties ar lietotnes autoru\nIestatījumos uzraksti, ko vēlies mainīt vai pievienot, un pieskaries “Sūtīt ziņu”: atveras e‑pasta lietotne. Katrs lietotājs saņem atbildi.",
+"Voci de citire": "Lasīšanas balsis",
+"(inclus)": "(iekļauta)",
+"Alte limbi": "Citas valodas",
+"Automat (limba aplicației)": "Automātiski (lietotnes valoda)",
+"Vocea principală": "Galvenā balss",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Rumāņu un angļu valoda ir iekļautas un darbojas bezsaistē. Citām valodām lejupielādē balsi šeit; bez tās tiek izmantota tālruņa balss.",
+"Descarci vocea ": "Lejupielādēt balsi ",
+" Ești pe date mobile: se consumă date.": " Tu izmanto mobilos datus: tiks patērēti dati.",
+" Recomandat pe Wi-Fi.": " Ieteicams Wi‑Fi.",
+"Vocea e gata": "Balss ir gatava",
+"Descărcare anulată": "Lejupielāde atcelta",
+"Nu am putut descărca vocea": "Neizdevās lejupielādēt balsi"
 };

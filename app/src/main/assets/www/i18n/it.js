@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Se vuoi che qualcosa venga cambiato, modificato o aggiunto, manda qui un messaggio.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "L’assistente virtuale gestisce il primo contatto e verifica se la stessa richiesta è già stata fatta da altri utenti.",
 "Fiecare utilizator primește un răspuns.": "Ogni utente riceve una risposta.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Contatta il creatore dell’app\nIn Impostazioni scrivi cosa vorresti cambiare o aggiungere, poi tocca «Invia messaggio»: si apre l'app email. Ogni utente riceve una risposta."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Contatta il creatore dell’app\nIn Impostazioni scrivi cosa vorresti cambiare o aggiungere, poi tocca «Invia messaggio»: si apre l'app email. Ogni utente riceve una risposta.",
+"Voci de citire": "Voci di lettura",
+"(inclus)": "(inclusa)",
+"Alte limbi": "Altre lingue",
+"Automat (limba aplicației)": "Automatico (lingua dell'app)",
+"Vocea principală": "Voce principale",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Rumeno e inglese sono inclusi e funzionano offline. Per altre lingue scarica la voce qui; senza, si usa la voce del telefono.",
+"Descarci vocea ": "Scaricare la voce ",
+" Ești pe date mobile: se consumă date.": " Sei su dati mobili: verranno consumati dati.",
+" Recomandat pe Wi-Fi.": " Consigliato il Wi‑Fi.",
+"Vocea e gata": "Voce pronta",
+"Descărcare anulată": "Download annullato",
+"Nu am putut descărca vocea": "Impossibile scaricare la voce"
 };

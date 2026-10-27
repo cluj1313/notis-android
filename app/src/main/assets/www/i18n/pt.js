@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Se quiser algo alterado, modificado ou acrescentado, envie aqui uma mensagem.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "O assistente virtual trata do primeiro contacto e verifica se o mesmo pedido já foi feito por outros utilizadores.",
 "Fiecare utilizator primește un răspuns.": "Cada utilizador recebe uma resposta.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Contactar o criador da app\nNas Definições, escreva o que gostaria de mudar ou acrescentar e toque em “Enviar mensagem”: a aplicação de e‑mail abre. Cada utilizador recebe uma resposta."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Contactar o criador da app\nNas Definições, escreva o que gostaria de mudar ou acrescentar e toque em “Enviar mensagem”: a aplicação de e‑mail abre. Cada utilizador recebe uma resposta.",
+"Voci de citire": "Vozes de leitura",
+"(inclus)": "(incluída)",
+"Alte limbi": "Outras línguas",
+"Automat (limba aplicației)": "Automático (língua da app)",
+"Vocea principală": "Voz principal",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "O romeno e o inglês estão incluídos e funcionam offline. Para outras línguas, transfere a voz aqui; sem ela, é usada a voz do telemóvel.",
+"Descarci vocea ": "Transferir a voz ",
+" Ești pe date mobile: se consumă date.": " Estás a usar dados móveis: isto consome dados.",
+" Recomandat pe Wi-Fi.": " Recomenda-se Wi‑Fi.",
+"Vocea e gata": "Voz pronta",
+"Descărcare anulată": "Transferência cancelada",
+"Nu am putut descărca vocea": "Não foi possível transferir a voz"
 };

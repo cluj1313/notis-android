@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Ako želite nešto promijeniti, prilagoditi ili dodati, pošaljite poruku ovdje.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "Virtualni asistent vodi prvi kontakt i provjerava jesu li drugi korisnici već poslali isti zahtjev.",
 "Fiecare utilizator primește un răspuns.": "Svaki korisnik dobiva odgovor.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Kontaktiraj autora aplikacije\nU Postavkama napiši što bi htio promijeniti ili dodati, zatim dodirni „Pošalji poruku”: otvara se aplikacija za e‑poštu. Svaki korisnik dobiva odgovor."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Kontaktiraj autora aplikacije\nU Postavkama napiši što bi htio promijeniti ili dodati, zatim dodirni „Pošalji poruku”: otvara se aplikacija za e‑poštu. Svaki korisnik dobiva odgovor.",
+"Voci de citire": "Glasovi za čitanje",
+"(inclus)": "(uključen)",
+"Alte limbi": "Ostali jezici",
+"Automat (limba aplicației)": "Automatski (jezik aplikacije)",
+"Vocea principală": "Glavni glas",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Rumunjski i engleski su uključeni i rade izvanmrežno. Za ostale jezike preuzmi glas ovdje; bez njega se koristi glas telefona.",
+"Descarci vocea ": "Preuzeti glas ",
+" Ești pe date mobile: se consumă date.": " Koristiš mobilne podatke: trošit će se podaci.",
+" Recomandat pe Wi-Fi.": " Preporučuje se Wi‑Fi.",
+"Vocea e gata": "Glas je spreman",
+"Descărcare anulată": "Preuzimanje otkazano",
+"Nu am putut descărca vocea": "Glas nije moguće preuzeti"
 };

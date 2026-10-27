@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "اگر می‌خواهید چیزی تغییر کند، اصلاح شود یا اضافه شود، اینجا پیام بفرستید.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "دستیار مجازی نخستین تماس را بر عهده دارد و بررسی می‌کند که آیا کاربران دیگر همین درخواست را داده‌اند.",
 "Fiecare utilizator primește un răspuns.": "هر کاربر پاسخ می‌گیرد.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ تماس با سازندهٔ برنامه\nدر تنظیمات بنویسید چه چیزی را می‌خواهید تغییر دهید یا اضافه کنید، سپس «ارسال پیام» را بزنید: برنامهٔ ایمیل باز می‌شود. هر کاربر پاسخ می‌گیرد."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ تماس با سازندهٔ برنامه\nدر تنظیمات بنویسید چه چیزی را می‌خواهید تغییر دهید یا اضافه کنید، سپس «ارسال پیام» را بزنید: برنامهٔ ایمیل باز می‌شود. هر کاربر پاسخ می‌گیرد.",
+"Voci de citire": "صداهای خواندن",
+"(inclus)": "(همراه برنامه)",
+"Alte limbi": "زبان‌های دیگر",
+"Automat (limba aplicației)": "خودکار (زبان برنامه)",
+"Vocea principală": "صدای اصلی",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "رومانیایی و انگلیسی همراه برنامه هستند و آفلاین کار می‌کنند. برای زبان‌های دیگر صدا را از اینجا بارگیری کنید؛ بدون آن از صدای گوشی استفاده می‌شود.",
+"Descarci vocea ": "بارگیری صدای ",
+" Ești pe date mobile: se consumă date.": " از داده تلفن همراه استفاده می‌کنید: داده مصرف می‌شود.",
+" Recomandat pe Wi-Fi.": " Wi‑Fi توصیه می‌شود.",
+"Vocea e gata": "صدا آماده است",
+"Descărcare anulată": "بارگیری لغو شد",
+"Nu am putut descărca vocea": "بارگیری صدا ممکن نشد"
 };

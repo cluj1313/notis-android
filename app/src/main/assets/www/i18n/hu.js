@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Ha szeretnéd, hogy valamit megváltoztassunk, módosítsunk vagy hozzáadjunk, küldj itt üzenetet.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "A virtuális asszisztens intézi az első kapcsolatfelvételt, és ellenőrzi, hogy más felhasználók kérték-e már ugyanezt.",
 "Fiecare utilizator primește un răspuns.": "Minden felhasználó választ kap.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Kapcsolat az alkalmazás készítőjével\nA Beállításokban írd meg, mit változtatnál vagy adnál hozzá, majd koppints az „Üzenet küldése” gombra: megnyílik a levelezőalkalmazás. Minden felhasználó választ kap."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Kapcsolat az alkalmazás készítőjével\nA Beállításokban írd meg, mit változtatnál vagy adnál hozzá, majd koppints az „Üzenet küldése” gombra: megnyílik a levelezőalkalmazás. Minden felhasználó választ kap.",
+"Voci de citire": "Felolvasó hangok",
+"(inclus)": "(mellékelve)",
+"Alte limbi": "Más nyelvek",
+"Automat (limba aplicației)": "Automatikus (az app nyelve)",
+"Vocea principală": "Fő hang",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "A román és az angol mellékelve van, és offline is működik. Más nyelvekhez itt töltsd le a hangot; nélküle a telefon hangja szól.",
+"Descarci vocea ": "Letöltöd a hangot: ",
+" Ești pe date mobile: se consumă date.": " Mobilneten vagy: ez adatforgalommal jár.",
+" Recomandat pe Wi-Fi.": " Wi‑Fi ajánlott.",
+"Vocea e gata": "A hang kész",
+"Descărcare anulată": "Letöltés megszakítva",
+"Nu am putut descărca vocea": "Nem sikerült letölteni a hangot"
 };

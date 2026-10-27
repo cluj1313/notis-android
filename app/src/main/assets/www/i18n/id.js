@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Jika ingin sesuatu diubah, disesuaikan, atau ditambahkan, kirim pesan di sini.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "Asisten virtual menangani interaksi pertama dan memeriksa apakah permintaan yang sama sudah diajukan pengguna lain.",
 "Fiecare utilizator primește un răspuns.": "Setiap pengguna mendapat jawaban.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Hubungi pembuat aplikasi\nDi Pengaturan, tulis apa yang ingin diubah atau ditambahkan, lalu ketuk “Kirim pesan”: aplikasi email terbuka. Setiap pengguna mendapat balasan."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Hubungi pembuat aplikasi\nDi Pengaturan, tulis apa yang ingin diubah atau ditambahkan, lalu ketuk “Kirim pesan”: aplikasi email terbuka. Setiap pengguna mendapat balasan.",
+"Voci de citire": "Suara pembaca",
+"(inclus)": "(disertakan)",
+"Alte limbi": "Bahasa lain",
+"Automat (limba aplicației)": "Otomatis (bahasa aplikasi)",
+"Vocea principală": "Suara utama",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Rumania dan Inggris sudah disertakan dan bisa offline. Untuk bahasa lain, unduh suaranya di sini; tanpa itu dipakai suara ponsel.",
+"Descarci vocea ": "Unduh suara ",
+" Ești pe date mobile: se consumă date.": " Kamu memakai data seluler: kuota akan terpakai.",
+" Recomandat pe Wi-Fi.": " Disarankan Wi‑Fi.",
+"Vocea e gata": "Suara siap",
+"Descărcare anulată": "Unduhan dibatalkan",
+"Nu am putut descărca vocea": "Gagal mengunduh suara"
 };

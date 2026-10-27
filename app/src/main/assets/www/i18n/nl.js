@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Wil je iets veranderd, aangepast of toegevoegd zien, stuur hier een bericht.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "De virtuele assistent doet het eerste contact en controleert of andere gebruikers hetzelfde verzoek al hebben gedaan.",
 "Fiecare utilizator primește un răspuns.": "Elke gebruiker krijgt antwoord.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Contact met de maker van de app\nSchrijf in Instellingen wat je veranderd of toegevoegd wilt zien en tik op ‘Bericht verzenden’: je e‑mailapp opent. Elke gebruiker krijgt een antwoord."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Contact met de maker van de app\nSchrijf in Instellingen wat je veranderd of toegevoegd wilt zien en tik op ‘Bericht verzenden’: je e‑mailapp opent. Elke gebruiker krijgt een antwoord.",
+"Voci de citire": "Voorleesstemmen",
+"(inclus)": "(inbegrepen)",
+"Alte limbi": "Andere talen",
+"Automat (limba aplicației)": "Automatisch (app-taal)",
+"Vocea principală": "Hoofdstem",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Roemeens en Engels zijn inbegrepen en werken offline. Download voor andere talen hier de stem; zonder stem wordt de stem van de telefoon gebruikt.",
+"Descarci vocea ": "Stem downloaden: ",
+" Ești pe date mobile: se consumă date.": " Je gebruikt mobiele data: dit verbruikt data.",
+" Recomandat pe Wi-Fi.": " Wifi aanbevolen.",
+"Vocea e gata": "Stem klaar",
+"Descărcare anulată": "Download geannuleerd",
+"Nu am putut descărca vocea": "Kon de stem niet downloaden"
 };

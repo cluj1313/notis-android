@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Se quiser algo mudado, modificado ou adicionado, mande uma mensagem aqui.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "O assistente virtual cuida do primeiro contato e verifica se o mesmo pedido já foi feito por outros usuários.",
 "Fiecare utilizator primește un răspuns.": "Todo usuário recebe uma resposta.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Falar com o criador do app\nEm Configurações, escreva o que você gostaria de mudar ou acrescentar e toque em “Enviar mensagem”: o app de e‑mail abre. Todo usuário recebe uma resposta."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Falar com o criador do app\nEm Configurações, escreva o que você gostaria de mudar ou acrescentar e toque em “Enviar mensagem”: o app de e‑mail abre. Todo usuário recebe uma resposta.",
+"Voci de citire": "Vozes de leitura",
+"(inclus)": "(incluída)",
+"Alte limbi": "Outros idiomas",
+"Automat (limba aplicației)": "Automático (idioma do app)",
+"Vocea principală": "Voz principal",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Romeno e inglês estão incluídos e funcionam offline. Para outros idiomas, baixe a voz aqui; sem ela, é usada a voz do celular.",
+"Descarci vocea ": "Baixar a voz ",
+" Ești pe date mobile: se consumă date.": " Você está usando dados móveis: isso consome dados.",
+" Recomandat pe Wi-Fi.": " Recomendado usar Wi‑Fi.",
+"Vocea e gata": "Voz pronta",
+"Descărcare anulată": "Download cancelado",
+"Nu am putut descărca vocea": "Não foi possível baixar a voz"
 };

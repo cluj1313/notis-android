@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Αν θέλετε κάτι να αλλάξει, να τροποποιηθεί ή να προστεθεί, στείλτε μήνυμα εδώ.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "Ο εικονικός βοηθός αναλαμβάνει την πρώτη επαφή και ελέγχει αν το ίδιο αίτημα έχει ήδη γίνει από άλλους χρήστες.",
 "Fiecare utilizator primește un răspuns.": "Κάθε χρήστης παίρνει απάντηση.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Επικοινωνία με τον δημιουργό\nΣτις Ρυθμίσεις γράψε τι θα ήθελες να αλλάξει ή να προστεθεί και πάτησε «Αποστολή μηνύματος»: ανοίγει η εφαρμογή email. Κάθε χρήστης παίρνει απάντηση."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Επικοινωνία με τον δημιουργό\nΣτις Ρυθμίσεις γράψε τι θα ήθελες να αλλάξει ή να προστεθεί και πάτησε «Αποστολή μηνύματος»: ανοίγει η εφαρμογή email. Κάθε χρήστης παίρνει απάντηση.",
+"Voci de citire": "Φωνές ανάγνωσης",
+"(inclus)": "(περιλαμβάνεται)",
+"Alte limbi": "Άλλες γλώσσες",
+"Automat (limba aplicației)": "Αυτόματα (γλώσσα εφαρμογής)",
+"Vocea principală": "Κύρια φωνή",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Τα ρουμανικά και τα αγγλικά περιλαμβάνονται και λειτουργούν εκτός σύνδεσης. Για άλλες γλώσσες κατέβασε τη φωνή εδώ· χωρίς αυτήν χρησιμοποιείται η φωνή του τηλεφώνου.",
+"Descarci vocea ": "Λήψη της φωνής ",
+" Ești pe date mobile: se consumă date.": " Είσαι σε δεδομένα κινητής: θα καταναλωθούν δεδομένα.",
+" Recomandat pe Wi-Fi.": " Συνιστάται Wi‑Fi.",
+"Vocea e gata": "Η φωνή είναι έτοιμη",
+"Descărcare anulată": "Η λήψη ακυρώθηκε",
+"Nu am putut descărca vocea": "Δεν ήταν δυνατή η λήψη της φωνής"
 };

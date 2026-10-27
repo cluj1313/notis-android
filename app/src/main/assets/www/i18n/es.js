@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Si quieres que algo se cambie, modifique o añada, envía aquí un mensaje.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "El asistente virtual se encarga del primer contacto y comprueba si otros usuarios ya hicieron la misma petición.",
 "Fiecare utilizator primește un răspuns.": "Cada usuario recibe una respuesta.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Contactar con el creador de la app\nEn Ajustes escribe qué te gustaría cambiar o añadir y toca «Enviar mensaje»: se abre la aplicación de correo. Cada usuario recibe una respuesta."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Contactar con el creador de la app\nEn Ajustes escribe qué te gustaría cambiar o añadir y toca «Enviar mensaje»: se abre la aplicación de correo. Cada usuario recibe una respuesta.",
+"Voci de citire": "Voces de lectura",
+"(inclus)": "(incluida)",
+"Alte limbi": "Otros idiomas",
+"Automat (limba aplicației)": "Automático (idioma de la app)",
+"Vocea principală": "Voz principal",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "El rumano y el inglés están incluidos y funcionan sin conexión. Para otros idiomas, descarga la voz aquí; sin ella se usa la voz del teléfono.",
+"Descarci vocea ": "¿Descargar la voz ",
+" Ești pe date mobile: se consumă date.": " Estás con datos móviles: se consumirán datos.",
+" Recomandat pe Wi-Fi.": " Se recomienda wifi.",
+"Vocea e gata": "La voz está lista",
+"Descărcare anulată": "Descarga cancelada",
+"Nu am putut descărca vocea": "No se pudo descargar la voz"
 };

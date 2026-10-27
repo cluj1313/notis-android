@@ -327,7 +327,18 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity {
     private WebResourceResponse offline(WebResourceRequest r) {
         try {
             String url = r.getUrl().toString();
-            if (!"GET".equals(r.getMethod()) || !url.startsWith(BASE) || online()) return null;
+            if (!"GET".equals(r.getMethod()) || !url.startsWith(BASE)) return null;
+            String vp = r.getUrl().getPath();
+            if (vp != null && vp.startsWith("/notis/vb/")) { /* v2.10.0: bundled Piper voices (Mihai + English), served online and offline */
+                String n = vp.substring(10);
+                if (!n.matches("[A-Za-z0-9_.-]+")) return null;
+                InputStream vin;
+                try { vin = getAssets().open("vb/" + n); } catch (Exception e) {
+                    return new WebResourceResponse("text/plain", "utf-8", 404, "Not Found", new java.util.HashMap<String, String>(), new java.io.ByteArrayInputStream(new byte[0])); }
+                java.util.Map<String, String> h = new java.util.HashMap<>(); h.put("Access-Control-Allow-Origin", "*"); h.put("Cache-Control", "no-store");
+                return new WebResourceResponse(n.endsWith(".json") ? "application/json" : n.endsWith(".js") ? "application/javascript" : n.endsWith(".wasm") ? "application/wasm" : "application/octet-stream", null, 200, "OK", h, vin);
+            }
+            if (online()) return null;
             String path = r.getUrl().getPath();
             if (path == null) return null;
             if (path.startsWith("/notis/")) path = path.substring(7); else return null;

@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Wenn du etwas geändert, angepasst oder hinzugefügt haben möchtest, sende hier eine Nachricht.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "Der virtuelle Assistent übernimmt den ersten Kontakt und prüft, ob andere Nutzer dieselbe Anfrage schon gestellt haben.",
 "Fiecare utilizator primește un răspuns.": "Jeder Nutzer bekommt eine Antwort.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Den App-Entwickler kontaktieren\nSchreibe in den Einstellungen, was du geändert oder ergänzt haben möchtest, und tippe auf „Nachricht senden“: Die E‑Mail-App öffnet sich. Jeder Nutzer bekommt eine Antwort."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Den App-Entwickler kontaktieren\nSchreibe in den Einstellungen, was du geändert oder ergänzt haben möchtest, und tippe auf „Nachricht senden“: Die E‑Mail-App öffnet sich. Jeder Nutzer bekommt eine Antwort.",
+"Voci de citire": "Vorlesestimmen",
+"(inclus)": "(enthalten)",
+"Alte limbi": "Weitere Sprachen",
+"Automat (limba aplicației)": "Automatisch (App-Sprache)",
+"Vocea principală": "Hauptstimme",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Rumänisch und Englisch sind enthalten und funktionieren offline. Für andere Sprachen lade die Stimme hier herunter; ohne sie wird die Stimme des Telefons verwendet.",
+"Descarci vocea ": "Stimme herunterladen: ",
+" Ești pe date mobile: se consumă date.": " Du nutzt mobile Daten: Das verbraucht Datenvolumen.",
+" Recomandat pe Wi-Fi.": " WLAN empfohlen.",
+"Vocea e gata": "Stimme bereit",
+"Descărcare anulată": "Download abgebrochen",
+"Nu am putut descărca vocea": "Die Stimme konnte nicht heruntergeladen werden"
 };

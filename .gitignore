@@ -8,3 +8,4 @@ keystore/
 signing.properties
 notis-play-key-export*.zip
 *.pem
+app/src/main/assets/vb/

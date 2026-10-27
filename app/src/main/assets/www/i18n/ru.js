@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Если хотите что-то изменить, поправить или добавить, отправьте сообщение здесь.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "Виртуальный помощник ведёт первый контакт и проверяет, не отправляли ли такой же запрос другие пользователи.",
 "Fiecare utilizator primește un răspuns.": "Каждый пользователь получает ответ.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Связаться с создателем приложения\nВ Настройках напишите, что хотели бы изменить или добавить, и нажмите «Отправить сообщение»: откроется почтовое приложение. Каждый пользователь получает ответ."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Связаться с создателем приложения\nВ Настройках напишите, что хотели бы изменить или добавить, и нажмите «Отправить сообщение»: откроется почтовое приложение. Каждый пользователь получает ответ.",
+"Voci de citire": "Голоса для чтения",
+"(inclus)": "(встроен)",
+"Alte limbi": "Другие языки",
+"Automat (limba aplicației)": "Автоматически (язык приложения)",
+"Vocea principală": "Основной голос",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Румынский и английский встроены и работают офлайн. Для других языков скачай голос здесь; без него используется голос телефона.",
+"Descarci vocea ": "Скачать голос ",
+" Ești pe date mobile: se consumă date.": " Ты используешь мобильные данные: будет расходоваться трафик.",
+" Recomandat pe Wi-Fi.": " Рекомендуется Wi‑Fi.",
+"Vocea e gata": "Голос готов",
+"Descărcare anulată": "Загрузка отменена",
+"Nu am putut descărca vocea": "Не удалось скачать голос"
 };

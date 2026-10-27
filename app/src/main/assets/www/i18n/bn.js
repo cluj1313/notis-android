@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "কিছু বদলাতে, সংশোধন করতে বা যোগ করতে চাইলে এখানে বার্তা পাঠান।",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "ভার্চুয়াল সহকারী প্রথম যোগাযোগ সামলায় এবং দেখে অন্য ব্যবহারকারীরা একই অনুরোধ আগে করেছেন কি না।",
 "Fiecare utilizator primește un răspuns.": "প্রত্যেক ব্যবহারকারী উত্তর পান।",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ অ্যাপ নির্মাতার সাথে যোগাযোগ\nসেটিংসে লিখুন আপনি কী পরিবর্তন বা যোগ করতে চান, তারপর “বার্তা পাঠান” চাপুন: ইমেল অ্যাপ খুলবে। প্রত্যেক ব্যবহারকারী উত্তর পান।"
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ অ্যাপ নির্মাতার সাথে যোগাযোগ\nসেটিংসে লিখুন আপনি কী পরিবর্তন বা যোগ করতে চান, তারপর “বার্তা পাঠান” চাপুন: ইমেল অ্যাপ খুলবে। প্রত্যেক ব্যবহারকারী উত্তর পান।",
+"Voci de citire": "পড়ার কণ্ঠ",
+"(inclus)": "(অন্তর্ভুক্ত)",
+"Alte limbi": "অন্যান্য ভাষা",
+"Automat (limba aplicației)": "স্বয়ংক্রিয় (অ্যাপের ভাষা)",
+"Vocea principală": "প্রধান কণ্ঠ",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "রোমানিয়ান ও ইংরেজি অন্তর্ভুক্ত এবং অফলাইনে কাজ করে। অন্য ভাষার জন্য এখান থেকে কণ্ঠ ডাউনলোড করুন; না থাকলে ফোনের কণ্ঠ ব্যবহার হয়।",
+"Descarci vocea ": "কণ্ঠ ডাউনলোড করবেন ",
+" Ești pe date mobile: se consumă date.": " আপনি মোবাইল ডেটায় আছেন: ডেটা খরচ হবে।",
+" Recomandat pe Wi-Fi.": " Wi‑Fi সুপারিশ করা হয়।",
+"Vocea e gata": "কণ্ঠ প্রস্তুত",
+"Descărcare anulată": "ডাউনলোড বাতিল হয়েছে",
+"Nu am putut descărca vocea": "কণ্ঠ ডাউনলোড করা যায়নি"
 };

@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Jeśli chcesz coś zmienić, poprawić lub dodać, wyślij tu wiadomość.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "Wirtualny asystent prowadzi pierwszy kontakt i sprawdza, czy inni użytkownicy zgłosili już tę samą prośbę.",
 "Fiecare utilizator primește un răspuns.": "Każdy użytkownik dostaje odpowiedź.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Skontaktuj się z twórcą aplikacji\nW Ustawieniach napisz, co chcesz zmienić lub dodać, a potem dotknij „Wyślij wiadomość”: otworzy się aplikacja pocztowa. Każdy użytkownik dostaje odpowiedź."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Skontaktuj się z twórcą aplikacji\nW Ustawieniach napisz, co chcesz zmienić lub dodać, a potem dotknij „Wyślij wiadomość”: otworzy się aplikacja pocztowa. Każdy użytkownik dostaje odpowiedź.",
+"Voci de citire": "Głosy czytania",
+"(inclus)": "(wbudowany)",
+"Alte limbi": "Inne języki",
+"Automat (limba aplicației)": "Automatycznie (język aplikacji)",
+"Vocea principală": "Główny głos",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Rumuński i angielski są wbudowane i działają offline. Dla innych języków pobierz głos tutaj; bez niego używany jest głos telefonu.",
+"Descarci vocea ": "Pobrać głos ",
+" Ești pe date mobile: se consumă date.": " Korzystasz z danych mobilnych: zużyjesz transfer.",
+" Recomandat pe Wi-Fi.": " Zalecane Wi‑Fi.",
+"Vocea e gata": "Głos gotowy",
+"Descărcare anulată": "Pobieranie anulowane",
+"Nu am putut descărca vocea": "Nie udało się pobrać głosu"
 };

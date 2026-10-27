@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "अगर आप कुछ बदलवाना, सुधरवाना या जुड़वाना चाहते हैं, तो यहाँ संदेश भेजें।",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "वर्चुअल असिस्टेंट पहली बातचीत संभालता है और देखता है कि क्या दूसरे उपयोगकर्ता पहले ही यही अनुरोध कर चुके हैं।",
 "Fiecare utilizator primește un răspuns.": "हर उपयोगकर्ता को जवाब मिलता है।",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ ऐप निर्माता से संपर्क करें\nसेटिंग्स में लिखें कि आप क्या बदलवाना या जोड़ना चाहते हैं, फिर “संदेश भेजें” पर टैप करें: ईमेल ऐप खुल जाएगा। हर उपयोगकर्ता को जवाब मिलता है।"
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ ऐप निर्माता से संपर्क करें\nसेटिंग्स में लिखें कि आप क्या बदलवाना या जोड़ना चाहते हैं, फिर “संदेश भेजें” पर टैप करें: ईमेल ऐप खुल जाएगा। हर उपयोगकर्ता को जवाब मिलता है।",
+"Voci de citire": "पढ़ने की आवाज़ें",
+"(inclus)": "(शामिल)",
+"Alte limbi": "अन्य भाषाएँ",
+"Automat (limba aplicației)": "स्वचालित (ऐप की भाषा)",
+"Vocea principală": "मुख्य आवाज़",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "रोमानियाई और अंग्रेज़ी शामिल हैं और ऑफ़लाइन काम करती हैं। अन्य भाषाओं के लिए आवाज़ यहाँ से डाउनलोड करें; इसके बिना फ़ोन की आवाज़ इस्तेमाल होती है।",
+"Descarci vocea ": "आवाज़ डाउनलोड करें ",
+" Ești pe date mobile: se consumă date.": " आप मोबाइल डेटा पर हैं: डेटा खर्च होगा।",
+" Recomandat pe Wi-Fi.": " Wi‑Fi की सलाह दी जाती है।",
+"Vocea e gata": "आवाज़ तैयार है",
+"Descărcare anulată": "डाउनलोड रद्द किया गया",
+"Nu am putut descărca vocea": "आवाज़ डाउनलोड नहीं हो सकी"
 };

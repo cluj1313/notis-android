@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Si vous voulez changer, modifier ou ajouter quelque chose, envoyez un message ici.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "L’assistant virtuel gère le premier échange et vérifie si la même demande a déjà été faite par d’autres utilisateurs.",
 "Fiecare utilizator primește un răspuns.": "Chaque utilisateur reçoit une réponse.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Contacter le créateur de l’app\nDans les Paramètres, écris ce que tu aimerais voir changé ou ajouté, puis touche « Envoyer le message » : l'application e‑mail s'ouvre. Chaque utilisateur reçoit une réponse."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Contacter le créateur de l’app\nDans les Paramètres, écris ce que tu aimerais voir changé ou ajouté, puis touche « Envoyer le message » : l'application e‑mail s'ouvre. Chaque utilisateur reçoit une réponse.",
+"Voci de citire": "Voix de lecture",
+"(inclus)": "(incluse)",
+"Alte limbi": "Autres langues",
+"Automat (limba aplicației)": "Automatique (langue de l'appli)",
+"Vocea principală": "Voix principale",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Le roumain et l'anglais sont inclus et fonctionnent hors ligne. Pour les autres langues, télécharge la voix ici ; sinon, la voix du téléphone est utilisée.",
+"Descarci vocea ": "Télécharger la voix ",
+" Ești pe date mobile: se consumă date.": " Tu es en données mobiles : cela consomme des données.",
+" Recomandat pe Wi-Fi.": " Wi‑Fi recommandé.",
+"Vocea e gata": "Voix prête",
+"Descărcare anulată": "Téléchargement annulé",
+"Nu am putut descărca vocea": "Impossible de télécharger la voix"
 };

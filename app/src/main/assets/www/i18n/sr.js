@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Ако желите да се нешто промени, прилагоди или дода, пошаљите поруку овде.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "Виртуелни асистент води први контакт и проверава да ли су други корисници већ послали исти захтев.",
 "Fiecare utilizator primește un răspuns.": "Сваки корисник добија одговор.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Контактирај аутора апликације\nУ Подешавањима напиши шта би желео да се промени или дода, затим додирни „Пошаљи поруку“: отвара се апликација за е‑пошту. Сваки корисник добија одговор."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Контактирај аутора апликације\nУ Подешавањима напиши шта би желео да се промени или дода, затим додирни „Пошаљи поруку“: отвара се апликација за е‑пошту. Сваки корисник добија одговор.",
+"Voci de citire": "Гласови за читање",
+"(inclus)": "(укључен)",
+"Alte limbi": "Други језици",
+"Automat (limba aplicației)": "Аутоматски (језик апликације)",
+"Vocea principală": "Главни глас",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Румунски и енглески су укључени и раде ван мреже. За друге језике преузми глас овде; без њега се користи глас телефона.",
+"Descarci vocea ": "Преузети глас ",
+" Ești pe date mobile: se consumă date.": " Користиш мобилне податке: трошиће се подаци.",
+" Recomandat pe Wi-Fi.": " Препоручује се Wi‑Fi.",
+"Vocea e gata": "Глас је спреман",
+"Descărcare anulată": "Преузимање је отказано",
+"Nu am putut descărca vocea": "Глас није могао да се преузме"
 };

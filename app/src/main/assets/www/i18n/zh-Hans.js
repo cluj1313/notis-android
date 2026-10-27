@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "如果你希望更改、修改或添加什么，请在这里发送消息。",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "虚拟助手负责首次沟通，并检查其他用户是否已提出相同请求。",
 "Fiecare utilizator primește un răspuns.": "每位用户都会得到回复。",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ 联系应用开发者\n在设置中写下你希望修改或添加的内容，然后点按“发送消息”：会打开邮件应用。每位用户都会收到回复。"
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ 联系应用开发者\n在设置中写下你希望修改或添加的内容，然后点按“发送消息”：会打开邮件应用。每位用户都会收到回复。",
+"Voci de citire": "朗读语音",
+"(inclus)": "（内置）",
+"Alte limbi": "其他语言",
+"Automat (limba aplicației)": "自动（应用语言）",
+"Vocea principală": "主语音",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "罗马尼亚语和英语已内置，可离线使用。其他语言请在此下载语音；没有时使用手机自带语音。",
+"Descarci vocea ": "下载语音 ",
+" Ești pe date mobile: se consumă date.": "你正在使用移动数据：会消耗流量。",
+" Recomandat pe Wi-Fi.": "建议使用 Wi‑Fi。",
+"Vocea e gata": "语音已就绪",
+"Descărcare anulată": "已取消下载",
+"Nu am putut descărca vocea": "无法下载语音"
 };

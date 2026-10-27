@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Si vols que es canviï, es modifiqui o s’afegeixi alguna cosa, envia aquí un missatge.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "L’assistent virtual s’encarrega del primer contacte i comprova si altres usuaris ja han fet la mateixa petició.",
 "Fiecare utilizator primește un răspuns.": "Cada usuari rep una resposta.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Contacta amb el creador de l’app\nA Configuració escriu què voldries canviar o afegir i després toca «Envia el missatge»: s'obre l'aplicació de correu. Cada usuari rep una resposta."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Contacta amb el creador de l’app\nA Configuració escriu què voldries canviar o afegir i després toca «Envia el missatge»: s'obre l'aplicació de correu. Cada usuari rep una resposta.",
+"Voci de citire": "Veus de lectura",
+"(inclus)": "(inclosa)",
+"Alte limbi": "Altres idiomes",
+"Automat (limba aplicației)": "Automàtic (idioma de l'app)",
+"Vocea principală": "Veu principal",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "El romanès i l'anglès estan inclosos i funcionen sense connexió. Per a altres idiomes, baixa la veu aquí; sense ella s'usa la veu del telèfon.",
+"Descarci vocea ": "Vols baixar la veu ",
+" Ești pe date mobile: se consumă date.": " Estàs amb dades mòbils: es consumiran dades.",
+" Recomandat pe Wi-Fi.": " Es recomana Wi‑Fi.",
+"Vocea e gata": "La veu està a punt",
+"Descărcare anulată": "Baixada cancel·lada",
+"Nu am putut descărca vocea": "No s'ha pogut baixar la veu"
 };

@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Vill du att något ändras, justeras eller läggs till, skicka ett meddelande här.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "Den virtuella assistenten tar första kontakten och kollar om andra användare redan gjort samma förfrågan.",
 "Fiecare utilizator primește un răspuns.": "Alla användare får svar.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Kontakta appens skapare\nSkriv i Inställningar vad du vill ändra eller lägga till och tryck på ”Skicka meddelande”: e‑postappen öppnas. Alla användare får svar."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Kontakta appens skapare\nSkriv i Inställningar vad du vill ändra eller lägga till och tryck på ”Skicka meddelande”: e‑postappen öppnas. Alla användare får svar.",
+"Voci de citire": "Uppläsningsröster",
+"(inclus)": "(inkluderad)",
+"Alte limbi": "Andra språk",
+"Automat (limba aplicației)": "Automatiskt (appens språk)",
+"Vocea principală": "Huvudröst",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Rumänska och engelska ingår och fungerar offline. För andra språk laddar du ner rösten här; utan den används telefonens röst.",
+"Descarci vocea ": "Ladda ner rösten ",
+" Ești pe date mobile: se consumă date.": " Du använder mobildata: det förbrukar data.",
+" Recomandat pe Wi-Fi.": " Wi‑Fi rekommenderas.",
+"Vocea e gata": "Rösten är klar",
+"Descărcare anulată": "Nedladdningen avbröts",
+"Nu am putut descărca vocea": "Det gick inte att ladda ner rösten"
 };

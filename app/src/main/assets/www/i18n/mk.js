@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Ако сакате нешто да се смени, прилагоди или додаде, испратете порака тука.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "Виртуелниот асистент го води првиот контакт и проверува дали други корисници веќе го испратиле истото барање.",
 "Fiecare utilizator primește un răspuns.": "Секој корисник добива одговор.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Контактирај го авторот на апликацијата\nВо Поставки напиши што би сакал да се смени или додаде, потоа допри „Испрати порака“: се отвора апликацијата за е‑пошта. Секој корисник добива одговор."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Контактирај го авторот на апликацијата\nВо Поставки напиши што би сакал да се смени или додаде, потоа допри „Испрати порака“: се отвора апликацијата за е‑пошта. Секој корисник добива одговор.",
+"Voci de citire": "Гласови за читање",
+"(inclus)": "(вклучен)",
+"Alte limbi": "Други јазици",
+"Automat (limba aplicației)": "Автоматски (јазик на апликацијата)",
+"Vocea principală": "Главен глас",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Романскиот и англискиот се вклучени и работат офлајн. За други јазици преземи го гласот тука; без него се користи гласот на телефонот.",
+"Descarci vocea ": "Да се преземе гласот ",
+" Ești pe date mobile: se consumă date.": " Користиш мобилен интернет: ќе се трошат податоци.",
+" Recomandat pe Wi-Fi.": " Се препорачува Wi‑Fi.",
+"Vocea e gata": "Гласот е подготвен",
+"Descărcare anulată": "Преземањето е откажано",
+"Nu am putut descărca vocea": "Гласот не можеше да се преземе"
 };

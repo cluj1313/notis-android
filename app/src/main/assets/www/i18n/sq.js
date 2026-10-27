@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Nëse do që diçka të ndryshohet, të modifikohet ose të shtohet, dërgo një mesazh këtu.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "Asistenti virtual merret me kontaktin e parë dhe kontrollon nëse e njëjta kërkesë është bërë nga përdorues të tjerë.",
 "Fiecare utilizator primește un răspuns.": "Çdo përdorues merr përgjigje.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Kontakto krijuesin e aplikacionit\nTe Cilësimet shkruaj çfarë do të doje të ndryshohej ose të shtohej, pastaj prek „Dërgo mesazhin”: hapet aplikacioni i email-it. Çdo përdorues merr përgjigje."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Kontakto krijuesin e aplikacionit\nTe Cilësimet shkruaj çfarë do të doje të ndryshohej ose të shtohej, pastaj prek „Dërgo mesazhin”: hapet aplikacioni i email-it. Çdo përdorues merr përgjigje.",
+"Voci de citire": "Zërat e leximit",
+"(inclus)": "(i përfshirë)",
+"Alte limbi": "Gjuhë të tjera",
+"Automat (limba aplicației)": "Automatik (gjuha e aplikacionit)",
+"Vocea principală": "Zëri kryesor",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Rumanishtja dhe anglishtja janë të përfshira dhe punojnë pa internet. Për gjuhë të tjera shkarko zërin këtu; pa të përdoret zëri i telefonit.",
+"Descarci vocea ": "Të shkarkohet zëri ",
+" Ești pe date mobile: se consumă date.": " Je në të dhëna celulare: do të harxhohen të dhëna.",
+" Recomandat pe Wi-Fi.": " Rekomandohet Wi‑Fi.",
+"Vocea e gata": "Zëri është gati",
+"Descărcare anulată": "Shkarkimi u anulua",
+"Nu am putut descărca vocea": "Zëri nuk mund të shkarkohej"
 };

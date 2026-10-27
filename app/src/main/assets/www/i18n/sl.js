@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Če želite, da se kaj spremeni, prilagodi ali doda, pošljite sporočilo tukaj.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "Virtualni pomočnik opravi prvi stik in preveri, ali so drugi uporabniki že podali enako zahtevo.",
 "Fiecare utilizator primește un răspuns.": "Vsak uporabnik dobi odgovor.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Stik z avtorjem aplikacije\nV Nastavitvah napiši, kaj bi rad spremenil ali dodal, nato tapni »Pošlji sporočilo«: odpre se e‑poštna aplikacija. Vsak uporabnik dobi odgovor."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Stik z avtorjem aplikacije\nV Nastavitvah napiši, kaj bi rad spremenil ali dodal, nato tapni »Pošlji sporočilo«: odpre se e‑poštna aplikacija. Vsak uporabnik dobi odgovor.",
+"Voci de citire": "Glasovi za branje",
+"(inclus)": "(vključen)",
+"Alte limbi": "Drugi jeziki",
+"Automat (limba aplicației)": "Samodejno (jezik aplikacije)",
+"Vocea principală": "Glavni glas",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Romunščina in angleščina sta vključeni in delujeta brez povezave. Za druge jezike prenesi glas tukaj; brez njega se uporabi glas telefona.",
+"Descarci vocea ": "Prenesem glas ",
+" Ești pe date mobile: se consumă date.": " Uporabljaš mobilne podatke: porabili se bodo podatki.",
+" Recomandat pe Wi-Fi.": " Priporočen je Wi‑Fi.",
+"Vocea e gata": "Glas je pripravljen",
+"Descărcare anulată": "Prenos preklican",
+"Nu am putut descărca vocea": "Glasu ni bilo mogoče prenesti"
 };

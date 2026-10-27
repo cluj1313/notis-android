@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Jika anda mahu sesuatu ditukar, diubah atau ditambah, hantar mesej di sini.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "Pembantu maya mengendalikan interaksi pertama dan menyemak sama ada permintaan yang sama telah dibuat oleh pengguna lain.",
 "Fiecare utilizator primește un răspuns.": "Setiap pengguna mendapat jawapan.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Hubungi pencipta aplikasi\nDalam Tetapan, tulis apa yang anda mahu diubah atau ditambah, kemudian ketik “Hantar mesej”: aplikasi e‑mel dibuka. Setiap pengguna menerima balasan."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Hubungi pencipta aplikasi\nDalam Tetapan, tulis apa yang anda mahu diubah atau ditambah, kemudian ketik “Hantar mesej”: aplikasi e‑mel dibuka. Setiap pengguna menerima balasan.",
+"Voci de citire": "Suara bacaan",
+"(inclus)": "(disertakan)",
+"Alte limbi": "Bahasa lain",
+"Automat (limba aplicației)": "Automatik (bahasa apl)",
+"Vocea principală": "Suara utama",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Bahasa Romania dan Inggeris disertakan dan berfungsi luar talian. Untuk bahasa lain, muat turun suara di sini; tanpanya suara telefon digunakan.",
+"Descarci vocea ": "Muat turun suara ",
+" Ești pe date mobile: se consumă date.": " Anda menggunakan data mudah alih: data akan digunakan.",
+" Recomandat pe Wi-Fi.": " Wi‑Fi disyorkan.",
+"Vocea e gata": "Suara sedia",
+"Descărcare anulată": "Muat turun dibatalkan",
+"Nu am putut descărca vocea": "Tidak dapat memuat turun suara"
 };

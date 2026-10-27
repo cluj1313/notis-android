@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "変更・修正・追加してほしいことがあれば、ここからメッセージを送ってください。",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "最初の対応はバーチャルアシスタントが行い、同じ要望が他のユーザーから既に出ていないか確認します。",
 "Fiecare utilizator primește un răspuns.": "すべてのユーザーに返信します。",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ アプリの作者に連絡\n設定で、変更・追加してほしいことを書いて「メッセージを送信」をタップすると、メールアプリが開きます。すべてのユーザーに返信が届きます。"
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ アプリの作者に連絡\n設定で、変更・追加してほしいことを書いて「メッセージを送信」をタップすると、メールアプリが開きます。すべてのユーザーに返信が届きます。",
+"Voci de citire": "読み上げ音声",
+"(inclus)": "（同梱）",
+"Alte limbi": "その他の言語",
+"Automat (limba aplicației)": "自動（アプリの言語）",
+"Vocea principală": "メインの音声",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "ルーマニア語と英語は同梱されており、オフラインで使えます。他の言語はここで音声をダウンロードしてください。ない場合はスマホの音声を使います。",
+"Descarci vocea ": "音声をダウンロード: ",
+" Ești pe date mobile: se consumă date.": "モバイルデータ通信中です：データ通信量を消費します。",
+" Recomandat pe Wi-Fi.": "Wi‑Fiを推奨します。",
+"Vocea e gata": "音声の準備ができました",
+"Descărcare anulată": "ダウンロードをキャンセルしました",
+"Nu am putut descărca vocea": "音声をダウンロードできませんでした"
 };

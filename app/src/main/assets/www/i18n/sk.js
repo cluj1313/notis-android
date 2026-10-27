@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Ak chcete niečo zmeniť, upraviť alebo pridať, pošlite sem správu.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "Virtuálny asistent vybavuje prvý kontakt a overí, či rovnakú požiadavku už nezadali iní používatelia.",
 "Fiecare utilizator primește un răspuns.": "Každý používateľ dostane odpoveď.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Kontaktovať autora aplikácie\nV Nastaveniach napíš, čo by si chcel zmeniť alebo pridať, a ťukni na „Odoslať správu“: otvorí sa e‑mailová aplikácia. Každý používateľ dostane odpoveď."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Kontaktovať autora aplikácie\nV Nastaveniach napíš, čo by si chcel zmeniť alebo pridať, a ťukni na „Odoslať správu“: otvorí sa e‑mailová aplikácia. Každý používateľ dostane odpoveď.",
+"Voci de citire": "Hlasy na čítanie",
+"(inclus)": "(súčasťou)",
+"Alte limbi": "Ďalšie jazyky",
+"Automat (limba aplicației)": "Automaticky (jazyk aplikácie)",
+"Vocea principală": "Hlavný hlas",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Rumunčina a angličtina sú súčasťou a fungujú offline. Pre ďalšie jazyky si tu stiahni hlas; bez neho sa použije hlas telefónu.",
+"Descarci vocea ": "Stiahnuť hlas ",
+" Ești pe date mobile: se consumă date.": " Si na mobilných dátach: dáta sa spotrebujú.",
+" Recomandat pe Wi-Fi.": " Odporúča sa Wi‑Fi.",
+"Vocea e gata": "Hlas je pripravený",
+"Descărcare anulată": "Sťahovanie zrušené",
+"Nu am putut descărca vocea": "Hlas sa nepodarilo stiahnuť"
 };

@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Nếu bạn muốn thay đổi, chỉnh sửa hay thêm điều gì, hãy gửi tin nhắn tại đây.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "Trợ lý ảo đảm nhận lần tương tác đầu tiên và kiểm tra xem yêu cầu tương tự đã được người dùng khác gửi chưa.",
 "Fiecare utilizator primește un răspuns.": "Mỗi người dùng đều nhận được phản hồi.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Liên hệ nhà phát triển ứng dụng\nTrong Cài đặt, hãy viết điều bạn muốn thay đổi hoặc thêm, rồi chạm “Gửi tin nhắn”: ứng dụng email sẽ mở. Mỗi người dùng đều nhận được phản hồi."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Liên hệ nhà phát triển ứng dụng\nTrong Cài đặt, hãy viết điều bạn muốn thay đổi hoặc thêm, rồi chạm “Gửi tin nhắn”: ứng dụng email sẽ mở. Mỗi người dùng đều nhận được phản hồi.",
+"Voci de citire": "Giọng đọc",
+"(inclus)": "(có sẵn)",
+"Alte limbi": "Ngôn ngữ khác",
+"Automat (limba aplicației)": "Tự động (ngôn ngữ ứng dụng)",
+"Vocea principală": "Giọng chính",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Tiếng Romania và tiếng Anh có sẵn và hoạt động ngoại tuyến. Với ngôn ngữ khác, hãy tải giọng ở đây; nếu không sẽ dùng giọng của điện thoại.",
+"Descarci vocea ": "Tải giọng ",
+" Ești pe date mobile: se consumă date.": " Bạn đang dùng dữ liệu di động: sẽ tốn dữ liệu.",
+" Recomandat pe Wi-Fi.": " Nên dùng Wi‑Fi.",
+"Vocea e gata": "Giọng đã sẵn sàng",
+"Descărcare anulată": "Đã hủy tải xuống",
+"Nu am putut descărca vocea": "Không thể tải giọng"
 };

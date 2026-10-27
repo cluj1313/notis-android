@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Ако искате нещо да се промени, коригира или добави, изпратете съобщение тук.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "Виртуалният асистент поема първия контакт и проверява дали други потребители вече са отправили същата заявка.",
 "Fiecare utilizator primește un răspuns.": "Всеки потребител получава отговор.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Свържете се със създателя\nВ Настройки напиши какво искаш да се промени или добави, после докосни „Изпрати съобщението“: отваря се приложението за имейл. Всеки потребител получава отговор."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Свържете се със създателя\nВ Настройки напиши какво искаш да се промени или добави, после докосни „Изпрати съобщението“: отваря се приложението за имейл. Всеки потребител получава отговор.",
+"Voci de citire": "Гласове за четене",
+"(inclus)": "(включен)",
+"Alte limbi": "Други езици",
+"Automat (limba aplicației)": "Автоматично (езикът на приложението)",
+"Vocea principală": "Основен глас",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Румънският и английският са включени и работят офлайн. За други езици изтегли гласа оттук; без него се използва гласът на телефона.",
+"Descarci vocea ": "Да се изтегли ли гласът ",
+" Ești pe date mobile: se consumă date.": " Използваш мобилни данни: ще се изразходват данни.",
+" Recomandat pe Wi-Fi.": " Препоръчва се Wi‑Fi.",
+"Vocea e gata": "Гласът е готов",
+"Descărcare anulată": "Изтеглянето е отменено",
+"Nu am putut descărca vocea": "Гласът не можа да се изтегли"
 };

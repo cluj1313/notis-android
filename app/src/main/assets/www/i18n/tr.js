@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Bir şeyin değiştirilmesini, düzenlenmesini veya eklenmesini istiyorsanız buradan mesaj gönderin.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "Sanal asistan ilk iletişimi üstlenir ve aynı isteğin başka kullanıcılar tarafından yapılıp yapılmadığını kontrol eder.",
 "Fiecare utilizator primește un răspuns.": "Her kullanıcı yanıt alır.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Uygulama yapımcısıyla iletişim\nAyarlar'da neyin değiştirilmesini veya eklenmesini istediğini yaz, ardından “Mesajı gönder”e dokun: e‑posta uygulaması açılır. Her kullanıcı yanıt alır."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Uygulama yapımcısıyla iletişim\nAyarlar'da neyin değiştirilmesini veya eklenmesini istediğini yaz, ardından “Mesajı gönder”e dokun: e‑posta uygulaması açılır. Her kullanıcı yanıt alır.",
+"Voci de citire": "Okuma sesleri",
+"(inclus)": "(dahil)",
+"Alte limbi": "Diğer diller",
+"Automat (limba aplicației)": "Otomatik (uygulama dili)",
+"Vocea principală": "Ana ses",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Rumence ve İngilizce dahildir ve çevrimdışı çalışır. Diğer diller için sesi buradan indir; yoksa telefonun sesi kullanılır.",
+"Descarci vocea ": "Ses indirilsin mi: ",
+" Ești pe date mobile: se consumă date.": " Mobil veridesin: veri harcanır.",
+" Recomandat pe Wi-Fi.": " Wi‑Fi önerilir.",
+"Vocea e gata": "Ses hazır",
+"Descărcare anulată": "İndirme iptal edildi",
+"Nu am putut descărca vocea": "Ses indirilemedi"
 };

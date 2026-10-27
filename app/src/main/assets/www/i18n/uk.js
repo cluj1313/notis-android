@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Якщо хочете щось змінити, виправити чи додати, надішліть повідомлення тут.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "Віртуальний помічник веде перший контакт і перевіряє, чи такий самий запит уже надсилали інші користувачі.",
 "Fiecare utilizator primește un răspuns.": "Кожен користувач отримує відповідь.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Зв’язатися з творцем застосунку\nУ Налаштуваннях напишіть, що хотіли б змінити чи додати, і торкніться «Надіслати повідомлення»: відкриється поштовий застосунок. Кожен користувач отримує відповідь."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Зв’язатися з творцем застосунку\nУ Налаштуваннях напишіть, що хотіли б змінити чи додати, і торкніться «Надіслати повідомлення»: відкриється поштовий застосунок. Кожен користувач отримує відповідь.",
+"Voci de citire": "Голоси для читання",
+"(inclus)": "(вбудований)",
+"Alte limbi": "Інші мови",
+"Automat (limba aplicației)": "Автоматично (мова застосунку)",
+"Vocea principală": "Основний голос",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Румунська й англійська вбудовані та працюють офлайн. Для інших мов завантаж голос тут; без нього використовується голос телефона.",
+"Descarci vocea ": "Завантажити голос ",
+" Ești pe date mobile: se consumă date.": " Ти використовуєш мобільні дані: витрачатиметься трафік.",
+" Recomandat pe Wi-Fi.": " Рекомендовано Wi‑Fi.",
+"Vocea e gata": "Голос готовий",
+"Descărcare anulată": "Завантаження скасовано",
+"Nu am putut descărca vocea": "Не вдалося завантажити голос"
 };

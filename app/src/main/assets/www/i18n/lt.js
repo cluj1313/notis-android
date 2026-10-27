@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "Jei norite ką nors pakeisti, pataisyti ar pridėti, siųskite žinutę čia.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "Virtualus asistentas atlieka pirmą bendravimą ir patikrina, ar tokį patį prašymą jau pateikė kiti naudotojai.",
 "Fiecare utilizator primește un răspuns.": "Kiekvienas naudotojas gauna atsakymą.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Susisiekti su programėlės kūrėju\nNustatymuose parašyk, ką norėtum pakeisti ar pridėti, ir paliesk „Siųsti žinutę“: atsidarys el. pašto programa. Kiekvienas naudotojas gauna atsakymą."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Susisiekti su programėlės kūrėju\nNustatymuose parašyk, ką norėtum pakeisti ar pridėti, ir paliesk „Siųsti žinutę“: atsidarys el. pašto programa. Kiekvienas naudotojas gauna atsakymą.",
+"Voci de citire": "Skaitymo balsai",
+"(inclus)": "(įtrauktas)",
+"Alte limbi": "Kitos kalbos",
+"Automat (limba aplicației)": "Automatiškai (programos kalba)",
+"Vocea principală": "Pagrindinis balsas",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Rumunų ir anglų kalbos įtrauktos ir veikia neprisijungus. Kitoms kalboms atsisiųsk balsą čia; be jo naudojamas telefono balsas.",
+"Descarci vocea ": "Atsisiųsti balsą ",
+" Ești pe date mobile: se consumă date.": " Naudoji mobiliuosius duomenis: bus naudojami duomenys.",
+" Recomandat pe Wi-Fi.": " Rekomenduojamas Wi‑Fi.",
+"Vocea e gata": "Balsas paruoštas",
+"Descărcare anulată": "Atsisiuntimas atšauktas",
+"Nu am putut descărca vocea": "Nepavyko atsisiųsti balso"
 };

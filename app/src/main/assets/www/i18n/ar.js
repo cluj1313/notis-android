@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "إذا أردت تغيير شيء أو تعديله أو إضافته، أرسل رسالة هنا.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "يتولى المساعد الافتراضي التواصل الأول ويتحقق مما إذا كان مستخدمون آخرون قد قدّموا الطلب نفسه.",
 "Fiecare utilizator primește un răspuns.": "كل مستخدم يتلقى ردًا.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ تواصل مع مطوّر التطبيق\nفي الإعدادات اكتب ما تريد تغييره أو إضافته، ثم انقر «إرسال الرسالة»: يُفتح تطبيق البريد. كل مستخدم يتلقى ردًا."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ تواصل مع مطوّر التطبيق\nفي الإعدادات اكتب ما تريد تغييره أو إضافته، ثم انقر «إرسال الرسالة»: يُفتح تطبيق البريد. كل مستخدم يتلقى ردًا.",
+"Voci de citire": "أصوات القراءة",
+"(inclus)": "(مضمّن)",
+"Alte limbi": "لغات أخرى",
+"Automat (limba aplicației)": "تلقائي (لغة التطبيق)",
+"Vocea principală": "الصوت الرئيسي",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "الرومانية والإنجليزية مضمّنتان وتعملان دون اتصال. للغات الأخرى نزّل الصوت من هنا؛ وبدونه يُستخدم صوت الهاتف.",
+"Descarci vocea ": "تنزيل الصوت ",
+" Ești pe date mobile: se consumă date.": " أنت على بيانات الجوال: سيتم استهلاك البيانات.",
+" Recomandat pe Wi-Fi.": " يُنصح باستخدام Wi‑Fi.",
+"Vocea e gata": "الصوت جاهز",
+"Descărcare anulată": "أُلغي التنزيل",
+"Nu am putut descărca vocea": "تعذّر تنزيل الصوت"
 };

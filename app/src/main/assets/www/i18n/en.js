@@ -1058,5 +1058,17 @@ NOTIS_I18N={
 "Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "If you want something changed, modified or added, send a message here.",
 "Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "The virtual assistant handles the first interaction and checks whether other users have already made the same request.",
 "Fiecare utilizator primește un răspuns.": "Every user gets an answer.",
-"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Contact the app creator\nIn Settings, write what you would like changed or added, then tap “Send message”: your email app opens. Every user gets a reply."
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ Contact the app creator\nIn Settings, write what you would like changed or added, then tap “Send message”: your email app opens. Every user gets a reply.",
+"Voci de citire": "Reading voices",
+"(inclus)": "(included)",
+"Alte limbi": "Other languages",
+"Automat (limba aplicației)": "Automatic (app language)",
+"Vocea principală": "Main voice",
+"Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.": "Romanian and English are included and work offline. For other languages, download the voice here; without it, the phone's voice is used.",
+"Descarci vocea ": "Download the voice ",
+" Ești pe date mobile: se consumă date.": " You're on mobile data: this uses data.",
+" Recomandat pe Wi-Fi.": " Wi‑Fi recommended.",
+"Vocea e gata": "Voice ready",
+"Descărcare anulată": "Download cancelled",
+"Nu am putut descărca vocea": "Couldn't download the voice"
 };
