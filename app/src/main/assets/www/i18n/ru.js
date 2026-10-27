@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "Каждые (дней)",
 "O dată la (ore)": "Каждые (часов)",
 "↗ Trimite": "↗ Поделиться",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Как работают Лекарства\nКружки 1 – 0 – 1 = утро, день, вечер: нажмите «1», когда приняли дозу. Список отсортирован по времени.\nНажмите на название лекарства, чтобы открыть карточку: Лекарство, Способ приёма, Расписание (ежедневно, каждые X дней, каждые X часов, дни недели) и Наблюдения; ↗ Поделиться отправляет её.\n«+» добавляет лекарства или людей; «Все» открывает библиотеку."
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Как работают Лекарства\nКружки 1 – 0 – 1 = утро, день, вечер: нажмите «1», когда приняли дозу. Список отсортирован по времени.\nНажмите на название лекарства, чтобы открыть карточку: Лекарство, Способ приёма, Расписание (ежедневно, каждые X дней, каждые X часов, дни недели) и Наблюдения; ↗ Поделиться отправляет её.\n«+» добавляет лекарства или людей; «Все» открывает библиотеку.",
+"La N ore": "Каждые N ч",
+"La N zile": "Каждые N дн.",
+"Share": "Поделиться"
 };

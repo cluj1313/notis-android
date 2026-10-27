@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "Iga (päeva)",
 "O dată la (ore)": "Iga (tunni)",
 "↗ Trimite": "↗ Jaga",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Kuidas Ravimid töötab\nRingid 1 – 0 – 1 = hommik, lõuna, õhtu: puuduta „1”, kui oled annuse võtnud. Loend on järjestatud kellaaja järgi.\nPuuduta ravimi nime, et avada selle kaart: Ravim, Manustamisviis, Ajakava (iga päev, iga X päeva järel, iga X tunni järel, nädalapäevad) ja Märkused; ↗ Jaga saadab selle.\n„+” lisab ravimeid või inimesi; „Kõik” avab raamatukogu."
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Kuidas Ravimid töötab\nRingid 1 – 0 – 1 = hommik, lõuna, õhtu: puuduta „1”, kui oled annuse võtnud. Loend on järjestatud kellaaja järgi.\nPuuduta ravimi nime, et avada selle kaart: Ravim, Manustamisviis, Ajakava (iga päev, iga X päeva järel, iga X tunni järel, nädalapäevad) ja Märkused; ↗ Jaga saadab selle.\n„+” lisab ravimeid või inimesi; „Kõik” avab raamatukogu.",
+"La N ore": "Iga N h",
+"La N zile": "Iga N p",
+"Share": "Jaga"
 };

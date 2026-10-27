@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "Çdo (ditë)",
 "O dată la (ore)": "Çdo (orë)",
 "↗ Trimite": "↗ Ndaj",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Si funksionojnë Barnat\nRrathët 1 – 0 – 1 = mëngjes, mesditë, mbrëmje: prek „1” kur ke marrë dozën. Lista renditet sipas orës.\nPrek emrin e barit për kartën e tij: Bari, Mënyra e marrjes, Orari (çdo ditë, çdo X ditë, çdo X orë, ditët e javës) dhe Vërejtje; ↗ Ndaj e dërgon.\n„+” shton barna ose persona; „Të gjitha” hap bibliotekën."
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Si funksionojnë Barnat\nRrathët 1 – 0 – 1 = mëngjes, mesditë, mbrëmje: prek „1” kur ke marrë dozën. Lista renditet sipas orës.\nPrek emrin e barit për kartën e tij: Bari, Mënyra e marrjes, Orari (çdo ditë, çdo X ditë, çdo X orë, ditët e javës) dhe Vërejtje; ↗ Ndaj e dërgon.\n„+” shton barna ose persona; „Të gjitha” hap bibliotekën.",
+"La N ore": "Çdo N orë",
+"La N zile": "Çdo N ditë",
+"Share": "Ndaj"
 };

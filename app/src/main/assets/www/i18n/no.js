@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "Hver (dager)",
 "O dată la (ore)": "Hver (timer)",
 "↗ Trimite": "↗ Del",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Slik fungerer Medisiner\nSirklene 1 – 0 – 1 = morgen, middag, kveld: trykk på «1» når du har tatt dosen. Listen er sortert etter klokkeslett.\nTrykk på navnet til en medisin for kortet: Medisin, Inntak, Plan (daglig, hver X. dag, hver X. time, ukedager) og Merknader; ↗ Del sender det.\n«+» legger til medisiner eller personer; «Alle» åpner biblioteket."
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Slik fungerer Medisiner\nSirklene 1 – 0 – 1 = morgen, middag, kveld: trykk på «1» når du har tatt dosen. Listen er sortert etter klokkeslett.\nTrykk på navnet til en medisin for kortet: Medisin, Inntak, Plan (daglig, hver X. dag, hver X. time, ukedager) og Merknader; ↗ Del sender det.\n«+» legger til medisiner eller personer; «Alle» åpner biblioteket.",
+"La N ore": "Hver N t",
+"La N zile": "Hver N d",
+"Share": "Del"
 };

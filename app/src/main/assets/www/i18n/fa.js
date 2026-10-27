@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "هر (روز)",
 "O dată la (ore)": "هر (ساعت)",
 "↗ Trimite": "↗ اشتراک‌گذاری",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 داروها چگونه کار می‌کند\nدایره‌های 1 – 0 – 1 = صبح، ظهر، شب: وقتی دوز را مصرف کردید روی «1» بزنید. فهرست بر اساس ساعت مرتب است.\nبرای کارت هر دارو روی نامش بزنید: دارو، روش مصرف، برنامه (روزانه، هر X روز، هر X ساعت، روزهای هفته) و یادداشت‌ها؛ ↗ اشتراک‌گذاری آن را می‌فرستد.\n«+» دارو یا فرد اضافه می‌کند؛ «همه» کتابخانه را باز می‌کند."
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 داروها چگونه کار می‌کند\nدایره‌های 1 – 0 – 1 = صبح، ظهر، شب: وقتی دوز را مصرف کردید روی «1» بزنید. فهرست بر اساس ساعت مرتب است.\nبرای کارت هر دارو روی نامش بزنید: دارو، روش مصرف، برنامه (روزانه، هر X روز، هر X ساعت، روزهای هفته) و یادداشت‌ها؛ ↗ اشتراک‌گذاری آن را می‌فرستد.\n«+» دارو یا فرد اضافه می‌کند؛ «همه» کتابخانه را باز می‌کند.",
+"La N ore": "هر N ساعت",
+"La N zile": "هر N روز",
+"Share": "اشتراک‌گذاری"
 };

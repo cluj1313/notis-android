@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "Naponta (nap)",
 "O dată la (ore)": "Óránként (óra)",
 "↗ Trimite": "↗ Megosztás",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Így működik a Gyógyszerek\nA körök 1 – 0 – 1 = reggel, dél, este: koppints az „1”-re, ha bevetted az adagot. A lista idő szerint rendezett.\nKoppints egy gyógyszer nevére a kártyájához: Gyógyszer, Alkalmazás módja, Ütemezés (naponta, X naponta, X óránként, a hét napjai) és Megjegyzések; a ↗ Megosztás elküldi.\nA „+” gyógyszert vagy személyt ad hozzá; a „Mind” megnyitja a könyvtárat."
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Így működik a Gyógyszerek\nA körök 1 – 0 – 1 = reggel, dél, este: koppints az „1”-re, ha bevetted az adagot. A lista idő szerint rendezett.\nKoppints egy gyógyszer nevére a kártyájához: Gyógyszer, Alkalmazás módja, Ütemezés (naponta, X naponta, X óránként, a hét napjai) és Megjegyzések; a ↗ Megosztás elküldi.\nA „+” gyógyszert vagy személyt ad hozzá; a „Mind” megnyitja a könyvtárat.",
+"La N ore": "N óránként",
+"La N zile": "N naponta",
+"Share": "Megosztás"
 };

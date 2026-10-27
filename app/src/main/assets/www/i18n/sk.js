@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "Každých (dní)",
 "O dată la (ore)": "Každých (hodín)",
 "↗ Trimite": "↗ Zdieľať",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Ako fungujú Lieky\nKrúžky 1 – 0 – 1 = ráno, obed, večer: ťuknite na „1“, keď dávku užijete. Zoznam je zoradený podľa času.\nŤuknite na názov lieku pre jeho kartu: Liek, Spôsob užívania, Rozpis (denne, každých X dní, každých X hodín, dni v týždni) a Poznámky; ↗ Zdieľať ju odošle.\n„+“ pridá lieky alebo osoby; „Všetko“ otvorí knižnicu."
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Ako fungujú Lieky\nKrúžky 1 – 0 – 1 = ráno, obed, večer: ťuknite na „1“, keď dávku užijete. Zoznam je zoradený podľa času.\nŤuknite na názov lieku pre jeho kartu: Liek, Spôsob užívania, Rozpis (denne, každých X dní, každých X hodín, dni v týždni) a Poznámky; ↗ Zdieľať ju odošle.\n„+“ pridá lieky alebo osoby; „Všetko“ otvorí knižnicu.",
+"La N ore": "Po N hod.",
+"La N zile": "Po N dňoch",
+"Share": "Zdieľať"
 };

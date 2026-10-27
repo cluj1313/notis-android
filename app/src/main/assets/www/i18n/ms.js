@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "Setiap (hari)",
 "O dată la (ore)": "Setiap (jam)",
 "↗ Trimite": "↗ Kongsi",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Cara Ubat berfungsi\nBulatan 1 – 0 – 1 = pagi, tengah hari, petang: ketik “1” selepas mengambil dos. Senarai disusun mengikut masa.\nKetik nama ubat untuk kadnya: Ubat, Cara pengambilan, Jadual (setiap hari, setiap X hari, setiap X jam, hari dalam seminggu) dan Catatan; ↗ Kongsi menghantarnya.\n“+” menambah ubat atau orang; “Semua” membuka perpustakaan."
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Cara Ubat berfungsi\nBulatan 1 – 0 – 1 = pagi, tengah hari, petang: ketik “1” selepas mengambil dos. Senarai disusun mengikut masa.\nKetik nama ubat untuk kadnya: Ubat, Cara pengambilan, Jadual (setiap hari, setiap X hari, setiap X jam, hari dalam seminggu) dan Catatan; ↗ Kongsi menghantarnya.\n“+” menambah ubat atau orang; “Semua” membuka perpustakaan.",
+"La N ore": "Setiap N jam",
+"La N zile": "Setiap N hari",
+"Share": "Kongsi"
 };

@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "Co (dni)",
 "O dată la (ore)": "Co (godzin)",
 "↗ Trimite": "↗ Udostępnij",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Jak działają Leki\nKółka 1 – 0 – 1 = rano, południe, wieczór: dotknij „1”, gdy przyjmiesz dawkę. Lista jest posortowana według godziny.\nDotknij nazwy leku, aby otworzyć kartę: Lek, Sposób podawania, Harmonogram (codziennie, co X dni, co X godzin, dni tygodnia) i Uwagi; ↗ Udostępnij ją wysyła.\n„+” dodaje leki lub osoby; „Wszystkie” otwiera bibliotekę."
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Jak działają Leki\nKółka 1 – 0 – 1 = rano, południe, wieczór: dotknij „1”, gdy przyjmiesz dawkę. Lista jest posortowana według godziny.\nDotknij nazwy leku, aby otworzyć kartę: Lek, Sposób podawania, Harmonogram (codziennie, co X dni, co X godzin, dni tygodnia) i Uwagi; ↗ Udostępnij ją wysyła.\n„+” dodaje leki lub osoby; „Wszystkie” otwiera bibliotekę.",
+"La N ore": "Co N godz.",
+"La N zile": "Co N dni",
+"Share": "Udostępnij"
 };

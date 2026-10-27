@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "Her (gün)",
 "O dată la (ore)": "Her (saat)",
 "↗ Trimite": "↗ Paylaş",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 İlaçlar nasıl çalışır\nDaireler 1 – 0 – 1 = sabah, öğle, akşam: dozu aldığında “1”e dokun. Liste saate göre sıralanır.\nKartını açmak için ilacın adına dokun: İlaç, Kullanım şekli, Program (her gün, her X günde bir, her X saatte bir, haftanın günleri) ve Gözlemler; ↗ Paylaş onu gönderir.\n“+” ilaç veya kişi ekler; “Tümü” kütüphaneyi açar."
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 İlaçlar nasıl çalışır\nDaireler 1 – 0 – 1 = sabah, öğle, akşam: dozu aldığında “1”e dokun. Liste saate göre sıralanır.\nKartını açmak için ilacın adına dokun: İlaç, Kullanım şekli, Program (her gün, her X günde bir, her X saatte bir, haftanın günleri) ve Gözlemler; ↗ Paylaş onu gönderir.\n“+” ilaç veya kişi ekler; “Tümü” kütüphaneyi açar.",
+"La N ore": "N saatte bir",
+"La N zile": "N günde bir",
+"Share": "Paylaş"
 };

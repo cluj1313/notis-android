@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "Κάθε (ημέρες)",
 "O dată la (ore)": "Κάθε (ώρες)",
 "↗ Trimite": "↗ Κοινοποίηση",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Πώς λειτουργούν τα Φάρμακα\nΟι κύκλοι 1 – 0 – 1 = πρωί, μεσημέρι, βράδυ: πατήστε «1» όταν πάρετε τη δόση. Η λίστα ταξινομείται κατά ώρα.\nΠατήστε το όνομα ενός φαρμάκου για την κάρτα του: Φάρμακο, Τρόπος χορήγησης, Πρόγραμμα (καθημερινά, κάθε X ημέρες, κάθε X ώρες, ημέρες της εβδομάδας) και Παρατηρήσεις· το ↗ Κοινοποίηση τη στέλνει.\nΤο «+» προσθέτει φάρμακα ή άτομα· το «Όλα» ανοίγει τη βιβλιοθήκη."
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Πώς λειτουργούν τα Φάρμακα\nΟι κύκλοι 1 – 0 – 1 = πρωί, μεσημέρι, βράδυ: πατήστε «1» όταν πάρετε τη δόση. Η λίστα ταξινομείται κατά ώρα.\nΠατήστε το όνομα ενός φαρμάκου για την κάρτα του: Φάρμακο, Τρόπος χορήγησης, Πρόγραμμα (καθημερινά, κάθε X ημέρες, κάθε X ώρες, ημέρες της εβδομάδας) και Παρατηρήσεις· το ↗ Κοινοποίηση τη στέλνει.\nΤο «+» προσθέτει φάρμακα ή άτομα· το «Όλα» ανοίγει τη βιβλιοθήκη.",
+"La N ore": "Ανά N ώρες",
+"La N zile": "Ανά N ημ.",
+"Share": "Κοινοποίηση"
 };

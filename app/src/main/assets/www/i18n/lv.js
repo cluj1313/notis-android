@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "Ik pēc (dienām)",
 "O dată la (ore)": "Ik pēc (stundām)",
 "↗ Trimite": "↗ Kopīgot",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Kā darbojas Medikamenti\nApļi 1 – 0 – 1 = rīts, pusdiena, vakars: pieskarieties „1”, kad esat iedzēris devu. Saraksts ir sakārtots pēc laika.\nPieskarieties medikamenta nosaukumam, lai atvērtu tā karti: Medikaments, Lietošanas veids, Grafiks (katru dienu, ik pēc X dienām, ik pēc X stundām, nedēļas dienas) un Piezīmes; ↗ Kopīgot to nosūta.\n„+” pievieno medikamentus vai personas; „Visi” atver bibliotēku."
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Kā darbojas Medikamenti\nApļi 1 – 0 – 1 = rīts, pusdiena, vakars: pieskarieties „1”, kad esat iedzēris devu. Saraksts ir sakārtots pēc laika.\nPieskarieties medikamenta nosaukumam, lai atvērtu tā karti: Medikaments, Lietošanas veids, Grafiks (katru dienu, ik pēc X dienām, ik pēc X stundām, nedēļas dienas) un Piezīmes; ↗ Kopīgot to nosūta.\n„+” pievieno medikamentus vai personas; „Visi” atver bibliotēku.",
+"La N ore": "Ik N st.",
+"La N zile": "Ik N d.",
+"Share": "Kopīgot"
 };

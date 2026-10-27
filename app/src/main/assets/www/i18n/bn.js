@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "প্রতি (দিন)",
 "O dată la (ore)": "প্রতি (ঘণ্টা)",
 "↗ Trimite": "↗ শেয়ার",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 ওষুধ কীভাবে কাজ করে\nবৃত্ত 1 – 0 – 1 = সকাল, দুপুর, সন্ধ্যা: ডোজ নিলে “1” চাপুন। তালিকা সময় অনুযায়ী সাজানো।\nকার্ডের জন্য ওষুধের নামে চাপুন: ওষুধ, সেবনের নিয়ম, সময়সূচি (প্রতিদিন, প্রতি X দিনে, প্রতি X ঘণ্টায়, সপ্তাহের দিন) ও পর্যবেক্ষণ; ↗ শেয়ার এটি পাঠায়।\n“+” ওষুধ বা ব্যক্তি যোগ করে; “সব” লাইব্রেরি খোলে।"
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 ওষুধ কীভাবে কাজ করে\nবৃত্ত 1 – 0 – 1 = সকাল, দুপুর, সন্ধ্যা: ডোজ নিলে “1” চাপুন। তালিকা সময় অনুযায়ী সাজানো।\nকার্ডের জন্য ওষুধের নামে চাপুন: ওষুধ, সেবনের নিয়ম, সময়সূচি (প্রতিদিন, প্রতি X দিনে, প্রতি X ঘণ্টায়, সপ্তাহের দিন) ও পর্যবেক্ষণ; ↗ শেয়ার এটি পাঠায়।\n“+” ওষুধ বা ব্যক্তি যোগ করে; “সব” লাইব্রেরি খোলে।",
+"La N ore": "প্রতি N ঘণ্টা",
+"La N zile": "প্রতি N দিন",
+"Share": "শেয়ার করুন"
 };

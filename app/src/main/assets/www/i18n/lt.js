@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "Kas (dienas)",
 "O dată la (ore)": "Kas (valandas)",
 "↗ Trimite": "↗ Bendrinti",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Kaip veikia Vaistai\nApskritimai 1 – 0 – 1 = rytas, vidurdienis, vakaras: palieskite „1“, kai išgėrėte dozę. Sąrašas surikiuotas pagal laiką.\nPalieskite vaisto pavadinimą, kad atvertumėte kortelę: Vaistas, Vartojimo būdas, Grafikas (kasdien, kas X dienas, kas X valandas, savaitės dienos) ir Pastabos; ↗ Bendrinti ją išsiunčia.\n„+“ prideda vaistų ar žmonių; „Visi“ atveria biblioteką."
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Kaip veikia Vaistai\nApskritimai 1 – 0 – 1 = rytas, vidurdienis, vakaras: palieskite „1“, kai išgėrėte dozę. Sąrašas surikiuotas pagal laiką.\nPalieskite vaisto pavadinimą, kad atvertumėte kortelę: Vaistas, Vartojimo būdas, Grafikas (kasdien, kas X dienas, kas X valandas, savaitės dienos) ir Pastabos; ↗ Bendrinti ją išsiunčia.\n„+“ prideda vaistų ar žmonių; „Visi“ atveria biblioteką.",
+"La N ore": "Kas N val.",
+"La N zile": "Kas N d.",
+"Share": "Bendrinti"
 };

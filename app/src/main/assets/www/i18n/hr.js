@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "Svakih (dana)",
 "O dată la (ore)": "Svakih (sati)",
 "↗ Trimite": "↗ Podijeli",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Kako rade Lijekovi\nKrugovi 1 – 0 – 1 = jutro, podne, večer: dodirnite „1” kad uzmete dozu. Popis je poredan po vremenu.\nDodirnite naziv lijeka za njegovu karticu: Lijek, Način uzimanja, Raspored (svaki dan, svakih X dana, svakih X sati, dani u tjednu) i Opažanja; ↗ Podijeli je šalje.\n„+” dodaje lijekove ili osobe; „Sve” otvara knjižnicu."
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Kako rade Lijekovi\nKrugovi 1 – 0 – 1 = jutro, podne, večer: dodirnite „1” kad uzmete dozu. Popis je poredan po vremenu.\nDodirnite naziv lijeka za njegovu karticu: Lijek, Način uzimanja, Raspored (svaki dan, svakih X dana, svakih X sati, dani u tjednu) i Opažanja; ↗ Podijeli je šalje.\n„+” dodaje lijekove ili osobe; „Sve” otvara knjižnicu.",
+"La N ore": "Svakih N h",
+"La N zile": "Svakih N d",
+"Share": "Podijeli"
 };

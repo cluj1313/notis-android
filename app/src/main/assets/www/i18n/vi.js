@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "Mỗi (ngày)",
 "O dată la (ore)": "Mỗi (giờ)",
 "↗ Trimite": "↗ Chia sẻ",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Thuốc hoạt động thế nào\nCác vòng 1 – 0 – 1 = sáng, trưa, tối: chạm “1” khi đã uống liều. Danh sách xếp theo giờ.\nChạm tên thuốc để mở thẻ: Thuốc, Cách dùng, Lịch (hằng ngày, mỗi X ngày, mỗi X giờ, các ngày trong tuần) và Ghi chú; ↗ Chia sẻ để gửi đi.\n“+” thêm thuốc hoặc người; “Tất cả” mở thư viện."
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Thuốc hoạt động thế nào\nCác vòng 1 – 0 – 1 = sáng, trưa, tối: chạm “1” khi đã uống liều. Danh sách xếp theo giờ.\nChạm tên thuốc để mở thẻ: Thuốc, Cách dùng, Lịch (hằng ngày, mỗi X ngày, mỗi X giờ, các ngày trong tuần) và Ghi chú; ↗ Chia sẻ để gửi đi.\n“+” thêm thuốc hoặc người; “Tất cả” mở thư viện.",
+"La N ore": "Mỗi N giờ",
+"La N zile": "Mỗi N ngày",
+"Share": "Chia sẻ"
 };

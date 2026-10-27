@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "Elke (dagen)",
 "O dată la (ore)": "Elke (uren)",
 "↗ Trimite": "↗ Delen",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Zo werkt Medicijnen\nDe cirkels 1 – 0 – 1 = ochtend, middag, avond: tik op „1” als je de dosis hebt genomen. De lijst is op tijd gesorteerd.\nTik op de naam van een medicijn voor de kaart: Medicijn, Gebruikswijze, Schema (dagelijks, elke X dagen, elke X uur, dagen van de week) en Opmerkingen; ↗ Delen verstuurt hem.\n„+” voegt medicijnen of personen toe; „Alle” opent de bibliotheek."
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Zo werkt Medicijnen\nDe cirkels 1 – 0 – 1 = ochtend, middag, avond: tik op „1” als je de dosis hebt genomen. De lijst is op tijd gesorteerd.\nTik op de naam van een medicijn voor de kaart: Medicijn, Gebruikswijze, Schema (dagelijks, elke X dagen, elke X uur, dagen van de week) en Opmerkingen; ↗ Delen verstuurt hem.\n„+” voegt medicijnen of personen toe; „Alle” opent de bibliotheek.",
+"La N ore": "Elke N uur",
+"La N zile": "Elke N dgn",
+"Share": "Delen"
 };

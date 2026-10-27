@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "ทุก (วัน)",
 "O dată la (ore)": "ทุก (ชั่วโมง)",
 "↗ Trimite": "↗ แชร์",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 ยา ทำงานอย่างไร\nวงกลม 1 – 0 – 1 = เช้า กลางวัน เย็น: แตะ “1” เมื่อกินยาแล้ว รายการเรียงตามเวลา\nแตะชื่อยาเพื่อดูบัตร: ยา, วิธีใช้, ตารางเวลา (ทุกวัน ทุก X วัน ทุก X ชั่วโมง วันในสัปดาห์) และข้อสังเกต; ↗ แชร์ จะส่งบัตรนี้\n“+” เพิ่มยาหรือบุคคล; “ทั้งหมด” เปิดคลัง"
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 ยา ทำงานอย่างไร\nวงกลม 1 – 0 – 1 = เช้า กลางวัน เย็น: แตะ “1” เมื่อกินยาแล้ว รายการเรียงตามเวลา\nแตะชื่อยาเพื่อดูบัตร: ยา, วิธีใช้, ตารางเวลา (ทุกวัน ทุก X วัน ทุก X ชั่วโมง วันในสัปดาห์) และข้อสังเกต; ↗ แชร์ จะส่งบัตรนี้\n“+” เพิ่มยาหรือบุคคล; “ทั้งหมด” เปิดคลัง",
+"La N ore": "ทุก N ชม.",
+"La N zile": "ทุก N วัน",
+"Share": "แชร์"
 };

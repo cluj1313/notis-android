@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "हर (दिन)",
 "O dată la (ore)": "हर (घंटे)",
 "↗ Trimite": "↗ साझा करें",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 दवाइयाँ कैसे काम करती हैं\nघेरे 1 – 0 – 1 = सुबह, दोपहर, शाम: खुराक लेने पर “1” दबाएँ। सूची समय के अनुसार है।\nकार्ड के लिए दवा के नाम पर टैप करें: दवा, लेने का तरीका, समय-सारिणी (रोज़, हर X दिन, हर X घंटे, सप्ताह के दिन) और टिप्पणियाँ; ↗ साझा करें इसे भेजता है।\n“+” दवाइयाँ या लोग जोड़ता है; “सभी” लाइब्रेरी खोलता है।"
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 दवाइयाँ कैसे काम करती हैं\nघेरे 1 – 0 – 1 = सुबह, दोपहर, शाम: खुराक लेने पर “1” दबाएँ। सूची समय के अनुसार है।\nकार्ड के लिए दवा के नाम पर टैप करें: दवा, लेने का तरीका, समय-सारिणी (रोज़, हर X दिन, हर X घंटे, सप्ताह के दिन) और टिप्पणियाँ; ↗ साझा करें इसे भेजता है।\n“+” दवाइयाँ या लोग जोड़ता है; “सभी” लाइब्रेरी खोलता है।",
+"La N ore": "हर N घंटे",
+"La N zile": "हर N दिन",
+"Share": "साझा करें"
 };

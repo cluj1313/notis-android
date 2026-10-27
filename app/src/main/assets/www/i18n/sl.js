@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "Vsakih (dni)",
 "O dată la (ore)": "Vsakih (ur)",
 "↗ Trimite": "↗ Deli",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Kako delujejo Zdravila\nKrogi 1 – 0 – 1 = zjutraj, opoldne, zvečer: tapnite »1«, ko vzamete odmerek. Seznam je razvrščen po uri.\nTapnite ime zdravila za njegovo kartico: Zdravilo, Način jemanja, Urnik (vsak dan, vsakih X dni, vsakih X ur, dnevi v tednu) in Opombe; ↗ Deli jo pošlje.\n»+« doda zdravila ali osebe; »Vse« odpre knjižnico."
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Kako delujejo Zdravila\nKrogi 1 – 0 – 1 = zjutraj, opoldne, zvečer: tapnite »1«, ko vzamete odmerek. Seznam je razvrščen po uri.\nTapnite ime zdravila za njegovo kartico: Zdravilo, Način jemanja, Urnik (vsak dan, vsakih X dni, vsakih X ur, dnevi v tednu) in Opombe; ↗ Deli jo pošlje.\n»+« doda zdravila ali osebe; »Vse« odpre knjižnico.",
+"La N ore": "Na N ur",
+"La N zile": "Na N dni",
+"Share": "Deli"
 };

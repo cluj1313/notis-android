@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "Every (days)",
 "O dată la (ore)": "Every (hours)",
 "↗ Trimite": "↗ Share",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 How Medicines works\nThe circles 1 – 0 – 1 = morning, noon, evening: tap “1” when you've taken the dose. The list is sorted by time.\nTap a medicine's name for its card: Medicine, How to take, Schedule (daily, every X days, every X hours, days of the week) and Notes; ↗ Share sends it.\n“+” adds medicines or people; “All” opens the library."
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 How Medicines works\nThe circles 1 – 0 – 1 = morning, noon, evening: tap “1” when you've taken the dose. The list is sorted by time.\nTap a medicine's name for its card: Medicine, How to take, Schedule (daily, every X days, every X hours, days of the week) and Notes; ↗ Share sends it.\n“+” adds medicines or people; “All” opens the library.",
+"La N ore": "Every N h",
+"La N zile": "Every N d",
+"Share": "Share"
 };

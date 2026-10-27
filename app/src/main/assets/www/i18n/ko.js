@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "간격(일)",
 "O dată la (ore)": "간격(시간)",
 "↗ Trimite": "↗ 공유",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 약 사용법\n원 1 – 0 – 1 = 아침, 점심, 저녁: 복용하면 “1”을 탭하세요. 목록은 시간순입니다.\n약 이름을 탭하면 카드가 열립니다: 약, 복용 방법, 일정(매일, X일마다, X시간마다, 요일) 및 메모; ↗ 공유로 보냅니다.\n“+”로 약이나 사람을 추가하고, “전체”로 라이브러리를 엽니다."
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 약 사용법\n원 1 – 0 – 1 = 아침, 점심, 저녁: 복용하면 “1”을 탭하세요. 목록은 시간순입니다.\n약 이름을 탭하면 카드가 열립니다: 약, 복용 방법, 일정(매일, X일마다, X시간마다, 요일) 및 메모; ↗ 공유로 보냅니다.\n“+”로 약이나 사람을 추가하고, “전체”로 라이브러리를 엽니다.",
+"La N ore": "N시간마다",
+"La N zile": "N일마다",
+"Share": "공유"
 };

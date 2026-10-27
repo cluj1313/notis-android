@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "間隔（天）",
 "O dată la (ore)": "間隔（小時）",
 "↗ Trimite": "↗ 分享",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 藥品如何使用\n圓圈 1 – 0 – 1 = 早、中、晚：服藥後點「1」。清單依時間排序。\n點藥名開啟卡片：藥品、用法、服藥計畫（每天、每 X 天、每 X 小時、星期幾）和觀察；↗ 分享可傳送。\n「+」新增藥品或人員；「全部」開啟藥庫。"
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 藥品如何使用\n圓圈 1 – 0 – 1 = 早、中、晚：服藥後點「1」。清單依時間排序。\n點藥名開啟卡片：藥品、用法、服藥計畫（每天、每 X 天、每 X 小時、星期幾）和觀察；↗ 分享可傳送。\n「+」新增藥品或人員；「全部」開啟藥庫。",
+"La N ore": "每 N 小時",
+"La N zile": "每 N 天",
+"Share": "分享"
 };

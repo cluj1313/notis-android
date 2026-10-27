@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "Tous les (jours)",
 "O dată la (ore)": "Toutes les (heures)",
 "↗ Trimite": "↗ Partager",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Comment fonctionne Médicaments\nLes cercles 1 – 0 – 1 = matin, midi, soir : touchez « 1 » quand vous avez pris la dose. La liste est triée par heure.\nTouchez le nom d'un médicament pour sa fiche : Médicament, Mode d'administration, Programme (quotidien, tous les X jours, toutes les X heures, jours de la semaine) et Observations ; ↗ Partager l'envoie.\n« + » ajoute des médicaments ou des personnes ; « Tous » ouvre la bibliothèque."
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Comment fonctionne Médicaments\nLes cercles 1 – 0 – 1 = matin, midi, soir : touchez « 1 » quand vous avez pris la dose. La liste est triée par heure.\nTouchez le nom d'un médicament pour sa fiche : Médicament, Mode d'administration, Programme (quotidien, tous les X jours, toutes les X heures, jours de la semaine) et Observations ; ↗ Partager l'envoie.\n« + » ajoute des médicaments ou des personnes ; « Tous » ouvre la bibliothèque.",
+"La N ore": "Toutes N h",
+"La N zile": "Tous N j",
+"Share": "Partager"
 };

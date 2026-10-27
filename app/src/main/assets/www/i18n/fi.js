@@ -1037,5 +1037,8 @@ NOTIS_I18N={
 "O dată la (zile)": "Välein (päivää)",
 "O dată la (ore)": "Välein (tuntia)",
 "↗ Trimite": "↗ Jaa",
-"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Näin Lääkkeet toimii\nYmpyrät 1 – 0 – 1 = aamu, keskipäivä, ilta: napauta ”1”, kun olet ottanut annoksen. Lista on järjestetty kellonajan mukaan.\nNapauta lääkkeen nimeä nähdäksesi kortin: Lääke, Ottotapa, Aikataulu (päivittäin, X päivän välein, X tunnin välein, viikonpäivät) ja Huomiot; ↗ Jaa lähettää sen.\n”+” lisää lääkkeitä tai henkilöitä; ”Kaikki” avaa kirjaston."
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Näin Lääkkeet toimii\nYmpyrät 1 – 0 – 1 = aamu, keskipäivä, ilta: napauta ”1”, kun olet ottanut annoksen. Lista on järjestetty kellonajan mukaan.\nNapauta lääkkeen nimeä nähdäksesi kortin: Lääke, Ottotapa, Aikataulu (päivittäin, X päivän välein, X tunnin välein, viikonpäivät) ja Huomiot; ↗ Jaa lähettää sen.\n”+” lisää lääkkeitä tai henkilöitä; ”Kaikki” avaa kirjaston.",
+"La N ore": "N h välein",
+"La N zile": "N pv välein",
+"Share": "Jaa"
 };
