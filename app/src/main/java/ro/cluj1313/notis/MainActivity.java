@@ -24,7 +24,7 @@ import java.io.InputStream;
 
 public class MainActivity extends androidx.fragment.app.FragmentActivity {
     static final String BASE = "https://cluj1313.github.io/notis/";
-    private static final int FILE_REQ = 41, MIC_REQ = 42, CAM_REQ = 43, MIC_NAT_REQ = 44, SND_REQ = 45, SNDF_REQ = 46, STT_REQ = 47;
+    private static final int FILE_REQ = 41, MIC_REQ = 42, CAM_REQ = 43, MIC_NAT_REQ = 44, SND_REQ = 45, SNDF_REQ = 46, STT_REQ = 47, CONTACTS_REQ = 48;
     static volatile MainActivity cur;
     WebView bioWeb;
     /** 2.5.6: biometric result back to JS */
@@ -286,11 +286,18 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity {
     }
     /** native recorder fallback asks for RECORD_AUDIO from the bridge; result goes back to window.__recPerm */
     void askMicForBridge() { runOnUiThread(() -> requestPermissions(new String[]{ android.Manifest.permission.RECORD_AUDIO }, MIC_NAT_REQ)); }
+    void askContacts() { runOnUiThread(() -> requestPermissions(new String[]{ android.Manifest.permission.READ_CONTACTS }, CONTACTS_REQ)); }
+    void contactsDeliver() { final Context c = getApplicationContext(); new Thread(() -> { final String j = Contacts.readAll(c); runOnUiThread(() -> { if (web != null) web.evaluateJavascript("window.__contacts&&window.__contacts(" + JSONObject.quote(j) + ")", null); }); }).start(); }
     void askMicForStt() { runOnUiThread(() -> requestPermissions(new String[]{ android.Manifest.permission.RECORD_AUDIO }, STT_REQ)); }
     void sttJs(String k, String t) { runOnUiThread(() -> { if (web != null) web.evaluateJavascript("window.__stt&&window.__stt(" + JSONObject.quote(k) + "," + JSONObject.quote(t == null ? "" : t) + ")", null); }); }
     @Override protected void onDestroy() { if (cur == this) cur = null; NativeRec.cancel(); NativeStt.stop(); super.onDestroy(); }
 
     @Override public void onRequestPermissionsResult(int req, String[] perms, int[] res) {
+        if (req == CONTACTS_REQ) {
+            boolean ok = res.length > 0 && res[0] == android.content.pm.PackageManager.PERMISSION_GRANTED;
+            if (ok) contactsDeliver(); else if (web != null) web.evaluateJavascript("window.__contacts&&window.__contacts(null)", null);
+            return;
+        }
         if (req == STT_REQ) {
             boolean ok = res.length > 0 && res[0] == android.content.pm.PackageManager.PERMISSION_GRANTED;
             if (web != null) web.evaluateJavascript("window.__sttPerm&&window.__sttPerm(" + ok + ")", null);

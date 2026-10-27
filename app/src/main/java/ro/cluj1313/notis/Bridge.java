@@ -90,6 +90,12 @@ final class Bridge {
     @JavascriptInterface public void setLang(String l) { if (!MainActivity.trusted) return;
         if (Tr.setLang(ctx, l)) { AlarmReceiver.channel(ctx); NotisWidget.refreshAll(ctx); }
     }
+    /* v144 CRM import from phone contacts: asks READ_CONTACTS only now; result (JSON array or null) goes to window.__contacts */
+    @JavascriptInterface public String contactsPick() { if (!MainActivity.trusted) return "err:untrusted";
+        MainActivity a = MainActivity.cur; if (a == null) return "err:noactivity";
+        if (ctx.checkSelfPermission(android.Manifest.permission.READ_CONTACTS) != android.content.pm.PackageManager.PERMISSION_GRANTED) { a.askContacts(); return "perm"; }
+        a.contactsDeliver(); return "ok";
+    }
     /* native recorder fallback (when WebView getUserMedia fails): "ok" | "perm" | "err:..." ; stop returns base64 AAC/m4a */
     @JavascriptInterface public String recStart() { if (!MainActivity.trusted) return "err:untrusted";
         if (ctx.checkSelfPermission(android.Manifest.permission.RECORD_AUDIO) != android.content.pm.PackageManager.PERMISSION_GRANTED) {
