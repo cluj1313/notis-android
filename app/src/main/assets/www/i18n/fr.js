@@ -1162,4 +1162,8 @@ NOTIS_I18N={
 "Cărți de vizită": "Cartes de visite",
 "A cerut prețuri.": "A demandé les prix.",
 "Contract semnat.": "Contrat signé.",
+"Din agendă":"Depuis les contacts",
+"Caut și în agenda telefonului?":"Chercher aussi dans les contacts du téléphone ?",
+"Notis cere acces la contacte doar pentru căutare. Nu se importă nimic până nu atingi un contact.":"Notis demande l’accès aux contacts uniquement pour la recherche. Rien n’est importé tant que vous ne touchez pas un contact.",
+"Adăugat în CRM":"Ajouté au CRM"
 };

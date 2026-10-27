@@ -96,6 +96,17 @@ final class Bridge {
         if (ctx.checkSelfPermission(android.Manifest.permission.READ_CONTACTS) != android.content.pm.PackageManager.PERMISSION_GRANTED) { a.askContacts(); return "perm"; }
         a.contactsDeliver(); return "ok";
     }
+    /* v146 CRM search in the phone agenda without importing: filtered lookup (name or number), max lim contacts; "perm" if not granted (never prompts) */
+    @JavascriptInterface public String contactsSearch(String q, int lim) { if (!MainActivity.trusted) return "err:untrusted";
+        if (ctx.checkSelfPermission(android.Manifest.permission.READ_CONTACTS) != android.content.pm.PackageManager.PERMISSION_GRANTED) return "perm";
+        return Contacts.search(ctx, q, lim);
+    }
+    /* asks READ_CONTACTS for the agenda search; result goes to window.__ctPerm(true|false) */
+    @JavascriptInterface public String contactsAsk() { if (!MainActivity.trusted) return "err:untrusted";
+        MainActivity a = MainActivity.cur; if (a == null) return "err:noactivity";
+        if (ctx.checkSelfPermission(android.Manifest.permission.READ_CONTACTS) == android.content.pm.PackageManager.PERMISSION_GRANTED) return "ok";
+        a.askContactsQ(); return "perm";
+    }
     /* native recorder fallback (when WebView getUserMedia fails): "ok" | "perm" | "err:..." ; stop returns base64 AAC/m4a */
     @JavascriptInterface public String recStart() { if (!MainActivity.trusted) return "err:untrusted";
         if (ctx.checkSelfPermission(android.Manifest.permission.RECORD_AUDIO) != android.content.pm.PackageManager.PERMISSION_GRANTED) {

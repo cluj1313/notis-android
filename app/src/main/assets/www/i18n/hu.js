@@ -1162,4 +1162,8 @@ NOTIS_I18N={
 "Cărți de vizită": "Névjegykártyák",
 "A cerut prețuri.": "Árakat kért.",
 "Contract semnat.": "Szerződés aláírva.",
+"Din agendă":"A névjegyekből",
+"Caut și în agenda telefonului?":"Keressen a telefon névjegyei között is?",
+"Notis cere acces la contacte doar pentru căutare. Nu se importă nimic până nu atingi un contact.":"A Notis csak a kereséshez kér hozzáférést a névjegyekhez. Semmi sem kerül importálásra, amíg nem koppintasz egy névjegyre.",
+"Adăugat în CRM":"Hozzáadva a CRM-hez"
 };

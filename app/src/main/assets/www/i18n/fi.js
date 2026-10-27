@@ -1162,4 +1162,8 @@ NOTIS_I18N={
 "Cărți de vizită": "Käyntikortit",
 "A cerut prețuri.": "Hän kysyi hintoja.",
 "Contract semnat.": "Sopimus on allekirjoitettu.",
+"Din agendă":"Yhteyshenkilöistä",
+"Caut și în agenda telefonului?":"Tutkikaa myös puhelimen yhteystietosi?",
+"Notis cere acces la contacte doar pentru căutare. Nu se importă nimic până nu atingi un contact.":"Notis pyytää yhteystietojen käyttöoikeutta vain hakua varten. Mitään ei tuoda, ennen kuin napautat yhteystietoa.",
+"Adăugat în CRM":"Lisätty CRM: hen"
 };
