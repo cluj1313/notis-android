@@ -1005,5 +1005,8 @@ NOTIS_I18N={
 "Repetiție zile": "দিন অনুযায়ী পুনরাবৃত্তি",
 "La fiecare câte zile": "কত দিন পরপর",
 "În zilele (opțional)": "এই দিনগুলোতে (ঐচ্ছিক)",
-"sau ore (ex. 1.5)": "অথবা ঘণ্টা (যেমন 1.5)"
+"sau ore (ex. 1.5)": "অথবা ঘণ্টা (যেমন 1.5)",
+"Suni?": "কল করবেন?",
+"Deschizi locația?": "অবস্থান খুলবেন?",
+"Deschizi linkul?": "লিঙ্ক খুলবেন?"
 };

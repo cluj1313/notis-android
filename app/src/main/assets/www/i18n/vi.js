@@ -1005,5 +1005,8 @@ NOTIS_I18N={
 "Repetiție zile": "Lặp theo ngày",
 "La fiecare câte zile": "Cách bao nhiêu ngày",
 "În zilele (opțional)": "Vào các ngày (tùy chọn)",
-"sau ore (ex. 1.5)": "hoặc giờ (vd. 1.5)"
+"sau ore (ex. 1.5)": "hoặc giờ (vd. 1.5)",
+"Suni?": "Gọi?",
+"Deschizi locația?": "Mở vị trí?",
+"Deschizi linkul?": "Mở liên kết?"
 };

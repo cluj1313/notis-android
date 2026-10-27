@@ -1005,5 +1005,8 @@ NOTIS_I18N={
 "Repetiție zile": "Përsëritje me ditë",
 "La fiecare câte zile": "Çdo sa ditë",
 "În zilele (opțional)": "Në ditët (opsionale)",
-"sau ore (ex. 1.5)": "ose orë (p.sh. 1.5)"
+"sau ore (ex. 1.5)": "ose orë (p.sh. 1.5)",
+"Suni?": "Të telefonoj?",
+"Deschizi locația?": "Të hap vendndodhjen?",
+"Deschizi linkul?": "Të hap lidhjen?"
 };

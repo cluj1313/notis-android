@@ -1005,5 +1005,8 @@ NOTIS_I18N={
 "Repetiție zile": "按天重複",
 "La fiecare câte zile": "每隔幾天",
 "În zilele (opțional)": "在這些天（可選）",
-"sau ore (ex. 1.5)": "或小時（如 1.5）"
+"sau ore (ex. 1.5)": "或小時（如 1.5）",
+"Suni?": "撥打？",
+"Deschizi locația?": "開啟位置？",
+"Deschizi linkul?": "開啟連結？"
 };

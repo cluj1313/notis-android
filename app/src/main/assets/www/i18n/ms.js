@@ -1005,5 +1005,8 @@ NOTIS_I18N={
 "Repetiție zile": "Ulang mengikut hari",
 "La fiecare câte zile": "Setiap berapa hari",
 "În zilele (opțional)": "Pada hari (pilihan)",
-"sau ore (ex. 1.5)": "atau jam (cth. 1.5)"
+"sau ore (ex. 1.5)": "atau jam (cth. 1.5)",
+"Suni?": "Panggil?",
+"Deschizi locația?": "Buka lokasi?",
+"Deschizi linkul?": "Buka pautan?"
 };

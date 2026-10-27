@@ -1005,5 +1005,8 @@ NOTIS_I18N={
 "Repetiție zile": "日ごとに繰り返し",
 "La fiecare câte zile": "何日ごと",
 "În zilele (opțional)": "曜日（任意）",
-"sau ore (ex. 1.5)": "または時間（例 1.5）"
+"sau ore (ex. 1.5)": "または時間（例 1.5）",
+"Suni?": "電話しますか？",
+"Deschizi locația?": "場所を開きますか？",
+"Deschizi linkul?": "リンクを開きますか？"
 };

@@ -1005,5 +1005,8 @@ NOTIS_I18N={
 "Repetiție zile": "Opakovanie po dňoch",
 "La fiecare câte zile": "Každých koľko dní",
 "În zilele (opțional)": "V dňoch (voliteľné)",
-"sau ore (ex. 1.5)": "alebo hodiny (napr. 1.5)"
+"sau ore (ex. 1.5)": "alebo hodiny (napr. 1.5)",
+"Suni?": "Zavolať?",
+"Deschizi locația?": "Otvoriť polohu?",
+"Deschizi linkul?": "Otvoriť odkaz?"
 };

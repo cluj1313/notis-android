@@ -87,7 +87,7 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity {
             @Override public boolean shouldOverrideUrlLoading(WebView v, WebResourceRequest r) {
                 Uri u = r.getUrl();
                 if (u.toString().startsWith(BASE)) return false;
-                try { startActivity(new Intent(Intent.ACTION_VIEW, u)); } catch (Exception ignored) {}
+                openExt(MainActivity.this, u.toString());
                 return true;
             }
         });
@@ -367,4 +367,22 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity {
         try { if (web != null) web.evaluateJavascript("window.notisAutoBackupNow?Promise.resolve(notisAutoBackupNow('" + reason.replaceAll("[^a-z-]", "") + "')).catch(function(){}).then(function(){try{NotisNative.autoBackupDone()}catch(e){}}):NotisNative.autoBackupDone()", null); else once.run(); } catch (Exception e) { once.run(); }
     }
     static void backupDone() { final Runnable r = pendingAfterBackup; if (r != null) new android.os.Handler(android.os.Looper.getMainLooper()).post(r); }
+    /* v2.7.4: tel: opens the dialer only (never calls), geo: opens maps (fallback Google Maps web), http(s) the external browser */
+    static boolean openExt(Context c, String s) {
+        try {
+            Uri u = Uri.parse(s); String sc = u.getScheme() == null ? "" : u.getScheme().toLowerCase();
+            Intent i;
+            if (sc.equals("tel")) i = new Intent(Intent.ACTION_DIAL, u);
+            else if (sc.equals("geo") || sc.equals("http") || sc.equals("https") || sc.equals("mailto")) i = new Intent(Intent.ACTION_VIEW, u);
+            else return false;
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            try { c.startActivity(i); return true; }
+            catch (android.content.ActivityNotFoundException e) {
+                if (!sc.equals("geo")) return false;
+                String q = u.getQueryParameter("q"); if (q == null) q = "";
+                Intent w = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/maps/search/?api=1&query=" + Uri.encode(q)));
+                w.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); c.startActivity(w); return true;
+            }
+        } catch (Exception e) { return false; }
+    }
 }

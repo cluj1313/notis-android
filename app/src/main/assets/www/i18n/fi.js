@@ -1005,5 +1005,8 @@ NOTIS_I18N={
 "Repetiție zile": "Toisto päivittäin",
 "La fiecare câte zile": "Kuinka monen päivän välein",
 "În zilele (opțional)": "Päivinä (valinnainen)",
-"sau ore (ex. 1.5)": "tai tunnit (esim. 1.5)"
+"sau ore (ex. 1.5)": "tai tunnit (esim. 1.5)",
+"Suni?": "Soitetaanko?",
+"Deschizi locația?": "Avataanko sijainti?",
+"Deschizi linkul?": "Avataanko linkki?"
 };

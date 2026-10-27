@@ -80,6 +80,8 @@ final class Bridge {
     }
     @JavascriptInterface public boolean isXiaomi() { String m = (android.os.Build.MANUFACTURER + " " + android.os.Build.BRAND).toLowerCase(); return m.contains("xiaomi") || m.contains("redmi") || m.contains("poco"); }
     /** Xiaomi/HyperOS "Autostart" screen (alarms of apps without it may be dropped when the app is closed); falls back to app details */
+    @JavascriptInterface public boolean openUri(String u) { if (!MainActivity.trusted || u == null) return false;
+        return MainActivity.openExt(MainActivity.cur != null ? MainActivity.cur : ctx, u); }
     @JavascriptInterface public boolean openAutostart() { if (!MainActivity.trusted) return false;
         android.content.Intent i = new android.content.Intent().setClassName("com.miui.securitycenter", "com.miui.permcenter.autostart.AutoStartManagementActivity").addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
         try { ctx.startActivity(i); return true; } catch (Exception e) {

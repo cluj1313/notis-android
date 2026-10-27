@@ -1005,5 +1005,8 @@ NOTIS_I18N={
 "Repetiție zile": "Herhalen per dag",
 "La fiecare câte zile": "Om de hoeveel dagen",
 "În zilele (opțional)": "Op dagen (optioneel)",
-"sau ore (ex. 1.5)": "of uren (bijv. 1.5)"
+"sau ore (ex. 1.5)": "of uren (bijv. 1.5)",
+"Suni?": "Bellen?",
+"Deschizi locația?": "Locatie openen?",
+"Deschizi linkul?": "Link openen?"
 };

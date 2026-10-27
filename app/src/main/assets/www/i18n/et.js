@@ -1005,5 +1005,8 @@ NOTIS_I18N={
 "Repetiție zile": "Korda päevade kaupa",
 "La fiecare câte zile": "Iga mitme päeva järel",
 "În zilele (opțional)": "Päevadel (valikuline)",
-"sau ore (ex. 1.5)": "või tunnid (nt 1.5)"
+"sau ore (ex. 1.5)": "või tunnid (nt 1.5)",
+"Suni?": "Helistada?",
+"Deschizi locația?": "Avada asukoht?",
+"Deschizi linkul?": "Avada link?"
 };

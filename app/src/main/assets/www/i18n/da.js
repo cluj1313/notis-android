@@ -1005,5 +1005,8 @@ NOTIS_I18N={
 "Repetiție zile": "Gentag i dage",
 "La fiecare câte zile": "Hver hvor mange dage",
 "În zilele (opțional)": "På dage (valgfrit)",
-"sau ore (ex. 1.5)": "eller timer (f.eks. 1.5)"
+"sau ore (ex. 1.5)": "eller timer (f.eks. 1.5)",
+"Suni?": "Ring op?",
+"Deschizi locația?": "Åbn placeringen?",
+"Deschizi linkul?": "Åbn linket?"
 };

@@ -1005,5 +1005,8 @@ NOTIS_I18N={
 "Repetiție zile": "Napi ismétlés",
 "La fiecare câte zile": "Hány naponta",
 "În zilele (opțional)": "Napokon (opcionális)",
-"sau ore (ex. 1.5)": "vagy órák (pl. 1.5)"
+"sau ore (ex. 1.5)": "vagy órák (pl. 1.5)",
+"Suni?": "Hívod?",
+"Deschizi locația?": "Megnyitod a helyet?",
+"Deschizi linkul?": "Megnyitod a linket?"
 };

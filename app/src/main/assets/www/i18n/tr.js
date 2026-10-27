@@ -1005,5 +1005,8 @@ NOTIS_I18N={
 "Repetiție zile": "Günlük tekrar",
 "La fiecare câte zile": "Kaç günde bir",
 "În zilele (opțional)": "Günlerde (isteğe bağlı)",
-"sau ore (ex. 1.5)": "veya saat (ör. 1.5)"
+"sau ore (ex. 1.5)": "veya saat (ör. 1.5)",
+"Suni?": "Aransın mı?",
+"Deschizi locația?": "Konum açılsın mı?",
+"Deschizi linkul?": "Bağlantı açılsın mı?"
 };
