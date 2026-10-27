@@ -4064,7 +4064,7 @@ spMigrate();renderNotes();
 })();
 /* v96: Setări → TABURI (bibliotecă: ordine drag & drop, bifă vizibil/ascuns, PIN 4/6 opțional), DESIGN (Teme · Stil taburi · Fundal · Setări fine · Iconiță), iconiță urgență, Comunică cu creatorul, Versiune. Additive: hidden tab = t.off, nothing deleted. */
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v136';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v137';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};
@@ -4152,7 +4152,7 @@ window.urgPre=function(n){if(!n||n.del)return '';var t=findNT(n.tab);if(!isUrgTa
  render();
  /* ---- Comunică cu creatorul ---- */
  function ver(){var v='';try{if(window.NotisNative&&NotisNative.version)v=String(NotisNative.version()||'')}catch(_){}return v}
- $('cmInfo').textContent=TR('Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.')+'\n'+TR('Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.')+'\n'+TR('Fiecare utilizator primește un răspuns.')+'\n'+TR('Oricine își poate spune părerea; cererile utilizatorilor Pro și Unlimited au prioritate.');
+ (function(){var I=$('cmInfo');I.textContent='';I.classList.add('cmList');[TR('Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.'),TR('Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.'),TR('Fiecare utilizator primește un răspuns.'),TR('Oricine își poate spune părerea; cererile utilizatorilor Pro și Unlimited au prioritate.')].forEach(function(t){var d=document.createElement('div');d.className='cmLi';d.textContent=t;I.appendChild(d)})})();
  $('cmTx').placeholder=TR('Mesajul tău…');
  $('cmSend').addEventListener('click',function(){var tx=$('cmTx').value.trim();if(!tx){toast(TR('Scrie mai întâi mesajul'));return}
   var v=ver(),meta='Notis '+(v?v+' · ':'')+'web '+NOTIS_WEB_REL+' · '+NOTIS_TIER+' · '+NL,body=tx+'\n\n—\n'+meta,subj='Notis – '+TR('mesaj pentru creator');
@@ -4373,5 +4373,6 @@ renderAbList();
 <style>#modal .ccRow{display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;user-select:none;-webkit-user-select:none}#modal .ccRow .ccL{flex:1;min-width:0;overflow-wrap:anywhere}#modal .ccRow .sparr{flex:none}#modal .ccRow.open .sparr::after{transform:none}#ccBox[hidden]{display:none}</style>
 <script>(function(){var h=document.getElementById('secMsg'),b=document.getElementById('ccBox');if(!h||!b)return;function t(){var o=b.hidden;b.hidden=!o;h.classList.toggle('open',o);h.setAttribute('aria-expanded',o?'true':'false')}h.addEventListener('click',t);h.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t()}})})();</script>
 <style>#modal #fMsg{border-top:1px solid rgba(var(--lnR),.15);padding-top:12px;margin-top:10px}#modal .ccSub{font-family:"Oswald",Roboto,system-ui,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.1em;font-size:14.5px!important;color:var(--cyan2);margin:0 0 6px}#modal #fMsg #cmInfo{line-height:1.5}</style>
+<style>#modal #cmInfo.cmList{white-space:normal}#modal .cmLi{position:relative;padding-inline-start:1.05em;margin:0 0 3px}#modal .cmLi::before{content:'\2022';position:absolute;inset-inline-start:.15em;top:0;color:inherit}</style>
 </body>
 </html>
