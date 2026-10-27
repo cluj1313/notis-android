@@ -1167,5 +1167,10 @@ NOTIS_I18N={
 "Notis cere acces la contacte doar pentru căutare. Nu se importă nimic până nu atingi un contact.":"Notis kërkon qasje në kontakte vetëm për të kërkuar. Asgjë nuk importohet derisa të prekni një kontakt.",
 "Adăugat în CRM":"Shtuar në CRM",
 "Preț invalid":"Çmim i pavlefshëm",
-"Eroare la salvare":"Gabim gjatë ruajtjes"
+"Eroare la salvare":"Gabim gjatë ruajtjes",
+"Istoric notițe":"Historiku i shënimeve",
+"Arată suma în afară":"Shfaq totalin jashtë",
+"Total lunar":"Totali mujor",
+"Total general":"Totali i përgjithshëm",
+"Notă":"Shënim"
 };

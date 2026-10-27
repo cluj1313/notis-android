@@ -1167,5 +1167,10 @@ NOTIS_I18N={
 "Notis cere acces la contacte doar pentru căutare. Nu se importă nimic până nu atingi un contact.":"Notis केवल खोज के लिए संपर्कों की अनुमति मांगता है। जब तक आप किसी संपर्क पर टैप नहीं करते, कुछ भी आयात नहीं होता।",
 "Adăugat în CRM":"सीआरएम में जोड़ा गया",
 "Preț invalid":"अमान्य मूल्य",
-"Eroare la salvare":"सहेजने में त्रुटि"
+"Eroare la salvare":"सहेजने में त्रुटि",
+"Istoric notițe":"नोट्स इतिहास",
+"Arată suma în afară":"कुल राशि बाहर दिखाएँ",
+"Total lunar":"मासिक कुल",
+"Total general":"कुल योग",
+"Notă":"नोट"
 };

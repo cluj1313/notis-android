@@ -1167,5 +1167,10 @@ NOTIS_I18N={
 "Notis cere acces la contacte doar pentru căutare. Nu se importă nimic până nu atingi un contact.":"Notis traži pristup samo za pretraživanje. Ništa se ne uvozi dok ne dodirnete kontakt.",
 "Adăugat în CRM":"Dodavanje u CRM",
 "Preț invalid":"Nevažeća cijena",
-"Eroare la salvare":"Greška pri spremanju"
+"Eroare la salvare":"Greška pri spremanju",
+"Istoric notițe":"Povijest bilješki",
+"Arată suma în afară":"Prikaži zbroj izvana",
+"Total lunar":"Mjesečni zbroj",
+"Total general":"Ukupni zbroj",
+"Notă":"Bilješka"
 };

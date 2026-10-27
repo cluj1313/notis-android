@@ -1167,5 +1167,10 @@ NOTIS_I18N={
 "Notis cere acces la contacte doar pentru căutare. Nu se importă nimic până nu atingi un contact.":"يطلب Notis الوصول إلى جهات الاتصال للبحث فقط. لا يتم استيراد أي شيء حتى تنقر على جهة اتصال.",
 "Adăugat în CRM":"إضافة إلى CRM",
 "Preț invalid":"سعر غير صالح",
-"Eroare la salvare":"خطأ في الحفظ"
+"Eroare la salvare":"خطأ في الحفظ",
+"Istoric notițe":"سجل الملاحظات",
+"Arată suma în afară":"إظهار المجموع في الخارج",
+"Total lunar":"المجموع الشهري",
+"Total general":"المجموع الكلي",
+"Notă":"ملاحظة"
 };

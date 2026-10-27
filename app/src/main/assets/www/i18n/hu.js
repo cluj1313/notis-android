@@ -1167,5 +1167,10 @@ NOTIS_I18N={
 "Notis cere acces la contacte doar pentru căutare. Nu se importă nimic până nu atingi un contact.":"A Notis csak a kereséshez kér hozzáférést a névjegyekhez. Semmi sem kerül importálásra, amíg nem koppintasz egy névjegyre.",
 "Adăugat în CRM":"Hozzáadva a CRM-hez",
 "Preț invalid":"Érvénytelen ár",
-"Eroare la salvare":"Mentési hiba"
+"Eroare la salvare":"Mentési hiba",
+"Istoric notițe":"Jegyzetelőzmények",
+"Arată suma în afară":"Összeg mutatása kívül",
+"Total lunar":"Havi összeg",
+"Total general":"Teljes összeg",
+"Notă":"Jegyzet"
 };

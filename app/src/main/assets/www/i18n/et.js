@@ -1167,5 +1167,10 @@ NOTIS_I18N={
 "Notis cere acces la contacte doar pentru căutare. Nu se importă nimic până nu atingi un contact.":"Notis palub kontaktidele juurdepääsu ainult otsimiseks. Mitte midagi ei impordita enne, kui sa puudutad kontakti.",
 "Adăugat în CRM":"CRM-i lisamine",
 "Preț invalid":"Vigane hind",
-"Eroare la salvare":"Salvestusviga"
+"Eroare la salvare":"Salvestusviga",
+"Istoric notițe":"Märkmete ajalugu",
+"Arată suma în afară":"Näita summat väljas",
+"Total lunar":"Kuu summa",
+"Total general":"Kogusumma",
+"Notă":"Märge"
 };

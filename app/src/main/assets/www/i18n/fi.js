@@ -1167,5 +1167,10 @@ NOTIS_I18N={
 "Notis cere acces la contacte doar pentru căutare. Nu se importă nimic până nu atingi un contact.":"Notis pyytää yhteystietojen käyttöoikeutta vain hakua varten. Mitään ei tuoda, ennen kuin napautat yhteystietoa.",
 "Adăugat în CRM":"Lisätty CRM: hen",
 "Preț invalid":"Virheellinen hinta",
-"Eroare la salvare":"Tallennusvirhe"
+"Eroare la salvare":"Tallennusvirhe",
+"Istoric notițe":"Muistiinpanohistoria",
+"Arată suma în afară":"Näytä summa ulkona",
+"Total lunar":"Kuukauden summa",
+"Total general":"Kokonaissumma",
+"Notă":"Muistiinpano"
 };

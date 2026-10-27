@@ -1167,5 +1167,10 @@ NOTIS_I18N={
 "Notis cere acces la contacte doar pentru căutare. Nu se importă nimic până nu atingi un contact.":"Notis prašo prieigos prie kontaktų tik paieškai. Niekas neimportuojama, kol nepaliesite kontakto.",
 "Adăugat în CRM":"Pridėta prie CRM",
 "Preț invalid":"Neteisinga kaina",
-"Eroare la salvare":"Išsaugojimo klaida"
+"Eroare la salvare":"Išsaugojimo klaida",
+"Istoric notițe":"Pastabų istorija",
+"Arată suma în afară":"Rodyti sumą išorėje",
+"Total lunar":"Mėnesio suma",
+"Total general":"Bendra suma",
+"Notă":"Pastaba"
 };

@@ -1167,5 +1167,10 @@ NOTIS_I18N={
 "Notis cere acces la contacte doar pentru căutare. Nu se importă nimic până nu atingi un contact.":"Notis chỉ yêu cầu truy cập liên lạc để tìm kiếm. Không có gì được nhập khẩu cho đến khi bạn chạm vào một liên lạc.",
 "Adăugat în CRM":"Thêm vào CRM",
 "Preț invalid":"Giá không hợp lệ",
-"Eroare la salvare":"Lỗi khi lưu"
+"Eroare la salvare":"Lỗi khi lưu",
+"Istoric notițe":"Lịch sử ghi chú",
+"Arată suma în afară":"Hiện tổng bên ngoài",
+"Total lunar":"Tổng tháng",
+"Total general":"Tổng cộng",
+"Notă":"Ghi chú"
 };

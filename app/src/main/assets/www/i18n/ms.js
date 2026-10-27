@@ -1167,5 +1167,10 @@ NOTIS_I18N={
 "Notis cere acces la contacte doar pentru căutare. Nu se importă nimic până nu atingi un contact.":"Notis meminta akses kenalan hanya untuk mencari. Tiada apa yang diimport sehingga anda mengetuk kenalan.",
 "Adăugat în CRM":"Ditambah ke CRM",
 "Preț invalid":"Harga tidak sah",
-"Eroare la salvare":"Ralat menyimpan"
+"Eroare la salvare":"Ralat menyimpan",
+"Istoric notițe":"Sejarah nota",
+"Arată suma în afară":"Tunjuk jumlah di luar",
+"Total lunar":"Jumlah bulanan",
+"Total general":"Jumlah keseluruhan",
+"Notă":"Nota"
 };

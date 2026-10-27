@@ -1167,5 +1167,10 @@ NOTIS_I18N={
 "Notis cere acces la contacte doar pentru căutare. Nu se importă nimic până nu atingi un contact.":"Notis sadece arama için bağlantı erişimi istiyor. Bir bağlantıya dokunmadıkça hiçbir şey ithal edilmez.",
 "Adăugat în CRM":"CRM'ye eklendi",
 "Preț invalid":"Geçersiz fiyat",
-"Eroare la salvare":"Kaydetme hatası"
+"Eroare la salvare":"Kaydetme hatası",
+"Istoric notițe":"Not geçmişi",
+"Arată suma în afară":"Toplamı dışarıda göster",
+"Total lunar":"Aylık toplam",
+"Total general":"Genel toplam",
+"Notă":"Not"
 };
