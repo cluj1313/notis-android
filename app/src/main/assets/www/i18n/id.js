@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "Gagal mengunduh suara",
 "Ține apăsat pe 🔊 ca să alegi limba": "Tekan lama 🔊 untuk memilih bahasa",
 "Arată la apăsare lungă pe 🔊": "Tampilkan saat 🔊 ditekan lama",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Bacakan\nDi catatan, tombol „Bacakan” (kanan bawah) membacakan teks. Tekan lama untuk memilih bahasa; hanya suara yang dicentang di Pengaturan → Suara yang muncul. Kecepatan dan nada juga diatur di sana."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Bacakan\nDi catatan, tombol „Bacakan” (kanan bawah) membacakan teks. Tekan lama untuk memilih bahasa; hanya suara yang dicentang di Pengaturan → Suara yang muncul. Kecepatan dan nada juga diatur di sana.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Buka menu SUARA di Pengaturan jika ingin teks dibacakan.",
+"Deschide Voce": "Buka Suara",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Unduh suara di Pengaturan → Suara untuk suara yang lebih baik",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Unduh hanya suara yang kamu perlukan (disarankan Wi‑Fi); setelah itu bisa offline. Tanpa suara terunduh, dipakai suara ponsel."
 };

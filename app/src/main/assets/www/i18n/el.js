@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "Δεν ήταν δυνατή η λήψη της φωνής",
 "Ține apăsat pe 🔊 ca să alegi limba": "Πάτα παρατεταμένα το 🔊 για να διαλέξεις γλώσσα",
 "Arată la apăsare lungă pe 🔊": "Εμφάνιση με παρατεταμένο πάτημα στο 🔊",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Ανάγνωση\nΣτη σημείωση, το κουμπί «Ανάγνωση» (κάτω δεξιά) διαβάζει το κείμενο φωναχτά. Πάτα το παρατεταμένα για να διαλέξεις γλώσσα· εμφανίζονται μόνο οι φωνές που είναι επιλεγμένες στις Ρυθμίσεις → Φωνή. Η ταχύτητα και ο τόνος ρυθμίζονται επίσης εκεί."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Ανάγνωση\nΣτη σημείωση, το κουμπί «Ανάγνωση» (κάτω δεξιά) διαβάζει το κείμενο φωναχτά. Πάτα το παρατεταμένα για να διαλέξεις γλώσσα· εμφανίζονται μόνο οι φωνές που είναι επιλεγμένες στις Ρυθμίσεις → Φωνή. Η ταχύτητα και ο τόνος ρυθμίζονται επίσης εκεί.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Μπες στο μενού ΦΩΝΗ στις Ρυθμίσεις αν θέλεις να σου διαβάζονται τα κείμενα.",
+"Deschide Voce": "Άνοιγμα Φωνής",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Κατέβασε τη φωνή από Ρυθμίσεις → Φωνή για καλύτερη φωνή",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Κατέβασε μόνο τις φωνές που χρειάζεσαι (συνιστάται Wi‑Fi)· μετά λειτουργούν εκτός σύνδεσης. Χωρίς φωνή χρησιμοποιείται η φωνή του τηλεφώνου."
 };

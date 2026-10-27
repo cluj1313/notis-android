@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "Ääntä ei voitu ladata",
 "Ține apăsat pe 🔊 ca să alegi limba": "Valitse kieli painamalla 🔊 pitkään",
 "Arată la apăsare lungă pe 🔊": "Näytä, kun 🔊 painetaan pitkään",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Lue ääneen\nMuistiinpanossa ”Lue”-painike (alhaalla oikealla) lukee tekstin ääneen. Valitse kieli painamalla sitä pitkään; vain Asetukset → Ääni -kohdassa valitut äänet näkyvät. Nopeus ja sävelkorkeus säädetään myös siellä."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Lue ääneen\nMuistiinpanossa ”Lue”-painike (alhaalla oikealla) lukee tekstin ääneen. Valitse kieli painamalla sitä pitkään; vain Asetukset → Ääni -kohdassa valitut äänet näkyvät. Nopeus ja sävelkorkeus säädetään myös siellä.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Avaa asetuksista ÄÄNI-valikko, jos haluat tekstit luettavan ääneen.",
+"Deschide Voce": "Avaa Ääni",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Lataa ääni kohdasta Asetukset → Ääni, niin saat paremman äänen",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Lataa vain tarvitsemasi äänet (Wi‑Fi suositeltava); sen jälkeen ne toimivat ilman yhteyttä. Ilman ladattua ääntä käytetään puhelimen ääntä."
 };

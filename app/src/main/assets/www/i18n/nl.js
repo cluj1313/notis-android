@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "Kon de stem niet downloaden",
 "Ține apăsat pe 🔊 ca să alegi limba": "Houd 🔊 ingedrukt om de taal te kiezen",
 "Arată la apăsare lungă pe 🔊": "Tonen bij lang drukken op 🔊",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Voorlezen\nIn een notitie leest de knop „Voorlezen” (rechtsonder) de tekst hardop voor. Houd hem ingedrukt om de taal te kiezen; alleen de stemmen die zijn aangevinkt in Instellingen → Stem verschijnen. Snelheid en toonhoogte stel je daar ook in."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Voorlezen\nIn een notitie leest de knop „Voorlezen” (rechtsonder) de tekst hardop voor. Houd hem ingedrukt om de taal te kiezen; alleen de stemmen die zijn aangevinkt in Instellingen → Stem verschijnen. Snelheid en toonhoogte stel je daar ook in.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Open het menu STEM in Instellingen als je teksten wilt laten voorlezen.",
+"Deschide Voce": "Stem openen",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Download de stem in Instellingen → Stem voor een betere stem",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Download alleen de stemmen die je nodig hebt (wifi aanbevolen); daarna werken ze offline. Zonder gedownloade stem wordt de stem van de telefoon gebruikt."
 };

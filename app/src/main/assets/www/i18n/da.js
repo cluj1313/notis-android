@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "Stemmen kunne ikke hentes",
 "Ține apăsat pe 🔊 ca să alegi limba": "Hold 🔊 nede for at vælge sprog",
 "Arată la apăsare lungă pe 🔊": "Vis ved langt tryk på 🔊",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Læs op\nI en note læser knappen „Læs op“ (nederst til højre) teksten højt. Hold den nede for at vælge sprog; kun stemmer, der er markeret i Indstillinger → Stemme, vises. Hastighed og tone indstilles også der."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Læs op\nI en note læser knappen „Læs op“ (nederst til højre) teksten højt. Hold den nede for at vælge sprog; kun stemmer, der er markeret i Indstillinger → Stemme, vises. Hastighed og tone indstilles også der.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Gå ind i menuen STEMME i Indstillinger, hvis du vil have dine tekster læst op.",
+"Deschide Voce": "Åbn Stemme",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Hent stemmen i Indstillinger → Stemme for en bedre stemme",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Hent kun de stemmer, du har brug for (Wi‑Fi anbefales); derefter virker de offline. Uden en hentet stemme bruges telefonens stemme."
 };

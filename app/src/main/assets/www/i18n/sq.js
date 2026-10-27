@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "Zëri nuk mund të shkarkohej",
 "Ține apăsat pe 🔊 ca să alegi limba": "Mbaj shtypur 🔊 për të zgjedhur gjuhën",
 "Arată la apăsare lungă pe 🔊": "Shfaq kur mbahet shtypur 🔊",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Lexo\nNë shënim, butoni „Lexo” (poshtë djathtas) e lexon tekstin me zë. Mbaje shtypur për të zgjedhur gjuhën; shfaqen vetëm zërat e shënuar te Cilësimet → Zëri. Shpejtësia dhe toni rregullohen po aty."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Lexo\nNë shënim, butoni „Lexo” (poshtë djathtas) e lexon tekstin me zë. Mbaje shtypur për të zgjedhur gjuhën; shfaqen vetëm zërat e shënuar te Cilësimet → Zëri. Shpejtësia dhe toni rregullohen po aty.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Hyr te menyja ZËRI në Cilësimet nëse do që tekstet të të lexohen.",
+"Deschide Voce": "Hap Zërin",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Shkarko zërin te Cilësimet → Zëri për një zë më të mirë",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Shkarko vetëm zërat që të duhen (rekomandohet Wi‑Fi); pastaj punojnë pa internet. Pa zë të shkarkuar përdoret zëri i telefonit."
 };

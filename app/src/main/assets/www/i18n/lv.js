@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "Neizdevās lejupielādēt balsi",
 "Ține apăsat pe 🔊 ca să alegi limba": "Turi 🔊, lai izvēlētos valodu",
 "Arată la apăsare lungă pe 🔊": "Rādīt, ilgi turot 🔊",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Lasīt\nPiezīmē poga „Lasīt” (apakšā pa labi) nolasa tekstu skaļi. Turi to, lai izvēlētos valodu; redzamas tikai balsis, kas atzīmētas sadaļā Iestatījumi → Balss. Ātrumu un toni iestata turpat."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Lasīt\nPiezīmē poga „Lasīt” (apakšā pa labi) nolasa tekstu skaļi. Turi to, lai izvēlētos valodu; redzamas tikai balsis, kas atzīmētas sadaļā Iestatījumi → Balss. Ātrumu un toni iestata turpat.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Atver iestatījumos izvēlni BALSS, ja vēlies, lai teksti tiktu nolasīti.",
+"Deschide Voce": "Atvērt Balss",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Labākai balsij lejupielādē to: Iestatījumi → Balss",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Lejupielādē tikai vajadzīgās balsis (ieteicams Wi‑Fi); pēc tam tās darbojas bezsaistē. Bez lejupielādētas balss tiek izmantota tālruņa balss."
 };

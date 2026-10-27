@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "Nepavyko atsisiųsti balso",
 "Ține apăsat pe 🔊 ca să alegi limba": "Laikyk 🔊, kad pasirinktum kalbą",
 "Arată la apăsare lungă pe 🔊": "Rodyti ilgai paspaudus 🔊",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Skaitymas\nPastaboje mygtukas „Skaityti“ (apačioje dešinėje) perskaito tekstą balsu. Laikyk jį, kad pasirinktum kalbą; rodomi tik balsai, pažymėti Nustatymai → Balsas. Greitis ir tonas nustatomi ten pat."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Skaitymas\nPastaboje mygtukas „Skaityti“ (apačioje dešinėje) perskaito tekstą balsu. Laikyk jį, kad pasirinktum kalbą; rodomi tik balsai, pažymėti Nustatymai → Balsas. Greitis ir tonas nustatomi ten pat.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Atidaryk nustatymuose meniu BALSAS, jei nori, kad tekstai būtų perskaityti.",
+"Deschide Voce": "Atidaryti Balsas",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Geresniam balsui atsisiųsk jį: Nustatymai → Balsas",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Atsisiųsk tik reikalingus balsus (rekomenduojamas Wi‑Fi); tada jie veikia neprisijungus. Be atsisiųsto balso naudojamas telefono balsas."
 };

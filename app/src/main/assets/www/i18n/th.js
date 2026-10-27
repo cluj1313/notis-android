@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "ดาวน์โหลดเสียงไม่สำเร็จ",
 "Ține apăsat pe 🔊 ca să alegi limba": "กด 🔊 ค้างไว้เพื่อเลือกภาษา",
 "Arată la apăsare lungă pe 🔊": "แสดงเมื่อกด 🔊 ค้าง",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 อ่านออกเสียง\nในโน้ต ปุ่ม „อ่าน” (ล่างขวา) จะอ่านข้อความออกเสียง กดค้างเพื่อเลือกภาษา จะแสดงเฉพาะเสียงที่ติ๊กไว้ใน การตั้งค่า → เสียง ความเร็วและระดับเสียงก็ปรับได้ที่นั่น"
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 อ่านออกเสียง\nในโน้ต ปุ่ม „อ่าน” (ล่างขวา) จะอ่านข้อความออกเสียง กดค้างเพื่อเลือกภาษา จะแสดงเฉพาะเสียงที่ติ๊กไว้ใน การตั้งค่า → เสียง ความเร็วและระดับเสียงก็ปรับได้ที่นั่น",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "เข้าเมนู เสียง ในการตั้งค่า หากต้องการให้อ่านข้อความออกเสียง",
+"Deschide Voce": "เปิด เสียง",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "ดาวน์โหลดเสียงใน การตั้งค่า → เสียง เพื่อเสียงที่ดีกว่า",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "ดาวน์โหลดเฉพาะเสียงที่ต้องการ (แนะนำ Wi‑Fi) จากนั้นใช้งานออฟไลน์ได้ หากไม่มีเสียงที่ดาวน์โหลดจะใช้เสียงของโทรศัพท์"
 };

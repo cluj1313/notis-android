@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "تعذّر تنزيل الصوت",
 "Ține apăsat pe 🔊 ca să alegi limba": "اضغط مطولًا على 🔊 لاختيار اللغة",
 "Arată la apăsare lungă pe 🔊": "إظهار عند الضغط المطوّل على 🔊",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 القراءة\nفي الملاحظة، يقرأ زر «اقرأ» (أسفل اليمين) النص بصوت عالٍ. اضغط عليه مطولًا لاختيار اللغة؛ تظهر فقط الأصوات المحددة في الإعدادات ← الصوت. تُضبط السرعة والنبرة هناك أيضًا."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 القراءة\nفي الملاحظة، يقرأ زر «اقرأ» (أسفل اليمين) النص بصوت عالٍ. اضغط عليه مطولًا لاختيار اللغة؛ تظهر فقط الأصوات المحددة في الإعدادات ← الصوت. تُضبط السرعة والنبرة هناك أيضًا.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "افتح قائمة الصوت في الإعدادات إذا أردت أن تُقرأ نصوصك بصوت عالٍ.",
+"Deschide Voce": "افتح الصوت",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "نزّل الصوت من الإعدادات ← الصوت لصوت أفضل",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "نزّل الأصوات التي تحتاجها فقط (يُنصح بـ Wi‑Fi)؛ بعدها تعمل دون اتصال. بدون صوت منزّل يُستخدم صوت الهاتف."
 };

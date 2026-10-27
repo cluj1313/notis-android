@@ -298,7 +298,7 @@ NOTIS_I18N={
 "mai estompat": "mờ hơn",
 "mai intens": "mạnh hơn",
 "Spațiu între notițe": "Khoảng cách giữa các ghi chú",
-"Voce": "Tiếng nói",
+"Voce": "Giọng nói",
 "Motor voce": "Động cơ giọng nói",
 "Se descarcă o singură dată (≈": "Chỉ tải xuống một lần (≈",
 "MB) și rămâne salvată în browser pentru folosire offline.": "MB) và được lưu trong trình duyệt để sử dụng ngoại tuyến.",
@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "Không thể tải giọng",
 "Ține apăsat pe 🔊 ca să alegi limba": "Nhấn giữ 🔊 để chọn ngôn ngữ",
 "Arată la apăsare lungă pe 🔊": "Hiện khi nhấn giữ 🔊",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Đọc\nTrong ghi chú, nút „Đọc” (góc dưới bên phải) đọc to văn bản. Nhấn giữ để chọn ngôn ngữ; chỉ hiện các giọng được đánh dấu trong Cài đặt → Giọng. Tốc độ và cao độ cũng chỉnh ở đó."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Đọc\nTrong ghi chú, nút „Đọc” (góc dưới bên phải) đọc to văn bản. Nhấn giữ để chọn ngôn ngữ; chỉ hiện các giọng được đánh dấu trong Cài đặt → Giọng. Tốc độ và cao độ cũng chỉnh ở đó.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Vào menu GIỌNG NÓI trong Cài đặt nếu bạn muốn văn bản được đọc to.",
+"Deschide Voce": "Mở Giọng nói",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Tải giọng trong Cài đặt → Giọng nói để có giọng tốt hơn",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Chỉ tải các giọng bạn cần (nên dùng Wi‑Fi); sau đó dùng được ngoại tuyến. Nếu chưa tải giọng, sẽ dùng giọng của điện thoại."
 };

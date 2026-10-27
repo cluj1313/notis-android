@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "Hlas sa nepodarilo stiahnuť",
 "Ține apăsat pe 🔊 ca să alegi limba": "Podrž 🔊 a vyber jazyk",
 "Arată la apăsare lungă pe 🔊": "Zobraziť pri podržaní 🔊",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Čítanie\nV poznámke tlačidlo „Čítať“ (vpravo dole) prečíta text nahlas. Podrž ho a vyber jazyk; zobrazia sa len hlasy označené v Nastavenia → Hlas. Rýchlosť a výška sa nastavujú tiež tam."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Čítanie\nV poznámke tlačidlo „Čítať“ (vpravo dole) prečíta text nahlas. Podrž ho a vyber jazyk; zobrazia sa len hlasy označené v Nastavenia → Hlas. Rýchlosť a výška sa nastavujú tiež tam.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Otvor v Nastaveniach ponuku HLAS, ak chceš, aby sa ti texty čítali.",
+"Deschide Voce": "Otvoriť Hlas",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Pre lepší hlas si ho stiahni v Nastavenia → Hlas",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Sťahuj len hlasy, ktoré potrebuješ (odporúča sa Wi‑Fi); potom fungujú offline. Bez stiahnutého hlasu sa použije hlas telefónu."
 };

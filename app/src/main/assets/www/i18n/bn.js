@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "কণ্ঠ ডাউনলোড করা যায়নি",
 "Ține apăsat pe 🔊 ca să alegi limba": "ভাষা বেছে নিতে 🔊 চেপে ধরুন",
 "Arată la apăsare lungă pe 🔊": "🔊 চেপে ধরলে দেখান",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 পড়া\nনোটে „পড়ুন” বোতাম (নিচে ডানে) লেখা জোরে পড়ে। ভাষা বেছে নিতে এটি চেপে ধরুন; শুধু সেটিংস → কণ্ঠে টিক দেওয়া কণ্ঠগুলো দেখায়। গতি ও সুরও সেখানে ঠিক করা যায়।"
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 পড়া\nনোটে „পড়ুন” বোতাম (নিচে ডানে) লেখা জোরে পড়ে। ভাষা বেছে নিতে এটি চেপে ধরুন; শুধু সেটিংস → কণ্ঠে টিক দেওয়া কণ্ঠগুলো দেখায়। গতি ও সুরও সেখানে ঠিক করা যায়।",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "লেখা পড়ে শোনাতে চাইলে সেটিংসে কণ্ঠস্বর মেনুতে যান।",
+"Deschide Voce": "কণ্ঠস্বর খুলুন",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "আরও ভালো কণ্ঠের জন্য সেটিংস → কণ্ঠস্বর থেকে কণ্ঠ ডাউনলোড করুন",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "শুধু দরকারি কণ্ঠ ডাউনলোড করুন (Wi‑Fi সুপারিশকৃত); এরপর অফলাইনে চলে। ডাউনলোড করা কণ্ঠ না থাকলে ফোনের কণ্ঠ ব্যবহার হয়।"
 };

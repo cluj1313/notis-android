@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "Die Stimme konnte nicht heruntergeladen werden",
 "Ține apăsat pe 🔊 ca să alegi limba": "🔊 gedrückt halten, um die Sprache zu wählen",
 "Arată la apăsare lungă pe 🔊": "Bei langem Drücken auf 🔊 zeigen",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Vorlesen\nIn einer Notiz liest die Schaltfläche „Vorlesen“ (unten rechts) den Text vor. Halte sie gedrückt, um die Sprache zu wählen; es erscheinen nur die in Einstellungen → Stimme angehakten Stimmen. Tempo und Tonhöhe stellst du dort ebenfalls ein."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Vorlesen\nIn einer Notiz liest die Schaltfläche „Vorlesen“ (unten rechts) den Text vor. Halte sie gedrückt, um die Sprache zu wählen; es erscheinen nur die in Einstellungen → Stimme angehakten Stimmen. Tempo und Tonhöhe stellst du dort ebenfalls ein.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Öffne das Menü STIMME in den Einstellungen, wenn dir Texte vorgelesen werden sollen.",
+"Deschide Voce": "Stimme öffnen",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Lade die Stimme unter Einstellungen → Stimme für eine bessere Stimme herunter",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Lade nur die Stimmen herunter, die du brauchst (WLAN empfohlen); danach funktionieren sie offline. Ohne heruntergeladene Stimme wird die Stimme des Telefons verwendet."
 };

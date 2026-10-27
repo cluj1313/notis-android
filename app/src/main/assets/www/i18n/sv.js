@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "Det gick inte att ladda ner rösten",
 "Ține apăsat pe 🔊 ca să alegi limba": "Håll in 🔊 för att välja språk",
 "Arată la apăsare lungă pe 🔊": "Visa vid långt tryck på 🔊",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Läs upp\nI en anteckning läser knappen „Läs upp” (nere till höger) texten högt. Håll in den för att välja språk; bara röster som är markerade i Inställningar → Röst visas. Hastighet och tonhöjd ställs också in där."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Läs upp\nI en anteckning läser knappen „Läs upp” (nere till höger) texten högt. Håll in den för att välja språk; bara röster som är markerade i Inställningar → Röst visas. Hastighet och tonhöjd ställs också in där.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Öppna menyn RÖST i Inställningar om du vill få texterna upplästa.",
+"Deschide Voce": "Öppna Röst",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Ladda ner rösten i Inställningar → Röst för en bättre röst",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Ladda bara ner de röster du behöver (Wi‑Fi rekommenderas); sedan fungerar de offline. Utan nedladdad röst används telefonens röst."
 };

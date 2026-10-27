@@ -1186,8 +1186,8 @@ var TTS=(function(){
   ['pv_tr','tr','tr/tr_TR/dfki/medium/tr_TR-dfki-medium',63201294,'DFKI'],['pv_vi','vi','vi/vi_VN/vais1000/medium/vi_VN-vais1000-medium',63201294,'VAIS1000']];
  var ENG={},VOICES=[];
  VL.forEach(function(x){var u=HF+encodeURI(x[2]),nm=x[2].split('/').pop();
-  ENG[x[0]]={name:x[4],lang:x[1],bundled:!!x[5],lic:x[6]||'',files:SHARED.concat([{k:'cfg',url:x[0]==='piper'?HFP+'.onnx.json':u+'.onnx.json',size:5000,b:x[5]?nm+'.onnx.json':''},{k:'model',url:x[0]==='piper'?HFP+'.onnx':u+'.onnx',size:x[3],b:x[5]?nm+'.onnx':''}])};
-  VOICES.push({id:x[0]==='piper'?'mihai':x[0],engine:x[0],short:x[4],label:x[4]+' (Piper)',lang:x[1],bundled:!!x[5]})});
+  ENG[x[0]]={name:x[4],lang:x[1],bundled:false,top:!!x[5],lic:x[6]||'',files:SHARED.concat([{k:'cfg',url:x[0]==='piper'?HFP+'.onnx.json':u+'.onnx.json',size:5000,b:x[5]?nm+'.onnx.json':''},{k:'model',url:x[0]==='piper'?HFP+'.onnx':u+'.onnx',size:x[3],b:x[5]?nm+'.onnx':''}])};
+  VOICES.push({id:x[0]==='piper'?'mihai':x[0],engine:x[0],short:x[4],label:x[4]+' (Piper)',lang:x[1],bundled:false,top:!!x[5]})});
  var VOICES_ALL=VOICES;
  function voice(id){for(var i=0;i<VOICES.length;i++)if(VOICES[i].id===id||VOICES[i].engine===id)return VOICES[i];return null}
  function total(e){return ENG[e].files.reduce(function(a,f){return a+f.size},0)}
@@ -1210,7 +1210,7 @@ var TTS=(function(){
  function getStore(){if(!store)store=cacheStore().catch(function(){return idbStore()}).catch(function(){return memStore});return store}
  var NAT=false;try{NAT=!!(window.NotisNative)&&/^https:$/.test(location.protocol)}catch(_){}
  var bundleOK=null; /* APK: is vb/ served? (checked once) */
- function hasBundle(){if(!NAT)return Promise.resolve(false);if(!bundleOK)bundleOK=fetch('vb/ro_RO-mihai-medium.onnx.json',{cache:'no-store'}).then(function(r){return r.ok},function(){return false});return bundleOK}
+ function hasBundle(){return Promise.resolve(false);if(!bundleOK)bundleOK=fetch('vb/ro_RO-mihai-medium.onnx.json',{cache:'no-store'}).then(function(r){return r.ok},function(){return false});return bundleOK}
  function readBody(r,f,onBytes,sig){var got=0,chunks=[];if(!r.body||!r.body.getReader)return r.arrayBuffer().then(function(b){onBytes(f,b.byteLength);return b});
   var rd=r.body.getReader();return (function pump(){if(sig&&sig.aborted){try{rd.cancel()}catch(_){}return Promise.reject(new Error('abort'))}return rd.read().then(function(x){
    if(x.done){var u=new Uint8Array(got),o=0;chunks.forEach(function(ch){u.set(ch,o);o+=ch.length});return u.buffer}
@@ -2056,8 +2056,17 @@ function ldMark(segs){var prev=null;segs.forEach(function(s){var d=ldDetect(s.te
   if(d&&(w>=3||!prev))prev=d;else if(d&&w<3&&prev&&d!==prev)d=prev;s.lang=d||prev||NL});
  var any=segs.some(function(s){return ldBase(s.lang)!==ldBase(NL)});if(!any)segs.forEach(function(s){delete s.lang});return segs}
 window.ldDetect=ldDetect;window.ldMark=ldMark;
-/* v140: per-line voice routing: ro -> Mihai, en -> Joe (both bundled in the APK), other languages -> their downloaded Piper voice, else the phone voice */
-var nrLang=null,vForce=null;
+/* v140: per-line voice routing: ro -> Mihai, en -> Joe (downloaded on demand since v142; nothing bundled), other languages -> their downloaded Piper voice, else the phone voice */
+var nrLang=null,vForce=null,vHinted=false;
+function vcBusy(){if(document.querySelector('.modal.show,#noteFull.show,#vcCard'))return true;return ['nwOb','nwCard','nsSS','crRing','shModal','lbModal','cPick','dsgn','demoBan'].some(function(id){var e=$(id);return e&&e.getClientRects().length&&getComputedStyle(e).display!=='none'&&getComputedStyle(e).visibility!=='hidden'})}
+function vcMaybe(){try{if(localStorage.getItem('ns_vcard'))return;if(TTS.ALL.some(function(v){return TTS.has(v.engine)})){localStorage.setItem('ns_vcard','1');return}}catch(_){return}
+ var n=0;(function tryShow(){if(localStorage.getItem('ns_vcard'))return;if(vcBusy()){if(++n<200)setTimeout(tryShow,3000);return}vcShow()})()}
+function vcClose(){var c=$('vcCard');if(c)c.remove();try{localStorage.setItem('ns_vcard','1')}catch(_){}}
+function vcShow(){if($('vcCard'))return;var c=document.createElement('div');c.id='vcCard';c.setAttribute('role','dialog');
+ c.innerHTML='<div class="vcb"><div class="vct">'+esc(TR('Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.'))+'</div><div class="vcr"><button type="button" class="btn" id="vcOpen">'+esc(TR('Deschide Voce'))+'</button><button type="button" class="btn" id="vcOk">OK</button></div></div>';
+ document.body.appendChild(c);c.addEventListener('click',function(e){if(e.target===c){vcClose();return}if(e.target.id==='vcOk')vcClose();else if(e.target.id==='vcOpen'){vcClose();vcOpenVoice()}})}
+function vcOpenVoice(){try{$('bSettings').click();setTimeout(function(){var f=$('fVoices');if(!f)return;var b=f.closest('.secb'),h=b&&b.previousElementSibling;if(h&&h.classList.contains('sect')&&!h.classList.contains('open'))h.click();setTimeout(function(){f.scrollIntoView({block:'start'})},60)},250)}catch(_){}}
+window.__vc={show:vcShow,maybe:vcMaybe,busy:vcBusy};
 function vOn(id){return !(cfg.vOn&&cfg.vOn[id]===false)}
 function vAvail(v){return !!v&&(v.bundled||TTS.has(v.engine)||TTS.state(v.engine)==='ready')}
 function vMenu(){return TTS.ALL.filter(function(v){return vAvail(v)&&vOn(v.id)})}
@@ -2072,7 +2081,7 @@ window.ttsGroups=function(segs){return ttsGroups(segs).map(function(g){return g.
 function speak(segs,key){
  stopSpeaking();var gen=++kGen;speaking=true;speakKey=key||null;updEq();unlockAudio();
  var v=selVoice(),e=v&&v.engine,useN=!!v&&(TTS.state(e)==='ready'||TTS.has(e));
- if(v&&!useN){ensureVoice().catch(function(){});
+ if(v&&!useN&&false){
   toast(TTS.state(e)==='loading'?TR('Vocea ')+v.short+TR(' se pregătește (')+Math.round(TTS.progress(e)*100)+TR('%). Până atunci folosesc vocea telefonului.'):TR('Vocea ')+v.short+TR(' nu e disponibilă. Folosesc vocea telefonului.'))}
  var gr=ttsGroups(segs),p,anyN=gr.some(function(g){return g.v});
  setStatus(anyN?TR('Vorbesc (')+gr.filter(function(g){return g.v}).map(function(g){return g.v.short}).filter(function(x,i,a){return a.indexOf(x)===i}).join(', ')+')…':TR('Vorbesc…'));
@@ -2126,11 +2135,10 @@ function vDetect(){return Promise.all(TTS.ALL.map(function(v){return TTS.isDownl
 window.vDetect=vDetect;
 function bootVoice(){vDetect().then(function(){if(cfg.engine==='browser')return;
   /* web: the two included voices (Mihai + Joe) are fetched once in the background and cached, like Mihai before */
-  setTimeout(function(){var c=navigator.connection;if(c&&c.saveData)return;['piper','joe'].reduce(function(p,e){return p.then(function(){if(TTS.has(e))return;return TTS.download(e).catch(function(){})})},Promise.resolve()).then(function(){try{vlRender()}catch(_){}})},15000)});
+  vcMaybe()});
  var v=selVoice();if(!v)return;
  TTS.isDownloaded(v.engine).then(function(have){var c=navigator.connection;
-  if(have||(v.engine==='piper'&&!(c&&c.saveData)))ensureVoice().catch(function(){});
-  else setStatus(TR('Vocea ')+v.short+TR(' nu e descărcată: Setări → Descarcă.'),true)})}
+  if(have)ensureVoice().catch(function(){})})}
 
 /* ---------- v140: voices list (Settings → Voce): Mihai + English included, other languages downloadable ---------- */
 var vlOpen=false;
@@ -2144,7 +2152,7 @@ function vlRow(v){var e=v.engine,d=TTS.dlState(e),inc=v.bundled;if(d.st!=='loadi
  else if(d.st==='done')h+='<span class="vlm vlok">✓'+(inc?' '+esc(TR('(inclus)')):'')+'</span>'+(inc?'':'<button type="button" class="btn vlb" data-a="del">'+esc(TR('Șterge'))+'</button>')+ck;
  else h+='<span class="vlm">'+TTS.modelMB(e)+' MB</span><button type="button" class="btn vlb" data-a="dl">'+esc(TR('Descarcă'))+'</button>';
  return h+'</div>'}
-function vlRender(){var box=$('fVoices');if(!box)return;var all=TTS.ALL,inc=all.filter(function(v){return v.bundled}),oth=all.filter(function(v){return !v.bundled});
+function vlRender(){var box=$('fVoices');if(!box)return;var all=TTS.ALL,inc=all.filter(function(v){return v.top}),oth=all.filter(function(v){return !v.top});
  oth.sort(function(a,b){return vlName(a).localeCompare(vlName(b))});
  var mv=cfg.mainVoice||'auto',opts='<option value="auto">'+esc(TR('Automat (limba aplicației)'))+'</option>';
  all.forEach(function(v){if(vAvail(v))opts+='<option value="'+v.id+'"'+(mv===v.id?' selected':'')+'>'+esc(vlName(v))+'</option>'});
@@ -2153,7 +2161,7 @@ function vlRender(){var box=$('fVoices');if(!box)return;var all=TTS.ALL,inc=all.
   '<button type="button" class="vlr vlmore" id="vlMore" aria-expanded="'+vlOpen+'"><span class="vln">'+esc(TR('Alte limbi'))+'</span><span class="vlm">'+oth.filter(function(v){return TTS.has(v.engine)}).length+'/'+oth.length+' '+(vlOpen?'▾':'›')+'</span></button>'+
   (vlOpen?'<div class="vlo">'+oth.map(vlRow).join('')+'</div>':'')+'</div>'+
   '<label for="sMainV" class="vlml">'+esc(TR('Vocea principală'))+'</label><select id="sMainV">'+opts+'</select>'+
-  '<div class="hint">'+esc(TR('Ține apăsat pe 🔊 ca să alegi limba'))+'</div><div class="hint">'+esc(TR('Română și engleză sunt incluse și merg offline. Pentru alte limbi descarcă vocea de aici; fără ea se citește cu vocea telefonului.'))+'</div>';
+  '<div class="hint">'+esc(TR('Ține apăsat pe 🔊 ca să alegi limba'))+'</div><div class="hint">'+esc(TR('Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.'))+'</div>';
  if(mv!=='auto'&&!$('sMainV').value)$('sMainV').value='auto';}
 function vlSetMain(id){cfg.mainVoice=id;try{if(draft)draft.mainVoice=id}catch(_){}saveCfg()}
 var vlT=0;function vlTick(){var t=Date.now();if(t-vlT<250)return;vlT=t;vlRender()}
@@ -2236,7 +2244,7 @@ $('sGeo').onclick=function(){if(!navigator.geolocation){toast(TR('Locația nu e 
    b.disabled=false;citySel({city:nm,lat:lat,lon:lon,tz:'auto'},sub)})},
   function(){b.disabled=false;$('citySel').textContent='';toast(TR('Nu am acces la locație (permisiune refuzată)'))},{enableHighAccuracy:false,timeout:12000,maximumAge:600000})};
 $('sSave').onclick=function(){var name=$('sName').value.trim()||cfg.name,city=$('sCity').value.trim();
- function done(){saveCfg();$('modal').classList.remove('show');applyClock();renderGreet(true);renderWx();loadWx();toast(TR('Setări salvate'));if(cfg.engine!=='browser'&&NL==='ro')ensureVoice().catch(function(){})}
+ function done(){saveCfg();$('modal').classList.remove('show');applyClock();renderGreet(true);renderWx();loadWx();toast(TR('Setări salvate'));if(cfg.engine!=='browser'&&NL==='ro'&&TTS.has((TTS.voice(cfg.engine)||TTS.voice('mihai')).engine))ensureVoice().catch(function(){})}
  cfg.name=name;if(NL==='ro')cfg.engine=$('sEngine').value;cfg.tone=+$('sTone').value;cfg.voiceURI=$('sVoice').value||null;cfg.rate=+$('sRate').value;cfg.pitch=+$('sPitch').value;
  cfg.remindUrgent=!!$('sRemindUrg').checked;cfg.clockFont=draft.clockFont;cfg.clockColor=draft.clockColor;cfg.clockSize=draft.clockSize;newsScale=draft.newsSize||100;LS.set('ns_newssize',newsScale);applyNewsSize(newsScale);newsCats=draft.newsCats.slice();LS.set('ns_newscats',newsCats);renderNews(newsCats);loadVoices();
  if(pending){var chg=pending.lat!==cfg.lat||pending.lon!==cfg.lon||pending.city!==cfg.city;cfg.city=pending.city;cfg.lat=pending.lat;cfg.lon=pending.lon;cfg.tz=pending.tz;if(chg){wx=null;LS.set('ns_wx',null)}done()}
@@ -2956,6 +2964,7 @@ function noteRead(){if(speaking&&speakKey==='note'){stopSpeaking();return}nrClea
  if(!sg.length){nrClear();toast(TR('Notița e goală'));return}try{ldMark(sg)}catch(_){}
  var fv=nrLang&&TTS.voice(nrLang);if(fv&&(!vAvail(fv)||!vOn(fv.id))){nrLang=null;fv=null}
  if(fv){sg.forEach(function(x){x.lang=fv.lang});vForce=fv.id}
+ try{if(!vHinted&&cfg.engine!=='browser'&&ttsGroups(sg).some(function(g){return !g.v})){vHinted=true;setTimeout(function(){toast(TR('Descarcă vocea din Setări → Voce pentru o voce mai bună'))},400)}}catch(_){}
  nrBusy=true;try{return speak(sg,'note')}finally{nrBusy=false;vForce=null}}
 window.__nr2={get lang(){return nrLang},set lang(x){nrLang=x},menu:function(){nrLMOpen()}};
 function nrCode(){var v=nrLang&&TTS.voice(nrLang);return v?String(v.lang).toUpperCase():''}
@@ -4258,7 +4267,7 @@ spMigrate();renderNotes();
 })();
 /* v96: Setări → TABURI (bibliotecă: ordine drag & drop, bifă vizibil/ascuns, PIN 4/6 opțional), DESIGN (Teme · Stil taburi · Fundal · Setări fine · Iconiță), iconiță urgență, Comunică cu creatorul, Versiune. Additive: hidden tab = t.off, nothing deleted. */
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v141';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v142';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};
@@ -4569,6 +4578,6 @@ renderAbList();
 <style>#modal #fMsg{border-top:1px solid rgba(var(--lnR),.15);padding-top:12px;margin-top:10px}#modal .ccSub{font-family:"Oswald",Roboto,system-ui,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.1em;font-size:14.5px!important;color:var(--cyan2);margin:0 0 6px}#modal #fMsg #cmInfo{line-height:1.5}</style>
 <style>#modal #cmInfo.cmList{white-space:normal}#modal .cmLi{position:relative;padding-inline-start:1.05em;margin:0 0 3px}#modal .cmLi::before{content:'\2022';position:absolute;inset-inline-start:.15em;top:0;color:inherit}</style>
 
-<style id="v141css">#nrLM{position:fixed;z-index:60;padding:4px;display:flex;flex-direction:column;min-width:150px;max-width:calc(100vw - 16px);max-height:60vh;overflow:auto;margin:0}#nrLM .nrli{all:unset;box-sizing:border-box;display:block;padding:9px 12px;font-size:14px;border-radius:8px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:inherit}#nrLM .nrli.on{color:var(--cyan);font-weight:600}#nrLM .nrli.on::after{content:" ✓"}#fVoices .vlc{flex:0 0 auto;width:18px;height:18px;margin:0 0 0 6px}</style><style id="v140css">#fVoices .vll{display:flex;flex-direction:column;gap:4px;margin:4px 0 8px}#fVoices .vlr{display:flex;align-items:center;gap:8px;min-height:36px;padding:2px 8px;border-radius:10px;background:rgba(127,127,127,.08);width:100%;box-sizing:border-box;font:inherit;color:inherit;border:0;text-align:left}#fVoices .vln{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#fVoices .vlm{font-size:.85em;opacity:.8;white-space:nowrap}#fVoices .vlok{color:var(--cyan);opacity:1}#fVoices .vlb{padding:4px 10px;min-height:30px;font-size:.85em}#fVoices .vlp{width:64px;height:6px;border-radius:3px;background:rgba(127,127,127,.25);overflow:hidden}#fVoices .vlp i{display:block;height:100%;background:var(--cyan)}#fVoices .vlo{display:flex;flex-direction:column;gap:4px;max-height:320px;overflow:auto}#fVoices .vlmore{cursor:pointer}#fVoices .vlml{margin-top:6px}#nfView.nrHost{position:relative}#nfView .kbar{pointer-events:none}</style>
+<style id="v142css">#modal #fVoices .vlr .vln{white-space:normal!important;overflow-wrap:anywhere;text-overflow:clip!important;overflow:visible!important;min-width:0}#vcCard{position:fixed;inset:0;z-index:80;display:flex;align-items:flex-end;justify-content:center;padding:0 12px calc(90px + env(safe-area-inset-bottom));background:rgba(0,0,0,.25)}#vcCard .vcb{max-width:min(420px,100%);box-sizing:border-box;padding:16px 16px 12px;border-radius:16px;background:rgba(20,24,32,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.18);box-shadow:0 8px 30px rgba(0,0,0,.35);color:#f4f7fb}#vcCard .vct{font-size:17px;line-height:1.4;text-align:center}#vcCard .vcr{display:flex;gap:10px;justify-content:center;margin-top:12px;flex-wrap:wrap}#vcCard .btn{font-size:15px;padding:8px 16px;color:#f4f7fb}</style><style id="v141css">#nrLM{position:fixed;z-index:60;padding:4px;display:flex;flex-direction:column;min-width:150px;max-width:calc(100vw - 16px);max-height:60vh;overflow:auto;margin:0}#nrLM .nrli{all:unset;box-sizing:border-box;display:block;padding:9px 12px;font-size:14px;border-radius:8px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:inherit}#nrLM .nrli.on{color:var(--cyan);font-weight:600}#nrLM .nrli.on::after{content:" ✓"}#fVoices .vlc{flex:0 0 auto;width:18px;height:18px;margin:0 0 0 6px}</style><style id="v140css">#fVoices .vll{display:flex;flex-direction:column;gap:4px;margin:4px 0 8px}#fVoices .vlr{display:flex;align-items:center;gap:8px;min-height:36px;padding:2px 8px;border-radius:10px;background:rgba(127,127,127,.08);width:100%;box-sizing:border-box;font:inherit;color:inherit;border:0;text-align:left}#fVoices .vln{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}#fVoices .vlm{font-size:.85em;opacity:.8;white-space:nowrap}#fVoices .vlok{color:var(--cyan);opacity:1}#fVoices .vlb{padding:4px 10px;min-height:30px;font-size:.85em}#fVoices .vlp{width:64px;height:6px;border-radius:3px;background:rgba(127,127,127,.25);overflow:hidden}#fVoices .vlp i{display:block;height:100%;background:var(--cyan)}#fVoices .vlo{display:flex;flex-direction:column;gap:4px;max-height:320px;overflow:auto}#fVoices .vlmore{cursor:pointer}#fVoices .vlml{margin-top:6px}#nfView.nrHost{position:relative}#nfView .kbar{pointer-events:none}</style>
 </body>
 </html>

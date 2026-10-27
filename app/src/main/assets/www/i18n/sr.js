@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "Глас није могао да се преузме",
 "Ține apăsat pe 🔊 ca să alegi limba": "Задржи 🔊 да изабереш језик",
 "Arată la apăsare lungă pe 🔊": "Прикажи при дугом притиску на 🔊",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Читање\nУ белешци дугме „Читај“ (доле десно) чита текст наглас. Задржи га да изабереш језик; приказују се само гласови штиклирани у Подешавања → Глас. Брзина и тон се подешавају такође тамо."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Читање\nУ белешци дугме „Читај“ (доле десно) чита текст наглас. Задржи га да изабереш језик; приказују се само гласови штиклирани у Подешавања → Глас. Брзина и тон се подешавају такође тамо.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Отвори мени ГЛАС у Подешавањима ако желиш да ти се текстови читају.",
+"Deschide Voce": "Отвори Глас",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Преузми глас у Подешавања → Глас за бољи глас",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Преузимај само гласове који ти требају (препоручује се Wi‑Fi); затим раде ван мреже. Без преузетог гласа користи се глас телефона."
 };

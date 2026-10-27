@@ -298,7 +298,7 @@ NOTIS_I18N={
 "mai estompat": "더 희미하다",
 "mai intens": "더 강하게",
 "Spațiu între notițe": "메모 사이의 간격",
-"Voce": "목소리",
+"Voce": "음성",
 "Motor voce": "음성 엔진",
 "Se descarcă o singură dată (≈": "한 번만 다운로드 (≈",
 "MB) și rămâne salvată în browser pentru folosire offline.": "MB) 그리고 오프라인 사용을 위해 브라우저에 저장됩니다.",
@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "음성을 다운로드할 수 없습니다",
 "Ține apăsat pe 🔊 ca să alegi limba": "🔊을 길게 눌러 언어를 선택하세요",
 "Arată la apăsare lungă pe 🔊": "🔊 길게 누르면 표시",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 읽기\n메모에서 „읽기” 버튼(오른쪽 아래)은 텍스트를 소리 내어 읽습니다. 길게 누르면 언어를 선택할 수 있으며, 설정 → 음성에서 체크한 음성만 표시됩니다. 속도와 음높이도 그곳에서 조절합니다."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 읽기\n메모에서 „읽기” 버튼(오른쪽 아래)은 텍스트를 소리 내어 읽습니다. 길게 누르면 언어를 선택할 수 있으며, 설정 → 음성에서 체크한 음성만 표시됩니다. 속도와 음높이도 그곳에서 조절합니다.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "텍스트를 읽어 주길 원하면 설정에서 음성 메뉴로 들어가세요.",
+"Deschide Voce": "음성 열기",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "더 좋은 음성을 위해 설정 → 음성에서 음성을 다운로드하세요",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "필요한 음성만 다운로드하세요(Wi‑Fi 권장). 그 후에는 오프라인에서 작동합니다. 다운로드한 음성이 없으면 휴대폰 음성을 사용합니다."
 };

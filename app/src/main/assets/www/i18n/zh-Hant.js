@@ -298,7 +298,7 @@ NOTIS_I18N={
 "mai estompat": "顯得較弱",
 "mai intens": "更強大",
 "Spațiu între notițe": "筆記之間的空格",
-"Voce": "沒有任何問題.",
+"Voce": "語音",
 "Motor voce": "聲音引擎",
 "Se descarcă o singură dată (≈": "只有一次下載 (≈",
 "MB) și rămâne salvată în browser pentru folosire offline.": "其他國家 在網際網路下使用.",
@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "無法下載語音",
 "Ține apăsat pe 🔊 ca să alegi limba": "長按 🔊 選擇語言",
 "Arată la apăsare lungă pe 🔊": "長按 🔊 時顯示",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 朗讀\n在筆記中，「朗讀」按鈕（右下角）會大聲朗讀文字。長按它可選擇語言；只顯示在 設定 → 語音 中勾選的語音。語速和音調也在那裡調整。"
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 朗讀\n在筆記中，「朗讀」按鈕（右下角）會大聲朗讀文字。長按它可選擇語言；只顯示在 設定 → 語音 中勾選的語音。語速和音調也在那裡調整。",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "如果想讓文字被朗讀，請進入設定中的「語音」選單。",
+"Deschide Voce": "開啟語音",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "在 設定 → 語音 中下載語音以獲得更好的聲音",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "只下載需要的語音（建議使用 Wi‑Fi）；之後可離線使用。沒有下載語音時使用手機內建語音。"
 };

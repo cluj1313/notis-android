@@ -298,7 +298,7 @@ NOTIS_I18N={
 "mai estompat": "svakere",
 "mai intens": "sterkere",
 "Spațiu între notițe": "Avstand mellom notater",
-"Voce": "Stemmen",
+"Voce": "Stemme",
 "Motor voce": "Stem-motor",
 "Se descarcă o singură dată (≈": "Bare lastet ned en gang (≈",
 "MB) și rămâne salvată în browser pentru folosire offline.": "MB) og blir lagret i nettleseren for offline bruk.",
@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "Kunne ikke laste ned stemmen",
 "Ține apăsat pe 🔊 ca să alegi limba": "Hold inne 🔊 for å velge språk",
 "Arată la apăsare lungă pe 🔊": "Vis ved langt trykk på 🔊",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Les opp\nI et notat leser knappen „Les opp” (nede til høyre) teksten høyt. Hold den inne for å velge språk; bare stemmer som er avkrysset i Innstillinger → Stemme, vises. Hastighet og tonehøyde stilles også der."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Les opp\nI et notat leser knappen „Les opp” (nede til høyre) teksten høyt. Hold den inne for å velge språk; bare stemmer som er avkrysset i Innstillinger → Stemme, vises. Hastighet og tonehøyde stilles også der.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Gå til menyen STEMME i Innstillinger hvis du vil få tekstene lest opp.",
+"Deschide Voce": "Åpne Stemme",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Last ned stemmen i Innstillinger → Stemme for en bedre stemme",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Last ned bare stemmene du trenger (Wi‑Fi anbefales); deretter virker de uten nett. Uten nedlastet stemme brukes telefonens stemme."
 };

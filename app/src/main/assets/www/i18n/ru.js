@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "Не удалось скачать голос",
 "Ține apăsat pe 🔊 ca să alegi limba": "Удерживай 🔊, чтобы выбрать язык",
 "Arată la apăsare lungă pe 🔊": "Показывать при удержании 🔊",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Чтение\nВ заметке кнопка «Читать» (внизу справа) читает текст вслух. Удерживай её, чтобы выбрать язык; показываются только голоса, отмеченные в Настройки → Голос. Скорость и тон настраиваются там же."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Чтение\nВ заметке кнопка «Читать» (внизу справа) читает текст вслух. Удерживай её, чтобы выбрать язык; показываются только голоса, отмеченные в Настройки → Голос. Скорость и тон настраиваются там же.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Зайди в меню ГОЛОС в Настройках, если хочешь, чтобы тексты читались вслух.",
+"Deschide Voce": "Открыть Голос",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Скачай голос в Настройки → Голос для лучшего звучания",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Скачивай только нужные голоса (рекомендуется Wi‑Fi); потом они работают офлайн. Без скачанного голоса используется голос телефона."
 };

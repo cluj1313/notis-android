@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "Glasu ni bilo mogoče prenesti",
 "Ține apăsat pe 🔊 ca să alegi limba": "Pridrži 🔊 za izbiro jezika",
 "Arată la apăsare lungă pe 🔊": "Prikaži ob dolgem pritisku na 🔊",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Branje\nV zapisku gumb „Beri“ (spodaj desno) prebere besedilo na glas. Pridrži ga za izbiro jezika; prikažejo se le glasovi, označeni v Nastavitve → Glas. Hitrost in ton nastaviš prav tam."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Branje\nV zapisku gumb „Beri“ (spodaj desno) prebere besedilo na glas. Pridrži ga za izbiro jezika; prikažejo se le glasovi, označeni v Nastavitve → Glas. Hitrost in ton nastaviš prav tam.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Odpri meni GLAS v Nastavitvah, če želiš, da se ti besedila berejo.",
+"Deschide Voce": "Odpri Glas",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Za boljši glas ga prenesi v Nastavitve → Glas",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Prenesi le glasove, ki jih potrebuješ (priporočen Wi‑Fi); nato delujejo brez povezave. Brez prenesenega glasu se uporabi glas telefona."
 };

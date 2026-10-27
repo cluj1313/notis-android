@@ -298,7 +298,7 @@ NOTIS_I18N={
 "mai estompat": "más débil",
 "mai intens": "más fuerte",
 "Spațiu între notițe": "Espacio entre notas",
-"Voce": "La voz",
+"Voce": "Voz",
 "Motor voce": "Motor de voz",
 "Se descarcă o singură dată (≈": "Solo se descarga una vez (≈",
 "MB) și rămâne salvată în browser pentru folosire offline.": "En el caso de los Estados miembros y permanece guardado en el navegador para uso fuera de línea.",
@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "No se pudo descargar la voz",
 "Ține apăsat pe 🔊 ca să alegi limba": "Mantén pulsado 🔊 para elegir el idioma",
 "Arată la apăsare lungă pe 🔊": "Mostrar al mantener pulsado 🔊",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Leer\nEn una nota, el botón «Leer» (abajo a la derecha) lee el texto en voz alta. Mantenlo pulsado para elegir el idioma; solo aparecen las voces marcadas en Ajustes → Voz. La velocidad y el tono también se ajustan allí."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Leer\nEn una nota, el botón «Leer» (abajo a la derecha) lee el texto en voz alta. Mantenlo pulsado para elegir el idioma; solo aparecen las voces marcadas en Ajustes → Voz. La velocidad y el tono también se ajustan allí.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Entra en el menú VOZ de Ajustes si quieres que te lean los textos.",
+"Deschide Voce": "Abrir Voz",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Descarga la voz en Ajustes → Voz para una voz mejor",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Descarga solo las voces que necesites (se recomienda wifi); luego funcionan sin conexión. Sin voz descargada se usa la voz del teléfono."
 };

@@ -298,7 +298,7 @@ NOTIS_I18N={
 "mai estompat": "daha zayıf",
 "mai intens": "Daha güçlü",
 "Spațiu între notițe": "Notlar arasındaki boşluk",
-"Voce": "Ses .",
+"Voce": "Ses",
 "Motor voce": "Ses motoru",
 "Se descarcă o singură dată (≈": "Sadece bir kez indirilmiş (≈",
 "MB) și rămâne salvată în browser pentru folosire offline.": "MB) ve çevrimdışı kullanım için tarayıcıda kaydedilir.",
@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "Ses indirilemedi",
 "Ține apăsat pe 🔊 ca să alegi limba": "Dili seçmek için 🔊 simgesine basılı tut",
 "Arată la apăsare lungă pe 🔊": "🔊 basılı tutulunca göster",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Sesli oku\nNotta „Oku” düğmesi (sağ alt) metni sesli okur. Dili seçmek için basılı tut; yalnızca Ayarlar → Ses bölümünde işaretli sesler görünür. Hız ve ton da orada ayarlanır."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Sesli oku\nNotta „Oku” düğmesi (sağ alt) metni sesli okur. Dili seçmek için basılı tut; yalnızca Ayarlar → Ses bölümünde işaretli sesler görünür. Hız ve ton da orada ayarlanır.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Metinlerin sana okunmasını istiyorsan Ayarlar'daki SES menüsüne gir.",
+"Deschide Voce": "Sesi aç",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Daha iyi bir ses için sesi Ayarlar → Ses bölümünden indir",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Yalnızca ihtiyacın olan sesleri indir (Wi‑Fi önerilir); sonra çevrimdışı çalışırlar. İndirilmiş ses yoksa telefonun sesi kullanılır."
 };

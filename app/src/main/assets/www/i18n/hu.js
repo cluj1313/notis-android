@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "Nem sikerült letölteni a hangot",
 "Ține apăsat pe 🔊 ca să alegi limba": "Tartsd lenyomva a 🔊 gombot a nyelv kiválasztásához",
 "Arată la apăsare lungă pe 🔊": "Megjelenik a 🔊 hosszú lenyomásakor",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Felolvasás\nA jegyzetben a „Felolvasás” gomb (jobbra lent) felolvassa a szöveget. Tartsd lenyomva a nyelv kiválasztásához; csak a Beállítások → Hang alatt bejelölt hangok jelennek meg. A sebesség és a hangmagasság is ott állítható."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Felolvasás\nA jegyzetben a „Felolvasás” gomb (jobbra lent) felolvassa a szöveget. Tartsd lenyomva a nyelv kiválasztásához; csak a Beállítások → Hang alatt bejelölt hangok jelennek meg. A sebesség és a hangmagasság is ott állítható.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Nyisd meg a Beállításokban a HANG menüt, ha szeretnéd, hogy felolvassák a szövegeidet.",
+"Deschide Voce": "Hang megnyitása",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Jobb hangért töltsd le a hangot: Beállítások → Hang",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Csak a szükséges hangokat töltsd le (Wi‑Fi ajánlott); utána offline is működnek. Letöltött hang nélkül a telefon hangja szól."
 };

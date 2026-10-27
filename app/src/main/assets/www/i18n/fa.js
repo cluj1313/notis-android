@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "بارگیری صدا ممکن نشد",
 "Ține apăsat pe 🔊 ca să alegi limba": "برای انتخاب زبان، 🔊 را نگه دارید",
 "Arată la apăsare lungă pe 🔊": "نمایش با نگه‌داشتن 🔊",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 خواندن\nدر یادداشت، دکمه «بخوان» (پایین راست) متن را با صدا می‌خواند. برای انتخاب زبان آن را نگه دارید؛ فقط صداهای تیک‌خورده در تنظیمات ← صدا نمایش داده می‌شوند. سرعت و زیر و بمی هم همان‌جا تنظیم می‌شود."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 خواندن\nدر یادداشت، دکمه «بخوان» (پایین راست) متن را با صدا می‌خواند. برای انتخاب زبان آن را نگه دارید؛ فقط صداهای تیک‌خورده در تنظیمات ← صدا نمایش داده می‌شوند. سرعت و زیر و بمی هم همان‌جا تنظیم می‌شود.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "اگر می‌خواهید متن‌ها برایتان خوانده شوند، به منوی صدا در تنظیمات بروید.",
+"Deschide Voce": "باز کردن صدا",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "برای صدای بهتر، صدا را از تنظیمات ← صدا بارگیری کنید",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "فقط صداهای لازم را بارگیری کنید (Wi‑Fi توصیه می‌شود)؛ سپس آفلاین کار می‌کنند. بدون صدای بارگیری‌شده از صدای گوشی استفاده می‌شود."
 };

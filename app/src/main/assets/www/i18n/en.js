@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "Couldn't download the voice",
 "Ține apăsat pe 🔊 ca să alegi limba": "Long-press 🔊 to choose the language",
 "Arată la apăsare lungă pe 🔊": "Show on long-press of 🔊",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Read aloud\nIn a note, the “Read aloud” button (bottom right) reads the text out loud. Long-press it to choose the language; only voices ticked in Settings → Voice appear. Speed and pitch are set there too."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Read aloud\nIn a note, the “Read aloud” button (bottom right) reads the text out loud. Long-press it to choose the language; only voices ticked in Settings → Voice appear. Speed and pitch are set there too.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Open the VOICE menu in Settings if you want your texts read aloud.",
+"Deschide Voce": "Open Voice",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Download the voice in Settings → Voice for a better voice",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Download only the voices you need (Wi‑Fi recommended); then they work offline. Without a downloaded voice, the phone's voice is used."
 };

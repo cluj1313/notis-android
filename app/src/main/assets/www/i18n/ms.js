@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "Tidak dapat memuat turun suara",
 "Ține apăsat pe 🔊 ca să alegi limba": "Tekan lama 🔊 untuk memilih bahasa",
 "Arată la apăsare lungă pe 🔊": "Tunjukkan apabila 🔊 ditekan lama",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Baca\nDalam nota, butang „Baca” (kanan bawah) membaca teks dengan kuat. Tekan lama untuk memilih bahasa; hanya suara yang ditanda dalam Tetapan → Suara dipaparkan. Kelajuan dan nada juga diatur di situ."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Baca\nDalam nota, butang „Baca” (kanan bawah) membaca teks dengan kuat. Tekan lama untuk memilih bahasa; hanya suara yang ditanda dalam Tetapan → Suara dipaparkan. Kelajuan dan nada juga diatur di situ.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Buka menu SUARA dalam Tetapan jika anda mahu teks dibacakan.",
+"Deschide Voce": "Buka Suara",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Muat turun suara dalam Tetapan → Suara untuk suara yang lebih baik",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Muat turun hanya suara yang diperlukan (Wi‑Fi disyorkan); kemudian ia berfungsi luar talian. Tanpa suara dimuat turun, suara telefon digunakan."
 };

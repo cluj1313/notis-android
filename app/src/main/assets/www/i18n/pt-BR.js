@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "Não foi possível baixar a voz",
 "Ține apăsat pe 🔊 ca să alegi limba": "Toque e segure 🔊 para escolher o idioma",
 "Arată la apăsare lungă pe 🔊": "Mostrar ao tocar e segurar 🔊",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Ler\nNa nota, o botão „Ler” (canto inferior direito) lê o texto em voz alta. Toque e segure para escolher o idioma; aparecem só as vozes marcadas em Configurações → Voz. A velocidade e o tom também são ajustados lá."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Ler\nNa nota, o botão „Ler” (canto inferior direito) lê o texto em voz alta. Toque e segure para escolher o idioma; aparecem só as vozes marcadas em Configurações → Voz. A velocidade e o tom também são ajustados lá.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Entre no menu VOZ em Configurações se quiser que os textos sejam lidos para você.",
+"Deschide Voce": "Abrir Voz",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Baixe a voz em Configurações → Voz para uma voz melhor",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Baixe só as vozes de que precisa (Wi‑Fi recomendado); depois funcionam offline. Sem voz baixada, é usada a voz do celular."
 };

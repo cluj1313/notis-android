@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "Häält ei õnnestunud alla laadida",
 "Ține apăsat pe 🔊 ca să alegi limba": "Hoia 🔊 all, et keel valida",
 "Arată la apăsare lungă pe 🔊": "Näita 🔊 pikal vajutusel",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Ettelugemine\nMärkmes loeb nupp „Loe“ (all paremal) teksti ette. Hoia seda all, et keel valida; kuvatakse ainult hääled, mis on märgitud jaotises Seaded → Hääl. Kiirust ja tooni saab samuti seal muuta."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Ettelugemine\nMärkmes loeb nupp „Loe“ (all paremal) teksti ette. Hoia seda all, et keel valida; kuvatakse ainult hääled, mis on märgitud jaotises Seaded → Hääl. Kiirust ja tooni saab samuti seal muuta.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Ava seadetes menüü HÄÄL, kui soovid, et tekste sulle ette loetaks.",
+"Deschide Voce": "Ava Hääl",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Parema hääle jaoks laadi hääl alla: Seaded → Hääl",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Laadi alla ainult vajalikud hääled (soovitatav Wi‑Fi); siis töötavad need võrguühenduseta. Ilma allalaaditud hääleta kasutatakse telefoni häält."
 };

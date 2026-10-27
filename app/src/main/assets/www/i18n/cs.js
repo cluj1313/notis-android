@@ -298,7 +298,7 @@ NOTIS_I18N={
 "mai estompat": "slabší",
 "mai intens": "Silnější.",
 "Spațiu între notițe": "Prostor mezi poznámkami",
-"Voce": "Hlas.",
+"Voce": "Hlas",
 "Motor voce": "Hlasový motor",
 "Se descarcă o singură dată (≈": "Stáhno jen jednou . (≈",
 "MB) și rămâne salvată în browser pentru folosire offline.": "MB) a zůstává uložena v prohlížeči pro offline použití.",
@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "Hlas se nepodařilo stáhnout",
 "Ține apăsat pe 🔊 ca să alegi limba": "Podrž 🔊 a vyber jazyk",
 "Arată la apăsare lungă pe 🔊": "Zobrazit při podržení 🔊",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Čtení\nV poznámce tlačítko „Číst“ (vpravo dole) přečte text nahlas. Podrž ho a vyber jazyk; zobrazí se jen hlasy zaškrtnuté v Nastavení → Hlas. Rychlost a výška se nastavují tamtéž."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Čtení\nV poznámce tlačítko „Číst“ (vpravo dole) přečte text nahlas. Podrž ho a vyber jazyk; zobrazí se jen hlasy zaškrtnuté v Nastavení → Hlas. Rychlost a výška se nastavují tamtéž.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Otevři v Nastavení nabídku HLAS, pokud chceš, aby se ti texty četly.",
+"Deschide Voce": "Otevřít Hlas",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Pro lepší hlas si ho stáhni v Nastavení → Hlas",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Stahuj jen hlasy, které potřebuješ (doporučeno Wi‑Fi); pak fungují offline. Bez staženého hlasu se použije hlas telefonu."
 };

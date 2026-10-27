@@ -298,7 +298,7 @@ NOTIS_I18N={
 "mai estompat": "कमज़ोर",
 "mai intens": "बलवान",
 "Spațiu între notițe": "नोटों के बीच का अंतर",
-"Voce": "आवाज",
+"Voce": "आवाज़",
 "Motor voce": "आवाज इंजन",
 "Se descarcă o singură dată (≈": "केवल एक बार डाउनलोड किया गया (≈",
 "MB) și rămâne salvată în browser pentru folosire offline.": "एमबी) और ऑफ़लाइन उपयोग के लिए ब्राउज़र में सहेजा जाता है.",
@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "आवाज़ डाउनलोड नहीं हो सकी",
 "Ține apăsat pe 🔊 ca să alegi limba": "भाषा चुनने के लिए 🔊 दबाकर रखें",
 "Arată la apăsare lungă pe 🔊": "🔊 दबाकर रखने पर दिखाएँ",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 पढ़ें\nनोट में „पढ़ें” बटन (नीचे दाएँ) टेक्स्ट को ज़ोर से पढ़ता है। भाषा चुनने के लिए इसे दबाकर रखें; केवल सेटिंग्स → आवाज़ में चुनी गई आवाज़ें दिखती हैं। गति और सुर भी वहीं सेट होते हैं।"
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 पढ़ें\nनोट में „पढ़ें” बटन (नीचे दाएँ) टेक्स्ट को ज़ोर से पढ़ता है। भाषा चुनने के लिए इसे दबाकर रखें; केवल सेटिंग्स → आवाज़ में चुनी गई आवाज़ें दिखती हैं। गति और सुर भी वहीं सेट होते हैं।",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "अगर आप चाहते हैं कि टेक्स्ट पढ़कर सुनाए जाएँ, तो सेटिंग्स में आवाज़ मेनू खोलें।",
+"Deschide Voce": "आवाज़ खोलें",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "बेहतर आवाज़ के लिए सेटिंग्स → आवाज़ से आवाज़ डाउनलोड करें",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "सिर्फ़ ज़रूरी आवाज़ें डाउनलोड करें (Wi‑Fi की सलाह); फिर वे ऑफ़लाइन चलती हैं। डाउनलोड की गई आवाज़ न हो तो फ़ोन की आवाज़ इस्तेमाल होती है।"
 };

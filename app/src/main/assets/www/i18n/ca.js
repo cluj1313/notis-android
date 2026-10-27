@@ -298,7 +298,7 @@ NOTIS_I18N={
 "mai estompat": "més feble",
 "mai intens": "més fort",
 "Spațiu între notițe": "Espaci entre les notes",
-"Voce": "Voces",
+"Voce": "Veu",
 "Motor voce": "Motor de veu",
 "Se descarcă o singură dată (≈": "Descàrrega només una vegada (≈",
 "MB) și rămâne salvată în browser pentru folosire offline.": "MB) i es guarda en el navegador per a l'ús offline.",
@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "No s'ha pogut baixar la veu",
 "Ține apăsat pe 🔊 ca să alegi limba": "Mantén premut 🔊 per triar l'idioma",
 "Arată la apăsare lungă pe 🔊": "Mostra en mantenir premut 🔊",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Llegeix\nEn una nota, el botó «Llegeix» (a baix a la dreta) llegeix el text en veu alta. Mantén-lo premut per triar l'idioma; només surten les veus marcades a Configuració → Veu. La velocitat i el to també es regulen allà."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Llegeix\nEn una nota, el botó «Llegeix» (a baix a la dreta) llegeix el text en veu alta. Mantén-lo premut per triar l'idioma; només surten les veus marcades a Configuració → Veu. La velocitat i el to també es regulen allà.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "Entra al menú VEU de Configuració si vols que et llegeixin els textos.",
+"Deschide Voce": "Obre Veu",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "Baixa la veu a Configuració → Veu per tenir una veu millor",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "Baixa només les veus que necessitis (es recomana Wi‑Fi); després funcionen sense connexió. Sense veu baixada s'usa la veu del telèfon."
 };

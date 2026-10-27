@@ -1073,5 +1073,9 @@ NOTIS_I18N={
 "Nu am putut descărca vocea": "לא ניתן היה להוריד את הקול",
 "Ține apăsat pe 🔊 ca să alegi limba": "לחיצה ארוכה על 🔊 לבחירת שפה",
 "Arată la apăsare lungă pe 🔊": "הצג בלחיצה ארוכה על 🔊",
-"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 הקראה\nבפתק, הכפתור „הקרא” (למטה מימין) מקריא את הטקסט בקול. לחץ עליו לחיצה ארוכה כדי לבחור שפה; מופיעים רק הקולות שסומנו בהגדרות ← קול. המהירות והטון מכוונים גם שם."
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 הקראה\nבפתק, הכפתור „הקרא” (למטה מימין) מקריא את הטקסט בקול. לחץ עליו לחיצה ארוכה כדי לבחור שפה; מופיעים רק הקולות שסומנו בהגדרות ← קול. המהירות והטון מכוונים גם שם.",
+"Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.": "היכנס לתפריט קול בהגדרות אם אתה רוצה שהטקסטים יוקראו לך.",
+"Deschide Voce": "פתח קול",
+"Descarcă vocea din Setări → Voce pentru o voce mai bună": "הורד את הקול בהגדרות ← קול לקול טוב יותר",
+"Descarcă doar vocile de care ai nevoie (recomandat pe Wi-Fi); apoi merg offline. Fără voce descărcată se citește cu vocea telefonului.": "הורד רק את הקולות שאתה צריך (מומלץ Wi‑Fi); אחר כך הם פועלים במצב לא מקוון. בלי קול שהורד ישמש קול הטלפון."
 };
