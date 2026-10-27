@@ -892,6 +892,8 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
 #spView .mdper{margin-left:-5px;margin-right:-5px}
 .shRow .shApp{width:38px!important;height:38px!important;border-radius:10px!important}.shRow .sparr::after{transform:rotate(-90deg)!important}.shRow.open .sparr::after{transform:none!important}.shBox{display:flex;align-items:flex-end;gap:8px;padding:2px 4px 8px 52px;box-sizing:border-box;min-width:0}.shBox[hidden]{display:none}.shTx{flex:1;min-width:0;font-size:12.5px;line-height:1.4;opacity:.72;overflow-wrap:anywhere}.shGo{flex:none;width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;background:none;border:0;padding:0;margin:0;color:var(--cyan);cursor:pointer}.shGo .shI{width:22px;height:22px}
 .shBox{flex-wrap:wrap;padding:2px 0 6px 0!important;gap:2px!important}.shTx{flex:1 1 100%!important;font-size:15.5px!important;line-height:1.45!important;opacity:1!important}.shGo{margin-left:auto}
+.chkR{justify-content:space-between;width:100%}.chkR .chkT{flex:1 1 auto;min-width:0;overflow-wrap:anywhere}
+#modal #sVerV{font-size:14.5px!important}#modal .chkR input#nwOn{width:22px!important;height:22px!important;margin:0 4px 0 0!important}
 </style>
 <style>/* v90: tab style Căsuțe (box tabs) */
 :root[data-tabst=box] #noteTabs{gap:4px;padding:2px 2px 0;margin-bottom:10px;border-bottom:4px solid var(--cyan);align-items:flex-end}
@@ -1094,7 +1096,7 @@ html[data-font] body,html[data-font] button,html[data-font] input,html[data-font
  <div class="field"><button type="button" class="btn" id="sInstall">Instalează aplicația</button>
   <div class="hint" id="installHint">Chrome: meniu ⋮ → „Instalează aplicația” / „Adaugă pe ecranul de pornire”.<br>Brave: meniu ⋮ → „Adaugă pe ecranul de pornire” / „Instalează aplicația”.</div></div></div>
 
- <div class="sec" id="secNews">Mesaje de la creator</div><div class="field" id="fNews"><label class="chk"><input type="checkbox" id="nwOn"> Primesc mesaje de la creator</label><div id="nwList"></div></div>
+ <div class="sec" id="secNews">Mesaje de la creator</div><div class="field" id="fNews"><label class="chk chkR"><span class="chkT">Doresc să primesc mesaje de la creator</span><input type="checkbox" id="nwOn"></label><div id="nwList"></div></div>
 <div class="sec" id="secMsg">Comunică cu creatorul aplicației</div>
  <div class="field" id="fMsg"><div class="hint" id="cmInfo"></div><textarea id="cmTx" class="ux" rows="4" maxlength="2000"></textarea><button type="button" class="btn" id="cmSend">Trimite mesajul</button><div class="hint" id="cmNo" style="display:none;margin-top:6px"></div></div>
  <div class="sec secact" id="sVer" role="button" tabindex="0"><span id="sVerL">Versiune</span><span class="sverv" id="sVerV"></span></div>
@@ -3150,6 +3152,16 @@ $('sShareApp').addEventListener('keydown',function(e){if(e.key==='Enter'||e.key=
  var T;function q(){clearTimeout(T);T=setTimeout(nsSetCR,60)}
  new MutationObserver(q).observe(M,{attributes:true,attributeFilter:['class']});new MutationObserver(q).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme','class']});
  M.addEventListener('click',q,true);M.addEventListener('change',q,true)})();
+/* v133: Setări – fonts ~12% larger (also for content rendered later); only elements with their own size, inherited ones follow */
+(function(){var M=$('modal');if(!M)return;var F=1.12;
+ function fz(root){if(root.nodeType!==1||!M.contains(root))return;var L=[root].concat([].slice.call(root.querySelectorAll('*'))),W=[];
+  L.forEach(function(e){if(e.hasAttribute('data-fz')||/^(OPTION|SCRIPT|STYLE|svg|path|circle|rect|line|g|INPUT)$/i.test(e.tagName))return;
+   var px=parseFloat(getComputedStyle(e).fontSize),pp=e.parentElement?parseFloat(getComputedStyle(e.parentElement).fontSize):0;if(!(px>0))return;
+   e.setAttribute('data-fz',px);if(px>18||(e!==M&&Math.abs(px-pp)<.01&&e.parentElement&&e.parentElement!==M&&M.contains(e.parentElement)))return;W.push([e,px])});
+  W.forEach(function(x){x[0].style.setProperty('font-size',(Math.round(x[1]*F*2)/2)+'px','important')})}
+ window.nsFz=function(){fz(M)};
+ new MutationObserver(function(ms){ms.forEach(function(m){m.addedNodes.forEach(fz)})}).observe(M,{childList:true,subtree:true});
+ fz(M.querySelector('.card')||M)})();
 var JARVIS_SHARE_URL='https://cluj1313.github.io/jarvis/';
 $('sShareJarvis').onclick=function(){var U=JARVIS_SHARE_URL,ti='Jarvis',all=TR('Jarvis – asistentul tău zilnic')+'\n'+U;
  function cp(){var ok=function(){toast(TR('Link copiat'))};try{if(navigator.clipboard&&navigator.clipboard.writeText)return navigator.clipboard.writeText(all).then(ok,leg)}catch(_){}leg();
@@ -4052,7 +4064,7 @@ spMigrate();renderNotes();
 })();
 /* v96: Setări → TABURI (bibliotecă: ordine drag & drop, bifă vizibil/ascuns, PIN 4/6 opțional), DESIGN (Teme · Stil taburi · Fundal · Setări fine · Iconiță), iconiță urgență, Comunică cu creatorul, Versiune. Additive: hidden tab = t.off, nothing deleted. */
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v132';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v133';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};
@@ -4189,7 +4201,7 @@ var NEWS_URL='https://cluj1313.github.io/notis-news/creator.json';
   if(!fresh){put('ns_newsOb',true);return}
   put('ns_newsObPend',true);if(localStorage.getItem(K)===null){put(K,true);cb.checked=true;if(nat)try{N.newsSet(true,NL)}catch(_){}}
   var t0=Date.now();(function wait(){var cf=$('cfModal');if(Date.now()-t0<1800||(cf&&cf.classList.contains('show'))||document.querySelector('#nwOb')){if(!document.querySelector('#nwOb'))setTimeout(wait,500);return}
-   var o=document.createElement('div');o.id='nwOb';o.innerHTML='<div class="obc"><div class="obh">📣 '+esc(TR('Mesaje de la creator'))+'</div><div class="obt">'+esc(TR('Din când în când creatorul aplicației trimite anunțuri scurte: noutăți, sfaturi și actualizări. Le poți opri aici sau oricând din Setări.'))+'</div><label class="obk"><input type="checkbox" id="obOn"'+(get(K,true)?' checked':'')+'> <span>'+esc(TR('Primesc mesaje de la creator'))+'</span></label><button type="button" id="obGo">'+esc(TR('Continuă'))+'</button></div>';
+   var o=document.createElement('div');o.id='nwOb';o.innerHTML='<div class="obc"><div class="obh">📣 '+esc(TR('Mesaje de la creator'))+'</div><div class="obt">'+esc(TR('Din când în când creatorul aplicației trimite anunțuri scurte: noutăți, sfaturi și actualizări. Le poți opri aici sau oricând din Setări.'))+'</div><label class="obk"><input type="checkbox" id="obOn"'+(get(K,true)?' checked':'')+'> <span>'+esc(TR('Doresc să primesc mesaje de la creator'))+'</span></label><button type="button" id="obGo">'+esc(TR('Continuă'))+'</button></div>';
    document.body.appendChild(o);$('obGo').onclick=function(){var v=$('obOn').checked;put(K,v);cb.checked=v;if(nat)try{N.newsSet(v,NL)}catch(_){}put('ns_newsOb',true);try{localStorage.removeItem('ns_newsObPend')}catch(_){}o.remove();if(v)poll()}})()})();
  render();setTimeout(poll,2500);document.addEventListener('visibilitychange',function(){if(!document.hidden)poll()});
 })();
