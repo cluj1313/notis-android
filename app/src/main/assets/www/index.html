@@ -1012,7 +1012,26 @@ html[data-font] body,html[data-font] button,html[data-font] input,html[data-font
 #crmSheet .crpre{white-space:pre-wrap}
 .crcfg select{background:var(--card,#1b2230);color:inherit;border:1px solid var(--line,#334);border-radius:8px;padding:3px 6px;font:inherit;max-width:55%}
 .crm .crwsum{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13px;margin:2px 0 6px}.crm .crwsum label{display:flex;align-items:center;gap:6px}
-.crm .crseg{display:inline-flex;border:1px solid var(--line,#334);border-radius:8px;overflow:hidden}.crm .crseg button{background:none;border:0;color:inherit;font:inherit;font-size:12px;padding:3px 8px}.crm .crseg button.on{background:var(--green,#22c55e);color:#000}
+.crm .crwseg{display:inline-flex;border:1px solid var(--line,#334);border-radius:8px;overflow:hidden}.crm .crwseg button{background:none;border:0;color:inherit;font:inherit;font-size:12px;padding:3px 8px}.crm .crwseg button.on{background:var(--green,#22c55e);color:#000}
+
+/* v150 */
+.crm .crfrow{display:flex;align-items:center;gap:6px;margin:0 0 6px}.crm .crfrow .crchips{flex:1 1 auto;min-width:0;margin:0}
+.crm .crsortw{position:relative;flex:none}.crm .crsortb{font:inherit;font-size:13.5px;color:var(--txt,inherit);background:none;border:1px solid rgba(var(--lnR),.35);border-radius:999px;padding:3px 9px;white-space:nowrap;line-height:1.3}.crm .crsortb b{font-weight:600}
+.crm .crsortm{position:absolute;right:0;top:calc(100% + 4px);z-index:30;min-width:190px;background:var(--card);border:1px solid rgba(var(--lnR),.35);border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.25);padding:4px;display:flex;flex-direction:column}
+.crm .crsortm button{font:inherit;font-size:15px;text-align:left;background:none;border:0;color:inherit;padding:9px 10px;border-radius:8px;white-space:nowrap}.crm .crsortm button.on{background:rgba(var(--acR),.16);font-weight:600}
+.crm .crc.crn{display:flex;align-items:center;gap:8px;padding:8px 12px;margin:0 0 5px;border-radius:11px;min-height:40px;box-sizing:border-box;position:relative;overflow:hidden}
+.crm .crc.crn .crsd{flex:none;width:9px;height:9px;border-radius:50%;background:var(--sc)}
+.crm .crc.crn .crnt{flex:none;font-size:15px;color:var(--mut);white-space:nowrap;font-variant-numeric:tabular-nums}
+.crm .crc.crn .crnm{flex:1 1 auto;min-width:0;text-align:right;font-size:16px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.crm .crc.crn.crov{box-shadow:inset 3px 0 0 var(--red,#ef4444)}.crm .crc.crn .crdot{flex:none;margin:0}
+.crm .crseg#cdTy{gap:0}.crm #cdTy .btn{flex:1 1 auto;min-width:0;font:inherit;font-size:14px;line-height:1.2;padding:8px 6px;white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:4px;overflow:hidden}
+.crm #cdTy .btn .crti0{font-style:normal;font-size:13px}.crm #cdTy.tight .btn{padding:8px 2px;gap:2px}.crm #cdTy.noico .btn .crti0{display:none}
+.crm #cdTy .btn.on{font-weight:600;border-color:rgba(var(--acR),.8);background:rgba(var(--acR),.16)}
+.crm .crc[data-id]{border-color:color-mix(in srgb,var(--sc) 70%,transparent);background:color-mix(in srgb,var(--sc) 14%,var(--card))}
+.crm .crch,.crm .crchip,#crmSheet .crchip{border-color:var(--sk,var(--sc));color:var(--sk,var(--sc))}
+.crm .crch.on{background:color-mix(in srgb,var(--sk,var(--sc)) 20%,transparent)}
+.crm .crc[data-id]{border-color:var(--sk,var(--sc));background:color-mix(in srgb,color-mix(in srgb,var(--sc),var(--sk,var(--sc))) 16%,var(--card))}
+.crm .crc.crn .crsd{background:var(--sk,var(--sc))}
 </style>
 </head>
 <body>
@@ -4366,7 +4385,7 @@ var DFLD=[['tel','Telefon'],['addr','Adresă'],['email','Email'],['firm','Firmă
 var TY={call:'Apel',msg:'Mesaj',meet:'Întâlnire',note:'Notă'};
 function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
 function def(){return{v:1,sub:'firm',st:[{id:'nou',c:PAL[0]},{id:'disc',c:PAL[1]},{id:'cli',c:PAL[2]},{id:'ina',c:PAL[3]}],list:[],fld:{home:[],firm:[]},hide:{home:{firm:1},firm:{}},lock:{home:0,firm:0},auto:1,ask:1,sort:'rem'}}
-var MIG=0;function norm(d){var D=def();if(!d||typeof d!=='object'||!Array.isArray(d.list))return D;
+var MIG=0,EXP='',SOM=0;function norm(d){var D=def();if(!d||typeof d!=='object'||!Array.isArray(d.list))return D;
  var o=JSON.parse(JSON.stringify(d));o.v=1;if(o.sub!=='home')o.sub='firm';if(!Array.isArray(o.st)||!o.st.length)o.st=D.st;o.st=o.st.filter(function(s){return s&&s.id});if(!o.st.length)o.st=D.st;
  ['fld','hide','lock'].forEach(function(k){if(!o[k]||typeof o[k]!=='object')o[k]=D[k]});['home','firm'].forEach(function(p){if(!Array.isArray(o.fld[p]))o.fld[p]=[];if(!o.hide[p]||typeof o.hide[p]!=='object')o.hide[p]={};o.lock[p]=o.lock[p]?1:0});
  if(o.auto==null)o.auto=1;if(o.ask==null)o.ask=1;if(['rem','last','name'].indexOf(o.sort)<0)o.sort='rem';
@@ -4392,7 +4411,18 @@ function pinGet(){var p=LS.get('ns_crmpin',null);return p&&p.ct?p:null}
 function shown(p,k){return !C.hide[p][k]&&!(k==='firm'&&p==='home'&&C.hide.home.firm!==0)}
 function vis(){var L=inPart(),q=nFold(Q).trim().split(/\s+/).filter(Boolean);if(q.length)L=L.filter(function(c){var h=hay(c);return q.every(function(w){return h.indexOf(w)>=0})});
  var byS=L;if(F)L=L.filter(function(c){return c.st===F});
- L=L.slice().sort(function(a,b){if(C.sort==='name')return String(a.name).localeCompare(String(b.name),NL);if(C.sort==='last')return last(b)-last(a);var x=remAt(a)||9e15,y=remAt(b)||9e15;return x-y||String(a.name).localeCompare(String(b.name),NL)});return{L:L,all:byS}}
+ L=L.slice().sort(function(a,b){if(C.sort==='name')return String(a.name).localeCompare(String(b.name),NL);if(C.sort==='last')return last(b)-last(a);if(C.sort==='st'){var si=function(c){var i=C.st.map(function(s){return s.id}).indexOf(c.st);return i<0?99:i};return si(a)-si(b)||String(a.name).localeCompare(String(b.name),NL)}var x=remAt(a)||9e15,y=remAt(b)||9e15;return x-y||String(a.name).localeCompare(String(b.name),NL)});return{L:L,all:byS}}
+/* v150: readable status ink per theme (single source: C.st colors) */
+var INK={};function rgbOf(v){var e=document.createElement('i');e.style.color='#000';e.style.color=v;document.body.appendChild(e);var m=getComputedStyle(e).color.match(/[\d.]+/g)||[0,0,0];e.remove();return [+m[0],+m[1],+m[2],m[3]==null?1:+m[3]]}
+function lum(c){return [0,1,2].reduce(function(a,i){var v=c[i]/255;v=v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4);return a+v*[.2126,.7152,.0722][i]},0)}
+function cRat(a,b){var x=lum(a),y=lum(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05)}
+function bgRGB(){var cs=getComputedStyle(document.documentElement),b=rgbOf(cs.getPropertyValue('--bg').trim()||'#000'),c=rgbOf(cs.getPropertyValue('--card').trim()||'#000'),a=c[3];return [0,1,2].map(function(i){return Math.round(c[i]*a+b[i]*(1-a))})}
+function ink(col){var th=document.documentElement.getAttribute('data-theme')||'';var k=th+'|'+col;if(INK[k])return INK[k];var bg=bgRGB(),c=rgbOf(col),out=col;
+ if(lum(bg)>.4){var t=0,x=c.slice(0,3);while(t<1&&(cRat(x,bg)<5||cRat(x,[0,1,2].map(function(i){return bg[i]*.78+c[i]*.22}))<5)){t+=.05;x=c.slice(0,3).map(function(v){return Math.round(v*(1-t))})}out='rgb('+x.join(',')+')'}
+ return INK[k]=out}
+function scv(c){return '--sc:'+esc(c)+';--sk:'+esc(ink(c))}
+try{new MutationObserver(function(){INK={};rr()}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(_){}
+function tyFit(g){if(!g)return;var f=function(){g.classList.remove('noico','tight');var ov=function(){return [].some.call(g.children,function(b){return b.scrollWidth>b.clientWidth+1})};if(ov())g.classList.add('tight');if(ov())g.classList.add('noico')};f();requestAnimationFrame(f)}
 function telH(v,cls){return '<span class="crlk '+(cls||'')+'" data-k="p" data-v="'+esc(v)+'">📞 '+esc(v)+'</span>'}
 /* v146: search in the phone agenda (Android) without importing; nothing is stored until a contact is tapped */
 var AG={q:'',L:null,perm:'',t:0};
@@ -4417,15 +4447,16 @@ function render(){var p=C.sub,h='<div class="spv crm">'+'<div class="alseg utsub
  if(lockedP(p))return h+'<div class="crlock"><div>🔒 '+esc(TR('CRM protejat cu PIN'))+'</div><button type="button" class="btn" data-c="unl">'+esc(TR('Deblochează'))+'</button></div></div>';
  var V=vis(),cnt={};V.all.forEach(function(c){cnt[c.st]=(cnt[c.st]||0)+1});
  h+='<div class="crtop"><input type="search" id="crQ" class="ux" placeholder="🔍 '+esc(TR('Caută nume, telefon, oraș, note'))+'" value="'+esc(Q)+'" autocomplete="off" data-lpignore="true"><button type="button" class="btn crb" data-c="add" aria-label="'+esc(TR('Adaugă client'))+'">＋</button><button type="button" class="btn crb" data-c="cfg" aria-label="'+esc(TR('Setări CRM'))+'">⚙</button></div>';
- h+='<div class="crbody"><div class="crchips">'+C.st.map(function(s){return '<button type="button" class="crch'+(F===s.id?' on':'')+'" data-f="'+esc(s.id)+'" style="--sc:'+esc(s.c)+'"><span class="ux">'+esc(stName(s))+'</span> '+(cnt[s.id]||0)+'</button>'}).join('')+'</div>';
- h+='<div class="crsort"><span>'+esc(TR('Sortare'))+'</span>'+[['rem','⏰'],['last',TR('Ultimul contact')],['name',TR('Nume')]].map(function(o){return '<button type="button" class="'+(C.sort===o[0]?'on':'')+'" data-so="'+o[0]+'">'+esc(o[1])+'</button>'}).join('')+'</div>';
+ var SOL=[['rem','⏰','⏰ '+TR('Reamintire')],['last','🕘',TR('Ultimul contact')],['name','A–Z',TR('Nume')],['st','●',TR('Stare')]],SOc=SOL.filter(function(o){return o[0]===C.sort})[0]||SOL[0];
+ h+='<div class="crbody"><div class="crfrow"><div class="crchips">'+C.st.map(function(s){return '<button type="button" class="crch'+(F===s.id?' on':'')+'" data-f="'+esc(s.id)+'" style="'+scv(s.c)+'"><span class="ux">'+esc(stName(s))+'</span> '+(cnt[s.id]||0)+'</button>'}).join('')+'</div><div class="crsortw"><button type="button" class="crsortb" data-sm="1" aria-haspopup="true" aria-expanded="'+(SOM?'true':'false')+'" aria-label="'+esc(TR('Sortare'))+': '+esc(SOc[2])+'">'+esc(TR('Sortează'))+' <b>'+esc(SOc[1])+'</b> ▾</button>'+(SOM?'<div class="crsortm" role="menu">'+SOL.map(function(o){return '<button type="button" role="menuitem" class="'+(C.sort===o[0]?'on':'')+'" data-so="'+o[0]+'">'+esc(o[2])+'</button>'}).join('')+'</div>':'')+'</div></div>';
  var t0=today0(),due=inPart().filter(function(c){var a=remAt(c);return a&&a<=t0}).sort(function(a,b){return remAt(a)-remAt(b)});
  if(due.length)h+='<div class="crdue"><div class="crh">⏰ '+esc(TR('Reamintiri azi'))+' · '+due.length+'</div>'+due.map(function(c){var o=over(c),d=new Date(remAt(c));return '<div class="crdr" data-id="'+esc(c.id)+'"><span class="ux'+(o?' crod':'')+'">'+(o?'<i class="crdot"></i>':'')+esc(c.name||'—')+'</span>'+(c.tel[0]?telH(c.tel[0]):'')+'<span class="'+(o?'crred':'crmut')+'">'+(o&&remAt(c)<new Date().setHours(0,0,0,0)?esc(fT(remAt(c))):pad(d.getHours())+':'+pad(d.getMinutes()))+'</span></div>'}).join('')+'</div>';
  if(!inPart().length)h+='<div class="crempty"><div>'+esc(TR('Încă nu ai clienți aici. Adaugă primul client sau importă din contacte (⚙).'))+'</div><button type="button" class="btn" data-c="add">＋ '+esc(TR('Adaugă client'))+'</button></div>';
  else if(!V.L.length)h+='<div class="crempty"><div>'+esc(TR('Niciun rezultat'))+'</div></div>';
  else{if(Q.trim())h+='<div class="crmut crres">'+V.L.length+' '+esc(TR('rezultate'))+'</div>';
   V.L.forEach(function(c){var s=stOf(c.st),o=over(c),ra=remAt(c),l=last(c);
-  h+='<div class="crc" data-id="'+esc(c.id)+'" style="--sc:'+esc(s.c)+'"><div class="crr"><span class="crnm ux">'+esc(c.name||'—')+'</span><span class="crchip ux" style="--sc:'+esc(s.c)+'">'+esc(stName(s))+'</span></div><div class="crr">'+(c.tel[0]&&shown(p,'tel')?telH(c.tel[0]):'<span></span>')+'<span class="crmut">'+(l?esc(TR('ultim'))+': '+fT(l):'')+'</span></div>'+(ra?'<div class="crr"><span class="crmut ux">'+esc(c.firm&&shown(p,'firm')?c.firm:city(c))+'</span><span class="'+(o?'crred':'crmut')+'">'+(o?'<i class="crdot"></i>':'')+'⏰ '+esc(fTH(ra))+'</span></div>':'')+'</div>'})}
+  if(EXP!==c.id){h+='<div class="crc crn'+(o?' crov':'')+'" data-id="'+esc(c.id)+'" style="'+scv(s.c)+'"><i class="crsd" title="'+esc(stName(s))+'"></i><span class="crnt">'+esc(c.tel[0]&&shown(p,'tel')?c.tel[0]:'')+'</span><span class="crnm ux">'+esc(c.name||'—')+'</span>'+(o?'<i class="crdot"></i>':'')+'</div>';return}
+  h+='<div class="crc crexp" data-id="'+esc(c.id)+'" style="'+scv(s.c)+'"><div class="crr"><span class="crnm ux">'+esc(c.name||'—')+'</span><span class="crchip ux" style="'+scv(s.c)+'">'+esc(stName(s))+'</span></div><div class="crr">'+(c.tel[0]&&shown(p,'tel')?telH(c.tel[0]):'<span></span>')+'<span class="crmut">'+(l?esc(TR('ultim'))+': '+fT(l):'')+'</span></div>'+(ra?'<div class="crr"><span class="crmut ux">'+esc(c.firm&&shown(p,'firm')?c.firm:city(c))+'</span><span class="'+(o?'crred':'crmut')+'">'+(o?'<i class="crdot"></i>':'')+'⏰ '+esc(fTH(ra))+'</span></div>':'')+'</div>'})}
  h+=agH();
  return h+'</div></div>'}
 window.crmRender=render;
@@ -4459,14 +4490,14 @@ function clientOpen(c,isNew){fixC(c);OPN.w=0;OPN.h=0;crmShow=fixC(JSON.parse(JSO
 function shRefresh(){if(crmShow&&$('crmSheet')&&$('crmSheet').classList.contains('show'))shRender()}
 function fldIn(lbl,k,v,ty){return '<label class="crf"><span>'+esc(lbl)+'</span><input class="ux" data-f="'+esc(k)+'" type="'+(ty||'text')+'" value="'+esc(v||'')+'" autocomplete="off" data-lpignore="true"'+(ty==='tel'?' inputmode="tel"':'')+'></label>'}
 function shRender(){var c=crmShow,p=c.grp,s=stOf(c.st),h='';
- var T=shown(p,'tel')?c.tel.filter(Boolean):[];h+='<div class="crr crhd"><span class="crnm crbig ux">'+esc(c.name||TR('Client nou'))+'</span><span class="crchip crchs ux" style="--sc:'+esc(s.c)+'">'+esc(stName(s))+'</span>'+(T[0]?telH(T[0],'crtel'):'')+'</div>';
+ var T=shown(p,'tel')?c.tel.filter(Boolean):[];h+='<div class="crr crhd"><span class="crnm crbig ux">'+esc(c.name||TR('Client nou'))+'</span><span class="crchip crchs ux" style="'+scv(s.c)+'">'+esc(stName(s))+'</span>'+(T[0]?telH(T[0],'crtel'):'')+'</div>';
  T.slice(1).forEach(function(t){h+='<div class="crr crr1">'+telH(t,'crtel')+'</div>'});
  h+='<hr class="crhr">';if(c.addr&&shown(p,'addr'))h+='<div class="crln"><span class="crlk" data-k="a" data-v="'+esc(c.addr)+'">📍 '+esc(c.addr)+'</span></div><hr class="crhr">';
  h+=workH(c);
  if(c.email&&shown(p,'email'))h+='<div><span class="crlk" data-k="e" data-v="'+esc(c.email)+'">✉︎ '+esc(c.email)+'</span></div>';
  if(p==='firm'&&shown(p,'firm')&&(c.firm||c.cui))h+='<div class="crmut ux">🏢 '+esc([c.firm,c.cui?'CUI '+c.cui:''].filter(Boolean).join(' · '))+'</div>';
  h+='<div class="crsec"><button type="button" class="crcol'+(OPN.d?' open':'')+'" data-o="d">'+esc(TR('Date client'))+'<i class="sparr"></i></button>';
- if(OPN.d){h+='<div class="crf"><span>'+esc(TR('Stare'))+'</span><div class="crchips crstp">'+C.st.map(function(x){return '<button type="button" class="crch'+(x.id===c.st?' on':'')+'" data-st="'+esc(x.id)+'" style="--sc:'+esc(x.c)+'"><span class="ux">'+esc(stName(x))+'</span></button>'}).join('')+'</div></div>';h+=fldIn(TR('Nume'),'name',c.name);if(shown(p,'tel')){h+=fldIn(TR('Telefon'),'tel0',c.tel[0],'tel');h+=fldIn(TR('Telefon 2'),'tel1',c.tel[1],'tel')}
+ if(OPN.d){h+='<div class="crf"><span>'+esc(TR('Stare'))+'</span><div class="crchips crstp">'+C.st.map(function(x){return '<button type="button" class="crch'+(x.id===c.st?' on':'')+'" data-st="'+esc(x.id)+'" style="'+scv(x.c)+'"><span class="ux">'+esc(stName(x))+'</span></button>'}).join('')+'</div></div>';h+=fldIn(TR('Nume'),'name',c.name);if(shown(p,'tel')){h+=fldIn(TR('Telefon'),'tel0',c.tel[0],'tel');h+=fldIn(TR('Telefon 2'),'tel1',c.tel[1],'tel')}
   if(shown(p,'addr'))h+=fldIn(TR('Adresă'),'addr',c.addr);if(shown(p,'email'))h+=fldIn(TR('Email'),'email',c.email,'email');
   if(p==='firm'&&shown(p,'firm')){h+=fldIn(TR('Firmă'),'firm',c.firm);h+=fldIn('CUI','cui',c.cui)}
   C.fld[p].forEach(function(f){h+=fldIn(f.n,'cf:'+f.id,c.cf[f.id],f.t==='num'?'number':f.t==='date'?'date':'text')})}
@@ -4481,7 +4512,7 @@ function wk(d){var x=new Date(d+'T12:00:00');x.setDate(x.getDate()-((x.getDay()+
 function money(n){var v=Math.round(n*100)/100;try{return v.toLocaleString(NL,{maximumFractionDigits:2})}catch(_){return String(v)}}
 function cur(){return C.cur||TR('lei')}
 function workH(c){var T0,h,W=(c.work||[]).slice().sort(function(a,b){return a.d<b.d?1:a.d>b.d?-1:0}),T0=0;W.forEach(function(w){if(w.pr!==''&&w.pr!=null&&!isNaN(+w.pr))T0+=+w.pr});h='<div class="crsec crwork"><button type="button" class="crcol'+(OPN.w?' open':'')+'" data-o="w">'+esc(TR('Lucrări'))+' <span class="crmut">'+W.length+'</span>'+(function(){var v=0,mk=dkey(new Date()).slice(0,7);if(C.sum==='g')v=T0;else if(C.sum==='m')W.forEach(function(w){if(String(w.d).slice(0,7)===mk&&w.pr!==''&&w.pr!=null&&!isNaN(+w.pr))v+=+w.pr});return C.sum&&v?'<span class="crtot crsum ux">'+esc(money(v))+' '+esc(cur())+'</span>':''})()+'<i class="sparr"></i></button>';
- if(!OPN.w)return h+'</div>';h+='<div class="crwsum"><label><input type="checkbox" data-ws="1"'+(C.sum?' checked':'')+'> '+esc(TR('Arată suma în afară'))+'</label><span class="crseg">'+['m','g'].map(function(k){return '<button type="button" data-wsm="'+k+'" class="'+((C.sum||C.sumM)===k?'on':'')+'">'+esc(TR(k==='m'?'Lunar':'General'))+'</button>'}).join('')+'</span></div>';h+='<button type="button" class="crlk crad" data-c="wadd">＋ '+esc(TR('Adaugă lucrare'))+'</button>';
+ if(!OPN.w)return h+'</div>';h+='<div class="crwsum"><label><input type="checkbox" data-ws="1"'+(C.sum?' checked':'')+'> '+esc(TR('Arată suma în afară'))+'</label><span class="crwseg">'+['m','g'].map(function(k){return '<button type="button" data-wsm="'+k+'" class="'+((C.sum||C.sumM)===k?'on':'')+'">'+esc(TR(k==='m'?'Lunar':'General'))+'</button>'}).join('')+'</span></div>';h+='<button type="button" class="crlk crad" data-c="wadd">＋ '+esc(TR('Adaugă lucrare'))+'</button>';
  if(!W.length)return h+'<div class="crmut">'+esc(TR('Nicio lucrare încă. Adaugă data, denumirea lucrării și prețul.'))+'</div></div>';
  var ys=[];W.forEach(function(w){var y=String(w.d).slice(0,4);if(ys.indexOf(y)<0)ys.push(y)});
  ys.forEach(function(y,yi){var L=W.filter(function(w){return String(w.d).slice(0,4)===y}),tot=0;L.forEach(function(w){if(w.pr!==''&&w.pr!=null&&!isNaN(+w.pr))tot+=+w.pr});var yo=OPN.y&&y in OPN.y?OPN.y[y]:yi===0;
@@ -4525,11 +4556,11 @@ document.addEventListener('click',function(e){var m=$('crmSheet');if(!m||!m.cont
 function discDlg(c,h,post,edit){var now=new Date(h?h.ts:Date.now()),ty=h?h.ty:'call',r=c.rem||{};
  var html='<div class="crh crbig">'+esc(post?TR('Notiță despre convorbire'):(edit?TR('Discuție'):TR('Adaugă discuție')))+' · <span class="ux">'+esc(c.name||'')+'</span></div>'+
  '<div class="crr2"><input type="date" id="cdD" value="'+dkey(now)+'"><input type="time" id="cdT" value="'+pad(now.getHours())+':'+pad(now.getMinutes())+'"></div>'+
- '<div class="alseg crseg" id="cdTy">'+Object.keys(TY).map(function(k){return '<button type="button" class="btn'+(k===ty?' on':'')+'" data-v="'+k+'">'+esc(TR(TY[k]))+'</button>'}).join('')+'</div>'+
+ '<div class="alseg crseg" id="cdTy">'+Object.keys(TY).map(function(k){return '<button type="button" class="btn'+(k===ty?' on':'')+'" data-v="'+k+'"><i class="crti0">'+({call:'📞',msg:'💬',meet:'🤝',note:'📝'}[k]||'')+'</i><span>'+esc(TR(TY[k]))+'</span></button>'}).join('')+'</div>'+
  '<textarea id="cdN" class="ux" rows="3" placeholder="'+esc(TR('Notă (opțional)'))+'">'+esc(h&&h.nt||'')+'</textarea>'+
  '<label class="crrow"><span>⏰ '+esc(TR('Următoarea reamintire'))+'</span><input type="checkbox" id="cdR"'+(r.on&&!over(c)?' checked':'')+'></label><div class="crr2"><input type="date" id="cdRD" value="'+esc(r.on&&!over(c)?r.d:dkey(new Date(Date.now()+3*864e5)))+'"><input type="time" id="cdRT" value="'+esc(r.hm||'10:00')+'"></div>'+
  '<div class="crbtns">'+(edit?'<button type="button" class="btn dngb" id="cdDel">'+esc(TR('Șterge'))+'</button>':'')+'<button type="button" class="btn" id="cdNo">'+esc(post?TR('Sari peste'):TR('Anulează'))+'</button><button type="button" class="btn crok" id="cdOk">'+esc(TR('Salvează'))+'</button></div>';
- var d=dlg(html);d.querySelector('#cdTy').onclick=function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(this.children,function(x){x.classList.toggle('on',x===b)})};
+ var d=dlg(html);tyFit(d.querySelector('#cdTy'));d.querySelector('#cdTy').onclick=function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(this.children,function(x){x.classList.toggle('on',x===b)})};
  d.querySelector('#cdNo').onclick=dlgClose;
  if(edit)d.querySelector('#cdDel').onclick=function(){ask(TR('Ștergi discuția?'),function(){c.hist=c.hist.filter(function(x){return x.id!==h.id});dlgClose();if(!sync(c))shRender()})};
  d.querySelector('#cdOk').onclick=function(){try{fixC(c);cdSave()}catch(e){toast(TR('Eroare la salvare')+': '+(e&&e.message||e))}};function cdSave(){var D=d.querySelector('#cdD').value||dkey(),T=(d.querySelector('#cdT').value||'00:00').split(':'),p=D.split('-'),ts=new Date(+p[0],+p[1]-1,+p[2],+T[0]||0,+T[1]||0).getTime();
@@ -4543,10 +4574,12 @@ window.addEventListener('click',function(e){var v=$('spView');if(!v||!v.contains
  var sb=t.closest('[data-cs]');if(sb){C.sub=sb.dataset.cs;F='';LS.set('ns_crm',C);rr();return}
  var l=t.closest('.crlk[data-k]');if(l){var cc=t.closest('[data-id]');lnk(cc&&C.list.filter(function(x){return x.id===cc.dataset.id})[0],l.dataset.k,l.dataset.v);return}
  var f=t.closest('[data-f]');if(f&&f.classList.contains('crch')){F=F===f.dataset.f?'':f.dataset.f;rr();return}
- var so=t.closest('[data-so]');if(so){C.sort=so.dataset.so;LS.set('ns_crm',C);rr();return}
+ var sm=t.closest('[data-sm]');if(sm){SOM=SOM?0:1;rr();return}
+ var so=t.closest('[data-so]');if(so){C.sort=so.dataset.so;SOM=0;LS.set('ns_crm',C);rr();return}
+ if(SOM){SOM=0;rr();if(!t.closest('[data-id]'))return}
  var b=t.closest('[data-c]');if(b){var A=b.dataset.c;if(A==='add')clientOpen({id:uid(),grp:C.sub,name:'',tel:[],addr:'',email:'',st:C.st[0].id,hist:[],cf:{},rem:{on:0}},true);else if(A==='cfg')cfgOpen();else if(A==='unl')unlock(C.sub);return}
  var ag=t.closest('[data-ag]');if(ag){if(ag.dataset.ag==='perm')agPerm();else agAdd(+ag.dataset.ag);return}
- var cd=t.closest('[data-id]');if(cd){var c=C.list.filter(function(x){return x.id===cd.dataset.id})[0];if(c)clientOpen(c)}},true);
+ var cd=t.closest('[data-id]');if(cd){if(cd.classList.contains('crn')){EXP=cd.dataset.id;rr();return}var c=C.list.filter(function(x){return x.id===cd.dataset.id})[0];if(c)clientOpen(c)}},true);
 document.addEventListener('input',function(e){if(e.target.id!=='crQ')return;Q=e.target.value;var v=$('spView'),o=v&&v.querySelector('.crm .crbody');if(!o){rr();return}var t=document.createElement('div');t.innerHTML=render();var n=t.querySelector('.crbody');if(n)o.replaceWith(n);agSched()});
 /* ---- lock (same PIN mechanism as Bibliotecă: PBKDF2→AES-GCM check value, pinShow, fingerprint) ---- */
 function pinTry(pn){var L=pinGet();return lkDerive(pn,b64d(L.salt)).then(function(k){return crypto.subtle.decrypt({name:'AES-GCM',iv:b64d(L.iv)},k,b64d(L.ct))}).then(function(b){return new TextDecoder().decode(b)==='notis-crm'}).catch(function(){return false})}
@@ -4558,7 +4591,7 @@ function pinMake(pl,done){if(!window.crypto||!crypto.subtle){toast(TR('Criptarea
  s1()}
 /* ---- settings ---- */
 function cfgOpen(){var p=C.sub,h='<div class="crh crbig">⚙ '+esc(TR('Setări CRM'))+' · '+esc(TR(p==='firm'?'Firmă':'Acasă'))+'</div>';
- h+='<div class="crsec"><div class="crh">'+esc(TR('Stări'))+'</div>'+C.st.map(function(s,i){return '<div class="crst" data-i="'+i+'"><button type="button" class="crsw2" data-a="col" style="--sc:'+esc(s.c)+'" aria-label="'+esc(TR('Culoare'))+'"></button><input class="ux" data-a="nm" value="'+esc(stName(s))+'"><button type="button" class="crx" data-a="up" aria-label="↑">↑</button><button type="button" class="crx" data-a="dn" aria-label="↓">↓</button><button type="button" class="crx dngt" data-a="del" aria-label="'+esc(TR('Șterge'))+'">✕</button></div>'}).join('')+'<div class="crpal" hidden>'+PAL.map(function(c){return '<button type="button" data-pc="'+c+'" style="--sc:'+c+'"></button>'}).join('')+'</div><button type="button" class="crlk crad" data-a="stadd">＋ '+esc(TR('Adaugă stare'))+'</button></div>';
+ h+='<div class="crsec"><div class="crh">'+esc(TR('Stări'))+'</div>'+C.st.map(function(s,i){return '<div class="crst" data-i="'+i+'"><button type="button" class="crsw2" data-a="col" style="'+scv(s.c)+'" aria-label="'+esc(TR('Culoare'))+'"></button><input class="ux" data-a="nm" value="'+esc(stName(s))+'"><button type="button" class="crx" data-a="up" aria-label="↑">↑</button><button type="button" class="crx" data-a="dn" aria-label="↓">↓</button><button type="button" class="crx dngt" data-a="del" aria-label="'+esc(TR('Șterge'))+'">✕</button></div>'}).join('')+'<div class="crpal" hidden>'+PAL.map(function(c){return '<button type="button" data-pc="'+c+'" style="--sc:'+c+'"></button>'}).join('')+'</div><button type="button" class="crlk crad" data-a="stadd">＋ '+esc(TR('Adaugă stare'))+'</button></div>';
  h+='<div class="crsec"><div class="crh">'+esc(TR('Câmpuri'))+'</div>'+DFLD.filter(function(f){return f[0]!=='firm'||p==='firm'}).map(function(f){return '<label class="crrow"><span>'+esc(TR(f[1]))+'</span><input type="checkbox" data-fv="'+f[0]+'"'+(shown(p,f[0])?' checked':'')+'></label>'}).join('')+
   C.fld[p].map(function(f,i){return '<div class="crst" data-fi="'+i+'"><input class="ux" data-a="fn" value="'+esc(f.n)+'"><select data-a="ft">'+[['txt','Text'],['num','Număr'],['date','Dată']].map(function(o){return '<option value="'+o[0]+'"'+(f.t===o[0]?' selected':'')+'>'+esc(TR(o[1]))+'</option>'}).join('')+'</select><button type="button" class="crx dngt" data-a="fdel" aria-label="'+esc(TR('Șterge'))+'">✕</button></div>'}).join('')+'<button type="button" class="crlk crad" data-a="fadd">＋ '+esc(TR('Câmp nou'))+'</button></div>';
  h+='<div class="crsec"><div class="crh">'+esc(TR('Apeluri'))+'</div><label class="crrow"><span>'+esc(TR('Notează automat apelurile'))+'</span><input type="checkbox" data-o="auto"'+(C.auto?' checked':'')+'></label><label class="crrow"><span>'+esc(TR('Cere notă după convorbire'))+'</span><input type="checkbox" data-o="ask"'+(C.ask?' checked':'')+'></label></div>';
@@ -4633,7 +4666,7 @@ window.crmMig=mig;try{mig();renderNotes()}catch(e){console.warn(e)}
 
 /* v96: Setări → TABURI (bibliotecă: ordine drag & drop, bifă vizibil/ascuns, PIN 4/6 opțional), DESIGN (Teme · Stil taburi · Fundal · Setări fine · Iconiță), iconiță urgență, Comunică cu creatorul, Versiune. Additive: hidden tab = t.off, nothing deleted. */
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v149';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v150';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};

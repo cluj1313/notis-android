@@ -1172,5 +1172,6 @@ NOTIS_I18N={
 "Arată suma în afară":"कुल राशि बाहर दिखाएँ",
 "Total lunar":"मासिक कुल",
 "Total general":"कुल योग",
-"Notă":"नोट"
+"Notă":"नोट",
+"Sortează":"क्रमबद्ध करना"
 };

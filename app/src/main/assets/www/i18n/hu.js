@@ -1172,5 +1172,6 @@ NOTIS_I18N={
 "Arată suma în afară":"Összeg mutatása kívül",
 "Total lunar":"Havi összeg",
 "Total general":"Teljes összeg",
-"Notă":"Jegyzet"
+"Notă":"Jegyzet",
+"Sortează":"Rendezés"
 };

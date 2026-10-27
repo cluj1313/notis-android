@@ -1172,5 +1172,6 @@ NOTIS_I18N={
 "Arată suma în afară":"Vis total udenfor",
 "Total lunar":"Månedstotal",
 "Total general":"Samlet total",
-"Notă":"Notat"
+"Notă":"Notat",
+"Sortează":"Sortere"
 };

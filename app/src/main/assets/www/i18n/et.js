@@ -1172,5 +1172,6 @@ NOTIS_I18N={
 "Arată suma în afară":"Näita summat väljas",
 "Total lunar":"Kuu summa",
 "Total general":"Kogusumma",
-"Notă":"Märge"
+"Notă":"Märge",
+"Sortează":"Sordida"
 };

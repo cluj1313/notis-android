@@ -1172,5 +1172,6 @@ NOTIS_I18N={
 "Arată suma în afară":"Zobrazit součet venku",
 "Total lunar":"Měsíční součet",
 "Total general":"Celkový součet",
-"Notă":"Poznámka"
+"Notă":"Poznámka",
+"Sortează":"Sortování"
 };

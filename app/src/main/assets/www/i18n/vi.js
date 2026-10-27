@@ -1172,5 +1172,6 @@ NOTIS_I18N={
 "Arată suma în afară":"Hiện tổng bên ngoài",
 "Total lunar":"Tổng tháng",
 "Total general":"Tổng cộng",
-"Notă":"Ghi chú"
+"Notă":"Ghi chú",
+"Sortează":"Xác định"
 };

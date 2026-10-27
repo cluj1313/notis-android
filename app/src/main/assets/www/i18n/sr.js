@@ -1172,5 +1172,6 @@ NOTIS_I18N={
 "Arată suma în afară":"Prikaži zbir spolja",
 "Total lunar":"Mesečni zbir",
 "Total general":"Ukupan zbir",
-"Notă":"Beleška"
+"Notă":"Beleška",
+"Sortează":"Сортирајте"
 };

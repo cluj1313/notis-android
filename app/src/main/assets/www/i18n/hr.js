@@ -1172,5 +1172,6 @@ NOTIS_I18N={
 "Arată suma în afară":"Prikaži zbroj izvana",
 "Total lunar":"Mjesečni zbroj",
 "Total general":"Ukupni zbroj",
-"Notă":"Bilješka"
+"Notă":"Bilješka",
+"Sortează":"Sortiranje"
 };

@@ -1172,5 +1172,6 @@ NOTIS_I18N={
 "Arată suma în afară":"Pokaż sumę na zewnątrz",
 "Total lunar":"Suma miesięczna",
 "Total general":"Suma ogólna",
-"Notă":"Notatka"
+"Notă":"Notatka",
+"Sortează":"Sorty"
 };

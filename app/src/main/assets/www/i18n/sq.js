@@ -1172,5 +1172,6 @@ NOTIS_I18N={
 "Arată suma în afară":"Shfaq totalin jashtë",
 "Total lunar":"Totali mujor",
 "Total general":"Totali i përgjithshëm",
-"Notă":"Shënim"
+"Notă":"Shënim",
+"Sortează":"Sortoni"
 };
