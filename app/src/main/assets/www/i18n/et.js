@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": " Soovitatav on Wi‑Fi.",
 "Vocea e gata": "Hääl on valmis",
 "Descărcare anulată": "Allalaadimine tühistati",
-"Nu am putut descărca vocea": "Häält ei õnnestunud alla laadida"
+"Nu am putut descărca vocea": "Häält ei õnnestunud alla laadida",
+"Ține apăsat pe 🔊 ca să alegi limba": "Hoia 🔊 all, et keel valida",
+"Arată la apăsare lungă pe 🔊": "Näita 🔊 pikal vajutusel",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Ettelugemine\nMärkmes loeb nupp „Loe“ (all paremal) teksti ette. Hoia seda all, et keel valida; kuvatakse ainult hääled, mis on märgitud jaotises Seaded → Hääl. Kiirust ja tooni saab samuti seal muuta."
 };

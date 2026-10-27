@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": " WLAN empfohlen.",
 "Vocea e gata": "Stimme bereit",
 "Descărcare anulată": "Download abgebrochen",
-"Nu am putut descărca vocea": "Die Stimme konnte nicht heruntergeladen werden"
+"Nu am putut descărca vocea": "Die Stimme konnte nicht heruntergeladen werden",
+"Ține apăsat pe 🔊 ca să alegi limba": "🔊 gedrückt halten, um die Sprache zu wählen",
+"Arată la apăsare lungă pe 🔊": "Bei langem Drücken auf 🔊 zeigen",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Vorlesen\nIn einer Notiz liest die Schaltfläche „Vorlesen“ (unten rechts) den Text vor. Halte sie gedrückt, um die Sprache zu wählen; es erscheinen nur die in Einstellungen → Stimme angehakten Stimmen. Tempo und Tonhöhe stellst du dort ebenfalls ein."
 };

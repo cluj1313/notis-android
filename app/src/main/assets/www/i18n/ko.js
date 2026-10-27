@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": " Wi‑Fi 권장.",
 "Vocea e gata": "음성 준비 완료",
 "Descărcare anulată": "다운로드 취소됨",
-"Nu am putut descărca vocea": "음성을 다운로드할 수 없습니다"
+"Nu am putut descărca vocea": "음성을 다운로드할 수 없습니다",
+"Ține apăsat pe 🔊 ca să alegi limba": "🔊을 길게 눌러 언어를 선택하세요",
+"Arată la apăsare lungă pe 🔊": "🔊 길게 누르면 표시",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 읽기\n메모에서 „읽기” 버튼(오른쪽 아래)은 텍스트를 소리 내어 읽습니다. 길게 누르면 언어를 선택할 수 있으며, 설정 → 음성에서 체크한 음성만 표시됩니다. 속도와 음높이도 그곳에서 조절합니다."
 };

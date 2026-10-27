@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": " Rekomenduojamas Wi‑Fi.",
 "Vocea e gata": "Balsas paruoštas",
 "Descărcare anulată": "Atsisiuntimas atšauktas",
-"Nu am putut descărca vocea": "Nepavyko atsisiųsti balso"
+"Nu am putut descărca vocea": "Nepavyko atsisiųsti balso",
+"Ține apăsat pe 🔊 ca să alegi limba": "Laikyk 🔊, kad pasirinktum kalbą",
+"Arată la apăsare lungă pe 🔊": "Rodyti ilgai paspaudus 🔊",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Skaitymas\nPastaboje mygtukas „Skaityti“ (apačioje dešinėje) perskaito tekstą balsu. Laikyk jį, kad pasirinktum kalbą; rodomi tik balsai, pažymėti Nustatymai → Balsas. Greitis ir tonas nustatomi ten pat."
 };

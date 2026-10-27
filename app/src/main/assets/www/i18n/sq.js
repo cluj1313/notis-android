@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": " Rekomandohet Wi‑Fi.",
 "Vocea e gata": "Zëri është gati",
 "Descărcare anulată": "Shkarkimi u anulua",
-"Nu am putut descărca vocea": "Zëri nuk mund të shkarkohej"
+"Nu am putut descărca vocea": "Zëri nuk mund të shkarkohej",
+"Ține apăsat pe 🔊 ca să alegi limba": "Mbaj shtypur 🔊 për të zgjedhur gjuhën",
+"Arată la apăsare lungă pe 🔊": "Shfaq kur mbahet shtypur 🔊",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Lexo\nNë shënim, butoni „Lexo” (poshtë djathtas) e lexon tekstin me zë. Mbaje shtypur për të zgjedhur gjuhën; shfaqen vetëm zërat e shënuar te Cilësimet → Zëri. Shpejtësia dhe toni rregullohen po aty."
 };

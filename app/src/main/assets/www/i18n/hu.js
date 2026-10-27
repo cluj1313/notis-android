@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": " Wi‑Fi ajánlott.",
 "Vocea e gata": "A hang kész",
 "Descărcare anulată": "Letöltés megszakítva",
-"Nu am putut descărca vocea": "Nem sikerült letölteni a hangot"
+"Nu am putut descărca vocea": "Nem sikerült letölteni a hangot",
+"Ține apăsat pe 🔊 ca să alegi limba": "Tartsd lenyomva a 🔊 gombot a nyelv kiválasztásához",
+"Arată la apăsare lungă pe 🔊": "Megjelenik a 🔊 hosszú lenyomásakor",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Felolvasás\nA jegyzetben a „Felolvasás” gomb (jobbra lent) felolvassa a szöveget. Tartsd lenyomva a nyelv kiválasztásához; csak a Beállítások → Hang alatt bejelölt hangok jelennek meg. A sebesség és a hangmagasság is ott állítható."
 };

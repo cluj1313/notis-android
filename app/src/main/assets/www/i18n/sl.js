@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": " Priporočen je Wi‑Fi.",
 "Vocea e gata": "Glas je pripravljen",
 "Descărcare anulată": "Prenos preklican",
-"Nu am putut descărca vocea": "Glasu ni bilo mogoče prenesti"
+"Nu am putut descărca vocea": "Glasu ni bilo mogoče prenesti",
+"Ține apăsat pe 🔊 ca să alegi limba": "Pridrži 🔊 za izbiro jezika",
+"Arată la apăsare lungă pe 🔊": "Prikaži ob dolgem pritisku na 🔊",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Branje\nV zapisku gumb „Beri“ (spodaj desno) prebere besedilo na glas. Pridrži ga za izbiro jezika; prikažejo se le glasovi, označeni v Nastavitve → Glas. Hitrost in ton nastaviš prav tam."
 };

@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": "建议使用 Wi‑Fi。",
 "Vocea e gata": "语音已就绪",
 "Descărcare anulată": "已取消下载",
-"Nu am putut descărca vocea": "无法下载语音"
+"Nu am putut descărca vocea": "无法下载语音",
+"Ține apăsat pe 🔊 ca să alegi limba": "长按 🔊 选择语言",
+"Arată la apăsare lungă pe 🔊": "长按 🔊 时显示",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 朗读\n在笔记中，“朗读”按钮（右下角）会大声朗读文本。长按它可选择语言；只显示在 设置 → 语音 中勾选的语音。语速和音调也在那里调整。"
 };

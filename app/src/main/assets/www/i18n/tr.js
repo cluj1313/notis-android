@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": " Wi‑Fi önerilir.",
 "Vocea e gata": "Ses hazır",
 "Descărcare anulată": "İndirme iptal edildi",
-"Nu am putut descărca vocea": "Ses indirilemedi"
+"Nu am putut descărca vocea": "Ses indirilemedi",
+"Ține apăsat pe 🔊 ca să alegi limba": "Dili seçmek için 🔊 simgesine basılı tut",
+"Arată la apăsare lungă pe 🔊": "🔊 basılı tutulunca göster",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Sesli oku\nNotta „Oku” düğmesi (sağ alt) metni sesli okur. Dili seçmek için basılı tut; yalnızca Ayarlar → Ses bölümünde işaretli sesler görünür. Hız ve ton da orada ayarlanır."
 };

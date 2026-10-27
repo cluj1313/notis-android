@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": " Disarankan Wi‑Fi.",
 "Vocea e gata": "Suara siap",
 "Descărcare anulată": "Unduhan dibatalkan",
-"Nu am putut descărca vocea": "Gagal mengunduh suara"
+"Nu am putut descărca vocea": "Gagal mengunduh suara",
+"Ține apăsat pe 🔊 ca să alegi limba": "Tekan lama 🔊 untuk memilih bahasa",
+"Arată la apăsare lungă pe 🔊": "Tampilkan saat 🔊 ditekan lama",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Bacakan\nDi catatan, tombol „Bacakan” (kanan bawah) membacakan teks. Tekan lama untuk memilih bahasa; hanya suara yang dicentang di Pengaturan → Suara yang muncul. Kecepatan dan nada juga diatur di sana."
 };

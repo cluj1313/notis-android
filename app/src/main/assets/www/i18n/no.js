@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": " Wi‑Fi anbefales.",
 "Vocea e gata": "Stemmen er klar",
 "Descărcare anulată": "Nedlasting avbrutt",
-"Nu am putut descărca vocea": "Kunne ikke laste ned stemmen"
+"Nu am putut descărca vocea": "Kunne ikke laste ned stemmen",
+"Ține apăsat pe 🔊 ca să alegi limba": "Hold inne 🔊 for å velge språk",
+"Arată la apăsare lungă pe 🔊": "Vis ved langt trykk på 🔊",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Les opp\nI et notat leser knappen „Les opp” (nede til høyre) teksten høyt. Hold den inne for å velge språk; bare stemmer som er avkrysset i Innstillinger → Stemme, vises. Hastighet og tonehøyde stilles også der."
 };

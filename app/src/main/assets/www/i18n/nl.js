@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": " Wifi aanbevolen.",
 "Vocea e gata": "Stem klaar",
 "Descărcare anulată": "Download geannuleerd",
-"Nu am putut descărca vocea": "Kon de stem niet downloaden"
+"Nu am putut descărca vocea": "Kon de stem niet downloaden",
+"Ține apăsat pe 🔊 ca să alegi limba": "Houd 🔊 ingedrukt om de taal te kiezen",
+"Arată la apăsare lungă pe 🔊": "Tonen bij lang drukken op 🔊",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Voorlezen\nIn een notitie leest de knop „Voorlezen” (rechtsonder) de tekst hardop voor. Houd hem ingedrukt om de taal te kiezen; alleen de stemmen die zijn aangevinkt in Instellingen → Stem verschijnen. Snelheid en toonhoogte stel je daar ook in."
 };

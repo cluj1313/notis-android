@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": " מומלץ Wi‑Fi.",
 "Vocea e gata": "הקול מוכן",
 "Descărcare anulată": "ההורדה בוטלה",
-"Nu am putut descărca vocea": "לא ניתן היה להוריד את הקול"
+"Nu am putut descărca vocea": "לא ניתן היה להוריד את הקול",
+"Ține apăsat pe 🔊 ca să alegi limba": "לחיצה ארוכה על 🔊 לבחירת שפה",
+"Arată la apăsare lungă pe 🔊": "הצג בלחיצה ארוכה על 🔊",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 הקראה\nבפתק, הכפתור „הקרא” (למטה מימין) מקריא את הטקסט בקול. לחץ עליו לחיצה ארוכה כדי לבחור שפה; מופיעים רק הקולות שסומנו בהגדרות ← קול. המהירות והטון מכוונים גם שם."
 };

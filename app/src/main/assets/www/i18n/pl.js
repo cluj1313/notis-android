@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": " Zalecane Wi‑Fi.",
 "Vocea e gata": "Głos gotowy",
 "Descărcare anulată": "Pobieranie anulowane",
-"Nu am putut descărca vocea": "Nie udało się pobrać głosu"
+"Nu am putut descărca vocea": "Nie udało się pobrać głosu",
+"Ține apăsat pe 🔊 ca să alegi limba": "Przytrzymaj 🔊, aby wybrać język",
+"Arată la apăsare lungă pe 🔊": "Pokaż po przytrzymaniu 🔊",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Czytaj\nW notatce przycisk „Czytaj” (na dole po prawej) czyta tekst na głos. Przytrzymaj go, aby wybrać język; widać tylko głosy zaznaczone w Ustawienia → Głos. Tam też ustawisz szybkość i ton."
 };

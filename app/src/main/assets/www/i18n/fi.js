@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": " Wi‑Fi suositeltava.",
 "Vocea e gata": "Ääni on valmis",
 "Descărcare anulată": "Lataus peruttiin",
-"Nu am putut descărca vocea": "Ääntä ei voitu ladata"
+"Nu am putut descărca vocea": "Ääntä ei voitu ladata",
+"Ține apăsat pe 🔊 ca să alegi limba": "Valitse kieli painamalla 🔊 pitkään",
+"Arată la apăsare lungă pe 🔊": "Näytä, kun 🔊 painetaan pitkään",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Lue ääneen\nMuistiinpanossa ”Lue”-painike (alhaalla oikealla) lukee tekstin ääneen. Valitse kieli painamalla sitä pitkään; vain Asetukset → Ääni -kohdassa valitut äänet näkyvät. Nopeus ja sävelkorkeus säädetään myös siellä."
 };

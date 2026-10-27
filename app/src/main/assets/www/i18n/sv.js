@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": " Wi‑Fi rekommenderas.",
 "Vocea e gata": "Rösten är klar",
 "Descărcare anulată": "Nedladdningen avbröts",
-"Nu am putut descărca vocea": "Det gick inte att ladda ner rösten"
+"Nu am putut descărca vocea": "Det gick inte att ladda ner rösten",
+"Ține apăsat pe 🔊 ca să alegi limba": "Håll in 🔊 för att välja språk",
+"Arată la apăsare lungă pe 🔊": "Visa vid långt tryck på 🔊",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Läs upp\nI en anteckning läser knappen „Läs upp” (nere till höger) texten högt. Håll in den för att välja språk; bara röster som är markerade i Inställningar → Röst visas. Hastighet och tonhöjd ställs också in där."
 };

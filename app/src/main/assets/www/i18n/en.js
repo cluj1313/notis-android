@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": " Wi‑Fi recommended.",
 "Vocea e gata": "Voice ready",
 "Descărcare anulată": "Download cancelled",
-"Nu am putut descărca vocea": "Couldn't download the voice"
+"Nu am putut descărca vocea": "Couldn't download the voice",
+"Ține apăsat pe 🔊 ca să alegi limba": "Long-press 🔊 to choose the language",
+"Arată la apăsare lungă pe 🔊": "Show on long-press of 🔊",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Read aloud\nIn a note, the “Read aloud” button (bottom right) reads the text out loud. Long-press it to choose the language; only voices ticked in Settings → Voice appear. Speed and pitch are set there too."
 };

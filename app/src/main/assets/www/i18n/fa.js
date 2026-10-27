@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": " Wi‑Fi توصیه می‌شود.",
 "Vocea e gata": "صدا آماده است",
 "Descărcare anulată": "بارگیری لغو شد",
-"Nu am putut descărca vocea": "بارگیری صدا ممکن نشد"
+"Nu am putut descărca vocea": "بارگیری صدا ممکن نشد",
+"Ține apăsat pe 🔊 ca să alegi limba": "برای انتخاب زبان، 🔊 را نگه دارید",
+"Arată la apăsare lungă pe 🔊": "نمایش با نگه‌داشتن 🔊",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 خواندن\nدر یادداشت، دکمه «بخوان» (پایین راست) متن را با صدا می‌خواند. برای انتخاب زبان آن را نگه دارید؛ فقط صداهای تیک‌خورده در تنظیمات ← صدا نمایش داده می‌شوند. سرعت و زیر و بمی هم همان‌جا تنظیم می‌شود."
 };

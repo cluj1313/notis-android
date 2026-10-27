@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": " Wi‑Fi সুপারিশ করা হয়।",
 "Vocea e gata": "কণ্ঠ প্রস্তুত",
 "Descărcare anulată": "ডাউনলোড বাতিল হয়েছে",
-"Nu am putut descărca vocea": "কণ্ঠ ডাউনলোড করা যায়নি"
+"Nu am putut descărca vocea": "কণ্ঠ ডাউনলোড করা যায়নি",
+"Ține apăsat pe 🔊 ca să alegi limba": "ভাষা বেছে নিতে 🔊 চেপে ধরুন",
+"Arată la apăsare lungă pe 🔊": "🔊 চেপে ধরলে দেখান",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 পড়া\nনোটে „পড়ুন” বোতাম (নিচে ডানে) লেখা জোরে পড়ে। ভাষা বেছে নিতে এটি চেপে ধরুন; শুধু সেটিংস → কণ্ঠে টিক দেওয়া কণ্ঠগুলো দেখায়। গতি ও সুরও সেখানে ঠিক করা যায়।"
 };

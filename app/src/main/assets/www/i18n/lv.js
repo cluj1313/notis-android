@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": " Ieteicams Wi‑Fi.",
 "Vocea e gata": "Balss ir gatava",
 "Descărcare anulată": "Lejupielāde atcelta",
-"Nu am putut descărca vocea": "Neizdevās lejupielādēt balsi"
+"Nu am putut descărca vocea": "Neizdevās lejupielādēt balsi",
+"Ține apăsat pe 🔊 ca să alegi limba": "Turi 🔊, lai izvēlētos valodu",
+"Arată la apăsare lungă pe 🔊": "Rādīt, ilgi turot 🔊",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Lasīt\nPiezīmē poga „Lasīt” (apakšā pa labi) nolasa tekstu skaļi. Turi to, lai izvēlētos valodu; redzamas tikai balsis, kas atzīmētas sadaļā Iestatījumi → Balss. Ātrumu un toni iestata turpat."
 };

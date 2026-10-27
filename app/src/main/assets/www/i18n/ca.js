@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": " Es recomana Wi‑Fi.",
 "Vocea e gata": "La veu està a punt",
 "Descărcare anulată": "Baixada cancel·lada",
-"Nu am putut descărca vocea": "No s'ha pogut baixar la veu"
+"Nu am putut descărca vocea": "No s'ha pogut baixar la veu",
+"Ține apăsat pe 🔊 ca să alegi limba": "Mantén premut 🔊 per triar l'idioma",
+"Arată la apăsare lungă pe 🔊": "Mostra en mantenir premut 🔊",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Llegeix\nEn una nota, el botó «Llegeix» (a baix a la dreta) llegeix el text en veu alta. Mantén-lo premut per triar l'idioma; només surten les veus marcades a Configuració → Veu. La velocitat i el to també es regulen allà."
 };

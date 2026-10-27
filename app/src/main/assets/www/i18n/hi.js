@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": " Wi‑Fi की सलाह दी जाती है।",
 "Vocea e gata": "आवाज़ तैयार है",
 "Descărcare anulată": "डाउनलोड रद्द किया गया",
-"Nu am putut descărca vocea": "आवाज़ डाउनलोड नहीं हो सकी"
+"Nu am putut descărca vocea": "आवाज़ डाउनलोड नहीं हो सकी",
+"Ține apăsat pe 🔊 ca să alegi limba": "भाषा चुनने के लिए 🔊 दबाकर रखें",
+"Arată la apăsare lungă pe 🔊": "🔊 दबाकर रखने पर दिखाएँ",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 पढ़ें\nनोट में „पढ़ें” बटन (नीचे दाएँ) टेक्स्ट को ज़ोर से पढ़ता है। भाषा चुनने के लिए इसे दबाकर रखें; केवल सेटिंग्स → आवाज़ में चुनी गई आवाज़ें दिखती हैं। गति और सुर भी वहीं सेट होते हैं।"
 };

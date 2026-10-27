@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": " Препоручује се Wi‑Fi.",
 "Vocea e gata": "Глас је спреман",
 "Descărcare anulată": "Преузимање је отказано",
-"Nu am putut descărca vocea": "Глас није могао да се преузме"
+"Nu am putut descărca vocea": "Глас није могао да се преузме",
+"Ține apăsat pe 🔊 ca să alegi limba": "Задржи 🔊 да изабереш језик",
+"Arată la apăsare lungă pe 🔊": "Прикажи при дугом притиску на 🔊",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Читање\nУ белешци дугме „Читај“ (доле десно) чита текст наглас. Задржи га да изабереш језик; приказују се само гласови штиклирани у Подешавања → Глас. Брзина и тон се подешавају такође тамо."
 };

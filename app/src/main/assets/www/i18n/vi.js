@@ -1070,5 +1070,8 @@ NOTIS_I18N={
 " Recomandat pe Wi-Fi.": " Nên dùng Wi‑Fi.",
 "Vocea e gata": "Giọng đã sẵn sàng",
 "Descărcare anulată": "Đã hủy tải xuống",
-"Nu am putut descărca vocea": "Không thể tải giọng"
+"Nu am putut descărca vocea": "Không thể tải giọng",
+"Ține apăsat pe 🔊 ca să alegi limba": "Nhấn giữ 🔊 để chọn ngôn ngữ",
+"Arată la apăsare lungă pe 🔊": "Hiện khi nhấn giữ 🔊",
+"🔊 Citește\nÎn notiță, butonul „Citește” (jos dreapta) citește textul cu voce. Ține apăsat pe el ca să alegi limba; apar doar vocile bifate în Setări → Voce. Viteza și tonul se reglează tot acolo.": "🔊 Đọc\nTrong ghi chú, nút „Đọc” (góc dưới bên phải) đọc to văn bản. Nhấn giữ để chọn ngôn ngữ; chỉ hiện các giọng được đánh dấu trong Cài đặt → Giọng. Tốc độ và cao độ cũng chỉnh ở đó."
 };
