@@ -1173,5 +1173,6 @@ NOTIS_I18N={
 "Total lunar":"Mesečna vsota",
 "Total general":"Skupna vsota",
 "Notă":"Zapisek",
-"Sortează":"Razvrščanje"
+"Sortează":"Razvrščanje",
+"Salvezi modificările?":"Shranim spremembe?"
 };

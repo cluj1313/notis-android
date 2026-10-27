@@ -1173,5 +1173,6 @@ NOTIS_I18N={
 "Total lunar":"Havi összeg",
 "Total general":"Teljes összeg",
 "Notă":"Jegyzet",
-"Sortează":"Rendezés"
+"Sortează":"Rendezés",
+"Salvezi modificările?":"Menti a módosításokat?"
 };

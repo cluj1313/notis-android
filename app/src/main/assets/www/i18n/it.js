@@ -1173,5 +1173,6 @@ NOTIS_I18N={
 "Total lunar":"Totale mensile",
 "Total general":"Totale generale",
 "Notă":"Nota",
-"Sortează":"Ordina"
+"Sortează":"Ordina",
+"Salvezi modificările?":"Salvare le modifiche?"
 };

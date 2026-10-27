@@ -1173,5 +1173,6 @@ NOTIS_I18N={
 "Total lunar":"Месечен збир",
 "Total general":"Вкупен збир",
 "Notă":"Белешка",
-"Sortează":"Сортирање"
+"Sortează":"Сортирање",
+"Salvezi modificările?":"Да се зачуваат промените?"
 };

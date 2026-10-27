@@ -1173,5 +1173,6 @@ NOTIS_I18N={
 "Total lunar":"Mėnesio suma",
 "Total general":"Bendra suma",
 "Notă":"Pastaba",
-"Sortează":"Sortiruoti"
+"Sortează":"Sortiruoti",
+"Salvezi modificările?":"Išsaugoti pakeitimus?"
 };

@@ -1173,5 +1173,6 @@ NOTIS_I18N={
 "Total lunar":"মাসিক মোট",
 "Total general":"সর্বমোট",
 "Notă":"নোট",
-"Sortează":"সাজানো"
+"Sortează":"সাজানো",
+"Salvezi modificările?":"পরিবর্তন সংরক্ষণ করবেন?"
 };

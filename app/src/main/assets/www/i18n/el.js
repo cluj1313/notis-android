@@ -1173,5 +1173,6 @@ NOTIS_I18N={
 "Total lunar":"Μηνιαίο σύνολο",
 "Total general":"Γενικό σύνολο",
 "Notă":"Σημείωση",
-"Sortează":"Τροποποίηση"
+"Sortează":"Τροποποίηση",
+"Salvezi modificările?":"Αποθήκευση αλλαγών;"
 };

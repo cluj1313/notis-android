@@ -1173,5 +1173,6 @@ NOTIS_I18N={
 "Total lunar":"Totali mujor",
 "Total general":"Totali i përgjithshëm",
 "Notă":"Shënim",
-"Sortează":"Sortoni"
+"Sortează":"Sortoni",
+"Salvezi modificările?":"Të ruhen ndryshimet?"
 };

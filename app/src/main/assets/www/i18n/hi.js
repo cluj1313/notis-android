@@ -1173,5 +1173,6 @@ NOTIS_I18N={
 "Total lunar":"मासिक कुल",
 "Total general":"कुल योग",
 "Notă":"नोट",
-"Sortează":"क्रमबद्ध करना"
+"Sortează":"क्रमबद्ध करना",
+"Salvezi modificările?":"बदलाव सहेजें?"
 };

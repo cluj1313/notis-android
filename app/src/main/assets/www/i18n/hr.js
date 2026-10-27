@@ -1173,5 +1173,6 @@ NOTIS_I18N={
 "Total lunar":"Mjesečni zbroj",
 "Total general":"Ukupni zbroj",
 "Notă":"Bilješka",
-"Sortează":"Sortiranje"
+"Sortează":"Sortiranje",
+"Salvezi modificările?":"Spremiti promjene?"
 };
