@@ -59,6 +59,7 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity {
                 android.graphics.Insets sb = in.getInsets(android.view.WindowInsets.Type.systemBars() | android.view.WindowInsets.Type.displayCutout());
                 android.graphics.Insets k = in.getInsets(android.view.WindowInsets.Type.ime());
                 v.setPadding(sb.left, sb.top, sb.right, Math.max(sb.bottom, k.bottom));
+                if (k.bottom == 0 && kbLast > 0) evalJs("window.notisKbHidden&&notisKbHidden()"); kbLast = k.bottom; /* 2.9.4: keyboard closed -> render links */
                 return android.view.WindowInsets.CONSUMED;
             });
         } else setContentView(web);
@@ -358,6 +359,7 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity {
         } catch (Exception e) { return true; }
     }
     /** v57: ask the web app for a full automatic backup (native copy via Bridge.autoBackup) */
+    private int kbLast = 0;
     void evalJs(String js) { try { if (web != null) web.evaluateJavascript(js, null); } catch (Exception ignored) {} }
     void backupNow(String reason) {
         try { if (web != null) web.evaluateJavascript("window.notisAutoBackupNow&&notisAutoBackupNow('" + reason.replaceAll("[^a-z-]", "") + "')", null); } catch (Exception ignored) {}
