@@ -891,6 +891,7 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
 #spModal:has(.mdcard){padding:8px}#spModal:has(.mdcard) .card.jvdlg{width:calc(100vw - 16px);max-width:600px;padding-left:12px;padding-right:12px;box-sizing:border-box}
 #spView .mdper{margin-left:-5px;margin-right:-5px}
 .shRow .shApp{width:38px!important;height:38px!important;border-radius:10px!important}.shRow .sparr::after{transform:rotate(-90deg)!important}.shRow.open .sparr::after{transform:none!important}.shBox{display:flex;align-items:flex-end;gap:8px;padding:2px 4px 8px 52px;box-sizing:border-box;min-width:0}.shBox[hidden]{display:none}.shTx{flex:1;min-width:0;font-size:12.5px;line-height:1.4;opacity:.72;overflow-wrap:anywhere}.shGo{flex:none;width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;background:none;border:0;padding:0;margin:0;color:var(--cyan);cursor:pointer}.shGo .shI{width:22px;height:22px}
+.shBox{flex-wrap:wrap;padding:2px 0 6px 0!important;gap:2px!important}.shTx{flex:1 1 100%!important;font-size:15.5px!important;line-height:1.45!important;opacity:1!important}.shGo{margin-left:auto}
 </style>
 <style>/* v90: tab style Căsuțe (box tabs) */
 :root[data-tabst=box] #noteTabs{gap:4px;padding:2px 2px 0;margin-bottom:10px;border-bottom:4px solid var(--cyan);align-items:flex-end}
@@ -3127,6 +3128,28 @@ $('sShareApp').onclick=function(){var U='https://cluj1313.github.io/notis/apk/',
  if(navigator.share){navigator.share({title:ti,text:all}).catch(function(e){if(!e||e.name!=='AbortError')fb()});return}fb()};
 $('sShareApp').addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();this.click()}});
 ['N','J'].forEach(function(k){var r=$('shRow'+k),bx=$('shBox'+k);r.onclick=function(){var o=bx.hidden;bx.hidden=!o;r.classList.toggle('open',o);r.setAttribute('aria-expanded',o?'true':'false')};r.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();r.click()}})});
+/* v132: Setări – readable text contrast per theme (lighter on dark, darker on light, never pure white/black) */
+(function(){var M=$('modal');if(!M)return;
+ function rgb(c){var m=String(c).match(/[\d.]+/g);return m?[+m[0],+m[1],+m[2],m.length>3?+m[3]:1]:[0,0,0,0]}
+ function L(c){var a=c.slice(0,3).map(function(v){v/=255;return v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4)});return .2126*a[0]+.7152*a[1]+.0722*a[2]}
+ function CR(a,b){var x=L(a),y=L(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05)}
+ function bgOf(el){var ls=[];for(var e=el;e&&e.nodeType===1;e=e.parentElement){var c=rgb(getComputedStyle(e).backgroundColor);if(c[3]>0){ls.push(c);if(c[3]>=.99)break}}
+  var base=ls.length&&ls[ls.length-1][3]>=.99?ls.pop():[0,0,0,0];
+  if(base[3]<.99){var t=document.createElement('i');t.style.color=getComputedStyle(document.documentElement).getPropertyValue('--bg');document.body.appendChild(t);base=rgb(getComputedStyle(t).color);t.remove()}
+  for(var i=ls.length-1;i>=0;i--){var c=ls[i],a=c[3];base=[c[0]*a+base[0]*(1-a),c[1]*a+base[1]*(1-a),c[2]*a+base[2]*(1-a),1]}return base}
+ var BIG='.sec,label,.lbl,.shL,.lbfh,b,strong,h2,h3';
+ window.nsSetCR=function(){M.querySelectorAll('[data-crx]').forEach(function(e){e.style.removeProperty('color');e.style.removeProperty('opacity');e.removeAttribute('data-crx')});
+  if(!M.classList.contains('show'))return;
+  M.querySelectorAll('*').forEach(function(e){if(/^(INPUT|TEXTAREA|SELECT|OPTION|SCRIPT|STYLE|svg|path|circle)$/i.test(e.tagName))return;
+   var has=false;for(var n=e.firstChild;n;n=n.nextSibling)if(n.nodeType===3&&n.nodeValue.trim()){has=true;break}if(!has||!e.getClientRects().length)return;
+   var cs=getComputedStyle(e),fg=rgb(cs.color),bg=bgOf(e),op=+cs.opacity;if(fg[3]<.99||op<1){var a=fg[3]*op;fg=[fg[0]*a+bg[0]*(1-a),fg[1]*a+bg[1]*(1-a),fg[2]*a+bg[2]*(1-a)]}
+   var dark=L(bg)<.18,goal=e.closest(BIG)?9:7,to=dark?[255,255,255]:[0,0,0],mx=dark?.92:.9,t=.16,c;
+   for(;t<=mx+1e-9;t+=.02){c=fg.slice(0,3).map(function(v,i){return Math.round(v+(to[i]-v)*t)});if(CR(c,bg)>=goal)break}
+   if(t>mx)c=fg.slice(0,3).map(function(v,i){return Math.round(v+(to[i]-v)*mx)});
+   e.style.setProperty('color','rgb('+c.join(',')+')','important');if(op<1)e.style.setProperty('opacity','1','important');e.setAttribute('data-crx','1')})};
+ var T;function q(){clearTimeout(T);T=setTimeout(nsSetCR,60)}
+ new MutationObserver(q).observe(M,{attributes:true,attributeFilter:['class']});new MutationObserver(q).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme','class']});
+ M.addEventListener('click',q,true);M.addEventListener('change',q,true)})();
 var JARVIS_SHARE_URL='https://cluj1313.github.io/jarvis/';
 $('sShareJarvis').onclick=function(){var U=JARVIS_SHARE_URL,ti='Jarvis',all=TR('Jarvis – asistentul tău zilnic')+'\n'+U;
  function cp(){var ok=function(){toast(TR('Link copiat'))};try{if(navigator.clipboard&&navigator.clipboard.writeText)return navigator.clipboard.writeText(all).then(ok,leg)}catch(_){}leg();
@@ -4029,7 +4052,7 @@ spMigrate();renderNotes();
 })();
 /* v96: Setări → TABURI (bibliotecă: ordine drag & drop, bifă vizibil/ascuns, PIN 4/6 opțional), DESIGN (Teme · Stil taburi · Fundal · Setări fine · Iconiță), iconiță urgență, Comunică cu creatorul, Versiune. Additive: hidden tab = t.off, nothing deleted. */
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v131';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v132';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};
