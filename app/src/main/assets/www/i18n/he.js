@@ -1023,5 +1023,19 @@ NOTIS_I18N={
 "Repository-ul notis-news nu e accesibil cu acest token": "המאגר notis-news אינו נגיש עם אסימון זה",
 "Conflict la salvare, încearcă din nou": "התנגשות בשמירה, נסו שוב",
 "Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "לא ניתן לפענח את האסימון — מחקו אותו והזינו חדש",
-"Fără conexiune la internet": "אין חיבור לאינטרנט"
+"Fără conexiune la internet": "אין חיבור לאינטרנט",
+"Zilnic": "כל יום",
+"La X zile": "כל X ימים",
+"La X ore": "כל X שעות",
+"Zile din săptămână": "ימים בשבוע",
+"Eficient": "יעיל",
+"Parțial": "חלקית",
+"Nu a fost eficient": "לא היה יעיל",
+"Mod de administrare": "אופן נטילה",
+"Program": "לוח זמנים",
+"Observații": "הערות",
+"O dată la (zile)": "כל (ימים)",
+"O dată la (ore)": "כל (שעות)",
+"↗ Trimite": "↗ שיתוף",
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 איך עובדות תרופות\nהעיגולים 1 – 0 – 1 = בוקר, צהריים, ערב: הקש על „1” כשלקחת את המנה. הרשימה ממוינת לפי שעה.\nהקש על שם התרופה לכרטיס שלה: תרופה, אופן נטילה, לוח זמנים (כל יום, כל X ימים, כל X שעות, ימים בשבוע) והערות; ↗ שיתוף שולח אותו.\n„+” מוסיף תרופות או אנשים; „הכול” פותח את הספרייה."
 };

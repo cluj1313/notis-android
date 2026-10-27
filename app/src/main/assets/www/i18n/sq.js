@@ -1023,5 +1023,19 @@ NOTIS_I18N={
 "Repository-ul notis-news nu e accesibil cu acest token": "Depoja notis-news nuk është e aksesueshme me këtë token",
 "Conflict la salvare, încearcă din nou": "Konflikt gjatë ruajtjes, provo përsëri",
 "Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "Tokeni nuk mund të deshifrohet — fshije dhe fut një të ri",
-"Fără conexiune la internet": "Nuk ka lidhje interneti"
+"Fără conexiune la internet": "Nuk ka lidhje interneti",
+"Zilnic": "Çdo ditë",
+"La X zile": "Çdo X ditë",
+"La X ore": "Çdo X orë",
+"Zile din săptămână": "Ditët e javës",
+"Eficient": "Efikas",
+"Parțial": "Pjesërisht",
+"Nu a fost eficient": "Nuk ishte efikas",
+"Mod de administrare": "Mënyra e marrjes",
+"Program": "Orari",
+"Observații": "Vërejtje",
+"O dată la (zile)": "Çdo (ditë)",
+"O dată la (ore)": "Çdo (orë)",
+"↗ Trimite": "↗ Ndaj",
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Si funksionojnë Barnat\nRrathët 1 – 0 – 1 = mëngjes, mesditë, mbrëmje: prek „1” kur ke marrë dozën. Lista renditet sipas orës.\nPrek emrin e barit për kartën e tij: Bari, Mënyra e marrjes, Orari (çdo ditë, çdo X ditë, çdo X orë, ditët e javës) dhe Vërejtje; ↗ Ndaj e dërgon.\n„+” shton barna ose persona; „Të gjitha” hap bibliotekën."
 };

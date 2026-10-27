@@ -1023,5 +1023,19 @@ NOTIS_I18N={
 "Repository-ul notis-news nu e accesibil cu acest token": "El repositori notis-news no és accessible amb aquest token",
 "Conflict la salvare, încearcă din nou": "Conflicte en desar, torna-ho a provar",
 "Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "No es pot desxifrar el token — esborra'l i introdueix-ne un de nou",
-"Fără conexiune la internet": "Sense connexió a internet"
+"Fără conexiune la internet": "Sense connexió a internet",
+"Zilnic": "Diari",
+"La X zile": "Cada X dies",
+"La X ore": "Cada X hores",
+"Zile din săptămână": "Dies de la setmana",
+"Eficient": "Eficaç",
+"Parțial": "Parcial",
+"Nu a fost eficient": "No ha estat eficaç",
+"Mod de administrare": "Mode d'administració",
+"Program": "Programa",
+"Observații": "Observacions",
+"O dată la (zile)": "Cada (dies)",
+"O dată la (ore)": "Cada (hores)",
+"↗ Trimite": "↗ Comparteix",
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Com funciona Medicaments\nEls cercles 1 – 0 – 1 = matí, migdia, vespre: toca «1» quan hagis pres la dosi. La llista s'ordena per hora.\nToca el nom d'un medicament per veure'n la fitxa: Medicament, Mode d'administració, Programa (diari, cada X dies, cada X hores, dies de la setmana) i Observacions; ↗ Comparteix l'envia.\n«+» afegeix medicaments o persones; «Tots» obre la biblioteca."
 };

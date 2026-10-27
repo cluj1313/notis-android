@@ -1023,5 +1023,19 @@ NOTIS_I18N={
 "Repository-ul notis-news nu e accesibil cu acest token": "notis-news deposuna bu token ile erişilemiyor",
 "Conflict la salvare, încearcă din nou": "Kaydetme çakışması, tekrar deneyin",
 "Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "Token çözülemiyor — silip yenisini girin",
-"Fără conexiune la internet": "İnternet bağlantısı yok"
+"Fără conexiune la internet": "İnternet bağlantısı yok",
+"Zilnic": "Her gün",
+"La X zile": "Her X günde bir",
+"La X ore": "Her X saatte bir",
+"Zile din săptămână": "Haftanın günleri",
+"Eficient": "Etkili",
+"Parțial": "Kısmen",
+"Nu a fost eficient": "Etkili olmadı",
+"Mod de administrare": "Kullanım şekli",
+"Program": "Zamanlama",
+"Observații": "Gözlemler",
+"O dată la (zile)": "Her (gün)",
+"O dată la (ore)": "Her (saat)",
+"↗ Trimite": "↗ Paylaş",
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 İlaçlar nasıl çalışır\nDaireler 1 – 0 – 1 = sabah, öğle, akşam: dozu aldığında “1”e dokun. Liste saate göre sıralanır.\nKartını açmak için ilacın adına dokun: İlaç, Kullanım şekli, Program (her gün, her X günde bir, her X saatte bir, haftanın günleri) ve Gözlemler; ↗ Paylaş onu gönderir.\n“+” ilaç veya kişi ekler; “Tümü” kütüphaneyi açar."
 };

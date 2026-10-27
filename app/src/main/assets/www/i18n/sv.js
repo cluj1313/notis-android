@@ -1023,5 +1023,19 @@ NOTIS_I18N={
 "Repository-ul notis-news nu e accesibil cu acest token": "Repot notis-news är inte åtkomligt med denna token",
 "Conflict la salvare, încearcă din nou": "Sparkonflikt, försök igen",
 "Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "Token kan inte dekrypteras — radera den och ange en ny",
-"Fără conexiune la internet": "Ingen internetanslutning"
+"Fără conexiune la internet": "Ingen internetanslutning",
+"Zilnic": "Dagligen",
+"La X zile": "Var X:e dag",
+"La X ore": "Var X:e timme",
+"Zile din săptămână": "Veckodagar",
+"Eficient": "Effektiv",
+"Parțial": "Delvis",
+"Nu a fost eficient": "Inte effektiv",
+"Mod de administrare": "Användning",
+"Program": "Schema",
+"Observații": "Anteckningar",
+"O dată la (zile)": "Var (dagar)",
+"O dată la (ore)": "Var (timmar)",
+"↗ Trimite": "↗ Dela",
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Så fungerar Mediciner\nCirklarna 1 – 0 – 1 = morgon, mitt på dagen, kväll: tryck på ”1” när du har tagit dosen. Listan sorteras efter tid.\nTryck på ett läkemedels namn för kortet: Medicin, Användning, Schema (dagligen, var X:e dag, var X:e timme, veckodagar) och Anteckningar; ↗ Dela skickar det.\n”+” lägger till mediciner eller personer; ”Alla” öppnar biblioteket."
 };

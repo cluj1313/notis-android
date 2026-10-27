@@ -1023,5 +1023,19 @@ NOTIS_I18N={
 "Repository-ul notis-news nu e accesibil cu acest token": "Tietovarasto notis-news ei ole käytettävissä tällä tunnuksella",
 "Conflict la salvare, încearcă din nou": "Tallennusristiriita, yritä uudelleen",
 "Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "Tunnusta ei voi purkaa — poista se ja anna uusi",
-"Fără conexiune la internet": "Ei internetyhteyttä"
+"Fără conexiune la internet": "Ei internetyhteyttä",
+"Zilnic": "Päivittäin",
+"La X zile": "X päivän välein",
+"La X ore": "X tunnin välein",
+"Zile din săptămână": "Viikonpäivät",
+"Eficient": "Tehokas",
+"Parțial": "Osittain",
+"Nu a fost eficient": "Ei tehonnut",
+"Mod de administrare": "Ottotapa",
+"Program": "Aikataulu",
+"Observații": "Huomiot",
+"O dată la (zile)": "Välein (päivää)",
+"O dată la (ore)": "Välein (tuntia)",
+"↗ Trimite": "↗ Jaa",
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Näin Lääkkeet toimii\nYmpyrät 1 – 0 – 1 = aamu, keskipäivä, ilta: napauta ”1”, kun olet ottanut annoksen. Lista on järjestetty kellonajan mukaan.\nNapauta lääkkeen nimeä nähdäksesi kortin: Lääke, Ottotapa, Aikataulu (päivittäin, X päivän välein, X tunnin välein, viikonpäivät) ja Huomiot; ↗ Jaa lähettää sen.\n”+” lisää lääkkeitä tai henkilöitä; ”Kaikki” avaa kirjaston."
 };

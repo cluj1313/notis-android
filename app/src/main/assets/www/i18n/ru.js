@@ -1023,5 +1023,19 @@ NOTIS_I18N={
 "Repository-ul notis-news nu e accesibil cu acest token": "Репозиторий notis-news недоступен с этим токеном",
 "Conflict la salvare, încearcă din nou": "Конфликт при сохранении, попробуйте снова",
 "Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "Не удаётся расшифровать токен — удалите его и введите новый",
-"Fără conexiune la internet": "Нет подключения к интернету"
+"Fără conexiune la internet": "Нет подключения к интернету",
+"Zilnic": "Ежедневно",
+"La X zile": "Каждые X дней",
+"La X ore": "Каждые X часов",
+"Zile din săptămână": "Дни недели",
+"Eficient": "Эффективно",
+"Parțial": "Частично",
+"Nu a fost eficient": "Не помогло",
+"Mod de administrare": "Способ приёма",
+"Program": "Расписание",
+"Observații": "Наблюдения",
+"O dată la (zile)": "Каждые (дней)",
+"O dată la (ore)": "Каждые (часов)",
+"↗ Trimite": "↗ Поделиться",
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Как работают Лекарства\nКружки 1 – 0 – 1 = утро, день, вечер: нажмите «1», когда приняли дозу. Список отсортирован по времени.\nНажмите на название лекарства, чтобы открыть карточку: Лекарство, Способ приёма, Расписание (ежедневно, каждые X дней, каждые X часов, дни недели) и Наблюдения; ↗ Поделиться отправляет её.\n«+» добавляет лекарства или людей; «Все» открывает библиотеку."
 };

@@ -1023,5 +1023,19 @@ NOTIS_I18N={
 "Repository-ul notis-news nu e accesibil cu acest token": "Το αποθετήριο notis-news δεν είναι προσβάσιμο με αυτό το token",
 "Conflict la salvare, încearcă din nou": "Διένεξη αποθήκευσης, δοκιμάστε ξανά",
 "Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "Το token δεν αποκρυπτογραφείται — διαγράψτε το και εισαγάγετε νέο",
-"Fără conexiune la internet": "Χωρίς σύνδεση στο διαδίκτυο"
+"Fără conexiune la internet": "Χωρίς σύνδεση στο διαδίκτυο",
+"Zilnic": "Καθημερινά",
+"La X zile": "Κάθε X ημέρες",
+"La X ore": "Κάθε X ώρες",
+"Zile din săptămână": "Ημέρες της εβδομάδας",
+"Eficient": "Αποτελεσματικό",
+"Parțial": "Μερικώς",
+"Nu a fost eficient": "Δεν ήταν αποτελεσματικό",
+"Mod de administrare": "Τρόπος χορήγησης",
+"Program": "Πρόγραμμα",
+"Observații": "Παρατηρήσεις",
+"O dată la (zile)": "Κάθε (ημέρες)",
+"O dată la (ore)": "Κάθε (ώρες)",
+"↗ Trimite": "↗ Κοινοποίηση",
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Πώς λειτουργούν τα Φάρμακα\nΟι κύκλοι 1 – 0 – 1 = πρωί, μεσημέρι, βράδυ: πατήστε «1» όταν πάρετε τη δόση. Η λίστα ταξινομείται κατά ώρα.\nΠατήστε το όνομα ενός φαρμάκου για την κάρτα του: Φάρμακο, Τρόπος χορήγησης, Πρόγραμμα (καθημερινά, κάθε X ημέρες, κάθε X ώρες, ημέρες της εβδομάδας) και Παρατηρήσεις· το ↗ Κοινοποίηση τη στέλνει.\nΤο «+» προσθέτει φάρμακα ή άτομα· το «Όλα» ανοίγει τη βιβλιοθήκη."
 };

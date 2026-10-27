@@ -1023,5 +1023,19 @@ NOTIS_I18N={
 "Repository-ul notis-news nu e accesibil cu acest token": "Il repository notis-news non è accessibile con questo token",
 "Conflict la salvare, încearcă din nou": "Conflitto di salvataggio, riprova",
 "Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "Impossibile decifrare il token — eliminalo e inseriscine uno nuovo",
-"Fără conexiune la internet": "Nessuna connessione a internet"
+"Fără conexiune la internet": "Nessuna connessione a internet",
+"Zilnic": "Ogni giorno",
+"La X zile": "Ogni X giorni",
+"La X ore": "Ogni X ore",
+"Zile din săptămână": "Giorni della settimana",
+"Eficient": "Efficace",
+"Parțial": "Parziale",
+"Nu a fost eficient": "Non efficace",
+"Mod de administrare": "Modo di assunzione",
+"Program": "Programma",
+"Observații": "Osservazioni",
+"O dată la (zile)": "Ogni (giorni)",
+"O dată la (ore)": "Ogni (ore)",
+"↗ Trimite": "↗ Condividi",
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Come funziona Medicinali\nI cerchi 1 – 0 – 1 = mattina, mezzogiorno, sera: tocca «1» quando hai preso la dose. L'elenco è ordinato per ora.\nTocca il nome di un medicinale per la sua scheda: Medicinale, Modo di assunzione, Programma (ogni giorno, ogni X giorni, ogni X ore, giorni della settimana) e Osservazioni; ↗ Condividi la invia.\n«+» aggiunge medicinali o persone; «Tutti» apre la libreria."
 };

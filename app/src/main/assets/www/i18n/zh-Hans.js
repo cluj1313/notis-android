@@ -1023,5 +1023,19 @@ NOTIS_I18N={
 "Repository-ul notis-news nu e accesibil cu acest token": "无法用此令牌访问 notis-news 仓库",
 "Conflict la salvare, încearcă din nou": "保存冲突，请重试",
 "Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "无法解密令牌 — 删除后输入新令牌",
-"Fără conexiune la internet": "无网络连接"
+"Fără conexiune la internet": "无网络连接",
+"Zilnic": "每天",
+"La X zile": "每 X 天",
+"La X ore": "每 X 小时",
+"Zile din săptămână": "星期几",
+"Eficient": "有效",
+"Parțial": "部分有效",
+"Nu a fost eficient": "无效",
+"Mod de administrare": "用法",
+"Program": "服药计划",
+"Observații": "观察",
+"O dată la (zile)": "间隔（天）",
+"O dată la (ore)": "间隔（小时）",
+"↗ Trimite": "↗ 分享",
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 药品如何使用\n圆圈 1 – 0 – 1 = 早、中、晚：服药后点“1”。列表按时间排序。\n点药名打开卡片：药品、用法、服药计划（每天、每 X 天、每 X 小时、星期几）和观察；↗ 分享可发送。\n“+”添加药品或人员；“全部”打开药库。"
 };

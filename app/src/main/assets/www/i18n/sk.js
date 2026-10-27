@@ -1023,5 +1023,19 @@ NOTIS_I18N={
 "Repository-ul notis-news nu e accesibil cu acest token": "Repozitár notis-news nie je s týmto tokenom dostupný",
 "Conflict la salvare, încearcă din nou": "Konflikt pri ukladaní, skúste znova",
 "Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "Token sa nedá dešifrovať — vymažte ho a zadajte nový",
-"Fără conexiune la internet": "Bez internetového pripojenia"
+"Fără conexiune la internet": "Bez internetového pripojenia",
+"Zilnic": "Denne",
+"La X zile": "Každých X dní",
+"La X ore": "Každých X hodín",
+"Zile din săptămână": "Dni v týždni",
+"Eficient": "Účinný",
+"Parțial": "Čiastočne",
+"Nu a fost eficient": "Neúčinný",
+"Mod de administrare": "Spôsob užívania",
+"Program": "Rozpis",
+"Observații": "Poznámky",
+"O dată la (zile)": "Každých (dní)",
+"O dată la (ore)": "Každých (hodín)",
+"↗ Trimite": "↗ Zdieľať",
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Ako fungujú Lieky\nKrúžky 1 – 0 – 1 = ráno, obed, večer: ťuknite na „1“, keď dávku užijete. Zoznam je zoradený podľa času.\nŤuknite na názov lieku pre jeho kartu: Liek, Spôsob užívania, Rozpis (denne, každých X dní, každých X hodín, dni v týždni) a Poznámky; ↗ Zdieľať ju odošle.\n„+“ pridá lieky alebo osoby; „Všetko“ otvorí knižnicu."
 };

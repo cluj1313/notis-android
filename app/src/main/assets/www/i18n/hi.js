@@ -1023,5 +1023,19 @@ NOTIS_I18N={
 "Repository-ul notis-news nu e accesibil cu acest token": "इस टोकन से notis-news रिपॉज़िटरी उपलब्ध नहीं है",
 "Conflict la salvare, încearcă din nou": "सहेजने में टकराव, फिर से प्रयास करें",
 "Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "टोकन डिक्रिप्ट नहीं हो सका — हटाकर नया डालें",
-"Fără conexiune la internet": "इंटरनेट कनेक्शन नहीं है"
+"Fără conexiune la internet": "इंटरनेट कनेक्शन नहीं है",
+"Zilnic": "रोज़",
+"La X zile": "हर X दिन",
+"La X ore": "हर X घंटे",
+"Zile din săptămână": "सप्ताह के दिन",
+"Eficient": "असरदार",
+"Parțial": "आंशिक",
+"Nu a fost eficient": "असरदार नहीं",
+"Mod de administrare": "लेने का तरीका",
+"Program": "समय-सारिणी",
+"Observații": "टिप्पणियाँ",
+"O dată la (zile)": "हर (दिन)",
+"O dată la (ore)": "हर (घंटे)",
+"↗ Trimite": "↗ साझा करें",
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 दवाइयाँ कैसे काम करती हैं\nघेरे 1 – 0 – 1 = सुबह, दोपहर, शाम: खुराक लेने पर “1” दबाएँ। सूची समय के अनुसार है।\nकार्ड के लिए दवा के नाम पर टैप करें: दवा, लेने का तरीका, समय-सारिणी (रोज़, हर X दिन, हर X घंटे, सप्ताह के दिन) और टिप्पणियाँ; ↗ साझा करें इसे भेजता है।\n“+” दवाइयाँ या लोग जोड़ता है; “सभी” लाइब्रेरी खोलता है।"
 };

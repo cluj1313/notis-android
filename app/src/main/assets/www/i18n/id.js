@@ -1023,5 +1023,19 @@ NOTIS_I18N={
 "Repository-ul notis-news nu e accesibil cu acest token": "Repositori notis-news tidak dapat diakses dengan token ini",
 "Conflict la salvare, încearcă din nou": "Konflik saat menyimpan, coba lagi",
 "Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "Token tidak dapat didekripsi — hapus dan masukkan yang baru",
-"Fără conexiune la internet": "Tidak ada koneksi internet"
+"Fără conexiune la internet": "Tidak ada koneksi internet",
+"Zilnic": "Setiap hari",
+"La X zile": "Setiap X hari",
+"La X ore": "Setiap X jam",
+"Zile din săptămână": "Hari dalam seminggu",
+"Eficient": "Efektif",
+"Parțial": "Sebagian",
+"Nu a fost eficient": "Tidak efektif",
+"Mod de administrare": "Cara pakai",
+"Program": "Jadwal",
+"Observații": "Catatan",
+"O dată la (zile)": "Setiap (hari)",
+"O dată la (ore)": "Setiap (jam)",
+"↗ Trimite": "↗ Bagikan",
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Cara kerja Obat\nLingkaran 1 – 0 – 1 = pagi, siang, malam: ketuk “1” setelah minum dosis. Daftar diurutkan menurut jam.\nKetuk nama obat untuk kartunya: Obat, Cara pakai, Jadwal (setiap hari, setiap X hari, setiap X jam, hari dalam seminggu) dan Catatan; ↗ Bagikan mengirimnya.\n“+” menambah obat atau orang; “Semua” membuka pustaka."
 };

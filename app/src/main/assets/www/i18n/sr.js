@@ -1023,5 +1023,19 @@ NOTIS_I18N={
 "Repository-ul notis-news nu e accesibil cu acest token": "Репозиторијум notis-news није доступан са овим токеном",
 "Conflict la salvare, încearcă din nou": "Сукоб при чувању, покушајте поново",
 "Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "Токен не може да се дешифрује — обришите га и унесите нови",
-"Fără conexiune la internet": "Нема интернет везе"
+"Fără conexiune la internet": "Нема интернет везе",
+"Zilnic": "Svakog dana",
+"La X zile": "Svakih X dana",
+"La X ore": "Svakih X sati",
+"Zile din săptămână": "Dani u nedelji",
+"Eficient": "Delotvoran",
+"Parțial": "Delimično",
+"Nu a fost eficient": "Nije bio delotvoran",
+"Mod de administrare": "Način uzimanja",
+"Program": "Raspored",
+"Observații": "Zapažanja",
+"O dată la (zile)": "Svakih (dana)",
+"O dată la (ore)": "Svakih (sati)",
+"↗ Trimite": "↗ Podeli",
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Kako rade Lekovi\nKrugovi 1 – 0 – 1 = jutro, podne, veče: dodirnite „1” kada uzmete dozu. Lista je poređana po vremenu.\nDodirnite naziv leka za njegovu karticu: Lek, Način uzimanja, Raspored (svakog dana, svakih X dana, svakih X sati, dani u nedelji) i Zapažanja; ↗ Podeli je šalje.\n„+” dodaje lekove ili osobe; „Sve” otvara biblioteku."
 };

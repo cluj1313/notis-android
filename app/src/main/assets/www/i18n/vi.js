@@ -1023,5 +1023,19 @@ NOTIS_I18N={
 "Repository-ul notis-news nu e accesibil cu acest token": "Không truy cập được kho notis-news bằng token này",
 "Conflict la salvare, încearcă din nou": "Xung đột khi lưu, hãy thử lại",
 "Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "Không giải mã được token — xóa và nhập token mới",
-"Fără conexiune la internet": "Không có kết nối internet"
+"Fără conexiune la internet": "Không có kết nối internet",
+"Zilnic": "Hằng ngày",
+"La X zile": "Mỗi X ngày",
+"La X ore": "Mỗi X giờ",
+"Zile din săptămână": "Các ngày trong tuần",
+"Eficient": "Hiệu quả",
+"Parțial": "Một phần",
+"Nu a fost eficient": "Không hiệu quả",
+"Mod de administrare": "Cách dùng",
+"Program": "Lịch",
+"Observații": "Ghi chú",
+"O dată la (zile)": "Mỗi (ngày)",
+"O dată la (ore)": "Mỗi (giờ)",
+"↗ Trimite": "↗ Chia sẻ",
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Thuốc hoạt động thế nào\nCác vòng 1 – 0 – 1 = sáng, trưa, tối: chạm “1” khi đã uống liều. Danh sách xếp theo giờ.\nChạm tên thuốc để mở thẻ: Thuốc, Cách dùng, Lịch (hằng ngày, mỗi X ngày, mỗi X giờ, các ngày trong tuần) và Ghi chú; ↗ Chia sẻ để gửi đi.\n“+” thêm thuốc hoặc người; “Tất cả” mở thư viện."
 };

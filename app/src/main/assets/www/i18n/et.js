@@ -1023,5 +1023,19 @@ NOTIS_I18N={
 "Repository-ul notis-news nu e accesibil cu acest token": "Repo notis-news pole selle tokeniga ligipääsetav",
 "Conflict la salvare, încearcă din nou": "Salvestamise konflikt, proovi uuesti",
 "Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "Tokenit ei saa dekrüpteerida — kustuta see ja sisesta uus",
-"Fără conexiune la internet": "Internetiühendus puudub"
+"Fără conexiune la internet": "Internetiühendus puudub",
+"Zilnic": "Iga päev",
+"La X zile": "Iga X päeva järel",
+"La X ore": "Iga X tunni järel",
+"Zile din săptămână": "Nädalapäevad",
+"Eficient": "Tõhus",
+"Parțial": "Osaliselt",
+"Nu a fost eficient": "Ei olnud tõhus",
+"Mod de administrare": "Manustamisviis",
+"Program": "Ajakava",
+"Observații": "Märkused",
+"O dată la (zile)": "Iga (päeva)",
+"O dată la (ore)": "Iga (tunni)",
+"↗ Trimite": "↗ Jaga",
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Kuidas Ravimid töötab\nRingid 1 – 0 – 1 = hommik, lõuna, õhtu: puuduta „1”, kui oled annuse võtnud. Loend on järjestatud kellaaja järgi.\nPuuduta ravimi nime, et avada selle kaart: Ravim, Manustamisviis, Ajakava (iga päev, iga X päeva järel, iga X tunni järel, nädalapäevad) ja Märkused; ↗ Jaga saadab selle.\n„+” lisab ravimeid või inimesi; „Kõik” avab raamatukogu."
 };

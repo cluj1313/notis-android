@@ -1023,5 +1023,19 @@ NOTIS_I18N={
 "Repository-ul notis-news nu e accesibil cu acest token": "مخزن notis-news با این توکن در دسترس نیست",
 "Conflict la salvare, încearcă din nou": "تداخل در ذخیره، دوباره تلاش کنید",
 "Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "توکن رمزگشایی نمی‌شود — آن را حذف و توکن جدید وارد کنید",
-"Fără conexiune la internet": "اتصال اینترنت وجود ندارد"
+"Fără conexiune la internet": "اتصال اینترنت وجود ندارد",
+"Zilnic": "روزانه",
+"La X zile": "هر X روز",
+"La X ore": "هر X ساعت",
+"Zile din săptămână": "روزهای هفته",
+"Eficient": "مؤثر",
+"Parțial": "تا حدی",
+"Nu a fost eficient": "مؤثر نبود",
+"Mod de administrare": "روش مصرف",
+"Program": "برنامه",
+"Observații": "یادداشت‌ها",
+"O dată la (zile)": "هر (روز)",
+"O dată la (ore)": "هر (ساعت)",
+"↗ Trimite": "↗ اشتراک‌گذاری",
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 داروها چگونه کار می‌کند\nدایره‌های 1 – 0 – 1 = صبح، ظهر، شب: وقتی دوز را مصرف کردید روی «1» بزنید. فهرست بر اساس ساعت مرتب است.\nبرای کارت هر دارو روی نامش بزنید: دارو، روش مصرف، برنامه (روزانه، هر X روز، هر X ساعت، روزهای هفته) و یادداشت‌ها؛ ↗ اشتراک‌گذاری آن را می‌فرستد.\n«+» دارو یا فرد اضافه می‌کند؛ «همه» کتابخانه را باز می‌کند."
 };

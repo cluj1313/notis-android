@@ -1023,5 +1023,19 @@ NOTIS_I18N={
 "Repository-ul notis-news nu e accesibil cu acest token": "Saugykla notis-news nepasiekiama su šiuo žetonu",
 "Conflict la salvare, încearcă din nou": "Išsaugojimo konfliktas, bandykite dar kartą",
 "Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "Žetono nepavyksta iššifruoti — ištrinkite ir įveskite naują",
-"Fără conexiune la internet": "Nėra interneto ryšio"
+"Fără conexiune la internet": "Nėra interneto ryšio",
+"Zilnic": "Kasdien",
+"La X zile": "Kas X dienas",
+"La X ore": "Kas X valandas",
+"Zile din săptămână": "Savaitės dienos",
+"Eficient": "Veiksmingas",
+"Parțial": "Iš dalies",
+"Nu a fost eficient": "Neveiksmingas",
+"Mod de administrare": "Vartojimo būdas",
+"Program": "Grafikas",
+"Observații": "Pastabos",
+"O dată la (zile)": "Kas (dienas)",
+"O dată la (ore)": "Kas (valandas)",
+"↗ Trimite": "↗ Bendrinti",
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 Kaip veikia Vaistai\nApskritimai 1 – 0 – 1 = rytas, vidurdienis, vakaras: palieskite „1“, kai išgėrėte dozę. Sąrašas surikiuotas pagal laiką.\nPalieskite vaisto pavadinimą, kad atvertumėte kortelę: Vaistas, Vartojimo būdas, Grafikas (kasdien, kas X dienas, kas X valandas, savaitės dienos) ir Pastabos; ↗ Bendrinti ją išsiunčia.\n„+“ prideda vaistų ar žmonių; „Visi“ atveria biblioteką."
 };

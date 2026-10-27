@@ -1023,5 +1023,19 @@ NOTIS_I18N={
 "Repository-ul notis-news nu e accesibil cu acest token": "لا يمكن الوصول إلى مستودع notis-news بهذا الرمز",
 "Conflict la salvare, încearcă din nou": "تعارض في الحفظ، حاول مجددًا",
 "Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "تعذّر فك تشفير الرمز — احذف الرمز وأدخل رمزًا جديدًا",
-"Fără conexiune la internet": "لا يوجد اتصال بالإنترنت"
+"Fără conexiune la internet": "لا يوجد اتصال بالإنترنت",
+"Zilnic": "يوميًا",
+"La X zile": "كل X أيام",
+"La X ore": "كل X ساعات",
+"Zile din săptămână": "أيام الأسبوع",
+"Eficient": "فعّال",
+"Parțial": "جزئيًا",
+"Nu a fost eficient": "لم يكن فعّالًا",
+"Mod de administrare": "طريقة الاستخدام",
+"Program": "الجدول",
+"Observații": "ملاحظات",
+"O dată la (zile)": "كل (أيام)",
+"O dată la (ore)": "كل (ساعات)",
+"↗ Trimite": "↗ مشاركة",
+"💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 كيف تعمل الأدوية\nالدوائر 1 – 0 – 1 = صباحًا، ظهرًا، مساءً: انقر على «1» عندما تأخذ الجرعة. القائمة مرتبة حسب الوقت.\nانقر على اسم الدواء لفتح بطاقته: الدواء، طريقة الاستخدام، الجدول (يوميًا، كل X أيام، كل X ساعات، أيام الأسبوع) وملاحظات؛ ↗ مشاركة يرسلها.\n«+» يضيف أدوية أو أشخاصًا؛ «الكل» يفتح المكتبة."
 };
