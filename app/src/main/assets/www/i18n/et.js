@@ -1165,5 +1165,7 @@ NOTIS_I18N={
 "Din agendă":"Kontaktidest",
 "Caut și în agenda telefonului?":"Ka otsida oma telefoni kontakte?",
 "Notis cere acces la contacte doar pentru căutare. Nu se importă nimic până nu atingi un contact.":"Notis palub kontaktidele juurdepääsu ainult otsimiseks. Mitte midagi ei impordita enne, kui sa puudutad kontakti.",
-"Adăugat în CRM":"CRM-i lisamine"
+"Adăugat în CRM":"CRM-i lisamine",
+"Preț invalid":"Vigane hind",
+"Eroare la salvare":"Salvestusviga"
 };

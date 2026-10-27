@@ -1165,5 +1165,7 @@ NOTIS_I18N={
 "Din agendă":"Iz stikov",
 "Caut și în agenda telefonului?":"Preverite tudi vaše telefonske kontakte?",
 "Notis cere acces la contacte doar pentru căutare. Nu se importă nimic până nu atingi un contact.":"Notis prosi za dostop kontaktov samo za iskanje. Nič ni uvoženo, dokler ne pritisnete na stik.",
-"Adăugat în CRM":"Dodajanje v CRM"
+"Adăugat în CRM":"Dodajanje v CRM",
+"Preț invalid":"Neveljavna cena",
+"Eroare la salvare":"Napaka pri shranjevanju"
 };

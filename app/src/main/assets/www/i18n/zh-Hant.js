@@ -1165,5 +1165,7 @@ NOTIS_I18N={
 "Din agendă":"來自聯絡人",
 "Caut și în agenda telefonului?":"也搜尋你的電話聯絡人?",
 "Notis cere acces la contacte doar pentru căutare. Nu se importă nimic până nu atingi un contact.":"Notis 僅為搜尋而要求存取聯絡人。在你點按聯絡人之前，不會匯入任何內容。",
-"Adăugat în CRM":"加入 CRM"
+"Adăugat în CRM":"加入 CRM",
+"Preț invalid":"價格無效",
+"Eroare la salvare":"儲存出錯"
 };

@@ -1165,5 +1165,7 @@ NOTIS_I18N={
 "Din agendă":"Fra kontakter",
 "Caut și în agenda telefonului?":"Søk også i telefonkontakter?",
 "Notis cere acces la contacte doar pentru căutare. Nu se importă nimic până nu atingi un contact.":"Notis ber om kontakttilgang bare for å søke. Ingenting importeres før du trykker på en kontakt.",
-"Adăugat în CRM":"Legges til CRM"
+"Adăugat în CRM":"Legges til CRM",
+"Preț invalid":"Ugyldig pris",
+"Eroare la salvare":"Feil ved lagring"
 };

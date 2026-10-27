@@ -1165,5 +1165,7 @@ NOTIS_I18N={
 "Din agendă":"No kontaktpersonām",
 "Caut și în agenda telefonului?":"Pārbaudiet arī jūsu tālruņa kontaktus?",
 "Notis cere acces la contacte doar pentru căutare. Nu se importă nimic până nu atingi un contact.":"Notis lūdz kontaktpersonu piekļuvi tikai meklēšanai. Nekas nav importēts, kamēr jūs neietekmējat kontaktpersonu.",
-"Adăugat în CRM":"Pielikts CRM"
+"Adăugat în CRM":"Pielikts CRM",
+"Preț invalid":"Nederīga cena",
+"Eroare la salvare":"Saglabāšanas kļūda"
 };

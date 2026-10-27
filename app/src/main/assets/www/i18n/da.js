@@ -1165,5 +1165,7 @@ NOTIS_I18N={
 "Din agendă":"Af kontakter",
 "Caut și în agenda telefonului?":"Tjek også dine telefonkontakter?",
 "Notis cere acces la contacte doar pentru căutare. Nu se importă nimic până nu atingi un contact.":"Notis beder kun om kontaktadgang til søgning. Intet importeres, før du trykker på en kontakt.",
-"Adăugat în CRM":"Tilføjelse til CRM"
+"Adăugat în CRM":"Tilføjelse til CRM",
+"Preț invalid":"Ugyldig pris",
+"Eroare la salvare":"Fejl ved gemning"
 };

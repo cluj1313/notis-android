@@ -4403,7 +4403,7 @@ function agRun(){var q=Q.trim();if(!canAg()||!q||lockedP(C.sub)){AG.L=null;agPai
 function agSched(){clearTimeout(AG.t);AG.t=setTimeout(agRun,250)}
 window.__ctPerm=function(ok){AG.perm=ok?'ok':'no';if(ok){try{localStorage.removeItem(PFX+'ns_crmag')}catch(_){}agRun()}else{LS.set('ns_crmag','no');agPaint()}};
 function agAdd(i){var x=AG.L&&AG.L[i];if(!x)return;var h=agHave();if(x.tel.some(function(t){return h[digits(t)]})){toast(TR('există deja'));agPaint();return}
- var c={id:uid(),grp:C.sub,name:x.name||x.tel[0],tel:x.tel.slice(0,3),addr:'',email:'',st:C.st[0].id,hist:[],cf:{},rem:{on:0}};C.list.push(c);save();rr();toast(TR('Adăugat în CRM'));clientOpen(c)}
+ var c={id:uid(),grp:C.sub,name:x.name||x.tel[0],tel:x.tel.slice(0,3),addr:'',email:'',st:C.st[0].id,hist:[],cf:{},rem:{on:0},work:[]};C.list.push(c);save();rr();toast(TR('Adăugat în CRM'));clientOpen(c)}
 function agPerm(){var x='';try{x=NotisNative.contactsAsk()}catch(_){}if(x==='ok')window.__ctPerm(true)}
 function render(){var p=C.sub,h='<div class="spv crm">'+'<div class="alseg utsub crsub">'+[['firm',TR('Firmă')],['home',TR('Acasă')]].map(function(o){return '<button type="button" class="btn'+(o[0]===p?' on':'')+'" data-cs="'+o[0]+'">'+esc(o[1])+(C.lock[o[0]]?' 🔒':'')+'</button>'}).join('')+'</div>';
  if(lockedP(p))return h+'<div class="crlock"><div>🔒 '+esc(TR('CRM protejat cu PIN'))+'</div><button type="button" class="btn" data-c="unl">'+esc(TR('Deblochează'))+'</button></div></div>';
@@ -4445,7 +4445,9 @@ window.__crmBack=function(){var d=$('crmDlg');if(d&&d.classList.contains('show')
 (function(){var hb=window.notisHandleBack;window.notisHandleBack=function(){var top=['cfModal','pinModal','alFire'].some(function(i){var e=$(i);return e&&e.classList.contains('show')});if(!top&&window.__crmBack())return true;return hb?hb.apply(this,arguments):false}})();
 /* ---- client sheet ---- */
 var OPN={d:0,h:1,n:0};
-function clientOpen(c,isNew){crmShow=JSON.parse(JSON.stringify(c));crmShow._new=isNew?1:0;if(isNew)OPN.d=1;shRender()}
+function fixC(c){if(!c)return c;if(!Array.isArray(c.tel))c.tel=c.tel?[String(c.tel)]:[];if(!Array.isArray(c.hist))c.hist=[];if(!Array.isArray(c.work))c.work=[];if(!c.cf||typeof c.cf!=='object')c.cf={};if(!c.rem||typeof c.rem!=='object')c.rem={on:0};return c}
+function prParse(v){v=String(v||'').replace(/[\s\u00a0']/g,'');if(!v)return '';if(/^\d{1,3}(\.\d{3})+(,\d+)?$/.test(v))v=v.replace(/\./g,'');v=v.replace(',','.');var n=+v;return isFinite(n)&&n>=0?Math.round(n*100)/100:NaN}
+function clientOpen(c,isNew){fixC(c);crmShow=fixC(JSON.parse(JSON.stringify(c)));crmShow._new=isNew?1:0;if(isNew)OPN.d=1;shRender()}
 function shRefresh(){if(crmShow&&$('crmSheet')&&$('crmSheet').classList.contains('show'))shRender()}
 function fldIn(lbl,k,v,ty){return '<label class="crf"><span>'+esc(lbl)+'</span><input class="ux" data-f="'+esc(k)+'" type="'+(ty||'text')+'" value="'+esc(v||'')+'" autocomplete="off" data-lpignore="true"'+(ty==='tel'?' inputmode="tel"':'')+'></label>'}
 function shRender(){var c=crmShow,p=c.grp,s=stOf(c.st),h='';
@@ -4484,11 +4486,11 @@ function workDlg(w){var c=crmShow,isN=!w;w=w||{id:uid(),d:dkey(new Date()),n:'',
  var d=dlg('<div class="crh crbig">'+esc(TR(isN?'Adaugă lucrare':'Lucrare'))+' · <span class="ux">'+esc(c.name||'')+'</span></div>'+
  '<label class="crf"><span>'+esc(TR('Data'))+'</span><input type="date" id="cwD" value="'+esc(w.d)+'"></label>'+
  '<label class="crf"><span>'+esc(TR('Denumirea lucrării'))+'</span><input class="ux" id="cwN" value="'+esc(w.n)+'" autocomplete="off" data-lpignore="true"></label>'+
- '<label class="crf"><span>'+esc(TR('Preț'))+' ('+esc(cur())+')</span><input id="cwP" type="number" inputmode="decimal" step="0.01" value="'+esc(w.pr)+'"></label>'+
+ '<label class="crf"><span>'+esc(TR('Preț'))+' ('+esc(cur())+')</span><input id="cwP" type="text" inputmode="decimal" autocomplete="off" value="'+esc(w.pr)+'"></label>'+
  '<div class="crbtns">'+(isN?'':'<button type="button" class="btn dngb" id="cwDel">'+esc(TR('Șterge'))+'</button>')+'<button type="button" class="btn" id="cwNo">'+esc(TR('Anulează'))+'</button><button type="button" class="btn crok" id="cwOk">'+esc(TR('Salvează'))+'</button></div>');
  function put(){var s=C.list.filter(function(x){return x.id===c.id})[0];if(s&&!c._new){s.work=JSON.parse(JSON.stringify(c.work));save();rr()}OPN.y=OPN.y||{};OPN.y[String(w.d).slice(0,4)]=1;dlgClose();shRender()}
  d.querySelector('#cwNo').onclick=dlgClose;
- d.querySelector('#cwOk').onclick=function(){var dv=d.querySelector('#cwD').value,nv=d.querySelector('#cwN').value.trim(),pv=d.querySelector('#cwP').value.trim();if(!dv){toast(TR('Alege data'));return}if(!nv&&!pv){toast(TR('Scrie denumirea lucrării'));return}w.d=dv;w.n=nv;w.pr=pv===''?'':+pv;var i=c.work.findIndex(function(x){return x.id===w.id});if(i>=0)c.work[i]=w;else c.work.push(w);put()};
+ d.querySelector('#cwOk').onclick=function(){var dv=d.querySelector('#cwD').value,nv=d.querySelector('#cwN').value.trim(),pv=d.querySelector('#cwP').value.trim();if(!dv)dv=dkey(new Date());if(!nv&&!pv){toast(TR('Scrie denumirea lucrării'));return}var pp=prParse(pv);if(pp!==pp){toast(TR('Preț invalid'));return}try{if(!/^\d{4}-\d\d-\d\d$/.test(dv))dv=dkey(new Date());fixC(c);w.d=dv;w.n=nv;w.pr=pp;var i=c.work.findIndex(function(x){return x.id===w.id});if(i>=0)c.work[i]=w;else c.work.push(w);put()}catch(e){toast(TR('Eroare la salvare')+': '+(e&&e.message||e))}};
  var dl=d.querySelector('#cwDel');if(dl)dl.onclick=function(){ask(TR('Ștergi lucrarea?')+'\n'+(w.n||dLbl2(w.d)),function(){c.work=c.work.filter(function(x){return x.id!==w.id});put()})}}
 window.addEventListener('click',function(e){var m=$('crmSheet');if(!m||!m.contains(e.target)||!m.querySelector('.crcl')||!crmShow)return;var t=e.target,y=t.closest('[data-yy]'),w=t.closest('[data-w]'),a=t.closest('[data-c="wadd"]');if(!y&&!w&&!a)return;e.stopPropagation();e.preventDefault();grab();
  if(y){OPN.y=OPN.y||{};var k=y.dataset.yy,cur0=m.querySelector('.spyr[data-y="'+k+'"]').classList.contains('open');OPN.y[k]=!cur0;shRender()}else if(w){var x=crmShow.work.filter(function(q){return q.id===w.dataset.w})[0];if(x)workDlg(JSON.parse(JSON.stringify(x)))}else workDlg(null)},true);
@@ -4522,7 +4524,7 @@ function discDlg(c,h,post,edit){var now=new Date(h?h.ts:Date.now()),ty=h?h.ty:'c
  var d=dlg(html);d.querySelector('#cdTy').onclick=function(e){var b=e.target.closest('button');if(!b)return;[].forEach.call(this.children,function(x){x.classList.toggle('on',x===b)})};
  d.querySelector('#cdNo').onclick=dlgClose;
  if(edit)d.querySelector('#cdDel').onclick=function(){ask(TR('Ștergi discuția?'),function(){c.hist=c.hist.filter(function(x){return x.id!==h.id});dlgClose();if(!sync(c))shRender()})};
- d.querySelector('#cdOk').onclick=function(){var D=d.querySelector('#cdD').value||dkey(),T=(d.querySelector('#cdT').value||'00:00').split(':'),p=D.split('-'),ts=new Date(+p[0],+p[1]-1,+p[2],+T[0]||0,+T[1]||0).getTime();
+ d.querySelector('#cdOk').onclick=function(){try{fixC(c);cdSave()}catch(e){toast(TR('Eroare la salvare')+': '+(e&&e.message||e))}};function cdSave(){var D=d.querySelector('#cdD').value||dkey(),T=(d.querySelector('#cdT').value||'00:00').split(':'),p=D.split('-'),ts=new Date(+p[0],+p[1]-1,+p[2],+T[0]||0,+T[1]||0).getTime();
   var o=h||{id:uid()};o.ts=ts;o.ty=d.querySelector('#cdTy .on').dataset.v;o.nt=d.querySelector('#cdN').value.trim();if(!h)c.hist.push(o);
   if(d.querySelector('#cdR').checked)c.rem={on:1,d:d.querySelector('#cdRD').value,hm:d.querySelector('#cdRT').value||'09:00'};else c.rem={on:0,d:'',hm:''};
   dlgClose();if(!sync(c))shRender();toast(TR('Salvat'))}}
@@ -4622,7 +4624,7 @@ window.crmMig=mig;try{mig();renderNotes()}catch(e){console.warn(e)}
 
 /* v96: Setări → TABURI (bibliotecă: ordine drag & drop, bifă vizibil/ascuns, PIN 4/6 opțional), DESIGN (Teme · Stil taburi · Fundal · Setări fine · Iconiță), iconiță urgență, Comunică cu creatorul, Versiune. Additive: hidden tab = t.off, nothing deleted. */
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v146';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v147';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};

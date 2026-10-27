@@ -1165,5 +1165,7 @@ NOTIS_I18N={
 "Din agendă":"Nga kontaktet",
 "Caut și în agenda telefonului?":"Edhe kontaktet e telefonit?",
 "Notis cere acces la contacte doar pentru căutare. Nu se importă nimic până nu atingi un contact.":"Notis kërkon qasje në kontakte vetëm për të kërkuar. Asgjë nuk importohet derisa të prekni një kontakt.",
-"Adăugat în CRM":"Shtuar në CRM"
+"Adăugat în CRM":"Shtuar në CRM",
+"Preț invalid":"Çmim i pavlefshëm",
+"Eroare la salvare":"Gabim gjatë ruajtjes"
 };

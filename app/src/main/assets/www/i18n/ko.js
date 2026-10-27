@@ -1165,5 +1165,7 @@ NOTIS_I18N={
 "Din agendă":"연락처에서",
 "Caut și în agenda telefonului?":"전화 연락처도 검색해?",
 "Notis cere acces la contacte doar pentru căutare. Nu se importă nimic până nu atingi un contact.":"Notis는 검색을 위해서만 연락처 접근을 요청합니다. 연락처를 누르기 전까지는 아무것도 가져오지 않습니다.",
-"Adăugat în CRM":"CRM에 추가"
+"Adăugat în CRM":"CRM에 추가",
+"Preț invalid":"잘못된 가격",
+"Eroare la salvare":"저장 오류"
 };
