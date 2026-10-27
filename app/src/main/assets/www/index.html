@@ -3740,6 +3740,7 @@ function kindOf(){var t=findNT(noteTab);return t&&t.kind||''}
 /* ---- small dialog ---- */
 var dlg=null;
 function dOpen(title,body,onSave,onDel){var m=$('spModal');m.querySelector('.sptitle').textContent=title;var b=m.querySelector('.spbody');b.innerHTML=body;
+ b.querySelectorAll('datalist').forEach(function(x){x.remove()});b.querySelectorAll('input:not([type=checkbox]):not([type=radio]):not([type=time]):not([type=date]),textarea').forEach(function(x){x.removeAttribute('list');x.setAttribute('autocomplete','off');x.setAttribute('data-lpignore','true');x.setAttribute('data-form-type','other');x.setAttribute('autocorrect','off');if(x.tagName==='INPUT'){x.setAttribute('spellcheck','false');x.setAttribute('autocapitalize','sentences')}});
  $('spDel').style.display=onDel?'':'none';$('spDel').onclick=function(){if(onDel)onDel()};$('spSave').onclick=function(){if(onSave()!==false)jvClose('spModal')};$('spNo').onclick=function(){jvClose('spModal')};
  m.classList.add('show');return b}
 function ask(txt,yes){var cf=$('cfModal').querySelector('.cftxt'),t0=cf.textContent,ok=$('cfOk'),no=$('cfNo'),o0=ok.textContent,n0=no.textContent;cf.textContent=TR(txt);ok.textContent=TR('Da');no.textContent=TR('Nu');
@@ -3857,7 +3858,7 @@ function medEdit(m,pid){var isNew=!m;m=m||{id:uid(),p:pid,name:'',pat:[1,0,1],t:
  var names={};Object.keys(MED.hist).forEach(function(k){names[MED.hist[k]]=1});MED.lib.forEach(function(x){if(x.name)names[x.name]=1});
  var sec=function(id,ti,body){return '<div class="lbf mdsec'+(isNew&&id==='a'?' open':'')+'" data-s="'+id+'"><div class="lbfh" data-t="'+id+'"><span>'+ti+'</span><small class="ux" id="mdS'+id+'"></small><i class="sparr"></i></div><div class="mdab">'+body+'</div></div>'};
  dOpen(isNew?TR('Medicament nou'):TR('Medicament'),'<div class="mdcard">'+
-  sec('a','Medicament','<div class="field"><input id="mdN" maxlength="40" list="mdNL" value="'+esc(m.name)+'"><datalist id="mdNL">'+Object.keys(names).sort().map(function(n){return '<option value="'+esc(n)+'">'}).join('')+'</datalist></div>')+
+  sec('a','Medicament','<div class="field"><input id="mdN" maxlength="40" value="'+esc(m.name)+'"></div>')+
   sec('b','Mod de administrare','<textarea id="mdAdm" class="lbta ux" rows="3" maxlength="1000">'+esc(m.adm||'')+'</textarea>')+
   sec('c','Program',seg('mdK',[['d',TR('Zilnic')],['xh',TR('La N ore')],['xd',TR('La N zile')]].concat(K==='wd'?[['wd',TR('Zile din săptămână')]]:[]),K)+
    '<div id="mdXd" class="field" style="margin-top:10px"><label>O dată la (zile)</label><input id="mdXn" type="number" min="2" max="60" inputmode="numeric" value="'+(sc.n>1?sc.n:2)+'"></div><div id="mdWdw" style="margin-top:10px">'+wdb+'</div>'+
@@ -4022,7 +4023,7 @@ spMigrate();renderNotes();
 })();
 /* v96: Setări → TABURI (bibliotecă: ordine drag & drop, bifă vizibil/ascuns, PIN 4/6 opțional), DESIGN (Teme · Stil taburi · Fundal · Setări fine · Iconiță), iconiță urgență, Comunică cu creatorul, Versiune. Additive: hidden tab = t.off, nothing deleted. */
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v128';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v129';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};
