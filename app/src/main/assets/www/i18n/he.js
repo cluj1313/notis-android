@@ -1053,5 +1053,10 @@ NOTIS_I18N={
 "Dacă cunoști pe cineva căruia i-ar prinde bine un asistent personal pentru sarcini, cumpărături, vreme și știri, dă un simplu Share.": "אם אתה מכיר מישהו שיכול להיעזר בעוזר אישי למשימות, קניות, מזג אוויר וחדשות, פשוט הקש על שיתוף.",
 "Doresc să primesc mesaje de la creator": "אני רוצה לקבל הודעות מהיוצר",
 "⚙ Setări\nAtinge NOTIS (sus stânga) → Setări: Limbă, Voce, Taburi, Design, Backup, Sunet alarmă, Comunică cu creatorul aplicației și Versiune. Notițele din acest tab explică fiecare parte.": "⚙ הגדרות\nהקש. NOTIS (למעלה משמאל) → הגדרות: שפה, קול, תרגילים, עיצוב, גיבוי, צליל אזעקה, פנה ליוצר האפליקציה ולגרסה. ההערות בטב הזה מסבירות כל חלק.",
-"📣 Mesaje de la creator\nSetări → Comunică cu creatorul aplicației: cu bifa „Doresc să primesc mesaje de la creator” primești din când în când anunțuri scurte: noutăți, sfaturi și actualizări. O pornești sau o oprești oricând.": "📣 הודעות מהיוצר\nהגדרות → פנייה ליוצר האפליקציה: עם “אני רוצה לקבל הודעות מהיוצר” תיבת סימון שתקבל הודעות קצרות מעת לעת: חדשות, טיפים ועדכונים. תדליק אותו או תכבה אותו בכל עת."
+"📣 Mesaje de la creator\nSetări → Comunică cu creatorul aplicației: cu bifa „Doresc să primesc mesaje de la creator” primești din când în când anunțuri scurte: noutăți, sfaturi și actualizări. O pornești sau o oprești oricând.": "📣 הודעות מהיוצר\nהגדרות → פנייה ליוצר האפליקציה: עם “אני רוצה לקבל הודעות מהיוצר” תיבת סימון שתקבל הודעות קצרות מעת לעת: חדשות, טיפים ועדכונים. תדליק אותו או תכבה אותו בכל עת.",
+"Trimite mesaj echipei:": "שלח הודעה לצוות:",
+"Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "אם תרצו שמשהו ישתנה, יתוקן או יתווסף, שלחו כאן הודעה.",
+"Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "העוזר הווירטואלי מטפל בפנייה הראשונה ובודק אם משתמשים אחרים כבר ביקשו אותו דבר.",
+"Fiecare utilizator primește un răspuns.": "כל משתמש מקבל תשובה.",
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ פנייה ליוצר האפליקציה\nבהגדרות כתוב מה היית רוצה לשנות או להוסיף, ואז הקש „שלח הודעה”: אפליקציית הדוא״ל נפתחת. כל משתמש מקבל תשובה."
 };

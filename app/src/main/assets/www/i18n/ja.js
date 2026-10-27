@@ -1053,5 +1053,10 @@ NOTIS_I18N={
 "Dacă cunoști pe cineva căruia i-ar prinde bine un asistent personal pentru sarcini, cumpărături, vreme și știri, dă un simplu Share.": "タスク、買い物、天気、ニュースのためのパーソナルアシスタントが役立つ人を知っていたら、「共有」をタップするだけです。",
 "Doresc să primesc mesaje de la creator": "作成者からのメッセージを受け取りたい",
 "⚙ Setări\nAtinge NOTIS (sus stânga) → Setări: Limbă, Voce, Taburi, Design, Backup, Sunet alarmă, Comunică cu creatorul aplicației și Versiune. Notițele din acest tab explică fiecare parte.": "⚙ 設定\nタップする NOTIS (左上) → 設定:言語,音声,タブ,デザイン,バックアップ,アラーム音,アプリ作成者と連絡するバージョン このタブの注釈は各部分を説明します.",
-"📣 Mesaje de la creator\nSetări → Comunică cu creatorul aplicației: cu bifa „Doresc să primesc mesaje de la creator” primești din când în când anunțuri scurte: noutăți, sfaturi și actualizări. O pornești sau o oprești oricând.": "📣 作者からのメッセージ\n設定 → アプリの作者に連絡: “作成者からのメッセージを受け取りたい” チェックボックスをチェックすると ニュース,ヒント,最新情報など いつでも開くか消す"
+"📣 Mesaje de la creator\nSetări → Comunică cu creatorul aplicației: cu bifa „Doresc să primesc mesaje de la creator” primești din când în când anunțuri scurte: noutăți, sfaturi și actualizări. O pornești sau o oprești oricând.": "📣 作者からのメッセージ\n設定 → アプリの作者に連絡: “作成者からのメッセージを受け取りたい” チェックボックスをチェックすると ニュース,ヒント,最新情報など いつでも開くか消す",
+"Trimite mesaj echipei:": "チームにメッセージを送る：",
+"Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "変更・修正・追加してほしいことがあれば、ここからメッセージを送ってください。",
+"Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "最初の対応はバーチャルアシスタントが行い、同じ要望が他のユーザーから既に出ていないか確認します。",
+"Fiecare utilizator primește un răspuns.": "すべてのユーザーに返信します。",
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ アプリの作者に連絡\n設定で、変更・追加してほしいことを書いて「メッセージを送信」をタップすると、メールアプリが開きます。すべてのユーザーに返信が届きます。"
 };

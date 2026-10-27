@@ -1053,5 +1053,10 @@ NOTIS_I18N={
 "Dacă cunoști pe cineva căruia i-ar prinde bine un asistent personal pentru sarcini, cumpărături, vreme și știri, dă un simplu Share.": "إذا كنت تعرف شخصًا قد يفيده مساعد شخصي للمهام والتسوق والطقس والأخبار، فما عليك سوى النقر على مشاركة.",
 "Doresc să primesc mesaje de la creator": "أرغب في تلقي رسائل من المطوّر",
 "⚙ Setări\nAtinge NOTIS (sus stânga) → Setări: Limbă, Voce, Taburi, Design, Backup, Sunet alarmă, Comunică cu creatorul aplicației și Versiune. Notițele din acest tab explică fiecare parte.": "⚙ الإعدادات\nانقر NOTIS (أعلى اليسار) → الإعدادات: اللغة، الصوت، علامات التبويب، التصميم، النسخ الاحتياطي، صوت الإنذار، الاتصال بمنشئ التطبيق والنسخة. الملاحظات في هذا التبويب تشرح كل جزء.",
-"📣 Mesaje de la creator\nSetări → Comunică cu creatorul aplicației: cu bifa „Doresc să primesc mesaje de la creator” primești din când în când anunțuri scurte: noutăți, sfaturi și actualizări. O pornești sau o oprești oricând.": "📣 رسائل من المطوّر\nالإعدادات → تواصل مع مطوّر التطبيق: مع خانة «أرغب في تلقي رسائل من المطوّر» تصلك من حين لآخر إعلانات قصيرة: أخبار، نصائح وتحديثات. شغّلها أو أوقفها في أي وقت."
+"📣 Mesaje de la creator\nSetări → Comunică cu creatorul aplicației: cu bifa „Doresc să primesc mesaje de la creator” primești din când în când anunțuri scurte: noutăți, sfaturi și actualizări. O pornești sau o oprești oricând.": "📣 رسائل من المطوّر\nالإعدادات → تواصل مع مطوّر التطبيق: مع خانة «أرغب في تلقي رسائل من المطوّر» تصلك من حين لآخر إعلانات قصيرة: أخبار، نصائح وتحديثات. شغّلها أو أوقفها في أي وقت.",
+"Trimite mesaj echipei:": "أرسل رسالة إلى الفريق:",
+"Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "إذا أردت تغيير شيء أو تعديله أو إضافته، أرسل رسالة هنا.",
+"Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "يتولى المساعد الافتراضي التواصل الأول ويتحقق مما إذا كان مستخدمون آخرون قد قدّموا الطلب نفسه.",
+"Fiecare utilizator primește un răspuns.": "كل مستخدم يتلقى ردًا.",
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ تواصل مع مطوّر التطبيق\nفي الإعدادات اكتب ما تريد تغييره أو إضافته، ثم انقر «إرسال الرسالة»: يُفتح تطبيق البريد. كل مستخدم يتلقى ردًا."
 };

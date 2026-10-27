@@ -1053,5 +1053,10 @@ NOTIS_I18N={
 "Dacă cunoști pe cineva căruia i-ar prinde bine un asistent personal pentru sarcini, cumpărături, vreme și știri, dă un simplu Share.": "如果你认识需要一款处理任务、购物、天气和新闻的个人助手的人，只需点按“分享”。",
 "Doresc să primesc mesaje de la creator": "我希望接收来自开发者的消息",
 "⚙ Setări\nAtinge NOTIS (sus stânga) → Setări: Limbă, Voce, Taburi, Design, Backup, Sunet alarmă, Comunică cu creatorul aplicației și Versiune. Notițele din acest tab explică fiecare parte.": "⚙ 设置\n触摸 NOTIS (左上角) → 设置:语言,语音,选项卡,设计,备份,警报声音,联系应用程序创建者和版本. 这张页面上的注释解释了每个部分.",
-"📣 Mesaje de la creator\nSetări → Comunică cu creatorul aplicației: cu bifa „Doresc să primesc mesaje de la creator” primești din când în când anunțuri scurte: noutăți, sfaturi și actualizări. O pornești sau o oprești oricând.": "📣 开发者消息\n设置 → 联系应用开发者:与 “我希望接收来自开发者的消息” 有时会收到简短的通知:新闻,提示和更新. 随时打开或关闭."
+"📣 Mesaje de la creator\nSetări → Comunică cu creatorul aplicației: cu bifa „Doresc să primesc mesaje de la creator” primești din când în când anunțuri scurte: noutăți, sfaturi și actualizări. O pornești sau o oprești oricând.": "📣 开发者消息\n设置 → 联系应用开发者:与 “我希望接收来自开发者的消息” 有时会收到简短的通知:新闻,提示和更新. 随时打开或关闭.",
+"Trimite mesaj echipei:": "给团队发消息：",
+"Dacă vrei ceva schimbat, modificat sau adăugat, trimite aici un mesaj.": "如果你希望更改、修改或添加什么，请在这里发送消息。",
+"Asistentul virtual se ocupă de prima interacțiune și verifică dacă aceeași cerere a mai fost făcută de alți utilizatori.": "虚拟助手负责首次沟通，并检查其他用户是否已提出相同请求。",
+"Fiecare utilizator primește un răspuns.": "每位用户都会得到回复。",
+"✉️ Comunică cu creatorul aplicației\nÎn Setări scrii ce ai vrea schimbat sau adăugat, apoi atingi „Trimite mesajul”: se deschide aplicația de email. Fiecare utilizator primește un răspuns.": "✉️ 联系应用开发者\n在设置中写下你希望修改或添加的内容，然后点按“发送消息”：会打开邮件应用。每位用户都会收到回复。"
 };
