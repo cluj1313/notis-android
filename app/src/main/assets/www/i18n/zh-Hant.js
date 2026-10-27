@@ -1051,5 +1051,7 @@ NOTIS_I18N={
 "Trage de ≡ ca să schimbi ordinea. Bifa arată tabul pe pagina principală; tabul debifat rămâne salvat aici, cu tot ce conține. Taburile precreate (Utilități, Medicamente) se mută cu ≡ și se ascund cu bifa, la fel ca celelalte.": "拖曳 ≡ 調整順序。勾選後分頁顯示在主頁；取消勾選的分頁連同全部內容仍保存在這裡。 預設分頁（水電瓦斯、藥品）與其他分頁一樣，用 ≡ 移動，用核取方塊隱藏。",
 "Dacă cunoști pe cineva care ar avea nevoie de o astfel de aplicație unică, în care să ai toate utilitățile la îndemână, dă un simplu Share.": "如果你認識需要這樣一款獨特應用、把所有工具都放在手邊的人，只需點按「分享」。",
 "Dacă cunoști pe cineva căruia i-ar prinde bine un asistent personal pentru sarcini, cumpărături, vreme și știri, dă un simplu Share.": "如果你認識需要一款處理任務、購物、天氣和新聞的個人助理的人，只需點按「分享」。",
-"Doresc să primesc mesaje de la creator": "我希望接收來自開發者的訊息"
+"Doresc să primesc mesaje de la creator": "我希望接收來自開發者的訊息",
+"⚙ Setări\nAtinge NOTIS (sus stânga) → Setări: Limbă, Voce, Taburi, Design, Backup, Sunet alarmă, Comunică cu creatorul aplicației și Versiune. Notițele din acest tab explică fiecare parte.": "⚙ 設定方式\n按一下 NOTIS (左上方) → 設定:語言,語音,選項卡,設計,備份,警報聲,聯絡創始人和版本. 在這個頁面上的註解解釋了每個部分.",
+"📣 Mesaje de la creator\nSetări → Comunică cu creatorul aplicației: cu bifa „Doresc să primesc mesaje de la creator” primești din când în când anunțuri scurte: noutăți, sfaturi și actualizări. O pornești sau o oprești oricând.": "📣 開發者訊息\n設定方式 → 聯絡應用程式開發者: “我希望接收來自開發者的訊息” 選項框時不時會收到短訊:新聞,建議和更新. 任何時候都能開或關."
 };

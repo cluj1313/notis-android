@@ -1051,5 +1051,7 @@ NOTIS_I18N={
 "Trage de ≡ ca să schimbi ordinea. Bifa arată tabul pe pagina principală; tabul debifat rămâne salvat aici, cu tot ce conține. Taburile precreate (Utilități, Medicamente) se mută cu ≡ și se ascund cu bifa, la fel ca celelalte.": "≡를 끌어 순서를 바꾸세요. 체크하면 메인 페이지에 탭이 보이고, 체크를 해제한 탭도 내용과 함께 여기에 저장됩니다. 기본 제공 탭(공과금, 약)도 다른 탭처럼 ≡로 옮기고 체크박스로 숨깁니다.",
 "Dacă cunoști pe cineva care ar avea nevoie de o astfel de aplicație unică, în care să ai toate utilitățile la îndemână, dă un simplu Share.": "모든 유틸리티를 손안에 두는 이런 특별한 앱이 필요한 사람을 안다면 공유를 누르기만 하세요.",
 "Dacă cunoști pe cineva căruia i-ar prinde bine un asistent personal pentru sarcini, cumpărături, vreme și știri, dă un simplu Share.": "할 일, 쇼핑, 날씨, 뉴스를 위한 개인 비서가 도움이 될 사람을 안다면 공유를 누르기만 하세요.",
-"Doresc să primesc mesaje de la creator": "제작자의 메시지를 받고 싶습니다"
+"Doresc să primesc mesaje de la creator": "제작자의 메시지를 받고 싶습니다",
+"⚙ Setări\nAtinge NOTIS (sus stânga) → Setări: Limbă, Voce, Taburi, Design, Backup, Sunet alarmă, Comunică cu creatorul aplicației și Versiune. Notițele din acest tab explică fiecare parte.": "⚙ 설정\n누르세요 NOTIS (왼쪽 상단) → 설정: 언어, 음성, 탭, 디자인, 백업, 경보 소리, 앱 제작자와 버전 연락. 이 탭에 있는 메모는 각 부분을 설명합니다.",
+"📣 Mesaje de la creator\nSetări → Comunică cu creatorul aplicației: cu bifa „Doresc să primesc mesaje de la creator” primești din când în când anunțuri scurte: noutăți, sfaturi și actualizări. O pornești sau o oprești oricând.": "📣 제작자의 메시지\n설정 → 앱 제작자에게 연락: “제작자의 메시지를 받고 싶습니다” 체크박스를 클릭하면 뉴스, 팁, 업데이트 등의 짧은 알림을 받을 수 있습니다. 언제든 켜거나 끄세요"
 };

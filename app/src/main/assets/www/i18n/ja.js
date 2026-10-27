@@ -1051,5 +1051,7 @@ NOTIS_I18N={
 "Trage de ≡ ca să schimbi ordinea. Bifa arată tabul pe pagina principală; tabul debifat rămâne salvat aici, cu tot ce conține. Taburile precreate (Utilități, Medicamente) se mută cu ≡ și se ascund cu bifa, la fel ca celelalte.": "≡ をドラッグして順序を変更します。チェックするとメインページにタブが表示され、チェックを外したタブも中身ごとここに保存されます。 プリセットタブ（光熱費、薬）も他と同じく ≡ で移動、チェックで非表示にできます。",
 "Dacă cunoști pe cineva care ar avea nevoie de o astfel de aplicație unică, în care să ai toate utilitățile la îndemână, dă un simplu Share.": "すべての便利ツールが手元にそろうこんなユニークなアプリが必要な人を知っていたら、「共有」をタップするだけです。",
 "Dacă cunoști pe cineva căruia i-ar prinde bine un asistent personal pentru sarcini, cumpărături, vreme și știri, dă un simplu Share.": "タスク、買い物、天気、ニュースのためのパーソナルアシスタントが役立つ人を知っていたら、「共有」をタップするだけです。",
-"Doresc să primesc mesaje de la creator": "作成者からのメッセージを受け取りたい"
+"Doresc să primesc mesaje de la creator": "作成者からのメッセージを受け取りたい",
+"⚙ Setări\nAtinge NOTIS (sus stânga) → Setări: Limbă, Voce, Taburi, Design, Backup, Sunet alarmă, Comunică cu creatorul aplicației și Versiune. Notițele din acest tab explică fiecare parte.": "⚙ 設定\nタップする NOTIS (左上) → 設定:言語,音声,タブ,デザイン,バックアップ,アラーム音,アプリ作成者と連絡するバージョン このタブの注釈は各部分を説明します.",
+"📣 Mesaje de la creator\nSetări → Comunică cu creatorul aplicației: cu bifa „Doresc să primesc mesaje de la creator” primești din când în când anunțuri scurte: noutăți, sfaturi și actualizări. O pornești sau o oprești oricând.": "📣 作者からのメッセージ\n設定 → アプリの作者に連絡: “作成者からのメッセージを受け取りたい” チェックボックスをチェックすると ニュース,ヒント,最新情報など いつでも開くか消す"
 };
