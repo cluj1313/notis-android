@@ -1000,5 +1000,10 @@ NOTIS_I18N={
 "Lipsește serviciul de recunoaștere vocală Google": "Google ses tanıma hizmeti eksik",
 "Fără internet pentru dictare": "Dikte için internet yok",
 "Recunoașterea vocală e ocupată, încearcă din nou": "Ses tanıma meşgul, tekrar dene",
-"Limba nu e disponibilă pentru dictare": "Dil dikte için kullanılamıyor"
+"Limba nu e disponibilă pentru dictare": "Dil dikte için kullanılamıyor",
+"Repetiție oră": "Saatlik tekrar",
+"Repetiție zile": "Günlük tekrar",
+"La fiecare câte zile": "Kaç günde bir",
+"În zilele (opțional)": "Günlerde (isteğe bağlı)",
+"sau ore (ex. 1.5)": "veya saat (ör. 1.5)"
 };

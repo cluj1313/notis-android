@@ -1000,5 +1000,10 @@ NOTIS_I18N={
 "Lipsește serviciul de recunoaștere vocală Google": "Google 음성 인식 서비스가 없습니다",
 "Fără internet pentru dictare": "받아쓰기에 필요한 인터넷 연결이 없습니다",
 "Recunoașterea vocală e ocupată, încearcă din nou": "음성 인식이 사용 중입니다. 다시 시도하세요",
-"Limba nu e disponibilă pentru dictare": "받아쓰기에 사용할 수 없는 언어입니다"
+"Limba nu e disponibilă pentru dictare": "받아쓰기에 사용할 수 없는 언어입니다",
+"Repetiție oră": "시간 단위 반복",
+"Repetiție zile": "일 단위 반복",
+"La fiecare câte zile": "며칠마다",
+"În zilele (opțional)": "요일 (선택)",
+"sau ore (ex. 1.5)": "또는 시간 (예: 1.5)"
 };

@@ -1000,5 +1000,10 @@ NOTIS_I18N={
 "Lipsește serviciul de recunoaștere vocală Google": "Google ভয়েস শনাক্তকরণ পরিষেবা নেই",
 "Fără internet pentru dictare": "ডিক্টেশনের জন্য ইন্টারনেট নেই",
 "Recunoașterea vocală e ocupată, încearcă din nou": "ভয়েস শনাক্তকরণ ব্যস্ত, আবার চেষ্টা করুন",
-"Limba nu e disponibilă pentru dictare": "ডিক্টেশনের জন্য ভাষা উপলব্ধ নয়"
+"Limba nu e disponibilă pentru dictare": "ডিক্টেশনের জন্য ভাষা উপলব্ধ নয়",
+"Repetiție oră": "ঘণ্টা অনুযায়ী পুনরাবৃত্তি",
+"Repetiție zile": "দিন অনুযায়ী পুনরাবৃত্তি",
+"La fiecare câte zile": "কত দিন পরপর",
+"În zilele (opțional)": "এই দিনগুলোতে (ঐচ্ছিক)",
+"sau ore (ex. 1.5)": "অথবা ঘণ্টা (যেমন 1.5)"
 };

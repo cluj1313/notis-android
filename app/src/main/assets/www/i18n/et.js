@@ -1000,5 +1000,10 @@ NOTIS_I18N={
 "Lipsește serviciul de recunoaștere vocală Google": "Google'i kõnetuvastusteenus puudub",
 "Fără internet pentru dictare": "Dikteerimiseks pole internetti",
 "Recunoașterea vocală e ocupată, încearcă din nou": "Kõnetuvastus on hõivatud, proovi uuesti",
-"Limba nu e disponibilă pentru dictare": "Keel pole dikteerimiseks saadaval"
+"Limba nu e disponibilă pentru dictare": "Keel pole dikteerimiseks saadaval",
+"Repetiție oră": "Korda tundide kaupa",
+"Repetiție zile": "Korda päevade kaupa",
+"La fiecare câte zile": "Iga mitme päeva järel",
+"În zilele (opțional)": "Päevadel (valikuline)",
+"sau ore (ex. 1.5)": "või tunnid (nt 1.5)"
 };

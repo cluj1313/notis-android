@@ -1000,5 +1000,10 @@ NOTIS_I18N={
 "Lipsește serviciul de recunoaștere vocală Google": "Googlen puheentunnistuspalvelu puuttuu",
 "Fără internet pentru dictare": "Ei internetiä sanelua varten",
 "Recunoașterea vocală e ocupată, încearcă din nou": "Puheentunnistus on varattu, yritä uudelleen",
-"Limba nu e disponibilă pentru dictare": "Kieli ei ole käytettävissä sanelussa"
+"Limba nu e disponibilă pentru dictare": "Kieli ei ole käytettävissä sanelussa",
+"Repetiție oră": "Toisto tunneittain",
+"Repetiție zile": "Toisto päivittäin",
+"La fiecare câte zile": "Kuinka monen päivän välein",
+"În zilele (opțional)": "Päivinä (valinnainen)",
+"sau ore (ex. 1.5)": "tai tunnit (esim. 1.5)"
 };

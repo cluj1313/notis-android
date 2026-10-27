@@ -215,10 +215,24 @@ final class Store {
         }
         return at;
     }
+    /** 2.7.3: day repeat keeping the local clock time: every rd days, or on weekdays in mask wd (bit0 = Sunday) */
+    static long rollDays(long at, int rd, int wd, long now, java.util.TimeZone tz) {
+        java.util.Calendar d = java.util.Calendar.getInstance(tz); d.setTimeInMillis(at);
+        if (at > now && (wd == 0 || (wd & (1 << (d.get(java.util.Calendar.DAY_OF_WEEK) - 1))) != 0)) return at;
+        int h = d.get(java.util.Calendar.HOUR_OF_DAY), mi = d.get(java.util.Calendar.MINUTE), st = wd != 0 ? 1 : Math.max(1, rd);
+        for (int k = 0; k < 4000; k++) {
+            d.add(java.util.Calendar.DAY_OF_YEAR, st); d.set(java.util.Calendar.HOUR_OF_DAY, h); d.set(java.util.Calendar.MINUTE, mi); d.set(java.util.Calendar.SECOND, 0); d.set(java.util.Calendar.MILLISECOND, 0);
+            long x = d.getTimeInMillis();
+            if (x > now && (wd == 0 || (wd & (1 << (d.get(java.util.Calendar.DAY_OF_WEEK) - 1))) != 0)) return x;
+        }
+        return at;
+    }
     /** next ring of an alarm object: minutes-based "rep" or months-based "repM" */
     static long rollAlarm(JSONObject a, long at, long now) {
         int rm = a.optInt("repM", 0);
         if (rm > 0) return rollMonths(at, rm, a.optInt("dom", 0), now, java.util.TimeZone.getDefault());
+        int rd = a.optInt("rd", 0), wd = a.optInt("wd", 0);
+        if (rd > 0 || wd > 0) return rollDays(at, rd, wd, now, java.util.TimeZone.getDefault());
         return roll(at, a.optInt("rep"), now);
     }
 

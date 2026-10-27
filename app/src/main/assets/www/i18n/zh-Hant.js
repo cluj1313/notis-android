@@ -1000,5 +1000,10 @@ NOTIS_I18N={
 "Lipsește serviciul de recunoaștere vocală Google": "缺少 Google 語音辨識服務",
 "Fără internet pentru dictare": "沒有網路，無法聽寫",
 "Recunoașterea vocală e ocupată, încearcă din nou": "語音辨識忙碌中，請再試一次",
-"Limba nu e disponibilă pentru dictare": "該語言不支援聽寫"
+"Limba nu e disponibilă pentru dictare": "該語言不支援聽寫",
+"Repetiție oră": "按小時重複",
+"Repetiție zile": "按天重複",
+"La fiecare câte zile": "每隔幾天",
+"În zilele (opțional)": "在這些天（可選）",
+"sau ore (ex. 1.5)": "或小時（如 1.5）"
 };

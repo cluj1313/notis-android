@@ -1000,5 +1000,10 @@ NOTIS_I18N={
 "Lipsește serviciul de recunoaștere vocală Google": "Manjka Googlova storitev za prepoznavanje govora",
 "Fără internet pentru dictare": "Ni interneta za narekovanje",
 "Recunoașterea vocală e ocupată, încearcă din nou": "Prepoznavanje govora je zasedeno, poskusi znova",
-"Limba nu e disponibilă pentru dictare": "Jezik ni na voljo za narekovanje"
+"Limba nu e disponibilă pentru dictare": "Jezik ni na voljo za narekovanje",
+"Repetiție oră": "Ponavljanje po urah",
+"Repetiție zile": "Ponavljanje po dnevih",
+"La fiecare câte zile": "Na koliko dni",
+"În zilele (opțional)": "Ob dnevih (neobvezno)",
+"sau ore (ex. 1.5)": "ali ure (npr. 1.5)"
 };

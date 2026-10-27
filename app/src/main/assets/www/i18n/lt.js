@@ -1000,5 +1000,10 @@ NOTIS_I18N={
 "Lipsește serviciul de recunoaștere vocală Google": "Trūksta „Google“ kalbos atpažinimo paslaugos",
 "Fără internet pentru dictare": "Diktavimui nėra interneto",
 "Recunoașterea vocală e ocupată, încearcă din nou": "Kalbos atpažinimas užimtas, bandyk dar kartą",
-"Limba nu e disponibilă pentru dictare": "Kalba diktavimui nepasiekiama"
+"Limba nu e disponibilă pentru dictare": "Kalba diktavimui nepasiekiama",
+"Repetiție oră": "Kartoti kas valandas",
+"Repetiție zile": "Kartoti kas dienas",
+"La fiecare câte zile": "Kas kiek dienų",
+"În zilele (opțional)": "Dienomis (neprivaloma)",
+"sau ore (ex. 1.5)": "arba valandos (pvz. 1.5)"
 };

@@ -1000,5 +1000,10 @@ NOTIS_I18N={
 "Lipsește serviciul de recunoaștere vocală Google": "Thiếu dịch vụ nhận dạng giọng nói của Google",
 "Fără internet pentru dictare": "Không có internet để đọc chính tả",
 "Recunoașterea vocală e ocupată, încearcă din nou": "Nhận dạng giọng nói đang bận, hãy thử lại",
-"Limba nu e disponibilă pentru dictare": "Ngôn ngữ không khả dụng để đọc chính tả"
+"Limba nu e disponibilă pentru dictare": "Ngôn ngữ không khả dụng để đọc chính tả",
+"Repetiție oră": "Lặp theo giờ",
+"Repetiție zile": "Lặp theo ngày",
+"La fiecare câte zile": "Cách bao nhiêu ngày",
+"În zilele (opțional)": "Vào các ngày (tùy chọn)",
+"sau ore (ex. 1.5)": "hoặc giờ (vd. 1.5)"
 };

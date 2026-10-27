@@ -1000,5 +1000,10 @@ NOTIS_I18N={
 "Lipsește serviciul de recunoaștere vocală Google": "Google の音声認識サービスがありません",
 "Fără internet pentru dictare": "音声入力にはインターネットが必要です",
 "Recunoașterea vocală e ocupată, încearcă din nou": "音声認識が使用中です。もう一度お試しください",
-"Limba nu e disponibilă pentru dictare": "この言語は音声入力に対応していません"
+"Limba nu e disponibilă pentru dictare": "この言語は音声入力に対応していません",
+"Repetiție oră": "時間ごとに繰り返し",
+"Repetiție zile": "日ごとに繰り返し",
+"La fiecare câte zile": "何日ごと",
+"În zilele (opțional)": "曜日（任意）",
+"sau ore (ex. 1.5)": "または時間（例 1.5）"
 };
