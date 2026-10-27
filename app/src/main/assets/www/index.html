@@ -1021,8 +1021,6 @@ html[data-font] body,html[data-font] button,html[data-font] input,html[data-font
 .crm .crsortm button{font:inherit;font-size:15px;text-align:left;background:none;border:0;color:inherit;padding:9px 10px;border-radius:8px;white-space:nowrap}.crm .crsortm button.on{background:rgba(var(--acR),.16);font-weight:600}
 .crm .crc.crn{display:flex;align-items:center;gap:8px;padding:8px 12px;margin:0 0 5px;border-radius:11px;min-height:40px;box-sizing:border-box;position:relative;overflow:hidden}
 .crm .crc.crn .crsd{flex:none;width:9px;height:9px;border-radius:50%;background:var(--sc)}
-.crm .crc.crn .crnt{flex:none;margin:0;padding:4px 0 4px 6px;font-family:'Oswald',sans-serif;font-weight:300;font-size:16px;color:var(--mut);white-space:nowrap;font-variant-numeric:tabular-nums;text-decoration:none;background:none;border:0;cursor:pointer}
-.crm .crc.crn .crnm{flex:1 1 auto;min-width:0;text-align:left;font-family:'Oswald',sans-serif;font-size:17px;font-weight:300;letter-spacing:.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .crm .crc.crn.crov{box-shadow:inset 3px 0 0 var(--red,#ef4444)}.crm .crc.crn .crdot{flex:none;margin:0}
 .crm .crseg#cdTy{gap:0}.crm #cdTy .btn{flex:1 1 auto;min-width:0;font:inherit;font-size:14px;line-height:1.2;padding:8px 6px;white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:4px;overflow:hidden}
 .crm #cdTy .btn .crti0{font-style:normal;font-size:13px}.crm #cdTy.tight .btn{padding:8px 2px;gap:2px}.crm #cdTy.noico .btn .crti0{display:none}
@@ -1035,6 +1033,15 @@ html[data-font] body,html[data-font] button,html[data-font] input,html[data-font
 
 .crm .crhd .crnm{cursor:pointer}
 #crmSheet .crhd .crnm{cursor:pointer}
+
+.crhx{display:flex;align-items:center;gap:8px;min-width:0;flex:1 1 auto}
+.crm .crhx .crsd,#crmSheet .crhx .crsd{flex:none;width:9px;height:9px;border-radius:50%;background:var(--sk,var(--sc))}
+.crm .crhx .crnm,#crmSheet .crhx .crnm{flex:1 1 auto;min-width:0;margin:0;text-align:left;font-family:'Oswald',sans-serif;font-size:18px;font-weight:300;letter-spacing:.2px;text-transform:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
+.crm .crhx .crnt,#crmSheet .crhx .crnt{flex:none;margin:0;padding:4px 0 4px 6px;font-family:'Oswald',sans-serif;font-weight:300;font-size:17px;color:var(--mut);white-space:nowrap;font-variant-numeric:tabular-nums;text-decoration:none;background:none;border:0;cursor:pointer}
+.crm .crexp .crhx{margin-bottom:4px}
+#crmSheet .crhx.crhs{padding:6px 12px;border-radius:11px;border:1px solid color-mix(in srgb,var(--sk,var(--sc)) 70%,transparent);background:color-mix(in srgb,var(--sc) 14%,var(--card));margin-bottom:6px}
+.crm .crr1s,#crmSheet .crr1s{justify-content:flex-start;margin-bottom:4px}
+.crm .crdr{display:flex;align-items:center;gap:8px}.crm .crdr>.crhx{min-width:0}
 </style>
 </head>
 <body>
@@ -4426,6 +4433,7 @@ function ink(col){var th=document.documentElement.getAttribute('data-theme')||''
 function scv(c){return '--sc:'+esc(c)+';--sk:'+esc(ink(c))}
 try{new MutationObserver(function(){INK={};rr()}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']})}catch(_){}
 function tyFit(g){if(!g)return;var f=function(){g.classList.remove('noico','tight');var ov=function(){return [].some.call(g.children,function(b){return b.scrollWidth>b.clientWidth+1})};if(ov())g.classList.add('tight');if(ov())g.classList.add('noico')};f();requestAnimationFrame(f)}
+function hxH(c,s,tel,x){return '<div class="crhx'+(x||'')+'" style="'+scv(s.c)+'"><i class="crsd" title="'+esc(stName(s))+'"></i><span class="crnm ux">'+esc(c.name||'—')+'</span>'+(tel?'<span class="crlk crnt" data-k="p" data-v="'+esc(tel)+'">'+esc(tel)+'</span>':'')+'</div>'}
 function telH(v,cls){return '<span class="crlk '+(cls||'')+'" data-k="p" data-v="'+esc(v)+'">📞 '+esc(v)+'</span>'}
 /* v146: search in the phone agenda (Android) without importing; nothing is stored until a contact is tapped */
 var AG={q:'',L:null,perm:'',t:0};
@@ -4453,13 +4461,13 @@ function render(){var p=C.sub,h='<div class="spv crm">'+'<div class="alseg utsub
  var SOL=[['rem','⏰','⏰ '+TR('Reamintire')],['last','🕘',TR('Ultimul contact')],['name','A–Z',TR('Nume')],['st','●',TR('Stare')]],SOc=SOL.filter(function(o){return o[0]===C.sort})[0]||SOL[0];
  h+='<div class="crbody"><div class="crfrow"><div class="crchips">'+C.st.map(function(s){return '<button type="button" class="crch'+(F===s.id?' on':'')+'" data-f="'+esc(s.id)+'" style="'+scv(s.c)+'"><span class="ux">'+esc(stName(s))+'</span> '+(cnt[s.id]||0)+'</button>'}).join('')+'</div><div class="crsortw"><button type="button" class="crsortb" data-sm="1" aria-haspopup="true" aria-expanded="'+(SOM?'true':'false')+'" aria-label="'+esc(TR('Sortare'))+': '+esc(SOc[2])+'">'+esc(TR('Sortează'))+' <b>'+esc(SOc[1])+'</b> ▾</button>'+(SOM?'<div class="crsortm" role="menu">'+SOL.map(function(o){return '<button type="button" role="menuitem" class="'+(C.sort===o[0]?'on':'')+'" data-so="'+o[0]+'">'+esc(o[2])+'</button>'}).join('')+'</div>':'')+'</div></div>';
  var t0=today0(),due=inPart().filter(function(c){var a=remAt(c);return a&&a<=t0}).sort(function(a,b){return remAt(a)-remAt(b)});
- if(due.length)h+='<div class="crdue"><div class="crh">⏰ '+esc(TR('Reamintiri azi'))+' · '+due.length+'</div>'+due.map(function(c){var o=over(c),d=new Date(remAt(c));return '<div class="crdr" data-id="'+esc(c.id)+'"><span class="ux'+(o?' crod':'')+'">'+(o?'<i class="crdot"></i>':'')+esc(c.name||'—')+'</span>'+(c.tel[0]?telH(c.tel[0]):'')+'<span class="'+(o?'crred':'crmut')+'">'+(o&&remAt(c)<new Date().setHours(0,0,0,0)?esc(fT(remAt(c))):pad(d.getHours())+':'+pad(d.getMinutes()))+'</span></div>'}).join('')+'</div>';
+ if(due.length)h+='<div class="crdue"><div class="crh">⏰ '+esc(TR('Reamintiri azi'))+' · '+due.length+'</div>'+due.map(function(c){var o=over(c),d=new Date(remAt(c));return '<div class="crdr" data-id="'+esc(c.id)+'">'+(o?'<i class="crdot"></i>':'')+hxH(c,stOf(c.st),c.tel[0]||'')+'<span class="'+(o?'crred':'crmut')+'">'+(o&&remAt(c)<new Date().setHours(0,0,0,0)?esc(fT(remAt(c))):pad(d.getHours())+':'+pad(d.getMinutes()))+'</span></div>'}).join('')+'</div>';
  if(!inPart().length)h+='<div class="crempty"><div>'+esc(TR('Încă nu ai clienți aici. Adaugă primul client sau importă din contacte (⚙).'))+'</div><button type="button" class="btn" data-c="add">＋ '+esc(TR('Adaugă client'))+'</button></div>';
  else if(!V.L.length)h+='<div class="crempty"><div>'+esc(TR('Niciun rezultat'))+'</div></div>';
  else{if(Q.trim())h+='<div class="crmut crres">'+V.L.length+' '+esc(TR('rezultate'))+'</div>';
   V.L.forEach(function(c){var s=stOf(c.st),o=over(c),ra=remAt(c),l=last(c);
-  if(EXP!==c.id){h+='<div class="crc crn'+(o?' crov':'')+'" data-id="'+esc(c.id)+'" style="'+scv(s.c)+'"><i class="crsd" title="'+esc(stName(s))+'"></i><span class="crnm ux">'+esc(c.name||'—')+'</span>'+(o?'<i class="crdot"></i>':'')+(c.tel[0]&&shown(p,'tel')?'<span class="crlk crnt" data-k="p" data-v="'+esc(c.tel[0])+'">'+esc(c.tel[0])+'</span>':'')+'</div>';return}
-  h+='<div class="crc crexp" data-id="'+esc(c.id)+'" style="'+scv(s.c)+'"><div class="crr"><span class="crnm ux">'+esc(c.name||'—')+'</span><span class="crchip ux" style="'+scv(s.c)+'">'+esc(stName(s))+'</span></div><div class="crr">'+(c.tel[0]&&shown(p,'tel')?telH(c.tel[0]):'<span></span>')+'<span class="crmut">'+(l?esc(TR('ultim'))+': '+fT(l):'')+'</span></div>'+(ra?'<div class="crr"><span class="crmut ux">'+esc(c.firm&&shown(p,'firm')?c.firm:city(c))+'</span><span class="'+(o?'crred':'crmut')+'">'+(o?'<i class="crdot"></i>':'')+'⏰ '+esc(fTH(ra))+'</span></div>':'')+'</div>'})}
+  if(EXP!==c.id){h+='<div class="crc crn'+(o?' crov':'')+'" data-id="'+esc(c.id)+'" style="'+scv(s.c)+'">'+hxH(c,s,c.tel[0]&&shown(p,'tel')?c.tel[0]:'')+(o?'<i class="crdot"></i>':'')+'</div>';return}
+  h+='<div class="crc crexp" data-id="'+esc(c.id)+'" style="'+scv(s.c)+'">'+hxH(c,s,c.tel[0]&&shown(p,'tel')?c.tel[0]:'')+'<div class="crr"><span class="crchip ux" style="'+scv(s.c)+'">'+esc(stName(s))+'</span><span class="crmut">'+(l?esc(TR('ultim'))+': '+fT(l):'')+'</span></div>'+(ra?'<div class="crr"><span class="crmut ux">'+esc(c.firm&&shown(p,'firm')?c.firm:city(c))+'</span><span class="'+(o?'crred':'crmut')+'">'+(o?'<i class="crdot"></i>':'')+'⏰ '+esc(fTH(ra))+'</span></div>':'')+'</div>'})}
  h+=agH();
  return h+'</div></div>'}
 window.crmRender=render;
@@ -4495,7 +4503,7 @@ function clientOpen(c,isNew){fixC(c);OPN.w=0;OPN.h=0;crmShow=fixC(JSON.parse(JSO
 function shRefresh(){if(crmShow&&$('crmSheet')&&$('crmSheet').classList.contains('show'))shRender()}
 function fldIn(lbl,k,v,ty){return '<label class="crf"><span>'+esc(lbl)+'</span><input class="ux" data-f="'+esc(k)+'" type="'+(ty||'text')+'" value="'+esc(v||'')+'" autocomplete="off" data-lpignore="true"'+(ty==='tel'?' inputmode="tel"':'')+'></label>'}
 function shRender(){var c=crmShow,p=c.grp,s=stOf(c.st),h='';
- var T=shown(p,'tel')?c.tel.filter(Boolean):[];h+='<div class="crr crhd"><span class="crnm crbig ux">'+esc(c.name||TR('Client nou'))+'</span><span class="crchip crchs ux" style="'+scv(s.c)+'">'+esc(stName(s))+'</span>'+(T[0]?telH(T[0],'crtel'):'')+'</div>';
+ var T=shown(p,'tel')?c.tel.filter(Boolean):[];h+=hxH({name:c.name||TR('Client nou')},s,T[0]||'',' crhd crhs')+'<div class="crr crr1s"><span class="crchip crchs ux" style="'+scv(s.c)+'">'+esc(stName(s))+'</span></div>';
  T.slice(1).forEach(function(t){h+='<div class="crr crr1">'+telH(t,'crtel')+'</div>'});
  h+='<hr class="crhr">';if(c.addr&&shown(p,'addr'))h+='<div class="crln"><span class="crlk" data-k="a" data-v="'+esc(c.addr)+'">📍 '+esc(c.addr)+'</span></div><hr class="crhr">';
  h+=workH(c);
@@ -4672,7 +4680,7 @@ window.crmMig=mig;try{mig();renderNotes()}catch(e){console.warn(e)}
 
 /* v96: Setări → TABURI (bibliotecă: ordine drag & drop, bifă vizibil/ascuns, PIN 4/6 opțional), DESIGN (Teme · Stil taburi · Fundal · Setări fine · Iconiță), iconiță urgență, Comunică cu creatorul, Versiune. Additive: hidden tab = t.off, nothing deleted. */
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v151';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v152';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};
