@@ -1040,5 +1040,13 @@ NOTIS_I18N={
 "💊 Cum funcționează Medicamente\nCercurile 1 – 0 – 1 = dimineață, amiază, seară: atinge „1” când ai luat doza. Lista e ordonată după oră.\nAtinge numele medicamentului pentru fișă: Medicament, Mod de administrare, Program (zilnic, la X zile, la X ore, zile din săptămână) și Observații; ↗ Trimite o distribuie.\n„+” adaugă medicamente sau persoane; „Toate” deschide biblioteca.": "💊 藥品如何使用\n圓圈 1 – 0 – 1 = 早、中、晚：服藥後點「1」。清單依時間排序。\n點藥名開啟卡片：藥品、用法、服藥計畫（每天、每 X 天、每 X 小時、星期幾）和觀察；↗ 分享可傳送。\n「+」新增藥品或人員；「全部」開啟藥庫。",
 "La N ore": "每 N 小時",
 "La N zile": "每 N 天",
-"Share": "分享"
+"Share": "分享",
+"precreate": "預設",
+"Taburi precreate": "預設分頁",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "應用程式預先建立、結構已備妥的分頁（藥品、水電瓦斯）。可像其他分頁一樣用 ≡ 移到任何位置，或用核取方塊隱藏。",
+"Taburile precreate (Utilități, Medicamente) se mută cu ≡ și se ascund cu bifa, la fel ca celelalte.": "預設分頁（水電瓦斯、藥品）與其他分頁一樣，用 ≡ 移動，用核取方塊隱藏。",
+"Acasă / Firmă: sus alegi grupul; fiecare utilitate stă într-unul, pe care îl schimbi din ⚙.": "住家 / 公司：在頂端選擇群組；每個項目屬於其中一個，可在 ⚙ 中變更。",
+"🗂 Setări → Taburi\nBiblioteca arată toate taburile, plus Utilități și Medicamente. Bifa = tabul apare sau nu pe pagina principală (nimic nu se șterge). Trage de ≡ ca să schimbi ordinea. Opțional, pui un PIN de 4 sau 6 cifre pe Bibliotecă, ca să nu se vadă taburile ascunse.\nTaburile precreate (Utilități, Medicamente) se mută cu ≡ și se ascund cu bifa, la fel ca celelalte.": "🗂 設定方式 → 分頁\n圖書館顯示所有卡片, 檢查方塊 = 標籤是否顯示在主頁 (沒有任何東西被除). 拖動 ≡ 改變順序. 選項是將四位或六位數的密碼輸入到圖書館,\n預設分頁（水電瓦斯、藥品）與其他分頁一樣，用 ≡ 移動，用核取方塊隱藏。",
+"📊 Cum funcționează Utilități\nAtinge o utilitate ca să-i vezi istoricul.\nCu index (Curent, Gaz, Apă): „+ Adaugă citire” cu indexul anterior și cel actual; Notis calculează consumul.\nDoar plată (Gunoi, Internet, Media): „+ Adaugă plată” cu sumă, notă și ⏰ Reamintire (lunar, la 2, 3 sau 6 luni, anual sau la X zile).\n⚙ = nume, unitate, monedă sau ștergere. Atinge un rând din istoric ca să-l corectezi sau să-l ștergi. „+ Utilitate nouă” adaugă alta.\nUtilități și Medicamente se arată sau se ascund din Setări → Taburi.\nAcasă / Firmă: sus alegi grupul; fiecare utilitate stă într-unul, pe care îl schimbi din ⚙.": "📊 使用說明: 水電費\n點擊應用程式查看其歷史.\n在計數器閱讀 (電,天然氣,水): “+ 新增讀數” 在過去和現在的閱讀中; 這裡算出消耗量.\n只有付費 (垃圾,網路,媒體): “+ 新增付款” 含有金額,注意事項及 ⏰ 提醒 (每個月,每2,3或6個月,每年或每X天).\n⚙ = 名稱,單位,貨幣或除. 點擊歷史中的行, 修改或除. “+ 新增費用項” 加入另一個.\n在設定中顯示或隱藏應用程式和藥物 → 這裡是個好地方,\n住家 / 公司：在頂端選擇群組；每個項目屬於其中一個，可在 ⚙ 中變更。",
+"Trage de ≡ ca să schimbi ordinea. Bifa arată tabul pe pagina principală; tabul debifat rămâne salvat aici, cu tot ce conține. Taburile precreate (Utilități, Medicamente) se mută cu ≡ și se ascund cu bifa, la fel ca celelalte.": "拖曳 ≡ 調整順序。勾選後分頁顯示在主頁；取消勾選的分頁連同全部內容仍保存在這裡。 預設分頁（水電瓦斯、藥品）與其他分頁一樣，用 ≡ 移動，用核取方塊隱藏。"
 };
