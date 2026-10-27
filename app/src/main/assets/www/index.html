@@ -946,10 +946,10 @@ html[data-font] body,html[data-font] button,html[data-font] input,html[data-font
 .crm .crsub{display:flex;gap:6px;margin:4px 0 8px}.crm .crsub .btn{flex:1}
 .crm .crtop{display:flex;gap:6px;margin:0 0 8px;align-items:center}.crm .crtop input{flex:1;min-width:0;font-size:16px;padding:9px 12px;border-radius:12px}
 .crm .crb{flex:none;width:44px;height:42px;padding:0;font-size:19px;display:grid;place-items:center}
-.crm .crchips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 6px}
-.crm .crch{--sc:#fde68a;background:transparent;border:1px solid var(--sc);color:var(--sc);border-radius:12px;padding:5px 10px;font:inherit;font-size:15px;cursor:pointer;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.crm .crchips{display:flex;gap:4px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 0 6px}.crchips::-webkit-scrollbar{display:none}
+.crm .crch{--sc:#fde68a;background:transparent;border:1px solid var(--sc);color:var(--sc);border-radius:11px;padding:3px 7px;font:inherit;font-size:13.5px;cursor:pointer;flex:0 0 auto;white-space:nowrap}
 .crm .crch.on{background:color-mix(in srgb,var(--sc) 22%,transparent);font-weight:500}
-.crm .crsort{display:flex;gap:6px;align-items:center;margin:0 0 8px;font-size:14.5px;color:var(--mut);flex-wrap:wrap}.crm .crsort button{background:none;border:1px solid rgba(var(--lnR),.3);color:var(--mut);border-radius:10px;padding:3px 9px;font:inherit;font-size:14.5px}.crm .crsort button.on{color:var(--txt);border-color:var(--cyan)}
+.crm .crsort{display:flex;gap:5px;align-items:center;margin:0 0 8px;font-size:13.5px;color:var(--mut);flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;white-space:nowrap}.crsort::-webkit-scrollbar{display:none}.crm .crsort button{background:none;border:1px solid rgba(var(--lnR),.3);color:var(--mut);border-radius:10px;padding:2px 8px;font:inherit;font-size:13.5px;flex:0 0 auto}.crm .crsort button.on{color:var(--txt);border-color:var(--cyan)}
 .crm .crdue{border:1px solid var(--orange);border-radius:14px;padding:8px 12px;margin:0 0 8px;background:rgba(245,184,74,.07)}
 .crm .crh{font-weight:500;color:var(--cyan);text-transform:uppercase;letter-spacing:.6px;font-size:15px;margin:2px 0 4px}.crm .crdue .crh{color:var(--orange)}
 .crm .crbig{font-size:18px;text-transform:none;letter-spacing:.3px}
@@ -4597,7 +4597,7 @@ window.crmMig=mig;try{mig();renderNotes()}catch(e){console.warn(e)}
 
 /* v96: Setări → TABURI (bibliotecă: ordine drag & drop, bifă vizibil/ascuns, PIN 4/6 opțional), DESIGN (Teme · Stil taburi · Fundal · Setări fine · Iconiță), iconiță urgență, Comunică cu creatorul, Versiune. Additive: hidden tab = t.off, nothing deleted. */
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v144';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v145';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};
