@@ -1011,5 +1011,11 @@ NOTIS_I18N={
 "Deschizi linkul?": "¿Abrir el enlace?",
 "Atinge icoana pentru a ieși": "Toca el icono para salir",
 "Trage de colțuri sau mută chenarul": "Arrastra las esquinas o mueve el marco",
-"Se încarcă imaginea…": "Cargando imagen…"
+"Se încarcă imaginea…": "Cargando imagen…",
+"Acasă": "Casa",
+"Firmă": "Empresa",
+"Achitat": "Pagado",
+"Neachitat": "No pagado",
+"An nou": "Año nuevo",
+"Sumă (opțional)": "Importe (opcional)"
 };

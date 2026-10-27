@@ -1011,5 +1011,11 @@ NOTIS_I18N={
 "Deschizi linkul?": "Atidaryti nuorodą?",
 "Atinge icoana pentru a ieși": "Palieskite piktogramą, kad išeitumėte",
 "Trage de colțuri sau mută chenarul": "Tempkite kampus arba perkelkite rėmelį",
-"Se încarcă imaginea…": "Įkeliamas vaizdas…"
+"Se încarcă imaginea…": "Įkeliamas vaizdas…",
+"Acasă": "Namai",
+"Firmă": "Įmonė",
+"Achitat": "Apmokėta",
+"Neachitat": "Neapmokėta",
+"An nou": "Nauji metai",
+"Sumă (opțional)": "Suma (neprivaloma)"
 };

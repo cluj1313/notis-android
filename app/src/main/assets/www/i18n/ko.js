@@ -1011,5 +1011,11 @@ NOTIS_I18N={
 "Deschizi linkul?": "링크를 열까요?",
 "Atinge icoana pentru a ieși": "종료하려면 아이콘을 터치하세요",
 "Trage de colțuri sau mută chenarul": "모서리를 끌거나 프레임을 이동하세요",
-"Se încarcă imaginea…": "이미지 불러오는 중…"
+"Se încarcă imaginea…": "이미지 불러오는 중…",
+"Acasă": "집",
+"Firmă": "회사",
+"Achitat": "납부됨",
+"Neachitat": "미납",
+"An nou": "새 연도",
+"Sumă (opțional)": "금액(선택)"
 };

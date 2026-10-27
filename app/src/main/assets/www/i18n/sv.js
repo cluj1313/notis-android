@@ -1011,5 +1011,11 @@ NOTIS_I18N={
 "Deschizi linkul?": "Öppna länken?",
 "Atinge icoana pentru a ieși": "Tryck på ikonen för att avsluta",
 "Trage de colțuri sau mută chenarul": "Dra i hörnen eller flytta ramen",
-"Se încarcă imaginea…": "Läser in bild…"
+"Se încarcă imaginea…": "Läser in bild…",
+"Acasă": "Hem",
+"Firmă": "Företag",
+"Achitat": "Betald",
+"Neachitat": "Obetald",
+"An nou": "Nytt år",
+"Sumă (opțional)": "Belopp (valfritt)"
 };

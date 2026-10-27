@@ -1011,5 +1011,11 @@ NOTIS_I18N={
 "Deschizi linkul?": "Avataanko linkki?",
 "Atinge icoana pentru a ieși": "Poistu napauttamalla kuvaketta",
 "Trage de colțuri sau mută chenarul": "Vedä kulmista tai siirrä kehystä",
-"Se încarcă imaginea…": "Ladataan kuvaa…"
+"Se încarcă imaginea…": "Ladataan kuvaa…",
+"Acasă": "Koti",
+"Firmă": "Yritys",
+"Achitat": "Maksettu",
+"Neachitat": "Maksamatta",
+"An nou": "Uusi vuosi",
+"Sumă (opțional)": "Summa (valinnainen)"
 };

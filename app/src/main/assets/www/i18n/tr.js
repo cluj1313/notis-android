@@ -1011,5 +1011,11 @@ NOTIS_I18N={
 "Deschizi linkul?": "Bağlantı açılsın mı?",
 "Atinge icoana pentru a ieși": "Çıkmak için simgeye dokunun",
 "Trage de colțuri sau mută chenarul": "Köşeleri sürükleyin veya çerçeveyi taşıyın",
-"Se încarcă imaginea…": "Görsel yükleniyor…"
+"Se încarcă imaginea…": "Görsel yükleniyor…",
+"Acasă": "Ev",
+"Firmă": "Firma",
+"Achitat": "Ödendi",
+"Neachitat": "Ödenmedi",
+"An nou": "Yeni yıl",
+"Sumă (opțional)": "Tutar (isteğe bağlı)"
 };

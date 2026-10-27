@@ -1011,5 +1011,11 @@ NOTIS_I18N={
 "Deschizi linkul?": "Mở liên kết?",
 "Atinge icoana pentru a ieși": "Chạm vào biểu tượng để thoát",
 "Trage de colțuri sau mută chenarul": "Kéo các góc hoặc di chuyển khung",
-"Se încarcă imaginea…": "Đang tải ảnh…"
+"Se încarcă imaginea…": "Đang tải ảnh…",
+"Acasă": "Nhà",
+"Firmă": "Công ty",
+"Achitat": "Đã thanh toán",
+"Neachitat": "Chưa thanh toán",
+"An nou": "Năm mới",
+"Sumă (opțional)": "Số tiền (tùy chọn)"
 };

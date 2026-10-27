@@ -1011,5 +1011,11 @@ NOTIS_I18N={
 "Deschizi linkul?": "Megnyitod a linket?",
 "Atinge icoana pentru a ieși": "Kilépéshez érintsd meg az ikont",
 "Trage de colțuri sau mută chenarul": "Húzd a sarkokat vagy mozgasd a keretet",
-"Se încarcă imaginea…": "Kép betöltése…"
+"Se încarcă imaginea…": "Kép betöltése…",
+"Acasă": "Otthon",
+"Firmă": "Cég",
+"Achitat": "Fizetve",
+"Neachitat": "Fizetetlen",
+"An nou": "Új év",
+"Sumă (opțional)": "Összeg (opcionális)"
 };

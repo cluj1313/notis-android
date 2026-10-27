@@ -1011,5 +1011,11 @@ NOTIS_I18N={
 "Deschizi linkul?": "打开链接？",
 "Atinge icoana pentru a ieși": "轻触图标退出",
 "Trage de colțuri sau mută chenarul": "拖动角落或移动边框",
-"Se încarcă imaginea…": "正在加载图片…"
+"Se încarcă imaginea…": "正在加载图片…",
+"Acasă": "家庭",
+"Firmă": "公司",
+"Achitat": "已付",
+"Neachitat": "未付",
+"An nou": "新年度",
+"Sumă (opțional)": "金额（可选）"
 };
