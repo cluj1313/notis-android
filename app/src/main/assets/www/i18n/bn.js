@@ -1174,5 +1174,12 @@ NOTIS_I18N={
 "Total general":"সর্বমোট",
 "Notă":"নোট",
 "Sortează":"সাজানো",
-"Salvezi modificările?":"পরিবর্তন সংরক্ষণ করবেন?"
+"Salvezi modificările?":"পরিবর্তন সংরক্ষণ করবেন?",
+"Reamintiri":"রিমাইন্ডার",
+"întârziat":"বিলম্বিত",
+"azi":"আজ",
+"mâine":"আগামীকাল",
+"ieri":"গতকাল",
+"Vezi toate":"সব দেখুন",
+"Arată mai puțin":"কম দেখান"
 };

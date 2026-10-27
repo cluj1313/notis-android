@@ -1174,5 +1174,12 @@ NOTIS_I18N={
 "Total general":"Ukupni zbroj",
 "Notă":"Bilješka",
 "Sortează":"Sortiranje",
-"Salvezi modificările?":"Spremiti promjene?"
+"Salvezi modificările?":"Spremiti promjene?",
+"Reamintiri":"Podsjetnici",
+"întârziat":"zakašnjelo",
+"azi":"danas",
+"mâine":"sutra",
+"ieri":"jučer",
+"Vezi toate":"Prikaži sve",
+"Arată mai puțin":"Prikaži manje"
 };

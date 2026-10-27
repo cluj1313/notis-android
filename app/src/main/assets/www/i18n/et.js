@@ -1174,5 +1174,12 @@ NOTIS_I18N={
 "Total general":"Kogusumma",
 "Notă":"Märge",
 "Sortează":"Sordida",
-"Salvezi modificările?":"Kas salvestada muudatused?"
+"Salvezi modificările?":"Kas salvestada muudatused?",
+"Reamintiri":"Meeldetuletused",
+"întârziat":"hilinenud",
+"azi":"täna",
+"mâine":"homme",
+"ieri":"eile",
+"Vezi toate":"Näita kõiki",
+"Arată mai puțin":"Näita vähem"
 };

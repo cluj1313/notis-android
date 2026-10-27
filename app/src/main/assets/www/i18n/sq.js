@@ -1174,5 +1174,12 @@ NOTIS_I18N={
 "Total general":"Totali i përgjithshëm",
 "Notă":"Shënim",
 "Sortează":"Sortoni",
-"Salvezi modificările?":"Të ruhen ndryshimet?"
+"Salvezi modificările?":"Të ruhen ndryshimet?",
+"Reamintiri":"Kujtesat",
+"întârziat":"me vonesë",
+"azi":"sot",
+"mâine":"nesër",
+"ieri":"dje",
+"Vezi toate":"Shiko të gjitha",
+"Arată mai puțin":"Shfaq më pak"
 };

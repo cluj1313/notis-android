@@ -1174,5 +1174,12 @@ NOTIS_I18N={
 "Total general":"Bendra suma",
 "Notă":"Pastaba",
 "Sortează":"Sortiruoti",
-"Salvezi modificările?":"Išsaugoti pakeitimus?"
+"Salvezi modificările?":"Išsaugoti pakeitimus?",
+"Reamintiri":"Priminimai",
+"întârziat":"pavėluota",
+"azi":"šiandien",
+"mâine":"rytoj",
+"ieri":"vakar",
+"Vezi toate":"Rodyti visus",
+"Arată mai puțin":"Rodyti mažiau"
 };

@@ -1174,5 +1174,12 @@ NOTIS_I18N={
 "Total general":"المجموع الكلي",
 "Notă":"ملاحظة",
 "Sortează":"ترتيب",
-"Salvezi modificările?":"حفظ التغييرات؟"
+"Salvezi modificările?":"حفظ التغييرات؟",
+"Reamintiri":"التذكيرات",
+"întârziat":"متأخر",
+"azi":"اليوم",
+"mâine":"غدًا",
+"ieri":"أمس",
+"Vezi toate":"عرض الكل",
+"Arată mai puțin":"عرض أقل"
 };

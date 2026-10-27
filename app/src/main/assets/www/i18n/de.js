@@ -1174,5 +1174,12 @@ NOTIS_I18N={
 "Total general":"Gesamtsumme",
 "Notă":"Notiz",
 "Sortează":"Sortieren",
-"Salvezi modificările?":"Änderungen speichern?"
+"Salvezi modificările?":"Änderungen speichern?",
+"Reamintiri":"Erinnerungen",
+"întârziat":"überfällig",
+"azi":"heute",
+"mâine":"morgen",
+"ieri":"gestern",
+"Vezi toate":"Alle anzeigen",
+"Arată mai puțin":"Weniger anzeigen"
 };

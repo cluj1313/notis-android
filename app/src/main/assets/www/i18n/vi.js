@@ -1174,5 +1174,12 @@ NOTIS_I18N={
 "Total general":"Tổng cộng",
 "Notă":"Ghi chú",
 "Sortează":"Xác định",
-"Salvezi modificările?":"Lưu thay đổi?"
+"Salvezi modificările?":"Lưu thay đổi?",
+"Reamintiri":"Lời nhắc",
+"întârziat":"quá hạn",
+"azi":"hôm nay",
+"mâine":"ngày mai",
+"ieri":"hôm qua",
+"Vezi toate":"Xem tất cả",
+"Arată mai puțin":"Thu gọn"
 };

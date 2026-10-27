@@ -1174,5 +1174,12 @@ NOTIS_I18N={
 "Total general":"कुल योग",
 "Notă":"नोट",
 "Sortează":"क्रमबद्ध करना",
-"Salvezi modificările?":"बदलाव सहेजें?"
+"Salvezi modificările?":"बदलाव सहेजें?",
+"Reamintiri":"रिमाइंडर",
+"întârziat":"विलंबित",
+"azi":"आज",
+"mâine":"कल",
+"ieri":"बीता कल",
+"Vezi toate":"सभी देखें",
+"Arată mai puțin":"कम दिखाएँ"
 };

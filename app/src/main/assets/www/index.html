@@ -1042,6 +1042,14 @@ html[data-font] body,html[data-font] button,html[data-font] input,html[data-font
 #crmSheet .crhx.crhs{padding:6px 12px;border-radius:11px;border:1px solid color-mix(in srgb,var(--sk,var(--sc)) 70%,transparent);background:color-mix(in srgb,var(--sc) 14%,var(--card));margin-bottom:6px}
 .crm .crr1s,#crmSheet .crr1s{justify-content:flex-start;margin-bottom:4px}
 .crm .crdr{display:flex;align-items:center;gap:8px}.crm .crdr>.crhx{min-width:0}
+
+.crm .crdue{padding:6px 12px 6px;border-color:var(--crdb,var(--orange))}
+.crm .crdue .crh{color:var(--crdh,var(--orange));font-size:14px;margin:0 0 2px}
+.crm .crdue .crdr{display:flex;align-items:center;gap:8px;padding:2px 0;min-height:28px}
+.crm .crdue .crdr .crhx .crnm{font-size:17px}
+.crm .crdue .crrt{flex:none;font-family:'Oswald',sans-serif;font-weight:300;font-size:16px;color:var(--mut);white-space:nowrap;display:flex;align-items:center;gap:5px}
+.crm .crdue .crdro .crrt{color:var(--crdr,var(--red,#ef4444))}
+.crm .crdue .crrx{display:block;margin:2px 0 0;padding:4px 0;font-size:15px}
 </style>
 </head>
 <body>
@@ -4395,7 +4403,7 @@ var DFLD=[['tel','Telefon'],['addr','Adresă'],['email','Email'],['firm','Firmă
 var TY={call:'Apel',msg:'Mesaj',meet:'Întâlnire',note:'Notă'};
 function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
 function def(){return{v:1,sub:'firm',st:[{id:'nou',c:PAL[0]},{id:'disc',c:PAL[1]},{id:'cli',c:PAL[2]},{id:'ina',c:PAL[3]}],list:[],fld:{home:[],firm:[]},hide:{home:{firm:1},firm:{}},lock:{home:0,firm:0},auto:1,ask:1,sort:'rem'}}
-var MIG=0,EXP='',SOM=0,BK=0;function norm(d){var D=def();if(!d||typeof d!=='object'||!Array.isArray(d.list))return D;
+var MIG=0,EXP='',SOM=0,BK=0,RX=0;function fRD(d){try{return d.toLocaleDateString(NL==='ro'?'ro-RO':NL,{day:'numeric',month:'short'})}catch(_){return fT(d.getTime())}}function norm(d){var D=def();if(!d||typeof d!=='object'||!Array.isArray(d.list))return D;
  var o=JSON.parse(JSON.stringify(d));o.v=1;if(o.sub!=='home')o.sub='firm';if(!Array.isArray(o.st)||!o.st.length)o.st=D.st;o.st=o.st.filter(function(s){return s&&s.id});if(!o.st.length)o.st=D.st;
  ['fld','hide','lock'].forEach(function(k){if(!o[k]||typeof o[k]!=='object')o[k]=D[k]});['home','firm'].forEach(function(p){if(!Array.isArray(o.fld[p]))o.fld[p]=[];if(!o.hide[p]||typeof o.hide[p]!=='object')o.hide[p]={};o.lock[p]=o.lock[p]?1:0});
  if(o.auto==null)o.auto=1;if(o.ask==null)o.ask=1;if(['rem','last','name'].indexOf(o.sort)<0)o.sort='rem';
@@ -4460,8 +4468,10 @@ function render(){var p=C.sub,h='<div class="spv crm">'+'<div class="alseg utsub
  h+='<div class="crtop"><input type="search" id="crQ" class="ux" placeholder="🔍 '+esc(TR('Caută nume, telefon, oraș, note'))+'" value="'+esc(Q)+'" autocomplete="off" data-lpignore="true"><button type="button" class="btn crb" data-c="add" aria-label="'+esc(TR('Adaugă client'))+'">＋</button><button type="button" class="btn crb" data-c="cfg" aria-label="'+esc(TR('Setări CRM'))+'">⚙</button></div>';
  var SOL=[['rem','⏰','⏰ '+TR('Reamintire')],['last','🕘',TR('Ultimul contact')],['name','A–Z',TR('Nume')],['st','●',TR('Stare')]],SOc=SOL.filter(function(o){return o[0]===C.sort})[0]||SOL[0];
  h+='<div class="crbody"><div class="crfrow"><div class="crchips">'+C.st.map(function(s){return '<button type="button" class="crch'+(F===s.id?' on':'')+'" data-f="'+esc(s.id)+'" style="'+scv(s.c)+'"><span class="ux">'+esc(stName(s))+'</span> '+(cnt[s.id]||0)+'</button>'}).join('')+'</div><div class="crsortw"><button type="button" class="crsortb" data-sm="1" aria-haspopup="true" aria-expanded="'+(SOM?'true':'false')+'" aria-label="'+esc(TR('Sortare'))+': '+esc(SOc[2])+'">'+esc(TR('Sortează'))+' <b>'+esc(SOc[1])+'</b> ▾</button>'+(SOM?'<div class="crsortm" role="menu">'+SOL.map(function(o){return '<button type="button" role="menuitem" class="'+(C.sort===o[0]?'on':'')+'" data-so="'+o[0]+'">'+esc(o[2])+'</button>'}).join('')+'</div>':'')+'</div></div>';
- var t0=today0(),due=inPart().filter(function(c){var a=remAt(c);return a&&a<=t0}).sort(function(a,b){return remAt(a)-remAt(b)});
- if(due.length)h+='<div class="crdue"><div class="crh">⏰ '+esc(TR('Reamintiri azi'))+' · '+due.length+'</div>'+due.map(function(c){var o=over(c),d=new Date(remAt(c));return '<div class="crdr" data-id="'+esc(c.id)+'">'+(o?'<i class="crdot"></i>':'')+hxH(c,stOf(c.st),c.tel[0]||'')+'<span class="'+(o?'crred':'crmut')+'">'+(o&&remAt(c)<new Date().setHours(0,0,0,0)?esc(fT(remAt(c))):pad(d.getHours())+':'+pad(d.getMinutes()))+'</span></div>'}).join('')+'</div>';
+ var due=inPart().filter(function(c){return remAt(c)>0}).sort(function(a,b){return remAt(a)-remAt(b)});
+ if(due.length){var tm0=new Date().setHours(0,0,0,0),DY=864e5,NT=due.length>5&&!RX;var cs0=getComputedStyle(document.documentElement),og=(cs0.getPropertyValue('--orange')||'#f5b84a').trim()||'#f5b84a',rd=(cs0.getPropertyValue('--red')||'#ef4444').trim()||'#ef4444';h+='<div class="crdue" style="--crdh:'+ink(og)+';--crdb:'+ink(og)+';--crdr:'+ink(rd)+'"><div class="crh">⏰ '+esc(TR('Reamintiri'))+' · '+due.length+'</div>'+(NT?due.slice(0,5):due).map(function(c){var o=over(c),ra=remAt(c),d=new Date(ra),hm=pad(d.getHours())+':'+pad(d.getMinutes()),dd=Math.floor((new Date(ra).setHours(0,0,0,0)-tm0)/DY),w;
+  if(o)w=TR('întârziat')+' · '+(dd===0?hm:dd===-1?TR('ieri'):fRD(d));else if(dd===0)w=TR('azi')+' '+hm;else if(dd===1)w=TR('mâine')+' '+hm;else w=fRD(d)+' '+hm;
+  return '<div class="crdr'+(o?' crdro':'')+'" data-id="'+esc(c.id)+'">'+hxH(c,stOf(c.st),'')+'<span class="crrt ux">'+(o?'<i class="crdot"></i>':'')+esc(w)+'</span></div>'}).join('')+(due.length>5?'<button type="button" class="crlk crrx" data-rx="1">'+esc(RX?TR('Arată mai puțin'):TR('Vezi toate')+' ('+due.length+')')+'</button>':'')+'</div>'}
  if(!inPart().length)h+='<div class="crempty"><div>'+esc(TR('Încă nu ai clienți aici. Adaugă primul client sau importă din contacte (⚙).'))+'</div><button type="button" class="btn" data-c="add">＋ '+esc(TR('Adaugă client'))+'</button></div>';
  else if(!V.L.length)h+='<div class="crempty"><div>'+esc(TR('Niciun rezultat'))+'</div></div>';
  else{if(Q.trim())h+='<div class="crmut crres">'+V.L.length+' '+esc(TR('rezultate'))+'</div>';
@@ -4593,7 +4603,7 @@ window.addEventListener('click',function(e){var v=$('spView');if(!v||!v.contains
  if(SOM){SOM=0;rr();if(!t.closest('[data-id]'))return}
  var b=t.closest('[data-c]');if(b){var A=b.dataset.c;if(A==='add')clientOpen({id:uid(),grp:C.sub,name:'',tel:[],addr:'',email:'',st:C.st[0].id,hist:[],cf:{},rem:{on:0}},true);else if(A==='cfg')cfgOpen();else if(A==='unl')unlock(C.sub);return}
  var ag=t.closest('[data-ag]');if(ag){if(ag.dataset.ag==='perm')agPerm();else agAdd(+ag.dataset.ag);return}
- var cd=t.closest('[data-id]');if(cd){if(cd.classList.contains('crn')){EXP=cd.dataset.id;BK=0;rr();return}if(BK&&EXP===cd.dataset.id){EXP='';BK=0;rr();return}var c=C.list.filter(function(x){return x.id===cd.dataset.id})[0];if(c){EXP=c.id;clientOpen(c)}}},true);
+ var rx=t.closest('[data-rx]');if(rx){RX=RX?0:1;rr();return}var cd=t.closest('[data-id]');if(cd){if(cd.classList.contains('crdr')){var id=cd.dataset.id;if(EXP!==id){EXP=id;BK=0}else if(BK){EXP='';BK=0}else{var c0=C.list.filter(function(x){return x.id===id})[0];if(c0)clientOpen(c0);return}rr();setTimeout(function(){var e=document.querySelector('#spView .crc[data-id="'+id+'"]');if(e&&e.scrollIntoView)e.scrollIntoView({block:'nearest'})},30);return}if(cd.classList.contains('crn')){EXP=cd.dataset.id;BK=0;rr();return}if(BK&&EXP===cd.dataset.id){EXP='';BK=0;rr();return}var c=C.list.filter(function(x){return x.id===cd.dataset.id})[0];if(c){EXP=c.id;clientOpen(c)}}},true);
 document.addEventListener('input',function(e){if(e.target.id!=='crQ')return;Q=e.target.value;var v=$('spView'),o=v&&v.querySelector('.crm .crbody');if(!o){rr();return}var t=document.createElement('div');t.innerHTML=render();var n=t.querySelector('.crbody');if(n)o.replaceWith(n);agSched()});
 /* ---- lock (same PIN mechanism as Bibliotecă: PBKDF2→AES-GCM check value, pinShow, fingerprint) ---- */
 function pinTry(pn){var L=pinGet();return lkDerive(pn,b64d(L.salt)).then(function(k){return crypto.subtle.decrypt({name:'AES-GCM',iv:b64d(L.iv)},k,b64d(L.ct))}).then(function(b){return new TextDecoder().decode(b)==='notis-crm'}).catch(function(){return false})}
@@ -4680,7 +4690,7 @@ window.crmMig=mig;try{mig();renderNotes()}catch(e){console.warn(e)}
 
 /* v96: Setări → TABURI (bibliotecă: ordine drag & drop, bifă vizibil/ascuns, PIN 4/6 opțional), DESIGN (Teme · Stil taburi · Fundal · Setări fine · Iconiță), iconiță urgență, Comunică cu creatorul, Versiune. Additive: hidden tab = t.off, nothing deleted. */
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v152';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v153';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};

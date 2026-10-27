@@ -1174,5 +1174,12 @@ NOTIS_I18N={
 "Total general":"Skupna vsota",
 "Notă":"Zapisek",
 "Sortează":"Razvrščanje",
-"Salvezi modificările?":"Shranim spremembe?"
+"Salvezi modificările?":"Shranim spremembe?",
+"Reamintiri":"Opomniki",
+"întârziat":"zamujeno",
+"azi":"danes",
+"mâine":"jutri",
+"ieri":"včeraj",
+"Vezi toate":"Pokaži vse",
+"Arată mai puțin":"Pokaži manj"
 };

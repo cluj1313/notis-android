@@ -1174,5 +1174,12 @@ NOTIS_I18N={
 "Total general":"Ukupan zbir",
 "Notă":"Beleška",
 "Sortează":"Сортирајте",
-"Salvezi modificările?":"Сачувати измене?"
+"Salvezi modificările?":"Сачувати измене?",
+"Reamintiri":"Подсетници",
+"întârziat":"закаснело",
+"azi":"данас",
+"mâine":"сутра",
+"ieri":"јуче",
+"Vezi toate":"Прикажи све",
+"Arată mai puțin":"Прикажи мање"
 };

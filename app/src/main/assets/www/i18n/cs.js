@@ -1174,5 +1174,12 @@ NOTIS_I18N={
 "Total general":"Celkový součet",
 "Notă":"Poznámka",
 "Sortează":"Sortování",
-"Salvezi modificările?":"Uložit změny?"
+"Salvezi modificările?":"Uložit změny?",
+"Reamintiri":"Připomínky",
+"întârziat":"po termínu",
+"azi":"dnes",
+"mâine":"zítra",
+"ieri":"včera",
+"Vezi toate":"Zobrazit vše",
+"Arată mai puțin":"Zobrazit méně"
 };

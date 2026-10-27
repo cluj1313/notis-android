@@ -1174,5 +1174,12 @@ NOTIS_I18N={
 "Total general":"Teljes összeg",
 "Notă":"Jegyzet",
 "Sortează":"Rendezés",
-"Salvezi modificările?":"Menti a módosításokat?"
+"Salvezi modificările?":"Menti a módosításokat?",
+"Reamintiri":"Emlékeztetők",
+"întârziat":"lejárt",
+"azi":"ma",
+"mâine":"holnap",
+"ieri":"tegnap",
+"Vezi toate":"Összes",
+"Arată mai puțin":"Kevesebb"
 };
