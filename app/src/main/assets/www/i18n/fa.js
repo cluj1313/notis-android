@@ -1008,5 +1008,6 @@ NOTIS_I18N={
 "sau ore (ex. 1.5)": "یا ساعت (مثلاً 1.5)",
 "Suni?": "تماس بگیرید؟",
 "Deschizi locația?": "مکان باز شود؟",
-"Deschizi linkul?": "پیوند باز شود؟"
+"Deschizi linkul?": "پیوند باز شود؟",
+"Atinge icoana pentru a ieși": "برای خروج نماد را لمس کنید"
 };

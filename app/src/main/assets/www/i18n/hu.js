@@ -1008,5 +1008,6 @@ NOTIS_I18N={
 "sau ore (ex. 1.5)": "vagy órák (pl. 1.5)",
 "Suni?": "Hívod?",
 "Deschizi locația?": "Megnyitod a helyet?",
-"Deschizi linkul?": "Megnyitod a linket?"
+"Deschizi linkul?": "Megnyitod a linket?",
+"Atinge icoana pentru a ieși": "Kilépéshez érintsd meg az ikont"
 };

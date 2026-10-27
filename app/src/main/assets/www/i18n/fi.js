@@ -1008,5 +1008,6 @@ NOTIS_I18N={
 "sau ore (ex. 1.5)": "tai tunnit (esim. 1.5)",
 "Suni?": "Soitetaanko?",
 "Deschizi locația?": "Avataanko sijainti?",
-"Deschizi linkul?": "Avataanko linkki?"
+"Deschizi linkul?": "Avataanko linkki?",
+"Atinge icoana pentru a ieși": "Poistu napauttamalla kuvaketta"
 };

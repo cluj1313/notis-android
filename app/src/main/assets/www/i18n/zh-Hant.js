@@ -1008,5 +1008,6 @@ NOTIS_I18N={
 "sau ore (ex. 1.5)": "或小時（如 1.5）",
 "Suni?": "撥打？",
 "Deschizi locația?": "開啟位置？",
-"Deschizi linkul?": "開啟連結？"
+"Deschizi linkul?": "開啟連結？",
+"Atinge icoana pentru a ieși": "輕觸圖示退出"
 };

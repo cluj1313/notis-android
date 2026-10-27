@@ -1008,5 +1008,6 @@ NOTIS_I18N={
 "sau ore (ex. 1.5)": "או שעות (למשל 1.5)",
 "Suni?": "להתקשר?",
 "Deschizi locația?": "לפתוח את המיקום?",
-"Deschizi linkul?": "לפתוח את הקישור?"
+"Deschizi linkul?": "לפתוח את הקישור?",
+"Atinge icoana pentru a ieși": "גע בסמל כדי לצאת"
 };

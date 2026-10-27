@@ -1008,5 +1008,6 @@ NOTIS_I18N={
 "sau ore (ex. 1.5)": "of uren (bijv. 1.5)",
 "Suni?": "Bellen?",
 "Deschizi locația?": "Locatie openen?",
-"Deschizi linkul?": "Link openen?"
+"Deschizi linkul?": "Link openen?",
+"Atinge icoana pentru a ieși": "Tik op het pictogram om af te sluiten"
 };

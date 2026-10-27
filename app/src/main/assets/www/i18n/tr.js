@@ -1008,5 +1008,6 @@ NOTIS_I18N={
 "sau ore (ex. 1.5)": "veya saat (ör. 1.5)",
 "Suni?": "Aransın mı?",
 "Deschizi locația?": "Konum açılsın mı?",
-"Deschizi linkul?": "Bağlantı açılsın mı?"
+"Deschizi linkul?": "Bağlantı açılsın mı?",
+"Atinge icoana pentru a ieși": "Çıkmak için simgeye dokunun"
 };

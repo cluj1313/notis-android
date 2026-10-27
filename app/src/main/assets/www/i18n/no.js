@@ -1008,5 +1008,6 @@ NOTIS_I18N={
 "sau ore (ex. 1.5)": "eller timer (f.eks. 1.5)",
 "Suni?": "Ringe?",
 "Deschizi locația?": "Åpne stedet?",
-"Deschizi linkul?": "Åpne lenken?"
+"Deschizi linkul?": "Åpne lenken?",
+"Atinge icoana pentru a ieși": "Trykk på ikonet for å avslutte"
 };

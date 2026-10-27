@@ -1008,5 +1008,6 @@ NOTIS_I18N={
 "sau ore (ex. 1.5)": "alebo hodiny (napr. 1.5)",
 "Suni?": "Zavolať?",
 "Deschizi locația?": "Otvoriť polohu?",
-"Deschizi linkul?": "Otvoriť odkaz?"
+"Deschizi linkul?": "Otvoriť odkaz?",
+"Atinge icoana pentru a ieși": "Ťuknutím na ikonu ukončíte"
 };
