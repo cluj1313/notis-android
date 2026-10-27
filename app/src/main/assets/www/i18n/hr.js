@@ -1017,5 +1017,11 @@ NOTIS_I18N={
 "Achitat": "Plaćeno",
 "Neachitat": "Neplaćeno",
 "An nou": "Nova godina",
-"Sumă (opțional)": "Iznos (neobavezno)"
+"Sumă (opțional)": "Iznos (neobavezno)",
+"Token invalid sau expirat — șterge tokenul și introdu unul nou": "Token nevažeći ili istekao — obrišite token i unesite novi",
+"Tokenul nu are permisiunea Contents: Read and write pe notis-news": "Token nema dopuštenje Contents: Read and write za notis-news",
+"Repository-ul notis-news nu e accesibil cu acest token": "Repozitorij notis-news nije dostupan s ovim tokenom",
+"Conflict la salvare, încearcă din nou": "Sukob pri spremanju, pokušajte ponovno",
+"Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "Token se ne može dešifrirati — obrišite ga i unesite novi",
+"Fără conexiune la internet": "Nema internetske veze"
 };

@@ -1017,5 +1017,11 @@ NOTIS_I18N={
 "Achitat": "已付",
 "Neachitat": "未付",
 "An nou": "新年度",
-"Sumă (opțional)": "金额（可选）"
+"Sumă (opțional)": "金额（可选）",
+"Token invalid sau expirat — șterge tokenul și introdu unul nou": "令牌无效或已过期 — 删除令牌并输入新令牌",
+"Tokenul nu are permisiunea Contents: Read and write pe notis-news": "令牌没有 notis-news 的 Contents: Read and write 权限",
+"Repository-ul notis-news nu e accesibil cu acest token": "无法用此令牌访问 notis-news 仓库",
+"Conflict la salvare, încearcă din nou": "保存冲突，请重试",
+"Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "无法解密令牌 — 删除后输入新令牌",
+"Fără conexiune la internet": "无网络连接"
 };

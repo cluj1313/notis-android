@@ -1017,5 +1017,11 @@ NOTIS_I18N={
 "Achitat": "Betald",
 "Neachitat": "Obetald",
 "An nou": "Nytt år",
-"Sumă (opțional)": "Belopp (valfritt)"
+"Sumă (opțional)": "Belopp (valfritt)",
+"Token invalid sau expirat — șterge tokenul și introdu unul nou": "Ogiltig eller utgången token — radera token och ange en ny",
+"Tokenul nu are permisiunea Contents: Read and write pe notis-news": "Token saknar behörigheten Contents: Read and write på notis-news",
+"Repository-ul notis-news nu e accesibil cu acest token": "Repot notis-news är inte åtkomligt med denna token",
+"Conflict la salvare, încearcă din nou": "Sparkonflikt, försök igen",
+"Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "Token kan inte dekrypteras — radera den och ange en ny",
+"Fără conexiune la internet": "Ingen internetanslutning"
 };

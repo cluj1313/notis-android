@@ -1017,5 +1017,11 @@ NOTIS_I18N={
 "Achitat": "Apmaksāts",
 "Neachitat": "Neapmaksāts",
 "An nou": "Jauns gads",
-"Sumă (opțional)": "Summa (neobligāti)"
+"Sumă (opțional)": "Summa (neobligāti)",
+"Token invalid sau expirat — șterge tokenul și introdu unul nou": "Nederīgs vai beidzies marķieris — dzēsiet to un ievadiet jaunu",
+"Tokenul nu are permisiunea Contents: Read and write pe notis-news": "Marķierim nav Contents: Read and write atļaujas notis-news",
+"Repository-ul notis-news nu e accesibil cu acest token": "Repozitorijs notis-news nav pieejams ar šo marķieri",
+"Conflict la salvare, încearcă din nou": "Saglabāšanas konflikts, mēģiniet vēlreiz",
+"Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "Marķieri nevar atšifrēt — dzēsiet to un ievadiet jaunu",
+"Fără conexiune la internet": "Nav interneta savienojuma"
 };

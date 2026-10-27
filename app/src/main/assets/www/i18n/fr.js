@@ -1017,5 +1017,11 @@ NOTIS_I18N={
 "Achitat": "Payé",
 "Neachitat": "Impayé",
 "An nou": "Nouvelle année",
-"Sumă (opțional)": "Montant (facultatif)"
+"Sumă (opțional)": "Montant (facultatif)",
+"Token invalid sau expirat — șterge tokenul și introdu unul nou": "Jeton invalide ou expiré — supprimez le jeton et saisissez-en un nouveau",
+"Tokenul nu are permisiunea Contents: Read and write pe notis-news": "Le jeton n'a pas la permission Contents: Read and write sur notis-news",
+"Repository-ul notis-news nu e accesibil cu acest token": "Le dépôt notis-news n'est pas accessible avec ce jeton",
+"Conflict la salvare, încearcă din nou": "Conflit d'enregistrement, réessayez",
+"Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "Le jeton ne peut pas être déchiffré — supprimez-le et saisissez-en un nouveau",
+"Fără conexiune la internet": "Pas de connexion internet"
 };

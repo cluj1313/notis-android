@@ -1017,5 +1017,11 @@ NOTIS_I18N={
 "Achitat": "Apmokėta",
 "Neachitat": "Neapmokėta",
 "An nou": "Nauji metai",
-"Sumă (opțional)": "Suma (neprivaloma)"
+"Sumă (opțional)": "Suma (neprivaloma)",
+"Token invalid sau expirat — șterge tokenul și introdu unul nou": "Netinkamas arba pasibaigęs žetonas — ištrinkite ir įveskite naują",
+"Tokenul nu are permisiunea Contents: Read and write pe notis-news": "Žetonas neturi Contents: Read and write teisės notis-news",
+"Repository-ul notis-news nu e accesibil cu acest token": "Saugykla notis-news nepasiekiama su šiuo žetonu",
+"Conflict la salvare, încearcă din nou": "Išsaugojimo konfliktas, bandykite dar kartą",
+"Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "Žetono nepavyksta iššifruoti — ištrinkite ir įveskite naują",
+"Fără conexiune la internet": "Nėra interneto ryšio"
 };

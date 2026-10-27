@@ -1017,5 +1017,11 @@ NOTIS_I18N={
 "Achitat": "Fizetve",
 "Neachitat": "Fizetetlen",
 "An nou": "Új év",
-"Sumă (opțional)": "Összeg (opcionális)"
+"Sumă (opțional)": "Összeg (opcionális)",
+"Token invalid sau expirat — șterge tokenul și introdu unul nou": "Érvénytelen vagy lejárt token — töröld és adj meg újat",
+"Tokenul nu are permisiunea Contents: Read and write pe notis-news": "A tokennek nincs Contents: Read and write joga a notis-news tárolóhoz",
+"Repository-ul notis-news nu e accesibil cu acest token": "A notis-news tároló nem érhető el ezzel a tokennel",
+"Conflict la salvare, încearcă din nou": "Mentési ütközés, próbáld újra",
+"Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "A token nem fejthető vissza — töröld és adj meg újat",
+"Fără conexiune la internet": "Nincs internetkapcsolat"
 };

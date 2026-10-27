@@ -1017,5 +1017,11 @@ NOTIS_I18N={
 "Achitat": "Đã thanh toán",
 "Neachitat": "Chưa thanh toán",
 "An nou": "Năm mới",
-"Sumă (opțional)": "Số tiền (tùy chọn)"
+"Sumă (opțional)": "Số tiền (tùy chọn)",
+"Token invalid sau expirat — șterge tokenul și introdu unul nou": "Token không hợp lệ hoặc đã hết hạn — xóa token và nhập token mới",
+"Tokenul nu are permisiunea Contents: Read and write pe notis-news": "Token không có quyền Contents: Read and write trên notis-news",
+"Repository-ul notis-news nu e accesibil cu acest token": "Không truy cập được kho notis-news bằng token này",
+"Conflict la salvare, încearcă din nou": "Xung đột khi lưu, hãy thử lại",
+"Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "Không giải mã được token — xóa và nhập token mới",
+"Fără conexiune la internet": "Không có kết nối internet"
 };

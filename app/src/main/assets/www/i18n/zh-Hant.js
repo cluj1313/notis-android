@@ -1017,5 +1017,11 @@ NOTIS_I18N={
 "Achitat": "已付",
 "Neachitat": "未付",
 "An nou": "新年度",
-"Sumă (opțional)": "金額（選填）"
+"Sumă (opțional)": "金額（選填）",
+"Token invalid sau expirat — șterge tokenul și introdu unul nou": "權杖無效或已過期 — 刪除權杖並輸入新的",
+"Tokenul nu are permisiunea Contents: Read and write pe notis-news": "權杖沒有 notis-news 的 Contents: Read and write 權限",
+"Repository-ul notis-news nu e accesibil cu acest token": "無法用此權杖存取 notis-news 儲存庫",
+"Conflict la salvare, încearcă din nou": "儲存衝突，請重試",
+"Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "無法解密權杖 — 刪除後輸入新的",
+"Fără conexiune la internet": "無網路連線"
 };

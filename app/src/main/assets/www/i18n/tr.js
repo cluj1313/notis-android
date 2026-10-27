@@ -1017,5 +1017,11 @@ NOTIS_I18N={
 "Achitat": "Ödendi",
 "Neachitat": "Ödenmedi",
 "An nou": "Yeni yıl",
-"Sumă (opțional)": "Tutar (isteğe bağlı)"
+"Sumă (opțional)": "Tutar (isteğe bağlı)",
+"Token invalid sau expirat — șterge tokenul și introdu unul nou": "Geçersiz veya süresi dolmuş token — tokeni silip yenisini girin",
+"Tokenul nu are permisiunea Contents: Read and write pe notis-news": "Tokenin notis-news üzerinde Contents: Read and write izni yok",
+"Repository-ul notis-news nu e accesibil cu acest token": "notis-news deposuna bu token ile erişilemiyor",
+"Conflict la salvare, încearcă din nou": "Kaydetme çakışması, tekrar deneyin",
+"Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "Token çözülemiyor — silip yenisini girin",
+"Fără conexiune la internet": "İnternet bağlantısı yok"
 };

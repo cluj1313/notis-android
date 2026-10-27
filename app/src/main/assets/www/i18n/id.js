@@ -1017,5 +1017,11 @@ NOTIS_I18N={
 "Achitat": "Lunas",
 "Neachitat": "Belum dibayar",
 "An nou": "Tahun baru",
-"Sumă (opțional)": "Jumlah (opsional)"
+"Sumă (opțional)": "Jumlah (opsional)",
+"Token invalid sau expirat — șterge tokenul și introdu unul nou": "Token tidak valid atau kedaluwarsa — hapus token dan masukkan yang baru",
+"Tokenul nu are permisiunea Contents: Read and write pe notis-news": "Token tidak punya izin Contents: Read and write di notis-news",
+"Repository-ul notis-news nu e accesibil cu acest token": "Repositori notis-news tidak dapat diakses dengan token ini",
+"Conflict la salvare, încearcă din nou": "Konflik saat menyimpan, coba lagi",
+"Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "Token tidak dapat didekripsi — hapus dan masukkan yang baru",
+"Fără conexiune la internet": "Tidak ada koneksi internet"
 };

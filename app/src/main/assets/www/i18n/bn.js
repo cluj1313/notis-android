@@ -1017,5 +1017,11 @@ NOTIS_I18N={
 "Achitat": "পরিশোধিত",
 "Neachitat": "অপরিশোধিত",
 "An nou": "নতুন বছর",
-"Sumă (opțional)": "পরিমাণ (ঐচ্ছিক)"
+"Sumă (opțional)": "পরিমাণ (ঐচ্ছিক)",
+"Token invalid sau expirat — șterge tokenul și introdu unul nou": "টোকেন অবৈধ বা মেয়াদোত্তীর্ণ — টোকেন মুছে নতুন দিন",
+"Tokenul nu are permisiunea Contents: Read and write pe notis-news": "টোকেনের notis-news-এ Contents: Read and write অনুমতি নেই",
+"Repository-ul notis-news nu e accesibil cu acest token": "এই টোকেন দিয়ে notis-news রিপোজিটরি অ্যাক্সেস করা যায় না",
+"Conflict la salvare, încearcă din nou": "সংরক্ষণে দ্বন্দ্ব, আবার চেষ্টা করুন",
+"Tokenul nu poate fi decriptat — șterge tokenul și introdu unul nou": "টোকেন ডিক্রিপ্ট করা যায়নি — টোকেন মুছে নতুন দিন",
+"Fără conexiune la internet": "ইন্টারনেট সংযোগ নেই"
 };
