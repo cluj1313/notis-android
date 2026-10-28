@@ -1208,7 +1208,6 @@ NOTIS_I18N={
 "Biserică": "Kerk",
 "Utilitățile vechi cu înregistrări sunt păstrate în copia de siguranță": "Oude voorzieningen met gegevens blijven in de back-up bewaard",
 "Plan de plată": "Betalingsplan",
-"Restaurează utilitățile vechi": "Oude voorzieningen herstellen",
 "Prima dată": "Eerste datum",
 "Rată lunară": "Maandelijkse termijn",
 "Sumă totală": "Totaalbedrag",
@@ -1217,6 +1216,5 @@ NOTIS_I18N={
 "Alarmă de plată": "Betalingsalarm",
 "O dată": "Eenmalig",
 "La fiecare N zile": "Elke N dagen",
-"La fiecare N luni": "Elke N maanden",
-"Restaurezi utilitățile vechi?": "Oude voorzieningen herstellen?"
+"La fiecare N luni": "Elke N maanden"
 };

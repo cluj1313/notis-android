@@ -1208,7 +1208,6 @@ NOTIS_I18N={
 "Biserică": "Kilise",
 "Utilitățile vechi cu înregistrări sunt păstrate în copia de siguranță": "Kayıtlı eski faturalar yedekte saklanır",
 "Plan de plată": "Ödeme planı",
-"Restaurează utilitățile vechi": "Eski faturaları geri yükle",
 "Prima dată": "İlk tarih",
 "Rată lunară": "Aylık taksit",
 "Sumă totală": "Toplam tutar",
@@ -1217,6 +1216,5 @@ NOTIS_I18N={
 "Alarmă de plată": "Ödeme alarmı",
 "O dată": "Bir kez",
 "La fiecare N zile": "Her N günde",
-"La fiecare N luni": "Her N ayda",
-"Restaurezi utilitățile vechi?": "Eski faturalar geri yüklensin mi?"
+"La fiecare N luni": "Her N ayda"
 };

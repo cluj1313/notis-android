@@ -1208,7 +1208,6 @@ NOTIS_I18N={
 "Biserică": "Baznīca",
 "Utilitățile vechi cu înregistrări sunt păstrate în copia de siguranță": "Vecie pakalpojumi ar ierakstiem tiek saglabāti rezerves kopijā",
 "Plan de plată": "Maksājumu plāns",
-"Restaurează utilitățile vechi": "Atjaunot vecos pakalpojumus",
 "Prima dată": "Pirmais datums",
 "Rată lunară": "Mēneša maksājums",
 "Sumă totală": "Kopējā summa",
@@ -1217,6 +1216,5 @@ NOTIS_I18N={
 "Alarmă de plată": "Maksājuma modinātājs",
 "O dată": "Vienreiz",
 "La fiecare N zile": "Ik pēc N dienām",
-"La fiecare N luni": "Ik pēc N mēnešiem",
-"Restaurezi utilitățile vechi?": "Atjaunot vecos pakalpojumus?"
+"La fiecare N luni": "Ik pēc N mēnešiem"
 };

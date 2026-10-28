@@ -1208,7 +1208,6 @@ NOTIS_I18N={
 "Biserică": "Bažnyčia",
 "Utilitățile vechi cu înregistrări sunt păstrate în copia de siguranță": "Senos paslaugos su įrašais išsaugomos atsarginėje kopijoje",
 "Plan de plată": "Mokėjimų planas",
-"Restaurează utilitățile vechi": "Atkurti senas paslaugas",
 "Prima dată": "Pirma data",
 "Rată lunară": "Mėnesio įmoka",
 "Sumă totală": "Bendra suma",
@@ -1217,6 +1216,5 @@ NOTIS_I18N={
 "Alarmă de plată": "Mokėjimo žadintuvas",
 "O dată": "Vieną kartą",
 "La fiecare N zile": "Kas N dienų",
-"La fiecare N luni": "Kas N mėnesių",
-"Restaurezi utilitățile vechi?": "Atkurti senas paslaugas?"
+"La fiecare N luni": "Kas N mėnesių"
 };

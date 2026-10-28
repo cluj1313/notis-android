@@ -1208,7 +1208,6 @@ NOTIS_I18N={
 "Biserică": "चर्च",
 "Utilitățile vechi cu înregistrări sunt păstrate în copia de siguranță": "प्रविष्टियों वाली पुरानी सेवाएँ बैकअप में सुरक्षित रहती हैं",
 "Plan de plată": "भुगतान योजना",
-"Restaurează utilitățile vechi": "पुरानी सेवाएँ बहाल करें",
 "Prima dată": "पहली तारीख",
 "Rată lunară": "मासिक किस्त",
 "Sumă totală": "कुल राशि",
@@ -1217,6 +1216,5 @@ NOTIS_I18N={
 "Alarmă de plată": "भुगतान अलार्म",
 "O dată": "एक बार",
 "La fiecare N zile": "हर N दिन",
-"La fiecare N luni": "हर N महीने",
-"Restaurezi utilitățile vechi?": "पुरानी सेवाएँ बहाल करें?"
+"La fiecare N luni": "हर N महीने"
 };

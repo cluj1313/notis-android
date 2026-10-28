@@ -1208,7 +1208,6 @@ NOTIS_I18N={
 "Biserică": "Gereja",
 "Utilitățile vechi cu înregistrări sunt păstrate în copia de siguranță": "Layanan lama yang berisi catatan disimpan di cadangan",
 "Plan de plată": "Rencana pembayaran",
-"Restaurează utilitățile vechi": "Pulihkan layanan lama",
 "Prima dată": "Tanggal pertama",
 "Rată lunară": "Cicilan bulanan",
 "Sumă totală": "Jumlah total",
@@ -1217,6 +1216,5 @@ NOTIS_I18N={
 "Alarmă de plată": "Alarm pembayaran",
 "O dată": "Sekali",
 "La fiecare N zile": "Setiap N hari",
-"La fiecare N luni": "Setiap N bulan",
-"Restaurezi utilitățile vechi?": "Pulihkan layanan lama?"
+"La fiecare N luni": "Setiap N bulan"
 };

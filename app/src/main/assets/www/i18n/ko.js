@@ -1208,7 +1208,6 @@ NOTIS_I18N={
 "Biserică": "교회",
 "Utilitățile vechi cu înregistrări sunt păstrate în copia de siguranță": "기록이 있는 이전 공과금은 백업에 보관됩니다",
 "Plan de plată": "납부 계획",
-"Restaurează utilitățile vechi": "이전 공과금 복원",
 "Prima dată": "첫 날짜",
 "Rată lunară": "월 할부금",
 "Sumă totală": "총액",
@@ -1217,6 +1216,5 @@ NOTIS_I18N={
 "Alarmă de plată": "납부 알람",
 "O dată": "한 번",
 "La fiecare N zile": "N일마다",
-"La fiecare N luni": "N개월마다",
-"Restaurezi utilitățile vechi?": "이전 공과금을 복원할까요?"
+"La fiecare N luni": "N개월마다"
 };

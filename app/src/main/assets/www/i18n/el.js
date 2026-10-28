@@ -1208,7 +1208,6 @@ NOTIS_I18N={
 "Biserică": "Εκκλησία",
 "Utilitățile vechi cu înregistrări sunt păstrate în copia de siguranță": "Οι παλιοί λογαριασμοί με εγγραφές φυλάσσονται στο αντίγραφο ασφαλείας",
 "Plan de plată": "Πρόγραμμα πληρωμών",
-"Restaurează utilitățile vechi": "Επαναφορά παλιών λογαριασμών",
 "Prima dată": "Πρώτη ημερομηνία",
 "Rată lunară": "Μηνιαία δόση",
 "Sumă totală": "Συνολικό ποσό",
@@ -1217,6 +1216,5 @@ NOTIS_I18N={
 "Alarmă de plată": "Ξυπνητήρι πληρωμής",
 "O dată": "Μία φορά",
 "La fiecare N zile": "Κάθε N ημέρες",
-"La fiecare N luni": "Κάθε N μήνες",
-"Restaurezi utilitățile vechi?": "Επαναφορά των παλιών λογαριασμών;"
+"La fiecare N luni": "Κάθε N μήνες"
 };

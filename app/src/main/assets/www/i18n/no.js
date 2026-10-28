@@ -1208,7 +1208,6 @@ NOTIS_I18N={
 "Biserică": "Kirke",
 "Utilitățile vechi cu înregistrări sunt păstrate în copia de siguranță": "Gamle tjenester med oppføringer beholdes i sikkerhetskopien",
 "Plan de plată": "Betalingsplan",
-"Restaurează utilitățile vechi": "Gjenopprett gamle tjenester",
 "Prima dată": "Første dato",
 "Rată lunară": "Månedlig avdrag",
 "Sumă totală": "Totalbeløp",
@@ -1217,6 +1216,5 @@ NOTIS_I18N={
 "Alarmă de plată": "Betalingsalarm",
 "O dată": "Én gang",
 "La fiecare N zile": "Hver N. dag",
-"La fiecare N luni": "Hver N. måned",
-"Restaurezi utilitățile vechi?": "Gjenopprette de gamle tjenestene?"
+"La fiecare N luni": "Hver N. måned"
 };

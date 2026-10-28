@@ -1208,7 +1208,6 @@ NOTIS_I18N={
 "Biserică": "Templom",
 "Utilitățile vechi cu înregistrări sunt păstrate în copia de siguranță": "A régi rezsitételek a bejegyzésekkel a biztonsági mentésben maradnak",
 "Plan de plată": "Fizetési terv",
-"Restaurează utilitățile vechi": "Régi rezsitételek visszaállítása",
 "Prima dată": "Első dátum",
 "Rată lunară": "Havi részlet",
 "Sumă totală": "Teljes összeg",
@@ -1217,6 +1216,5 @@ NOTIS_I18N={
 "Alarmă de plată": "Fizetési ébresztő",
 "O dată": "Egyszer",
 "La fiecare N zile": "N naponta",
-"La fiecare N luni": "N havonta",
-"Restaurezi utilitățile vechi?": "Visszaállítod a régi rezsitételeket?"
+"La fiecare N luni": "N havonta"
 };

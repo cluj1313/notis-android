@@ -1208,7 +1208,6 @@ NOTIS_I18N={
 "Biserică": "Nhà thờ",
 "Utilitățile vechi cu înregistrări sunt păstrate în copia de siguranță": "Các dịch vụ cũ có mục nhập được giữ trong bản sao lưu",
 "Plan de plată": "Kế hoạch thanh toán",
-"Restaurează utilitățile vechi": "Khôi phục dịch vụ cũ",
 "Prima dată": "Ngày đầu tiên",
 "Rată lunară": "Trả góp hàng tháng",
 "Sumă totală": "Tổng số tiền",
@@ -1217,6 +1216,5 @@ NOTIS_I18N={
 "Alarmă de plată": "Báo thức thanh toán",
 "O dată": "Một lần",
 "La fiecare N zile": "Mỗi N ngày",
-"La fiecare N luni": "Mỗi N tháng",
-"Restaurezi utilitățile vechi?": "Khôi phục các dịch vụ cũ?"
+"La fiecare N luni": "Mỗi N tháng"
 };

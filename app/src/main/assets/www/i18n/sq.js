@@ -1208,7 +1208,6 @@ NOTIS_I18N={
 "Biserică": "Kisha",
 "Utilitățile vechi cu înregistrări sunt păstrate în copia de siguranță": "Shërbimet e vjetra me regjistrime ruhen në kopjen rezervë",
 "Plan de plată": "Plan pagese",
-"Restaurează utilitățile vechi": "Rikthe shërbimet e vjetra",
 "Prima dată": "Data e parë",
 "Rată lunară": "Kësti mujor",
 "Sumă totală": "Shuma totale",
@@ -1217,6 +1216,5 @@ NOTIS_I18N={
 "Alarmă de plată": "Alarm pagese",
 "O dată": "Një herë",
 "La fiecare N zile": "Çdo N ditë",
-"La fiecare N luni": "Çdo N muaj",
-"Restaurezi utilitățile vechi?": "Të rikthehen shërbimet e vjetra?"
+"La fiecare N luni": "Çdo N muaj"
 };

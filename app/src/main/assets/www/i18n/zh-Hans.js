@@ -1208,7 +1208,6 @@ NOTIS_I18N={
 "Biserică": "教堂",
 "Utilitățile vechi cu înregistrări sunt păstrate în copia de siguranță": "有记录的旧公用事业项目保留在备份中",
 "Plan de plată": "付款计划",
-"Restaurează utilitățile vechi": "恢复旧公用事业项目",
 "Prima dată": "首个日期",
 "Rată lunară": "每月分期",
 "Sumă totală": "总金额",
@@ -1217,6 +1216,5 @@ NOTIS_I18N={
 "Alarmă de plată": "付款闹钟",
 "O dată": "一次",
 "La fiecare N zile": "每 N 天",
-"La fiecare N luni": "每 N 个月",
-"Restaurezi utilitățile vechi?": "恢复旧公用事业项目？"
+"La fiecare N luni": "每 N 个月"
 };
