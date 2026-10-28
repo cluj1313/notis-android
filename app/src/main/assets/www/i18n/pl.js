@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "Zmień nazwę",
 "Înregistrarea s-a oprit și s-a salvat": "Nagrywanie zatrzymane i zapisane",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Karty utworzone już przez aplikację, z gotową strukturą (Leki, Media, CRM, Nagrania). Możesz je przenieść w dowolne miejsce za pomocą ≡ lub ukryć ptaszkiem, jak pozostałe.",
-"Record": "Nagraj"
+"Record": "Nagraj",
+"Azi": "Dziś",
+"Fără medicamente în această zi": "Brak leków tego dnia",
+"Marchezi toate dozele din această zi ca luate?": "Oznaczyć wszystkie dawki z tego dnia jako przyjęte?",
+"Debifezi toate dozele din această zi?": "Odznaczyć wszystkie dawki z tego dnia?",
+"Zilele viitoare nu se pot bifa încă": "Przyszłych dni nie można jeszcze zaznaczyć"
 };

@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "Rinomina",
 "Înregistrarea s-a oprit și s-a salvat": "Registrazione interrotta e salvata",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Schede già create dall’app, con struttura pronta (Medicinali, Utenze, CRM, Registrazioni). Puoi spostarle ovunque con ≡ o nasconderle con la spunta, come le altre.",
-"Record": "Registra"
+"Record": "Registra",
+"Azi": "Oggi",
+"Fără medicamente în această zi": "Nessun farmaco in questo giorno",
+"Marchezi toate dozele din această zi ca luate?": "Segnare tutte le dosi di questo giorno come prese?",
+"Debifezi toate dozele din această zi?": "Togliere la spunta a tutte le dosi di questo giorno?",
+"Zilele viitoare nu se pot bifa încă": "I giorni futuri non si possono ancora spuntare"
 };

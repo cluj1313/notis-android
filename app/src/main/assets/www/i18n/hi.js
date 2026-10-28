@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "नाम बदलें",
 "Înregistrarea s-a oprit și s-a salvat": "रिकॉर्डिंग रुकी और सहेजी गई",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "ऐप द्वारा पहले से बनाए गए टैब, तैयार ढांचे के साथ (दवाइयाँ, यूटिलिटी, CRM, रिकॉर्डिंग)। इन्हें दूसरों की तरह ≡ से कहीं भी ले जा सकते हैं या चेकबॉक्स से छिपा सकते हैं।",
-"Record": "रिकॉर्ड"
+"Record": "रिकॉर्ड",
+"Azi": "आज",
+"Fără medicamente în această zi": "इस दिन कोई दवा नहीं",
+"Marchezi toate dozele din această zi ca luate?": "इस दिन की सभी खुराकें ली गई चिह्नित करें?",
+"Debifezi toate dozele din această zi?": "इस दिन की सभी खुराकों से निशान हटाएँ?",
+"Zilele viitoare nu se pot bifa încă": "आने वाले दिन अभी चिह्नित नहीं किए जा सकते"
 };

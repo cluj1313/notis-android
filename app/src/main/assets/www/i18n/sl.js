@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "Preimenuj",
 "Înregistrarea s-a oprit și s-a salvat": "Snemanje je ustavljeno in shranjeno",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Zavihki, ki jih je aplikacija že ustvarila, s pripravljeno strukturo (Zdravila, Komunala, CRM, Posnetki). Premakneš jih lahko kamorkoli z ≡ ali skriješ s kljukico, kot druge.",
-"Record": "Posnemi"
+"Record": "Posnemi",
+"Azi": "Danes",
+"Fără medicamente în această zi": "Na ta dan ni zdravil",
+"Marchezi toate dozele din această zi ca luate?": "Označim vse odmerke tega dne kot vzete?",
+"Debifezi toate dozele din această zi?": "Odstranim kljukice z vseh odmerkov tega dne?",
+"Zilele viitoare nu se pot bifa încă": "Prihodnjih dni še ni mogoče označiti"
 };

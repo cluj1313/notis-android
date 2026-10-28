@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "Átnevezés",
 "Înregistrarea s-a oprit și s-a salvat": "A felvétel leállt és mentve",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Az alkalmazás által már létrehozott lapok, kész szerkezettel (Gyógyszerek, Rezsi, CRM, Felvételek). A ≡ jellel bárhová áthelyezheted vagy a pipával elrejtheted őket, mint a többit.",
-"Record": "Felvétel"
+"Record": "Felvétel",
+"Azi": "Ma",
+"Fără medicamente în această zi": "Ezen a napon nincs gyógyszer",
+"Marchezi toate dozele din această zi ca luate?": "Megjelölöd a nap összes adagját bevettként?",
+"Debifezi toate dozele din această zi?": "Visszavonod a nap összes adagjának pipáját?",
+"Zilele viitoare nu se pot bifa încă": "A jövőbeli napok még nem jelölhetők"
 };

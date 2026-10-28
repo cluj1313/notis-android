@@ -4215,8 +4215,14 @@ function utLoad(){var d=LS.get('ns_util',null);if(!d||!Array.isArray(d.list)){d=
  d.list.forEach(function(u){if(u.grp!=='firm')u.grp='home'});if(d.sub!=='firm')d.sub='home'; /* v123: Acasă / Firmă — everything existing goes to Acasă, nothing removed */return d}
 function medNorm(d){if(!d||!Array.isArray(d.list))d={list:[]};if(!Array.isArray(d.persons)){d.persons=[{id:'me',k:'me'}];d.open=d.open||{};d.open.me=1} /* v65: persons — existing medicines move into the first person, nothing is dropped */
  if(!d.open)d.open={};if(!d.snz)d.snz={};var p0=d.persons[0];if(!d.info||typeof d.info!=='object')d.info={};if(!Array.isArray(d.lib))d.lib=[];if(!Array.isArray(d.alt))d.alt=[];if(!d.hist||typeof d.hist!=='object')d.hist={};if(!d.lo||typeof d.lo!=='object')d.lo={};if(!d.lopen)d.lopen={u:1,n:1,a:1}; /* v71: library (info per medicine name), alternative treatments, order */
- d.list.forEach(function(m){var mk=String(m.name||'').trim().toLowerCase();if(mk&&!d.hist[mk])d.hist[mk]=m.name;if(!m.rep&&!Array.isArray(m.pat)){var n=m.n||3,I=n===1?[0]:n===2?[0,2]:[0,1,2];m.pat=[0,1,2].map(function(i){return I.indexOf(i)>=0?1:0});if(m.c&&Array.isArray(m.c.s)){var o=m.c.s,ns=[];I.forEach(function(si,k){if(o[k])ns[si]=true});m.c.s=ns}}if(m.adm===undefined&&mk&&d.info[mk]&&d.info[mk].h)m.adm=String(d.info[mk].h); /* v125: administration prefilled from library */ /* v66: n → pattern 1-0-1; today's checks re-indexed by slot */if(!m.p||!d.persons.some(function(x){return x.id===m.p})){if(!p0){p0={id:'me',k:'me'};d.persons.push(p0);d.open.me=1}m.p=p0.id}});return d}
-function medLoad(){var raw=LS.get('ns_med',null);try{if(raw&&LS.get('ns_med_bak',null)==null)LS.set('ns_med_bak',raw)}catch(_){}return medNorm(raw)} /* v125: one-time raw backup before the card fields */
+ d.list.forEach(function(m){var mk=String(m.name||'').trim().toLowerCase();if(mk&&!d.hist[mk])d.hist[mk]=m.name;if(!m.rep&&!Array.isArray(m.pat)){var n=m.n||3,I=n===1?[0]:n===2?[0,2]:[0,1,2];m.pat=[0,1,2].map(function(i){return I.indexOf(i)>=0?1:0});if(m.c&&Array.isArray(m.c.s)){var o=m.c.s,ns=[];I.forEach(function(si,k){if(o[k])ns[si]=true});m.c.s=ns}}if(m.adm===undefined&&mk&&d.info[mk]&&d.info[mk].h)m.adm=String(d.info[mk].h); /* v125: administration prefilled from library */ /* v66: n → pattern 1-0-1; today's checks re-indexed by slot */if(!m.p||!d.persons.some(function(x){return x.id===m.p})){if(!p0){p0={id:'me',k:'me'};d.persons.push(p0);d.open.me=1}m.p=p0.id}
+  if(!m.d0||!/^\d{4}-\d\d-\d\d$/.test(m.d0)){m.d0=(m.sch&&m.sch.d0)||mStart0(m);d.__d0=1}});return d}
+/* v160: start date for medicines saved before start dates existed = earliest of: creation time in the id, oldest dose history, today's check record; else today */
+function mTreat0(pid){var t=today(),b=null;MED.list.forEach(function(m){if(m.p!==pid)return;var r=mRange(m);if(r[0]<=t&&r[1]>=t&&(!b||r[0]<b))b=r[0]});return b||t} /* v160: one start date for the whole running treatment (editable per medicine) */
+function mStart0(m){var c=[],t=parseInt(String(m.id||'').slice(0,-4),36);if(t>15e11&&t<=Date.now())c.push(dkey(new Date(t)));Object.keys(m.h||{}).forEach(function(k){if(/^\d{4}-\d\d-\d\d$/.test(k))c.push(k)});if(m.c&&/^\d{4}-\d\d-\d\d$/.test(m.c.d||''))c.push(m.c.d);c.push(today());c.sort();return c[0]}
+function medLoad(){var raw=LS.get('ns_med',null);try{if(raw&&LS.get('ns_med_bak',null)==null)LS.set('ns_med_bak',raw)}catch(_){}
+ try{if(raw&&!LS.get('ns_med_bak160',null))LS.set('ns_med_bak160',{ts:Date.now(),data:raw})}catch(_){} /* v160: raw backup before the day-by-day view */
+ var d=medNorm(raw);if(raw&&d.__d0){delete d.__d0;LS.set('ns_med',d)}else delete d.__d0;return d} /* v125: one-time raw backup before the card fields */
 var UT=utLoad(),MED=medLoad();
 function utSave(){LS.set('ns_util',UT)}
 function medSave(){LS.set('ns_med',MED);try{saveNotes(true)}catch(_){}} /* saveNotes pushes the snapshot (native alarms) */
@@ -4313,9 +4319,33 @@ function pName(p){return p.name||TR('Eu')}
 function pFind(id){return MED.persons.filter(function(p){return p.id===id})[0]}
 function medRender(){if(VLIB)return libRender();var h='<div class="spv spmed">'+(MED.persons.length?'':'<div class="mdtop"><button type="button" class="mdall" data-a="lib">Toate</button></div>');MED.persons.forEach(function(p,pi){var o=!!MED.open[p.id],L=MED.list.filter(function(m){return m.p===p.id});
  h+='<div class="spsec mdper'+(o?' open':'')+'" data-p="'+esc(p.id)+'"><div class="sphd" data-a="ptog"><span class="spnm'+(p.name?' ux':'')+'">'+esc(pName(p))+'</span>'+(pi?'':'<button type="button" class="mdall mdin" data-a="lib">Toate</button>')+(o?'':'<span class="spcnt">'+(L.length||'')+'</span>')+(o?'<button type="button" class="spgear" data-a="pcfg" aria-label="Setări">⚙</button>':'')+'<i class="sparr"></i></div>';
- if(o){h+='<div class="spbd">'+medRows(L)+'<button type="button" class="btn spadd" data-a="mnew">+ Medicament nou</button></div>'}h+='</div>'});
+ if(o){h+='<div class="spbd">'+medDays(L,p)+'<button type="button" class="btn spadd" data-a="mnew">+ Medicament nou</button></div>'}h+='</div>'});
  return h+'<button type="button" class="btn spnew spplus" data-a="pnew" aria-label="Persoană nouă" title="Persoană nouă">+</button></div>'} /* v68: collapsed = name only; '+' person under the list; gear only when open; long-press name = settings */
 function mDays(m){if(!(m.days>0))return null;var a=dParse(m.d0||today()),b=dParse(today()),e=Math.round((b-a)/864e5)+1;return{t:m.days,e:Math.max(0,Math.min(m.days,e)),f:e>=m.days}}
+/* v160: day-by-day treatment view — one row per day across the union of all medicines' days; tap the date = open/close; round check = all doses of the day taken (auto), red = no medicine that day */
+var MDO={},MDCEN='';
+function dAdd(k,n){var d=dParse(k);d.setDate(d.getDate()+n);return dkey(d)}
+function mRange(m){var a=m.d0||(m.sch&&m.sch.d0)||today();return [a,m.days>0?dAdd(a,m.days-1):(dAdd(today(),7)>a?dAdd(today(),7):dAdd(a,7))]} /* no duration = ongoing: shown until a week ahead */
+function mOn(m,k){var r=mRange(m);return k>=r[0]&&k<=r[1]&&mDue(m,k)}
+function mReq(m){if(m.rep>0)return mSlots(m).map(function(_,i){return i});var P=m.pat||[1,1,1];return [0,1,2].filter(function(i){return P[i]})}
+function mS(m,k,w){if(k===today())return mChk(m).s;m.h=m.h||{};var s=m.h[k];if(!Array.isArray(s)){s=[];if(w)m.h[k]=s}return s}
+function mDone(m,k){var S=mS(m,k);return mReq(m).every(function(i){return !!S[i]})}
+function dLbl(k){var d=dParse(k),o={weekday:'short',day:'numeric',month:'short'};if(d.getFullYear()!==new Date().getFullYear())o.year='numeric';try{var x=d.toLocaleDateString(NL==='ro'?'ro':NL,o);return x.charAt(0).toUpperCase()+x.slice(1)}catch(_){return k}}
+function mdDayMeds(L,k){return L.filter(function(m){return mOn(m,k)})}
+function medDays(L,p){L=mSort(L);if(!L.length)return '<div class="spempty">Niciun medicament.</div>';var t=today(),s=null,e=null;
+ L.forEach(function(m){var r=mRange(m);if(!s||r[0]<s)s=r[0];if(!e||r[1]>e)e=r[1]});var lim=dAdd(t,-366);if(s<lim)s=lim;if(e<s)e=s;
+ var h='<div class="mdlist">',n=0;for(var k=s;k<=e&&n<800;k=dAdd(k,1),n++){var D=mdDayMeds(L,k),gap=!D.length,all=!gap&&D.every(function(m){return mDone(m,k)}),o=!!MDO[p.id+'|'+k],fut=k>t;
+  h+='<div class="mdday'+(k===t?' mdtd':fut?' mdfut':' mdpast')+(o?' open':'')+(gap?' mdgap':'')+'" data-k="'+k+'"><div class="mddh"><button type="button" class="mddt" data-a="dtog" aria-expanded="'+o+'"><span class="mddl">'+esc(dLbl(k))+'</span>'+(k===t?'<b class="mdtdb">'+esc(TR('Azi'))+'</b>':'')+'</button><button type="button" class="mdck'+(gap?' red on':all?' on':'')+'" data-a="dck" role="checkbox" aria-checked="'+(gap||all)+'" aria-label="'+esc(dLbl(k))+'"></button></div>';
+  if(o)h+='<div class="mddb">'+(gap?'<div class="spempty">'+esc(TR('Fără medicamente în această zi'))+'</div>':D.map(function(m){return mLine(m,k,fut)}).join(''))+'</div>';h+='</div>'}
+ return h+'</div>'}
+function mLine(m,k,fut){var S=mS(m,k),dd=m.days>0?{t:m.days,e:Math.round((dParse(k)-dParse(mRange(m)[0]))/864e5)+1}:null,dis=fut?' disabled':'',h='<div class="mdrow" data-m="'+esc(m.id)+'" data-k="'+k+'"><span class="mdnm ux" data-a="medit">💊 '+esc(m.name)+(dd?' <span class="mddays">('+dd.t+'/'+dd.e+')</span>':'')+'</span><span class="mddo">';
+ if(m.rep>0){mSlots(m).forEach(function(x,i){h+='<span class="mdd"><button type="button" class="mdg ux'+(S[i]?' on':'')+'" data-a="mchk" data-i="'+i+'" aria-label="'+esc(x.t)+'"'+dis+'>1</button><small class="ux">'+(x.al?'⏰':'')+esc(x.t)+'</small></span>'})}
+ else{var P=m.pat||[1,1,1],T=m.t||[],A=m.al||[];[0,1,2].forEach(function(i){if(i)h+='<span class="mdsep">–</span>';
+  if(P[i])h+='<span class="mdd"><button type="button" class="mdg ux'+(S[i]?' on':'')+'" data-a="mchk" data-i="'+i+'" aria-label="'+esc(TR(SLOT[i]))+'"'+dis+'>1</button>'+(T[i]?'<small class="ux">'+(A[i]?'⏰':'')+esc(T[i])+'</small>':'')+'</span>';
+  else h+='<span class="mdd"><span class="mdg z ux">0</span></span>'})}
+ return h+'</span></div>'}
+function mdCenter(v){var pk=MED.persons.filter(function(p){return MED.open[p.id]}).map(function(p){return p.id}).join(','),key=noteTab+'|'+today()+'|'+pk;if(MDCEN===key)return;var go=function(n){var r=v.querySelector('.mdday.mdtd');if(!r||MDCEN===key)return;if(!r.getClientRects().length){if(n<20)setTimeout(function(){go(n+1)},60);return}MDCEN=key;try{r.scrollIntoView({block:'center'})}catch(_){}};setTimeout(function(){go(0)},30)}
+window.__md={dd:medDays,center:function(){MDCEN=''},o:MDO};
 function medRows(L){var h='';L=mSort(L);L.forEach(function(m){var c=mChk(m);
  var dd=mDays(m);h+='<div class="mdrow'+(dd&&dd.f?' mdfin':'')+(mDue(m)?'':' mdoff')+'" data-m="'+esc(m.id)+'"><span class="mdnm ux" data-a="medit">💊 '+esc(m.name)+(dd?' <span class="mddays">('+dd.t+'/'+dd.e+')</span>':'')+'</span><span class="mddo">';
  if(m.rep>0){var on=c.r&&Date.now()-c.r<m.rep*3600000;h+='<span class="mdd"><button type="button" class="mdg ux'+(on?' on':'')+'" data-a="mrep" aria-label="'+esc(TR(m.rep+' ore'))+'">'+m.rep+'</button></span>'}
@@ -4344,7 +4374,7 @@ function medShareTxt(m){var pp=pFind(m.p),L=['💊 '+m.name];if(m.adm)L.push(TR(
 function medShare(m){var all=medShareTxt(m),ti=m.name,fb=function(){try{navigator.clipboard.writeText(all).then(function(){toast(TR('Copiat'))},function(){toast(TR('Copiat'))})}catch(_){toast(all)}};
  try{if(window.NotisNative&&NotisNative.shareText){NotisNative.shareText(all,ti);return}}catch(_){}
  if(navigator.share){navigator.share({title:ti,text:all}).catch(function(e){if(!e||e.name!=='AbortError')fb()})}else fb()}
-function medEdit(m,pid){var isNew=!m;m=m||{id:uid(),p:pid,name:'',pat:[1,0,1],t:['','',''],al:[0,0,0],rep:0,st:'08:00',ral:1};var T=(m.t||['','','']).slice(),A=(m.al||[]).slice(),P=(m.pat||[1,1,1]).slice(),K=mKind(m),sc=m.sch||{},WD=sc.wd|0||(1<<new Date().getDay()),ob=m.obs||{};
+function medEdit(m,pid){var isNew=!m;m=m||{id:uid(),p:pid,name:'',pat:[1,0,1],t:['','',''],al:[0,0,0],rep:0,st:'08:00',ral:1,days:14,d0:mTreat0(pid)};var T=(m.t||['','','']).slice(),A=(m.al||[]).slice(),P=(m.pat||[1,1,1]).slice(),K=mKind(m),sc=m.sch||{},WD=sc.wd|0||(1<<new Date().getDay()),ob=m.obs||{};
  if(m.adm===undefined){var inf=MED.info[mKey(m.name)];if(inf&&inf.h)m.adm=String(inf.h)}
  var dz='';[0,1,2].forEach(function(i){dz+='<div class="mdz" data-s="'+i+'"><button type="button" class="mdg mdpt ux'+(P[i]?' on1':'')+'" id="mdP'+i+'">'+(P[i]?1:0)+'</button><span class="mdzl">'+SLOT[i]+'</span><input type="time" id="mdT'+i+'" value="'+esc(T[i]||'')+'"><label class="mdal"><input type="checkbox" id="mdA'+i+'"'+(A[i]?' checked':'')+'> ⏰</label></div>'});
  var wdb='<div class="mdwd" id="mdWd">'+[1,2,3,4,5,6,0].map(function(d){return '<button type="button" class="btn ux'+(WD&(1<<d)?' on':'')+'" data-d="'+d+'">'+esc(wdNm(d))+'</button>'}).join('')+'</div>';
@@ -4495,7 +4525,7 @@ window.spGo=function(a){var sel='';
  else if(a.k==='l'){VLIB=1;MED.lopen[a.S]=1;var id=a.S+'|'+a.key;LOP[id]=1;if(a.f)LFOP[id+'|'+a.f]=1;LS.set('ns_med',MED);sel='.lbsec[data-l="'+a.S+'"] .lbit[data-k="'+String(a.key).replace(/"/g,'\\"')+'"]'+(a.f?' .lbfh[data-f="'+a.f+'"]':'')}
  spRender();return sel};
 window.spRender=function(){var v=$('spView');if(!v)return;var k=kindOf(),srch=!!nFold(nQ).trim(),on=k&&!nTrash&&!srch&&!tbHidden(noteTab)&&!nFolder;
- $('notesPg').classList.toggle('sptab',!!on);if(!on){v.innerHTML='';v.hidden=true;return}v.hidden=false;v.innerHTML=k==='util'?utRender():k==='crm'?(window.crmRender?crmRender():''):medRender();
+ $('notesPg').classList.toggle('sptab',!!on);if(!on){v.innerHTML='';v.hidden=true;return}v.hidden=false;v.innerHTML=k==='util'?utRender():k==='crm'?(window.crmRender?crmRender():''):medRender();if(k==='med'&&!VLIB)mdCenter(v);else MDCEN='';
  var has=notes.some(function(n){return !n.del&&n.tab===noteTab&&(n.fd||'')===''&&(n.lock||String(n.text||'').trim())})||noteFolders.some(function(f){return f.tab===noteTab&&!f.del});$('notesPg').classList.toggle('spnone',!has)};
 var rn=renderNotes;renderNotes=function(){var r=rn.apply(this,arguments);try{spRender()}catch(e){console.warn(e)}return r};
 var lpT=0,lpDone=0;document.addEventListener('pointerdown',function(e){var v=$('spView');if(!v||!v.contains(e.target))return;var hd=e.target.closest('.mdper .sphd');lpDone=0;clearTimeout(lpT);if(!hd)return;lpT=setTimeout(function(){var pp=pFind(hd.closest('.mdper').dataset.p);if(pp){lpDone=1;try{navigator.vibrate&&navigator.vibrate(20)}catch(_){}pCfg(pp)}},550)});
@@ -4510,8 +4540,12 @@ document.addEventListener('click',function(e){var v=$('spView');if(!v||!v.contai
  else if(A==='pnew')pCfg(null);
  else if((A==='ptog'||A==='pcfg'||A==='mnew')&&a.closest('.mdper')){var pp=pFind(a.closest('.mdper').dataset.p);if(!pp)return;
   if(A==='pcfg'){e.stopPropagation();pCfg(pp)}else if(A==='mnew')medEdit(null,pp.id);else{if(e.target.closest('.spgear'))return;MED.open[pp.id]=MED.open[pp.id]?0:1;if(!MED.open[pp.id])delete MED.open[pp.id];LS.set('ns_med',MED);spRender()}}
+ else if((A==='dtog'||A==='dck')&&a.closest('.mdday')){var dy=a.closest('.mdday'),dk=dy.dataset.k,pq=a.closest('.mdper'),pid=pq&&pq.dataset.p;if(!pid)return;
+  if(A==='dtog'){var ok=pid+'|'+dk;if(MDO[ok])delete MDO[ok];else MDO[ok]=1;spRender();return}
+  var DL=mdDayMeds(MED.list.filter(function(m){return m.p===pid}),dk);if(!DL.length)return;if(dk>today()){toast(TR('Zilele viitoare nu se pot bifa încă'));return}
+  var done=DL.every(function(m){return mDone(m,dk)});ask(TR(done?'Debifezi toate dozele din această zi?':'Marchezi toate dozele din această zi ca luate?'),function(){DL.forEach(function(m){var S=mS(m,dk,1);mReq(m).forEach(function(i){S[i]=!done});if(dk===today()&&m.rep>0&&!done){var c=mChk(m);c.rp=c.r||0;c.r=Date.now()}});LS.set('ns_med',MED);spRender()})}
  else{var md=a.closest('.mdrow'),m=md&&MED.list.filter(function(x){return x.id===md.dataset.m})[0];if(!m)return;
-  if(A==='medit')medEdit(m);else if(A==='mrep'){var c=mChk(m),on=c.r&&Date.now()-c.r<m.rep*3600000;if(on)c.r=c.rp||0;else{c.rp=c.r||0;c.r=Date.now();c.n=(c.n||0)+1}LS.set('ns_med',MED);spRender()}else if(A==='mchk'){var c=mChk(m),i=+a.dataset.i;c.s[i]=!c.s[i];LS.set('ns_med',MED);spRender()}}});
+  if(A==='medit')medEdit(m);else if(A==='mrep'){var c=mChk(m),on=c.r&&Date.now()-c.r<m.rep*3600000;if(on)c.r=c.rp||0;else{c.rp=c.r||0;c.r=Date.now();c.n=(c.n||0)+1}LS.set('ns_med',MED);spRender()}else if(A==='mchk'){var dk=md.dataset.k||today();if(dk>today())return;var S=mS(m,dk,1),i=+a.dataset.i;S[i]=!S[i];if(dk===today()&&m.rep>0&&S[i]){var c=mChk(m);c.rp=c.r||0;c.r=Date.now()}LS.set('ns_med',MED);spRender()}}});
 document.addEventListener('click',function(e){var v=$('spView');if(!v||!v.contains(e.target))return;var r=e.target.closest('.sprow');if(!r)return;var su=r.closest('.spsec'),u=su&&uFind(su.dataset.u);if(!u)return;var row=(u.rows||[]).filter(function(x){return x.id===r.dataset.r})[0];if(row)utRow(u,row)});
 /* long-press on a medicine = edit */
 (function(){var T=null;document.addEventListener('pointerdown',function(e){var n=e.target.closest&&e.target.closest('#spView .mdrow');if(!n||e.target.closest('.mdc,.mdg'))return;clearTimeout(T);T=setTimeout(function(){var m=MED.list.filter(function(x){return x.id===n.dataset.m})[0];if(m)medEdit(m)},550)});
@@ -4825,7 +4859,7 @@ window.crmMig=mig;try{mig();renderNotes()}catch(e){console.warn(e)}
 
 /* v96: Setări → TABURI (bibliotecă: ordine drag & drop, bifă vizibil/ascuns, PIN 4/6 opțional), DESIGN (Teme · Stil taburi · Fundal · Setări fine · Iconiță), iconiță urgență, Comunică cu creatorul, Versiune. Additive: hidden tab = t.off, nothing deleted. */
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v159';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v160';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};
@@ -5098,6 +5132,7 @@ renderAbList();
 .spdiff{color:var(--cyan);font-size:16px;font-weight:600;text-align:right;min-height:20px}
 .al2>.field{flex:1;min-width:0}
 .mdrow{display:flex;align-items:center;gap:6px;padding:3px 0;border-bottom:1px solid rgba(var(--lnR),.14)}
+/* v160: day rows */.mdlist{display:flex;flex-direction:column}.mdday{border-bottom:1px solid rgba(var(--lnR),.16)}.mddh{display:flex;align-items:center;gap:8px;min-height:44px}.mddt{flex:1;min-width:0;display:flex;align-items:center;gap:8px;background:none;border:0;padding:6px 4px;margin:0;text-align:left;color:var(--txt);font-family:Oswald,sans-serif;font-weight:300;font-size:20px;line-height:1.2;cursor:pointer;-webkit-tap-highlight-color:transparent}.mddl{overflow-wrap:anywhere}.mdpast .mddt{opacity:.88}.mdtd{background:rgba(var(--lnR),.10);box-shadow:inset 4px 0 0 var(--cyan);border-radius:10px}.mdtd .mddt{font-weight:500;font-size:21px;padding-left:10px}.mdtdb{font-family:inherit;font-weight:500;font-size:13px;letter-spacing:.3px;padding:1px 8px;border-radius:999px;background:var(--cyan);color:#06121f;flex:none}.mdck{flex:none;width:32px;height:32px;margin-right:4px;border-radius:50%;border:2px solid var(--mdgrn);background:transparent;cursor:pointer;padding:0;position:relative;box-sizing:border-box}.mdck::before{content:'';position:absolute;inset:-6px}.mdck.on{background:var(--mdgrn)}.mdck.on::after{content:'';position:absolute;left:9px;top:4px;width:7px;height:14px;border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg)}.mdck.red{border-color:var(--mdred)}.mdck.red.on{background:var(--mdred)}:root{--mdgrn:rgb(34,164,71);--mdred:rgb(255,83,80)}:root[data-theme="vip"]{--mdred:rgb(255,99,90)}:root[data-theme="light"],:root[data-theme="salon"],:root[data-theme="tus"],:root[data-theme="pap"],:root[data-theme="cleo"]{--mdgrn:rgb(21,122,51);--mdred:rgb(183,28,28)}:root[data-theme="light"] .mdtdb,:root[data-theme="salon"] .mdtdb,:root[data-theme="tus"] .mdtdb,:root[data-theme="pap"] .mdtdb,:root[data-theme="cleo"] .mdtdb{color:#fff}.mddb{padding:0 4px 6px 10px;white-space:normal}.mddb .mdnm{white-space:normal}.mddb .mdrow:last-child{border-bottom:0}.mdday.mdfut .mdg:disabled{opacity:.55;cursor:default}
 .mdnm{flex:1;min-width:0;font-size:16.5px;color:var(--txt);cursor:pointer;overflow-wrap:anywhere}.mdrep{display:block;color:var(--mut);font-size:12px}
 .mddo{display:flex;gap:6px;flex:none}.mdrow.many{flex-wrap:wrap}.mdrow.many .mdnm{flex-basis:100%}.mdrow.many .mddo{width:100%;justify-content:space-between}.mdper .spbd{padding-left:4px}.mdd{display:flex;flex-direction:column;align-items:center;width:52px}
 .mdd small{font-size:11px;color:var(--mut);margin-top:3px;white-space:nowrap}

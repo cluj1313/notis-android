@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "Byt namn",
 "Înregistrarea s-a oprit și s-a salvat": "Inspelningen stoppades och sparades",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Flikar som appen redan har skapat, med färdig struktur (Mediciner, Förbrukning, CRM, Inspelningar). Du kan flytta dem var som helst med ≡ eller dölja dem med bocken, som de andra.",
-"Record": "Spela in"
+"Record": "Spela in",
+"Azi": "Idag",
+"Fără medicamente în această zi": "Inga läkemedel denna dag",
+"Marchezi toate dozele din această zi ca luate?": "Markera alla dagens doser som tagna?",
+"Debifezi toate dozele din această zi?": "Avmarkera alla dagens doser?",
+"Zilele viitoare nu se pot bifa încă": "Kommande dagar kan inte bockas av än"
 };

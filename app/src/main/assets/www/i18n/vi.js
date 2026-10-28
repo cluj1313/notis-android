@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "Đổi tên",
 "Înregistrarea s-a oprit și s-a salvat": "Đã dừng và lưu bản ghi âm",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Các thẻ ứng dụng đã tạo sẵn, có cấu trúc chuẩn bị trước (Thuốc, Tiện ích, CRM, Bản ghi âm). Bạn có thể di chuyển chúng đến bất kỳ đâu bằng ≡ hoặc ẩn bằng ô đánh dấu, như các thẻ khác.",
-"Record": "Ghi âm"
+"Record": "Ghi âm",
+"Azi": "Hôm nay",
+"Fără medicamente în această zi": "Không có thuốc trong ngày này",
+"Marchezi toate dozele din această zi ca luate?": "Đánh dấu tất cả liều của ngày này là đã uống?",
+"Debifezi toate dozele din această zi?": "Bỏ đánh dấu tất cả liều của ngày này?",
+"Zilele viitoare nu se pot bifa încă": "Chưa thể đánh dấu các ngày sắp tới"
 };

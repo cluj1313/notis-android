@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "Riemërto",
 "Înregistrarea s-a oprit și s-a salvat": "Regjistrimi u ndal dhe u ruajt",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Skeda të krijuara tashmë nga aplikacioni, me strukturë gati (Ilaçe, Shërbime, CRM, Regjistrime). Mund t’i zhvendosësh kudo me ≡ ose t’i fshehësh me kutizën, si të tjerat.",
-"Record": "Regjistro"
+"Record": "Regjistro",
+"Azi": "Sot",
+"Fără medicamente în această zi": "Asnjë ilaç këtë ditë",
+"Marchezi toate dozele din această zi ca luate?": "T'i shënoj të gjitha dozat e kësaj dite si të marra?",
+"Debifezi toate dozele din această zi?": "T'ua heq shenjën të gjitha dozave të kësaj dite?",
+"Zilele viitoare nu se pot bifa încă": "Ditët e ardhshme nuk mund të shënohen ende"
 };

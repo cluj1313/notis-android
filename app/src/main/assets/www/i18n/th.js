@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "เปลี่ยนชื่อ",
 "Înregistrarea s-a oprit și s-a salvat": "หยุดและบันทึกการบันทึกเสียงแล้ว",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "แท็บที่แอปสร้างไว้แล้วพร้อมโครงสร้าง (ยา, ค่าสาธารณูปโภค, CRM, การบันทึกเสียง) ย้ายไปที่ใดก็ได้ด้วย ≡ หรือซ่อนด้วยช่องทำเครื่องหมาย เหมือนแท็บอื่น",
-"Record": "บันทึกเสียง"
+"Record": "บันทึกเสียง",
+"Azi": "วันนี้",
+"Fără medicamente în această zi": "ไม่มียาในวันนี้",
+"Marchezi toate dozele din această zi ca luate?": "ทำเครื่องหมายว่าทานยาทุกโดสของวันนี้แล้ว?",
+"Debifezi toate dozele din această zi?": "ยกเลิกเครื่องหมายทุกโดสของวันนี้?",
+"Zilele viitoare nu se pot bifa încă": "ยังทำเครื่องหมายวันในอนาคตไม่ได้"
 };

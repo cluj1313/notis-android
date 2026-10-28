@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "Nimeä uudelleen",
 "Înregistrarea s-a oprit și s-a salvat": "Tallennus pysäytetty ja tallennettu",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Sovelluksen valmiiksi luomat välilehdet, valmiilla rakenteella (Lääkkeet, Kulutus, CRM, Tallenteet). Voit siirtää niitä minne tahansa ≡:llä tai piilottaa valintaruudulla, kuten muitakin.",
-"Record": "Tallenna"
+"Record": "Tallenna",
+"Azi": "Tänään",
+"Fără medicamente în această zi": "Ei lääkkeitä tänä päivänä",
+"Marchezi toate dozele din această zi ca luate?": "Merkitäänkö kaikki päivän annokset otetuiksi?",
+"Debifezi toate dozele din această zi?": "Poistetaanko kaikkien päivän annosten merkinnät?",
+"Zilele viitoare nu se pot bifa încă": "Tulevia päiviä ei voi vielä merkitä"
 };

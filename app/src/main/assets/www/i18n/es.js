@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "Renombrar",
 "Înregistrarea s-a oprit și s-a salvat": "Grabación detenida y guardada",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Pestañas ya creadas por la app, con estructura lista (Medicamentos, Suministros, CRM, Grabaciones). Puedes moverlas a cualquier parte con ≡ u ocultarlas con la casilla, como las demás.",
-"Record": "Grabar"
+"Record": "Grabar",
+"Azi": "Hoy",
+"Fără medicamente în această zi": "Sin medicamentos este día",
+"Marchezi toate dozele din această zi ca luate?": "¿Marcar todas las dosis de este día como tomadas?",
+"Debifezi toate dozele din această zi?": "¿Desmarcar todas las dosis de este día?",
+"Zilele viitoare nu se pot bifa încă": "Los días futuros aún no se pueden marcar"
 };

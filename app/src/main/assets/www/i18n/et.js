@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "Nimeta ümber",
 "Înregistrarea s-a oprit și s-a salvat": "Salvestus peatati ja salvestati",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Rakenduse poolt juba loodud vahekaardid valmis struktuuriga (Ravimid, Kommunaalid, CRM, Salvestised). Saad neid ≡ abil kuhu tahes liigutada või linnukesega peita, nagu teisi.",
-"Record": "Salvesta"
+"Record": "Salvesta",
+"Azi": "Täna",
+"Fără medicamente în această zi": "Sel päeval ravimeid pole",
+"Marchezi toate dozele din această zi ca luate?": "Kas märkida kõik selle päeva annused võetuks?",
+"Debifezi toate dozele din această zi?": "Kas eemaldada kõigi selle päeva annuste märge?",
+"Zilele viitoare nu se pot bifa încă": "Tulevasi päevi ei saa veel märkida"
 };

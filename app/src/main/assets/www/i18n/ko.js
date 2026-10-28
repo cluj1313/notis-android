@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "이름 바꾸기",
 "Înregistrarea s-a oprit și s-a salvat": "녹음이 중지되고 저장되었습니다",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "앱이 미리 만든, 구조가 준비된 탭입니다(약, 공과금, CRM, 녹음). 다른 탭처럼 ≡로 어디든 옮기거나 체크박스로 숨길 수 있습니다.",
-"Record": "녹음"
+"Record": "녹음",
+"Azi": "오늘",
+"Fără medicamente în această zi": "이 날은 약이 없습니다",
+"Marchezi toate dozele din această zi ca luate?": "이 날의 모든 복용을 완료로 표시할까요?",
+"Debifezi toate dozele din această zi?": "이 날의 모든 복용 체크를 해제할까요?",
+"Zilele viitoare nu se pot bifa încă": "미래 날짜는 아직 체크할 수 없습니다"
 };

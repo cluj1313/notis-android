@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "Renomear",
 "Înregistrarea s-a oprit și s-a salvat": "Gravação parada e salva",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Abas já criadas pelo app, com estrutura pronta (Remédios, Contas, CRM, Gravações). Você pode movê-las para qualquer lugar com ≡ ou ocultá-las com a caixa, como as outras.",
-"Record": "Gravar"
+"Record": "Gravar",
+"Azi": "Hoje",
+"Fără medicamente în această zi": "Nenhum remédio neste dia",
+"Marchezi toate dozele din această zi ca luate?": "Marcar todas as doses deste dia como tomadas?",
+"Debifezi toate dozele din această zi?": "Desmarcar todas as doses deste dia?",
+"Zilele viitoare nu se pot bifa încă": "Os dias futuros ainda não podem ser marcados"
 };

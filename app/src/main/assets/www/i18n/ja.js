@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "名前を変更",
 "Înregistrarea s-a oprit și s-a salvat": "録音を停止して保存しました",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "アプリがあらかじめ用意した、構成済みのタブです（薬、光熱費、CRM、録音）。他のタブと同じく ≡ でどこへでも移動でき、チェックで非表示にできます。",
-"Record": "録音"
+"Record": "録音",
+"Azi": "今日",
+"Fără medicamente în această zi": "この日は薬がありません",
+"Marchezi toate dozele din această zi ca luate?": "この日のすべての服用を済みにしますか？",
+"Debifezi toate dozele din această zi?": "この日のすべての服用のチェックを外しますか？",
+"Zilele viitoare nu se pot bifa încă": "未来の日はまだチェックできません"
 };

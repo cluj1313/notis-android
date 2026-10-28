@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "تغییر نام",
 "Înregistrarea s-a oprit și s-a salvat": "ضبط متوقف و ذخیره شد",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "زبانه‌هایی که برنامه از قبل با ساختار آماده ساخته است (داروها، قبوض، CRM، ضبط‌ها). می‌توانی آن‌ها را با ≡ به هر جا ببری یا با تیک پنهان کنی، مثل بقیه.",
-"Record": "ضبط"
+"Record": "ضبط",
+"Azi": "امروز",
+"Fără medicamente în această zi": "در این روز دارویی نیست",
+"Marchezi toate dozele din această zi ca luate?": "همه دوزهای این روز مصرف‌شده علامت بخورند؟",
+"Debifezi toate dozele din această zi?": "علامت همه دوزهای این روز برداشته شود؟",
+"Zilele viitoare nu se pot bifa încă": "هنوز نمی‌توان روزهای آینده را علامت زد"
 };

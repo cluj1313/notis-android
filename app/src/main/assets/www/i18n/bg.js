@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "Преименувай",
 "Înregistrarea s-a oprit și s-a salvat": "Записът е спрян и запазен",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Раздели, вече създадени от приложението, с готова структура (Лекарства, Комунални, CRM, Записи). Можеш да ги преместиш навсякъде с ≡ или да ги скриеш с отметката, като другите.",
-"Record": "Запис"
+"Record": "Запис",
+"Azi": "Днес",
+"Fără medicamente în această zi": "Няма лекарства в този ден",
+"Marchezi toate dozele din această zi ca luate?": "Да се отбележат ли всички дози за деня като приети?",
+"Debifezi toate dozele din această zi?": "Да се премахнат ли отметките на всички дози за деня?",
+"Zilele viitoare nu se pot bifa încă": "Бъдещите дни още не могат да се отбелязват"
 };

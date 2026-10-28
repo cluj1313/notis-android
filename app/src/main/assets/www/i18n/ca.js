@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "Canvia el nom",
 "Înregistrarea s-a oprit și s-a salvat": "L'enregistrament s'ha aturat i desat",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Pestanyes ja creades per l’app, amb estructura preparada (Medicaments, Subministraments, CRM, Enregistraments). Les pots moure a qualsevol lloc amb ≡ o amagar amb la casella, com les altres.",
-"Record": "Enregistra"
+"Record": "Enregistra",
+"Azi": "Avui",
+"Fără medicamente în această zi": "Cap medicament aquest dia",
+"Marchezi toate dozele din această zi ca luate?": "Vols marcar totes les dosis d'aquest dia com a preses?",
+"Debifezi toate dozele din această zi?": "Vols desmarcar totes les dosis d'aquest dia?",
+"Zilele viitoare nu se pot bifa încă": "Els dies futurs encara no es poden marcar"
 };

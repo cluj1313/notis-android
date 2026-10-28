@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "Omdøb",
 "Înregistrarea s-a oprit și s-a salvat": "Optagelsen er stoppet og gemt",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Faner som appen allerede har lavet, med en færdig struktur (Medicin, Forsyning, CRM, Optagelser). Du kan flytte dem hvor som helst med ≡ eller skjule dem med fluebenet, ligesom de andre.",
-"Record": "Optag"
+"Record": "Optag",
+"Azi": "I dag",
+"Fără medicamente în această zi": "Ingen medicin denne dag",
+"Marchezi toate dozele din această zi ca luate?": "Markér alle dagens doser som taget?",
+"Debifezi toate dozele din această zi?": "Fjern markeringen af alle dagens doser?",
+"Zilele viitoare nu se pot bifa încă": "Fremtidige dage kan endnu ikke markeres"
 };

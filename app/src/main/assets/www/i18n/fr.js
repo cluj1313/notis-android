@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "Renommer",
 "Înregistrarea s-a oprit și s-a salvat": "Enregistrement arrêté et sauvegardé",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Onglets déjà créés par l’application, avec une structure prête (Médicaments, Charges, CRM, Enregistrements). Tu peux les déplacer n’importe où avec ≡ ou les masquer avec la case, comme les autres.",
-"Record": "Enregistrer"
+"Record": "Enregistrer",
+"Azi": "Aujourd'hui",
+"Fără medicamente în această zi": "Aucun médicament ce jour-là",
+"Marchezi toate dozele din această zi ca luate?": "Marquer toutes les doses de ce jour comme prises ?",
+"Debifezi toate dozele din această zi?": "Décocher toutes les doses de ce jour ?",
+"Zilele viitoare nu se pot bifa încă": "Les jours à venir ne peuvent pas encore être cochés"
 };

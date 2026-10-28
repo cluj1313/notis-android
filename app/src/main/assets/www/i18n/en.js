@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "Rename",
 "Înregistrarea s-a oprit și s-a salvat": "Recording stopped and saved",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Tabs already made by the app, with a ready structure (Medicines, Utilities, CRM, Recordings). You can move them anywhere in the list with ≡ or hide them with the checkbox, like the others.",
-"Record": "Record"
+"Record": "Record",
+"Azi": "Today",
+"Fără medicamente în această zi": "No medicines on this day",
+"Marchezi toate dozele din această zi ca luate?": "Mark all of this day's doses as taken?",
+"Debifezi toate dozele din această zi?": "Untick all of this day's doses?",
+"Zilele viitoare nu se pot bifa încă": "Future days can't be ticked yet"
 };

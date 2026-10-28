@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "নাম বদলান",
 "Înregistrarea s-a oprit și s-a salvat": "রেকর্ডিং থামানো ও সংরক্ষিত হয়েছে",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "অ্যাপের আগে থেকে তৈরি ট্যাব, প্রস্তুত কাঠামোসহ (ওষুধ, ইউটিলিটি, CRM, রেকর্ডিং)। অন্যগুলোর মতো ≡ দিয়ে যেকোনো জায়গায় সরাতে বা চেকবক্স দিয়ে লুকাতে পারেন।",
-"Record": "রেকর্ড"
+"Record": "রেকর্ড",
+"Azi": "আজ",
+"Fără medicamente în această zi": "এই দিনে কোনো ওষুধ নেই",
+"Marchezi toate dozele din această zi ca luate?": "এই দিনের সব ডোজ নেওয়া হয়েছে বলে চিহ্নিত করবেন?",
+"Debifezi toate dozele din această zi?": "এই দিনের সব ডোজের চিহ্ন সরাবেন?",
+"Zilele viitoare nu se pot bifa încă": "ভবিষ্যতের দিন এখনো চিহ্নিত করা যাবে না"
 };

@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "Namakan semula",
 "Înregistrarea s-a oprit și s-a salvat": "Rakaman dihentikan dan disimpan",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Tab yang telah dibuat oleh aplikasi, dengan struktur sedia (Ubat, Utiliti, CRM, Rakaman). Anda boleh mengalihkannya ke mana-mana dengan ≡ atau menyembunyikannya dengan kotak semak, seperti tab lain.",
-"Record": "Rakam"
+"Record": "Rakam",
+"Azi": "Hari ini",
+"Fără medicamente în această zi": "Tiada ubat pada hari ini",
+"Marchezi toate dozele din această zi ca luate?": "Tandakan semua dos hari ini sebagai sudah diambil?",
+"Debifezi toate dozele din această zi?": "Nyahtanda semua dos hari ini?",
+"Zilele viitoare nu se pot bifa încă": "Hari akan datang belum boleh ditanda"
 };

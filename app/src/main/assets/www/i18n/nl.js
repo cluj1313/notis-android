@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "Hernoemen",
 "Înregistrarea s-a oprit și s-a salvat": "Opname gestopt en opgeslagen",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Tabs die de app al heeft gemaakt, met een kant-en-klare structuur (Medicijnen, Nutsvoorzieningen, CRM, Opnames). Je kunt ze overal heen slepen met ≡ of verbergen met het vinkje, net als de andere.",
-"Record": "Opnemen"
+"Record": "Opnemen",
+"Azi": "Vandaag",
+"Fără medicamente în această zi": "Geen medicijnen op deze dag",
+"Marchezi toate dozele din această zi ca luate?": "Alle doses van deze dag als ingenomen markeren?",
+"Debifezi toate dozele din această zi?": "Alle doses van deze dag uitvinken?",
+"Zilele viitoare nu se pot bifa încă": "Toekomstige dagen kunnen nog niet worden afgevinkt"
 };

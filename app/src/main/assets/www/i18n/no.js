@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "Gi nytt navn",
 "Înregistrarea s-a oprit și s-a salvat": "Opptaket er stoppet og lagret",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Faner som appen allerede har laget, med ferdig struktur (Medisiner, Strøm og vann, CRM, Opptak). Du kan flytte dem hvor som helst med ≡ eller skjule dem med haken, som de andre.",
-"Record": "Ta opp"
+"Record": "Ta opp",
+"Azi": "I dag",
+"Fără medicamente în această zi": "Ingen medisiner denne dagen",
+"Marchezi toate dozele din această zi ca luate?": "Merke alle dagens doser som tatt?",
+"Debifezi toate dozele din această zi?": "Fjerne avkrysningen på alle dagens doser?",
+"Zilele viitoare nu se pot bifa încă": "Fremtidige dager kan ikke krysses av ennå"
 };

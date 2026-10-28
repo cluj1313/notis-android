@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "Pārdēvēt",
 "Înregistrarea s-a oprit și s-a salvat": "Ieraksts apturēts un saglabāts",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Lietotnes jau izveidotas cilnes ar gatavu struktūru (Medikamenti, Komunālie, CRM, Ieraksti). Tās var pārvietot jebkur ar ≡ vai paslēpt ar ķeksīti, tāpat kā citas.",
-"Record": "Ierakstīt"
+"Record": "Ierakstīt",
+"Azi": "Šodien",
+"Fără medicamente în această zi": "Šajā dienā nav zāļu",
+"Marchezi toate dozele din această zi ca luate?": "Atzīmēt visas šīs dienas devas kā lietotas?",
+"Debifezi toate dozele din această zi?": "Noņemt atzīmes no visām šīs dienas devām?",
+"Zilele viitoare nu se pot bifa încă": "Nākamās dienas vēl nevar atzīmēt"
 };

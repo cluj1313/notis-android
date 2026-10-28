@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "Yeniden adlandır",
 "Înregistrarea s-a oprit și s-a salvat": "Kayıt durduruldu ve kaydedildi",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Uygulamanın önceden oluşturduğu, yapısı hazır sekmeler (İlaçlar, Faturalar, CRM, Kayıtlar). Diğerleri gibi ≡ ile her yere taşıyabilir veya onay kutusuyla gizleyebilirsin.",
-"Record": "Kaydet"
+"Record": "Kaydet",
+"Azi": "Bugün",
+"Fără medicamente în această zi": "Bu gün ilaç yok",
+"Marchezi toate dozele din această zi ca luate?": "Bu günün tüm dozları alındı olarak işaretlensin mi?",
+"Debifezi toate dozele din această zi?": "Bu günün tüm dozlarının işareti kaldırılsın mı?",
+"Zilele viitoare nu se pot bifa încă": "Gelecek günler henüz işaretlenemez"
 };

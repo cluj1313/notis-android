@@ -1192,5 +1192,10 @@ NOTIS_I18N={
 "Redenumește": "שנה שם",
 "Înregistrarea s-a oprit și s-a salvat": "ההקלטה נעצרה ונשמרה",
 "Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "כרטיסיות שהאפליקציה כבר יצרה, עם מבנה מוכן (תרופות, חשבונות, CRM, הקלטות). אפשר להזיז אותן לכל מקום עם ≡ או להסתיר עם תיבת הסימון, כמו את האחרות.",
-"Record": "הקלט"
+"Record": "הקלט",
+"Azi": "היום",
+"Fără medicamente în această zi": "אין תרופות ביום זה",
+"Marchezi toate dozele din această zi ca luate?": "לסמן את כל המנות של היום כנלקחו?",
+"Debifezi toate dozele din această zi?": "לבטל את הסימון של כל המנות של היום?",
+"Zilele viitoare nu se pot bifa încă": "עדיין אי אפשר לסמן ימים עתידיים"
 };
