@@ -84,12 +84,11 @@ public class AlarmReceiver extends BroadcastReceiver {
     }
 
     static Notification build(Context c, String ch, String nid, String text) {
-        String first = text.split("\n")[0];
+        String[] tb = NotifText.split(text); /* 2.12.11: one emoji, title once, details once */
         Notification.Builder b = new Notification.Builder(c, ch)
             .setSmallIcon(R.drawable.ic_stat_alarm)
-            .setContentTitle("⏰ " + (first.length() > 0 ? first : "Notis"))
-            .setContentText(text)
-            .setStyle(new Notification.BigTextStyle().bigText(text))
+            .setContentTitle(tb[0])
+            .setContentText(tb[1])
             .setCategory(Notification.CATEGORY_ALARM)
             .setAutoCancel(true)
             .setContentIntent(NotisWidget.openApp(c, 800000 + Math.abs(nid.hashCode() % 90000), "?open=" + Uri.encode(nid)))
@@ -98,6 +97,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             .setVisibility(Notification.VISIBILITY_PUBLIC)
             .addAction(new Notification.Action.Builder(null, Tr.s(c, R.string.snooze10), snoozePi(c, nid, text)).build())
             .addAction(new Notification.Action.Builder(null, Tr.s(c, R.string.alarm_stop), stopPi(c, nid)).build());
+        if (!tb[1].isEmpty()) b.setStyle(new Notification.BigTextStyle().bigText(tb[1]));
         if (CH2.equals(ch)) b.setDeleteIntent(PendingIntent.getService(c, 0, new Intent(c, RingService.class).setAction(RingService.STOP), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE));
         Notification n = b.build();
         if (CH.equals(ch)) n.flags |= Notification.FLAG_INSISTENT; /* sound repeats until opened / dismissed, like an alarm clock */
@@ -118,7 +118,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         channel(c);
         try {
             Notification m = new Notification.Builder(c, CH).setSmallIcon(R.drawable.ic_stat_alarm).setContentTitle(n.extras.getCharSequence(Notification.EXTRA_TITLE)).setContentText(n.extras.getCharSequence(Notification.EXTRA_TEXT))
-                .setStyle(new Notification.BigTextStyle().bigText(n.extras.getCharSequence(Notification.EXTRA_TEXT))).setCategory(Notification.CATEGORY_ALARM).setAutoCancel(true)
+                .setStyle(n.extras.getCharSequence(Notification.EXTRA_BIG_TEXT) == null ? null : new Notification.BigTextStyle().bigText(n.extras.getCharSequence(Notification.EXTRA_BIG_TEXT))).setCategory(Notification.CATEGORY_ALARM).setAutoCancel(true)
                 .setContentIntent(n.contentIntent).setFullScreenIntent(n.fullScreenIntent, true).setPriority(Notification.PRIORITY_MAX).setVisibility(Notification.VISIBILITY_PUBLIC).setActions(n.actions == null ? new Notification.Action[0] : n.actions).build();
             m.flags |= Notification.FLAG_INSISTENT;
             c.getSystemService(NotificationManager.class).notify(id, m);

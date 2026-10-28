@@ -2640,7 +2640,7 @@ function alBeep(on){clearInterval(alBeepT);alBeepT=null;var cus=alRing(on);if(!o
  try{if(navigator.vibrate)navigator.vibrate([400,200,400])}catch(_){}};one();alBeepT=setInterval(one,1500)}
 function alShow(){if(alCur||!alQueue.length)return;alCur=alQueue.shift();$('alfTask').textContent=alCur.text;$('alFire').classList.add('show');alBeep(true)}
 function alFire(t,r){if(t.lock)t={id:t.id,text:t.ltitle||TR('Notiță blocată')};alQueue.push({r:r,text:t.text,med:t.med?t.id:null});alShow();
- try{if(window.Notification&&Notification.permission==='granted'&&navigator.serviceWorker)navigator.serviceWorker.getRegistration().then(function(r){if(r)r.showNotification('⏰ Notis',{body:t.text,tag:'jv-al-'+t.id,renotify:true,requireInteraction:true,vibrate:[400,200,400],icon:'icons/icon-192.png'});else new Notification('⏰ Notis',{body:t.text})}).catch(function(){})}catch(_){}}
+ var _nt=ntSplit(t.text);try{if(window.Notification&&Notification.permission==='granted'&&navigator.serviceWorker)navigator.serviceWorker.getRegistration().then(function(r){if(r)r.showNotification(_nt.t,{body:_nt.b,tag:'jv-al-'+t.id,renotify:true,requireInteraction:true,vibrate:[400,200,400],icon:'icons/icon-192.png'});else new Notification(_nt.t,{body:_nt.b})}).catch(function(){})}catch(_){}}
 function alStop(snooze){alBeep(false);$('alFire').classList.remove('show');var c=alCur;alCur=null;
  if(c&&snooze&&c.med&&window.medSnooze){medSnooze(c.med,c.text);toast(TR('Amânat 10 min'))}
  else if(c&&snooze){var t=alGet(c.r);if(t){if(!t.alarm)t.alarm={at:Date.now()+600000,rep:0,until:null};t.alarm.snz=Date.now()+600000;alPersist(c.r);alSchedule(t);toast(TR('Amânat 10 min'))}}
@@ -4335,6 +4335,14 @@ document.addEventListener('click',function(e){var v=$('spView');if(!v||!v.contai
  else if(A==='lftog'&&it){var fk=id+'|'+a.dataset.f;LFOP[fk]=LFOP[fk]?0:1;spRender();if(LFOP[fk]){var ta=$('spView').querySelector('.lbit[data-k="'+CSS.escape(it.dataset.k)+'"] .lbta[data-f="'+a.dataset.f+'"]');if(ta){ta.style.height=ta.scrollHeight+'px';ta.focus()}}}},true);
 /* dose alarm instants */
 function hmNext(hm,stepMin,now){var p=hm.split(':'),d=new Date(now);d.setHours(+p[0],+p[1],0,0);var at=d.getTime(),st=(stepMin||1440)*60000;if(at>now)at-=Math.ceil((at-now)/st)*st;while(at<=now)at+=st;return at}
+/* v155: notification text = ONE emoji + main thing once (title), details once (body) — same rules as native NotifText */
+function ntLead(s){var i=0,f='',a=Array.from(s);for(;i<a.length;i++){var ch=a[i],cp=ch.codePointAt(0);if(/[\p{L}\p{N}("'„\[#+\-]/u.test(ch))break;if((!f||ntEm(f)==='⏰')&&!/\s/.test(ch)&&!(cp===0xFE0F||cp===0xFE0E||cp===0x200D||cp===0x20E3||(cp>=0x1F3FB&&cp<=0x1F3FF))&&cp>=0x2000)f=ch}return[f,a.slice(i).join('').trim()]}
+function ntEm(e){return(!e||e==='⏰'||e==='📞'||e==='🔔'||e==='⏱')?'⏰':e}
+function ntClean(core,body){var o=[];String(body||'').split('\n').forEach(function(l){l=l.trim();if(!l)return;var t=ntLead(l)[1];if(core&&t===core)return;if(core&&t.indexOf(core+' ')===0){t=t.slice(core.length).replace(/^\s*[·—\-:]?\s*/,'');if(!t)return;l=t}o.push(l)});return o.join('\n')}
+function ntSplit(text){var s=String(text||'').trim(),nl=s.indexOf('\n'),first=nl<0?s:s.slice(0,nl).trim(),rest=nl<0?'':s.slice(nl+1),L=ntLead(first),em=ntEm(L[0]),core=L[1],det='',who='',d=core.lastIndexOf(' — ');
+ if(d>0){who=core.slice(d+3).trim();core=core.slice(0,d).trim()}var p=core.indexOf(' · ');if(p>0){det=core.slice(p+3).trim();core=core.slice(0,p).trim()}
+ if(who)det=det?det+' · '+who:who;if(!core)core='Notis';var b=ntClean(core,rest);if(det)b=b?det+'\n'+b:det;return{t:em+' '+core,b:b}}
+window.ntSplit=ntSplit;window.ntLead=ntLead;window.ntClean=ntClean;
 function medAlarms(){var out=[],now=Date.now();if(!noteTabs.some(function(t){return t.kind==='med'}))return medSnz(out,now);
  var many=MED.persons.length>1;
  MED.list.forEach(function(m){var pp=pFind(m.p),who=pp&&many?' — '+pName(pp):'',k=mKind(m);if(m.rep>0){if(m.ral)out.push({id:'med-'+m.id+'-r',text:'💊 '+m.name+who,hm:m.st||'08:00',rep:m.rep*60})}
@@ -4691,7 +4699,7 @@ function csvShare(){var s=csv(),fn='notis-crm-'+dkey()+'.csv',N=window.NotisNati
  if(navigator.share&&window.File){try{var f=new File([s],fn,{type:'text/csv'}),p={title:'Notis CRM',files:[f]};if(!navigator.canShare||navigator.canShare(p)){navigator.share(p).catch(function(err){if(!err||err.name!=='AbortError')dl()});return}}catch(_){}}
  dl();function dl(){if(N&&N.saveFile){var ok=false;try{ok=N.saveFile(fn,s)}catch(_){}toast(ok?TR('Salvat în Descărcări: ')+fn:TR('Nu am putut salva'));return}var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([s],{type:'text/csv;charset=utf-8'}));a.download=fn;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},800)}}
 /* ---- alarms: reminders go into the same snapshot as Medicamente/Utilități (native scheduling + reboot), Snooze via medSnooze ---- */
-function crmAl(){if(!noteTabs.some(function(t){return t.kind==='crm'}))return[];var o=[];C.list.forEach(function(c){var a=remAt(c);if(a&&a>Date.now()-6e4)o.push({id:'crm-'+c.id,text:'📞 '+(c.name||'')+(c.tel[0]?' · '+c.tel[0]:''),at:a})});return o}
+function crmAl(){if(!noteTabs.some(function(t){return t.kind==='crm'}))return[];var o=[];C.list.forEach(function(c){var a=remAt(c);if(a&&a>Date.now()-6e4)o.push({id:'crm-'+c.id,text:'📞 '+(c.name||'')+' · '+TR('Reamintire')+' · '+(c.rem.hm||'09:00'),at:a})});return o}
 (function w(){var s=window.medSnap;if(typeof s!=='function'){setTimeout(w,300);return}if(s._crm)return;window.medSnap=function(){var r=s.apply(this,arguments)||[];return r.concat(crmAl().map(function(a){return{id:a.id,tab:'__med',type:'med',title:a.text,text:a.text,upd:'',alarm:{at:a.at,rep:0,until:null,snz:null}}}))};window.medSnap._crm=1})();
 var fired={};setInterval(function(){if(DEMO)return;var now=Date.now();crmAl().forEach(function(a){if(a.at<=now&&now-a.at<5*60000&&!fired[a.id+a.at]){fired[a.id+a.at]=1;try{alFire({id:a.id,text:a.text,med:1},null)}catch(_){}rr()}})},15000);
 /* ---- backup / restore ---- */
@@ -4704,7 +4712,7 @@ window.crmMig=mig;try{mig();renderNotes()}catch(e){console.warn(e)}
 
 /* v96: Setări → TABURI (bibliotecă: ordine drag & drop, bifă vizibil/ascuns, PIN 4/6 opțional), DESIGN (Teme · Stil taburi · Fundal · Setări fine · Iconiță), iconiță urgență, Comunică cu creatorul, Versiune. Additive: hidden tab = t.off, nothing deleted. */
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v154';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v155';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};
@@ -4829,7 +4837,7 @@ var NEWS_URL='https://cluj1313.github.io/notis-news/creator.json';
  function poll(){if(!get(K,false))return;fetch(NEWS_URL+'?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){var a=(j&&j.messages)||[],S=get(KS,[]),B=get(KB,[]),first=!get('ns_newsPrimed',false),fresh=[];
   a.forEach(function(m){if(!m||!m.id||S.indexOf(m.id)>=0)return;S.push(m.id);B.push(m);if(!first)fresh.push(m);if(nat&&N.newsSeen)try{N.newsSeen(String(m.id))}catch(_){}});
   B=B.slice(-50);put(KS,S);put(KB,B);put('ns_newsPrimed',true);render();card(fresh);
-  if(!nat&&fresh.length&&window.Notification&&Notification.permission==='granted')fresh.forEach(function(m){var x=loc(m);try{new Notification(x.t,{body:x.b,icon:'icon-192.png'})}catch(_){}})}).catch(function(){})}
+  if(!nat&&fresh.length&&window.Notification&&Notification.permission==='granted')fresh.forEach(function(m){var x=loc(m);try{new Notification(x.t,{body:ntClean(ntLead(String(x.t||''))[1],x.b),icon:'icon-192.png'})}catch(_){}})}).catch(function(){})}
  var cb=$('nwOn');cb.checked=!!get(K,false);
  cb.addEventListener('change',function(){put(K,cb.checked);if(nat)try{N.newsSet(cb.checked,NL)}catch(_){}
   if(cb.checked){if(!nat&&window.Notification&&Notification.permission==='default')try{Notification.requestPermission()}catch(_){}poll()}});

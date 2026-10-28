@@ -63,12 +63,13 @@ public class NewsReceiver extends BroadcastReceiver {
         }).start();
     }
     static void notify(Context c, String id, String t, String b) {
+        b = NotifText.body(t, b); /* 2.12.11: never repeat the title in the body */
         NotificationManager nm = (NotificationManager) c.getSystemService(Context.NOTIFICATION_SERVICE); if (nm == null) return;
         if (nm.getNotificationChannel(CH) == null) nm.createNotificationChannel(new NotificationChannel(CH, "Notis", NotificationManager.IMPORTANCE_DEFAULT));
         Intent o = new Intent(c, MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         PendingIntent pi = PendingIntent.getActivity(c, id.hashCode(), o, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
         Notification n = new Notification.Builder(c, CH).setSmallIcon(R.drawable.ic_stat_alarm).setContentTitle(t).setContentText(b)
-            .setStyle(new Notification.BigTextStyle().bigText(b)).setAutoCancel(true).setContentIntent(pi).build();
+            .setStyle(!b.isEmpty() ? new Notification.BigTextStyle().bigText(b) : null).setAutoCancel(true).setContentIntent(pi).build();
         try { nm.notify("news", id.hashCode(), n); } catch (SecurityException ignored) {}
     }
 }
