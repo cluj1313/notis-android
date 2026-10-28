@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"demà",
 "ieri":"ahir",
 "Vezi toate":"Mostra-ho tot",
-"Arată mai puțin":"Mostra'n menys"
+"Arată mai puțin":"Mostra'n menys",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "Alguns enregistraments no han cabut a la còpia (massa grans); es queden al telèfon.",
+"Microfonul nu este disponibil": "El micròfon no està disponible",
+"Vrei să fie tabul cu înregistrări vizibil?": "Vols que la pestanya d'enregistraments sigui visible?",
+"Se găsesc în Setări → Taburi": "Les trobaràs a Configuració → Pestanyes",
+"Deschide": "Obre",
+"Înregistrare rapidă": "Enregistrament ràpid",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Encara no tens enregistraments. Toca 🔴 a la barra inferior d'una nota.",
+"Redenumește": "Canvia el nom",
+"Înregistrarea s-a oprit și s-a salvat": "L'enregistrament s'ha aturat i desat",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Pestanyes ja creades per l’app, amb estructura preparada (Medicaments, Subministraments, CRM, Enregistraments). Les pots moure a qualsevol lloc amb ≡ o amagar amb la casella, com les altres."
 };

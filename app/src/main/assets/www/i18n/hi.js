@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"कल",
 "ieri":"बीता कल",
 "Vezi toate":"सभी देखें",
-"Arată mai puțin":"कम दिखाएँ"
+"Arată mai puțin":"कम दिखाएँ",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "कुछ रिकॉर्डिंग बैकअप में नहीं समाईं (बहुत बड़ी); वे फ़ोन पर ही रहेंगी।",
+"Microfonul nu este disponibil": "माइक्रोफ़ोन उपलब्ध नहीं है",
+"Vrei să fie tabul cu înregistrări vizibil?": "क्या आप रिकॉर्डिंग टैब दिखाना चाहते हैं?",
+"Se găsesc în Setări → Taburi": "ये सेटिंग्स → टैब में मिलेंगी",
+"Deschide": "खोलें",
+"Înregistrare rapidă": "त्वरित रिकॉर्ड",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "अभी कोई रिकॉर्डिंग नहीं। किसी नोट की निचली पट्टी में 🔴 दबाएँ।",
+"Redenumește": "नाम बदलें",
+"Înregistrarea s-a oprit și s-a salvat": "रिकॉर्डिंग रुकी और सहेजी गई",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "ऐप द्वारा पहले से बनाए गए टैब, तैयार ढांचे के साथ (दवाइयाँ, यूटिलिटी, CRM, रिकॉर्डिंग)। इन्हें दूसरों की तरह ≡ से कहीं भी ले जा सकते हैं या चेकबॉक्स से छिपा सकते हैं।"
 };

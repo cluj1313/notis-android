@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"מחר",
 "ieri":"אתמול",
 "Vezi toate":"הצג הכול",
-"Arată mai puțin":"הצג פחות"
+"Arată mai puțin":"הצג פחות",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "חלק מההקלטות לא נכנסו לגיבוי (גדולות מדי); הן נשארות בטלפון.",
+"Microfonul nu este disponibil": "המיקרופון לא זמין",
+"Vrei să fie tabul cu înregistrări vizibil?": "האם להציג את כרטיסיית ההקלטות?",
+"Se găsesc în Setări → Taburi": "תמצא אותן בהגדרות ← כרטיסיות",
+"Deschide": "פתח",
+"Înregistrare rapidă": "הקלטה מהירה",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "אין עדיין הקלטות. הקש 🔴 בסרגל התחתון של פתק.",
+"Redenumește": "שנה שם",
+"Înregistrarea s-a oprit și s-a salvat": "ההקלטה נעצרה ונשמרה",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "כרטיסיות שהאפליקציה כבר יצרה, עם מבנה מוכן (תרופות, חשבונות, CRM, הקלטות). אפשר להזיז אותן לכל מקום עם ≡ או להסתיר עם תיבת הסימון, כמו את האחרות."
 };

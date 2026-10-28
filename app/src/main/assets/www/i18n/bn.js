@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"আগামীকাল",
 "ieri":"গতকাল",
 "Vezi toate":"সব দেখুন",
-"Arată mai puțin":"কম দেখান"
+"Arată mai puțin":"কম দেখান",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "কিছু রেকর্ডিং ব্যাকআপে আঁটেনি (খুব বড়); সেগুলো ফোনেই থাকবে।",
+"Microfonul nu este disponibil": "মাইক্রোফোন উপলব্ধ নয়",
+"Vrei să fie tabul cu înregistrări vizibil?": "রেকর্ডিং ট্যাবটি কি দৃশ্যমান রাখতে চান?",
+"Se găsesc în Setări → Taburi": "সেটিংস → ট্যাব-এ পাবেন",
+"Deschide": "খুলুন",
+"Înregistrare rapidă": "দ্রুত রেকর্ড",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "এখনও কোনো রেকর্ডিং নেই। কোনো নোটের নিচের বারে 🔴 চাপুন।",
+"Redenumește": "নাম বদলান",
+"Înregistrarea s-a oprit și s-a salvat": "রেকর্ডিং থামানো ও সংরক্ষিত হয়েছে",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "অ্যাপের আগে থেকে তৈরি ট্যাব, প্রস্তুত কাঠামোসহ (ওষুধ, ইউটিলিটি, CRM, রেকর্ডিং)। অন্যগুলোর মতো ≡ দিয়ে যেকোনো জায়গায় সরাতে বা চেকবক্স দিয়ে লুকাতে পারেন।"
 };

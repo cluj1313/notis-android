@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"zajtra",
 "ieri":"včera",
 "Vezi toate":"Zobraziť všetky",
-"Arată mai puțin":"Zobraziť menej"
+"Arată mai puțin":"Zobraziť menej",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "Niektoré nahrávky sa do zálohy nezmestili (príliš veľké); zostávajú v telefóne.",
+"Microfonul nu este disponibil": "Mikrofón nie je k dispozícii",
+"Vrei să fie tabul cu înregistrări vizibil?": "Chceš, aby bola karta s nahrávkami viditeľná?",
+"Se găsesc în Setări → Taburi": "Nájdeš ich v Nastavenia → Karty",
+"Deschide": "Otvoriť",
+"Înregistrare rapidă": "Rýchle nahrávanie",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Zatiaľ nemáš nahrávky. Ťukni na 🔴 v spodnej lište poznámky.",
+"Redenumește": "Premenovať",
+"Înregistrarea s-a oprit și s-a salvat": "Nahrávanie zastavené a uložené",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Karty, ktoré aplikácia už vytvorila, s pripravenou štruktúrou (Lieky, Energie, CRM, Nahrávky). Môžete ich presunúť kamkoľvek pomocou ≡ alebo skryť zaškrtnutím, ako ostatné."
 };

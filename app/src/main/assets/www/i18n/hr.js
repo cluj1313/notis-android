@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"sutra",
 "ieri":"jučer",
 "Vezi toate":"Prikaži sve",
-"Arată mai puțin":"Prikaži manje"
+"Arată mai puțin":"Prikaži manje",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "Neke snimke nisu stale u sigurnosnu kopiju (prevelike); ostaju na telefonu.",
+"Microfonul nu este disponibil": "Mikrofon nije dostupan",
+"Vrei să fie tabul cu înregistrări vizibil?": "Želiš li da kartica sa snimkama bude vidljiva?",
+"Se găsesc în Setări → Taburi": "Naći ćeš ih u Postavke → Kartice",
+"Deschide": "Otvori",
+"Înregistrare rapidă": "Brzo snimanje",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Još nemaš snimki. Dodirni 🔴 na donjoj traci bilješke.",
+"Redenumește": "Preimenuj",
+"Înregistrarea s-a oprit și s-a salvat": "Snimanje je zaustavljeno i spremljeno",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Kartice koje je aplikacija već izradila, s pripremljenom strukturom (Lijekovi, Režije, CRM, Snimke). Možeš ih premjestiti bilo kamo pomoću ≡ ili sakriti kvačicom, kao i ostale."
 };

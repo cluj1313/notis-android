@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"morgen",
 "ieri":"gisteren",
 "Vezi toate":"Alles bekijken",
-"Arată mai puțin":"Minder tonen"
+"Arată mai puțin":"Minder tonen",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "Sommige opnames pasten niet in de back-up (te groot); ze blijven op de telefoon.",
+"Microfonul nu este disponibil": "Microfoon is niet beschikbaar",
+"Vrei să fie tabul cu înregistrări vizibil?": "Wil je dat het tabblad met opnames zichtbaar is?",
+"Se găsesc în Setări → Taburi": "Je vindt ze in Instellingen → Tabs",
+"Deschide": "Openen",
+"Înregistrare rapidă": "Snel opnemen",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Nog geen opnames. Tik op 🔴 in de onderbalk van een notitie.",
+"Redenumește": "Hernoemen",
+"Înregistrarea s-a oprit și s-a salvat": "Opname gestopt en opgeslagen",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Tabs die de app al heeft gemaakt, met een kant-en-klare structuur (Medicijnen, Nutsvoorzieningen, CRM, Opnames). Je kunt ze overal heen slepen met ≡ of verbergen met het vinkje, net als de andere."
 };

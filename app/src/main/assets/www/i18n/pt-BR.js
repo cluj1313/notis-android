@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"amanhã",
 "ieri":"ontem",
 "Vezi toate":"Ver todos",
-"Arată mai puțin":"Ver menos"
+"Arată mai puțin":"Ver menos",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "Algumas gravações não couberam no backup (grandes demais); ficam no celular.",
+"Microfonul nu este disponibil": "O microfone não está disponível",
+"Vrei să fie tabul cu înregistrări vizibil?": "Quer que a aba de gravações fique visível?",
+"Se găsesc în Setări → Taburi": "Você as encontra em Configurações → Abas",
+"Deschide": "Abrir",
+"Înregistrare rapidă": "Gravação rápida",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Ainda não há gravações. Toque em 🔴 na barra inferior de uma nota.",
+"Redenumește": "Renomear",
+"Înregistrarea s-a oprit și s-a salvat": "Gravação parada e salva",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Abas já criadas pelo app, com estrutura pronta (Remédios, Contas, CRM, Gravações). Você pode movê-las para qualquer lugar com ≡ ou ocultá-las com a caixa, como as outras."
 };

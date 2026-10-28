@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"morgen",
 "ieri":"gestern",
 "Vezi toate":"Alle anzeigen",
-"Arată mai puțin":"Weniger anzeigen"
+"Arată mai puțin":"Weniger anzeigen",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "Einige Aufnahmen passten nicht ins Backup (zu groß); sie bleiben auf dem Handy.",
+"Microfonul nu este disponibil": "Mikrofon nicht verfügbar",
+"Vrei să fie tabul cu înregistrări vizibil?": "Soll der Tab mit Aufnahmen sichtbar sein?",
+"Se găsesc în Setări → Taburi": "Du findest sie unter Einstellungen → Tabs",
+"Deschide": "Öffnen",
+"Înregistrare rapidă": "Schnellaufnahme",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Noch keine Aufnahmen. Tippe auf 🔴 in der unteren Leiste einer Notiz.",
+"Redenumește": "Umbenennen",
+"Înregistrarea s-a oprit și s-a salvat": "Aufnahme beendet und gespeichert",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Tabs, die die App schon angelegt hat, mit fertiger Struktur (Medikamente, Nebenkosten, CRM, Aufnahmen). Du kannst sie wie die anderen mit ≡ überallhin verschieben oder mit dem Häkchen ausblenden."
 };

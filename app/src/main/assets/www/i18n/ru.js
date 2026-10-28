@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"завтра",
 "ieri":"вчера",
 "Vezi toate":"Показать все",
-"Arată mai puțin":"Свернуть"
+"Arată mai puțin":"Свернуть",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "Некоторые записи не поместились в резервную копию (слишком большие); они остаются на телефоне.",
+"Microfonul nu este disponibil": "Микрофон недоступен",
+"Vrei să fie tabul cu înregistrări vizibil?": "Сделать вкладку с записями видимой?",
+"Se găsesc în Setări → Taburi": "Они находятся в Настройки → Вкладки",
+"Deschide": "Открыть",
+"Înregistrare rapidă": "Быстрая запись",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Записей пока нет. Нажми 🔴 в нижней панели заметки.",
+"Redenumește": "Переименовать",
+"Înregistrarea s-a oprit și s-a salvat": "Запись остановлена и сохранена",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Вкладки, уже созданные приложением, с готовой структурой (Лекарства, Коммунальные, CRM, Записи). Их можно переместить куда угодно с помощью ≡ или скрыть галочкой, как и остальные."
 };

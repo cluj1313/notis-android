@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"jutri",
 "ieri":"včeraj",
 "Vezi toate":"Pokaži vse",
-"Arată mai puțin":"Pokaži manj"
+"Arată mai puțin":"Pokaži manj",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "Nekateri posnetki niso šli v varnostno kopijo (preveliki); ostanejo v telefonu.",
+"Microfonul nu este disponibil": "Mikrofon ni na voljo",
+"Vrei să fie tabul cu înregistrări vizibil?": "Želiš, da je zavihek s posnetki viden?",
+"Se găsesc în Setări → Taburi": "Najdeš jih v Nastavitve → Zavihki",
+"Deschide": "Odpri",
+"Înregistrare rapidă": "Hitro snemanje",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Še nimaš posnetkov. Tapni 🔴 v spodnji vrstici zapiska.",
+"Redenumește": "Preimenuj",
+"Înregistrarea s-a oprit și s-a salvat": "Snemanje je ustavljeno in shranjeno",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Zavihki, ki jih je aplikacija že ustvarila, s pripravljeno strukturo (Zdravila, Komunala, CRM, Posnetki). Premakneš jih lahko kamorkoli z ≡ ali skriješ s kljukico, kot druge."
 };

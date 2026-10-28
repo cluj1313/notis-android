@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"غدًا",
 "ieri":"أمس",
 "Vezi toate":"عرض الكل",
-"Arată mai puțin":"عرض أقل"
+"Arată mai puțin":"عرض أقل",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "بعض التسجيلات لم تتسع في النسخة الاحتياطية (كبيرة جدًا)؛ تبقى على الهاتف.",
+"Microfonul nu este disponibil": "الميكروفون غير متاح",
+"Vrei să fie tabul cu înregistrări vizibil?": "هل تريد أن تكون علامة تبويب التسجيلات مرئية؟",
+"Se găsesc în Setări → Taburi": "تجدها في الإعدادات ← علامات التبويب",
+"Deschide": "فتح",
+"Înregistrare rapidă": "تسجيل سريع",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "لا توجد تسجيلات بعد. اضغط 🔴 في الشريط السفلي لملاحظة.",
+"Redenumește": "إعادة تسمية",
+"Înregistrarea s-a oprit și s-a salvat": "توقف التسجيل وتم حفظه",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "علامات تبويب أنشأها التطبيق مسبقًا ببنية جاهزة (الأدوية، المرافق، CRM، التسجيلات). يمكنك نقلها إلى أي مكان بـ ≡ أو إخفاؤها بمربع الاختيار، مثل غيرها."
 };

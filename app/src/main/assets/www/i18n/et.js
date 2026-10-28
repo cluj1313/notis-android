@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"homme",
 "ieri":"eile",
 "Vezi toate":"Näita kõiki",
-"Arată mai puțin":"Näita vähem"
+"Arată mai puțin":"Näita vähem",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "Mõned salvestised ei mahtunud varukoopiasse (liiga suured); need jäävad telefoni.",
+"Microfonul nu este disponibil": "Mikrofon pole saadaval",
+"Vrei să fie tabul cu înregistrări vizibil?": "Kas soovid, et salvestiste vahekaart oleks nähtav?",
+"Se găsesc în Setări → Taburi": "Leiad need: Seaded → Vahekaardid",
+"Deschide": "Ava",
+"Înregistrare rapidă": "Kiirsalvestus",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Salvestisi veel pole. Puuduta märkme alumisel ribal 🔴.",
+"Redenumește": "Nimeta ümber",
+"Înregistrarea s-a oprit și s-a salvat": "Salvestus peatati ja salvestati",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Rakenduse poolt juba loodud vahekaardid valmis struktuuriga (Ravimid, Kommunaalid, CRM, Salvestised). Saad neid ≡ abil kuhu tahes liigutada või linnukesega peita, nagu teisi."
 };

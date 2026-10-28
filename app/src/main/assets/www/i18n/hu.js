@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"holnap",
 "ieri":"tegnap",
 "Vezi toate":"Összes",
-"Arată mai puțin":"Kevesebb"
+"Arată mai puțin":"Kevesebb",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "Néhány felvétel nem fért bele a mentésbe (túl nagy); a telefonon maradnak.",
+"Microfonul nu este disponibil": "A mikrofon nem érhető el",
+"Vrei să fie tabul cu înregistrări vizibil?": "Szeretnéd, hogy a felvételek lap látható legyen?",
+"Se găsesc în Setări → Taburi": "A Beállítások → Lapok alatt találod őket",
+"Deschide": "Megnyitás",
+"Înregistrare rapidă": "Gyors felvétel",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Még nincs felvételed. Koppints a 🔴 gombra egy jegyzet alsó sávjában.",
+"Redenumește": "Átnevezés",
+"Înregistrarea s-a oprit și s-a salvat": "A felvétel leállt és mentve",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Az alkalmazás által már létrehozott lapok, kész szerkezettel (Gyógyszerek, Rezsi, CRM, Felvételek). A ≡ jellel bárhová áthelyezheted vagy a pipával elrejtheted őket, mint a többit."
 };

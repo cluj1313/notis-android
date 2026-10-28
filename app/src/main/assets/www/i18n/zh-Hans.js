@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"明天",
 "ieri":"昨天",
 "Vezi toate":"查看全部",
-"Arată mai puțin":"收起"
+"Arată mai puțin":"收起",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "部分录音未能放入备份（太大）；它们仍保留在手机上。",
+"Microfonul nu este disponibil": "麦克风不可用",
+"Vrei să fie tabul cu înregistrări vizibil?": "要显示录音标签页吗？",
+"Se găsesc în Setări → Taburi": "可在 设置 → 标签页 中找到",
+"Deschide": "打开",
+"Înregistrare rapidă": "快速录音",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "还没有录音。点按笔记底部栏中的 🔴。",
+"Redenumește": "重命名",
+"Înregistrarea s-a oprit și s-a salvat": "录音已停止并保存",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "应用预先创建、结构已备好的标签页（药品、水电煤、CRM、录音）。可像其他标签页一样用 ≡ 移到任意位置，或用复选框隐藏。"
 };

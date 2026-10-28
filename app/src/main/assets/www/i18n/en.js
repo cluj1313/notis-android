@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"tomorrow",
 "ieri":"yesterday",
 "Vezi toate":"See all",
-"Arată mai puțin":"Show less"
+"Arată mai puțin":"Show less",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "Some recordings didn't fit in the backup (too large); they stay on the phone.",
+"Microfonul nu este disponibil": "Microphone is not available",
+"Vrei să fie tabul cu înregistrări vizibil?": "Do you want the recordings tab to be visible?",
+"Se găsesc în Setări → Taburi": "You'll find them in Settings → Tabs",
+"Deschide": "Open",
+"Înregistrare rapidă": "Quick record",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "No recordings yet. Tap 🔴 in the bottom bar of a note.",
+"Redenumește": "Rename",
+"Înregistrarea s-a oprit și s-a salvat": "Recording stopped and saved",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Tabs already made by the app, with a ready structure (Medicines, Utilities, CRM, Recordings). You can move them anywhere in the list with ≡ or hide them with the checkbox, like the others."
 };

@@ -57,7 +57,7 @@ Why photos/audio are NOT "collected": they never leave the device (Play only cou
 | Permission | Why Notis needs it | When it is used |
 |---|---|---|
 | `INTERNET`, `ACCESS_NETWORK_STATE` | Loads the app interface (always up to date) from GitHub Pages, falls back to the built-in copy offline; optional weather and read-aloud voice files | App start / when the user uses weather or read-aloud |
-| `RECORD_AUDIO` | Record **voice notes** that the user attaches to a note | **Only after the user taps the record button**; runtime permission dialog; audio saved locally, never uploaded; nothing in background |
+| `RECORD_AUDIO` | Record **voice notes** that the user attaches to a note, and **quick recordings** (🔴, RECORDINGS tab) | **Only after the user taps the record button**; runtime permission dialog; audio saved locally, never uploaded; nothing in background |
 | `MODIFY_AUDIO_SETTINGS` | Needed by the WebView/MediaRecorder audio pipeline during a voice-note recording | Only during a user-started recording |
 | `POST_NOTIFICATIONS` | Show the reminders the user sets | Android 13+ runtime permission dialog (the user can refuse; reminders then cannot show) |
 | `SCHEDULE_EXACT_ALARM` (≤ Android 12L) / `USE_EXACT_ALARM` (Android 13+) | Reminders must fire at the exact minute the user chose (the user's own alarms) | Only for reminders the user created |

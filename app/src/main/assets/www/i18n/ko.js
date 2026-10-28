@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"내일",
 "ieri":"어제",
 "Vezi toate":"모두 보기",
-"Arată mai puțin":"간단히 보기"
+"Arată mai puțin":"간단히 보기",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "일부 녹음은 백업에 들어가지 않았습니다(너무 큼). 휴대폰에 남아 있습니다.",
+"Microfonul nu este disponibil": "마이크를 사용할 수 없습니다",
+"Vrei să fie tabul cu înregistrări vizibil?": "녹음 탭을 표시할까요?",
+"Se găsesc în Setări → Taburi": "설정 → 탭에서 찾을 수 있습니다",
+"Deschide": "열기",
+"Înregistrare rapidă": "빠른 녹음",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "아직 녹음이 없습니다. 메모 하단 바의 🔴을 누르세요.",
+"Redenumește": "이름 바꾸기",
+"Înregistrarea s-a oprit și s-a salvat": "녹음이 중지되고 저장되었습니다",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "앱이 미리 만든, 구조가 준비된 탭입니다(약, 공과금, CRM, 녹음). 다른 탭처럼 ≡로 어디든 옮기거나 체크박스로 숨길 수 있습니다."
 };

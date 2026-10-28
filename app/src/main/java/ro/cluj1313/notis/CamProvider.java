@@ -10,11 +10,12 @@ import android.provider.OpenableColumns;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-/** Minimal private provider: lets the system camera app write one photo into cache/cam (EXTRA_OUTPUT) and the WebView read it back.
+/** Minimal private provider: lets the system camera app write one photo into cache/cam (EXTRA_OUTPUT) and the WebView read it back; also serves a quick-record audio file (rec-<ts>.<ext>) to the app the user picks in the share sheet.
  *  Not exported; access only through the per-intent URI grant. No CAMERA permission is declared or needed. */
 public class CamProvider extends ContentProvider {
     @Override public boolean onCreate() { return true; }
-    static String safe(String n) { return n != null && n.matches("photo-\\d+\\.jpg") ? n : null; }
+    static String safe(String n) { return n != null && (n.matches("photo-\\d+\\.jpg") || n.matches("rec-\\d+\\.(m4a|webm|ogg)")) ? n : null; }
+    static String type(String n) { if (n == null) return "image/jpeg"; if (n.endsWith(".m4a")) return "audio/mp4"; if (n.endsWith(".webm")) return "audio/webm"; if (n.endsWith(".ogg")) return "audio/ogg"; return "image/jpeg"; }
     private File file(Uri u) throws FileNotFoundException {
         String n = safe(u.getLastPathSegment());
         if (n == null) throw new FileNotFoundException();
@@ -25,7 +26,7 @@ public class CamProvider extends ContentProvider {
         int m = mode.contains("w") ? ParcelFileDescriptor.MODE_READ_WRITE | ParcelFileDescriptor.MODE_CREATE | ParcelFileDescriptor.MODE_TRUNCATE : ParcelFileDescriptor.MODE_READ_ONLY;
         return ParcelFileDescriptor.open(f, m);
     }
-    @Override public String getType(Uri u) { return "image/jpeg"; }
+    @Override public String getType(Uri u) { return type(safe(u.getLastPathSegment())); }
     @Override public Cursor query(Uri u, String[] proj, String sel, String[] args, String sort) {
         MatrixCursor c = new MatrixCursor(new String[]{ OpenableColumns.DISPLAY_NAME, OpenableColumns.SIZE });
         try { File f = file(u); c.addRow(new Object[]{ f.getName(), f.length() }); } catch (Exception ignored) {}

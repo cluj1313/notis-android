@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"besok",
 "ieri":"kemarin",
 "Vezi toate":"Lihat semua",
-"Arată mai puțin":"Lebih sedikit"
+"Arată mai puțin":"Lebih sedikit",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "Beberapa rekaman tidak muat di cadangan (terlalu besar); tetap ada di ponsel.",
+"Microfonul nu este disponibil": "Mikrofon tidak tersedia",
+"Vrei să fie tabul cu înregistrări vizibil?": "Mau tab rekaman terlihat?",
+"Se găsesc în Setări → Taburi": "Kamu bisa menemukannya di Pengaturan → Tab",
+"Deschide": "Buka",
+"Înregistrare rapidă": "Rekam cepat",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Belum ada rekaman. Ketuk 🔴 di bilah bawah catatan.",
+"Redenumește": "Ganti nama",
+"Înregistrarea s-a oprit și s-a salvat": "Rekaman dihentikan dan disimpan",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Tab yang sudah dibuat aplikasi, dengan struktur siap pakai (Obat, Utilitas, CRM, Rekaman). Kamu bisa memindahkannya ke mana saja dengan ≡ atau menyembunyikannya dengan kotak centang, seperti tab lain."
 };

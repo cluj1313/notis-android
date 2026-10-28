@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"yarın",
 "ieri":"dün",
 "Vezi toate":"Tümünü gör",
-"Arată mai puțin":"Daha az göster"
+"Arată mai puțin":"Daha az göster",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "Bazı kayıtlar yedeğe sığmadı (çok büyük); telefonda kalıyorlar.",
+"Microfonul nu este disponibil": "Mikrofon kullanılamıyor",
+"Vrei să fie tabul cu înregistrări vizibil?": "Kayıtlar sekmesi görünür olsun mu?",
+"Se găsesc în Setări → Taburi": "Ayarlar → Sekmeler içinde bulabilirsin",
+"Deschide": "Aç",
+"Înregistrare rapidă": "Hızlı kayıt",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Henüz kayıt yok. Bir notun alt çubuğundaki 🔴 simgesine dokun.",
+"Redenumește": "Yeniden adlandır",
+"Înregistrarea s-a oprit și s-a salvat": "Kayıt durduruldu ve kaydedildi",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Uygulamanın önceden oluşturduğu, yapısı hazır sekmeler (İlaçlar, Faturalar, CRM, Kayıtlar). Diğerleri gibi ≡ ile her yere taşıyabilir veya onay kutusuyla gizleyebilirsin."
 };

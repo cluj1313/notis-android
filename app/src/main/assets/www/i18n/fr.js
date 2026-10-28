@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"demain",
 "ieri":"hier",
 "Vezi toate":"Tout voir",
-"Arată mai puțin":"Voir moins"
+"Arată mai puțin":"Voir moins",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "Certains enregistrements n'ont pas tenu dans la sauvegarde (trop gros) ; ils restent sur le téléphone.",
+"Microfonul nu este disponibil": "Le micro n'est pas disponible",
+"Vrei să fie tabul cu înregistrări vizibil?": "Veux-tu que l'onglet des enregistrements soit visible ?",
+"Se găsesc în Setări → Taburi": "Tu les trouveras dans Réglages → Onglets",
+"Deschide": "Ouvrir",
+"Înregistrare rapidă": "Enregistrement rapide",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Pas encore d'enregistrements. Touche 🔴 dans la barre du bas d'une note.",
+"Redenumește": "Renommer",
+"Înregistrarea s-a oprit și s-a salvat": "Enregistrement arrêté et sauvegardé",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Onglets déjà créés par l’application, avec une structure prête (Médicaments, Charges, CRM, Enregistrements). Tu peux les déplacer n’importe où avec ≡ ou les masquer avec la case, comme les autres."
 };

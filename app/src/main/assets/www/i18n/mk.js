@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"утре",
 "ieri":"вчера",
 "Vezi toate":"Види ги сите",
-"Arată mai puțin":"Прикажи помалку"
+"Arată mai puțin":"Прикажи помалку",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "Некои снимки не собраа во резервната копија (преголеми); остануваат на телефонот.",
+"Microfonul nu este disponibil": "Микрофонот не е достапен",
+"Vrei să fie tabul cu înregistrări vizibil?": "Сакаш ли јазичето со снимки да биде видливо?",
+"Se găsesc în Setări → Taburi": "Ќе ги најдеш во Поставки → Јазичиња",
+"Deschide": "Отвори",
+"Înregistrare rapidă": "Брзо снимање",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Сè уште немаш снимки. Допри 🔴 во долната лента на белешка.",
+"Redenumește": "Преименувај",
+"Înregistrarea s-a oprit și s-a salvat": "Снимањето е запрено и зачувано",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Јазичиња што апликацијата веќе ги создала, со подготвена структура (Лекови, Комуналии, CRM, Снимки). Можеш да ги преместиш каде било со ≡ или да ги скриеш со штиклирање, како и другите."
 };

@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"nesër",
 "ieri":"dje",
 "Vezi toate":"Shiko të gjitha",
-"Arată mai puțin":"Shfaq më pak"
+"Arată mai puțin":"Shfaq më pak",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "Disa regjistrime nuk u futën në kopjen rezervë (shumë të mëdha); mbeten në telefon.",
+"Microfonul nu este disponibil": "Mikrofoni nuk është i disponueshëm",
+"Vrei să fie tabul cu înregistrări vizibil?": "Do që skeda e regjistrimeve të jetë e dukshme?",
+"Se găsesc în Setări → Taburi": "I gjen te Cilësimet → Skedat",
+"Deschide": "Hap",
+"Înregistrare rapidă": "Regjistrim i shpejtë",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Ende s'ke regjistrime. Prek 🔴 në shiritin e poshtëm të një shënimi.",
+"Redenumește": "Riemërto",
+"Înregistrarea s-a oprit și s-a salvat": "Regjistrimi u ndal dhe u ruajt",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Skeda të krijuara tashmë nga aplikacioni, me strukturë gati (Ilaçe, Shërbime, CRM, Regjistrime). Mund t’i zhvendosësh kudo me ≡ ose t’i fshehësh me kutizën, si të tjerat."
 };

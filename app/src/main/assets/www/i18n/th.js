@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"พรุ่งนี้",
 "ieri":"เมื่อวาน",
 "Vezi toate":"ดูทั้งหมด",
-"Arată mai puțin":"แสดงน้อยลง"
+"Arată mai puțin":"แสดงน้อยลง",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "บางไฟล์บันทึกเสียงใส่ในข้อมูลสำรองไม่ได้ (ใหญ่เกินไป) จะยังอยู่ในโทรศัพท์",
+"Microfonul nu este disponibil": "ไมโครโฟนไม่พร้อมใช้งาน",
+"Vrei să fie tabul cu înregistrări vizibil?": "ต้องการให้แท็บการบันทึกเสียงแสดงอยู่ไหม?",
+"Se găsesc în Setări → Taburi": "ดูได้ที่ การตั้งค่า → แท็บ",
+"Deschide": "เปิด",
+"Înregistrare rapidă": "บันทึกเสียงด่วน",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "ยังไม่มีการบันทึกเสียง แตะ 🔴 ที่แถบด้านล่างของโน้ต",
+"Redenumește": "เปลี่ยนชื่อ",
+"Înregistrarea s-a oprit și s-a salvat": "หยุดและบันทึกการบันทึกเสียงแล้ว",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "แท็บที่แอปสร้างไว้แล้วพร้อมโครงสร้าง (ยา, ค่าสาธารณูปโภค, CRM, การบันทึกเสียง) ย้ายไปที่ใดก็ได้ด้วย ≡ หรือซ่อนด้วยช่องทำเครื่องหมาย เหมือนแท็บอื่น"
 };

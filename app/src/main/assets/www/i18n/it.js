@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"domani",
 "ieri":"ieri",
 "Vezi toate":"Vedi tutti",
-"Arată mai puțin":"Mostra meno"
+"Arată mai puțin":"Mostra meno",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "Alcune registrazioni non sono entrate nel backup (troppo grandi); restano sul telefono.",
+"Microfonul nu este disponibil": "Il microfono non è disponibile",
+"Vrei să fie tabul cu înregistrări vizibil?": "Vuoi che la scheda delle registrazioni sia visibile?",
+"Se găsesc în Setări → Taburi": "Le trovi in Impostazioni → Schede",
+"Deschide": "Apri",
+"Înregistrare rapidă": "Registrazione rapida",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Ancora nessuna registrazione. Tocca 🔴 nella barra in basso di una nota.",
+"Redenumește": "Rinomina",
+"Înregistrarea s-a oprit și s-a salvat": "Registrazione interrotta e salvata",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Schede già create dall’app, con struttura pronta (Medicinali, Utenze, CRM, Registrazioni). Puoi spostarle ovunque con ≡ o nasconderle con la spunta, come le altre."
 };

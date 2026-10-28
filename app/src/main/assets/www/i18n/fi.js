@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"huomenna",
 "ieri":"eilen",
 "Vezi toate":"Näytä kaikki",
-"Arată mai puțin":"Näytä vähemmän"
+"Arată mai puțin":"Näytä vähemmän",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "Osa tallenteista ei mahtunut varmuuskopioon (liian suuria); ne jäävät puhelimeen.",
+"Microfonul nu este disponibil": "Mikrofoni ei ole käytettävissä",
+"Vrei să fie tabul cu înregistrări vizibil?": "Haluatko tallenteiden välilehden näkyvän?",
+"Se găsesc în Setări → Taburi": "Löydät ne kohdasta Asetukset → Välilehdet",
+"Deschide": "Avaa",
+"Înregistrare rapidă": "Pikatallennus",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Ei vielä tallenteita. Napauta 🔴 muistiinpanon alapalkissa.",
+"Redenumește": "Nimeä uudelleen",
+"Înregistrarea s-a oprit și s-a salvat": "Tallennus pysäytetty ja tallennettu",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Sovelluksen valmiiksi luomat välilehdet, valmiilla rakenteella (Lääkkeet, Kulutus, CRM, Tallenteet). Voit siirtää niitä minne tahansa ≡:llä tai piilottaa valintaruudulla, kuten muitakin."
 };

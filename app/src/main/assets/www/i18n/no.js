@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"i morgen",
 "ieri":"i går",
 "Vezi toate":"Se alle",
-"Arată mai puțin":"Vis færre"
+"Arată mai puțin":"Vis færre",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "Noen opptak fikk ikke plass i sikkerhetskopien (for store); de blir på telefonen.",
+"Microfonul nu este disponibil": "Mikrofonen er ikke tilgjengelig",
+"Vrei să fie tabul cu înregistrări vizibil?": "Vil du at fanen med opptak skal være synlig?",
+"Se găsesc în Setări → Taburi": "Du finner dem i Innstillinger → Faner",
+"Deschide": "Åpne",
+"Înregistrare rapidă": "Hurtigopptak",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Ingen opptak ennå. Trykk på 🔴 i den nederste linjen i et notat.",
+"Redenumește": "Gi nytt navn",
+"Înregistrarea s-a oprit și s-a salvat": "Opptaket er stoppet og lagret",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Faner som appen allerede har laget, med ferdig struktur (Medisiner, Strøm og vann, CRM, Opptak). Du kan flytte dem hvor som helst med ≡ eller skjule dem med haken, som de andre."
 };

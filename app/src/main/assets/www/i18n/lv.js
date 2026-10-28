@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"rīt",
 "ieri":"vakar",
 "Vezi toate":"Skatīt visus",
-"Arată mai puțin":"Rādīt mazāk"
+"Arată mai puțin":"Rādīt mazāk",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "Daži ieraksti neietilpa dublējumā (pārāk lieli); tie paliek tālrunī.",
+"Microfonul nu este disponibil": "Mikrofons nav pieejams",
+"Vrei să fie tabul cu înregistrări vizibil?": "Vai vēlies, lai ierakstu cilne būtu redzama?",
+"Se găsesc în Setări → Taburi": "Tos atradīsi: Iestatījumi → Cilnes",
+"Deschide": "Atvērt",
+"Înregistrare rapidă": "Ātrais ieraksts",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Vēl nav ierakstu. Pieskaries 🔴 piezīmes apakšējā joslā.",
+"Redenumește": "Pārdēvēt",
+"Înregistrarea s-a oprit și s-a salvat": "Ieraksts apturēts un saglabāts",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Lietotnes jau izveidotas cilnes ar gatavu struktūru (Medikamenti, Komunālie, CRM, Ieraksti). Tās var pārvietot jebkur ar ≡ vai paslēpt ar ķeksīti, tāpat kā citas."
 };

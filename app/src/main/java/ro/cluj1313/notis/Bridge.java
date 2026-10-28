@@ -18,6 +18,24 @@ final class Bridge {
     private final Context ctx;
     Bridge(Context c) { ctx = c.getApplicationContext(); }
 
+    /** Quick record share: writes cache/cam/rec-<ts>.<ext> and opens the share sheet with a one-off read grant (CamProvider). */
+    @JavascriptInterface public boolean shareAudio(String b64, String ext, String title) { if (!MainActivity.trusted || b64 == null || b64.isEmpty()) return false;
+        String e = ext == null ? "" : ext.toLowerCase(java.util.Locale.ROOT); if (!(e.equals("m4a") || e.equals("webm") || e.equals("ogg"))) return false;
+        final android.app.Activity a = MainActivity.cur; final Context c = a != null ? a : ctx;
+        try { File d = new File(ctx.getCacheDir(), "cam"); d.mkdirs();
+            File[] old = d.listFiles(); if (old != null) for (File o : old) if (o.getName().startsWith("rec-") && System.currentTimeMillis() - o.lastModified() > 3600000L) o.delete();
+            String n = "rec-" + System.currentTimeMillis() + "." + e; if (CamProvider.safe(n) == null) return false;
+            byte[] b = android.util.Base64.decode(b64, android.util.Base64.DEFAULT);
+            try (FileOutputStream os = new FileOutputStream(new File(d, n))) { os.write(b); }
+            Uri u = Uri.parse("content://" + ctx.getPackageName() + ".cam/" + n);
+            Intent s = new Intent(Intent.ACTION_SEND).setType(CamProvider.type(n)).putExtra(Intent.EXTRA_STREAM, u).addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            if (title != null && title.length() > 0) s.putExtra(Intent.EXTRA_SUBJECT, title);
+            s.setClipData(android.content.ClipData.newRawUri(n, u));
+            Intent go = Intent.createChooser(s, title).addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION); if (a == null) go.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            final Intent fg = go; if (a != null) a.runOnUiThread(() -> { try { a.startActivity(fg); } catch (Exception ignored) {} }); else c.startActivity(fg);
+            return true;
+        } catch (Exception ex) { return false; }
+    }
     @JavascriptInterface public void shareText(String text, String title) { if (!MainActivity.trusted || text == null) return;
         final android.app.Activity a = MainActivity.cur; final Context c = a != null ? a : ctx;
         Intent s = new Intent(Intent.ACTION_SEND).setType("text/plain").putExtra(Intent.EXTRA_TEXT, text);

@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"ngày mai",
 "ieri":"hôm qua",
 "Vezi toate":"Xem tất cả",
-"Arată mai puțin":"Thu gọn"
+"Arată mai puțin":"Thu gọn",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "Một số bản ghi âm không vừa bản sao lưu (quá lớn); chúng vẫn ở trên điện thoại.",
+"Microfonul nu este disponibil": "Micrô không khả dụng",
+"Vrei să fie tabul cu înregistrări vizibil?": "Bạn có muốn thẻ bản ghi âm hiển thị không?",
+"Se găsesc în Setări → Taburi": "Bạn sẽ thấy chúng trong Cài đặt → Thẻ",
+"Deschide": "Mở",
+"Înregistrare rapidă": "Ghi âm nhanh",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Chưa có bản ghi âm. Chạm 🔴 ở thanh dưới của ghi chú.",
+"Redenumește": "Đổi tên",
+"Înregistrarea s-a oprit și s-a salvat": "Đã dừng và lưu bản ghi âm",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Các thẻ ứng dụng đã tạo sẵn, có cấu trúc chuẩn bị trước (Thuốc, Tiện ích, CRM, Bản ghi âm). Bạn có thể di chuyển chúng đến bất kỳ đâu bằng ≡ hoặc ẩn bằng ô đánh dấu, như các thẻ khác."
 };

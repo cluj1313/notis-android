@@ -1181,5 +1181,15 @@ NOTIS_I18N={
 "mâine":"i morgon",
 "ieri":"i går",
 "Vezi toate":"Visa alla",
-"Arată mai puțin":"Visa färre"
+"Arată mai puțin":"Visa färre",
+"Unele înregistrări nu au încăput în backup (prea mari); rămân pe telefon.": "Vissa inspelningar fick inte plats i säkerhetskopian (för stora); de stannar på telefonen.",
+"Microfonul nu este disponibil": "Mikrofonen är inte tillgänglig",
+"Vrei să fie tabul cu înregistrări vizibil?": "Vill du att fliken med inspelningar ska synas?",
+"Se găsesc în Setări → Taburi": "Du hittar dem i Inställningar → Flikar",
+"Deschide": "Öppna",
+"Înregistrare rapidă": "Snabbinspelning",
+"Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Inga inspelningar än. Tryck på 🔴 i nedre fältet i en anteckning.",
+"Redenumește": "Byt namn",
+"Înregistrarea s-a oprit și s-a salvat": "Inspelningen stoppades och sparades",
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Flikar som appen redan har skapat, med färdig struktur (Mediciner, Förbrukning, CRM, Inspelningar). Du kan flytta dem var som helst med ≡ eller dölja dem med bocken, som de andra."
 };
