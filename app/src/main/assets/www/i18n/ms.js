@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Belum ada rakaman. Ketik 🔴 di bar bawah nota.",
 "Redenumește": "Namakan semula",
 "Înregistrarea s-a oprit și s-a salvat": "Rakaman dihentikan dan disimpan",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Tab yang telah dibuat oleh aplikasi, dengan struktur sedia (Ubat, Utiliti, CRM, Rakaman). Anda boleh mengalihkannya ke mana-mana dengan ≡ atau menyembunyikannya dengan kotak semak, seperti tab lain."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Tab yang telah dibuat oleh aplikasi, dengan struktur sedia (Ubat, Utiliti, CRM, Rakaman). Anda boleh mengalihkannya ke mana-mana dengan ≡ atau menyembunyikannya dengan kotak semak, seperti tab lain.",
+"Record": "Rakam"
 };

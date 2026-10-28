@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Aún no tienes grabaciones. Toca 🔴 en la barra inferior de una nota.",
 "Redenumește": "Renombrar",
 "Înregistrarea s-a oprit și s-a salvat": "Grabación detenida y guardada",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Pestañas ya creadas por la app, con estructura lista (Medicamentos, Suministros, CRM, Grabaciones). Puedes moverlas a cualquier parte con ≡ u ocultarlas con la casilla, como las demás."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Pestañas ya creadas por la app, con estructura lista (Medicamentos, Suministros, CRM, Grabaciones). Puedes moverlas a cualquier parte con ≡ u ocultarlas con la casilla, como las demás.",
+"Record": "Grabar"
 };

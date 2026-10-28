@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Inga inspelningar än. Tryck på 🔴 i nedre fältet i en anteckning.",
 "Redenumește": "Byt namn",
 "Înregistrarea s-a oprit și s-a salvat": "Inspelningen stoppades och sparades",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Flikar som appen redan har skapat, med färdig struktur (Mediciner, Förbrukning, CRM, Inspelningar). Du kan flytta dem var som helst med ≡ eller dölja dem med bocken, som de andra."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Flikar som appen redan har skapat, med färdig struktur (Mediciner, Förbrukning, CRM, Inspelningar). Du kan flytta dem var som helst med ≡ eller dölja dem med bocken, som de andra.",
+"Record": "Spela in"
 };

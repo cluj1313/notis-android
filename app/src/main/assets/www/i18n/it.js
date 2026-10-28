@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Ancora nessuna registrazione. Tocca 🔴 nella barra in basso di una nota.",
 "Redenumește": "Rinomina",
 "Înregistrarea s-a oprit și s-a salvat": "Registrazione interrotta e salvata",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Schede già create dall’app, con struttura pronta (Medicinali, Utenze, CRM, Registrazioni). Puoi spostarle ovunque con ≡ o nasconderle con la spunta, come le altre."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Schede già create dall’app, con struttura pronta (Medicinali, Utenze, CRM, Registrazioni). Puoi spostarle ovunque con ≡ o nasconderle con la spunta, come le altre.",
+"Record": "Registra"
 };

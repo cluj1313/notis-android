@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Ingen opptak ennå. Trykk på 🔴 i den nederste linjen i et notat.",
 "Redenumește": "Gi nytt navn",
 "Înregistrarea s-a oprit și s-a salvat": "Opptaket er stoppet og lagret",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Faner som appen allerede har laget, med ferdig struktur (Medisiner, Strøm og vann, CRM, Opptak). Du kan flytte dem hvor som helst med ≡ eller skjule dem med haken, som de andre."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Faner som appen allerede har laget, med ferdig struktur (Medisiner, Strøm og vann, CRM, Opptak). Du kan flytte dem hvor som helst med ≡ eller skjule dem med haken, som de andre.",
+"Record": "Ta opp"
 };

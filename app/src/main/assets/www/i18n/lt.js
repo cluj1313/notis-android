@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Įrašų dar nėra. Bakstelėk 🔴 apatinėje užrašo juostoje.",
 "Redenumește": "Pervadinti",
 "Înregistrarea s-a oprit și s-a salvat": "Įrašymas sustabdytas ir išsaugotas",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Programos jau sukurti skirtukai su paruošta struktūra (Vaistai, Komunaliniai, CRM, Įrašai). Galite juos perkelti bet kur su ≡ arba paslėpti varnele, kaip ir kitus."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Programos jau sukurti skirtukai su paruošta struktūra (Vaistai, Komunaliniai, CRM, Įrašai). Galite juos perkelti bet kur su ≡ arba paslėpti varnele, kaip ir kitus.",
+"Record": "Įrašyti"
 };

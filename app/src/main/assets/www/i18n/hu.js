@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Még nincs felvételed. Koppints a 🔴 gombra egy jegyzet alsó sávjában.",
 "Redenumește": "Átnevezés",
 "Înregistrarea s-a oprit și s-a salvat": "A felvétel leállt és mentve",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Az alkalmazás által már létrehozott lapok, kész szerkezettel (Gyógyszerek, Rezsi, CRM, Felvételek). A ≡ jellel bárhová áthelyezheted vagy a pipával elrejtheted őket, mint a többit."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Az alkalmazás által már létrehozott lapok, kész szerkezettel (Gyógyszerek, Rezsi, CRM, Felvételek). A ≡ jellel bárhová áthelyezheted vagy a pipával elrejtheted őket, mint a többit.",
+"Record": "Felvétel"
 };

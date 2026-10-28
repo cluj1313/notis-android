@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "لا توجد تسجيلات بعد. اضغط 🔴 في الشريط السفلي لملاحظة.",
 "Redenumește": "إعادة تسمية",
 "Înregistrarea s-a oprit și s-a salvat": "توقف التسجيل وتم حفظه",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "علامات تبويب أنشأها التطبيق مسبقًا ببنية جاهزة (الأدوية، المرافق، CRM، التسجيلات). يمكنك نقلها إلى أي مكان بـ ≡ أو إخفاؤها بمربع الاختيار، مثل غيرها."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "علامات تبويب أنشأها التطبيق مسبقًا ببنية جاهزة (الأدوية، المرافق، CRM، التسجيلات). يمكنك نقلها إلى أي مكان بـ ≡ أو إخفاؤها بمربع الاختيار، مثل غيرها.",
+"Record": "تسجيل"
 };

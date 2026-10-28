@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Nie masz jeszcze nagrań. Dotknij 🔴 na dolnym pasku notatki.",
 "Redenumește": "Zmień nazwę",
 "Înregistrarea s-a oprit și s-a salvat": "Nagrywanie zatrzymane i zapisane",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Karty utworzone już przez aplikację, z gotową strukturą (Leki, Media, CRM, Nagrania). Możesz je przenieść w dowolne miejsce za pomocą ≡ lub ukryć ptaszkiem, jak pozostałe."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Karty utworzone już przez aplikację, z gotową strukturą (Leki, Media, CRM, Nagrania). Możesz je przenieść w dowolne miejsce za pomocą ≡ lub ukryć ptaszkiem, jak pozostałe.",
+"Record": "Nagraj"
 };

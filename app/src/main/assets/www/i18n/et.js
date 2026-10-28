@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Salvestisi veel pole. Puuduta märkme alumisel ribal 🔴.",
 "Redenumește": "Nimeta ümber",
 "Înregistrarea s-a oprit și s-a salvat": "Salvestus peatati ja salvestati",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Rakenduse poolt juba loodud vahekaardid valmis struktuuriga (Ravimid, Kommunaalid, CRM, Salvestised). Saad neid ≡ abil kuhu tahes liigutada või linnukesega peita, nagu teisi."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Rakenduse poolt juba loodud vahekaardid valmis struktuuriga (Ravimid, Kommunaalid, CRM, Salvestised). Saad neid ≡ abil kuhu tahes liigutada või linnukesega peita, nagu teisi.",
+"Record": "Salvesta"
 };

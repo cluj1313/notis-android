@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "هنوز ضبطی نداری. روی 🔴 در نوار پایین یک یادداشت بزن.",
 "Redenumește": "تغییر نام",
 "Înregistrarea s-a oprit și s-a salvat": "ضبط متوقف و ذخیره شد",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "زبانه‌هایی که برنامه از قبل با ساختار آماده ساخته است (داروها، قبوض، CRM، ضبط‌ها). می‌توانی آن‌ها را با ≡ به هر جا ببری یا با تیک پنهان کنی، مثل بقیه."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "زبانه‌هایی که برنامه از قبل با ساختار آماده ساخته است (داروها، قبوض، CRM، ضبط‌ها). می‌توانی آن‌ها را با ≡ به هر جا ببری یا با تیک پنهان کنی، مثل بقیه.",
+"Record": "ضبط"
 };

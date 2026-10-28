@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "还没有录音。点按笔记底部栏中的 🔴。",
 "Redenumește": "重命名",
 "Înregistrarea s-a oprit și s-a salvat": "录音已停止并保存",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "应用预先创建、结构已备好的标签页（药品、水电煤、CRM、录音）。可像其他标签页一样用 ≡ 移到任意位置，或用复选框隐藏。"
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "应用预先创建、结构已备好的标签页（药品、水电煤、CRM、录音）。可像其他标签页一样用 ≡ 移到任意位置，或用复选框隐藏。",
+"Record": "录音"
 };

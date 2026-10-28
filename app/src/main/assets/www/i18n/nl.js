@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Nog geen opnames. Tik op 🔴 in de onderbalk van een notitie.",
 "Redenumește": "Hernoemen",
 "Înregistrarea s-a oprit și s-a salvat": "Opname gestopt en opgeslagen",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Tabs die de app al heeft gemaakt, met een kant-en-klare structuur (Medicijnen, Nutsvoorzieningen, CRM, Opnames). Je kunt ze overal heen slepen met ≡ of verbergen met het vinkje, net als de andere."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Tabs die de app al heeft gemaakt, met een kant-en-klare structuur (Medicijnen, Nutsvoorzieningen, CRM, Opnames). Je kunt ze overal heen slepen met ≡ of verbergen met het vinkje, net als de andere.",
+"Record": "Opnemen"
 };

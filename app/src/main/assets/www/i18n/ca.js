@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Encara no tens enregistraments. Toca 🔴 a la barra inferior d'una nota.",
 "Redenumește": "Canvia el nom",
 "Înregistrarea s-a oprit și s-a salvat": "L'enregistrament s'ha aturat i desat",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Pestanyes ja creades per l’app, amb estructura preparada (Medicaments, Subministraments, CRM, Enregistraments). Les pots moure a qualsevol lloc amb ≡ o amagar amb la casella, com les altres."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Pestanyes ja creades per l’app, amb estructura preparada (Medicaments, Subministraments, CRM, Enregistraments). Les pots moure a qualsevol lloc amb ≡ o amagar amb la casella, com les altres.",
+"Record": "Enregistra"
 };

@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Pas encore d'enregistrements. Touche 🔴 dans la barre du bas d'une note.",
 "Redenumește": "Renommer",
 "Înregistrarea s-a oprit și s-a salvat": "Enregistrement arrêté et sauvegardé",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Onglets déjà créés par l’application, avec une structure prête (Médicaments, Charges, CRM, Enregistrements). Tu peux les déplacer n’importe où avec ≡ ou les masquer avec la case, comme les autres."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Onglets déjà créés par l’application, avec une structure prête (Médicaments, Charges, CRM, Enregistrements). Tu peux les déplacer n’importe où avec ≡ ou les masquer avec la case, comme les autres.",
+"Record": "Enregistrer"
 };

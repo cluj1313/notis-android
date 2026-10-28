@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Δεν έχεις ακόμη ηχογραφήσεις. Πάτα 🔴 στην κάτω μπάρα μιας σημείωσης.",
 "Redenumește": "Μετονομασία",
 "Înregistrarea s-a oprit și s-a salvat": "Η ηχογράφηση σταμάτησε και αποθηκεύτηκε",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Καρτέλες που έχει ήδη φτιάξει η εφαρμογή, με έτοιμη δομή (Φάρμακα, Λογαριασμοί, CRM, Ηχογραφήσεις). Μπορείς να τις μετακινήσεις οπουδήποτε με το ≡ ή να τις κρύψεις με το κουτάκι, όπως τις άλλες."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Καρτέλες που έχει ήδη φτιάξει η εφαρμογή, με έτοιμη δομή (Φάρμακα, Λογαριασμοί, CRM, Ηχογραφήσεις). Μπορείς να τις μετακινήσεις οπουδήποτε με το ≡ ή να τις κρύψεις με το κουτάκι, όπως τις άλλες.",
+"Record": "Ηχογράφηση"
 };

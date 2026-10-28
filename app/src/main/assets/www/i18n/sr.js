@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Још немаш снимака. Додирни 🔴 у доњој траци белешке.",
 "Redenumește": "Преименуј",
 "Înregistrarea s-a oprit și s-a salvat": "Снимање је заустављено и сачувано",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Kartice koje je aplikacija već napravila, sa pripremljenom strukturom (Lekovi, Računi, CRM, Снимци). Možeš ih premestiti bilo gde pomoću ≡ ili sakriti štikliranjem, kao i ostale."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Kartice koje je aplikacija već napravila, sa pripremljenom strukturom (Lekovi, Računi, CRM, Снимци). Možeš ih premestiti bilo gde pomoću ≡ ili sakriti štikliranjem, kao i ostale.",
+"Record": "Сними"
 };

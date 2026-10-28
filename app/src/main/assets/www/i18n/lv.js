@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Vēl nav ierakstu. Pieskaries 🔴 piezīmes apakšējā joslā.",
 "Redenumește": "Pārdēvēt",
 "Înregistrarea s-a oprit și s-a salvat": "Ieraksts apturēts un saglabāts",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Lietotnes jau izveidotas cilnes ar gatavu struktūru (Medikamenti, Komunālie, CRM, Ieraksti). Tās var pārvietot jebkur ar ≡ vai paslēpt ar ķeksīti, tāpat kā citas."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Lietotnes jau izveidotas cilnes ar gatavu struktūru (Medikamenti, Komunālie, CRM, Ieraksti). Tās var pārvietot jebkur ar ≡ vai paslēpt ar ķeksīti, tāpat kā citas.",
+"Record": "Ierakstīt"
 };

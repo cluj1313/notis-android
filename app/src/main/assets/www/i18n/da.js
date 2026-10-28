@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Ingen optagelser endnu. Tryk på 🔴 i bunden af en note.",
 "Redenumește": "Omdøb",
 "Înregistrarea s-a oprit și s-a salvat": "Optagelsen er stoppet og gemt",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Faner som appen allerede har lavet, med en færdig struktur (Medicin, Forsyning, CRM, Optagelser). Du kan flytte dem hvor som helst med ≡ eller skjule dem med fluebenet, ligesom de andre."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Faner som appen allerede har lavet, med en færdig struktur (Medicin, Forsyning, CRM, Optagelser). Du kan flytte dem hvor som helst med ≡ eller skjule dem med fluebenet, ligesom de andre.",
+"Record": "Optag"
 };

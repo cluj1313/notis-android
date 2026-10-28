@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "এখনও কোনো রেকর্ডিং নেই। কোনো নোটের নিচের বারে 🔴 চাপুন।",
 "Redenumește": "নাম বদলান",
 "Înregistrarea s-a oprit și s-a salvat": "রেকর্ডিং থামানো ও সংরক্ষিত হয়েছে",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "অ্যাপের আগে থেকে তৈরি ট্যাব, প্রস্তুত কাঠামোসহ (ওষুধ, ইউটিলিটি, CRM, রেকর্ডিং)। অন্যগুলোর মতো ≡ দিয়ে যেকোনো জায়গায় সরাতে বা চেকবক্স দিয়ে লুকাতে পারেন।"
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "অ্যাপের আগে থেকে তৈরি ট্যাব, প্রস্তুত কাঠামোসহ (ওষুধ, ইউটিলিটি, CRM, রেকর্ডিং)। অন্যগুলোর মতো ≡ দিয়ে যেকোনো জায়গায় সরাতে বা চেকবক্স দিয়ে লুকাতে পারেন।",
+"Record": "রেকর্ড"
 };

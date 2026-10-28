@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "まだ録音はありません。メモの下部バーの 🔴 をタップしてください。",
 "Redenumește": "名前を変更",
 "Înregistrarea s-a oprit și s-a salvat": "録音を停止して保存しました",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "アプリがあらかじめ用意した、構成済みのタブです（薬、光熱費、CRM、録音）。他のタブと同じく ≡ でどこへでも移動でき、チェックで非表示にできます。"
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "アプリがあらかじめ用意した、構成済みのタブです（薬、光熱費、CRM、録音）。他のタブと同じく ≡ でどこへでも移動でき、チェックで非表示にできます。",
+"Record": "録音"
 };

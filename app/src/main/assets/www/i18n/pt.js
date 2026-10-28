@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Ainda não tens gravações. Toca em 🔴 na barra inferior de uma nota.",
 "Redenumește": "Mudar o nome",
 "Înregistrarea s-a oprit și s-a salvat": "Gravação parada e guardada",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Separadores já criados pela app, com estrutura pronta (Medicamentos, Serviços, CRM, Gravações). Podes movê-los para qualquer lado com ≡ ou ocultá-los com a caixa, como os outros."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Separadores já criados pela app, com estrutura pronta (Medicamentos, Serviços, CRM, Gravações). Podes movê-los para qualquer lado com ≡ ou ocultá-los com a caixa, como os outros.",
+"Record": "Gravar"
 };

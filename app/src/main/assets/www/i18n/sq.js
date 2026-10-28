@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Ende s'ke regjistrime. Prek 🔴 në shiritin e poshtëm të një shënimi.",
 "Redenumește": "Riemërto",
 "Înregistrarea s-a oprit și s-a salvat": "Regjistrimi u ndal dhe u ruajt",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Skeda të krijuara tashmë nga aplikacioni, me strukturë gati (Ilaçe, Shërbime, CRM, Regjistrime). Mund t’i zhvendosësh kudo me ≡ ose t’i fshehësh me kutizën, si të tjerat."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Skeda të krijuara tashmë nga aplikacioni, me strukturë gati (Ilaçe, Shërbime, CRM, Regjistrime). Mund t’i zhvendosësh kudo me ≡ ose t’i fshehësh me kutizën, si të tjerat.",
+"Record": "Regjistro"
 };

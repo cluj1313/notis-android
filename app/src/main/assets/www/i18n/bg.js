@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Още нямаш записи. Докосни 🔴 в долната лента на бележка.",
 "Redenumește": "Преименувай",
 "Înregistrarea s-a oprit și s-a salvat": "Записът е спрян и запазен",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Раздели, вече създадени от приложението, с готова структура (Лекарства, Комунални, CRM, Записи). Можеш да ги преместиш навсякъде с ≡ или да ги скриеш с отметката, като другите."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Раздели, вече създадени от приложението, с готова структура (Лекарства, Комунални, CRM, Записи). Можеш да ги преместиш навсякъде с ≡ или да ги скриеш с отметката, като другите.",
+"Record": "Запис"
 };

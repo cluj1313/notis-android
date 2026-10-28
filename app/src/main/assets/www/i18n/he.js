@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "אין עדיין הקלטות. הקש 🔴 בסרגל התחתון של פתק.",
 "Redenumește": "שנה שם",
 "Înregistrarea s-a oprit și s-a salvat": "ההקלטה נעצרה ונשמרה",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "כרטיסיות שהאפליקציה כבר יצרה, עם מבנה מוכן (תרופות, חשבונות, CRM, הקלטות). אפשר להזיז אותן לכל מקום עם ≡ או להסתיר עם תיבת הסימון, כמו את האחרות."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "כרטיסיות שהאפליקציה כבר יצרה, עם מבנה מוכן (תרופות, חשבונות, CRM, הקלטות). אפשר להזיז אותן לכל מקום עם ≡ או להסתיר עם תיבת הסימון, כמו את האחרות.",
+"Record": "הקלט"
 };

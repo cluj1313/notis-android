@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Сè уште немаш снимки. Допри 🔴 во долната лента на белешка.",
 "Redenumește": "Преименувај",
 "Înregistrarea s-a oprit și s-a salvat": "Снимањето е запрено и зачувано",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Јазичиња што апликацијата веќе ги создала, со подготвена структура (Лекови, Комуналии, CRM, Снимки). Можеш да ги преместиш каде било со ≡ или да ги скриеш со штиклирање, како и другите."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Јазичиња што апликацијата веќе ги создала, со подготвена структура (Лекови, Комуналии, CRM, Снимки). Можеш да ги преместиш каде било со ≡ или да ги скриеш со штиклирање, како и другите.",
+"Record": "Сними"
 };

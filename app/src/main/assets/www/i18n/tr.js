@@ -1191,5 +1191,6 @@ NOTIS_I18N={
 "Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.": "Henüz kayıt yok. Bir notun alt çubuğundaki 🔴 simgesine dokun.",
 "Redenumește": "Yeniden adlandır",
 "Înregistrarea s-a oprit și s-a salvat": "Kayıt durduruldu ve kaydedildi",
-"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Uygulamanın önceden oluşturduğu, yapısı hazır sekmeler (İlaçlar, Faturalar, CRM, Kayıtlar). Diğerleri gibi ≡ ile her yere taşıyabilir veya onay kutusuyla gizleyebilirsin."
+"Taburi făcute deja de aplicație, cu structură pregătită (Medicamente, Utilități, CRM, Înregistrări). Le poți muta oriunde în listă cu ≡ sau ascunde cu bifa, ca pe celelalte.": "Uygulamanın önceden oluşturduğu, yapısı hazır sekmeler (İlaçlar, Faturalar, CRM, Kayıtlar). Diğerleri gibi ≡ ile her yere taşıyabilir veya onay kutusuyla gizleyebilirsin.",
+"Record": "Kaydet"
 };
