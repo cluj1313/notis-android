@@ -1022,7 +1022,7 @@ html[data-font] body,html[data-font] button,html[data-font] input,html[data-font
 .crm .crmon{color:var(--mut);font-size:14px;text-transform:uppercase;letter-spacing:.6px;margin:8px 0 2px}
 .crm .crwk{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:baseline;padding:6px 2px;border-bottom:1px solid rgba(var(--lnR),.14);cursor:pointer}
 .crm .crwk.crwsep{border-top:1px solid rgba(var(--lnR),.4)}
-.crm .crwk .c0{color:var(--mut);font-variant-numeric:tabular-nums;font-size:15px}.crm .crwk .c1{min-width:0;overflow-wrap:anywhere}.crm .crwk .c2{white-space:nowrap;font-variant-numeric:tabular-nums}
+.crm .crwk .c0{color:var(--mut);font-variant-numeric:tabular-nums;font-size:14px;white-space:nowrap}.sprow.pay .c0{font-size:14px}.crm .crwk .c1{min-width:0;overflow-wrap:anywhere}.crm .crwk .c2{white-space:nowrap;font-variant-numeric:tabular-nums}
 .crm .crcur{width:90px;font-size:16px;text-align:right}
 .crm .crh.crag{margin:10px 0 6px;font-size:14px;color:var(--mut)}
 .crm .crag1{--sc:#7dd3fc;border-style:dashed}
@@ -1550,6 +1550,11 @@ var LUNI_S=['ian','feb','mar','apr','mai','iun','iul','aug','sept','oct','nov','
 if(NL!=='ro')try{(function(){var f=function(o,set){var r=[];for(var i=0;i<12;i++)r.push(new Intl.DateTimeFormat(NL,o).format(new Date(2026,i,15)).replace(/\.$/,''));return r};LUNI=f({month:'long'});LUNI_S=f({month:'short'});for(var d=0;d<7;d++){var x=new Date(2026,0,4+d);ZILE[d]=new Intl.DateTimeFormat(NL,{weekday:'long'}).format(x);ZILE_S[d]=new Intl.DateTimeFormat(NL,{weekday:'short'}).format(x).replace(/\.$/,'')}ZILE=ZILE.map(function(z){return z.charAt(0).toUpperCase()+z.slice(1)})})()}catch(_){}
 function pad(n){return (n<10?'0':'')+n}
 function dkey(d){d=d||new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}
+/* v161: ONE display format for every date in the app: dd.mm.yyyy - Weekday[, hh:mm]. Display only; stored formats never change. */
+var FDW={};function fDate(x,hm){var d;if(x instanceof Date)d=x;else if(typeof x==='string'&&/^\d{4}-\d\d-\d\d$/.test(x)){var q=x.split('-');d=new Date(+q[0],+q[1]-1,+q[2])}else if(x==null||x==='')return '';else d=new Date(x);if(isNaN(d.getTime()))return String(x);
+ var L=(typeof NL==='string'&&NL)||'ro',lc=L==='ro'?'ro-RO':L,wd=d.getDay(),ck=lc+wd,w=FDW[ck];if(w==null){try{w=new Intl.DateTimeFormat(lc,{weekday:'long'}).format(d)}catch(_){w=(typeof ZILE!=='undefined'&&ZILE[wd])||''}w=w?w.charAt(0).toLocaleUpperCase(lc)+w.slice(1):'';FDW[ck]=w}
+ var r=pad(d.getDate())+'.'+pad(d.getMonth()+1)+'.'+d.getFullYear()+(w?' - '+w:'');if(hm)r+=', '+pad(d.getHours())+':'+pad(d.getMinutes());return r}
+window.fDate=fDate;
 function toast(m){var t=$('toast');t.textContent=TR(m);t.classList.add('show');clearTimeout(toast._t);toast._t=setTimeout(function(){t.classList.remove('show')},3000)}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 var DEFAULT_STATUS=TR('Agent local. Doar vreme și taskuri.');
@@ -1706,7 +1711,7 @@ function renderWx(){$('wxlbl').textContent=TR('Vremea · ')+cfg.city;if($('wxcit
  $('wxline').textContent='Ploaie '+wx.pp+'% · '+windTxt(wx.wind);
  if(!(speaking&&activeSeg&&activeSeg.el===$('wxtxt')))$('wxtxt').textContent=wxSentence(wx);
  var t=new Date(wx.ts),n=new Date();
- var when=dkey(t)===dkey(n)?TR('azi la ')+pad(t.getHours())+':'+pad(t.getMinutes()):t.getDate()+' '+LUNI_S[t.getMonth()]+' '+pad(t.getHours())+':'+pad(t.getMinutes());
+ var when=dkey(t)===dkey(n)?TR('azi la ')+pad(t.getHours())+':'+pad(t.getMinutes()):fDate(t,1);
  $('wxmeta').textContent=TR('Actualizat ')+when+(wx.stale?' (offline)':'');
  renderWxDays()}
 function loadWx(){
@@ -1728,7 +1733,7 @@ function save(){LS.set('ns_tasks',tasks);histPush()}
 function live(t){return !t.deleted}
 function visible(t){return live(t)&&(!t.done||t.doneDate===dkey())} /* done tasks stay visible until the end of the day they were completed */
 function dayOff(n){var d=new Date();d.setDate(d.getDate()+n);return dkey(d)}
-function shortDate(k){var p=k.split('-');return TR('din ')+(+p[2])+' '+LUNI_S[+p[1]-1]}
+function shortDate(k){return TR('din ')+fDate(k)}
 /* v15: Azi / Mâine. Each task has dueDay. Azi = dueDay <= today (open, or done today); Mâine = dueDay >= tomorrow.
    Open tasks whose dueDay passed roll to today (fromDay keeps the first day they were due -> "din 3 oct" note). */
 function inList(t,which){var tk=dkey();return which==='maine'?t.dueDay>tk:t.dueDay<=tk}
@@ -2429,7 +2434,7 @@ window.addEventListener('focus',function(){setTimeout(maybeRemindUrgent,600)});
 /* ---------- backups (v32) ---------- */
 var BK_KEYS=['ns_notes','ns_notetabs','ns_notetab','ns_cfg','ns_tasks','ns_shop','ns_tabs','ns_tabcol','ns_cardcol','ns_newscats','ns_newssize','ns_folders'],BK_MAX=20;
 var BK_CFG_DEF={name:(BLANK||!NS_HASCFG)?'':'Iosif',city:'Gherla',lat:47.03,lon:23.91,tz:'Europe/Bucharest',engine:'mihai',rate:1.25,pitch:null,voiceURI:null,tone:1,clockFont:'condensed',clockColor:'#3fd8ff',clockSize:56,remindUrgent:true};
-function bkLabel(d){d=d||new Date();return d.getDate()+' '+LUNI_S[d.getMonth()]+' '+d.getFullYear()+' · '+pad(d.getHours())+':'+pad(d.getMinutes())}
+function bkLabel(d){return fDate(d||new Date(),1)}
 function bkList(){var a=LS.get('ns_backups',[]);return Array.isArray(a)?a:[]}
 function bkSaveList(a){LS.set('ns_backups',a)}
 function bkCollect(){return Object.assign({ns_cfg:JSON.parse(JSON.stringify(cfg)),ns_tasks:JSON.parse(JSON.stringify(tasks)),ns_shop:JSON.parse(JSON.stringify(shop)),ns_tabs:JSON.parse(JSON.stringify(tabs)),ns_tabcol:JSON.parse(JSON.stringify(tabCol||{})),ns_cardcol:JSON.parse(JSON.stringify(cardCol||{})),ns_newscats:(newsCats||[]).slice(),ns_newssize:newsScale,ns_notes:JSON.parse(JSON.stringify(notes.map(nStore))),ns_notetabs:JSON.parse(JSON.stringify(noteTabs)),ns_notetab:noteTab,ns_folders:JSON.parse(JSON.stringify(noteFolders))},typeof spCollect==='function'?spCollect():{})}
@@ -2494,7 +2499,7 @@ $('bBkFile').onchange=function(){var f=this.files&&this.files[0];if(!f)return;
 
 /* ---------- share ---------- */
 function summary(){var d=new Date(),tk=dkey(),o=tasks.filter(function(t){return live(t)&&!t.done});
- var L=[TR('Notis · ')+ZILE[d.getDay()]+', '+d.getDate()+' '+LUNI[d.getMonth()]+' '+d.getFullYear()+' '+pad(d.getHours())+':'+pad(d.getMinutes()),'',TR('Vremea · ')+cfg.city+': '+wxSentence(wx),''];
+ var L=[TR('Notis · ')+fDate(d,1),'',TR('Vremea · ')+cfg.city+': '+wxSentence(wx),''];
  var az=listFor('azi').filter(function(t){return !t.done}),mn=listFor('maine').filter(function(t){return !t.done});
  if(az.length){L.push(TR('Taskuri pentru azi:'));az.forEach(function(t){L.push('• '+t.text+(t.fromDay&&t.fromDay<tk?' ('+shortDate(t.fromDay)+')':''))});L.push('')}
  if(mn.length){L.push(TR('Taskuri pentru mâine:'));mn.forEach(function(t){L.push('• '+t.text)})}
@@ -2612,7 +2617,7 @@ if(dm)loadWx().then(function(){speaking=true;speakKey='wx';updEq();setStatus(NL=
 if(/demo-settings/.test(location.hash))setTimeout(function(){$('bSettings').click()},300);
 /* ---------- v40: per-task alarms (t.alarm={at:ms,rep:min|0,until:ms|null,snz:ms|null}; stored in ns_tasks -> included in Backup) ---------- */
 function alNext(t){var a=t&&t.alarm;if(!a||!a.at)return 0;return a.snz&&a.snz<a.at?a.snz:a.at}
-function alShort(ms){var d=new Date(ms),n=new Date(),hm=pad(d.getHours())+':'+pad(d.getMinutes());return dkey(d)===dkey(n)?hm:d.getDate()+' '+LUNI_S[d.getMonth()]+' '+hm}
+function alShort(ms){var d=new Date(ms),n=new Date(),hm=pad(d.getHours())+':'+pad(d.getMinutes());return dkey(d)===dkey(n)?hm:fDate(d,1)}
 function alLocal(ms){var d=new Date(ms);return{d:dkey(d),t:pad(d.getHours())+':'+pad(d.getMinutes())}}
 function alParse(d,t){if(!d||!t)return 0;var p=d.split('-'),q=t.split(':');return new Date(+p[0],+p[1]-1,+p[2],+q[0],+q[1],0,0).getTime()}
 var alId=null,alRep=120;
@@ -2632,7 +2637,7 @@ function alRollA(a,at,now){if(!a)return at;now=now||Date.now();if(at>now&&!(a.wd
  if(a.wd||a.rd){var d=new Date(at),h=d.getHours(),mi=d.getMinutes(),st=a.wd?1:Math.max(1,a.rd|0);for(var k=0;k<4000;k++){d.setDate(d.getDate()+st);d.setHours(h,mi,0,0);var x=d.getTime();if(x>now&&(!a.wd||a.wd&(1<<d.getDay())))return x}return at}
  return a.rep?alRoll(at,a.rep):at}
 function alRepTxt(a){if(!a||!a.rep)return '';if(a.wd){var L=[];[1,2,3,4,5,6,0].forEach(function(d){if(a.wd&(1<<d))L.push(ZILE_S[d])});return TR('Repetiție zile')+': '+L.join(' ')}if(a.rd)return TR('Repetiție zile')+': '+a.rd;return TR('Repetiție oră')+': '+(Math.round(a.rep/6)/10)+'h'}
-function alFull(ms){var d=new Date(ms);return ZILE[d.getDay()]+', '+d.getDate()+' '+LUNI_S[d.getMonth()]+' '+d.getFullYear()+' · '+pad(d.getHours())+':'+pad(d.getMinutes())}
+function alFull(ms){return fDate(new Date(ms),1)}
 function alEndUI(){$('alUntilBox').style.display=$('alEnd').value==='until'?'':'none'}
 function openAlarm(r){var t=alGet(r);if(!t)return;var a=t.alarm||{};alId=r;$('alTask').textContent=t.lock?(t.ltitle||TR('Notiță blocată')):t.text;
  var at=a.at||(Date.now()+3600000-Date.now()%60000),L=alLocal(at);$('alDate').value=L.d;$('alTime').value=L.t;
@@ -2733,7 +2738,7 @@ var nTrash=false;
 function saveNotes(soft){LS.set('ns_notes',notes.map(nStore));if(noteFolders.length||LS.get('ns_folders',null))LS.set('ns_folders',noteFolders);if(!soft&&typeof nHistPush==='function')nHistPush();LS.set('ns_notetabs',noteTabs);LS.set('ns_notetab',noteTab)}
 function findN(id){for(var i=0;i<notes.length;i++)if(notes[i].id===id)return notes[i];return null}
 function findNT(id){for(var i=0;i<noteTabs.length;i++)if(noteTabs[i].id===id)return noteTabs[i];return null}
-function nDate(n){var d=new Date(n.ts);return d.getDate()+' '+LUNI_S[d.getMonth()]}
+function nDate(n){return fDate(new Date(n.ts))}
 function setHTML(el,h){if(el.innerHTML!==h)el.innerHTML=h} /* v48: no rebuild when unchanged, so a tap that blurs the input still lands */
 function renderNoteTabs(){var box=$('noteTabs');if(!box)return;var h='';
  if(window.ntFixCur)ntFixCur();noteTabs.forEach(function(t){if(t.off)return;h+='<button type="button" class="ntab'+(t.id===noteTab?' on':'')+'" data-id="'+esc(t.id)+'"'+(t.color?' style="--nc:'+esc(t.color)+'"':'')+'>'+esc(t.name)+(t.lk?'<i class="tbl" aria-label="blocat">'+FD_LK+'</i>':'')+'</button>'});
@@ -2750,7 +2755,7 @@ function renderNotes(){renderNoteTabs();if(nFolder){var fC=findF(nFolder);if(!fC
  list.forEach(function(n){if(!n.pin)pgFlush();var pr='';if(n.type==='check'){var it=(n.items||[]).filter(function(x){return x.text.trim()});pr='☑ '+it.filter(function(x){return x.done}).length+'/'+it.length+' · '}else if(n.type==='mix'){var it2=[];(n.blocks||[]).forEach(function(b){if(b.t==='chk')it2=it2.concat((b.items||[]).filter(function(x){return x.text.trim()}))});if(it2.length)pr='☑ '+it2.filter(function(x){return x.done}).length+'/'+it2.length+' · ';if((n.blocks||[]).some(function(b){return b.t==='aud'}))pr='🎙 '+pr}
   if(n.lock)pr='';h+='<li class="note'+(n.lock&&!n.ltitle?' nlocked':'')+(n.color?' ncol':'')+(n.del?' ndel':'')+(selIds[n.id]?' nsel':'')+'" data-id="'+esc(n.id)+'"'+(n.color?' style="--nc:'+esc(ncT(n.color))+'"':'')+'><span class="t">'+(window.urgPre?urgPre(n):'')+(n.lock?esc(n.ltitle||TR('Notiță blocată')):q?(nSnipHL(n.text.trim().split('\n')[0],q.split(/\s+/))||esc(n.text.trim().split('\n')[0])):esc(n.text.trim().split('\n')[0]))+'</span><small class="nts">'+(n.pin&&!n.del?'<span class="npin">📌</span> ':'')+(alNext(n)?'⏰ ':'')+(n.lock?'🔒 ':'')+pr+(n.del&&nTrash&&!srch?TR('șters ')+nDateOf(n.del):nDate(n))+(alNext(n)&&!n.del?'<span class="nalt">'+alShort(alNext(n))+(n.alarm.rep?' 🔁':'')+'</span>':'')+(srch&&n.del?' · <span class="nstab">🗑 Coș</span>':'')+(srch&&!n.del?(function(){var tb=findNT(n.tab);return tb?' · <span class="nstab"'+(tb.color?' style="--nc:'+esc(tb.color)+'"':'')+'>'+esc(tb.name)+(n.fd?' › '+esc(fdNames(n.fd).join(' › ')):'')+'</span>':''})():'')+lbChips(n)+'</small>'+(q?(n.lock?xLkSnip(n,q):nSnips(n,q)):'')+'<i class="nck" aria-hidden="true"></i></li>'});
  pgFlush();if(q)h+=xRows(q);setHTML(ul,h&&(h.indexOf('class="note')>=0||h.indexOf('class="nfo')>=0||h.indexOf('class="nxr')>=0)?h:(h||'')+'<li class="empty">'+(srch?TR('Niciun rezultat.'):nTrash?TR('Coșul e gol.'):TR('Nicio notiță.'))+'</li>')}
-function nDateOf(iso){try{var d=new Date(iso);return d.toLocaleDateString(NL==='ro'?'ro-RO':NL,{day:'numeric',month:'short'}).replace('.','')}catch(_){return ''}}
+function nDateOf(iso){return fDate(new Date(iso))}
 /* v21: search snippets — matching lines in context, matches underlined */
 function nSnipHL(line,qs){var F=nHlFold(line),R=[];qs.forEach(function(w){var i=0;while((i=F.f.indexOf(w,i))>=0){R.push([F.map[i],F.map[i+w.length-1]+1]);i+=w.length}});if(!R.length)return null;
  R.sort(function(a,b){return a[0]-b[0]});var a0=Math.max(0,R[0][0]-40),cut=a0>0?line.lastIndexOf(' ',a0)+1||a0:0,end=Math.min(line.length,cut+150),h=cut>0?'…':'',last=cut;
@@ -3613,7 +3618,7 @@ function qrNorm(r){if(!r||typeof r!=='object'||!Array.isArray(r.list))return nul
 function qrLoad(){return qrNorm(LS.get('ns_rec',null))||qrNorm(LS.get('ns_rec_bak',null))||{list:[],vis:null,ask:null}}
 var RECS=qrLoad();
 function qrSave(){try{var o=LS.get('ns_rec',null);if(o)LS.set('ns_rec_bak',o)}catch(_){}LS.set('ns_rec',RECS)}
-function qrD(ts){var d=new Date(ts);function p(n){return('0'+n).slice(-2)}return p(d.getDate())+'.'+p(d.getMonth()+1)+'.'+d.getFullYear()+' '+p(d.getHours())+':'+p(d.getMinutes())}
+function qrD(ts){return fDate(new Date(ts),1)}
 function qrFind(id){for(var i=0;i<RECS.list.length;i++)if(RECS.list[i].id===id)return RECS.list[i];return null}
 function qrTab(make){var t=noteTabs.filter(function(x){return x.kind==='rec'})[0];if(t||!make)return t||null;var id='rec';while(findNT(id))id='rec'+Math.random().toString(36).slice(2,5);
  t={id:id,name:'RECORDINGS 🔴',color:'#ff5a5a',kind:'rec'};if(RECS.vis===0)t.off=1;noteTabs.push(t);saveNotes();return t}
@@ -4216,7 +4221,7 @@ function utLoad(){var d=LS.get('ns_util',null);if(!d||!Array.isArray(d.list)){d=
 function medNorm(d){if(!d||!Array.isArray(d.list))d={list:[]};if(!Array.isArray(d.persons)){d.persons=[{id:'me',k:'me'}];d.open=d.open||{};d.open.me=1} /* v65: persons — existing medicines move into the first person, nothing is dropped */
  if(!d.open)d.open={};if(!d.snz)d.snz={};var p0=d.persons[0];if(!d.info||typeof d.info!=='object')d.info={};if(!Array.isArray(d.lib))d.lib=[];if(!Array.isArray(d.alt))d.alt=[];if(!d.hist||typeof d.hist!=='object')d.hist={};if(!d.lo||typeof d.lo!=='object')d.lo={};if(!d.lopen)d.lopen={u:1,n:1,a:1}; /* v71: library (info per medicine name), alternative treatments, order */
  d.list.forEach(function(m){var mk=String(m.name||'').trim().toLowerCase();if(mk&&!d.hist[mk])d.hist[mk]=m.name;if(!m.rep&&!Array.isArray(m.pat)){var n=m.n||3,I=n===1?[0]:n===2?[0,2]:[0,1,2];m.pat=[0,1,2].map(function(i){return I.indexOf(i)>=0?1:0});if(m.c&&Array.isArray(m.c.s)){var o=m.c.s,ns=[];I.forEach(function(si,k){if(o[k])ns[si]=true});m.c.s=ns}}if(m.adm===undefined&&mk&&d.info[mk]&&d.info[mk].h)m.adm=String(d.info[mk].h); /* v125: administration prefilled from library */ /* v66: n → pattern 1-0-1; today's checks re-indexed by slot */if(!m.p||!d.persons.some(function(x){return x.id===m.p})){if(!p0){p0={id:'me',k:'me'};d.persons.push(p0);d.open.me=1}m.p=p0.id}
-  if(!m.d0||!/^\d{4}-\d\d-\d\d$/.test(m.d0)){m.d0=(m.sch&&m.sch.d0)||mStart0(m);d.__d0=1}});return d}
+  if(!m.d0||!/^\d{4}-\d\d-\d\d$/.test(m.d0)){m.d0=(m.sch&&m.sch.d0)||mStart0(m);d.__d0=1}var c0=m.c&&m.c.d;mChk(m);if(c0&&c0!==m.c.d)d.__d0=1;});return d}
 /* v160: start date for medicines saved before start dates existed = earliest of: creation time in the id, oldest dose history, today's check record; else today */
 function mTreat0(pid){var t=today(),b=null;MED.list.forEach(function(m){if(m.p!==pid)return;var r=mRange(m);if(r[0]<=t&&r[1]>=t&&(!b||r[0]<b))b=r[0]});return b||t} /* v160: one start date for the whole running treatment (editable per medicine) */
 function mStart0(m){var c=[],t=parseInt(String(m.id||'').slice(0,-4),36);if(t>15e11&&t<=Date.now())c.push(dkey(new Date(t)));Object.keys(m.h||{}).forEach(function(k){if(/^\d{4}-\d\d-\d\d$/.test(k))c.push(k)});if(m.c&&/^\d{4}-\d\d-\d\d$/.test(m.c.d||''))c.push(m.c.d);c.push(today());c.sort();return c[0]}
@@ -4252,7 +4257,7 @@ function fmt(n){if(n==null||isNaN(n))return '';try{return Number(n).toLocaleStri
 function today(){return dkey(new Date())}
 function dParse(s){var p=String(s||'').split('-');return new Date(+p[0],+p[1]-1,+p[2])}
 function monLbl(s){var d=dParse(s),m='';try{m=d.toLocaleDateString(NL==='ro'?'ro-RO':NL,{month:'short'}).replace('.','')}catch(_){m=String(d.getMonth()+1)}m=m.charAt(0).toUpperCase()+m.slice(1);return d.getFullYear()!==new Date().getFullYear()?m+' '+String(d.getFullYear()).slice(2):m}
-function dLbl(s){var d=dParse(s);return pad(d.getDate())+'.'+pad(d.getMonth()+1)+'.'+d.getFullYear()}
+function dLbl(s){return fDate(s)}
 /* ---- Utilități ---- */
 /* v69: payment reminder u.rem={on,iv:'1'|'2'|'3'|'6'|'12'|'d',days,next:'YYYY-MM-DD',hm,dom}. Months keep the day-of-month (clamped to month end); 'd' = every X days. */
 function rAddM(ds,n,dom){var d=dParse(ds),y=d.getFullYear(),m=d.getMonth()+n;y+=Math.floor(m/12);m=((m%12)+12)%12;var last=new Date(y,m+1,0).getDate();return dkey(new Date(y,m,Math.min(dom||d.getDate(),last)))}
@@ -4330,12 +4335,11 @@ function mOn(m,k){var r=mRange(m);return k>=r[0]&&k<=r[1]&&mDue(m,k)}
 function mReq(m){if(m.rep>0)return mSlots(m).map(function(_,i){return i});var P=m.pat||[1,1,1];return [0,1,2].filter(function(i){return P[i]})}
 function mS(m,k,w){if(k===today())return mChk(m).s;m.h=m.h||{};var s=m.h[k];if(!Array.isArray(s)){s=[];if(w)m.h[k]=s}return s}
 function mDone(m,k){var S=mS(m,k);return mReq(m).every(function(i){return !!S[i]})}
-function dLbl(k){var d=dParse(k),o={weekday:'short',day:'numeric',month:'short'};if(d.getFullYear()!==new Date().getFullYear())o.year='numeric';try{var x=d.toLocaleDateString(NL==='ro'?'ro':NL,o);return x.charAt(0).toUpperCase()+x.slice(1)}catch(_){return k}}
 function mdDayMeds(L,k){return L.filter(function(m){return mOn(m,k)})}
-function medDays(L,p){L=mSort(L);if(!L.length)return '<div class="spempty">Niciun medicament.</div>';var t=today(),s=null,e=null;
+function medDays(L,p){L=mSort(L);L.forEach(mChk); /* v161: archive the last-used day's 1/0 counters into history first, so past days auto-check on open */if(!L.length)return '<div class="spempty">Niciun medicament.</div>';var t=today(),s=null,e=null;
  L.forEach(function(m){var r=mRange(m);if(!s||r[0]<s)s=r[0];if(!e||r[1]>e)e=r[1]});var lim=dAdd(t,-366);if(s<lim)s=lim;if(e<s)e=s;
  var h='<div class="mdlist">',n=0;for(var k=s;k<=e&&n<800;k=dAdd(k,1),n++){var D=mdDayMeds(L,k),gap=!D.length,all=!gap&&D.every(function(m){return mDone(m,k)}),o=!!MDO[p.id+'|'+k],fut=k>t;
-  h+='<div class="mdday'+(k===t?' mdtd':fut?' mdfut':' mdpast')+(o?' open':'')+(gap?' mdgap':'')+'" data-k="'+k+'"><div class="mddh"><button type="button" class="mddt" data-a="dtog" aria-expanded="'+o+'"><span class="mddl">'+esc(dLbl(k))+'</span>'+(k===t?'<b class="mdtdb">'+esc(TR('Azi'))+'</b>':'')+'</button><button type="button" class="mdck'+(gap?' red on':all?' on':'')+'" data-a="dck" role="checkbox" aria-checked="'+(gap||all)+'" aria-label="'+esc(dLbl(k))+'"></button></div>';
+  h+='<div class="mdday'+(k===t?' mdtoday':fut?' mdfut':' mdpast')+(o?' open':'')+(gap?' mdgap':'')+'" data-k="'+k+'"><div class="mddh"><button type="button" class="mddt" data-a="dtog" aria-expanded="'+o+'"><span class="mddl">'+esc(dLbl(k))+'</span>'+(k===t?'<b class="mdtdb">'+esc(TR('Azi'))+'</b>':'')+'</button><button type="button" class="mdck'+(gap?' red on':all?' on':'')+'" data-a="dck" role="checkbox" aria-checked="'+(gap||all)+'" aria-label="'+esc(dLbl(k))+'"></button></div>';
   if(o)h+='<div class="mddb">'+(gap?'<div class="spempty">'+esc(TR('Fără medicamente în această zi'))+'</div>':D.map(function(m){return mLine(m,k,fut)}).join(''))+'</div>';h+='</div>'}
  return h+'</div>'}
 function mLine(m,k,fut){var S=mS(m,k),dd=m.days>0?{t:m.days,e:Math.round((dParse(k)-dParse(mRange(m)[0]))/864e5)+1}:null,dis=fut?' disabled':'',h='<div class="mdrow" data-m="'+esc(m.id)+'" data-k="'+k+'"><span class="mdnm ux" data-a="medit">💊 '+esc(m.name)+(dd?' <span class="mddays">('+dd.t+'/'+dd.e+')</span>':'')+'</span><span class="mddo">';
@@ -4344,7 +4348,7 @@ function mLine(m,k,fut){var S=mS(m,k),dd=m.days>0?{t:m.days,e:Math.round((dParse
   if(P[i])h+='<span class="mdd"><button type="button" class="mdg ux'+(S[i]?' on':'')+'" data-a="mchk" data-i="'+i+'" aria-label="'+esc(TR(SLOT[i]))+'"'+dis+'>1</button>'+(T[i]?'<small class="ux">'+(A[i]?'⏰':'')+esc(T[i])+'</small>':'')+'</span>';
   else h+='<span class="mdd"><span class="mdg z ux">0</span></span>'})}
  return h+'</span></div>'}
-function mdCenter(v){var pk=MED.persons.filter(function(p){return MED.open[p.id]}).map(function(p){return p.id}).join(','),key=noteTab+'|'+today()+'|'+pk;if(MDCEN===key)return;var go=function(n){var r=v.querySelector('.mdday.mdtd');if(!r||MDCEN===key)return;if(!r.getClientRects().length){if(n<20)setTimeout(function(){go(n+1)},60);return}MDCEN=key;try{r.scrollIntoView({block:'center'})}catch(_){}};setTimeout(function(){go(0)},30)}
+function mdCenter(v){var pk=MED.persons.filter(function(p){return MED.open[p.id]}).map(function(p){return p.id}).join(','),key=noteTab+'|'+today()+'|'+pk;if(MDCEN===key)return;var go=function(n){var r=v.querySelector('.mdday.mdtoday');if(!r||MDCEN===key)return;if(!r.getClientRects().length){if(n<20)setTimeout(function(){go(n+1)},60);return}MDCEN=key;try{r.scrollIntoView({block:'center'})}catch(_){}};setTimeout(function(){go(0)},30)}
 window.__md={dd:medDays,center:function(){MDCEN=''},o:MDO};
 function medRows(L){var h='';L=mSort(L);L.forEach(function(m){var c=mChk(m);
  var dd=mDays(m);h+='<div class="mdrow'+(dd&&dd.f?' mdfin':'')+(mDue(m)?'':' mdoff')+'" data-m="'+esc(m.id)+'"><span class="mdnm ux" data-a="medit">💊 '+esc(m.name)+(dd?' <span class="mddays">('+dd.t+'/'+dd.e+')</span>':'')+'</span><span class="mddo">';
@@ -4565,7 +4569,7 @@ var DFLD=[['tel','Telefon'],['addr','Adresă'],['email','Email'],['firm','Firmă
 var TY={call:'Apel',msg:'Mesaj',meet:'Întâlnire',note:'Notă'};
 function uid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
 function def(){return{v:1,sub:'firm',st:[{id:'nou',c:PAL[0]},{id:'disc',c:PAL[1]},{id:'cli',c:PAL[2]},{id:'ina',c:PAL[3]}],list:[],fld:{home:[],firm:[]},hide:{home:{firm:1},firm:{}},lock:{home:0,firm:0},auto:1,ask:1,sort:'rem'}}
-var MIG=0,EXP='',SOM=0,BK=0,RX=0,RP='',RPT=0;function fRD(d){try{return d.toLocaleDateString(NL==='ro'?'ro-RO':NL,{day:'numeric',month:'short'})}catch(_){return fT(d.getTime())}}function norm(d){var D=def();if(!d||typeof d!=='object'||!Array.isArray(d.list))return D;
+var MIG=0,EXP='',SOM=0,BK=0,RX=0,RP='',RPT=0;function fRD(d){return fDate(d)}function norm(d){var D=def();if(!d||typeof d!=='object'||!Array.isArray(d.list))return D;
  var o=JSON.parse(JSON.stringify(d));o.v=1;if(o.sub!=='home')o.sub='firm';if(!Array.isArray(o.st)||!o.st.length)o.st=D.st;o.st=o.st.filter(function(s){return s&&s.id});if(!o.st.length)o.st=D.st;
  ['fld','hide','lock'].forEach(function(k){if(!o[k]||typeof o[k]!=='object')o[k]=D[k]});['home','firm'].forEach(function(p){if(!Array.isArray(o.fld[p]))o.fld[p]=[];if(!o.hide[p]||typeof o.hide[p]!=='object')o.hide[p]={};o.lock[p]=o.lock[p]?1:0});
  if(o.auto==null)o.auto=1;if(o.ask==null)o.ask=1;if(['rem','last','name'].indexOf(o.sort)<0)o.sort='rem';
@@ -4576,8 +4580,8 @@ var C=load(),unl={home:0,firm:0},Q='',F='',crmShow=null,pend=null,away=false;
 function save(){try{var p=localStorage.getItem(PFX+'ns_crm');if(p)localStorage.setItem(PFX+'ns_crm_bak',p)}catch(_){}LS.set('ns_crm',C);try{saveNotes(true)}catch(_){}}
 function stName(s){return s.n||TR(ST_DEF[s.id]||'?')}
 function stOf(id){return C.st.filter(function(s){return s.id===id})[0]||C.st[0]}
-function fT(ts){var d=new Date(ts);return pad(d.getDate())+'.'+pad(d.getMonth()+1)+(d.getFullYear()!==new Date().getFullYear()?'.'+d.getFullYear():'')}
-function fTH(ts){var d=new Date(ts);return fT(ts)+' · '+pad(d.getHours())+':'+pad(d.getMinutes())}
+function fT(ts){return fDate(new Date(ts))}
+function fTH(ts){return fDate(new Date(ts),1)}
 function remAt(c){var r=c.rem;if(!r||!r.on||!r.d)return 0;var p=String(r.d).split('-'),h=String(r.hm||'09:00').split(':');return new Date(+p[0],+p[1]-1,+p[2],+h[0]||0,+h[1]||0).getTime()}
 function today0(){var d=new Date();d.setHours(23,59,59,999);return d.getTime()}
 function over(c){var a=remAt(c);return a&&a<Date.now()}
@@ -4703,7 +4707,7 @@ function workH(c){var T0,h,W=(c.work||[]).slice().sort(function(a,b){return a.d<
  ys.forEach(function(y,yi){var L=W.filter(function(w){return String(w.d).slice(0,4)===y}),tot=0;L.forEach(function(w){if(w.pr!==''&&w.pr!=null&&!isNaN(+w.pr))tot+=+w.pr});var yo=OPN.y&&y in OPN.y?OPN.y[y]:yi===0;
   h+='<div class="spyr'+(yo?' open':'')+'" data-y="'+y+'"><div class="spyh" data-yy="'+y+'"><span class="ux">'+y+'</span><span class="spcnt">'+L.length+'</span>'+(C.tot&&tot?'<span class="crtot ux">'+esc(money(tot))+' '+esc(cur())+'</span>':'')+'<i class="sparr"></i></div>';
   if(yo){var mo='',wq='';L.forEach(function(w){var m=String(w.d).slice(0,7),k=wk(w.d),sep='';if(m!==mo){mo=m;wq=k;var dt=new Date(w.d+'T12:00:00'),ml;try{ml=dt.toLocaleDateString(NL,{month:'long'})}catch(_){ml=m}h+='<div class="crmon ux">'+esc(ml)+'</div>'}else if(k!==wq){wq=k;sep=' crwsep'}
-   h+='<div class="crwk'+sep+'" data-w="'+esc(w.id)+'"><span class="c0">'+esc(dLbl2(w.d).slice(0,5))+'</span><span class="c1 ux">'+esc(w.n||'—')+'</span><span class="c2 ux">'+(w.pr!==''&&w.pr!=null&&!isNaN(+w.pr)?esc(money(+w.pr))+' '+esc(cur()):'')+'</span></div>'})}
+   h+='<div class="crwk'+sep+'" data-w="'+esc(w.id)+'"><span class="c0">'+esc(dLbl2(w.d))+'</span><span class="c1 ux">'+esc(w.n||'—')+'</span><span class="c2 ux">'+(w.pr!==''&&w.pr!=null&&!isNaN(+w.pr)?esc(money(+w.pr))+' '+esc(cur()):'')+'</span></div>'})}
   h+='</div>'});return h+'</div>'}
 function workDlg(w){var c=crmShow,isN=!w;w=w||{id:uid(),d:dkey(new Date()),n:'',pr:''};
  var d=dlg('<div class="crh crbig">'+esc(TR(isN?'Adaugă lucrare':'Lucrare'))+' · <span class="ux">'+esc(c.name||'')+'</span></div>'+
@@ -4719,7 +4723,7 @@ window.addEventListener('click',function(e){var m=$('crmSheet');if(!m||!m.contai
  if(y){OPN.y=OPN.y||{};var k=y.dataset.yy,cur0=m.querySelector('.spyr[data-y="'+k+'"]').classList.contains('open');OPN.y[k]=!cur0;shRender()}else if(w){var x=crmShow.work.filter(function(q){return q.id===w.dataset.w})[0];if(x)workDlg(JSON.parse(JSON.stringify(x)))}else workDlg(null)},true);
 /* tapping the tabs/top bar while a client card is open: keep edits (autosave), then close */
 window.addEventListener('click',function(e){var m=$('crmSheet');if(!m||!m.classList.contains('show')||!m.classList.contains('crcardm')||!crmShow)return;var t=e.target;if(!t.closest||!(t.closest('#noteTabs')||t.closest('#notesPg .ntop')))return;grab();var c=crmShow;if(String(c.name||'').trim()||c.tel.length)commit(c);shClose()},true);
-function dLbl2(s){var p=String(s).split('-');return p.length===3?p[2]+'.'+p[1]+'.'+p[0]:s}
+function dLbl2(s){return fDate(s)}
 function grab(){var c=crmShow,m=$('crmSheet');if(!c||!m)return;m.querySelectorAll('[data-f]').forEach(function(i){var k=i.dataset.f,v=i.value.trim();if(k==='tel0')c.tel[0]=v;else if(k==='tel1')c.tel[1]=v;else if(k.indexOf('cf:')===0){if(v)c.cf[k.slice(3)]=v;else delete c.cf[k.slice(3)]}else c[k]=v});c.tel=c.tel.filter(Boolean);
  var ro=m.querySelector('[data-rem="on"]');if(ro){c.rem={on:ro.checked?1:0,d:m.querySelector('[data-rem="d"]').value,hm:m.querySelector('[data-rem="hm"]').value||'09:00'}}}
 function commit(c){if(!String(c.name||'').trim()&&!c.tel.length){toast(TR('Scrie numele clientului'));return false}var o=JSON.parse(JSON.stringify(c));delete o._new;var i=C.list.findIndex(function(x){return x.id===o.id});if(i>=0)C.list[i]=o;else C.list.push(o);save();rr();return true}
@@ -4859,7 +4863,7 @@ window.crmMig=mig;try{mig();renderNotes()}catch(e){console.warn(e)}
 
 /* v96: Setări → TABURI (bibliotecă: ordine drag & drop, bifă vizibil/ascuns, PIN 4/6 opțional), DESIGN (Teme · Stil taburi · Fundal · Setări fine · Iconiță), iconiță urgență, Comunică cu creatorul, Versiune. Additive: hidden tab = t.off, nothing deleted. */
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v160';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v161';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};
@@ -4978,7 +4982,7 @@ var NEWS_URL='https://cluj1313.github.io/notis-news/creator.json';
  var get=function(k,d){try{var v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(_){return d}},put=function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(_){}};
  var css=document.createElement('style');css.textContent='#fNews .chk{display:flex;align-items:center;gap:10px;flex-direction:row}#fNews .chk input{width:20px;height:20px;margin:0;flex:none}#nwList{margin-top:6px}#nwList .nwi{padding:7px 0;border-top:1px solid rgba(255,255,255,.08)}#nwList .nwd{font-size:11px;opacity:.6}#nwList .nwt{font-weight:600}#nwList .nwb{font-size:13px;opacity:.85;white-space:pre-wrap}#nwCard{position:fixed;left:12px;right:12px;top:12px;z-index:9999;background:rgba(20,20,22,.97);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:12px 40px 12px 14px;box-shadow:0 8px 30px rgba(0,0,0,.5);color:#fff}#nwCard .nwx{position:absolute;right:8px;top:6px;background:none;border:0;color:#fff;font-size:20px}#nwCard .nwh{font-size:11px;opacity:.6;margin-bottom:3px}#nwOb{position:fixed;inset:0;z-index:13;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;padding:18px}#nwOb .obc{background:#18181b;border:1px solid rgba(255,255,255,.15);border-radius:16px;padding:16px;max-width:380px;color:#fff;display:flex;flex-direction:column;gap:12px}#nwOb .obh{font-family:Oswald,sans-serif;font-size:20px}#nwOb .obt{font-size:14px;opacity:.9;line-height:1.4}#nwOb .obk{display:flex;align-items:center;gap:10px;font-weight:600}#nwOb .obk input{width:22px;height:22px;margin:0}#nwOb button{align-self:flex-end;padding:9px 18px;border-radius:10px;border:0;background:#3fd8ff;color:#000;font-weight:700}';document.head.appendChild(css);
  var loc=function(m){var o=m.lang&&m.lang[NL];return{t:(o&&o.title)||m.title||'',b:(o&&o.body)||m.body||''}};
- function render(){var L=$('nwList');if(!L)return;var B=get(KB,[]);L.innerHTML=B.length?B.slice().reverse().map(function(m){var x=loc(m);return '<div class="nwi"><div class="nwd">'+esc(m.date||'')+'</div><div class="nwt ux">'+esc(x.t)+'</div><div class="nwb ux">'+esc(x.b)+'</div></div>'}).join(''):'<div class="hint">'+esc(TR('Niciun mesaj încă'))+'</div>'}
+ function render(){var L=$('nwList');if(!L)return;var B=get(KB,[]);L.innerHTML=B.length?B.slice().reverse().map(function(m){var x=loc(m);return '<div class="nwi"><div class="nwd">'+esc(fDate(m.date||''))+'</div><div class="nwt ux">'+esc(x.t)+'</div><div class="nwb ux">'+esc(x.b)+'</div></div>'}).join(''):'<div class="hint">'+esc(TR('Niciun mesaj încă'))+'</div>'}
  function card(list){if(!list.length)return;var m=list[0],x=loc(m),c=document.createElement('div');c.id='nwCard';c.innerHTML='<div class="nwh">'+esc(TR('Mesaj nou de la creator'))+'</div><div class="ux" style="font-weight:600">'+esc(x.t)+'</div><div class="ux" style="font-size:13px;opacity:.85;white-space:pre-wrap">'+esc(x.b)+'</div><button type="button" class="nwx" aria-label="x">×</button>';
   c.querySelector('.nwx').onclick=function(){c.remove();card(list.slice(1))};document.body.appendChild(c)}
  function poll(){if(!get(K,false))return;fetch(NEWS_URL+'?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){var a=(j&&j.messages)||[],S=get(KS,[]),B=get(KB,[]),first=!get('ns_newsPrimed',false),fresh=[];
@@ -5132,7 +5136,7 @@ renderAbList();
 .spdiff{color:var(--cyan);font-size:16px;font-weight:600;text-align:right;min-height:20px}
 .al2>.field{flex:1;min-width:0}
 .mdrow{display:flex;align-items:center;gap:6px;padding:3px 0;border-bottom:1px solid rgba(var(--lnR),.14)}
-/* v160: day rows */.mdlist{display:flex;flex-direction:column}.mdday{border-bottom:1px solid rgba(var(--lnR),.16)}.mddh{display:flex;align-items:center;gap:8px;min-height:44px}.mddt{flex:1;min-width:0;display:flex;align-items:center;gap:8px;background:none;border:0;padding:6px 4px;margin:0;text-align:left;color:var(--txt);font-family:Oswald,sans-serif;font-weight:300;font-size:20px;line-height:1.2;cursor:pointer;-webkit-tap-highlight-color:transparent}.mddl{overflow-wrap:anywhere}.mdpast .mddt{opacity:.88}.mdtd{background:rgba(var(--lnR),.10);box-shadow:inset 4px 0 0 var(--cyan);border-radius:10px}.mdtd .mddt{font-weight:500;font-size:21px;padding-left:10px}.mdtdb{font-family:inherit;font-weight:500;font-size:13px;letter-spacing:.3px;padding:1px 8px;border-radius:999px;background:var(--cyan);color:#06121f;flex:none}.mdck{flex:none;width:32px;height:32px;margin-right:4px;border-radius:50%;border:2px solid var(--mdgrn);background:transparent;cursor:pointer;padding:0;position:relative;box-sizing:border-box}.mdck::before{content:'';position:absolute;inset:-6px}.mdck.on{background:var(--mdgrn)}.mdck.on::after{content:'';position:absolute;left:9px;top:4px;width:7px;height:14px;border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg)}.mdck.red{border-color:var(--mdred)}.mdck.red.on{background:var(--mdred)}:root{--mdgrn:rgb(34,164,71);--mdred:rgb(255,83,80)}:root[data-theme="vip"]{--mdred:rgb(255,99,90)}:root[data-theme="light"],:root[data-theme="salon"],:root[data-theme="tus"],:root[data-theme="pap"],:root[data-theme="cleo"]{--mdgrn:rgb(21,122,51);--mdred:rgb(183,28,28)}:root[data-theme="light"] .mdtdb,:root[data-theme="salon"] .mdtdb,:root[data-theme="tus"] .mdtdb,:root[data-theme="pap"] .mdtdb,:root[data-theme="cleo"] .mdtdb{color:#fff}.mddb{padding:0 4px 6px 10px;white-space:normal}.mddb .mdnm{white-space:normal}.mddb .mdrow:last-child{border-bottom:0}.mdday.mdfut .mdg:disabled{opacity:.55;cursor:default}
+/* v160: day rows */.mdlist{display:flex;flex-direction:column}.mdday{border-bottom:1px solid rgba(var(--lnR),.16)}.mddh{display:flex;align-items:center;gap:8px;min-height:44px}.mddt{flex:1;min-width:0;display:flex;align-items:center;gap:8px;background:none;border:0;padding:6px 4px;margin:0;text-align:left;color:var(--txt);font-family:Oswald,sans-serif;font-weight:300;font-size:20px;line-height:1.2;cursor:pointer;-webkit-tap-highlight-color:transparent}.mddl{overflow-wrap:anywhere}.mdpast .mddt{opacity:.88}.mdtoday{background:rgba(var(--lnR),.10);box-shadow:inset 4px 0 0 var(--cyan);border-radius:10px}.mdtoday .mddt{font-weight:500;font-size:21px;padding-left:10px}.mdtdb{font-family:inherit;font-weight:500;font-size:13px;letter-spacing:.3px;padding:1px 8px;border-radius:999px;background:var(--cyan);color:#06121f;flex:none}.mdck{flex:none;width:32px;height:32px;margin-right:4px;border-radius:50%;border:2px solid var(--mdgrn);background:transparent;cursor:pointer;padding:0;position:relative;box-sizing:border-box}.mdck::before{content:'';position:absolute;inset:-6px}.mdck.on{background:var(--mdgrn)}.mdck.on::after{content:'';position:absolute;left:9px;top:4px;width:7px;height:14px;border:solid #fff;border-width:0 3px 3px 0;transform:rotate(45deg)}.mdck.red{border-color:var(--mdred)}.mdck.red.on{background:var(--mdred)}:root{--mdgrn:rgb(34,164,71);--mdred:rgb(255,83,80)}:root[data-theme="vip"]{--mdred:rgb(255,99,90)}:root[data-theme="light"],:root[data-theme="salon"],:root[data-theme="tus"],:root[data-theme="pap"],:root[data-theme="cleo"]{--mdgrn:rgb(21,122,51);--mdred:rgb(183,28,28)}:root[data-theme="light"] .mdtdb,:root[data-theme="salon"] .mdtdb,:root[data-theme="tus"] .mdtdb,:root[data-theme="pap"] .mdtdb,:root[data-theme="cleo"] .mdtdb{color:#fff}.mddb{padding:0 4px 6px 10px;white-space:normal}.mddb .mdnm{white-space:normal}.mddb .mdrow:last-child{border-bottom:0}.mdday.mdfut .mdg:disabled{opacity:.55;cursor:default}
 .mdnm{flex:1;min-width:0;font-size:16.5px;color:var(--txt);cursor:pointer;overflow-wrap:anywhere}.mdrep{display:block;color:var(--mut);font-size:12px}
 .mddo{display:flex;gap:6px;flex:none}.mdrow.many{flex-wrap:wrap}.mdrow.many .mdnm{flex-basis:100%}.mdrow.many .mddo{width:100%;justify-content:space-between}.mdper .spbd{padding-left:4px}.mdd{display:flex;flex-direction:column;align-items:center;width:52px}
 .mdd small{font-size:11px;color:var(--mut);margin-top:3px;white-space:nowrap}
