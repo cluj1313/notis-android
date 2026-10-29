@@ -63,6 +63,8 @@ final class Bridge {
     @JavascriptInterface public String iconGet() { if (!MainActivity.trusted) return ""; return IconSwitch.get(ctx); }
     @JavascriptInterface public boolean iconSet(String k) { if (!MainActivity.trusted) return false; return IconSwitch.set(ctx, k); }
     /* 2.5.6: biometric unlock for PIN prompts (never for the creator menu) */
+    /* v174: loyalty card shown to the cashier: full brightness while shown, then back to the system value (-1) */
+    @JavascriptInterface public void bright(float v) { final MainActivity m = MainActivity.cur; if (!MainActivity.trusted || m == null) return; final float x = (v < 0 || v > 1) ? -1f : v; m.runOnUiThread(() -> { android.view.WindowManager.LayoutParams lp = m.getWindow().getAttributes(); lp.screenBrightness = x; m.getWindow().setAttributes(lp); }); }
     @JavascriptInterface public void secure(boolean on) { final MainActivity m = MainActivity.cur; if (!MainActivity.trusted || m == null) return; m.runOnUiThread(() -> { if (on) m.getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_SECURE); else m.getWindow().clearFlags(android.view.WindowManager.LayoutParams.FLAG_SECURE); }); }
     private static final android.os.Handler CLIPH = new android.os.Handler(android.os.Looper.getMainLooper());
     private static final Runnable CLIPR = () -> clipWipe();
