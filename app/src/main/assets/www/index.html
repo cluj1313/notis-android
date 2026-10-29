@@ -3228,7 +3228,7 @@ function ntChipShow(){var c=document.querySelector('#noteTabs .ntab.on');if(c)tr
 function ntGo(d){var VT=noteTabs.filter(function(t){return !t.off}),i=VT.findIndex(function(t){return t.id===noteTab}),j=i+d;if(i<0||j<0||j>=VT.length)return false;if(draftId)draftFinish();noteTab=VT[j].id;saveNotes();renderNotes();ntChipShow();
  var ul=$('notesList');ul.classList.remove('nsw-l','nsw-r');void ul.offsetWidth;ul.classList.add(d>0?'nsw-l':'nsw-r');setTimeout(function(){ul.classList.remove('nsw-l','nsw-r')},200);return true}
 (function(){var pg=$('notesPg'),S=null;
- function blocked(t){return nQ||nTrash||pg.classList.contains('nsrch')||ndrag||$('noteFull').classList.contains('show')||document.querySelector('.modal.show')||$('lpMenu').classList.contains('show')||(t.closest&&t.closest('#noteTabs,input,textarea,select,.ntop,#shModal,#crop,#phView,.pwv'))}
+ function blocked(t){return nQ||nTrash||pg.classList.contains('nsrch')||ndrag||$('noteFull').classList.contains('show')||document.querySelector('.modal.show')||$('lpMenu').classList.contains('show')||(t.closest&&t.closest('#noteTabs,input,textarea,select,.ntop,#shModal,#crop,#phView,.pwv'))||(window.pwSwOn&&pwSwOn(t))}
  pg.addEventListener('touchstart',function(e){S=null;if(e.touches.length!==1)return;var t=e.touches[0];if(t.clientX<24||t.clientX>innerWidth-24||blocked(e.target))return;S={x:t.clientX,y:t.clientY,t:Date.now()}},{passive:true});
  pg.addEventListener('touchmove',function(e){if(!S)return;var t=e.touches[0];if(Math.abs(t.clientY-S.y)>40&&Math.abs(t.clientY-S.y)>Math.abs(t.clientX-S.x))S=null},{passive:true});
  pg.addEventListener('touchend',function(e){if(!S)return;var t=e.changedTouches[0],dx=t.clientX-S.x,dy=t.clientY-S.y,s0=S;S=null;if(Date.now()-s0.t>800||lpJust||ndrag)return;if(Math.abs(dx)>=60&&Math.abs(dx)>1.5*Math.abs(dy))ntGo(dx<0?1:-1)},{passive:true});
@@ -3482,7 +3482,7 @@ window.addEventListener('popstate',function(){if(selOn()&&!nIgnorePop){selExit(t
 $('notesBack').addEventListener('click',function(){notesClose()});
 var sw=null;
 document.addEventListener('touchstart',function(e){sw=null;if(e.touches.length!==1)return;var t=e.target;
- if(t.closest&&t.closest('input,textarea,select,.modal.show,#lpMenu,.news-search,#noteTabs'))return;if(document.querySelector('.modal.show')||$('lpMenu').classList.contains('show'))return;
+ if(t.closest&&t.closest('input,textarea,select,.modal.show,#lpMenu,.news-search,#noteTabs'))return;if(window.pwSwOn&&pwSwOn(t))return;if(document.querySelector('.modal.show')||$('lpMenu').classList.contains('show'))return;
  sw={x:e.touches[0].clientX,y:e.touches[0].clientY,t:Date.now()}},{passive:true});
 document.addEventListener('touchend',function(e){var d=sw;sw=null;if(!d||lpJust||lpCur||ndrag||Date.now()-ndragT<600)return;var c=e.changedTouches[0],dx=c.clientX-d.x,dy=c.clientY-d.y;
  if(Math.abs(dx)<60||Math.abs(dx)<Math.abs(dy)*1.6)return;var open=$('notesPg').classList.contains('show');
@@ -5004,13 +5004,13 @@ function H(){var m=M();if(!C)return '<div class="spv pwv"><p class="pwhint">'+es
  if(!D.mode&&superClass)h+=xChooser();
  h+='<div class="ntabs pwcats">'+D.cats.filter(pill).map(function(x){return '<button type="button" class="ntab'+(x.id===cat&&!srch?' on':'')+'" data-pc="'+esc(x.id)+'">'+esc(x.name)+(x.lock?' 🔒':'')+'</button>'}).join('')+'<button type="button" class="ntab pwcadd" data-pa="cadd2" aria-label="'+esc(TR('Categorie nouă'))+'" title="'+esc(TR('Categorie nouă'))+'">+</button></div>';
  h+='<input type="search" id="pwQ" class="pwin pwq" autocomplete="off" data-lpignore="true" placeholder="'+esc(TR('Caută'))+'" value="'+esc(q)+'">';
- var list;if(srch){var f=nFold(srch);list=D.items.filter(function(x){var cc=catOf(x.cat);if(cc&&cc.lock&&!catOK[cc.id])return false;if(cc&&cc.kind&&xMode()!=='complete')return false;return nFold((x.name||'')+' '+(x.user||'')+' '+(x.note||'')).indexOf(f)>=0})}
+ var list;if(srch){var f=nFold(srch);list=D.items.filter(function(x){var cc=catOf(x.cat);if(cc&&cc.lock&&!catOK[cc.id])return false;if(cc&&cc.kind&&xMode()!=='complete')return false;if(x.t&&x.t!=='acct'&&xMode()!=='complete')return false;return nFold((x.name||'')+' '+(x.user||'')+' '+(x.note||'')).indexOf(f)>=0})}
  else if(c&&c.lock&&!catOK[c.id]){return h+'<div class="pwcl"><p>🔒 '+esc(TR('Categorie protejată'))+'</p><button type="button" class="btn pwbig" data-pa="catun">'+esc(TR('Deblochează'))+'</button></div></div>'}
  else if(xKindCat(c))return h+xList(c.kind)+'</div>';
- else list=D.items.filter(function(x){return x.cat===cat});
+ else list=D.items.filter(function(x){return x.cat===cat});if(xMode()!=='complete')list=list.filter(function(x){return !x.t||x.t==='acct'});
  list=list.slice().sort(function(a,b){return nFold(a.name).localeCompare(nFold(b.name))});
- h+='<div class="pwlist">'+(list.length?list.map(function(x){var w=!x.part&&x.pw&&str(x.pw).l===1;return '<div class="pwi" data-id="'+esc(x.id)+'"><div class="pwt"><b>'+esc(x.name||'—')+'</b>'+(w?'<i class="pwfw" title="'+esc(TR('Slabă'))+'">⚠</i>':'')+(R[x.id]?'<i class="pwfr" title="'+esc(TR('Repetată'))+'">⟳</i>':'')+'<span>'+esc(x.user||'')+'</span></div>'+(x.user?'<button type="button" class="pwcp" data-pa="cu" aria-label="'+esc(TR('Copiază utilizatorul'))+'">👤</button>':'')+(x.pw?'<button type="button" class="pwcp" data-pa="cp" aria-label="'+esc(TR('Copiază parola'))+'">🔑</button>':'')+'</div>'}).join(''):'<p class="pwhint">'+esc(TR('Nicio parolă aici încă.'))+'</p>')+'</div>';
- if(!srch)h+='<button type="button" class="btn pwbig pwadd" data-pa="new">+ '+esc(TR('Adaugă parolă'))+'</button>';
+ h+='<div class="pwlist">'+(list.length?list.map(function(x){if(x.t==='card')return '<div class="pwi" data-id="'+esc(x.id)+'"><div class="pwt"><b>💳 '+esc(x.name||'—')+'</b><span>'+esc(xLast4(x.num))+'</span></div>'+(x.num?'<button type="button" class="pwcp" data-pa="cnum" aria-label="'+esc(TR('Copiază'))+'">📋</button>':'')+'</div>';var w=!x.part&&x.pw&&str(x.pw).l===1;return '<div class="pwi" data-id="'+esc(x.id)+'"><div class="pwt"><b>'+esc(x.name||'—')+'</b>'+(w?'<i class="pwfw" title="'+esc(TR('Slabă'))+'">⚠</i>':'')+(R[x.id]?'<i class="pwfr" title="'+esc(TR('Repetată'))+'">⟳</i>':'')+'<span>'+esc(x.user||'')+'</span></div>'+(x.user?'<button type="button" class="pwcp" data-pa="cu" aria-label="'+esc(TR('Copiază utilizatorul'))+'">👤</button>':'')+(x.pw?'<button type="button" class="pwcp" data-pa="cp" aria-label="'+esc(TR('Copiază parola'))+'">🔑</button>':'')+'</div>'}).join(''):'<p class="pwhint">'+esc(TR('Nicio parolă aici încă.'))+'</p>')+'</div>';
+ if(!srch)h+='<button type="button" class="btn pwbig pwadd" data-pa="new">+ '+esc(TR('Adaugă parolă'))+'</button>'+(xMode()==='complete'&&c&&c===xBank()?'<button type="button" class="btn pwbig pwadd" data-pa="cnew">💳 + '+esc(TR('Adaugă card'))+'</button>':'');
  return h+'</div>'}
 function rer(){if((findNT(noteTab)||{}).kind==='pw'&&window.spRender)spRender()}
 function wrapSP(){var o=window.spRender;if(!o||o.__pw)return;window.spRender=function(){var v=$('spView'),t=findNT(noteTab);if(!v||!t||t.kind!=='pw'){var pg=$('notesPg');if(pg)pg.classList.remove('pwtab');if(K)lock();sec(false);return o.apply(this,arguments)}
@@ -5116,12 +5116,17 @@ function goCat(d){if(!D)return;var V=D.cats.filter(function(c){return !c.kind||x
 window.pwGoCat=goCat;
 /* ---- v174: Parole stage 2 (complete mode): store cards, ID photos, bank cards, identity data. superClass = feature flag (on for everyone, no billing). ---- */
 var superClass=true;
-var XK=[['loy','Carduri magazin','🏷'],['doc','Poze acte','🪪'],['card','Carduri bancare','💳'],['idn','Date identitate','👤']];
+var XK=[['loy','Carduri magazin','🏷'],['doc','Poze acte','🪪'],['idn','Date identitate','👤']];
 function xMode(){return D&&D.mode==='complete'&&superClass?'complete':'simple'}
 function xKindCat(c){return c&&c.kind&&xMode()==='complete'?c.kind:''}
 function xEnsure(){XK.forEach(function(k){if(!D.cats.some(function(c){return c.kind===k[0]}))D.cats.push({id:'k_'+k[0],name:TR(k[1]),lock:k[0]==='doc'?1:0,kind:k[0]})})}
 /* versioned migration v1 -> v2: snapshot of the (still encrypted) vault first, nothing removed */
-function xMig(){if((D.v||1)>=2)return;try{if(!LS.get('ns_vault_premig174',null))LS.set('ns_vault_premig174',M())}catch(_){}D.v=2;if(D.mode!=='complete'&&D.mode!=='simple')D.mode='';}
+function xMig(){var v=D.v||1;if(v<2){try{if(!LS.get('ns_vault_premig174',null))LS.set('ns_vault_premig174',M())}catch(_){}D.v=2;if(D.mode!=='complete'&&D.mode!=='simple')D.mode=''}
+ if(D.v<3){/* v175: bank-card category merged into 'Bancă' — snapshot first, then move the cards; nothing removed but the empty category */
+  var kc=D.cats.filter(function(c){return c.kind==='card'});if(kc.length)try{if(!LS.get('ns_vault_premig175',null))LS.set('ns_vault_premig175',M())}catch(_){}
+  if(kc.length||D.items.some(function(x){return x.t==='card'})){var bk=xBank(1);kc.forEach(function(c){if(c.lock)bk.lock=1;D.items.forEach(function(x){if(x.cat===c.id)x.cat=bk.id})});D.items.forEach(function(x){if(x.t==='card'&&!D.cats.some(function(c){return c.id===x.cat&&!c.kind}))x.cat=bk.id})}
+  D.cats=D.cats.filter(function(c){return c.kind!=='card'});D.v=3;if(kc.length)save()}}
+function xBank(mk){var b=D.cats.filter(function(c){return c.id==='bank'&&!c.kind})[0]||D.cats.filter(function(c){return !c.kind&&nFold(c.name)===nFold(TR('Bancă'))})[0];if(!b&&mk){b={id:'bank',name:TR('Bancă'),lock:0};var i=D.cats.findIndex(function(c){return c.kind});if(i<0)D.cats.push(b);else D.cats.splice(i,0,b)}return b}
 function xSetMode(md){if(!D)return;D.mode=md==='complete'?'complete':'simple';if(D.mode==='complete')xEnsure();var c=catOf(cat);if(D.mode==='simple'&&c&&c.kind)cat=D.cats.filter(function(x){return !x.kind})[0].id;catOK={};shClose();save().then(rer)}
 function xChooser(){return '<div class="pwvmode" id="pwVMode"><p class="pwmt">'+esc(TR('Cum vrei să folosești seiful?'))+'</p><button type="button" class="btn pwbig" data-m="simple">'+esc(TR('Simplu'))+'<small>'+esc(TR('Doar parole.'))+'</small></button><button type="button" class="btn pwbig" data-m="complete">'+esc(TR('Complet'))+'<small>'+esc(TR('Parole, carduri de magazin, poze acte, carduri bancare și date de identitate.'))+'</small></button><p class="pwhint pwsm">'+esc(TR('Poți schimba oricând din ⚙ Setări.'))+'</p></div>'}
 /* ---- field sets ---- */
@@ -5143,7 +5148,7 @@ function xEdit(x,kind){kind=kind||(x&&x.t);var nw=!x;x=x||{id:'',t:kind,cat:cat}
  if(kind==='loy'){b+='<div class="pwrow2"><button type="button" class="btn" data-pa="lscan">📷 '+esc(TR('Scanează'))+'</button><button type="button" class="btn" data-pa="lgal">🖼 '+esc(TR('Din galerie'))+'</button></div><div id="pwXm" class="pwerr"></div>'+
   '<label class="pwl">'+esc(TR('Tip cod'))+'</label><div class="pwseg" id="pwFmt">'+[['bar','Cod de bare'],['qr','QR']].map(function(o){return '<button type="button" class="'+((x.fmt==='qr_code'?'qr':'bar')===o[0]?'on':'')+'" data-f="'+o[0]+'">'+esc(TR(o[1]))+'</button>'}).join('')+'</div>'+
   '<label class="pwl">'+esc(TR('Poză card (opțional)'))+'</label><div id="pwXph" class="pwxph"></div><button type="button" class="btn" data-pa="lph">📷 '+esc(TR('Poză card'))+'</button>'}
- sh(TR(XK.filter(function(k){return k[0]===kind})[0][1]),b,(nw?'':B('del',TR('Șterge'),'dngb'))+B('xsave',TR('Salvează'),'pwbig'));if(kind==='loy'&&XPH)xThumb(XPH)}
+ sh(TR(kind==='card'?'Bancă':XK.filter(function(k){return k[0]===kind})[0][1]),b,(nw?'':B('del',TR('Șterge'),'dngb'))+B('xsave',TR('Salvează'),'pwbig'));if(kind==='loy'&&XPH)xThumb(XPH)}
 function xSave(){var x=XE;if(!x||!D)return;var nw=!x.id;XF[x.t].forEach(function(f,i){var e=$('pwX'+i);if(e)x[f[0]]=e.value.trim()});
  if(x.t==='loy'){var s=document.querySelector('#pwFmt .on');var fm=s&&s.dataset.f==='qr'?'qr_code':(x.fmt&&x.fmt!=='qr_code'?x.fmt:'auto');x.fmt=fm;if(x.ph&&x.ph!==XPH)phDel(x.ph).catch(function(){});x.ph=XPH||undefined}
  if(!x.name){var e0=$('pwX0');if(e0)e0.focus();return}
@@ -5213,7 +5218,7 @@ function xScan(cap){var msg=function(t){var e=$('pwXm');if(e)e.textContent=t};if
   if(!r||!r.length){msg(TR('Nu am găsit niciun cod. Scrie numărul manual.'));return}var c=r[0],e=$('pwX1');if(e)e.value=c.rawValue;if(XE)XE.fmt=c.format;var q=c.format==='qr_code';document.querySelectorAll('#pwFmt button').forEach(function(b){b.classList.toggle('on',(b.dataset.f==='qr')===q)});msg('✓ '+TR('Cod găsit'))}).catch(function(){msg(TR('Nu am găsit niciun cod. Scrie numărul manual.'))})})}
 /* ---- actions (merged into the vault click map) ---- */
 function xRow(a){var r=a&&a.closest('.pwi');return r&&D.items.filter(function(y){return y.id===r.dataset.id})[0]}
-var F2={xnew:function(){var k=xKindCat(catOf(cat));if(k)xEdit(null,k)},xsave:xSave,
+var F2={xnew:function(){var k=xKindCat(catOf(cat));if(k)xEdit(null,k)},cnew:function(){xEdit(null,'card')},xsave:xSave,
  xcp:function(e){var b=e.target.closest('[data-f]'),f=XE&&XF[XE.t][+b.dataset.f];if(!f)return;var v=$('pwX'+b.dataset.f).value;if(!v)return;clip(v,!!f[2]);toast(TR('Copiat.')+(f[2]?' '+TR('Se șterge din clipboard în')+' '+(D.clip||30)+' s':''))},
  cnum:function(e){var x=xRow(e.target);if(x&&x.num){clip(x.num.replace(/\s/g,''),1);toast(TR('Copiat.')+' '+TR('Se șterge din clipboard în')+' '+(D.clip||30)+' s')}},
  lshow:function(e){xShow(xRow(e.target))},lscan:function(){xScan(1)},lgal:function(){xScan(0)},
@@ -5252,9 +5257,11 @@ document.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.id=
 document.addEventListener('visibilitychange',function(){if(document.hidden){if(K)lock();var v=$('spView');if(v&&v.querySelector('.pwv'))v.innerHTML='';SU=null;shClose()}});
 window.addEventListener('pagehide',function(){if(K)lock()});
 try{window.pwDbg.xph=phDump;window.pwDbg.xgc=phGC;window.pwDbg.xall=phAll}catch(_){}
-/* swipe on content switches category */
-(function(){var S=null;document.addEventListener('touchstart',function(e){var t=e.target.closest&&e.target.closest('#spView .pwv');S=null;if(!t||!K||e.touches.length!==1||e.target.closest('input,textarea,.pwcats'))return;S={x:e.touches[0].clientX,y:e.touches[0].clientY}},{passive:true});
- document.addEventListener('touchend',function(e){if(!S)return;var t=e.changedTouches[0],dx=t.clientX-S.x,dy=t.clientY-S.y;S=null;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5&&!q.trim())goCat(dx<0?1:-1)},{passive:true})})();
+/* swipe on content switches category. v175: whole Parole page (pills row included) — the global tab/page swipes are guarded by pwSwOn() */
+window.pwSwOn=function(t){var pg=$('notesPg');return !!(pg&&pg.classList.contains('pwtab')&&pg.classList.contains('show')&&t&&t.closest&&t.closest('#notesPg')&&!t.closest('#noteTabs,.ntop'))};
+(function(){var S=null;document.addEventListener('touchstart',function(e){S=null;var t=e.target;if(!pwSwOn(t)||!K||e.touches.length!==1||t.closest('input,textarea,select,#pwSheet,#pwZoom,#pwBig,.modal.show'))return;var r=t.closest('.pwcats');S={x:e.touches[0].clientX,y:e.touches[0].clientY,r:r,sl:r?r.scrollLeft:0}},{passive:true});
+ document.addEventListener('touchmove',function(e){if(S&&e.touches.length!==1)S=null},{passive:true});document.addEventListener('touchcancel',function(){S=null},{passive:true});
+ document.addEventListener('touchend',function(e){if(!S)return;var t=e.changedTouches[0],dx=t.clientX-S.x,dy=t.clientY-S.y,s0=S;S=null;if(s0.r&&Math.abs(s0.r.scrollLeft-s0.sl)>2)return;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5&&!q.trim())goCat(dx<0?1:-1)},{passive:true})})();
 /* tab migration */
 function mig(){if(LS.get('ns_pwmig1',0))return;if(!noteTabs.some(function(t){return t.kind==='pw'})){var nid='pw';while(findNT(nid))nid='pw'+Math.random().toString(36).slice(2,5);var t={id:nid,name:TR('Parole')+' 🔑',color:'#7cc4ff',kind:'pw'},ci=noteTabs.findIndex(function(x){return x.kind==='crm'});if(ci>=0)noteTabs.splice(ci+1,0,t);else noteTabs.push(t);LS.set('ns_notetabs',noteTabs)}LS.set('ns_pwmig1',1)}
 /* backup / restore: ciphertext only */
@@ -5264,7 +5271,7 @@ mig();wrapSP();try{renderNotes()}catch(_){}
 })();
 
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v174';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v175';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};

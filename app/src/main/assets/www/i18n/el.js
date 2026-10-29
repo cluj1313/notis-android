@@ -1344,7 +1344,6 @@ NOTIS_I18N={
 "Copiat.": "Αντιγράφηκε.",
 "Carduri magazin": "Κάρτες καταστημάτων",
 "Poze acte": "Φωτογραφίες εγγράφων",
-"Carduri bancare": "Τραπεζικές κάρτες",
 "Date identitate": "Στοιχεία ταυτότητας",
 "Magazin": "Κατάστημα",
 "Număr card": "Αριθμός κάρτας",
@@ -1356,5 +1355,6 @@ NOTIS_I18N={
 "Valabil până la": "Ισχύει έως",
 "CVV": "CVV",
 "IBAN": "IBAN",
-"CNP": "CNP"
+"CNP": "CNP",
+"Adaugă card": "Προσθήκη κάρτας"
 };

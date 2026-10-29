@@ -1344,7 +1344,6 @@ NOTIS_I18N={
 "Copiat.": "Kopioitu.",
 "Carduri magazin": "Kanta-asiakaskortit",
 "Poze acte": "Henkilöpaperien kuvat",
-"Carduri bancare": "Pankkikortit",
 "Date identitate": "Henkilötiedot",
 "Magazin": "Kauppa",
 "Număr card": "Kortin numero",
@@ -1356,5 +1355,6 @@ NOTIS_I18N={
 "Valabil până la": "Voimassa asti",
 "CVV": "CVV",
 "IBAN": "IBAN",
-"CNP": "CNP"
+"CNP": "CNP",
+"Adaugă card": "Lisää kortti"
 };

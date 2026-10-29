@@ -1344,7 +1344,6 @@ NOTIS_I18N={
 "Copiat.": "Kopeeritud.",
 "Carduri magazin": "Kliendikaardid",
 "Poze acte": "Dokumentide fotod",
-"Carduri bancare": "Pangakaardid",
 "Date identitate": "Isikuandmed",
 "Magazin": "Pood",
 "Număr card": "Kaardi number",
@@ -1356,5 +1355,6 @@ NOTIS_I18N={
 "Valabil până la": "Kehtib kuni",
 "CVV": "CVV",
 "IBAN": "IBAN",
-"CNP": "CNP"
+"CNP": "CNP",
+"Adaugă card": "Lisa kaart"
 };

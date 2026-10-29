@@ -1344,7 +1344,6 @@ NOTIS_I18N={
 "Copiat.": "U kopjua.",
 "Carduri magazin": "Karta dyqanesh",
 "Poze acte": "Foto dokumentesh",
-"Carduri bancare": "Karta bankare",
 "Date identitate": "Të dhëna identiteti",
 "Magazin": "Dyqani",
 "Număr card": "Numri i kartës",
@@ -1356,5 +1355,6 @@ NOTIS_I18N={
 "Valabil până la": "E vlefshme deri më",
 "CVV": "CVV",
 "IBAN": "IBAN",
-"CNP": "CNP"
+"CNP": "CNP",
+"Adaugă card": "Shto kartë"
 };

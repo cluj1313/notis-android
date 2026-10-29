@@ -1344,7 +1344,6 @@ NOTIS_I18N={
 "Copiat.": "कॉपी किया गया।",
 "Carduri magazin": "स्टोर कार्ड",
 "Poze acte": "दस्तावेज़ों की फ़ोटो",
-"Carduri bancare": "बैंक कार्ड",
 "Date identitate": "पहचान डेटा",
 "Magazin": "स्टोर",
 "Număr card": "कार्ड नंबर",
@@ -1356,5 +1355,6 @@ NOTIS_I18N={
 "Valabil până la": "तक मान्य",
 "CVV": "CVV",
 "IBAN": "IBAN",
-"CNP": "CNP"
+"CNP": "CNP",
+"Adaugă card": "कार्ड जोड़ें"
 };

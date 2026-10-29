@@ -1344,7 +1344,6 @@ NOTIS_I18N={
 "Copiat.": "Nukopijuota.",
 "Carduri magazin": "Parduotuvių kortelės",
 "Poze acte": "Dokumentų nuotraukos",
-"Carduri bancare": "Banko kortelės",
 "Date identitate": "Asmens duomenys",
 "Magazin": "Parduotuvė",
 "Număr card": "Kortelės numeris",
@@ -1356,5 +1355,6 @@ NOTIS_I18N={
 "Valabil până la": "Galioja iki",
 "CVV": "CVV",
 "IBAN": "IBAN",
-"CNP": "CNP"
+"CNP": "CNP",
+"Adaugă card": "Pridėti kortelę"
 };

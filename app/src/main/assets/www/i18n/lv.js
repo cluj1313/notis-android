@@ -1344,7 +1344,6 @@ NOTIS_I18N={
 "Copiat.": "Nokopēts.",
 "Carduri magazin": "Veikalu kartes",
 "Poze acte": "Dokumentu foto",
-"Carduri bancare": "Bankas kartes",
 "Date identitate": "Personas dati",
 "Magazin": "Veikals",
 "Număr card": "Kartes numurs",
@@ -1356,5 +1355,6 @@ NOTIS_I18N={
 "Valabil până la": "Derīgs līdz",
 "CVV": "CVV",
 "IBAN": "IBAN",
-"CNP": "CNP"
+"CNP": "CNP",
+"Adaugă card": "Pievienot karti"
 };

@@ -1344,7 +1344,6 @@ NOTIS_I18N={
 "Copiat.": "Đã sao chép.",
 "Carduri magazin": "Thẻ cửa hàng",
 "Poze acte": "Ảnh giấy tờ",
-"Carduri bancare": "Thẻ ngân hàng",
 "Date identitate": "Thông tin cá nhân",
 "Magazin": "Cửa hàng",
 "Număr card": "Số thẻ",
@@ -1356,5 +1355,6 @@ NOTIS_I18N={
 "Valabil până la": "Có hiệu lực đến",
 "CVV": "CVV",
 "IBAN": "IBAN",
-"CNP": "CNP"
+"CNP": "CNP",
+"Adaugă card": "Thêm thẻ"
 };

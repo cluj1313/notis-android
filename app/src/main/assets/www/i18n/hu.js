@@ -1344,7 +1344,6 @@ NOTIS_I18N={
 "Copiat.": "Másolva.",
 "Carduri magazin": "Törzsvásárlói kártyák",
 "Poze acte": "Iratfotók",
-"Carduri bancare": "Bankkártyák",
 "Date identitate": "Személyes adatok",
 "Magazin": "Üzlet",
 "Număr card": "Kártyaszám",
@@ -1356,5 +1355,6 @@ NOTIS_I18N={
 "Valabil până la": "Érvényes eddig",
 "CVV": "CVV",
 "IBAN": "IBAN",
-"CNP": "CNP"
+"CNP": "CNP",
+"Adaugă card": "Kártya hozzáadása"
 };

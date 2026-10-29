@@ -1344,7 +1344,6 @@ NOTIS_I18N={
 "Copiat.": "Disalin.",
 "Carduri magazin": "Kad kedai",
 "Poze acte": "Foto dokumen",
-"Carduri bancare": "Kad bank",
 "Date identitate": "Data identiti",
 "Magazin": "Kedai",
 "Număr card": "Nombor kad",
@@ -1356,5 +1355,6 @@ NOTIS_I18N={
 "Valabil până la": "Sah sehingga",
 "CVV": "CVV",
 "IBAN": "IBAN",
-"CNP": "CNP"
+"CNP": "CNP",
+"Adaugă card": "Tambah kad"
 };

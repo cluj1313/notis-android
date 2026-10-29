@@ -1344,7 +1344,6 @@ NOTIS_I18N={
 "Copiat.": "Kopirano.",
 "Carduri magazin": "Kartice trgovina",
 "Poze acte": "Fotografije dokumenata",
-"Carduri bancare": "Bankovne kartice",
 "Date identitate": "Osobni podaci",
 "Magazin": "Trgovina",
 "Număr card": "Broj kartice",
@@ -1356,5 +1355,6 @@ NOTIS_I18N={
 "Valabil până la": "Vrijedi do",
 "CVV": "CVV",
 "IBAN": "IBAN",
-"CNP": "CNP"
+"CNP": "CNP",
+"Adaugă card": "Dodaj karticu"
 };
