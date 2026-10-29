@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Feloldva marad, amíg az app nyitva van, más lapokon és a háttérben is. Zárol, amikor bezárod az appot.",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Csak akkor zárol, ha a 🔒-ra koppintasz vagy bezárod az appot.",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Az app indításakor a széf mindig zárolva van. Amíg fel van oldva, bárki megnyithatja, akinél a telefon van.",
-"Folosește parola": "Jelszó használata"
+"Folosește parola": "Jelszó használata",
+"Atinge ce vrei să ștergi.": "Koppints arra, amit törölni szeretnél.",
+"Mărește": "Nagyítás",
+"Adaugă spate": "Hátoldal hozzáadása",
+"Decupat automat": "Automatikusan levágva",
+"Original": "Eredeti"
 };

@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Förblir upplåst så länge appen är öppen, även i andra flikar och i bakgrunden. Låses när du stänger appen.",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Låses bara när du trycker på 🔒 eller stänger appen.",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "När appen startar är valvet alltid låst. Medan det är upplåst kan vem som helst som håller telefonen öppna det.",
-"Folosește parola": "Använd lösenord"
+"Folosește parola": "Använd lösenord",
+"Atinge ce vrei să ștergi.": "Tryck på det du vill radera.",
+"Mărește": "Förstora",
+"Adaugă spate": "Lägg till baksida",
+"Decupat automat": "Automatiskt beskuren",
+"Original": "Original"
 };

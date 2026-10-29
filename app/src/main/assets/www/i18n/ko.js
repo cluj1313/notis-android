@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "앱이 열려 있는 동안 다른 탭과 백그라운드에서도 잠금 해제 상태로 유지됩니다. 앱을 닫으면 잠깁니다.",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "🔒을 탭하거나 앱을 닫을 때만 잠깁니다.",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "앱을 시작하면 금고는 항상 잠겨 있습니다. 잠금 해제된 동안에는 휴대폰을 든 누구나 열 수 있습니다.",
-"Folosește parola": "비밀번호 사용"
+"Folosește parola": "비밀번호 사용",
+"Atinge ce vrei să ștergi.": "삭제할 항목을 탭하세요.",
+"Mărește": "확대",
+"Adaugă spate": "뒷면 추가",
+"Decupat automat": "자동으로 자름",
+"Original": "원본"
 };

@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Pozostaje odblokowany, dopóki aplikacja jest otwarta, także w innych kartach i w tle. Blokuje się po zamknięciu aplikacji.",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Blokuje się tylko po dotknięciu 🔒 lub zamknięciu aplikacji.",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Po uruchomieniu aplikacji sejf jest zawsze zablokowany. Gdy jest odblokowany, każdy, kto trzyma telefon, może go otworzyć.",
-"Folosește parola": "Użyj hasła"
+"Folosește parola": "Użyj hasła",
+"Atinge ce vrei să ștergi.": "Dotknij tego, co chcesz usunąć.",
+"Mărește": "Powiększ",
+"Adaugă spate": "Dodaj tył",
+"Decupat automat": "Przycięto automatycznie",
+"Original": "Oryginał"
 };

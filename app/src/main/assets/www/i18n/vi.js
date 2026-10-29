@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Vẫn mở khóa khi ứng dụng còn mở, kể cả ở tab khác và trong nền. Khóa khi bạn đóng ứng dụng.",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Chỉ khóa khi bạn chạm 🔒 hoặc đóng ứng dụng.",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Khi khởi động ứng dụng, két luôn bị khóa. Khi đang mở khóa, bất kỳ ai cầm điện thoại đều có thể mở.",
-"Folosește parola": "Dùng mật khẩu"
+"Folosește parola": "Dùng mật khẩu",
+"Atinge ce vrei să ștergi.": "Chạm vào mục bạn muốn xóa.",
+"Mărește": "Phóng to",
+"Adaugă spate": "Thêm mặt sau",
+"Decupat automat": "Đã tự động cắt",
+"Original": "Bản gốc"
 };

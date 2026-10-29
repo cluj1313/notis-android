@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Pysyy avattuna niin kauan kuin sovellus on auki, myös muilla välilehdillä ja taustalla. Lukittuu, kun suljet sovelluksen.",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Lukittuu vain, kun napautat 🔒 tai suljet sovelluksen.",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Sovelluksen käynnistyessä holvi on aina lukittu. Kun se on auki, kuka tahansa puhelinta pitelevä voi avata sen.",
-"Folosește parola": "Käytä salasanaa"
+"Folosește parola": "Käytä salasanaa",
+"Atinge ce vrei să ștergi.": "Napauta sitä, minkä haluat poistaa.",
+"Mărește": "Suurenna",
+"Adaugă spate": "Lisää takapuoli",
+"Decupat automat": "Rajattu automaattisesti",
+"Original": "Alkuperäinen"
 };

@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Μένει ξεκλείδωτο όσο η εφαρμογή είναι ανοιχτή, και σε άλλες καρτέλες και στο παρασκήνιο. Κλειδώνει όταν κλείνετε την εφαρμογή.",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Κλειδώνει μόνο όταν πατάτε 🔒 ή κλείνετε την εφαρμογή.",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Κατά την εκκίνηση της εφαρμογής το θησαυροφυλάκιο είναι πάντα κλειδωμένο. Όσο είναι ξεκλείδωτο, όποιος κρατά το τηλέφωνο μπορεί να το ανοίξει.",
-"Folosește parola": "Χρήση κωδικού"
+"Folosește parola": "Χρήση κωδικού",
+"Atinge ce vrei să ștergi.": "Πατήστε αυτό που θέλετε να διαγράψετε.",
+"Mărește": "Μεγέθυνση",
+"Adaugă spate": "Προσθήκη πίσω όψης",
+"Decupat automat": "Αυτόματη περικοπή",
+"Original": "Πρωτότυπο"
 };

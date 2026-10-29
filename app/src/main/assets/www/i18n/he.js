@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "נשארת פתוחה כל עוד האפליקציה פתוחה, גם בכרטיסיות אחרות וברקע. ננעלת כשסוגרים את האפליקציה.",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "ננעלת רק כשמקישים על 🔒 או סוגרים את האפליקציה.",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "בהפעלת האפליקציה הכספת תמיד נעולה. כל עוד היא פתוחה, כל מי שמחזיק בטלפון יכול לפתוח אותה.",
-"Folosește parola": "שימוש בסיסמה"
+"Folosește parola": "שימוש בסיסמה",
+"Atinge ce vrei să ștergi.": "הקש על מה שברצונך למחוק.",
+"Mărește": "הגדלה",
+"Adaugă spate": "הוספת צד אחורי",
+"Decupat automat": "נחתך אוטומטית",
+"Original": "מקור"
 };

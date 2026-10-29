@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Tetap terbuka selama aplikasi terbuka, termasuk di tab lain dan di latar belakang. Terkunci saat Anda menutup aplikasi.",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Terkunci hanya saat Anda mengetuk 🔒 atau menutup aplikasi.",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Saat aplikasi dimulai, brankas selalu terkunci. Selama terbuka, siapa pun yang memegang ponsel dapat membukanya.",
-"Folosește parola": "Gunakan kata sandi"
+"Folosește parola": "Gunakan kata sandi",
+"Atinge ce vrei să ștergi.": "Ketuk yang ingin dihapus.",
+"Mărește": "Perbesar",
+"Adaugă spate": "Tambah sisi belakang",
+"Decupat automat": "Dipangkas otomatis",
+"Original": "Asli"
 };

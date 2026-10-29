@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Stays unlocked while the app is open, including in other tabs and in the background. Locks when you close the app.",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Locks only when you tap 🔒 or close the app.",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "The vault is always locked when the app starts. While unlocked, anyone holding the phone can open it.",
-"Folosește parola": "Use password"
+"Folosește parola": "Use password",
+"Atinge ce vrei să ștergi.": "Tap what you want to delete.",
+"Mărește": "Zoom",
+"Adaugă spate": "Add back",
+"Decupat automat": "Auto-cropped",
+"Original": "Original"
 };

@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "ยังคงปลดล็อกอยู่ตราบที่แอปเปิดอยู่ รวมถึงในแท็บอื่นและเบื้องหลัง ล็อกเมื่อคุณปิดแอป",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "ล็อกเฉพาะเมื่อแตะ 🔒 หรือปิดแอป",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "เมื่อเริ่มแอป ตู้เซฟจะถูกล็อกเสมอ ขณะปลดล็อก ใครก็ตามที่ถือโทรศัพท์อยู่สามารถเปิดได้",
-"Folosește parola": "ใช้รหัสผ่าน"
+"Folosește parola": "ใช้รหัสผ่าน",
+"Atinge ce vrei să ștergi.": "แตะสิ่งที่ต้องการลบ",
+"Mărește": "ขยาย",
+"Adaugă spate": "เพิ่มด้านหลัง",
+"Decupat automat": "ครอปอัตโนมัติแล้ว",
+"Original": "ต้นฉบับ"
 };

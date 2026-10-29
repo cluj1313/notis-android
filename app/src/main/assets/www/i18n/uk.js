@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Залишається розблокованим, поки застосунок відкритий, зокрема на інших вкладках і у фоні. Блокується, коли ви закриваєте застосунок.",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Блокується лише після натискання 🔒 або закриття застосунку.",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Під час запуску застосунку сейф завжди заблокований. Поки він розблокований, його може відкрити будь-хто, у кого телефон.",
-"Folosește parola": "Використати пароль"
+"Folosește parola": "Використати пароль",
+"Atinge ce vrei să ștergi.": "Торкніться того, що хочете видалити.",
+"Mărește": "Збільшити",
+"Adaugă spate": "Додати зворот",
+"Decupat automat": "Обрізано автоматично",
+"Original": "Оригінал"
 };

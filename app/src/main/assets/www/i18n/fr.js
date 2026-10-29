@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Reste déverrouillé tant que l'app est ouverte, y compris dans d'autres onglets et en arrière-plan. Se verrouille quand vous fermez l'app.",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Se verrouille uniquement quand vous appuyez sur 🔒 ou fermez l'app.",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Au démarrage de l'app, le coffre est toujours verrouillé. Tant qu'il est déverrouillé, quiconque tient le téléphone peut l'ouvrir.",
-"Folosește parola": "Utiliser le mot de passe"
+"Folosește parola": "Utiliser le mot de passe",
+"Atinge ce vrei să ștergi.": "Touchez ce que vous voulez supprimer.",
+"Mărește": "Agrandir",
+"Adaugă spate": "Ajouter le verso",
+"Decupat automat": "Recadré automatiquement",
+"Original": "Original"
 };

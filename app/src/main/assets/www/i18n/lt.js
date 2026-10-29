@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Lieka atrakintas, kol programa atidaryta, taip pat kituose skirtukuose ir fone. Užsirakina, kai uždarote programą.",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Užsirakina tik palietus 🔒 arba uždarius programą.",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Paleidus programą seifas visada užrakintas. Kol jis atrakintas, bet kas, laikantis telefoną, gali jį atidaryti.",
-"Folosește parola": "Naudoti slaptažodį"
+"Folosește parola": "Naudoti slaptažodį",
+"Atinge ce vrei să ștergi.": "Bakstelėkite tai, ką norite ištrinti.",
+"Mărește": "Padidinti",
+"Adaugă spate": "Pridėti galinę pusę",
+"Decupat automat": "Automatiškai apkirpta",
+"Original": "Originalas"
 };

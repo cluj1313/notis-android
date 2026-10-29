@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Sigue desbloqueada mientras la app está abierta, incluso en otras pestañas y en segundo plano. Se bloquea al cerrar la app.",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Se bloquea solo al tocar 🔒 o al cerrar la app.",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Al iniciar la app, la caja fuerte siempre está bloqueada. Mientras está desbloqueada, cualquiera que tenga el teléfono puede abrirla.",
-"Folosește parola": "Usar contraseña"
+"Folosește parola": "Usar contraseña",
+"Atinge ce vrei să ștergi.": "Toca lo que quieras eliminar.",
+"Mărește": "Ampliar",
+"Adaugă spate": "Añadir reverso",
+"Decupat automat": "Recortado automáticamente",
+"Original": "Original"
 };

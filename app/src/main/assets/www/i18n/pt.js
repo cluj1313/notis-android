@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Fica desbloqueado enquanto a app está aberta, incluindo noutros separadores e em segundo plano. Bloqueia quando fecha a app.",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Bloqueia apenas quando toca em 🔒 ou fecha a app.",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Ao iniciar a app, o cofre está sempre bloqueado. Enquanto está desbloqueado, qualquer pessoa com o telemóvel na mão pode abri-lo.",
-"Folosește parola": "Usar palavra-passe"
+"Folosește parola": "Usar palavra-passe",
+"Atinge ce vrei să ștergi.": "Toque no que pretende eliminar.",
+"Mărește": "Ampliar",
+"Adaugă spate": "Adicionar verso",
+"Decupat automat": "Recortado automaticamente",
+"Original": "Original"
 };

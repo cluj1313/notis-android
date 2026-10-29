@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Ostaje otključan dok je aplikacija otvorena, uključujući druge kartice i pozadinu. Zaključava se kada zatvorite aplikaciju.",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Zaključava se samo kada dodirnete 🔒 ili zatvorite aplikaciju.",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Pri pokretanju aplikacije sef je uvek zaključan. Dok je otključan, svako ko drži telefon može da ga otvori.",
-"Folosește parola": "Koristi lozinku"
+"Folosește parola": "Koristi lozinku",
+"Atinge ce vrei să ștergi.": "Додирните оно што желите да избришете.",
+"Mărește": "Увећај",
+"Adaugă spate": "Додај полеђину",
+"Decupat automat": "Аутоматски исечено",
+"Original": "Оригинал"
 };

@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Blijft ontgrendeld zolang de app open is, ook in andere tabbladen en op de achtergrond. Vergrendelt wanneer je de app sluit.",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Vergrendelt alleen als je op 🔒 tikt of de app sluit.",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Bij het starten van de app is de kluis altijd vergrendeld. Zolang hij ontgrendeld is, kan iedereen die de telefoon vasthoudt hem openen.",
-"Folosește parola": "Wachtwoord gebruiken"
+"Folosește parola": "Wachtwoord gebruiken",
+"Atinge ce vrei să ștergi.": "Tik op wat je wilt verwijderen.",
+"Mărește": "Vergroten",
+"Adaugă spate": "Achterkant toevoegen",
+"Decupat automat": "Automatisch bijgesneden",
+"Original": "Origineel"
 };

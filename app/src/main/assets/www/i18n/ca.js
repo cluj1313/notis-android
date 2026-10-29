@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Es manté desbloquejada mentre l'app és oberta, també en altres pestanyes i en segon pla. Es bloqueja quan tanques l'app.",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Es bloqueja només quan toques 🔒 o tanques l'app.",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "En iniciar l'app, la caixa forta sempre està bloquejada. Mentre està desbloquejada, qualsevol que tingui el telèfon la pot obrir.",
-"Folosește parola": "Fes servir la contrasenya"
+"Folosește parola": "Fes servir la contrasenya",
+"Atinge ce vrei să ștergi.": "Toca el que vulguis suprimir.",
+"Mărește": "Amplia",
+"Adaugă spate": "Afegeix el revers",
+"Decupat automat": "Retallat automàticament",
+"Original": "Original"
 };

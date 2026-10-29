@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "アプリが開いている間は、他のタブやバックグラウンドでもロック解除のままです。アプリを閉じるとロックされます。",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "🔒をタップするかアプリを閉じたときのみロックされます。",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "アプリ起動時、金庫は常にロックされています。ロック解除中は、電話を手にした人なら誰でも開けます。",
-"Folosește parola": "パスワードを使う"
+"Folosește parola": "パスワードを使う",
+"Atinge ce vrei să ștergi.": "削除したいものをタップしてください。",
+"Mărește": "拡大",
+"Adaugă spate": "裏面を追加",
+"Decupat automat": "自動でトリミング",
+"Original": "元の画像"
 };

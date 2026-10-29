@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Resta sbloccata finché l'app è aperta, anche in altre schede e in background. Si blocca quando chiudi l'app.",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Si blocca solo quando tocchi 🔒 o chiudi l'app.",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "All'avvio dell'app la cassaforte è sempre bloccata. Mentre è sbloccata, chiunque abbia il telefono in mano può aprirla.",
-"Folosește parola": "Usa la password"
+"Folosește parola": "Usa la password",
+"Atinge ce vrei să ștergi.": "Tocca ciò che vuoi eliminare.",
+"Mărește": "Ingrandisci",
+"Adaugă spate": "Aggiungi retro",
+"Decupat automat": "Ritagliato automaticamente",
+"Original": "Originale"
 };

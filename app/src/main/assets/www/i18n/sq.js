@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Mbetet e hapur sa kohë aplikacioni është i hapur, edhe në skeda të tjera dhe në sfond. Kyçet kur mbyll aplikacionin.",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Kyçet vetëm kur prek 🔒 ose mbyll aplikacionin.",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Në nisjen e aplikacionit kasaforta është gjithmonë e kyçur. Sa kohë është e hapur, kushdo që mban telefonin mund ta hapë.",
-"Folosește parola": "Përdor fjalëkalimin"
+"Folosește parola": "Përdor fjalëkalimin",
+"Atinge ce vrei să ștergi.": "Prek atë që dëshiron të fshish.",
+"Mărește": "Zmadho",
+"Adaugă spate": "Shto pjesën e pasme",
+"Decupat automat": "Prerë automatikisht",
+"Original": "Origjinali"
 };

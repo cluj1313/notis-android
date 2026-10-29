@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "應用程式開啟期間保持解鎖，包括在其他分頁和背景。關閉應用程式時鎖定。",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "僅在點按 🔒 或關閉應用程式時鎖定。",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "應用程式啟動時保險箱一律鎖定。解鎖期間，任何拿著手機的人都能開啟它。",
-"Folosește parola": "使用密碼"
+"Folosește parola": "使用密碼",
+"Atinge ce vrei să ștergi.": "點按要刪除的內容。",
+"Mărește": "放大",
+"Adaugă spate": "新增背面",
+"Decupat automat": "已自動裁切",
+"Original": "原圖"
 };

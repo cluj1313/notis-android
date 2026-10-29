@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "অ্যাপ খোলা থাকা পর্যন্ত আনলক থাকে, অন্য ট্যাবে ও ব্যাকগ্রাউন্ডেও। অ্যাপ বন্ধ করলে লক হয়।",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "শুধু 🔒 চাপলে বা অ্যাপ বন্ধ করলে লক হয়।",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "অ্যাপ চালু হলে ভল্ট সবসময় লক থাকে। আনলক থাকাকালীন ফোন হাতে থাকা যে কেউ এটি খুলতে পারে।",
-"Folosește parola": "পাসওয়ার্ড ব্যবহার করুন"
+"Folosește parola": "পাসওয়ার্ড ব্যবহার করুন",
+"Atinge ce vrei să ștergi.": "যা মুছতে চান তাতে ট্যাপ করুন।",
+"Mărește": "বড় করুন",
+"Adaugă spate": "পিছনের দিক যোগ করুন",
+"Decupat automat": "স্বয়ংক্রিয়ভাবে ক্রপ করা",
+"Original": "আসল"
 };

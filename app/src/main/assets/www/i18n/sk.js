@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Zostáva odomknutý, kým je aplikácia otvorená, aj v iných kartách a na pozadí. Zamkne sa, keď aplikáciu zatvoríte.",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Zamkne sa len po ťuknutí na 🔒 alebo zatvorení aplikácie.",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Pri spustení aplikácie je trezor vždy zamknutý. Kým je odomknutý, môže ho otvoriť ktokoľvek, kto drží telefón.",
-"Folosește parola": "Použiť heslo"
+"Folosește parola": "Použiť heslo",
+"Atinge ce vrei să ștergi.": "Ťuknite na to, čo chcete odstrániť.",
+"Mărește": "Zväčšiť",
+"Adaugă spate": "Pridať zadnú stranu",
+"Decupat automat": "Automaticky orezané",
+"Original": "Originál"
 };

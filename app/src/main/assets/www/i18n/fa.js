@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "تا وقتی برنامه باز است باز می‌ماند، حتی در زبانه‌های دیگر و در پس‌زمینه. با بستن برنامه قفل می‌شود.",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "فقط وقتی 🔒 را بزنید یا برنامه را ببندید قفل می‌شود.",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "هنگام شروع برنامه گاوصندوق همیشه قفل است. تا وقتی باز است، هر کسی که گوشی را در دست دارد می‌تواند آن را باز کند.",
-"Folosește parola": "استفاده از رمز"
+"Folosește parola": "استفاده از رمز",
+"Atinge ce vrei să ștergi.": "روی چیزی که می‌خواهید حذف کنید ضربه بزنید.",
+"Mărește": "بزرگ‌نمایی",
+"Adaugă spate": "افزودن پشت",
+"Decupat automat": "برش خودکار",
+"Original": "اصلی"
 };

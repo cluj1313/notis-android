@@ -1370,5 +1370,10 @@ NOTIS_I18N={
 "Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Bleibt entsperrt, solange die App geöffnet ist, auch in anderen Tabs und im Hintergrund. Sperrt, wenn du die App schließt.",
 "Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Sperrt nur, wenn du 🔒 tippst oder die App schließt.",
 "La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Beim App-Start ist der Tresor immer gesperrt. Solange er entsperrt ist, kann ihn jeder öffnen, der das Telefon in der Hand hat.",
-"Folosește parola": "Passwort verwenden"
+"Folosește parola": "Passwort verwenden",
+"Atinge ce vrei să ștergi.": "Tippe auf das, was du löschen möchtest.",
+"Mărește": "Vergrößern",
+"Adaugă spate": "Rückseite hinzufügen",
+"Decupat automat": "Automatisch zugeschnitten",
+"Original": "Original"
 };
