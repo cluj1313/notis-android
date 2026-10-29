@@ -39,6 +39,8 @@ Why photos/audio are NOT "collected": they never leave the device (Play only cou
 
 > Alternative (less conservative): answer **"No"** to collection – the app never reads the device location (no location permission in the Android app); only the coordinates of a city the user typed are sent to Open-Meteo. The "Approximate location" answer above is the safe choice that cannot be called inaccurate.
 
+**Passwords tab (v2.16.0):** saved passwords are encrypted on-device (AES-256-GCM, PBKDF2 600k) and never leave the phone → still **not collected** (no "Personal info / Passwords" tick needed). Mention in review notes if asked.
+
 **Security practices summary that Play will show:** "No data shared with third parties · Data is encrypted in transit".
 
 ---------------------------------------------------------------------------

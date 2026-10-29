@@ -40,7 +40,7 @@ final class BioLock {
         return g.generateKey();
     }
     static void save(Context c, String k, String pin) {
-        if (!ok(k) || pin == null || !pin.matches("\\d{4,6}")) return;
+        if (!ok(k) || pin == null || !(pin.matches("\\d{4,6}") || ("vault".equals(k) && pin.matches("[A-Za-z0-9_-]{43}")))) return;
         try {
             Cipher ci = Cipher.getInstance("AES/GCM/NoPadding"); ci.init(Cipher.ENCRYPT_MODE, key());
             byte[] ct = ci.doFinal(pin.getBytes(StandardCharsets.UTF_8));

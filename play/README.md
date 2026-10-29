@@ -6,3 +6,7 @@
 - `docs/CHECKLIST-RO.md` – pașii pentru Iosif
 - `listing/` – store texts in 7 languages (limits checked by listing.py)
 - `graphics/` – icon 512, feature graphic 1024×500 (RO/EN), 12 phone screenshots 1080×1920 (RO/EN)
+
+
+## Note v2.16.0 – Parole (password manager)
+Vault is AES-256-GCM encrypted on the device (PBKDF2 600k for the master password), never sent over the network, never logged. Data safety answers unchanged (nothing collected). Privacy policy has a "Passwords" section in all 7 languages. FLAG_SECURE is set while the vault tab is visible.

@@ -1,10 +1,11 @@
 # Generates privacy/index.html (7 languages, one page). Run: python3 gen.py OUTDIR
 import sys, html
-DATE = "2026-10-28"
+DATE = "2026-10-29"
 L = {
 "ro": ("Română", "Politica de confidențialitate – Notis", "Ultima actualizare", [
  ("Pe scurt", "Notis este o aplicație de notițe, liste și mementouri. Notițele tale rămân pe telefonul tău. Nu există conturi, reclame, analiză (analytics) sau urmărire. Nu colectăm, nu vindem și nu împărtășim datele tale personale."),
  ("Unde sunt păstrate datele", "Notițele, listele, mementourile, fotografiile, înregistrările vocale și setările sunt salvate doar local, în memoria aplicației de pe dispozitivul tău. Nu sunt trimise către noi sau către vreun server al nostru – nu avem un astfel de server."),
+ ('Parole', 'Parolele salvate în fila Parole sunt criptate pe telefon (AES-256-GCM, cheie derivată din parola principală cu PBKDF2). Nu sunt trimise nicăieri, nu apar în jurnale sau rapoarte. Parola principală nu este salvată; fără ea sau fără cheia de recuperare datele nu pot fi deschise, nici de noi.'),
  ("Microfon", "Permisiunea pentru microfon (RECORD_AUDIO) este folosită doar când apeși butonul de înregistrare pentru o notiță vocală. Înregistrarea se salvează local, ca fișier audio atașat notiței. Nu ascultăm în fundal și nu trimitem sunetul nicăieri. Butonul de înregistrare rapidă 🔴 din bara notiței înregistrează doar sunet, doar cât timp e pornit (se oprește singur dacă ieși din aplicație), iar fișierul se salvează local în tabul RECORDINGS; îl distribui doar dacă alegi tu."),
  ("Cameră", "Fotografiile se fac doar când alegi să atașezi o poză, folosind aplicația de cameră a telefonului. Poza rămâne pe dispozitiv, în notiță."),
  ("Notificări și alarme", "Notificările și alarmele exacte sunt folosite doar pentru mementourile pe care le setezi tu. Sunt programate local pe telefon."),
@@ -17,6 +18,7 @@ L = {
 "en": ("English", "Privacy Policy – Notis", "Last updated", [
  ("In short", "Notis is a notes, lists and reminders app. Your notes stay on your phone. There are no accounts, no ads, no analytics and no tracking. We do not collect, sell or share your personal data."),
  ("Where your data is stored", "Notes, lists, reminders, photos, voice recordings and settings are stored only locally, in the app's storage on your device. They are not sent to us or to any server of ours – we do not run one."),
+ ('Passwords', 'Passwords saved in the Passwords tab are encrypted on the phone (AES-256-GCM, key derived from your master password with PBKDF2). They are never sent anywhere and never appear in logs or reports. The master password is not stored; without it or the recovery key the data cannot be opened, not even by us.'),
  ("Microphone", "The microphone permission (RECORD_AUDIO) is used only when you tap the record button to make a voice note. The recording is saved locally as an audio file attached to the note. Nothing is recorded in the background and audio is never uploaded. The quick-record 🔴 button in the note bar records audio only, only while it is on (it stops by itself if you leave the app), and the file is saved locally in the RECORDINGS tab; it is shared only if you choose to."),
  ("Camera", "Photos are taken only when you choose to attach one, using your phone's camera app. The photo stays on your device, inside the note."),
  ("Notifications and alarms", "Notifications and exact alarms are used only for the reminders you set. They are scheduled locally on the phone."),
@@ -29,6 +31,7 @@ L = {
 "fr": ("Français", "Politique de confidentialité – Notis", "Dernière mise à jour", [
  ("En bref", "Notis est une application de notes, de listes et de rappels. Vos notes restent sur votre téléphone. Pas de compte, pas de publicité, pas d'analyse d'audience, pas de pistage. Nous ne collectons, ne vendons et ne partageons aucune donnée personnelle."),
  ("Où sont stockées vos données", "Notes, listes, rappels, photos, enregistrements vocaux et réglages sont stockés uniquement en local, dans l'espace de l'application sur votre appareil. Ils ne nous sont pas envoyés – nous n'avons aucun serveur."),
+ ('Mots de passe', "Les mots de passe enregistrés dans l'onglet Mots de passe sont chiffrés sur le téléphone (AES-256-GCM, clé dérivée du mot de passe principal avec PBKDF2). Ils ne sont jamais envoyés nulle part ni inscrits dans des journaux. Le mot de passe principal n'est pas conservé ; sans lui ou sans la clé de récupération, personne ne peut ouvrir les données, pas même nous."),
  ("Microphone", "L'autorisation micro (RECORD_AUDIO) n'est utilisée que lorsque vous appuyez sur le bouton d'enregistrement d'une note vocale. L'enregistrement est sauvegardé localement, joint à la note. Rien n'est enregistré en arrière-plan ni envoyé en ligne. Le bouton d'enregistrement rapide 🔴 de la barre de note n'enregistre que le son, uniquement tant qu'il est actif (il s'arrête si vous quittez l'application) ; le fichier est enregistré localement dans l'onglet RECORDINGS et n'est partagé que si vous le choisissez."),
  ("Appareil photo", "Une photo n'est prise que si vous choisissez d'en joindre une, via l'application photo du téléphone. Elle reste sur l'appareil, dans la note."),
  ("Notifications et alarmes", "Les notifications et alarmes exactes servent uniquement aux rappels que vous créez. Elles sont programmées localement."),
@@ -41,6 +44,7 @@ L = {
 "de": ("Deutsch", "Datenschutzerklärung – Notis", "Zuletzt aktualisiert", [
  ("Kurz gesagt", "Notis ist eine App für Notizen, Listen und Erinnerungen. Deine Notizen bleiben auf deinem Telefon. Keine Konten, keine Werbung, keine Analyse, kein Tracking. Wir erheben, verkaufen oder teilen keine personenbezogenen Daten."),
  ("Wo deine Daten gespeichert werden", "Notizen, Listen, Erinnerungen, Fotos, Sprachaufnahmen und Einstellungen werden nur lokal im App-Speicher auf deinem Gerät gespeichert. Sie werden nicht an uns gesendet – wir betreiben keinen Server."),
+ ('Passwörter', 'Im Tab Passwörter gespeicherte Passwörter werden auf dem Telefon verschlüsselt (AES-256-GCM, Schlüssel per PBKDF2 aus dem Master-Passwort abgeleitet). Sie werden nie gesendet und erscheinen nie in Protokollen. Das Master-Passwort wird nicht gespeichert; ohne es oder den Wiederherstellungsschlüssel kann niemand die Daten öffnen, auch wir nicht.'),
  ("Mikrofon", "Die Mikrofonberechtigung (RECORD_AUDIO) wird nur genutzt, wenn du für eine Sprachnotiz auf Aufnehmen tippst. Die Aufnahme wird lokal als Audiodatei an der Notiz gespeichert. Es wird nichts im Hintergrund aufgenommen oder hochgeladen. Die Schnellaufnahme-Taste 🔴 in der Notizleiste nimmt nur Ton auf, nur solange sie läuft (sie stoppt beim Verlassen der App), und die Datei wird lokal im Tab RECORDINGS gespeichert; geteilt wird sie nur, wenn du es wählst."),
  ("Kamera", "Fotos werden nur aufgenommen, wenn du eines anhängen möchtest – über die Kamera-App des Telefons. Das Foto bleibt auf dem Gerät in der Notiz."),
  ("Benachrichtigungen und Alarme", "Benachrichtigungen und exakte Alarme dienen nur den Erinnerungen, die du einstellst. Sie werden lokal geplant."),
@@ -53,6 +57,7 @@ L = {
 "it": ("Italiano", "Informativa sulla privacy – Notis", "Ultimo aggiornamento", [
  ("In breve", "Notis è un'app per note, liste e promemoria. Le tue note restano sul telefono. Nessun account, nessuna pubblicità, nessuna analisi, nessun tracciamento. Non raccogliamo, vendiamo né condividiamo dati personali."),
  ("Dove sono conservati i dati", "Note, liste, promemoria, foto, registrazioni vocali e impostazioni sono salvati solo in locale, nella memoria dell'app sul tuo dispositivo. Non vengono inviati a noi – non abbiamo alcun server."),
+ ('Password', 'Le password salvate nella scheda Password sono cifrate sul telefono (AES-256-GCM, chiave derivata dalla password principale con PBKDF2). Non vengono mai inviate né scritte nei log. La password principale non viene salvata; senza di essa o senza la chiave di recupero nessuno può aprire i dati, nemmeno noi.'),
  ("Microfono", "Il permesso del microfono (RECORD_AUDIO) è usato solo quando tocchi il pulsante di registrazione per una nota vocale. La registrazione è salvata in locale, allegata alla nota. Nulla viene registrato in background o caricato online. Il pulsante di registrazione rapida 🔴 nella barra della nota registra solo audio, solo finché è attivo (si ferma se esci dall'app), e il file viene salvato localmente nella scheda RECORDINGS; viene condiviso solo se lo scegli tu."),
  ("Fotocamera", "Le foto vengono scattate solo se scegli di allegarne una, tramite l'app fotocamera del telefono. La foto resta sul dispositivo, nella nota."),
  ("Notifiche e sveglie", "Notifiche e sveglie esatte servono solo per i promemoria che imposti. Sono programmate in locale."),
@@ -65,6 +70,7 @@ L = {
 "hu": ("Magyar", "Adatvédelmi irányelvek – Notis", "Utolsó frissítés", [
  ("Röviden", "A Notis jegyzet-, lista- és emlékeztető alkalmazás. A jegyzeteid a telefonodon maradnak. Nincs fiók, nincs reklám, nincs analitika, nincs követés. Nem gyűjtünk, nem adunk el és nem osztunk meg személyes adatot."),
  ("Hol tárolódnak az adatok", "A jegyzetek, listák, emlékeztetők, fotók, hangfelvételek és beállítások kizárólag helyben, az alkalmazás tárhelyén maradnak az eszközödön. Nem küldjük el őket nekünk – nincs is szerverünk."),
+ ('Jelszavak', 'A Jelszavak lapon mentett jelszavak a telefonon titkosítva vannak (AES-256-GCM, a kulcs a mesterjelszóból PBKDF2-vel készül). Soha nem kerülnek elküldésre, és nem jelennek meg naplókban. A mesterjelszót nem tároljuk; nélküle vagy a helyreállítási kulcs nélkül senki sem nyithatja meg az adatokat, mi sem.'),
  ("Mikrofon", "A mikrofon engedélyt (RECORD_AUDIO) csak akkor használjuk, amikor hangjegyzethez megnyomod a felvétel gombot. A felvétel helyben, a jegyzethez csatolt hangfájlként mentődik. Háttérben semmi nem rögzül, és semmi nem kerül feltöltésre. A jegyzetsáv 🔴 gyorsfelvétel gombja csak hangot rögzít, csak amíg be van kapcsolva (az alkalmazásból kilépve leáll), a fájl helyben, a RECORDINGS lapon tárolódik; csak akkor osztod meg, ha te úgy döntesz."),
  ("Kamera", "Fotó csak akkor készül, ha csatolni szeretnél egyet, a telefon kamera alkalmazásával. A kép az eszközön, a jegyzetben marad."),
  ("Értesítések és ébresztők", "Az értesítéseket és pontos ébresztőket csak az általad beállított emlékeztetőkhöz használjuk, helyben ütemezve."),
@@ -77,6 +83,7 @@ L = {
 "ru": ("Русский", "Политика конфиденциальности – Notis", "Последнее обновление", [
  ("Коротко", "Notis — приложение для заметок, списков и напоминаний. Ваши заметки остаются на телефоне. Нет аккаунтов, рекламы, аналитики и отслеживания. Мы не собираем, не продаём и не передаём ваши персональные данные."),
  ("Где хранятся данные", "Заметки, списки, напоминания, фото, голосовые записи и настройки хранятся только локально, в памяти приложения на вашем устройстве. Они не отправляются нам — у нас нет сервера."),
+ ('Пароли', 'Пароли во вкладке «Пароли» шифруются на телефоне (AES-256-GCM, ключ выводится из главного пароля через PBKDF2). Они никуда не отправляются и не попадают в журналы. Главный пароль не сохраняется; без него или ключа восстановления никто не сможет открыть данные, даже мы.'),
  ("Микрофон", "Разрешение на микрофон (RECORD_AUDIO) используется только когда вы нажимаете кнопку записи голосовой заметки. Запись сохраняется локально как аудиофайл в заметке. Ничего не записывается в фоне и не загружается в сеть. Кнопка быстрой записи 🔴 на панели заметки записывает только звук и только пока она включена (останавливается, если выйти из приложения); файл сохраняется локально во вкладке RECORDINGS и отправляется, только если ты сам решишь."),
  ("Камера", "Фото делается только если вы решите прикрепить снимок — через приложение камеры телефона. Фото остаётся на устройстве, в заметке."),
  ("Уведомления и будильники", "Уведомления и точные будильники используются только для напоминаний, которые вы задаёте. Они планируются локально."),

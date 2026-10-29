@@ -63,6 +63,19 @@ final class Bridge {
     @JavascriptInterface public String iconGet() { if (!MainActivity.trusted) return ""; return IconSwitch.get(ctx); }
     @JavascriptInterface public boolean iconSet(String k) { if (!MainActivity.trusted) return false; return IconSwitch.set(ctx, k); }
     /* 2.5.6: biometric unlock for PIN prompts (never for the creator menu) */
+    @JavascriptInterface public void secure(boolean on) { final MainActivity m = MainActivity.cur; if (!MainActivity.trusted || m == null) return; m.runOnUiThread(() -> { if (on) m.getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_SECURE); else m.getWindow().clearFlags(android.view.WindowManager.LayoutParams.FLAG_SECURE); }); }
+    private static final android.os.Handler CLIPH = new android.os.Handler(android.os.Looper.getMainLooper());
+    private static final Runnable CLIPR = () -> clipWipe();
+    private static Context CLIPC;
+    private static void clipWipe() { try { android.content.ClipboardManager cm = (android.content.ClipboardManager) CLIPC.getSystemService(Context.CLIPBOARD_SERVICE); if (cm == null) return; if (Build.VERSION.SDK_INT >= 28) cm.clearPrimaryClip(); else cm.setPrimaryClip(android.content.ClipData.newPlainText("", "")); } catch (Throwable t) {} }
+    @JavascriptInterface public boolean clipSet(String text, boolean sens, int ms) { if (!MainActivity.trusted || text == null || text.length() > 4096) return false;
+        CLIPC = ctx.getApplicationContext(); final int d = Math.max(0, Math.min(ms, 600000));
+        CLIPH.post(() -> { try { android.content.ClipboardManager cm = (android.content.ClipboardManager) CLIPC.getSystemService(Context.CLIPBOARD_SERVICE); if (cm == null) return;
+            android.content.ClipData cd = android.content.ClipData.newPlainText("Notis", text);
+            if (sens) { android.os.PersistableBundle b = new android.os.PersistableBundle(); b.putBoolean(Build.VERSION.SDK_INT >= 33 ? android.content.ClipDescription.EXTRA_IS_SENSITIVE : "android.content.extra.IS_SENSITIVE", true); cd.getDescription().setExtras(b); }
+            cm.setPrimaryClip(cd); CLIPH.removeCallbacks(CLIPR); if (d > 0) CLIPH.postDelayed(CLIPR, d); } catch (Throwable t) {} });
+        return true; }
+    @JavascriptInterface public void clipClear() { if (!MainActivity.trusted) return; CLIPC = ctx.getApplicationContext(); CLIPH.removeCallbacks(CLIPR); CLIPH.post(Bridge::clipWipe); }
     @JavascriptInterface public boolean bioAvail() { if (!MainActivity.trusted) return false; return BioLock.avail(ctx); }
     @JavascriptInterface public boolean bioHas(String k) { if (!MainActivity.trusted) return false; return BioLock.has(ctx, k); }
     @JavascriptInterface public void bioSave(String k, String pin) { if (!MainActivity.trusted) return; BioLock.save(ctx, k, pin); }
