@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "Add card"
+"Adaugă card": "Add card",
+"Adaugă email": "Add email",
+"Adaugă date": "Add details",
+"Adaugă poză": "Add photo",
+"Adaugă carte de vizită": "Add business card",
+"Față": "Front",
+"Spate (opțional)": "Back (optional)",
+"Blocare seif": "Vault lock",
+"La fiecare ieșire": "On every exit",
+"La închiderea sesiunii": "When the session ends",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "Locks when you leave Passwords, when the app goes to the background and after the inactivity time.",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Stays unlocked while the app is open, including in other tabs and in the background. Locks when you close the app.",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Locks only when you tap 🔒 or close the app.",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "The vault is always locked when the app starts. While unlocked, anyone holding the phone can open it.",
+"Folosește parola": "Use password"
 };

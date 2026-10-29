@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "Добави карта"
+"Adaugă card": "Добави карта",
+"Adaugă email": "Добави имейл",
+"Adaugă date": "Добави данни",
+"Adaugă poză": "Добави снимка",
+"Adaugă carte de vizită": "Добави визитка",
+"Față": "Лице",
+"Spate (opțional)": "Гръб (по избор)",
+"Blocare seif": "Заключване на сейфа",
+"La fiecare ieșire": "При всяко излизане",
+"La închiderea sesiunii": "При край на сесията",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "Заключва се, когато излезете от Пароли, когато приложението премине във фонов режим и след времето на неактивност.",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Остава отключен, докато приложението е отворено, включително в други раздели и във фонов режим. Заключва се, когато затворите приложението.",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Заключва се само когато натиснете 🔒 или затворите приложението.",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "При стартиране на приложението сейфът винаги е заключен. Докато е отключен, всеки с телефона в ръка може да го отвори.",
+"Folosește parola": "Използвай парола"
 };

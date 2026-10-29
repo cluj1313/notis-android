@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "Lägg till kort"
+"Adaugă card": "Lägg till kort",
+"Adaugă email": "Lägg till e-post",
+"Adaugă date": "Lägg till uppgifter",
+"Adaugă poză": "Lägg till foto",
+"Adaugă carte de vizită": "Lägg till visitkort",
+"Față": "Framsida",
+"Spate (opțional)": "Baksida (valfritt)",
+"Blocare seif": "Valvlås",
+"La fiecare ieșire": "Vid varje utgång",
+"La închiderea sesiunii": "När sessionen avslutas",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "Låses när du lämnar Lösenord, när appen går till bakgrunden och efter inaktivitetstiden.",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Förblir upplåst så länge appen är öppen, även i andra flikar och i bakgrunden. Låses när du stänger appen.",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Låses bara när du trycker på 🔒 eller stänger appen.",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "När appen startar är valvet alltid låst. Medan det är upplåst kan vem som helst som håller telefonen öppna det.",
+"Folosește parola": "Använd lösenord"
 };

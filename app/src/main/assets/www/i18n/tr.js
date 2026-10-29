@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "Kart ekle"
+"Adaugă card": "Kart ekle",
+"Adaugă email": "E-posta ekle",
+"Adaugă date": "Bilgi ekle",
+"Adaugă poză": "Fotoğraf ekle",
+"Adaugă carte de vizită": "Kartvizit ekle",
+"Față": "Ön yüz",
+"Spate (opțional)": "Arka yüz (isteğe bağlı)",
+"Blocare seif": "Kasa kilidi",
+"La fiecare ieșire": "Her çıkışta",
+"La închiderea sesiunii": "Oturum kapanınca",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "Şifreler'den çıktığınızda, uygulama arka plana geçtiğinde ve hareketsizlik süresinden sonra kilitlenir.",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Uygulama açık olduğu sürece, diğer sekmelerde ve arka planda da kilitsiz kalır. Uygulamayı kapattığınızda kilitlenir.",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Yalnızca 🔒'e dokunduğunuzda veya uygulamayı kapattığınızda kilitlenir.",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Uygulama başlatıldığında kasa her zaman kilitlidir. Kilitsizken telefonu elinde tutan herkes açabilir.",
+"Folosește parola": "Şifre kullan"
 };

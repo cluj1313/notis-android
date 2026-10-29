@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "Tambah kartu"
+"Adaugă card": "Tambah kartu",
+"Adaugă email": "Tambah email",
+"Adaugă date": "Tambah data",
+"Adaugă poză": "Tambah foto",
+"Adaugă carte de vizită": "Tambah kartu nama",
+"Față": "Depan",
+"Spate (opțional)": "Belakang (opsional)",
+"Blocare seif": "Kunci brankas",
+"La fiecare ieșire": "Setiap keluar",
+"La închiderea sesiunii": "Saat sesi berakhir",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "Terkunci saat Anda keluar dari Kata sandi, saat aplikasi masuk ke latar belakang, dan setelah waktu tidak aktif.",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Tetap terbuka selama aplikasi terbuka, termasuk di tab lain dan di latar belakang. Terkunci saat Anda menutup aplikasi.",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Terkunci hanya saat Anda mengetuk 🔒 atau menutup aplikasi.",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Saat aplikasi dimulai, brankas selalu terkunci. Selama terbuka, siapa pun yang memegang ponsel dapat membukanya.",
+"Folosește parola": "Gunakan kata sandi"
 };

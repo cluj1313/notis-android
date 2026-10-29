@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "Dodaj kartę"
+"Adaugă card": "Dodaj kartę",
+"Adaugă email": "Dodaj e-mail",
+"Adaugă date": "Dodaj dane",
+"Adaugă poză": "Dodaj zdjęcie",
+"Adaugă carte de vizită": "Dodaj wizytówkę",
+"Față": "Przód",
+"Spate (opțional)": "Tył (opcjonalnie)",
+"Blocare seif": "Blokada sejfu",
+"La fiecare ieșire": "Przy każdym wyjściu",
+"La închiderea sesiunii": "Po zakończeniu sesji",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "Blokuje się po wyjściu z Haseł, gdy aplikacja przejdzie w tło i po czasie bezczynności.",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Pozostaje odblokowany, dopóki aplikacja jest otwarta, także w innych kartach i w tle. Blokuje się po zamknięciu aplikacji.",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Blokuje się tylko po dotknięciu 🔒 lub zamknięciu aplikacji.",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Po uruchomieniu aplikacji sejf jest zawsze zablokowany. Gdy jest odblokowany, każdy, kto trzyma telefon, może go otworzyć.",
+"Folosește parola": "Użyj hasła"
 };

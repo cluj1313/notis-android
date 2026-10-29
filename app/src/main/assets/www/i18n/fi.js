@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "Lisää kortti"
+"Adaugă card": "Lisää kortti",
+"Adaugă email": "Lisää sähköposti",
+"Adaugă date": "Lisää tiedot",
+"Adaugă poză": "Lisää kuva",
+"Adaugă carte de vizită": "Lisää käyntikortti",
+"Față": "Etupuoli",
+"Spate (opțional)": "Takapuoli (valinnainen)",
+"Blocare seif": "Holvin lukitus",
+"La fiecare ieșire": "Joka poistumisella",
+"La închiderea sesiunii": "Istunnon päättyessä",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "Lukittuu, kun poistut Salasanoista, kun sovellus siirtyy taustalle ja käyttämättömyysajan jälkeen.",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Pysyy avattuna niin kauan kuin sovellus on auki, myös muilla välilehdillä ja taustalla. Lukittuu, kun suljet sovelluksen.",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Lukittuu vain, kun napautat 🔒 tai suljet sovelluksen.",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Sovelluksen käynnistyessä holvi on aina lukittu. Kun se on auki, kuka tahansa puhelinta pitelevä voi avata sen.",
+"Folosește parola": "Käytä salasanaa"
 };

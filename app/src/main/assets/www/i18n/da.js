@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "Tilføj kort"
+"Adaugă card": "Tilføj kort",
+"Adaugă email": "Tilføj e-mail",
+"Adaugă date": "Tilføj oplysninger",
+"Adaugă poză": "Tilføj foto",
+"Adaugă carte de vizită": "Tilføj visitkort",
+"Față": "Forside",
+"Spate (opțional)": "Bagside (valgfri)",
+"Blocare seif": "Boks-lås",
+"La fiecare ieșire": "Ved hver afslutning",
+"La închiderea sesiunii": "Når sessionen slutter",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "Låses, når du forlader Adgangskoder, når appen går i baggrunden og efter inaktivitetstiden.",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Forbliver låst op, så længe appen er åben, også i andre faner og i baggrunden. Låses, når du lukker appen.",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Låses kun, når du trykker på 🔒 eller lukker appen.",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Når appen starter, er boksen altid låst. Mens den er låst op, kan enhver, der holder telefonen, åbne den.",
+"Folosește parola": "Brug adgangskode"
 };

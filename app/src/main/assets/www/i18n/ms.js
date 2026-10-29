@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "Tambah kad"
+"Adaugă card": "Tambah kad",
+"Adaugă email": "Tambah e-mel",
+"Adaugă date": "Tambah butiran",
+"Adaugă poză": "Tambah foto",
+"Adaugă carte de vizită": "Tambah kad nama",
+"Față": "Depan",
+"Spate (opțional)": "Belakang (pilihan)",
+"Blocare seif": "Kunci peti besi",
+"La fiecare ieșire": "Setiap kali keluar",
+"La închiderea sesiunii": "Apabila sesi tamat",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "Dikunci apabila anda keluar dari Kata laluan, apabila aplikasi ke latar belakang dan selepas masa tidak aktif.",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Kekal tidak berkunci selagi aplikasi dibuka, termasuk di tab lain dan di latar belakang. Dikunci apabila anda menutup aplikasi.",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Dikunci hanya apabila anda mengetik 🔒 atau menutup aplikasi.",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Semasa aplikasi dimulakan, peti besi sentiasa berkunci. Semasa tidak berkunci, sesiapa yang memegang telefon boleh membukanya.",
+"Folosește parola": "Guna kata laluan"
 };

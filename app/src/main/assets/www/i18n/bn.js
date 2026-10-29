@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "কার্ড যোগ করুন"
+"Adaugă card": "কার্ড যোগ করুন",
+"Adaugă email": "ইমেল যোগ করুন",
+"Adaugă date": "তথ্য যোগ করুন",
+"Adaugă poză": "ছবি যোগ করুন",
+"Adaugă carte de vizită": "ভিজিটিং কার্ড যোগ করুন",
+"Față": "সামনে",
+"Spate (opțional)": "পেছনে (ঐচ্ছিক)",
+"Blocare seif": "ভল্ট লক",
+"La fiecare ieșire": "প্রতিবার বের হলে",
+"La închiderea sesiunii": "সেশন শেষ হলে",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "পাসওয়ার্ড থেকে বের হলে, অ্যাপ ব্যাকগ্রাউন্ডে গেলে এবং নিষ্ক্রিয়তার সময়ের পরে লক হয়।",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "অ্যাপ খোলা থাকা পর্যন্ত আনলক থাকে, অন্য ট্যাবে ও ব্যাকগ্রাউন্ডেও। অ্যাপ বন্ধ করলে লক হয়।",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "শুধু 🔒 চাপলে বা অ্যাপ বন্ধ করলে লক হয়।",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "অ্যাপ চালু হলে ভল্ট সবসময় লক থাকে। আনলক থাকাকালীন ফোন হাতে থাকা যে কেউ এটি খুলতে পারে।",
+"Folosește parola": "পাসওয়ার্ড ব্যবহার করুন"
 };

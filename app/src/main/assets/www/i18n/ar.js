@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "إضافة بطاقة"
+"Adaugă card": "إضافة بطاقة",
+"Adaugă email": "إضافة بريد إلكتروني",
+"Adaugă date": "إضافة بيانات",
+"Adaugă poză": "إضافة صورة",
+"Adaugă carte de vizită": "إضافة بطاقة عمل",
+"Față": "الوجه",
+"Spate (opțional)": "الظهر (اختياري)",
+"Blocare seif": "قفل الخزنة",
+"La fiecare ieșire": "عند كل خروج",
+"La închiderea sesiunii": "عند انتهاء الجلسة",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "تُقفل عند مغادرة كلمات المرور، وعند انتقال التطبيق إلى الخلفية، وبعد مدة عدم النشاط.",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "تبقى مفتوحة ما دام التطبيق مفتوحًا، بما في ذلك في علامات تبويب أخرى وفي الخلفية. تُقفل عند إغلاق التطبيق.",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "تُقفل فقط عند الضغط على 🔒 أو إغلاق التطبيق.",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "عند تشغيل التطبيق تكون الخزنة مقفلة دائمًا. ما دامت مفتوحة، يمكن لأي شخص يحمل الهاتف فتحها.",
+"Folosește parola": "استخدام كلمة المرور"
 };

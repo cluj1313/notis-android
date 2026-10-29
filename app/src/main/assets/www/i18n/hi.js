@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "कार्ड जोड़ें"
+"Adaugă card": "कार्ड जोड़ें",
+"Adaugă email": "ईमेल जोड़ें",
+"Adaugă date": "विवरण जोड़ें",
+"Adaugă poză": "फ़ोटो जोड़ें",
+"Adaugă carte de vizită": "विज़िटिंग कार्ड जोड़ें",
+"Față": "आगे",
+"Spate (opțional)": "पीछे (वैकल्पिक)",
+"Blocare seif": "तिजोरी लॉक",
+"La fiecare ieșire": "हर बार बाहर निकलने पर",
+"La închiderea sesiunii": "सत्र समाप्त होने पर",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "पासवर्ड से बाहर निकलने पर, ऐप के बैकग्राउंड में जाने पर और निष्क्रियता समय के बाद लॉक होता है।",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "ऐप खुला रहने तक अनलॉक रहता है, दूसरे टैब और बैकग्राउंड में भी। ऐप बंद करने पर लॉक होता है।",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "केवल 🔒 दबाने या ऐप बंद करने पर लॉक होता है।",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "ऐप शुरू होने पर तिजोरी हमेशा लॉक रहती है। अनलॉक रहते हुए, फ़ोन हाथ में रखने वाला कोई भी इसे खोल सकता है।",
+"Folosește parola": "पासवर्ड इस्तेमाल करें"
 };

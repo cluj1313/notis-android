@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "Karte hinzufügen"
+"Adaugă card": "Karte hinzufügen",
+"Adaugă email": "E-Mail hinzufügen",
+"Adaugă date": "Daten hinzufügen",
+"Adaugă poză": "Foto hinzufügen",
+"Adaugă carte de vizită": "Visitenkarte hinzufügen",
+"Față": "Vorderseite",
+"Spate (opțional)": "Rückseite (optional)",
+"Blocare seif": "Tresorsperre",
+"La fiecare ieșire": "Bei jedem Verlassen",
+"La închiderea sesiunii": "Beim Sitzungsende",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "Sperrt, wenn du Passwörter verlässt, wenn die App in den Hintergrund geht und nach der Inaktivitätszeit.",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Bleibt entsperrt, solange die App geöffnet ist, auch in anderen Tabs und im Hintergrund. Sperrt, wenn du die App schließt.",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Sperrt nur, wenn du 🔒 tippst oder die App schließt.",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Beim App-Start ist der Tresor immer gesperrt. Solange er entsperrt ist, kann ihn jeder öffnen, der das Telefon in der Hand hat.",
+"Folosește parola": "Passwort verwenden"
 };

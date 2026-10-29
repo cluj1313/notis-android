@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "הוספת כרטיס"
+"Adaugă card": "הוספת כרטיס",
+"Adaugă email": "הוספת אימייל",
+"Adaugă date": "הוספת פרטים",
+"Adaugă poză": "הוספת תמונה",
+"Adaugă carte de vizită": "הוספת כרטיס ביקור",
+"Față": "חזית",
+"Spate (opțional)": "גב (אופציונלי)",
+"Blocare seif": "נעילת הכספת",
+"La fiecare ieșire": "בכל יציאה",
+"La închiderea sesiunii": "בסיום ההפעלה",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "ננעלת כשיוצאים מסיסמאות, כשהאפליקציה עוברת לרקע ואחרי זמן חוסר הפעילות.",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "נשארת פתוחה כל עוד האפליקציה פתוחה, גם בכרטיסיות אחרות וברקע. ננעלת כשסוגרים את האפליקציה.",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "ננעלת רק כשמקישים על 🔒 או סוגרים את האפליקציה.",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "בהפעלת האפליקציה הכספת תמיד נעולה. כל עוד היא פתוחה, כל מי שמחזיק בטלפון יכול לפתוח אותה.",
+"Folosește parola": "שימוש בסיסמה"
 };

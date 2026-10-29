@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "Legg til kort"
+"Adaugă card": "Legg til kort",
+"Adaugă email": "Legg til e-post",
+"Adaugă date": "Legg til opplysninger",
+"Adaugă poză": "Legg til bilde",
+"Adaugă carte de vizită": "Legg til visittkort",
+"Față": "Forside",
+"Spate (opțional)": "Bakside (valgfritt)",
+"Blocare seif": "Hvelvlås",
+"La fiecare ieșire": "Ved hver utgang",
+"La închiderea sesiunii": "Når økten avsluttes",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "Låses når du forlater Passord, når appen går i bakgrunnen og etter inaktivitetstiden.",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Forblir ulåst så lenge appen er åpen, også i andre faner og i bakgrunnen. Låses når du lukker appen.",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Låses bare når du trykker på 🔒 eller lukker appen.",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Når appen starter, er hvelvet alltid låst. Mens det er ulåst, kan alle som holder telefonen åpne det.",
+"Folosește parola": "Bruk passord"
 };

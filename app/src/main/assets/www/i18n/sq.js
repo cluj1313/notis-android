@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "Shto kartë"
+"Adaugă card": "Shto kartë",
+"Adaugă email": "Shto email",
+"Adaugă date": "Shto të dhëna",
+"Adaugă poză": "Shto foto",
+"Adaugă carte de vizită": "Shto kartëvizitë",
+"Față": "Para",
+"Spate (opțional)": "Prapa (opsionale)",
+"Blocare seif": "Kyçja e kasafortës",
+"La fiecare ieșire": "Në çdo dalje",
+"La închiderea sesiunii": "Në fund të sesionit",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "Kyçet kur del nga Fjalëkalimet, kur aplikacioni kalon në sfond dhe pas kohës së mosveprimit.",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Mbetet e hapur sa kohë aplikacioni është i hapur, edhe në skeda të tjera dhe në sfond. Kyçet kur mbyll aplikacionin.",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Kyçet vetëm kur prek 🔒 ose mbyll aplikacionin.",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Në nisjen e aplikacionit kasaforta është gjithmonë e kyçur. Sa kohë është e hapur, kushdo që mban telefonin mund ta hapë.",
+"Folosește parola": "Përdor fjalëkalimin"
 };

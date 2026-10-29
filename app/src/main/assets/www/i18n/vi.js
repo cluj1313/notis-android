@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "Thêm thẻ"
+"Adaugă card": "Thêm thẻ",
+"Adaugă email": "Thêm email",
+"Adaugă date": "Thêm thông tin",
+"Adaugă poză": "Thêm ảnh",
+"Adaugă carte de vizită": "Thêm danh thiếp",
+"Față": "Mặt trước",
+"Spate (opțional)": "Mặt sau (tùy chọn)",
+"Blocare seif": "Khóa két",
+"La fiecare ieșire": "Mỗi lần thoát",
+"La închiderea sesiunii": "Khi kết thúc phiên",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "Khóa khi bạn rời Mật khẩu, khi ứng dụng chuyển sang nền và sau thời gian không hoạt động.",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Vẫn mở khóa khi ứng dụng còn mở, kể cả ở tab khác và trong nền. Khóa khi bạn đóng ứng dụng.",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Chỉ khóa khi bạn chạm 🔒 hoặc đóng ứng dụng.",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Khi khởi động ứng dụng, két luôn bị khóa. Khi đang mở khóa, bất kỳ ai cầm điện thoại đều có thể mở.",
+"Folosește parola": "Dùng mật khẩu"
 };

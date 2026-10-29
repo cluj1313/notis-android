@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "添加银行卡"
+"Adaugă card": "添加银行卡",
+"Adaugă email": "添加邮箱",
+"Adaugă date": "添加资料",
+"Adaugă poză": "添加照片",
+"Adaugă carte de vizită": "添加名片",
+"Față": "正面",
+"Spate (opțional)": "背面（可选）",
+"Blocare seif": "保险箱锁定",
+"La fiecare ieșire": "每次离开时",
+"La închiderea sesiunii": "会话结束时",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "离开密码、应用转到后台以及超过闲置时间后锁定。",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "应用打开期间保持解锁，包括在其他标签页和后台。关闭应用时锁定。",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "仅在点按 🔒 或关闭应用时锁定。",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "应用启动时保险箱始终锁定。解锁期间，任何拿着手机的人都能打开它。",
+"Folosește parola": "使用密码"
 };

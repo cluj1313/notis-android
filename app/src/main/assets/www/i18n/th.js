@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "เพิ่มบัตร"
+"Adaugă card": "เพิ่มบัตร",
+"Adaugă email": "เพิ่มอีเมล",
+"Adaugă date": "เพิ่มข้อมูล",
+"Adaugă poză": "เพิ่มรูปภาพ",
+"Adaugă carte de vizită": "เพิ่มนามบัตร",
+"Față": "ด้านหน้า",
+"Spate (opțional)": "ด้านหลัง (ไม่บังคับ)",
+"Blocare seif": "การล็อกตู้เซฟ",
+"La fiecare ieșire": "ทุกครั้งที่ออก",
+"La închiderea sesiunii": "เมื่อสิ้นสุดเซสชัน",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "ล็อกเมื่อออกจากรหัสผ่าน เมื่อแอปไปอยู่เบื้องหลัง และหลังจากไม่มีการใช้งานตามเวลาที่กำหนด",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "ยังคงปลดล็อกอยู่ตราบที่แอปเปิดอยู่ รวมถึงในแท็บอื่นและเบื้องหลัง ล็อกเมื่อคุณปิดแอป",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "ล็อกเฉพาะเมื่อแตะ 🔒 หรือปิดแอป",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "เมื่อเริ่มแอป ตู้เซฟจะถูกล็อกเสมอ ขณะปลดล็อก ใครก็ตามที่ถือโทรศัพท์อยู่สามารถเปิดได้",
+"Folosește parola": "ใช้รหัสผ่าน"
 };

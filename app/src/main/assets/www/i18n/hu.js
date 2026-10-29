@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "Kártya hozzáadása"
+"Adaugă card": "Kártya hozzáadása",
+"Adaugă email": "E-mail hozzáadása",
+"Adaugă date": "Adatok hozzáadása",
+"Adaugă poză": "Fotó hozzáadása",
+"Adaugă carte de vizită": "Névjegykártya hozzáadása",
+"Față": "Előlap",
+"Spate (opțional)": "Hátlap (nem kötelező)",
+"Blocare seif": "Széf zárolása",
+"La fiecare ieșire": "Minden kilépéskor",
+"La închiderea sesiunii": "A munkamenet végén",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "Zárol, amikor elhagyod a Jelszavakat, amikor az app a háttérbe kerül, és az inaktivitási idő után.",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Feloldva marad, amíg az app nyitva van, más lapokon és a háttérben is. Zárol, amikor bezárod az appot.",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Csak akkor zárol, ha a 🔒-ra koppintasz vagy bezárod az appot.",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Az app indításakor a széf mindig zárolva van. Amíg fel van oldva, bárki megnyithatja, akinél a telefon van.",
+"Folosește parola": "Jelszó használata"
 };

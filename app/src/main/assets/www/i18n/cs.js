@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "Přidat kartu"
+"Adaugă card": "Přidat kartu",
+"Adaugă email": "Přidat e-mail",
+"Adaugă date": "Přidat údaje",
+"Adaugă poză": "Přidat fotku",
+"Adaugă carte de vizită": "Přidat vizitku",
+"Față": "Přední strana",
+"Spate (opțional)": "Zadní strana (volitelné)",
+"Blocare seif": "Zámek trezoru",
+"La fiecare ieșire": "Při každém odchodu",
+"La închiderea sesiunii": "Při ukončení relace",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "Zamkne se, když opustíte Hesla, když aplikace přejde do pozadí a po době nečinnosti.",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Zůstává odemčený, dokud je aplikace otevřená, i v jiných kartách a na pozadí. Zamkne se, když aplikaci zavřete.",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Zamkne se jen po klepnutí na 🔒 nebo zavření aplikace.",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Při spuštění aplikace je trezor vždy zamčený. Dokud je odemčený, může ho otevřít kdokoli, kdo drží telefon.",
+"Folosește parola": "Použít heslo"
 };

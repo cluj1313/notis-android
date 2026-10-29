@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "Adicionar cartão"
+"Adaugă card": "Adicionar cartão",
+"Adaugă email": "Adicionar e-mail",
+"Adaugă date": "Adicionar dados",
+"Adaugă poză": "Adicionar foto",
+"Adaugă carte de vizită": "Adicionar cartão de visita",
+"Față": "Frente",
+"Spate (opțional)": "Verso (opcional)",
+"Blocare seif": "Bloqueio do cofre",
+"La fiecare ieșire": "A cada saída",
+"La închiderea sesiunii": "Ao encerrar a sessão",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "Bloqueia quando você sai de Senhas, quando o app vai para segundo plano e após o tempo de inatividade.",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Fica desbloqueado enquanto o app está aberto, inclusive em outras abas e em segundo plano. Bloqueia quando você fecha o app.",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Bloqueia só quando você toca em 🔒 ou fecha o app.",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Ao iniciar o app, o cofre está sempre bloqueado. Enquanto desbloqueado, qualquer pessoa com o celular na mão pode abri-lo.",
+"Folosește parola": "Usar senha"
 };

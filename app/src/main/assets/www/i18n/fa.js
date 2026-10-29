@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "افزودن کارت"
+"Adaugă card": "افزودن کارت",
+"Adaugă email": "افزودن ایمیل",
+"Adaugă date": "افزودن اطلاعات",
+"Adaugă poză": "افزودن عکس",
+"Adaugă carte de vizită": "افزودن کارت ویزیت",
+"Față": "رو",
+"Spate (opțional)": "پشت (اختیاری)",
+"Blocare seif": "قفل گاوصندوق",
+"La fiecare ieșire": "در هر خروج",
+"La închiderea sesiunii": "در پایان نشست",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "وقتی از رمزها خارج می‌شوید، وقتی برنامه به پس‌زمینه می‌رود و پس از زمان عدم فعالیت قفل می‌شود.",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "تا وقتی برنامه باز است باز می‌ماند، حتی در زبانه‌های دیگر و در پس‌زمینه. با بستن برنامه قفل می‌شود.",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "فقط وقتی 🔒 را بزنید یا برنامه را ببندید قفل می‌شود.",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "هنگام شروع برنامه گاوصندوق همیشه قفل است. تا وقتی باز است، هر کسی که گوشی را در دست دارد می‌تواند آن را باز کند.",
+"Folosește parola": "استفاده از رمز"
 };

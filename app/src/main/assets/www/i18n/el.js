@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "Προσθήκη κάρτας"
+"Adaugă card": "Προσθήκη κάρτας",
+"Adaugă email": "Προσθήκη email",
+"Adaugă date": "Προσθήκη στοιχείων",
+"Adaugă poză": "Προσθήκη φωτογραφίας",
+"Adaugă carte de vizită": "Προσθήκη επαγγελματικής κάρτας",
+"Față": "Μπροστά",
+"Spate (opțional)": "Πίσω (προαιρετικό)",
+"Blocare seif": "Κλείδωμα θησαυροφυλακίου",
+"La fiecare ieșire": "Σε κάθε έξοδο",
+"La închiderea sesiunii": "Στο τέλος της συνεδρίας",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "Κλειδώνει όταν βγαίνετε από τους Κωδικούς, όταν η εφαρμογή πηγαίνει στο παρασκήνιο και μετά τον χρόνο αδράνειας.",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Μένει ξεκλείδωτο όσο η εφαρμογή είναι ανοιχτή, και σε άλλες καρτέλες και στο παρασκήνιο. Κλειδώνει όταν κλείνετε την εφαρμογή.",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Κλειδώνει μόνο όταν πατάτε 🔒 ή κλείνετε την εφαρμογή.",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Κατά την εκκίνηση της εφαρμογής το θησαυροφυλάκιο είναι πάντα κλειδωμένο. Όσο είναι ξεκλείδωτο, όποιος κρατά το τηλέφωνο μπορεί να το ανοίξει.",
+"Folosește parola": "Χρήση κωδικού"
 };

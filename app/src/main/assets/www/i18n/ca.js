@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "Afegeix una targeta"
+"Adaugă card": "Afegeix una targeta",
+"Adaugă email": "Afegeix correu",
+"Adaugă date": "Afegeix dades",
+"Adaugă poză": "Afegeix foto",
+"Adaugă carte de vizită": "Afegeix targeta de visita",
+"Față": "Anvers",
+"Spate (opțional)": "Revers (opcional)",
+"Blocare seif": "Bloqueig de la caixa forta",
+"La fiecare ieșire": "A cada sortida",
+"La închiderea sesiunii": "En tancar la sessió",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "Es bloqueja quan surts de Contrasenyes, quan l'app passa a segon pla i després del temps d'inactivitat.",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Es manté desbloquejada mentre l'app és oberta, també en altres pestanyes i en segon pla. Es bloqueja quan tanques l'app.",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Es bloqueja només quan toques 🔒 o tanques l'app.",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "En iniciar l'app, la caixa forta sempre està bloquejada. Mentre està desbloquejada, qualsevol que tingui el telèfon la pot obrir.",
+"Folosește parola": "Fes servir la contrasenya"
 };

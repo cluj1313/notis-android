@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "Pievienot karti"
+"Adaugă card": "Pievienot karti",
+"Adaugă email": "Pievienot e-pastu",
+"Adaugă date": "Pievienot datus",
+"Adaugă poză": "Pievienot foto",
+"Adaugă carte de vizită": "Pievienot vizītkarti",
+"Față": "Priekšpuse",
+"Spate (opțional)": "Aizmugure (neobligāti)",
+"Blocare seif": "Seifa bloķēšana",
+"La fiecare ieșire": "Pie katras iziešanas",
+"La închiderea sesiunii": "Sesijas beigās",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "Bloķējas, kad izejat no Parolēm, kad lietotne pāriet fonā un pēc neaktivitātes laika.",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Paliek atbloķēts, kamēr lietotne ir atvērta, arī citās cilnēs un fonā. Bloķējas, kad aizverat lietotni.",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Bloķējas tikai, kad pieskaraties 🔒 vai aizverat lietotni.",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Palaižot lietotni, seifs vienmēr ir bloķēts. Kamēr tas ir atbloķēts, ikviens, kam rokās ir tālrunis, var to atvērt.",
+"Folosește parola": "Izmantot paroli"
 };

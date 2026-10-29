@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "カードを追加"
+"Adaugă card": "カードを追加",
+"Adaugă email": "メールを追加",
+"Adaugă date": "情報を追加",
+"Adaugă poză": "写真を追加",
+"Adaugă carte de vizită": "名刺を追加",
+"Față": "表面",
+"Spate (opțional)": "裏面（任意）",
+"Blocare seif": "金庫のロック",
+"La fiecare ieșire": "退出するたび",
+"La închiderea sesiunii": "セッション終了時",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "パスワードを離れたとき、アプリがバックグラウンドに移ったとき、無操作時間の経過後にロックされます。",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "アプリが開いている間は、他のタブやバックグラウンドでもロック解除のままです。アプリを閉じるとロックされます。",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "🔒をタップするかアプリを閉じたときのみロックされます。",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "アプリ起動時、金庫は常にロックされています。ロック解除中は、電話を手にした人なら誰でも開けます。",
+"Folosește parola": "パスワードを使う"
 };

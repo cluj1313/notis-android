@@ -1356,5 +1356,19 @@ NOTIS_I18N={
 "CVV": "CVV",
 "IBAN": "IBAN",
 "CNP": "CNP",
-"Adaugă card": "Ajouter une carte"
+"Adaugă card": "Ajouter une carte",
+"Adaugă email": "Ajouter un e-mail",
+"Adaugă date": "Ajouter des données",
+"Adaugă poză": "Ajouter une photo",
+"Adaugă carte de vizită": "Ajouter une carte de visite",
+"Față": "Recto",
+"Spate (opțional)": "Verso (facultatif)",
+"Blocare seif": "Verrouillage du coffre",
+"La fiecare ieșire": "À chaque sortie",
+"La închiderea sesiunii": "À la fin de la session",
+"Se blochează când ieși din Parole, când aplicația trece în fundal și după timpul de inactivitate.": "Se verrouille quand vous quittez Mots de passe, quand l'app passe en arrière-plan et après le délai d'inactivité.",
+"Rămâne deblocat cât timp aplicația e deschisă, inclusiv în alte taburi și în fundal. Se blochează când închizi aplicația.": "Reste déverrouillé tant que l'app est ouverte, y compris dans d'autres onglets et en arrière-plan. Se verrouille quand vous fermez l'app.",
+"Se blochează doar când apeși 🔒 sau când închizi aplicația.": "Se verrouille uniquement quand vous appuyez sur 🔒 ou fermez l'app.",
+"La pornirea aplicației seiful e mereu blocat. Cât timp e deblocat, oricine are telefonul în mână îl poate deschide.": "Au démarrage de l'app, le coffre est toujours verrouillé. Tant qu'il est déverrouillé, quiconque tient le téléphone peut l'ouvrir.",
+"Folosește parola": "Utiliser le mot de passe"
 };
