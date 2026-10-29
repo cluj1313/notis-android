@@ -2758,7 +2758,7 @@ if(!LS.get('ns_notesort1',0)){notes.sort(nCmp);LS.set('ns_notes',notes);LS.set('
 function nStore(n){if(!n.lock)return n;var o={};['id','tab','fd','ts','createdAt','updatedAt','editedAt','alarm','lock','ltitle','color','ph','isort','pin','del','delTab','lb'].forEach(function(k){if(n[k]!=null)o[k]=n[k]});o.text='';return o}
 (function(){var lim=Date.now()-30*864e5,n0=notes.length;notes=notes.filter(function(n){return !n.del||new Date(n.del).getTime()>lim});if(notes.length!==n0)LS.set('ns_notes',notes)})();
 var nTrash=false;
-function saveNotes(soft){LS.set('ns_notes',notes.map(nStore));if(noteFolders.length||LS.get('ns_folders',null))LS.set('ns_folders',noteFolders);if(!soft&&typeof nHistPush==='function')nHistPush();LS.set('ns_notetabs',noteTabs);LS.set('ns_notetab',noteTab)}
+function saveNotes(soft){/* v173: keep the previous full copy if a save would shrink the list a lot (additive, never deletes) */try{var o0=localStorage.getItem('ns_notes'),c0=o0?JSON.parse(o0).length:0;if(c0>=5&&notes.length<c0/2)localStorage.setItem('ns_notes_guard',JSON.stringify({ts:new Date().toISOString(),n:c0,v:o0}))}catch(_){}LS.set('ns_notes',notes.map(nStore));if(noteFolders.length||LS.get('ns_folders',null))LS.set('ns_folders',noteFolders);if(!soft&&typeof nHistPush==='function')nHistPush();LS.set('ns_notetabs',noteTabs);LS.set('ns_notetab',noteTab)}
 function findN(id){for(var i=0;i<notes.length;i++)if(notes[i].id===id)return notes[i];return null}
 function findNT(id){for(var i=0;i<noteTabs.length;i++)if(noteTabs[i].id===id)return noteTabs[i];return null}
 function nDate(n){return fDate(new Date(n.ts))}
@@ -5003,7 +5003,7 @@ function H(){var m=M();if(!C)return '<div class="spv pwv"><p class="pwhint">'+es
  if(!srch)h+='<button type="button" class="btn pwbig pwadd" data-pa="new">+ '+esc(TR('Adaugă parolă'))+'</button>';
  return h+'</div>'}
 function rer(){if((findNT(noteTab)||{}).kind==='pw'&&window.spRender)spRender()}
-function wrapSP(){var o=window.spRender;if(!o||o.__pw)return;window.spRender=function(){var v=$('spView'),t=findNT(noteTab);if(!v||!t||t.kind!=='pw'){if(K)lock();sec(false);return o.apply(this,arguments)}
+function wrapSP(){var o=window.spRender;if(!o||o.__pw)return;window.spRender=function(){var v=$('spView'),t=findNT(noteTab);if(!v||!t||t.kind!=='pw'){var pg=$('notesPg');if(pg)pg.classList.remove('pwtab');if(K)lock();sec(false);return o.apply(this,arguments)}
  var on=!nTrash&&!nFold(nQ).trim()&&!tbHidden(noteTab)&&!nFolder;$('notesPg').classList.toggle('sptab',on);$('notesPg').classList.toggle('pwtab',on);if(!on){v.innerHTML='';v.hidden=true;return}v.hidden=false;
  var ae=document.activeElement,qf=ae&&ae.id==='pwQ',ss=qf?ae.selectionStart:0;v.innerHTML=H();if(qf){var nq=$('pwQ');if(nq){nq.focus();try{nq.setSelectionRange(ss,ss)}catch(_){}}}
  sec(true);$('notesPg').classList.toggle('spnone',!notes.some(function(n){return !n.del&&n.tab===noteTab}))};window.spRender.__pw=1}
@@ -5143,7 +5143,7 @@ mig();wrapSP();try{renderNotes()}catch(_){}
 })();
 
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v172';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v173';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};

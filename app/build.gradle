@@ -9,8 +9,8 @@ android {
         applicationId 'ro.cluj1313.notis'
         minSdk 26
         targetSdk 36
-        versionCode 126
-        versionName '2.16.2'
+        versionCode 127
+        versionName '2.16.3'
         /* -Pplay=true -> Google Play bundle: built-in GitHub updater disabled */
         buildConfigField 'boolean', 'PLAY', (project.findProperty('play') == 'true') ? 'true' : 'false'
     }
