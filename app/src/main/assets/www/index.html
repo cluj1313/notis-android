@@ -938,6 +938,7 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
 .pwsl{display:flex;flex-direction:column;gap:6px;margin-top:10px}.pwsl .btn{min-height:44px;font-size:16px;text-align:start}
 .pwcr{display:flex;align-items:center;gap:2px;padding:6px 0;border-bottom:1px solid var(--line)}.pwcr b{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:16px}.pwcr .hb{width:40px;height:40px}
 #notesPg.pwtab #notesList,#notesPg.pwtab section.card:has(#notesList),#notesPg.pwtab #noteFab{display:none}
+.pwsep{height:0;border:0;border-top:1px solid var(--line);margin:10px 0 8px}.pwmode button{border-radius:999px}.pwstep{display:flex;align-items:center;gap:12px;margin:6px 0}.pwstep b{min-width:2em;text-align:center;font-size:18px}.pwstep .hb{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);font-size:20px}.pwprev{font-family:ui-monospace,monospace;font-size:18px;padding:8px;border-radius:10px;border:1px dashed var(--line);text-align:center;word-break:break-all;margin:4px 0}.pwcats .pwcadd{min-width:44px;font-size:20px;font-weight:700;text-align:center}
 </style>
 <style>/* v90: tab style Căsuțe (box tabs) */
 :root[data-tabst=box] #noteTabs{gap:4px;padding:2px 2px 0;margin-bottom:10px;border-bottom:4px solid var(--cyan);align-items:flex-end}
@@ -4983,6 +4984,8 @@ function gen(o,nm){o=o||{len:16,l:1,d:1,s:1};var L='abcdefghijkmnopqrstuvwxyzABC
  var len=Math.max(8,Math.min(64,o.len||16)),n=len-frag.length,a=[],all=sets.join('');sets.forEach(function(s){a.push(s[rint(s.length)])});while(a.length<n)a.push(all[rint(all.length)]);
  for(var i=a.length-1;i>0;i--){var j=rint(i+1),t=a[i];a[i]=a[j];a[j]=t}if(frag){var p=rint(a.length+1);a.splice(p,0,frag)}return a.join('')}
 /* ---- render ---- */
+/* v172: the untouched default 'Alte conturi' category gets no pill while it is empty (it still exists and is selectable in the entry editor) */
+function pill(x){return !(x.id==='oth'&&(x.name===TR('Alte conturi')||x.name==='Alte conturi')&&x.id!==cat&&!D.items.some(function(y){return y.cat==='oth'}))}
 function catOf(id){return D.cats.filter(function(c){return c.id===id})[0]}
 function H(){var m=M();if(!C)return '<div class="spv pwv"><p class="pwhint">'+esc(TR('Seiful are nevoie de o conexiune securizată (HTTPS).'))+'</p></div>';
  if(!m)return '<div class="spv pwv"><div class="pwhd"><b>🔑 '+esc(TR('Parole'))+'</b></div><p class="pwhint">'+esc(TR('Păstrează aici parolele tale, criptate doar pe telefon. Alege o parolă principală pe care n-o uiți.'))+'</p><button type="button" class="btn pwbig" data-pa="setup">'+esc(TR('Creează seiful'))+'</button></div>';
@@ -4990,7 +4993,7 @@ function H(){var m=M();if(!C)return '<div class="spv pwv"><p class="pwhint">'+es
  var R=reps(),srch=q.trim(),c=catOf(cat),h='<div class="spv pwv"><div class="pwhd"><b>🔑 '+esc(TR('Parole'))+'</b>';var nw=D.items.filter(function(x){return !x.part&&x.pw&&str(x.pw).l===1}).length,nr=Object.keys(R).length;
  if(nw||nr)h+='<span class="pwcnt">'+(nw?'<i class="pwfw">⚠ '+nw+'</i>':'')+(nr?'<i class="pwfr">⟳ '+nr+'</i>':'')+'</span>';
  h+='<span class="pwsp"></span><button type="button" class="hb" data-pa="lock" aria-label="'+esc(TR('Blochează'))+'">🔒</button><button type="button" class="hb" data-pa="set" aria-label="'+esc(TR('Setări'))+'">⚙</button></div>';
- h+='<div class="ntabs pwcats">'+D.cats.map(function(x){return '<button type="button" class="ntab'+(x.id===cat&&!srch?' on':'')+'" data-pc="'+esc(x.id)+'">'+esc(x.name)+(x.lock?' 🔒':'')+'</button>'}).join('')+'</div>';
+ h+='<div class="ntabs pwcats">'+D.cats.filter(pill).map(function(x){return '<button type="button" class="ntab'+(x.id===cat&&!srch?' on':'')+'" data-pc="'+esc(x.id)+'">'+esc(x.name)+(x.lock?' 🔒':'')+'</button>'}).join('')+'<button type="button" class="ntab pwcadd" data-pa="cadd2" aria-label="'+esc(TR('Categorie nouă'))+'" title="'+esc(TR('Categorie nouă'))+'">+</button></div>';
  h+='<input type="search" id="pwQ" class="pwin pwq" autocomplete="off" data-lpignore="true" placeholder="'+esc(TR('Caută'))+'" value="'+esc(q)+'">';
  var list;if(srch){var f=nFold(srch);list=D.items.filter(function(x){var cc=catOf(x.cat);if(cc&&cc.lock&&!catOK[cc.id])return false;return nFold((x.name||'')+' '+(x.user||'')+' '+(x.note||'')).indexOf(f)>=0})}
  else if(c&&c.lock&&!catOK[c.id]){return h+'<div class="pwcl"><p>🔒 '+esc(TR('Categorie protejată'))+'</p><button type="button" class="btn pwbig" data-pa="catun">'+esc(TR('Deblochează'))+'</button></div></div>'}
@@ -5024,35 +5027,68 @@ function su2(){if(!$('pwAck').checked){err(TR('Bifează după ce ai scris cheia'
  var raw=rnd(32),m={v:1,type:'simple',al:5,bio:0,rk4:SU.own?1:0};wrapPw(SU.pw,raw).then(function(w){m.wp=w;return wrapRk(rk,raw)}).then(function(w){m.wr=w;return vk(raw)}).then(function(k){D=dflt();return enc(k,te.encode(JSON.stringify(D))).then(function(o){m.data=o;Mset(m);SU=null;return open(raw)})}).then(function(){busy=false;shClose();toast(TR('Seiful e gata'));rer()},function(){busy=false;err(TR('Eroare'))})}
 /* unlock */
 function unlock(){var i=$('pwIn');if(!i||busy)return;var w=flWait();if(w){$('pwErr').textContent=waitMsg(w);return}busy=true;$('pwErr').textContent=TR('Se verifică…');tryPw(i.value).then(function(){busy=false;rer()},function(e){busy=false;var x=$('pwErr');if(x)x.textContent=e&&e.wait?(e.bad?TR('Parolă greșită')+'. ':'')+waitMsg(e.wait):TR('Parolă greșită')})}
-function bio(why){var n=NN();if(!n||!n.bioAuth)return;BW=why||'open';try{n.bioAuth('vault',TR('Deblochează seiful'),TR('Anulează'))}catch(_){}}
-var BW='open';
-(function(){var o=window.__bioRes;window.__bioRes=function(k,v){if(k!=='vault')return o?o.apply(this,arguments):undefined;if(!v)return;var m=M();if(!m||!m.wb)return;
- if(BW==='cat'&&K){C.importKey('raw',ub(String(v).replace(/-/g,'+').replace(/_/g,'/')+'='),'AES-GCM',false,['decrypt']).then(function(k2){return dec(k2,m.wb)}).then(function(){catOK[cat]=1;rer()});return}
- C.importKey('raw',ub(String(v).replace(/-/g,'+').replace(/_/g,'/')+'='),'AES-GCM',false,['decrypt']).then(function(k2){return dec(k2,m.wb)}).then(function(raw){flOk();return open(raw)}).then(rer,function(){toast(TR('Amprenta nu a putut debloca seiful'))})}})();
-function bioOn(on){var n=NN(),m=M();if(on){if(!n||!n.bioSave||!(n.bioAvail&&n.bioAvail())){toast(TR('Amprenta nu e disponibilă pe acest telefon'));return Promise.resolve(false)}var s=b64(rnd(32)).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
-  return C.importKey('raw',ub(s.replace(/-/g,'+').replace(/_/g,'/')+'='),'AES-GCM',false,['encrypt']).then(function(k2){return enc(k2,KR)}).then(function(o){if(!n.bioSave('vault',s)){toast(TR('Eroare'));return false}m.wb=o;m.bio=1;Mset(m);return true})}
+function bio(why){var n=NN();if(!n||!n.bioAuth)return;BW=why||'open';try{if(!n.bioAuth('vault',TR(why==='en'?'Confirmă amprenta':'Deblochează seiful'),TR('Anulează'))&&why==='en')bioEnd(false,'nokey')}catch(_){if(why==='en')bioEnd(false,'ex')}}
+var BW='open',BEN=null;
+/* v172: readable reason for a fingerprint failure; codes only, never secrets */
+function bioMsg(c){c=String(c==null?'':c);if(c==='10'||c==='13'||c==='5')return TR('Anulat');if(c==='11'||c==='w11')return TR('Amprenta nu e configurată pe telefon');if(c==='12'||c==='w12'||c==='w-2'||c==='na')return TR('Nesuportat');if(c==='7'||c==='9')return TR('Prea multe încercări cu amprenta. Încearcă mai târziu.');return TR('Eroare')+': '+(c.replace(/[^A-Za-z0-9:_-]/g,'').slice(0,24)||'?')}
+function bioK(v){return C.importKey('raw',ub(String(v).replace(/-/g,'+').replace(/_/g,'/')+'='),'AES-GCM',false,['decrypt'])}
+function bioEnd(ok,code){var b=BEN;BEN=null;if(!b)return;var n=NN();if(ok){var m=M();m.wb=b.wb;m.bio=1;Mset(m);toast(TR('Amprenta a fost activată'))}else{try{n&&n.bioDel&&n.bioDel('vault')}catch(_){}var t=bioMsg(code),e=$('pwBioE');if(e)e.textContent=t;toast(t)}var c=$('pwBio');if(c)c.checked=!!ok;b.res(!!ok)}
+(function(){var o=window.__bioRes;window.__bioRes=function(k,v,code){if(k!=='vault')return o?o.apply(this,arguments):undefined;
+ if(BW==='en'){if(!BEN)return;if(!v){bioEnd(false,code);return}var w=BEN.wb;bioK(v).then(function(k2){return dec(k2,w)}).then(function(){bioEnd(true)},function(){bioEnd(false,'dec')});return}
+ if(!v){if(code!=null&&bioMsg(code)!==TR('Anulat'))toast(bioMsg(code));return}var m=M();if(!m||!m.wb)return;
+ if(BW==='cat'&&K){bioK(v).then(function(k2){return dec(k2,m.wb)}).then(function(){catOK[cat]=1;rer()});return}
+ if(BW==='del'&&K){bioK(v).then(function(k2){return dec(k2,m.wb)}).then(delAsk);return}
+ bioK(v).then(function(k2){return dec(k2,m.wb)}).then(function(raw){flOk();return open(raw)}).then(rer,function(){toast(TR('Amprenta nu a putut debloca seiful'))})}})();
+function bioOn(on){var n=NN(),m=M(),e=$('pwBioE');if(e)e.textContent='';if(on){
+  if(!n||!n.bioSave||!n.bioAuth||!KR){var t0=bioMsg('na');if(e)e.textContent=t0;toast(t0);return Promise.resolve(false)}
+  var why=0;try{why=n.bioWhy?+n.bioWhy():(n.bioAvail&&n.bioAvail()?0:-2)}catch(_){why=-2}if(why!==0){var t1=bioMsg('w'+why);if(e)e.textContent=t1;toast(t1);return Promise.resolve(false)}
+  var s=b64(rnd(32)).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+  return C.importKey('raw',ub(s.replace(/-/g,'+').replace(/_/g,'/')+'='),'AES-GCM',false,['encrypt']).then(function(k2){return enc(k2,KR)}).then(function(o){
+   var r;try{if(n.bioSaveR)r=String(n.bioSaveR('vault',s));else{n.bioSave('vault',s);r=n.bioHas&&n.bioHas('vault')?'ok':'save'}}catch(_){r='ex'}s='';
+   if(r!=='ok'){try{n.bioDel&&n.bioDel('vault')}catch(_){}var t2=bioMsg(r);if(e)e.textContent=t2;toast(t2);return false}
+   return new Promise(function(res){BEN={wb:o,res:res};bio('en')})})}
  try{n&&n.bioDel&&n.bioDel('vault')}catch(_){}delete m.wb;m.bio=0;Mset(m);return Promise.resolve(true)}
 /* forgot */
 function forgot(){var m=M();sh(TR('Am uitat parola'),'<p class="pwhint">'+esc(TR('Scrie toată cheia de recuperare (24 de caractere).'))+(m&&m.rk4?' '+esc(TR('La final adaugă cele 4 caractere alese de tine, pe care le știi din memorie.')):'')+'</p><input id="pwRkIn" class="pwin pwrk" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX-XXXX">'+P('pwN1',TR('Parola principală nouă'))+'<div id="pwS1"></div>'+P('pwN2',TR('Repetă parola'))+'<div class="pwerr"></div>',B('fg',TR('Salvează'),'pwbig'))}
 function fg(){var rk=$('pwRkIn').value,a=$('pwN1').value,b=$('pwN2').value;if(rkN(rk).length!==24){err(TR('Cheia are 24 de caractere'));return}if(str(a).l<2||a.length<8){err(TR('Parola e prea slabă (minim 8 caractere, medie).'));return}if(a!==b){err(TR('Parolele nu coincid'));return}
  if(busy)return;busy=true;err(TR('Se verifică…'));tryRk(rk).then(function(raw){return wrapPw(a,raw).then(function(w){var m=M();m.wp=w;Mset(m);return open(raw)})}).then(function(){busy=false;shClose();toast(TR('Parola principală a fost schimbată'));rer()},function(e){busy=false;err(e&&e.wait?TR('Cheie greșită')+'. '+waitMsg(e.wait):TR('Cheie greșită'))})}
-/* entry editor */
-function edit(x){var nw=!x;x=x||{id:'',name:'',user:'',pw:'',note:'',cat:cat,part:0};openId=x.id;var g=D.gen;
- sh(nw?TR('Parolă nouă'):TR('Editează'),'<label class="pwl">'+esc(TR('Site sau scop'))+'</label><input id="pwEN" class="pwin" value="'+esc(x.name)+'"><label class="pwl">'+esc(TR('Utilizator / email'))+'</label><input id="pwEU" class="pwin" value="'+esc(x.user||'')+'"><label class="pwl">'+esc(TR('Parolă'))+'</label>'+P('pwEP','',x.pw)+'<div id="pwS1">'+strH(x.pw,x.part)+'</div><div id="pwRep" class="pwwarn"></div>'+
- '<label class="pwck"><input type="checkbox" id="pwEPart"'+(x.part?' checked':'')+'> '+esc(TR('Parolă parțială'))+'</label><p class="pwhint pwsm">'+esc(TR('Scrie doar prima parte. O parte din parolă o știi doar tu.'))+'</p>'+
- '<details class="pwgen"><summary class="sparr">'+esc(TR('Generează parolă puternică'))+'</summary><div class="pwgr"><label>'+esc(TR('Lungime'))+' <input type="number" id="pwGL" min="8" max="64" value="'+(g.len||16)+'"></label><label class="pwck"><input type="checkbox" id="pwGl"'+(g.l!==0?' checked':'')+'> '+esc(TR('Litere'))+'</label><label class="pwck"><input type="checkbox" id="pwGd"'+(g.d?' checked':'')+'> '+esc(TR('Cifre'))+'</label><label class="pwck"><input type="checkbox" id="pwGs"'+(g.s?' checked':'')+'> '+esc(TR('Simboluri'))+'</label><label class="pwck"><input type="checkbox" id="pwGn"'+(g.nm?' checked':'')+'> '+esc(TR('Include o parte din nume'))+'</label><p class="pwhint pwsm" id="pwGnH">'+esc(TR('Te ajută să recunoști parola; partea din nume e ghicibilă, deci restul trebuie să rămână lung și aleatoriu.'))+'</p><div class="pwrk pwgp" id="pwGP"></div>'+B('gen',TR('Generează și copiază'),'pwbig')+'</div></details>'+
+/* entry editor (v172): name, separator, two pills Generată / Aleasă de tine */
+var EM='gen',EX=null;
+function edit(x){var nw=!x;x=x||{id:'',name:'',user:'',pw:'',note:'',cat:cat,part:0};openId=x.id;EX=nw?null:x;EM=nw?'gen':'own';var g=D.gen;
+ sh(nw?TR('Parolă nouă'):TR('Editează'),'<label class="pwl">'+esc(TR('Site sau scop'))+'</label><input id="pwEN" class="pwin" value="'+esc(x.name)+'"><hr class="pwsep">'+
+ '<div class="pwseg pwmode" id="pwMode" role="tablist"><button type="button" role="tab" data-m="gen" class="'+(EM==='gen'?'on':'')+'">'+esc(TR('Generată'))+'</button><button type="button" role="tab" data-m="own" class="'+(EM==='own'?'on':'')+'">'+esc(TR('Aleasă de tine'))+'</button></div>'+
+ '<div id="pwMG"'+(EM==='gen'?'':' hidden')+'><div class="pwgr"><label>'+esc(TR('Lungime'))+' <input type="number" id="pwGL" min="8" max="64" value="'+(g.len||16)+'"></label><label class="pwck"><input type="checkbox" id="pwGl"'+(g.l!==0?' checked':'')+'> '+esc(TR('Litere'))+'</label><label class="pwck"><input type="checkbox" id="pwGd"'+(g.d?' checked':'')+'> '+esc(TR('Cifre'))+'</label><label class="pwck"><input type="checkbox" id="pwGs"'+(g.s?' checked':'')+'> '+esc(TR('Simboluri'))+'</label><label class="pwck"><input type="checkbox" id="pwGn"'+(g.nm?' checked':'')+'> '+esc(TR('Include o parte din nume'))+'</label><p class="pwhint pwsm" id="pwGnH">'+esc(TR('Te ajută să recunoști parola; partea din nume e ghicibilă, deci restul trebuie să rămână lung și aleatoriu.'))+'</p><div class="pwrk pwgp" id="pwGP"></div>'+B('gen',TR('Generează și copiază'),'pwbig')+'</div><div class="pwrk" id="pwGV" hidden></div><div id="pwGS"></div></div>'+
+ '<div id="pwMO"'+(EM==='own'?'':' hidden')+'><label class="pwl">'+esc(TR('Parolă'))+'</label>'+P('pwEP','',x.pw)+P('pwEP2',TR('Repetă parola'),x.pw)+'<div id="pwS1"></div><div id="pwMis" class="pwwarn"></div><div id="pwRep" class="pwwarn"></div>'+
+ '<div id="pwPB" hidden><label class="pwck"><input type="checkbox" id="pwEPart"'+(x.part?' checked':'')+'> '+esc(TR('Ascunde o parte din parolă'))+'</label><div id="pwPN" hidden><label class="pwl">'+esc(TR('Caractere vizibile la început'))+'</label><div class="pwstep"><button type="button" class="hb" data-pa="pnm" aria-label="−">−</button><b id="pwPNv">'+(x.part?String(x.pw||'').length:4)+'</b><button type="button" class="hb" data-pa="pnp" aria-label="+">+</button></div><div class="pwprev" id="pwPV"></div><p class="pwhint pwsm">'+esc(TR('Restul îl știi doar tu; aplicația păstrează doar începutul.'))+'</p></div></div></div>'+
+ '<label class="pwl">'+esc(TR('Utilizator / email'))+'</label><input id="pwEU" class="pwin" value="'+esc(x.user||'')+'">'+
  '<label class="pwl">'+esc(TR('Categorie'))+'</label><select id="pwEC" class="pwin">'+D.cats.map(function(c){return '<option value="'+esc(c.id)+'"'+(c.id===x.cat?' selected':'')+'>'+esc(c.name)+'</option>'}).join('')+'</select><label class="pwl">'+esc(TR('Notă'))+'</label><textarea id="pwEO" class="pwin" rows="2">'+esc(x.note||'')+'</textarea>'+(x.mod?'<p class="pwhint pwsm">'+esc(TR('modificat la'))+' '+esc(fDate(new Date(x.mod),1))+'</p>':'')+'<div class="pwerr"></div>',
- (nw?'':B('del',TR('Șterge'),'dngb'))+B('esave',TR('Salvează'),'pwbig'));live();prev()}
-function live(){var p=$('pwEP');if(!p)return;var part=$('pwEPart')&&$('pwEPart').checked;$('pwS1').innerHTML=strH(p.value,part);var r=$('pwRep');if(r){var hit=part||!p.value?[]:D.items.filter(function(y){return y.id!==openId&&!y.part&&y.pw===p.value}).map(function(y){return y.name});r.textContent=hit.length?TR('Parola se repetă la:')+' '+hit.join(', '):''}}
+ B('esave',TR('Salvează'),'pwbig')+(nw?B('x',TR('Anulează')):B('del',TR('Șterge'),'dngb')));live();prev()}
+function setMode(m){EM=m;var s=$('pwSheet');if(!s)return;s.querySelectorAll('#pwMode button').forEach(function(b){b.classList.toggle('on',b.dataset.m===m)});$('pwMG').hidden=m!=='gen';$('pwMO').hidden=m!=='own';err('');live()}
+function pnMax(a){return EX&&EX.part&&a===EX.pw?a.length:Math.max(1,a.length-1)}
+function pnGet(){var e=$('pwPNv');return e?+e.textContent||4:4}
+function pnSet(v){var a=$('pwEP').value;v=Math.max(1,Math.min(pnMax(a),v));$('pwPNv').textContent=v;live()}
+function live(){var p=$('pwEP');if(!p)return;var a=p.value,b=$('pwEP2').value;$('pwS1').innerHTML=strH(a,0);var mis=$('pwMis');mis.textContent=b&&a!==b?TR('Parolele nu coincid'):'';
+ var match=!!a&&a===b,pb=$('pwPB');pb.hidden=!match;var part=match&&$('pwEPart').checked;$('pwPN').hidden=!part;
+ if(part){var n=pnGet(),mx=pnMax(a);if(n>mx){n=mx;$('pwPNv').textContent=n}$('pwPV').textContent=TR('Se salvează:')+' '+a.slice(0,n)+'....?'}
+ var r=$('pwRep');if(r){var hit=part||!a?[]:D.items.filter(function(y){return y.id!==openId&&!y.part&&y.pw===a}).map(function(y){return y.name});r.textContent=hit.length?TR('Parola se repetă la:')+' '+hit.join(', '):''}}
 function gopt(){return{len:+$('pwGL').value||16,l:$('pwGl').checked?1:0,d:$('pwGd').checked?1:0,s:$('pwGs').checked?1:0,nm:$('pwGn').checked?1:0}}
 function prev(){var e=$('pwGP');if(!e)return;var o=gopt();e.hidden=!o.nm;e.textContent=o.nm?TR('Exemplu:')+' '+gen(o,$('pwEN').value):''}
-function doGen(){var o=gopt();D.gen=o;var p=gen(o,$('pwEN').value);$('pwEP').value=p;$('pwEP').type='text';$('pwEPart').checked=false;live();clip(p,1);toast(TR('Parola a fost copiată. Se șterge din clipboard în')+' '+(D.clip||30)+' s')}
-function esave(){var n=$('pwEN').value.trim();if(!n){err(TR('Numele e obligatoriu'));return}var x=openId&&D.items.filter(function(y){return y.id===openId})[0];if(!x){x={id:id(),ts:Date.now(),t:'acct'};D.items.push(x)}
- x.name=n;x.user=$('pwEU').value.trim();x.pw=$('pwEP').value;x.part=$('pwEPart').checked?1:0;x.note=$('pwEO').value;x.cat=$('pwEC').value;x.mod=Date.now();save().then(function(){shClose();toast(TR('Salvat'));rer()})}
-function delE(){var x=D.items.filter(function(y){return y.id===openId})[0];if(!x)return;ask(TR('Ștergi această parolă?'),function(){D.items=D.items.filter(function(y){return y!==x});save().then(function(){shClose();rer()})})}
+var GV='';
+function doGen(){var o=gopt();D.gen=o;var p=gen(o,$('pwEN').value);GV=p;var v=$('pwGV');v.textContent=p;v.hidden=false;$('pwGS').innerHTML=strH(p,0);err('');clip(p,1);toast(TR('Parola a fost copiată. Se șterge din clipboard în')+' '+(D.clip||30)+' s')}
+function esave(){var n=$('pwEN').value.trim();if(!n){err(TR('Numele e obligatoriu'));return}var pw,part=0;
+ if(EM==='gen'){if(!GV){if(EX){pw=EX.pw;part=EX.part?1:0}else{err(TR('Generează mai întâi o parolă'));return}}else pw=GV}
+ else{var a=$('pwEP').value,b=$('pwEP2').value;if(a!==b){err(TR('Parolele nu coincid'));return}pw=a;if(a&&$('pwEPart').checked){var k=Math.max(1,Math.min(pnMax(a),pnGet()));pw=a.slice(0,k);part=1}}
+ var x=openId&&D.items.filter(function(y){return y.id===openId})[0];if(!x){x={id:id(),ts:Date.now(),t:'acct'};D.items.push(x)}
+ x.name=n;x.user=$('pwEU').value.trim();x.pw=pw;x.part=part;x.note=$('pwEO').value;x.cat=$('pwEC').value;x.mod=Date.now();GV='';save().then(function(){shClose();toast(TR('Salvat'));rer()})}
+/* delete: master password (or fingerprint) first, then Da/Nu */
+var DELX=null;
+function delE(){var x=D.items.filter(function(y){return y.id===openId})[0];if(!x)return;DELX=x;var m=M(),bo=m.bio&&NN()&&NN().bioHas&&NN().bioHas('vault');
+ sh(TR('Șterge'),'<p class="pwhint">'+esc(TR('Confirmă cu parola principală pentru a șterge.'))+'</p>'+P('pwO',TR('Parola principală'))+'<div class="pwerr"></div>',B('del2',TR('Continuă'),'pwbig')+(bo?B('delb','☝ '+TR('Amprentă')):''))}
+function delAsk(){var x=DELX;if(!x||!D)return;shClose();setTimeout(function(){ask(TR('Ștergi această parolă?'),function(){D.items=D.items.filter(function(y){return y!==x});DELX=null;save().then(function(){rer()})})},50)}
+function del2(){var w=flWait();if(w){err(waitMsg(w));return}if(busy)return;busy=true;err(TR('Se verifică…'));unwrap($('pwO').value,M().wp).then(function(){flOk();busy=false;delAsk()},function(){flBad();busy=false;var w2=flWait();err(TR('Parolă greșită')+(w2?'. '+waitMsg(w2):''))})}
 /* settings */
 function sets(){var m=M(),n=NN(),ba=n&&n.bioAvail&&n.bioAvail();var seg=function(idn,arr,cur,suf){return '<div class="pwseg" id="'+idn+'">'+arr.map(function(v){return '<button type="button" class="'+(v===cur?'on':'')+'" data-v="'+v+'">'+v+suf+'</button>'}).join('')+'</div>'};
- sh(TR('Setări seif'),'<label class="pwl">'+esc(TR('Blocare automată după'))+'</label>'+seg('pwAL',[1,2,5,15],m.al||5,' min')+'<label class="pwl">'+esc(TR('Șterge clipboard-ul după'))+'</label>'+seg('pwCL',[15,30,60],D.clip||30,' s')+(ba?'<label class="pwck"><input type="checkbox" id="pwBio"'+(m.bio?' checked':'')+'> ☝ '+esc(TR('Deblocare cu amprenta'))+'</label>':'')+
+ sh(TR('Setări seif'),'<label class="pwl">'+esc(TR('Blocare automată după'))+'</label>'+seg('pwAL',[1,2,5,15],m.al||5,' min')+'<label class="pwl">'+esc(TR('Șterge clipboard-ul după'))+'</label>'+seg('pwCL',[15,30,60],D.clip||30,' s')+(n&&n.bioSave?'<label class="pwck"><input type="checkbox" id="pwBio"'+(m.bio?' checked':'')+'> ☝ '+esc(TR('Deblocare cu amprenta'))+'</label><div id="pwBioE" class="pwerr"></div>':'')+
  '<div class="pwsl">'+B('cats',TR('Categorii'))+B('chpw',TR('Schimbă parola principală'))+B('rgk',TR('Cheie de recuperare nouă'))+B('exp',TR('Exportă seiful criptat'))+B('wipe',TR('Șterge seiful'),'dngb')+'</div><p class="pwhint pwsm">'+esc(TR('Seiful e criptat (AES-256) și rămâne doar pe acest telefon și în backup-urile tale.'))+'</p>','')}
 function cats(){var h=D.cats.map(function(c,i){return '<div class="pwcr" data-ci="'+i+'"><b>'+esc(c.name)+'</b><button type="button" class="hb" data-pa="clk" aria-label="'+esc(TR('Blochează'))+'">'+(c.lock?'🔒':'🔓')+'</button><button type="button" class="hb" data-pa="cup" aria-label="↑">↑</button><button type="button" class="hb" data-pa="cdn" aria-label="↓">↓</button><button type="button" class="hb" data-pa="cren" aria-label="'+esc(TR('Redenumește'))+'">✎</button><button type="button" class="hb" data-pa="cdel" aria-label="'+esc(TR('Șterge'))+'">🗑</button></div>'}).join('');
  sh(TR('Categorii'),h+'<p class="pwhint pwsm">'+esc(TR('🔒 = cere parola sau amprenta de fiecare dată când deschizi categoria.'))+'</p>',B('cadd','+ '+TR('Adaugă')))}
@@ -5072,13 +5108,14 @@ window.pwGoCat=goCat;
 document.addEventListener('click',function(e){var v=$('spView'),s=$('pwSheet'),inV=v&&v.contains(e.target)&&v.querySelector('.pwv'),inS=s&&s.contains(e.target);if(!inV&&!inS)return;if(K)touch();
  var ey=e.target.closest('[data-eye]');if(ey){var i=$(ey.dataset.eye);if(i)i.type=i.type==='password'?'text':'password';return}
  var pc=e.target.closest('[data-pc]');if(pc){if(pc.dataset.pc!==cat)catOK={};cat=pc.dataset.pc;q='';rer();return}
+ var md=e.target.closest('#pwMode [data-m]');if(md){setMode(md.dataset.m);return}
  var row=e.target.closest('.pwi'),a=e.target.closest('[data-pa]'),k=a&&a.dataset.pa;
  if(row&&(!a)){var x=D.items.filter(function(y){return y.id===row.dataset.id})[0];if(x)edit(x);return}
  if(!k)return;var x2=row&&D&&D.items.filter(function(y){return y.id===row.dataset.id})[0];
  if(k==='cu'&&x2){clip(x2.user,0);toast(TR('Utilizator copiat'));return}
  if(k==='cp'&&x2){clip(x2.pw,1);toast((x2.part?TR('Partea salvată a fost copiată.'):TR('Parola a fost copiată.'))+' '+TR('Se șterge din clipboard în')+' '+(D.clip||30)+' s');return}
  var ci=e.target.closest('[data-ci]'),cix=ci?+ci.dataset.ci:-1;
- var F={setup:setup,su1:su1,su4y:function(){suKey(1)},su4n:function(){suKey(0)},su2:su2,unlock:unlock,bio:function(){bio('open')},forgot:forgot,fg:fg,x:shClose,lock:lock,set:sets,'new':function(){edit(null)},esave:esave,del:delE,gen:doGen,cats:cats,chpw:chpw,chpw2:chpw2,rgk:rgk,
+ var F={setup:setup,su1:su1,su4y:function(){suKey(1)},su4n:function(){suKey(0)},su2:su2,unlock:unlock,bio:function(){bio('open')},forgot:forgot,fg:fg,x:shClose,lock:lock,set:sets,'new':function(){edit(null)},esave:esave,del:delE,del2:del2,delb:function(){bio('del')},pnm:function(){pnSet(pnGet()-1)},pnp:function(){pnSet(pnGet()+1)},cadd2:function(){jvPrompt(TR('Categorie nouă'),'',function(nm){nm=String(nm||'').trim();if(!nm)return;var c={id:id(),name:nm,lock:0};D.cats.push(c);cat=c.id;catOK={};save().then(rer)})},gen:doGen,cats:cats,chpw:chpw,chpw2:chpw2,rgk:rgk,
   rk4y:function(){suKey(1);$('pwSheet').querySelector('[data-pa=su2]').dataset.pa='rks'},rk4n:function(){suKey(0);$('pwSheet').querySelector('[data-pa=su2]').dataset.pa='rks'},rks:rkSave,exp:exp,wipe:wipe,catun:catUn,cun2:cun2,
   cadd:function(){jvPrompt(TR('Categorie nouă'),'',function(nm){D.cats.push({id:id(),name:nm,lock:0});save().then(function(){cats();rer()})})},
   cren:function(){var c=D.cats[cix];jvPrompt(TR('Redenumește'),c.name,function(nm){c.name=nm;save().then(function(){cats();rer()})})},
@@ -5088,8 +5125,8 @@ document.addEventListener('click',function(e){var v=$('spView'),s=$('pwSheet'),i
   clk:function(){var c=D.cats[cix];c.lock=c.lock?0:1;delete catOK[c.id];save().then(function(){cats();rer()})}};
  if(F[k]){e.preventDefault();F[k]()}
  var sg=e.target.closest('.pwseg button');if(sg){var p=sg.parentNode,val=+sg.dataset.v;p.querySelectorAll('button').forEach(function(b){b.classList.toggle('on',b===sg)});if(p.id==='pwAL'){var m=M();m.al=val;Mset(m)}else{D.clip=val;save()}}});
-document.addEventListener('change',function(e){if(e.target.id==='pwBio'){var c=e.target;bioOn(c.checked).then(function(ok){if(!ok)c.checked=!c.checked})}if(e.target.id==='pwEPart'||e.target.closest&&e.target.closest('.pwgen'))live(),prev()});
-document.addEventListener('input',function(e){var t=e.target;if(!t||!t.id)return;if(K)touch();if(t.id==='pwQ'){q=t.value;rer();return}if(t.id==='pwEP')live();if(t.id==='pwEN'||t.closest&&t.closest('.pwgen'))prev();if(t.id==='pwN1')$('pwS1').innerHTML=strH(t.value)});
+document.addEventListener('change',function(e){if(e.target.id==='pwBio'){var c=e.target;var on=c.checked;bioOn(on).then(function(ok){c.checked=on?!!ok:false})}if(e.target.id==='pwEPart'||e.target.closest&&e.target.closest('.pwgr'))live(),prev()});
+document.addEventListener('input',function(e){var t=e.target;if(!t||!t.id)return;if(K)touch();if(t.id==='pwQ'){q=t.value;rer();return}if(t.id==='pwEP'||t.id==='pwEP2')live();if(t.id==='pwEN'||t.closest&&t.closest('.pwgr'))prev();if(t.id==='pwN1')$('pwS1').innerHTML=strH(t.value)});
 document.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target.id==='pwIn')unlock()});
 ['pointerdown','keydown'].forEach(function(n){document.addEventListener(n,function(){if(K)touch()},true)});
 document.addEventListener('visibilitychange',function(){if(document.hidden){if(K)lock();var v=$('spView');if(v&&v.querySelector('.pwv'))v.innerHTML='';SU=null;shClose()}});
@@ -5106,7 +5143,7 @@ mig();wrapSP();try{renderNotes()}catch(_){}
 })();
 
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v171';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v172';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};

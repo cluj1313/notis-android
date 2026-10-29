@@ -25,6 +25,8 @@ final class BioLock {
     static boolean avail(Context c) {
         try { return BiometricManager.from(c).canAuthenticate(AUTH) == BiometricManager.BIOMETRIC_SUCCESS; } catch (Throwable t) { return false; }
     }
+    /** 2.16.2: raw canAuthenticate code (0 = ok, 11 = none enrolled, 12 = no hardware, ...) */
+    static int why(Context c) { try { return BiometricManager.from(c).canAuthenticate(AUTH); } catch (Throwable t) { return -2; } }
     private static SharedPreferences sp(Context c) { return c.getSharedPreferences(SP, Context.MODE_PRIVATE); }
     private static boolean ok(String k) { return k != null && k.length() > 0 && k.length() < 200; }
     static boolean has(Context c, String k) { return ok(k) && sp(c).contains("k_" + k); }
@@ -39,13 +41,14 @@ final class BioLock {
                 .setBlockModes(KeyProperties.BLOCK_MODE_GCM).setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_NONE).setKeySize(256).build());
         return g.generateKey();
     }
-    static void save(Context c, String k, String pin) {
-        if (!ok(k) || pin == null || !(pin.matches("\\d{4,6}") || ("vault".equals(k) && pin.matches("[A-Za-z0-9_-]{43}")))) return;
+    /** 2.16.2: returns a status code only ("ok", "fmt", "ks:<ExceptionClass>"); never the secret */
+    static String save(Context c, String k, String pin) {
+        if (!ok(k) || pin == null || !(pin.matches("\\d{4,6}") || ("vault".equals(k) && pin.matches("[A-Za-z0-9_-]{43}")))) return "fmt";
         try {
             Cipher ci = Cipher.getInstance("AES/GCM/NoPadding"); ci.init(Cipher.ENCRYPT_MODE, key());
             byte[] ct = ci.doFinal(pin.getBytes(StandardCharsets.UTF_8));
-            sp(c).edit().putString("k_" + k, Base64.encodeToString(ci.getIV(), Base64.NO_WRAP) + ":" + Base64.encodeToString(ct, Base64.NO_WRAP)).apply();
-        } catch (Throwable t) { del(c, k); }
+            return sp(c).edit().putString("k_" + k, Base64.encodeToString(ci.getIV(), Base64.NO_WRAP) + ":" + Base64.encodeToString(ct, Base64.NO_WRAP)).commit() ? "ok" : "sp";
+        } catch (Throwable t) { del(c, k); return "ks:" + t.getClass().getSimpleName(); }
     }
     private static String load(Context c, String k) {
         try {
@@ -56,17 +59,18 @@ final class BioLock {
         } catch (Throwable t) { del(c, k); return null; }
     }
     static void auth(MainActivity m, String k, String title, String neg) {
-        if (!avail(m) || !has(m, k)) { m.bioJs(k, null); return; }
+        int w = why(m); if (w != BiometricManager.BIOMETRIC_SUCCESS) { m.bioJs(k, null, "w" + w); return; }
+        if (!has(m, k)) { m.bioJs(k, null, "nokey"); return; }
         try {
             BiometricPrompt bp = new BiometricPrompt(m, ContextCompat.getMainExecutor(m), new BiometricPrompt.AuthenticationCallback() {
-                @Override public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult r) { m.bioJs(k, load(m, k)); }
-                @Override public void onAuthenticationError(int code, CharSequence s) { m.bioJs(k, null); }
+                @Override public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult r) { String v = load(m, k); m.bioJs(k, v, v == null ? "load" : null); }
+                @Override public void onAuthenticationError(int code, CharSequence s) { m.bioJs(k, null, String.valueOf(code)); }
                 /* onAuthenticationFailed: the system prompt lets the user retry; errors/cancel end in onAuthenticationError */
             });
             bp.authenticate(new BiometricPrompt.PromptInfo.Builder()
                     .setTitle(title == null || title.isEmpty() ? "Notis" : title)
                     .setNegativeButtonText(neg == null || neg.isEmpty() ? "PIN" : neg)
                     .setAllowedAuthenticators(AUTH).setConfirmationRequired(false).build());
-        } catch (Throwable t) { m.bioJs(k, null); }
+        } catch (Throwable t) { m.bioJs(k, null, "ex"); }
     }
 }

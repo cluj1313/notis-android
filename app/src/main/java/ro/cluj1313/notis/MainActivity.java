@@ -28,7 +28,9 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity {
     static volatile MainActivity cur;
     WebView bioWeb;
     /** 2.5.6: biometric result back to JS */
-    void bioJs(String key, String pin) { if (bioWeb == null) return; bioWeb.evaluateJavascript("window.__bioRes&&__bioRes(" + JSONObject.quote(key) + "," + (pin == null ? "null" : JSONObject.quote(pin)) + ")", null); }
+    void bioJs(String key, String pin) { bioJs(key, pin, null); }
+    /** 2.16.2: optional third arg = error code (digits/letters only, never a secret) */
+    void bioJs(String key, String pin, String code) { if (bioWeb == null) return; bioWeb.evaluateJavascript("window.__bioRes&&__bioRes(" + JSONObject.quote(key) + "," + (pin == null ? "null" : JSONObject.quote(pin)) + "," + (code == null ? "null" : JSONObject.quote(code.replaceAll("[^A-Za-z0-9:_-]", ""))) + ")", null); }
     private android.webkit.PermissionRequest micReq;
     private Uri camUri;
     static volatile boolean foreground = false;

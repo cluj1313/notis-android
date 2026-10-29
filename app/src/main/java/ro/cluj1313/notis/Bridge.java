@@ -79,6 +79,9 @@ final class Bridge {
     @JavascriptInterface public boolean bioAvail() { if (!MainActivity.trusted) return false; return BioLock.avail(ctx); }
     @JavascriptInterface public boolean bioHas(String k) { if (!MainActivity.trusted) return false; return BioLock.has(ctx, k); }
     @JavascriptInterface public void bioSave(String k, String pin) { if (!MainActivity.trusted) return; BioLock.save(ctx, k, pin); }
+    /* 2.16.2: same as bioSave but reports a status; the old void bioSave made JS always see "Eroare" */
+    @JavascriptInterface public String bioSaveR(String k, String pin) { if (!MainActivity.trusted) return "untrusted"; return BioLock.save(ctx, k, pin); }
+    @JavascriptInterface public int bioWhy() { if (!MainActivity.trusted) return -3; return BioLock.why(ctx); }
     @JavascriptInterface public void bioDel(String k) { if (!MainActivity.trusted) return; BioLock.del(ctx, k); }
     @JavascriptInterface public void bioClear() { if (!MainActivity.trusted) return; BioLock.clear(ctx); }
     @JavascriptInterface public boolean bioAuth(String k, String title, String neg) { final MainActivity m = MainActivity.cur; if (!MainActivity.trusted || m == null || !BioLock.has(ctx, k)) return false; m.runOnUiThread(() -> BioLock.auth(m, k, title, neg)); return true; }
