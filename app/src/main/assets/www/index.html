@@ -3229,6 +3229,7 @@ $('noteTabs').addEventListener('click',function(e){var b=e.target.closest('.ntab
 function ntChipShow(){var c=document.querySelector('#noteTabs .ntab.on');if(c)try{/* v162: horizontal only — scrollIntoView also scrolled the page up, undoing the Medicamente centre-on-today */var sc=c.parentElement;while(sc&&sc.scrollWidth<=sc.clientWidth+1)sc=sc.parentElement;if(sc&&sc!==document.body&&sc!==document.documentElement){var q=c.getBoundingClientRect(),w=sc.getBoundingClientRect();if(q.left<w.left)sc.scrollLeft-=w.left-q.left;else if(q.right>w.right)sc.scrollLeft+=q.right-w.right}}catch(_){}}
 function ntGo(d){var VT=noteTabs.filter(function(t){return !t.off}),i=VT.findIndex(function(t){return t.id===noteTab}),j=i+d;if(i<0||j<0||j>=VT.length)return false;if(draftId)draftFinish();noteTab=VT[j].id;saveNotes();renderNotes();ntChipShow();
  var ul=$('notesList');ul.classList.remove('nsw-l','nsw-r');void ul.offsetWidth;ul.classList.add(d>0?'nsw-l':'nsw-r');setTimeout(function(){ul.classList.remove('nsw-l','nsw-r')},200);return true}
+window.ntGo=ntGo;
 (function(){var pg=$('notesPg'),S=null;
  function blocked(t){return nQ||nTrash||pg.classList.contains('nsrch')||ndrag||$('noteFull').classList.contains('show')||document.querySelector('.modal.show')||$('lpMenu').classList.contains('show')||(t.closest&&t.closest('#noteTabs,input,textarea,select,.ntop,#shModal,#crop,#phView,.pwv'))||(window.pwSwOn&&pwSwOn(t))}
  pg.addEventListener('touchstart',function(e){S=null;if(e.touches.length!==1)return;var t=e.touches[0];if(t.clientX<24||t.clientX>innerWidth-24||blocked(e.target))return;S={x:t.clientX,y:t.clientY,t:Date.now()}},{passive:true});
@@ -5153,7 +5154,7 @@ function wipe(){ask(TR('Ștergi seiful cu toate parolele?'),function(){setTimeou
 function catUn(){var c=catOf(cat),m=M();if(m.bio&&NN()&&NN().bioHas&&NN().bioHas('vault')){bio('cat');return}
  sh(TR('Categorie protejată'),P('pwO',TR('Parola principală'))+'<div class="pwerr"></div>',B('cun2',TR('Deblochează'),'pwbig'))}
 function cun2(){var w=flWait();if(w){err(waitMsg(w));return}if(busy)return;busy=true;err(TR('Se verifică…'));unwrap($('pwO').value,M().wp).then(function(){flOk();busy=false;catOK[cat]=1;shClose();rer()},function(){flBad();busy=false;var w2=flWait();err(TR('Parolă greșită')+(w2?'. '+waitMsg(w2):''))})}
-function goCat(d){if(!D)return;var V=D.cats.filter(function(c){return (!c.kind||xMode()==='complete')&&!xIdnHide(c)}),i=V.findIndex(function(c){return c.id===cat}),j=i+d;if(j<0||j>=V.length)return;cat=V[j].id;catOK={};q='';rer()}
+function goCat(d){if(!D)return;var V=D.cats.filter(function(c){return (!c.kind||xMode()==='complete')&&!xIdnHide(c)}),i=V.findIndex(function(c){return c.id===cat}),j=i+d;if(j<0||j>=V.length)return 'edge';cat=V[j].id;catOK={};q='';rer();return true}
 window.pwGoCat=goCat;
 /* ---- v174: Parole stage 2 (complete mode): store cards, ID photos, bank cards, identity data. superClass = feature flag (on for everyone, no billing). ---- */
 var superClass=true;
@@ -5388,9 +5389,9 @@ window.addEventListener('pagehide',function(){if(K)lock()});
 try{window.pwDbg.xph=phDump;window.pwDbg.xgc=phGC;window.pwDbg.xall=phAll}catch(_){}
 /* swipe on content switches category. v175: whole Parole page (pills row included) — the global tab/page swipes are guarded by pwSwOn() */
 window.pwSwOn=function(t){var pg=$('notesPg');return !!(pg&&pg.classList.contains('pwtab')&&pg.classList.contains('show')&&t&&t.closest&&t.closest('#notesPg')&&!t.closest('#noteTabs,.ntop'))};
-(function(){var S=null;document.addEventListener('touchstart',function(e){S=null;var t=e.target;if(!pwSwOn(t)||!K||e.touches.length!==1||t.closest('input,textarea,select,#pwSheet,#pwZoom,#pwBig,.modal.show'))return;var r=t.closest('.pwcats');S={x:e.touches[0].clientX,y:e.touches[0].clientY,r:r,sl:r?r.scrollLeft:0}},{passive:true});
+(function(){var S=null;document.addEventListener('touchstart',function(e){S=null;var t=e.target;if(!pwSwOn(t)||e.touches.length!==1||t.closest('input,textarea,select,#pwSheet,#pwZoom,#pwBig,.modal.show'))return;var r=t.closest('.pwcats');S={x:e.touches[0].clientX,y:e.touches[0].clientY,r:r,sl:r?r.scrollLeft:0,t:Date.now()}},{passive:true});
  document.addEventListener('touchmove',function(e){if(S&&e.touches.length!==1)S=null},{passive:true});document.addEventListener('touchcancel',function(){S=null},{passive:true});
- document.addEventListener('touchend',function(e){if(!S)return;var t=e.changedTouches[0],dx=t.clientX-S.x,dy=t.clientY-S.y,s0=S;S=null;if(s0.r&&Math.abs(s0.r.scrollLeft-s0.sl)>2)return;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5&&!q.trim())goCat(dx<0?1:-1)},{passive:true})})();
+ document.addEventListener('touchend',function(e){if(!S)return;var t=e.changedTouches[0],dx=t.clientX-S.x,dy=t.clientY-S.y,s0=S;S=null;if(s0.r&&Math.abs(s0.r.scrollLeft-s0.sl)>2)return;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5&&Date.now()-s0.t<900){var d=dx<0?1:-1;/* v180: one swipe = one step; at the first/last category (or locked) the swipe moves to the neighbouring main tab, same direction as the global swipe; cat stays remembered for the way back */if(!K||!D){if(window.ntGo)window.ntGo(d);return}if(q.trim())return;if(goCat(d)==='edge'&&window.ntGo)window.ntGo(d)}},{passive:true})})();
 /* tab migration */
 function mig(){if(LS.get('ns_pwmig1',0))return;if(!noteTabs.some(function(t){return t.kind==='pw'})){var nid='pw';while(findNT(nid))nid='pw'+Math.random().toString(36).slice(2,5);var t={id:nid,name:TR('Parole')+' 🔑',color:'#7cc4ff',kind:'pw'},ci=noteTabs.findIndex(function(x){return x.kind==='crm'});if(ci>=0)noteTabs.splice(ci+1,0,t);else noteTabs.push(t);LS.set('ns_notetabs',noteTabs)}LS.set('ns_pwmig1',1)}
 /* backup / restore: ciphertext only */
@@ -5400,7 +5401,7 @@ mig();wrapSP();try{renderNotes()}catch(_){}
 })();
 
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v179';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v180';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};
