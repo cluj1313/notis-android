@@ -5369,7 +5369,7 @@ mig();wrapSP();try{renderNotes()}catch(_){}
 })();
 
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v177';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v178';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};
@@ -5473,8 +5473,8 @@ window.urgPre=function(n){if(!n||n.del)return '';var t=findNT(n.tab);if(!isUrgTa
  function vn(s){return String(s||'').replace(/[^0-9.]/g,'').split('.').map(function(x){return +x||0})}
  function gt(a,b){a=vn(a);b=vn(b);for(var i=0;i<3;i++){if((a[i]||0)!==(b[i]||0))return (a[i]||0)>(b[i]||0)}return false}
  function show(st){var v=ver();vv.textContent=(v?v:'web '+NOTIS_WEB_REL)+' · '+st}
- function check(){show(TR('se verifică…'));var v=ver();
-  if(v){fetch('https://api.github.com/repos/cluj1313/notis-android/releases/latest',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){var t=String(j.tag_name||'');if(t&&gt(t,v)){newer=t.replace(/^v/,'');show('🆕 '+TR('Update nou')+': '+newer)}else{newer=null;show('✓ '+TR('Ultima versiune'))}}).catch(function(){show(TR('verificare indisponibilă'))});return}
+ window.__updGt=gt;function check(){show(TR('se verifică…'));var v=ver();
+  if(v){/* v178: compare versionName with versionName (apk/version.json, fallback release title) — never the vNNN tag */fetch('https://cluj1313.github.io/notis/apk/version.json?t='+Date.now(),{cache:'no-store'}).then(function(r){if(!r.ok)throw 0;return r.json()}).catch(function(){return fetch('https://api.github.com/repos/cluj1313/notis-android/releases/latest',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){return{versionName:j.name}})}).then(function(j){var t=(/\d+\.\d+\.\d+/.exec(String(j.versionName||''))||[''])[0];if(t&&gt(t,v)){newer=t;show('🆕 '+TR('Update nou')+': '+newer)}else{newer=null;show('✓ '+TR('Ultima versiune'))}}).catch(function(){show(TR('verificare indisponibilă'))});return}
   fetch('sw.js',{cache:'no-store'}).then(function(r){return r.text()}).then(function(t){var m=/notis-shell-v(\d+)/.exec(t),n=m?+m[1]:0;if(n>+NOTIS_WEB_REL.slice(1)){newer='v'+n;show('🆕 '+TR('Update nou')+': web v'+n)}else{newer=null;show('✓ '+TR('Ultima versiune'))}}).catch(function(){show(TR('verificare indisponibilă'))})}
  vb.addEventListener('click',function(){if(newer){if(ver()){try{if(NotisNative.updCheck){NotisNative.updCheck();return}}catch(_){}location.href='https://cluj1313.github.io/notis/apk/'}else location.reload();return}check()});
  vb.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();vb.click()}});

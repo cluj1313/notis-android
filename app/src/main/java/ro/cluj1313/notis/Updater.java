@@ -33,6 +33,35 @@ final class Updater {
 
     private static boolean asking;
 
+    /* v178: compare like with like. The release tag is the web build (v177) and versionName is 2.17.x, so comparing tag vs
+       versionName always looked "newer" (177 > 2). Now: remote versionCode (apk/version.json) vs installed versionCode;
+       fallback: versionName from the release title ("Notis 2.17.4") vs installed versionName. Tag numbers are never compared. */
+    static final String VJ = "https://cluj1313.github.io/notis/apk/version.json";
+    static long code(Activity a) {
+        try { android.content.pm.PackageInfo p = a.getPackageManager().getPackageInfo(a.getPackageName(), 0);
+              return android.os.Build.VERSION.SDK_INT >= 28 ? p.getLongVersionCode() : p.versionCode; } catch (Exception e) { return 0; }
+    }
+    static String nameIn(String s) {
+        java.util.regex.Matcher m = java.util.regex.Pattern.compile("(\\d+\\.\\d+\\.\\d+)").matcher(s == null ? "" : s);
+        return m.find() ? m.group(1) : "";
+    }
+    /** true = show the dialog. key = remote version identity; dismissed (Mai târziu) for the same key → quiet for 24 h. */
+    static boolean should(long rc, String rn, long myc, String myn, String skipKey, long skipT, long now) {
+        boolean nw;
+        if (rc > 0 && myc > 0) nw = rc > myc;
+        else if (!rn.isEmpty()) nw = newer(rn, myn);
+        else return false;
+        if (!nw) return false;
+        String key = rc > 0 ? "c" + rc : "n" + rn;
+        return !(key.equals(skipKey) && now - skipT < 24L * 3600 * 1000 && now >= skipT);
+    }
+    static String get(String url) throws Exception {
+        HttpURLConnection h = (HttpURLConnection) new URL(url).openConnection();
+        h.setConnectTimeout(8000); h.setReadTimeout(8000); h.setRequestProperty("Accept", "application/vnd.github+json"); h.setUseCaches(false);
+        if (h.getResponseCode() != 200) return null;
+        return new String(readAll(h.getInputStream()), "UTF-8");
+    }
+
     /** On launch and on every resume, throttled to once per hour. */
     static void check(final Activity a) {
         if (BuildConfig.PLAY) return; /* Google Play build: updates come only from Play (no self-update) */
@@ -41,21 +70,23 @@ final class Updater {
         Store.sp(a).edit().putLong("updChk", now).apply();
         new Thread(() -> {
             try {
-                HttpURLConnection h = (HttpURLConnection) new URL(API).openConnection();
-                h.setConnectTimeout(8000); h.setReadTimeout(8000); h.setRequestProperty("Accept", "application/vnd.github+json");
-                if (h.getResponseCode() != 200) return;
-                String body = new String(readAll(h.getInputStream()), "UTF-8");
-                JSONObject r = new JSONObject(body);
-                final String tag = r.optString("tag_name");
-                if (!newer(tag, mine(a))) return;
-                String hu = r.optString("html_url", "");
-                final String u = hu.startsWith("https://github.com/cluj1313/notis-android/") ? hu : "https://github.com/cluj1313/notis-android/releases/latest";
-                new Handler(Looper.getMainLooper()).post(() -> { if (!a.isFinishing() && !asking) ask(a, tag, u); });
+                long rc = 0; String rn = "", u = "https://github.com/cluj1313/notis-android/releases/latest";
+                try { String vj = get(VJ + "?t=" + now); if (vj != null) { JSONObject v = new JSONObject(vj); rc = v.optLong("versionCode", 0); rn = nameIn(v.optString("versionName")); String pg = v.optString("page", ""); if (pg.startsWith("https://github.com/cluj1313/notis-android/")) u = pg; } } catch (Exception ignored) {}
+                if (rc <= 0 && rn.isEmpty()) {
+                    String body = get(API); if (body == null) return;
+                    JSONObject r = new JSONObject(body);
+                    rn = nameIn(r.optString("name"));
+                    String hu = r.optString("html_url", "");
+                    if (hu.startsWith("https://github.com/cluj1313/notis-android/")) u = hu;
+                }
+                final String fn = rn.isEmpty() ? "?" : rn, fu = u, key = rc > 0 ? "c" + rc : "n" + rn;
+                if (!should(rc, rn, code(a), mine(a), Store.sp(a).getString("updSkip", ""), Store.sp(a).getLong("updSkipT", 0), System.currentTimeMillis())) return;
+                new Handler(Looper.getMainLooper()).post(() -> { if (!a.isFinishing() && !asking) ask(a, fn, fu, key); });
             } catch (Exception ignored) {}
         }).start();
     }
 
-    static void ask(final Activity a, String tag, final String page) {
+    static void ask(final Activity a, String tag, final String page, final String key) {
         asking = true;
         new AlertDialog.Builder(a)
             .setOnDismissListener(d -> asking = false)
@@ -66,7 +97,7 @@ final class Updater {
                 Runnable open = () -> { try { a.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(page))); } catch (Exception ignored) {} };
                 if (a instanceof MainActivity) ((MainActivity) a).backupThen("before-update", open, 15000); else open.run();
             })
-            .setNegativeButton(Tr.s(a, R.string.upd_later), null)
+            .setNegativeButton(Tr.s(a, R.string.upd_later), (d, w) -> Store.sp(a).edit().putString("updSkip", key).putLong("updSkipT", System.currentTimeMillis()).apply())
             .show();
     }
 
