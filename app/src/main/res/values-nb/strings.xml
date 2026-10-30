@@ -82,6 +82,8 @@
     <string name="upd_open">Åpnet</string>
     <plurals name="notes_count"><item quantity="one">%d merknad</item><item quantity="few">%d notater</item><item quantity="many">%d notater</item><item quantity="other">%d notater</item></plurals>
     <string name="snooze10">Slumpe 10 min.</string>
+    <string name="snooze20">Slumpe 20 min.</string>
+    <string name="snooze30">Slumpe 30 min.</string>
     <string name="edit_btn">✎  Rediger</string>
     <string name="cd_edit">Rediger</string>
     <string name="edit_item">Rediger element</string>

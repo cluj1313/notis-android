@@ -82,6 +82,8 @@
     <string name="upd_open">Buka</string>
     <plurals name="notes_count"><item quantity="one">%d Catatan</item><item quantity="few">%d Catatan</item><item quantity="many">%d Catatan</item><item quantity="other">%d Catatan</item></plurals>
     <string name="snooze10">Tidur 10 menit</string>
+    <string name="snooze20">Tidur 20 menit</string>
+    <string name="snooze30">Tidur 30 menit</string>
     <string name="edit_btn">✎  Ubah</string>
     <string name="cd_edit">Ubah</string>
     <string name="edit_item">Ubah item</string>

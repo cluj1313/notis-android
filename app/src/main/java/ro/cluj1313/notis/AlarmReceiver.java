@@ -1,6 +1,7 @@
 package ro.cluj1313.notis;
 
 import android.app.Notification;
+import android.widget.RemoteViews;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -25,18 +26,8 @@ public class AlarmReceiver extends BroadcastReceiver {
         if (nid == null) return;
         /* 2.2.3: "Amână 10 min" from the notification — a native one-shot alarm, independent of the web snapshot (notes and medicines) */
         /* 2.6.6: "Stop" from the notification — silence and dismiss only; the alarm data / next occurrence stay untouched */
-        if (STOPA.equals(i.getAction())) {
-            AlarmSound.stop();
-            try { c.getSystemService(NotificationManager.class).cancel(nid.hashCode()); } catch (Exception ignored) {}
-            return;
-        }
-        if (SNOOZE.equals(i.getAction())) {
-            String txt = i.getStringExtra("t"); if (txt == null) txt = "";
-            AlarmSound.stop();
-            try { c.getSystemService(NotificationManager.class).cancel(nid.hashCode()); } catch (Exception ignored) {}
-            Scheduler.snooze(c, nid, txt, System.currentTimeMillis() + 600000L);
-            return;
-        }
+        if (STOPA.equals(i.getAction())) { act(c, nid, null, 0); return; }
+        if (SNOOZE.equals(i.getAction())) { act(c, nid, i.getStringExtra("t"), snzMin(i.getIntExtra("m", 10))); return; }
         if (i.getBooleanExtra("snz", false)) { Store.put(c, "snz_" + nid, null); show(c, nid, String.valueOf(i.getStringExtra("t"))); return; }
         JSONObject note = null;
         JSONArray ns = Store.snapshot(c).optJSONArray("notes");
@@ -50,8 +41,18 @@ public class AlarmReceiver extends BroadcastReceiver {
         NotisWidget.refreshAll(c);
     }
 
-    static PendingIntent snoozePi(Context c, String nid, String text) {
-        Intent s = new Intent(c, AlarmReceiver.class).setAction(SNOOZE).setData(Uri.parse("notis://snooze/" + Uri.encode(nid))).putExtra("n", nid).putExtra("t", text);
+    /** 2.17.7: snooze choices 10 / 20 / 30 min; anything else falls back to 10 */
+    static int snzMin(int m) { return m == 20 || m == 30 ? m : 10; }
+    static long snzAt(long now, int m) { return now + snzMin(m) * 60000L; }
+    /** 2.17.7: one place for Stop (m=0) and Snooze (m=10/20/30): silence the ring (sound + RingService), remove the notification, snooze = one native alarm exactly m minutes from now; Stop leaves alarm data untouched */
+    static void act(Context c, String nid, String text, int m) {
+        AlarmSound.stop(); RingService.quit();
+        try { c.getSystemService(NotificationManager.class).cancel(nid.hashCode()); } catch (Exception ignored) {}
+        if (m > 0) Scheduler.snooze(c, nid, text == null ? "" : text, snzAt(System.currentTimeMillis(), m));
+    }
+
+    static PendingIntent snoozePi(Context c, String nid, String text, int m) {
+        Intent s = new Intent(c, AlarmReceiver.class).setAction(SNOOZE).setData(Uri.parse("notis://snooze/" + m + "/" + Uri.encode(nid))).putExtra("n", nid).putExtra("t", text).putExtra("m", m);
         return PendingIntent.getBroadcast(c, 0, s, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
     }
 
@@ -91,17 +92,34 @@ public class AlarmReceiver extends BroadcastReceiver {
             .setContentText(tb[1])
             .setCategory(Notification.CATEGORY_ALARM)
             .setAutoCancel(true)
-            .setContentIntent(NotisWidget.openApp(c, 800000 + Math.abs(nid.hashCode() % 90000), "?open=" + Uri.encode(nid)))
+            .setContentIntent(RingActivity.pi(c, nid, text))
             .setFullScreenIntent(NotisWidget.openApp(c, 700000 + Math.abs(nid.hashCode() % 90000), "?open=" + Uri.encode(nid)), true)
             .setPriority(Notification.PRIORITY_MAX)
             .setVisibility(Notification.VISIBILITY_PUBLIC)
-            .addAction(new Notification.Action.Builder(null, Tr.s(c, R.string.snooze10), snoozePi(c, nid, text)).build())
-            .addAction(new Notification.Action.Builder(null, Tr.s(c, R.string.alarm_stop), stopPi(c, nid)).build());
-        if (!tb[1].isEmpty()) b.setStyle(new Notification.BigTextStyle().bigText(tb[1]));
-        if (CH2.equals(ch)) b.setDeleteIntent(PendingIntent.getService(c, 0, new Intent(c, RingService.class).setAction(RingService.STOP), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE));
+            .setDeleteIntent(stopPi(c, nid)); /* swipe away = Stop */
+        /* 2.17.7: four pills 10 | 20 | 30 | STOP on top (custom RemoteViews, decorated so the system header/icon stay) */
+        RemoteViews small = pills(c, R.layout.notif_alarm, nid, text);
+        RemoteViews big = pills(c, R.layout.notif_alarm_big, nid, text);
+        big.setTextViewText(R.id.ntitle, tb[0]);
+        big.setTextViewText(R.id.nbody, tb[1]);
+        big.setViewVisibility(R.id.nbody, tb[1].isEmpty() ? android.view.View.GONE : android.view.View.VISIBLE);
+        b.setStyle(new Notification.DecoratedCustomViewStyle()).setCustomContentView(small).setCustomBigContentView(big).setCustomHeadsUpContentView(small);
         Notification n = b.build();
         if (CH.equals(ch)) n.flags |= Notification.FLAG_INSISTENT; /* sound repeats until opened / dismissed, like an alarm clock */
         return n;
+    }
+
+    static RemoteViews pills(Context c, int layout, String nid, String text) {
+        RemoteViews v = new RemoteViews(c.getPackageName(), layout);
+        v.setOnClickPendingIntent(R.id.p10, snoozePi(c, nid, text, 10));
+        v.setOnClickPendingIntent(R.id.p20, snoozePi(c, nid, text, 20));
+        v.setOnClickPendingIntent(R.id.p30, snoozePi(c, nid, text, 30));
+        v.setOnClickPendingIntent(R.id.pstop, stopPi(c, nid));
+        v.setContentDescription(R.id.p10, Tr.s(c, R.string.snooze10));
+        v.setContentDescription(R.id.p20, Tr.s(c, R.string.snooze20));
+        v.setContentDescription(R.id.p30, Tr.s(c, R.string.snooze30));
+        v.setContentDescription(R.id.pstop, Tr.s(c, R.string.alarm_stop));
+        return v;
     }
 
     static void show(Context c, String nid, String text) {
@@ -117,9 +135,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     static void loudFallback(Context c, int id, Notification n) {
         channel(c);
         try {
-            Notification m = new Notification.Builder(c, CH).setSmallIcon(R.drawable.ic_stat_alarm).setContentTitle(n.extras.getCharSequence(Notification.EXTRA_TITLE)).setContentText(n.extras.getCharSequence(Notification.EXTRA_TEXT))
-                .setStyle(n.extras.getCharSequence(Notification.EXTRA_BIG_TEXT) == null ? null : new Notification.BigTextStyle().bigText(n.extras.getCharSequence(Notification.EXTRA_BIG_TEXT))).setCategory(Notification.CATEGORY_ALARM).setAutoCancel(true)
-                .setContentIntent(n.contentIntent).setFullScreenIntent(n.fullScreenIntent, true).setPriority(Notification.PRIORITY_MAX).setVisibility(Notification.VISIBILITY_PUBLIC).setActions(n.actions == null ? new Notification.Action[0] : n.actions).build();
+            Notification m = Notification.Builder.recoverBuilder(c, n).setChannelId(CH).build(); /* keeps the pills + delete intent */
             m.flags |= Notification.FLAG_INSISTENT;
             c.getSystemService(NotificationManager.class).notify(id, m);
         } catch (Exception ignored) {}

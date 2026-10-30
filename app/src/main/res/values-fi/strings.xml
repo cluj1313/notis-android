@@ -82,6 +82,8 @@
     <string name="upd_open">avusta .</string>
     <plurals name="notes_count"><item quantity="one">%d Huomautus</item><item quantity="few">%d Huomautukset</item><item quantity="many">%d Huomautukset</item><item quantity="other">%d Huomautukset</item></plurals>
     <string name="snooze10">Nuku 10 minuuttia .</string>
+    <string name="snooze20">Nuku 20 minuuttia .</string>
+    <string name="snooze30">Nuku 30 minuuttia .</string>
     <string name="edit_btn">✎  Muokkaa</string>
     <string name="cd_edit">Muokkaa</string>
     <string name="edit_item">Muokkaa kohdetta</string>

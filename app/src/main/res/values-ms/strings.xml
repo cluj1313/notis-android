@@ -82,6 +82,8 @@
     <string name="upd_open">Terbuka</string>
     <plurals name="notes_count"><item quantity="one">%d Nota</item><item quantity="few">%d Nota</item><item quantity="many">%d Nota</item><item quantity="other">%d Nota</item></plurals>
     <string name="snooze10">Tidur 10 minit.</string>
+    <string name="snooze20">Tidur 20 minit.</string>
+    <string name="snooze30">Tidur 30 minit.</string>
     <string name="edit_btn">✎  Sunting</string>
     <string name="cd_edit">Sunting</string>
     <string name="edit_item">Sunting item</string>

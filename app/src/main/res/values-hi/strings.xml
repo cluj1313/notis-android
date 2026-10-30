@@ -82,6 +82,8 @@
     <string name="upd_open">खुला</string>
     <plurals name="notes_count"><item quantity="one">%d नोट</item><item quantity="few">%d नोट्स</item><item quantity="many">%d नोट्स</item><item quantity="other">%d नोट्स</item></plurals>
     <string name="snooze10">10 मिनट की झपकी</string>
+    <string name="snooze20">20 मिनट की झपकी</string>
+    <string name="snooze30">30 मिनट की झपकी</string>
     <string name="edit_btn">✎  संपादित करें</string>
     <string name="cd_edit">संपादित करें</string>
     <string name="edit_item">आइटम संपादित करें</string>

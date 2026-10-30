@@ -82,6 +82,8 @@
     <string name="upd_open">Åben</string>
     <plurals name="notes_count"><item quantity="one">%d Bemærkning</item><item quantity="few">%d Bemærkninger</item><item quantity="many">%d Bemærkninger</item><item quantity="other">%d Bemærkninger</item></plurals>
     <string name="snooze10">Slum 10 min.</string>
+    <string name="snooze20">Slum 20 min.</string>
+    <string name="snooze30">Slum 30 min.</string>
     <string name="edit_btn">✎  Rediger</string>
     <string name="cd_edit">Rediger</string>
     <string name="edit_item">Rediger punkt</string>

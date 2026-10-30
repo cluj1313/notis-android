@@ -82,6 +82,8 @@
     <string name="upd_open">খোলা</string>
     <plurals name="notes_count"><item quantity="one">%d নোট</item><item quantity="few">%d নোট</item><item quantity="many">%d নোট</item><item quantity="other">%d নোট</item></plurals>
     <string name="snooze10">১০ মিনিটের নিদ্রা</string>
+    <string name="snooze20">১০ মিনিটের নিদ্রা</string>
+    <string name="snooze30">১০ মিনিটের নিদ্রা</string>
     <string name="edit_btn">✎  সম্পাদনা</string>
     <string name="cd_edit">সম্পাদনা</string>
     <string name="edit_item">আইটেম সম্পাদনা</string>

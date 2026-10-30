@@ -82,6 +82,8 @@
     <string name="upd_open">Obert</string>
     <plurals name="notes_count"><item quantity="one">%d Nota</item><item quantity="few">%d Notes</item><item quantity="many">%d Notes</item><item quantity="other">%d Notes</item></plurals>
     <string name="snooze10">Dormir 10 minuts.</string>
+    <string name="snooze20">Dormir 20 minuts.</string>
+    <string name="snooze30">Dormir 30 minuts.</string>
     <string name="edit_btn">✎  Edita</string>
     <string name="cd_edit">Edita</string>
     <string name="edit_item">Edita l\'element</string>

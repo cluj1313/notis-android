@@ -82,6 +82,8 @@
     <string name="upd_open">Otevřeno.</string>
     <plurals name="notes_count"><item quantity="one">%d Poznámka</item><item quantity="few">%d Poznámky</item><item quantity="many">%d Poznámky</item><item quantity="other">%d Poznámky</item></plurals>
     <string name="snooze10">Zůstaňte 10 minut.</string>
+    <string name="snooze20">Zůstaňte 20 minut.</string>
+    <string name="snooze30">Zůstaňte 30 minut.</string>
     <string name="edit_btn">✎  Upravit</string>
     <string name="cd_edit">Upravit</string>
     <string name="edit_item">Upravit položku</string>

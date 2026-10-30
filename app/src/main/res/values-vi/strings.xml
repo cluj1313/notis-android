@@ -82,6 +82,8 @@
     <string name="upd_open">Mở</string>
     <plurals name="notes_count"><item quantity="one">%d lưu ý</item><item quantity="few">%d ghi chú</item><item quantity="many">%d ghi chú</item><item quantity="other">%d ghi chú</item></plurals>
     <string name="snooze10">Ngủ 10 phút.</string>
+    <string name="snooze20">Ngủ 20 phút.</string>
+    <string name="snooze30">Ngủ 30 phút.</string>
     <string name="edit_btn">✎  Sửa</string>
     <string name="cd_edit">Sửa</string>
     <string name="edit_item">Sửa mục</string>

@@ -82,6 +82,8 @@
     <string name="upd_open">Atviras</string>
     <plurals name="notes_count"><item quantity="one">%d Pastaba</item><item quantity="few">%d pastabos</item><item quantity="many">%d pastabos</item><item quantity="other">%d pastabos</item></plurals>
     <string name="snooze10">10 minučių poilsio.</string>
+    <string name="snooze20">20 minučių poilsio.</string>
+    <string name="snooze30">30 minučių poilsio.</string>
     <string name="edit_btn">✎  Redaguoti</string>
     <string name="cd_edit">Redaguoti</string>
     <string name="edit_item">Redaguoti elementą</string>

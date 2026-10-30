@@ -82,6 +82,8 @@
     <string name="upd_open">Open</string>
     <plurals name="notes_count"><item quantity="one">%d notitie</item><item quantity="few">%d Notities</item><item quantity="many">%d Notities</item><item quantity="other">%d Notities</item></plurals>
     <string name="snooze10">Snooze 10 minuten.</string>
+    <string name="snooze20">Snooze 20 minuten.</string>
+    <string name="snooze30">Snooze 30 minuten.</string>
     <string name="edit_btn">✎  Bewerken</string>
     <string name="cd_edit">Bewerken</string>
     <string name="edit_item">Item bewerken</string>

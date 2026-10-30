@@ -82,6 +82,8 @@
     <string name="upd_open">I hapur.</string>
     <plurals name="notes_count"><item quantity="one">%d Shënim</item><item quantity="few">%d Shënime</item><item quantity="many">%d Shënime</item><item quantity="other">%d Shënime</item></plurals>
     <string name="snooze10">Pushim 10 minuta.</string>
+    <string name="snooze20">Pushim 20 minuta.</string>
+    <string name="snooze30">Pushim 30 minuta.</string>
     <string name="edit_btn">✎  Ndrysho</string>
     <string name="cd_edit">Ndrysho</string>
     <string name="edit_item">Ndrysho artikullin</string>

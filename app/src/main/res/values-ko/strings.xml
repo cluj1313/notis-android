@@ -82,6 +82,8 @@
     <string name="upd_open">오픈</string>
     <plurals name="notes_count"><item quantity="one">%d 참고</item><item quantity="few">%d 노트</item><item quantity="many">%d 노트</item><item quantity="other">%d 노트</item></plurals>
     <string name="snooze10">잠자리 10분</string>
+    <string name="snooze20">잠자리 20분</string>
+    <string name="snooze30">잠자리 30분</string>
     <string name="edit_btn">✎  편집</string>
     <string name="cd_edit">편집</string>
     <string name="edit_item">항목 편집</string>

@@ -82,6 +82,8 @@
     <string name="upd_open">オープン</string>
     <plurals name="notes_count"><item quantity="one">%d 注記</item><item quantity="few">%d 注記</item><item quantity="many">%d 注記</item><item quantity="other">%d 注記</item></plurals>
     <string name="snooze10">10分休憩する</string>
+    <string name="snooze20">20分休憩する</string>
+    <string name="snooze30">30分休憩する</string>
     <string name="edit_btn">✎  編集</string>
     <string name="cd_edit">編集</string>
     <string name="edit_item">項目を編集</string>

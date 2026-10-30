@@ -82,6 +82,8 @@
     <string name="upd_open">Otvoreno.</string>
     <plurals name="notes_count"><item quantity="one">%d Napomena</item><item quantity="few">%d napomene</item><item quantity="many">%d napomene</item><item quantity="other">%d napomene</item></plurals>
     <string name="snooze10">Spavaj 10 minuta.</string>
+    <string name="snooze20">Spavaj 20 minuta.</string>
+    <string name="snooze30">Spavaj 30 minuta.</string>
     <string name="edit_btn">✎  Uredi</string>
     <string name="cd_edit">Uredi</string>
     <string name="edit_item">Uredi stavku</string>
