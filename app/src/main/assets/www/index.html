@@ -182,7 +182,7 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .alchips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
 .alc{flex:0 0 auto;background:rgba(var(--s2R),.6);border:1px solid var(--line);color:var(--txt);border-radius:999px;padding:7px 11px;font:inherit;font-size:13px;cursor:pointer}
 .al2{display:flex;gap:8px}.al2 input{flex:1;min-width:0}
-#alFire .card{text-align:center}#alFire .alpills{display:flex;flex-wrap:nowrap;gap:10px;justify-content:center}#alFire .alpill{flex:1 1 0;min-width:0;min-height:56px;padding:0 6px;border-radius:999px;border:1.5px solid var(--cyan);background:rgba(var(--acR),.16);color:var(--txt);font-size:22px;font-weight:700;letter-spacing:.5px;cursor:pointer}#alFire .alpill:active{filter:brightness(1.25)}#alFire .alpill.alstop{flex:1.35 1 0;background:#b3261e;border-color:#b3261e;color:#fff}#alfTask{font-size:20px;margin:10px 0 16px;color:var(--txt)}
+#alFire .card{text-align:center}#alFire .alpills{display:flex;flex-wrap:nowrap;gap:10px;justify-content:center}#alFire .alpill{flex:1 1 0;min-width:0;min-height:56px;padding:0 6px;border-radius:999px;border:1.5px solid var(--cyan);background:rgba(var(--acR),.16);color:var(--txt);font-size:24px;font-weight:400;letter-spacing:.5px;cursor:pointer}#alFire .alpill:active{filter:brightness(1.25)}#alFire .alpill.alstop{flex:1.35 1 0;background:#b3261e;border-color:#b3261e;color:#fff}#alfTask{font-size:20px;margin:10px 0 16px;color:var(--txt)}
 .task .ed,.task .x,.task .al i{display:none}.task .al:not(.on){display:none}
 .task .al.on{pointer-events:none;padding:0;align-self:center;text-shadow:none}.task .al.on small{margin:0;font-size:10px;opacity:.85}
 .task.jv-lpon{background:rgba(var(--acR),.07);border-radius:10px}
@@ -5402,7 +5402,7 @@ mig();wrapSP();try{renderNotes()}catch(_){}
 })();
 
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v181';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v182';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};

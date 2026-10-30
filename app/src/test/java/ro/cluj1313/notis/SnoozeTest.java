@@ -25,7 +25,7 @@ public class SnoozeTest {
         assertTrue(a.contains("setOnClickPendingIntent(R.id.pstop, stopPi(c, nid))") && a.contains("DecoratedCustomViewStyle") && a.contains("setCustomHeadsUpContentView"));
         for (String l : new String[]{"notif_alarm", "notif_alarm_big"}) { String x = new String(Files.readAllBytes(new File("src/main/res/layout/" + l + ".xml").toPath()), "UTF-8");
             int i10 = x.indexOf("text=\"10\""), i20 = x.indexOf("text=\"20\""), i30 = x.indexOf("text=\"30\""), is = x.indexOf("text=\"STOP\"");
-            assertTrue(i10 > 0 && i10 < i20 && i20 < i30 && i30 < is); assertTrue(x.indexOf("ntitle") < 0 || x.indexOf("ntitle") > is); }
+            assertTrue(i10 > 0 && i10 < i20 && i20 < i30 && i30 < is); assertTrue(!x.contains("textColorPrimary\" android:maxLines=\"1\"") && x.split("textColor=\"#FFFFFFFF\"").length - 1 == 4); /* 2.17.8: explicit white digits */ assertTrue(x.indexOf("ntitle") < 0 || x.indexOf("ntitle") > is); }
         assertTrue(a.contains(".setDeleteIntent(stopPi(c, nid))"));
         assertTrue(a.contains("\"notis://snooze/\" + m + \"/\"")); /* distinct PendingIntents per choice */
         assertTrue(a.contains("AlarmSound.stop(); RingService.quit();"));
