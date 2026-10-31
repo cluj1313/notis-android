@@ -1403,5 +1403,9 @@ NOTIS_I18N={
 "Resetare": "Ripristina",
 "Impozite": "Tasse",
 "Verificări": "Verifiche",
-"Auto": "Auto"
+"Auto": "Auto",
+"Volum alarmă": "Volume sveglia",
+"Test": "Prova",
+"Sună și în modul silențios": "Suona anche in modalità silenziosa",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Predefinito: in silenzioso la sveglia non suona, in vibrazione vibra soltanto. La notifica appare sempre."
 };

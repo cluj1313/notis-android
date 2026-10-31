@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "Satır aralığı",
 "Resetare": "Sıfırla",
 "Impozite": "Vergiler",
-"Verificări": "Muayeneler"
+"Verificări": "Muayeneler",
+"Volum alarmă": "Alarm sesi",
+"Test": "Test",
+"Sună și în modul silențios": "Sessiz modda da çal",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Varsayılan: sessizde alarm çalmaz, titreşimde yalnızca titrer. Bildirim her zaman görünür."
 };

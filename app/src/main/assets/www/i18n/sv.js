@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "Radavstånd",
 "Resetare": "Återställ",
 "Impozite": "Skatter",
-"Verificări": "Besiktningar"
+"Verificări": "Besiktningar",
+"Volum alarmă": "Alarmvolym",
+"Test": "Testa",
+"Sună și în modul silențios": "Ring även i tyst läge",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Standard: i tyst läge ringer larmet inte, i vibrationsläge vibrerar det bara. Aviseringen visas alltid."
 };

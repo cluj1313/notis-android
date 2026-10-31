@@ -1403,5 +1403,9 @@ NOTIS_I18N={
 "Resetare": "Vrati zadano",
 "Impozite": "Porezi",
 "Verificări": "Pregledi",
-"Auto": "Auto"
+"Auto": "Auto",
+"Volum alarmă": "Glasnoća alarma",
+"Test": "Test",
+"Sună și în modul silențios": "Zvoni i u bešumnom načinu",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Zadano: u bešumnom načinu alarm ne zvoni, na vibraciji samo vibrira. Obavijest se uvijek pojavljuje."
 };

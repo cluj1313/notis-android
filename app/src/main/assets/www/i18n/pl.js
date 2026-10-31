@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "Odstęp między wierszami",
 "Resetare": "Resetuj",
 "Impozite": "Podatki",
-"Verificări": "Przeglądy"
+"Verificări": "Przeglądy",
+"Volum alarmă": "Głośność alarmu",
+"Test": "Test",
+"Sună și în modul silențios": "Dzwoń także w trybie cichym",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Domyślnie: w trybie cichym alarm nie dzwoni, w wibracjach tylko wibruje. Powiadomienie pojawia się zawsze."
 };

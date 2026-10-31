@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "Prored",
 "Resetare": "Resetuj",
 "Impozite": "Porezi",
-"Verificări": "Provere"
+"Verificări": "Provere",
+"Volum alarmă": "Jačina alarma",
+"Test": "Test",
+"Sună și în modul silențios": "Zvoni i u nečujnom režimu",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Podrazumevano: u nečujnom režimu alarm ne zvoni, na vibraciji samo vibrira. Obaveštenje se uvek pojavljuje."
 };

@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "Jarak baris",
 "Resetare": "Atur ulang",
 "Impozite": "Pajak",
-"Verificări": "Pemeriksaan"
+"Verificări": "Pemeriksaan",
+"Volum alarmă": "Volume alarm",
+"Test": "Tes",
+"Sună și în modul silențios": "Berbunyi juga dalam mode senyap",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Bawaan: saat senyap alarm tidak berbunyi, saat getar hanya bergetar. Notifikasi selalu muncul."
 };

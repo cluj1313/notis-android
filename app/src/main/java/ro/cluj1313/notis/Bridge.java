@@ -55,7 +55,17 @@ final class Bridge {
     /* 2.4.9: Setări › Sunet alarmă */
     @JavascriptInterface public String listAlarmSounds() { if (!MainActivity.trusted) return "{}"; return AlarmSound.list(ctx); }
     @JavascriptInterface public void setAlarmSound(String k, String name) { if (!MainActivity.trusted || k == null) return; if (!(k.equals("default") || k.startsWith("b:") || k.startsWith("u:"))) return; AlarmSound.set(ctx, k, name == null ? "" : name); }
-    @JavascriptInterface public void previewAlarmSound(String k) { if (!MainActivity.trusted) return; if (k == null || k.isEmpty()) AlarmSound.stop(); else AlarmSound.play(ctx, k, false, 8000); }
+    @JavascriptInterface public void previewAlarmSound(String k) { if (!MainActivity.trusted) return; if (k == null || k.isEmpty()) AlarmSound.stop(); else AlarmSound.play(ctx, k, false, 8000, true); }
+    /* 2.18.0: Volum alarmă (0..100, default 60), Sună și în modul silențios (default off), Test, and what native already rang */
+    @JavascriptInterface public int alarmVol() { if (!MainActivity.trusted) return 60; return AlarmSound.vol(ctx); }
+    @JavascriptInterface public void setAlarmVol(int v) { if (!MainActivity.trusted) return; AlarmSound.setVol(ctx, v); }
+    @JavascriptInterface public boolean alarmSilent() { if (!MainActivity.trusted) return false; return AlarmSound.silentOk(ctx); }
+    @JavascriptInterface public void setAlarmSilent(boolean on) { if (!MainActivity.trusted) return; AlarmSound.setSilentOk(ctx, on); }
+    @JavascriptInterface public void testAlarm() { if (!MainActivity.trusted) return; AlarmSound.play(ctx, null, false, 6000, true); }
+    @JavascriptInterface public int ringMode() { if (!MainActivity.trusted) return 0; return AlarmSound.mode(ctx); }
+    @JavascriptInterface public String alarmHandled(String nid) { if (!MainActivity.trusted || nid == null) return "{}";
+        String f = Store.get(ctx, "fired_" + nid), z = Store.get(ctx, "snz_" + nid); long zs = 0; if (z != null) try { int k = z.indexOf('\n'); zs = Long.parseLong(k < 0 ? z : z.substring(0, k)); } catch (Exception ignored) {}
+        return "{\"fired\":" + (f == null ? "0" : f.replaceAll("[^0-9]", "")) + ",\"snz\":" + zs + "}"; }
     @JavascriptInterface public void ringStart() { if (!MainActivity.trusted) return; AlarmSound.play(ctx, null, true, 180000); }
     @JavascriptInterface public void ringStop() { if (!MainActivity.trusted) return; AlarmSound.stop(); }
     @JavascriptInterface public boolean pickPhoneAlarmSound() { MainActivity m = MainActivity.cur; if (!MainActivity.trusted || m == null) return false; m.runOnUiThread(m::pickAlarmSound); return true; }

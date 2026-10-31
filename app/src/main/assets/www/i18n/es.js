@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "Interlineado",
 "Resetare": "Restablecer",
 "Impozite": "Impuestos",
-"Verificări": "Revisiones"
+"Verificări": "Revisiones",
+"Volum alarmă": "Volumen de la alarma",
+"Test": "Probar",
+"Sună și în modul silențios": "Sonar también en modo silencio",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Por defecto: en silencio la alarma no suena, en vibración solo vibra. La notificación aparece siempre."
 };

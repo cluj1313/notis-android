@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "מרווח שורות",
 "Resetare": "איפוס",
 "Impozite": "מסים",
-"Verificări": "בדיקות"
+"Verificări": "בדיקות",
+"Volum alarmă": "עוצמת השעון המעורר",
+"Test": "בדיקה",
+"Sună și în modul silențios": "לצלצל גם במצב שקט",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "ברירת מחדל: במצב שקט ההתראה לא מצלצלת, ברטט היא רק רוטטת. ההודעה מופיעה תמיד."
 };

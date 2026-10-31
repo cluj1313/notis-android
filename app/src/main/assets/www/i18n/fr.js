@@ -1403,5 +1403,9 @@ NOTIS_I18N={
 "Resetare": "Réinitialiser",
 "Impozite": "Impôts",
 "Verificări": "Contrôles",
-"Auto": "Voiture"
+"Auto": "Voiture",
+"Volum alarmă": "Volume de l’alarme",
+"Test": "Test",
+"Sună și în modul silențios": "Sonner aussi en mode silencieux",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Par défaut : en silencieux l’alarme ne sonne pas, en vibreur elle vibre seulement. La notification apparaît toujours."
 };

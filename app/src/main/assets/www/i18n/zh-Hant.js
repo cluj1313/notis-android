@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "行距",
 "Resetare": "重設",
 "Impozite": "稅費",
-"Verificări": "檢驗"
+"Verificări": "檢驗",
+"Volum alarmă": "鬧鐘音量",
+"Test": "測試",
+"Sună și în modul silențios": "靜音模式下也響鈴",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "預設：靜音時鬧鐘不響，震動時只震動。通知一律顯示。"
 };

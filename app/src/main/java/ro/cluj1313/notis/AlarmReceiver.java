@@ -28,20 +28,24 @@ public class AlarmReceiver extends BroadcastReceiver {
         /* 2.6.6: "Stop" from the notification — silence and dismiss only; the alarm data / next occurrence stay untouched */
         if (STOPA.equals(i.getAction())) { act(c, nid, null, 0); return; }
         if (SNOOZE.equals(i.getAction())) { act(c, nid, i.getStringExtra("t"), snzMin(i.getIntExtra("m", 10))); return; }
-        if (i.getBooleanExtra("snz", false)) { Store.put(c, "snz_" + nid, null); show(c, nid, String.valueOf(i.getStringExtra("t"))); return; }
+        if (i.getBooleanExtra("snz", false)) { if (Store.get(c, "snz_" + nid) == null) return; /* snooze already consumed / replaced: never a 2nd ring */ Store.put(c, "snz_" + nid, null); fired(c, nid); show(c, nid, String.valueOf(i.getStringExtra("t"))); return; }
         JSONObject note = null;
         JSONArray ns = Store.snapshot(c).optJSONArray("notes");
         if (ns != null) for (int k = 0; k < ns.length(); k++) if (nid.equals(ns.optJSONObject(k).optString("id"))) note = ns.optJSONObject(k);
         if (note == null || note.optJSONObject("alarm") == null) { Scheduler.rescheduleAll(c); return; }
         long now = System.currentTimeMillis();
         /* app on screen: the web app rings in-page itself */
-        if (!MainActivity.foreground) show(c, nid, note.optString("text").trim());
+        /* 2.18.0: a snooze is pending for this note -> the snooze is the one ring; the original occurrence is only rolled, silently */
+        boolean snzPending = Store.get(c, "snz_" + nid) != null;
+        if (!MainActivity.foreground && !snzPending) { fired(c, nid); show(c, nid, note.optString("text").trim()); }
         Store.alarmFired(c, nid, now);
         Scheduler.rescheduleAll(c);
         NotisWidget.refreshAll(c);
     }
 
     /** 2.17.7: snooze choices 10 / 20 / 30 min; anything else falls back to 10 */
+    /** 2.18.0: remember the last native ring per note, so the web in-app check never rings the same occurrence again */
+    static void fired(Context c, String nid) { Store.put(c, "fired_" + nid, String.valueOf(System.currentTimeMillis())); }
     static int snzMin(int m) { return m == 20 || m == 30 ? m : 10; }
     static long snzAt(long now, int m) { return now + snzMin(m) * 60000L; }
     /** 2.17.7: one place for Stop (m=0) and Snooze (m=10/20/30): silence the ring (sound + RingService), remove the notification, snooze = one native alarm exactly m minutes from now; Stop leaves alarm data untouched */
@@ -124,15 +128,16 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     static void show(Context c, String nid, String text) {
         /* 2.4.9: a chosen sound is played by Notis itself; if it cannot be opened (file deleted / permission lost) or the service cannot start, the default ringing channel is used, so an alarm is never silent */
-        if (!AlarmSound.isDefault(c) && AlarmSound.readable(c, AlarmSound.uriFor(c, AlarmSound.key(c)))) {
-            try { channel2(c); if (RingService.start(c, nid.hashCode(), build(c, CH2, nid, text))) return; } catch (Exception ignored) {}
-        }
+        /* 2.18.0: Notis always plays the sound itself (volume setting, silent/vibrate respected); the notification channel is silent */
+        try { channel2(c); if (RingService.start(c, nid.hashCode(), build(c, CH2, nid, text))) return; } catch (Exception ignored) {}
+        if (AlarmSound.mode(c) != 0) { try { c.getSystemService(NotificationManager.class).notify(nid.hashCode(), build(c, CH2, nid, text)); } catch (Exception ignored) {} return; }
         channel(c);
         try { c.getSystemService(NotificationManager.class).notify(nid.hashCode(), build(c, CH, nid, text)); } catch (SecurityException ignored) {}
     }
 
     /** RingService could not go foreground: post the same alarm on the loud default channel instead */
     static void loudFallback(Context c, int id, Notification n) {
+        if (AlarmSound.mode(c) != 0) { try { c.getSystemService(NotificationManager.class).notify(id, n); } catch (Exception ignored) {} return; }
         channel(c);
         try {
             Notification m = Notification.Builder.recoverBuilder(c, n).setChannelId(CH).build(); /* keeps the pills + delete intent */

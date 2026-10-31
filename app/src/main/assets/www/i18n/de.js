@@ -1403,5 +1403,9 @@ NOTIS_I18N={
 "Resetare": "Zurücksetzen",
 "Impozite": "Steuern",
 "Verificări": "Prüfungen",
-"Auto": "Auto"
+"Auto": "Auto",
+"Volum alarmă": "Alarmlautstärke",
+"Test": "Test",
+"Sună și în modul silențios": "Auch im Lautlos-Modus klingeln",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Standard: Bei Lautlos klingelt der Alarm nicht, bei Vibration vibriert er nur. Die Benachrichtigung erscheint immer."
 };

@@ -32,6 +32,8 @@ final class Scheduler {
     }
     /** one-shot native snooze (stored so it survives reboot) */
     static synchronized void snooze(Context c, String nid, String text, long at) {
+        /* 2.18.0: one snooze per note: cancel whatever snooze was pending before setting the new one */
+        try { PendingIntent o = snzPi(c, nid, text, PendingIntent.FLAG_NO_CREATE); if (o != null) ((AlarmManager) c.getSystemService(Context.ALARM_SERVICE)).cancel(o); } catch (Exception ignored) {}
         Store.put(c, "snz_" + nid, at + "\n" + text);
         String l = Store.get(c, "snzids"); java.util.LinkedHashSet<String> ids = new java.util.LinkedHashSet<>();
         if (l != null) for (String x : l.split("\n")) if (x.length() > 0) ids.add(x);

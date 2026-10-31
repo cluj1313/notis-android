@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "Razmik vrstic",
 "Resetare": "Ponastavi",
 "Impozite": "Davki",
-"Verificări": "Pregledi"
+"Verificări": "Pregledi",
+"Volum alarmă": "Glasnost alarma",
+"Test": "Preizkus",
+"Sună și în modul silențios": "Zvoni tudi v tihem načinu",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Privzeto: v tihem načinu alarm ne zvoni, pri vibriranju samo vibrira. Obvestilo se vedno prikaže."
 };

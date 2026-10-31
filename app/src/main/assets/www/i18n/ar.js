@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "تباعد الأسطر",
 "Resetare": "إعادة تعيين",
 "Impozite": "الضرائب",
-"Verificări": "الفحوصات"
+"Verificări": "الفحوصات",
+"Volum alarmă": "مستوى صوت المنبه",
+"Test": "اختبار",
+"Sună și în modul silențios": "رنّ في الوضع الصامت أيضًا",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "افتراضيًا: في الوضع الصامت لا يرن المنبه، وفي الاهتزاز يهتز فقط. يظهر الإشعار دائمًا."
 };

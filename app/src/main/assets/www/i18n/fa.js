@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "فاصله خطوط",
 "Resetare": "بازنشانی",
 "Impozite": "مالیات‌ها",
-"Verificări": "بازرسی‌ها"
+"Verificări": "بازرسی‌ها",
+"Volum alarmă": "صدای هشدار",
+"Test": "آزمایش",
+"Sună și în modul silențios": "در حالت بی‌صدا هم زنگ بزند",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "پیش‌فرض: در حالت بی‌صدا هشدار زنگ نمی‌زند، در حالت لرزش فقط می‌لرزد. اعلان همیشه نمایش داده می‌شود."
 };

@@ -1403,5 +1403,9 @@ NOTIS_I18N={
 "Resetare": "Palauta",
 "Impozite": "Verot",
 "Verificări": "Katsastukset",
-"Auto": "Auto"
+"Auto": "Auto",
+"Volum alarmă": "Hälytyksen äänenvoimakkuus",
+"Test": "Testaa",
+"Sună și în modul silențios": "Soi myös äänettömässä tilassa",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Oletus: äänettömässä hälytys ei soi, värinätilassa se vain värisee. Ilmoitus näkyy aina."
 };

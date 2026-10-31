@@ -1403,5 +1403,9 @@ NOTIS_I18N={
 "Resetare": "Herstellen",
 "Impozite": "Belastingen",
 "Verificări": "Keuringen",
-"Auto": "Auto"
+"Auto": "Auto",
+"Volum alarmă": "Alarmvolume",
+"Test": "Testen",
+"Sună și în modul silențios": "Ook in stille modus afgaan",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Standaard: op stil maakt het alarm geen geluid, op trillen trilt het alleen. De melding verschijnt altijd."
 };

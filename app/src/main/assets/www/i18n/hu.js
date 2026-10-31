@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "Sortávolság",
 "Resetare": "Visszaállítás",
 "Impozite": "Adók",
-"Verificări": "Ellenőrzések"
+"Verificări": "Ellenőrzések",
+"Volum alarmă": "Ébresztő hangereje",
+"Test": "Teszt",
+"Sună și în modul silențios": "Néma módban is szóljon",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Alapértelmezés: néma módban az ébresztő nem szól, rezgő módban csak rezeg. Az értesítés mindig megjelenik."
 };

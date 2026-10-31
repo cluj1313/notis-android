@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "Linjeafstand",
 "Resetare": "Nulstil",
 "Impozite": "Skatter",
-"Verificări": "Syn"
+"Verificări": "Syn",
+"Volum alarmă": "Alarmlydstyrke",
+"Test": "Test",
+"Sună și în modul silențios": "Ring også i lydløs tilstand",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Standard: på lydløs ringer alarmen ikke, på vibration vibrerer den kun. Notifikationen vises altid."
 };

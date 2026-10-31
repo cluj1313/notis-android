@@ -1403,5 +1403,9 @@ NOTIS_I18N={
 "Resetare": "Lähtesta",
 "Impozite": "Maksud",
 "Verificări": "Ülevaatused",
-"Auto": "Auto"
+"Auto": "Auto",
+"Volum alarmă": "Äratuse helitugevus",
+"Test": "Proovi",
+"Sună și în modul silențios": "Helise ka vaikses režiimis",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Vaikimisi: vaikses režiimis äratus ei helise, vibreerimisel ainult vibreerib. Teavitus kuvatakse alati."
 };

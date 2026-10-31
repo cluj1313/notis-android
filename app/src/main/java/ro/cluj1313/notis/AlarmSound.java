@@ -21,6 +21,25 @@ final class AlarmSound {
     static String name(Context c) { String n = Store.get(c, N); return n == null ? "" : n; }
     static void set(Context c, String k, String n) { Store.put(c, K, k == null || k.isEmpty() ? "default" : k); Store.put(c, N, n); }
     static boolean isDefault(Context c) { return "default".equals(key(c)); }
+    /** 2.18.0: alarm volume 0..100 (default 60, not max) and "ring in silent mode" (default off) */
+    static final String KV = "al_vol", KS = "al_sil";
+    static int vol(Context c) { try { String v = Store.get(c, KV); if (v != null) return Math.max(0, Math.min(100, Integer.parseInt(v.trim()))); } catch (Exception ignored) {} return 60; }
+    static void setVol(Context c, int v) { Store.put(c, KV, String.valueOf(Math.max(0, Math.min(100, v)))); }
+    static boolean silentOk(Context c) { return "1".equals(Store.get(c, KS)); }
+    static void setSilentOk(Context c, boolean on) { Store.put(c, KS, on ? "1" : "0"); }
+    /** player gain for a volume percent (perceptual curve: 60% -> 0.36) */
+    static float gain(int v) { float f = Math.max(0, Math.min(100, v)) / 100f; return f * f; }
+    /** 0 = ring with sound, 1 = vibrate only, 2 = silent (no sound, no vibration) */
+    static int mode(int ringerMode, boolean silentOk) {
+        if (silentOk || ringerMode == android.media.AudioManager.RINGER_MODE_NORMAL) return 0;
+        return ringerMode == android.media.AudioManager.RINGER_MODE_VIBRATE ? 1 : 2;
+    }
+    static int mode(Context c) { int r = android.media.AudioManager.RINGER_MODE_NORMAL; try { r = ((android.media.AudioManager) c.getSystemService(Context.AUDIO_SERVICE)).getRingerMode(); } catch (Exception ignored) {} return mode(r, silentOk(c)); }
+    private static android.os.Vibrator vib;
+    private static void vibrate(Context c, boolean loop) {
+        try { android.os.Vibrator v = (android.os.Vibrator) c.getSystemService(Context.VIBRATOR_SERVICE); if (v == null || !v.hasVibrator()) return; vib = v;
+            v.vibrate(android.os.VibrationEffect.createWaveform(new long[]{0, 600, 400, 600, 1400}, loop ? 0 : -1), new AudioAttributes.Builder().setUsage(AudioAttributes.USAGE_NOTIFICATION_EVENT).build()); } catch (Exception ignored) {}
+    }
 
     static int raw(Context c, String id) { return c.getResources().getIdentifier("al_" + id, "raw", c.getPackageName()); }
 
@@ -56,9 +75,13 @@ final class AlarmSound {
     }
 
     /** play key k (null = saved choice); loop for ringing; maxMs auto-stop. Falls back so it is never silent. */
-    static synchronized void play(Context c, String k, boolean loop, long maxMs) {
+    static synchronized void play(Context c, String k, boolean loop, long maxMs) { play(c, k, loop, maxMs, false); }
+    /** preview = the explicit "Test" button: plays at the chosen volume even on silent */
+    static synchronized void play(Context c, String k, boolean loop, long maxMs, boolean preview) {
         stop();
         c = c.getApplicationContext();
+        if (!preview) { int md = mode(c); if (md != 0) { if (md == 1) { vibrate(c, loop); H.postDelayed(STOP, Math.min(maxMs, 60000)); } return; } }
+        final float g = gain(vol(c));
         if (k == null) k = key(c);
         Uri[] tries = {uriFor(c, k), RingtoneManager.getActualDefaultRingtoneUri(c, RingtoneManager.TYPE_ALARM), RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM),
             Uri.parse("android.resource://" + c.getPackageName() + "/" + raw(c, "clopotel"))};
@@ -68,7 +91,7 @@ final class AlarmSound {
                 final Context cc = c; final MediaPlayer p = open(c, u, loop);
                 p.setOnErrorListener((pl, w, e) -> { if (mp == pl) { stop(); if (loop) fallbackRing(cc); } return true; });
                 if (!loop) p.setOnCompletionListener(pl -> { if (mp == pl) stop(); });
-                p.start(); mp = p;
+                p.setVolume(g, g); p.start(); mp = p;
                 H.postDelayed(STOP, maxMs);
                 return;
             } catch (Exception ignored) {}
@@ -77,6 +100,7 @@ final class AlarmSound {
     private static void fallbackRing(Context c) { play(c, "b:clopotel", true, 180000); }
     static synchronized void stop() {
         H.removeCallbacks(STOP);
+        if (vib != null) { try { vib.cancel(); } catch (Exception ignored) {} vib = null; }
         if (mp != null) { try { mp.stop(); } catch (Exception ignored) {} try { mp.release(); } catch (Exception ignored) {} mp = null; }
         RingService.quit();
     }

@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "Giãn dòng",
 "Resetare": "Đặt lại",
 "Impozite": "Thuế",
-"Verificări": "Kiểm định"
+"Verificări": "Kiểm định",
+"Volum alarmă": "Âm lượng báo thức",
+"Test": "Thử",
+"Sună și în modul silențios": "Đổ chuông cả ở chế độ im lặng",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Mặc định: ở chế độ im lặng báo thức không kêu, ở chế độ rung chỉ rung. Thông báo luôn hiển thị."
 };

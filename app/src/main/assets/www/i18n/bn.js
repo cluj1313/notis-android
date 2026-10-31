@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "লাইনের ব্যবধান",
 "Resetare": "রিসেট",
 "Impozite": "কর",
-"Verificări": "পরিদর্শন"
+"Verificări": "পরিদর্শন",
+"Volum alarmă": "অ্যালার্মের ভলিউম",
+"Test": "পরীক্ষা",
+"Sună și în modul silențios": "সাইলেন্ট মোডেও বাজবে",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "ডিফল্ট: সাইলেন্টে অ্যালার্ম বাজে না, ভাইব্রেটে শুধু কাঁপে। বিজ্ঞপ্তি সবসময় দেখা যায়।"
 };

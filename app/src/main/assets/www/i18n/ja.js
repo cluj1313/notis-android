@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "行間",
 "Resetare": "リセット",
 "Impozite": "税金",
-"Verificări": "点検"
+"Verificări": "点検",
+"Volum alarmă": "アラーム音量",
+"Test": "テスト",
+"Sună și în modul silențios": "サイレントモードでも鳴らす",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "既定: サイレントではアラームは鳴らず、バイブでは振動のみです。通知は常に表示されます。"
 };

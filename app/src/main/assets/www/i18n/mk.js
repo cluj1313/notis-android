@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "Проред",
 "Resetare": "Ресетирај",
 "Impozite": "Даноци",
-"Verificări": "Проверки"
+"Verificări": "Проверки",
+"Volum alarmă": "Јачина на алармот",
+"Test": "Тест",
+"Sună și în modul silențios": "Ѕвони и во тивок режим",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Стандардно: во тивок режим алармот не ѕвони, на вибрации само вибрира. Известувањето секогаш се појавува."
 };

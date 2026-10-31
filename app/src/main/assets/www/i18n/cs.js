@@ -1403,5 +1403,9 @@ NOTIS_I18N={
 "Resetare": "Obnovit",
 "Impozite": "Daně",
 "Verificări": "Kontroly",
-"Auto": "Auto"
+"Auto": "Auto",
+"Volum alarmă": "Hlasitost budíku",
+"Test": "Test",
+"Sună și în modul silențios": "Zvonit i v tichém režimu",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Výchozí: v tichém režimu budík nezvoní, ve vibracích jen vibruje. Oznámení se zobrazí vždy."
 };

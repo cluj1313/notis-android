@@ -1403,5 +1403,9 @@ NOTIS_I18N={
 "Resetare": "Atiestatīt",
 "Impozite": "Nodokļi",
 "Verificări": "Apskates",
-"Auto": "Auto"
+"Auto": "Auto",
+"Volum alarmă": "Modinātāja skaļums",
+"Test": "Pārbaudīt",
+"Sună și în modul silențios": "Zvanīt arī klusajā režīmā",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Pēc noklusējuma: klusajā režīmā modinātājs nezvana, vibrācijas režīmā tikai vibrē. Paziņojums tiek rādīts vienmēr."
 };

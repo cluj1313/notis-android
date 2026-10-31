@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "Linjeavstand",
 "Resetare": "Tilbakestill",
 "Impozite": "Skatter",
-"Verificări": "Kontroller"
+"Verificări": "Kontroller",
+"Volum alarmă": "Alarmvolum",
+"Test": "Test",
+"Sună și în modul silențios": "Ring også i stillemodus",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Standard: på stille ringer ikke alarmen, på vibrering vibrerer den bare. Varselet vises alltid."
 };

@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "Eilučių tarpai",
 "Resetare": "Atstatyti",
 "Impozite": "Mokesčiai",
-"Verificări": "Patikros"
+"Verificări": "Patikros",
+"Volum alarmă": "Žadintuvo garsumas",
+"Test": "Bandyti",
+"Sună și în modul silențios": "Skambėti ir begarsiu režimu",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Numatytai: begarsiu režimu žadintuvas neskamba, vibravimo režimu tik vibruoja. Pranešimas rodomas visada."
 };

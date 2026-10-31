@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "Міжрядковий інтервал",
 "Resetare": "Скинути",
 "Impozite": "Податки",
-"Verificări": "Перевірки"
+"Verificări": "Перевірки",
+"Volum alarmă": "Гучність будильника",
+"Test": "Тест",
+"Sună și în modul silențios": "Дзвонити й у беззвучному режимі",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Типово: у беззвучному режимі будильник не дзвонить, у режимі вібрації лише вібрує. Сповіщення з’являється завжди."
 };

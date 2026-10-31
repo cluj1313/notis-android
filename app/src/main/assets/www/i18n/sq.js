@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "Hapësira mes rreshtave",
 "Resetare": "Rivendos",
 "Impozite": "Taksat",
-"Verificări": "Kontrollet"
+"Verificări": "Kontrollet",
+"Volum alarmă": "Volumi i alarmit",
+"Test": "Provë",
+"Sună și în modul silențios": "Bjer edhe në modalitetin e heshtur",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Si parazgjedhje: në heshtje alarmi nuk bie, në dridhje vetëm dridhet. Njoftimi shfaqet gjithmonë."
 };

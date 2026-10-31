@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "पंक्ति अंतर",
 "Resetare": "रीसेट",
 "Impozite": "कर",
-"Verificări": "जाँच"
+"Verificări": "जाँच",
+"Volum alarmă": "अलार्म वॉल्यूम",
+"Test": "टेस्ट",
+"Sună și în modul silențios": "साइलेंट मोड में भी बजे",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "डिफ़ॉल्ट: साइलेंट पर अलार्म नहीं बजता, वाइब्रेट पर केवल वाइब्रेट करता है। सूचना हमेशा दिखती है।"
 };

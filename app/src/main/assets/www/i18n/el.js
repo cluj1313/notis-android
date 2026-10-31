@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "Διάστιχο",
 "Resetare": "Επαναφορά",
 "Impozite": "Φόροι",
-"Verificări": "Έλεγχοι"
+"Verificări": "Έλεγχοι",
+"Volum alarmă": "Ένταση ξυπνητηριού",
+"Test": "Δοκιμή",
+"Sună și în modul silențios": "Να χτυπά και στη σίγαση",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "Προεπιλογή: στη σίγαση το ξυπνητήρι δεν χτυπά, στη δόνηση μόνο δονείται. Η ειδοποίηση εμφανίζεται πάντα."
 };

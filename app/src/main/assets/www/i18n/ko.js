@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "줄 간격",
 "Resetare": "초기화",
 "Impozite": "세금",
-"Verificări": "점검"
+"Verificări": "점검",
+"Volum alarmă": "알람 볼륨",
+"Test": "테스트",
+"Sună și în modul silențios": "무음 모드에서도 울리기",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "기본값: 무음에서는 알람이 울리지 않고, 진동에서는 진동만 합니다. 알림은 항상 표시됩니다."
 };

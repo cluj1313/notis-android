@@ -1402,5 +1402,9 @@ NOTIS_I18N={
 "Spațiere rânduri": "ระยะห่างบรรทัด",
 "Resetare": "รีเซ็ต",
 "Impozite": "ภาษี",
-"Verificări": "การตรวจสภาพ"
+"Verificări": "การตรวจสภาพ",
+"Volum alarmă": "ระดับเสียงปลุก",
+"Test": "ทดสอบ",
+"Sună și în modul silențios": "ดังแม้อยู่ในโหมดเงียบ",
+"Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.": "ค่าเริ่มต้น: ในโหมดเงียบนาฬิกาปลุกจะไม่ดัง ในโหมดสั่นจะสั่นเท่านั้น การแจ้งเตือนจะแสดงเสมอ"
 };
