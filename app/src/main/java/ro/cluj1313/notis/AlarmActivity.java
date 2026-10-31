@@ -79,7 +79,7 @@ public class AlarmActivity extends Activity {
         c.addView(Ui.text(this, Tr.s(this, R.string.first_at), Ui.MUT, 13), Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 10)));
         c.addView(dt, Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 4)));
         label();
-        bDate.setOnClickListener(v -> new DatePickerDialog(this, (dp, y, m, d) -> { when.set(y, m, d); label(); }, when.get(Calendar.YEAR), when.get(Calendar.MONTH), when.get(Calendar.DAY_OF_MONTH)).show());
+        bDate.setOnClickListener(v -> { DatePickerDialog dd = new DatePickerDialog(this, (dp, y, m, d) -> { when.set(y, m, d); label(); }, when.get(Calendar.YEAR), when.get(Calendar.MONTH), when.get(Calendar.DAY_OF_MONTH)); dd.getDatePicker().setFirstDayOfWeek(Calendar.MONDAY); dd.show(); });
         bTime.setOnClickListener(v -> new TimePickerDialog(this, (tp, h, mi) -> { when.set(Calendar.HOUR_OF_DAY, h); when.set(Calendar.MINUTE, mi); label(); }, when.get(Calendar.HOUR_OF_DAY), when.get(Calendar.MINUTE), true).show());
 
         /* 2.5.5: Salvează alone on a full-width row; Anulează alarma + Închide share the row below — no squeezed / wrapped buttons */
