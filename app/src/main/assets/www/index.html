@@ -2758,7 +2758,7 @@ function nShift(id,d){var n=findN(id);if(!n)return;var i=notes.indexOf(n),j=i+d;
  if(j<0||j>=notes.length)return;notes[i]=notes[j];notes[j]=n;saveNotes();renderNotes()}
 function ntUid(){return Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
 /* v57: default tabs for brand-new users only (no tabs stored AND no notes) — existing data is never touched */
-function NT_DEFAULTS(){return [['u','URGENȚE','#ff6b6b'],['c','Cumpărături','#ff9fd0'],['p','Plăți','#e0b84f'],['d','Diverse','#9b8cff'],['auto','Auto','#5fb8ff'],['ut','Utilități','#5fd38d']].map(function(x){return {id:x[0],name:TR(x[1]),color:x[2]}})}
+function NT_DEFAULTS(){return [['u','URGENȚE','#ff6b6b'],['c','Cumpărături','#ff9fd0'],['d','Diverse','#9b8cff'],['auto','Auto','#5fb8ff'],['ut','Plăți','#5fd38d']].map(function(x){return {id:x[0],name:TR(x[1]),color:x[2]}})}
 function ntMigrate(){if(noteTabs==null&&!notes.length)noteTabs=NT_DEFAULTS();if(!Array.isArray(noteTabs)||!noteTabs.length)noteTabs=[{id:'general',name:TR('General')}];
  notes.forEach(function(n){if(!n.createdAt)n.createdAt=n.ts||new Date().toISOString();if(!n.updatedAt)n.updatedAt=n.editedAt||n.createdAt});
  notes.forEach(function(n){if(!n.tab||!noteTabs.some(function(t){return t.id===n.tab}))n.tab=noteTabs[0].id});
@@ -3657,7 +3657,7 @@ function qrSave(){try{var o=LS.get('ns_rec',null);if(o)LS.set('ns_rec_bak',o)}ca
 function qrD(ts){return fDate(new Date(ts),1)}
 function qrFind(id){for(var i=0;i<RECS.list.length;i++)if(RECS.list[i].id===id)return RECS.list[i];return null}
 function qrTab(make){var t=noteTabs.filter(function(x){return x.kind==='rec'})[0];if(t||!make)return t||null;var id='rec';while(findNT(id))id='rec'+Math.random().toString(36).slice(2,5);
- t={id:id,name:'RECORDINGS 🔴',color:'#ff5a5a',kind:'rec'};if(RECS.vis===0)t.off=1;noteTabs.push(t);saveNotes();return t}
+ t={id:id,name:'RECORDINGS 🔴',color:'#ffffff',kind:'rec'};if(RECS.vis===0)t.off=1;noteTabs.push(t);saveNotes();return t}
 function qrCan(){return !!(recNat()||(recMime()!==null&&navigator.mediaDevices&&navigator.mediaDevices.getUserMedia))}
 function qrMH(){return QR?'<i class="qrdot"></i> '+esc(TR('Oprește'))+' ⏹ '+recFmt(QR.t0?(Date.now()-QR.t0)/1000:0):esc(TR('Record'))+' 🔴'}
 function qrMI(){var e=document.querySelector('#nrLM .nrrc');if(e){e.innerHTML=qrMH();e.classList.toggle('on',!!QR)}var b=$('nfRead');if(b)b.classList.toggle('qron',!!QR)}
@@ -3695,7 +3695,7 @@ function qrRender(){var h='<div class="qrv"><button type="button" class="btn pil
  if(!RECS.list.length)h+='<div class="qremp">'+esc(TR('Încă nu ai înregistrări. Atinge 🔴 din bara de jos a unei notițe.'))+'</div>';
  RECS.list.slice().sort(function(a,b){return b.ts-a.ts}).forEach(function(r){if(RECS.ask===r.id)h+=qrQ();var pl=qrP&&qrP.id===r.id;
   h+='<div class="qri'+(pl&&!qrP.a.paused?' play':'')+'" data-id="'+esc(r.id)+'"><div class="qr1"><button type="button" class="qrpb" data-qa="play" aria-label="▶"></button><button type="button" class="qrn ux" data-qa="ren">'+esc(r.name||TR('Înregistrare'))+'</button><span class="qrd">'+esc(qrD(r.ts))+'</span></div>'+
-  '<div class="qr2"><span class="qrbar"><i></i></span><span class="qrt">'+(pl?recFmt(qrP.a.currentTime)+' / ':'')+recFmt(r.dur||0)+'</span><button type="button" class="qrb" data-qa="sh" aria-label="'+esc(TR('Distribuie'))+'">⤴</button><button type="button" class="qrb" data-qa="del" aria-label="'+esc(TR('Șterge'))+'">🗑</button></div></div>'});
+  '<div class="qr2"><span class="qrbar"><i></i></span><span class="qrt">'+(pl?recFmt(qrP.a.currentTime)+' / ':'')+recFmt(r.dur||0)+'</span><button type="button" class="qrb shGo qrsh" data-qa="sh" aria-label="'+esc(TR('Distribuie'))+'"><svg class="shI" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.3 10.8l7.4-4.4M8.3 13.2l7.4 4.4"/></svg></button><button type="button" class="qrb" data-qa="del" aria-label="'+esc(TR('Șterge'))+'">🗑</button></div></div>'});
  return h+'</div>'}
 function qrBlob(r){return phGet(r.aid).then(function(x){if(!x||!x.buf)throw new Error('missing');return new Blob([x.buf],{type:x.mt||r.mt||'audio/webm'})})}
 function qrPStop(){if(!qrP)return;try{qrP.a.pause()}catch(_){}try{URL.revokeObjectURL(qrP.u)}catch(_){}var w=document.querySelector('.qri[data-id="'+qrP.id+'"]');qrP=null;if(w){w.classList.remove('play');w.querySelector('.qrbar i').style.width='0'}}
@@ -4289,6 +4289,11 @@ function medLoad(){var raw=LS.get('ns_med',null);try{if(raw&&LS.get('ns_med_bak'
  try{if(raw&&!LS.get('ns_med_bak160',null))LS.set('ns_med_bak160',{ts:Date.now(),data:raw})}catch(_){} /* v160: raw backup before the day-by-day view */
  var d=medNorm(raw);if(raw&&d.__d0){delete d.__d0;LS.set('ns_med',d)}else delete d.__d0;return d} /* v125: one-time raw backup before the card fields */
 var UT=utLoad(),MED=medLoad();
+/* v183: one-time — raw snapshot ns_med_premig183, settings templates for every medicine, Alternative 'Despre tratament' filled from old Simptome/Atenție (old fields kept) */
+(function(){try{if(LS.get('ns_med_mig183',null))return;var raw=LS.get('ns_med',null);if(raw&&!LS.get('ns_med_premig183',null))LS.set('ns_med_premig183',{ts:Date.now(),data:raw});
+ if(!MED.tpl||typeof MED.tpl!=='object')MED.tpl={};MED.list.forEach(function(m){var k=mKey(m.name);if(k&&!MED.tpl[k])MED.tpl[k]=mTplOf(m)});
+ MED.alt.forEach(function(a){var i=a.info||{};if(!i.d&&(i.s||i.w)){i.d=[i.s?TR('Simptome')+': '+i.s:'',i.w?TR('Atenție')+': '+i.w:''].filter(Boolean).join('\n');a.info=i}});
+ var L=libLists();LS.set('ns_med_mig183',{ts:Date.now(),act:L.u.map(function(x){return x.name}),moved:L.n.map(function(x){return x.name})});if(raw)LS.set('ns_med',MED)}catch(e){console.warn(e)}})();
 function utSave(){LS.set('ns_util',UT)}
 function medSave(){LS.set('ns_med',MED);try{saveNotes(true)}catch(_){}} /* saveNotes pushes the snapshot (native alarms) */
 window.spReload=function(){UT=utLoad();MED=medLoad()};
@@ -4296,9 +4301,9 @@ window.spCollect=function(){var o={ns_util:JSON.parse(JSON.stringify(UT)),ns_med
 window.spApply=function(d){if(d&&d.ns_util&&Array.isArray(d.ns_util.list)){if(d.ns_util_bak168&&d.ns_util_bak168.data&&!LS.get('ns_util_bak168',null))LS.set('ns_util_bak168',d.ns_util_bak168);UT=JSON.parse(JSON.stringify(d.ns_util));if(!UT.open)UT.open={};UT.list.forEach(function(u){if(u.grp!=='firm')u.grp='home'});if(UT.sub!=='firm')UT.sub='home';UT=utMig(UT);delete UT.__m;UT.list.forEach(utYearly);utSave()}if(d&&d.ns_med&&Array.isArray(d.ns_med.list)){MED=medNorm(JSON.parse(JSON.stringify(d.ns_med)));medSave()}};
 /* ---- tabs: one-time additive migration ---- */
 window.spMigrate=function(){if(LS.get('ns_spmig1',0))return;var ch=false;
- function fit(kind,names,id,name,color){if(noteTabs.some(function(t){return t.kind===kind}))return;var f=noteTabs.filter(function(t){return names.indexOf(nFold(t.name).trim())>=0})[0];
+ function fit(kind,names,id,name,color){if(noteTabs.some(function(t){return t.kind===kind}))return;var f=noteTabs.filter(function(t){return names.indexOf(nFold(t.name).trim())>=0})[0]||(kind==='util'?noteTabs.filter(function(t){return t.id==='ut'&&!t.kind})[0]:null);
   if(f){f.kind=kind}else{var nid=id;while(findNT(nid))nid=id+Math.random().toString(36).slice(2,5);noteTabs.push({id:nid,name:TR(name),color:color,kind:kind})}ch=true}
- fit('util',['utilitati',nFold(TR('Utilități'))],'ut','Utilități','#5fd38d');fit('med',['medicamente',nFold(TR('Medicamente'))],'med','Medicamente','#ff8a65');
+ fit('util',['utilitati',nFold(TR('Utilități'))],'ut','Plăți','#5fd38d');fit('med',['medicamente',nFold(TR('Medicamente'))],'med','Medicamente','#ff8a65');
  LS.set('ns_spmig1',1);if(ch){LS.set('ns_notetabs',noteTabs)}};
 function kindOf(){var t=findNT(noteTab);return t&&t.kind||''}
 /* ---- small dialog ---- */
@@ -4347,9 +4352,9 @@ function utYearly(u){if(!u||!u.yr)return false;var R=(u.rows||[]).filter(functio
 function yOpen(u,y){var k=u.id+'|'+y;UT.yo=UT.yo||{};if(k in UT.yo)return !!UT.yo[k];var n=uNext(u),Y=uYears(u),cy=new Date().getFullYear();return y===(n?rY(n):Y.indexOf(cy)>=0?cy:Y[Y.length-1])}
 function uUnp(u){var t=0,n=0;(u.rows||[]).forEach(function(r){if(r.pd===0&&!isNaN(+r.amt)&&r.amt!==''&&r.amt!=null){t+=+r.amt;n++}});return n?t:null}
 function pdBtn(r){return '<button type="button" class="sppd ux'+(r.pd===0?' no':'')+'" data-a="pd" aria-label="'+esc(TR(r.pd===0?'Neachitat':'Achitat'))+'">'+(r.pd===0?'○':'✓')+'</button>'}
-function utRender(){var h='<div class="spv sput">'+seg('utSub',[['home',TR('Acasă')],['firm',TR('Firmă')]],UT.sub).replace('class="alseg"','class="alseg utsub"'),t=today();
+function utRender(){var AFM=window.afMode?afMode('ut'):'both';if(AFM!=='both')UT.sub=AFM;var h='<div class="spv sput">'+(AFM==='both'?seg('utSub',[['home',TR('Acasă')],['firm',TR('Firmă')]],UT.sub).replace('class="alseg"','class="alseg utsub"'):''),t=today();
  if(UT.old&&UT.old.length&&!UT.oldSeen)h+='<div class="spinfo ux">ℹ️ '+esc(TR('Utilitățile vechi cu înregistrări sunt păstrate în copia de siguranță'))+': '+esc(UT.old.map(function(u){return uName(u)+' ('+(u.rows||[]).length+')'}).join(', '))+'<button type="button" class="btn" data-a="oldok">OK</button></div>';
- UT.list.filter(function(u){return u.grp===UT.sub}).forEach(function(u){var o=!!UT.open[u.id],R=uRows(u),st=uSt(R),pay=u.mode!=='idx',nx=uNext(u);
+ var H0=h,SC=[];UT.list.filter(function(u){return u.grp===UT.sub}).forEach(function(u){h='';var o=!!UT.open[u.id],R=uRows(u),st=uSt(R),pay=u.mode!=='idx',nx=uNext(u);
  h+='<div class="spsec'+(o?' open':'')+'" data-u="'+esc(u.id)+'"><div class="sphd" data-a="tog"><span class="spnm'+(u.name?' ux':'')+stCls(st)+'">'+esc(uName(u))+'</span>'+stB(st)+(rOn(u.al)?'<span class="spal" aria-hidden="true">⏰</span>':'')+'<button type="button" class="spgear" data-a="cfg" aria-label="Setări">⚙</button><i class="sparr"></i></div>';
  if(o){h+='<div class="spbd">';uYears(u).forEach(function(y){var YR=R.filter(function(r){return rY(r)===y}).reverse(),yo=yOpen(u,y),ys=uSt(YR);h+='<div class="spyr'+(yo?' open':'')+'" data-y="'+y+'"><div class="spyh" data-a="ytog"><span class="ux'+stCls(ys)+'">'+esc(uName(u))+' '+y+'</span>'+stB(ys)+'<i class="sparr"></i></div>';if(yo){YR.forEach(function(r){
    var hp=r.pd===0||r.pd===1,hm=r.amt!=null&&r.amt!==''&&!isNaN(+r.amt),uc=r.pd===0?' unpd':'';
@@ -4357,8 +4362,29 @@ function utRender(){var h='<div class="spv sput">'+seg('utSub',[['home',TR('Acas
    else h+='<div class="sprow spmo'+(r.pd===1?' paid':r.pd===0&&r.d<t?' late':'')+(nx===r?' spnext':'')+'" data-r="'+esc(r.id)+'"><span class="spmd">'+esc(dLbl(r.d))+(r.nt?' <span class="spnt ux">'+esc(r.nt)+'</span>':'')+'</span><span class="spma ux">'+(hm?fmt(r.amt)+(u.cur?' '+esc(u.cur):''):'')+'</span><button type="button" class="mdck spck'+(r.pd===1?' on':'')+'" data-a="pd" role="checkbox" aria-checked="'+(r.pd===1)+'" aria-label="'+esc(TR('Achitat'))+'"></button></div>'});
   if(!YR.length)h+='<div class="spempty">Nicio înregistrare.</div>';
   h+='<button type="button" class="btn spadd" data-a="add" data-y="'+y+'">+ '+(pay?TR('Adaugă plată'):TR('Adaugă citire'))+'</button>'}h+='</div>'});h+=(pay?'<button type="button" class="btn spadd spplan" data-a="plan">+ '+esc(TR('Plan de plată'))+'</button>':'')+'<button type="button" class="btn spadd spny" data-a="ynew">+ '+TR('An nou')+'</button></div>'}
- h+='</div>'});
- return h+'<button type="button" class="btn spnew" data-a="unew">+ Utilitate nouă</button>'+'</div>'}
+ h+='</div>';SC.push([u,h])});h=H0+utGrp(SC);
+ return h+'<button type="button" class="btn spnew" data-a="unew">+ Utilitate nouă</button>'+(window.afSel?afSel('ut'):'')+'</div>'}
+/* v183: Plăți groups (Impozite / Verificări / Auto); the rest stay loose, in order */
+var UTG=[['imp','Impozite',['impcasa','impmas']],['ver','Verificări',['centrala']],['auto','Auto',['asigm','itp','parcare']]];
+function utGL(){var L=UTG.map(function(G){return {id:G[0],name:G[1],b:1,k:G[2]}});(UT.grps||[]).forEach(function(g){if(g&&g.id)L.push({id:g.id,name:g.name||'',b:0,k:[]})});return L}
+function utGOf(u,L){if(u.g==='-')return null;var x=null;if(u.g){x=L.filter(function(G){return G.id===u.g})[0];if(x)return x}return L.filter(function(G){return G.b&&G.k.indexOf(u.k)>=0})[0]||null}
+function utGrp(SC){var o='',done={},L=utGL();UT.gopen=UT.gopen||{};
+ var hd=function(g,op){return '<div class="spgrp'+(op?' open':'')+'" data-g="'+esc(g.id)+'"><div class="spghd" role="button" aria-expanded="'+op+'"><span class="spgnm">'+esc(g.b?TR(g.name):g.name)+'</span><button type="button" class="spgear" data-ug="cfg" data-gid="'+esc(g.id)+'" aria-label="'+esc(TR('Setări'))+'">⚙</button><i class="spgch" aria-hidden="true"></i></div>'};
+ SC.forEach(function(x){var g=utGOf(x[0],L);if(!g){o+=x[1];return}if(done[g.id])return;done[g.id]=1;var op=!!UT.gopen[g.id];
+  o+=hd(g,op)+(op?'<div class="spgbd">'+SC.filter(function(y){var gy=utGOf(y[0],L);return gy&&gy.id===g.id}).map(function(y){return y[1]}).join('')+'</div>':'')+'</div>'});
+ L.forEach(function(g){if(!g.b&&!done[g.id]){var op=!!UT.gopen[g.id];o+=hd(g,op)+(op?'<div class="spgbd"><div class="spempty">'+esc(TR('Grup gol'))+'</div></div>':'')+'</div>'}});
+ return o+'<button type="button" class="btn spadd spgnew" data-ug="new">+ '+esc(TR('Grup nou'))+'</button>'}
+/* v183: own groups — name, rename, delete (Da/Nu), choose which payments belong */
+function utGCfg(gid){var L=utGL(),g=gid?L.filter(function(G){return G.id===gid})[0]:null;if(gid&&!g)return;var isNew=!g,cust=isNew||!g.b;
+ var us=UT.list.filter(function(u){return u.grp===UT.sub});
+ var body=(cust?'<div class="field"><label>'+esc(TR('Nume grup'))+'</label><input id="ugN" value="'+esc(g?g.name:'')+'"></div>':'')+'<div class="field"><label>'+esc(TR('Plăți în grup'))+'</label>'+us.map(function(u){var gg=utGOf(u,L),on=g&&gg&&gg.id===g.id;return '<label class="mdal"><input type="checkbox" data-ugu="'+esc(u.id)+'"'+(on?' checked':'')+'> '+esc(uName(u))+'</label>'}).join('')+'</div>';
+ dOpen(isNew?TR('Grup nou'):(g.b?TR(g.name):g.name),body,function(){var id=g?g.id:'ug'+uid();if(cust){var nm=($('ugN').value||'').trim();if(!nm){toast(TR('Scrie un nume'));return false}UT.grps=UT.grps||[];if(isNew)UT.grps.push({id:id,name:nm});else UT.grps.forEach(function(x){if(x.id===id)x.name=nm})}
+  document.querySelectorAll('#spModal [data-ugu]').forEach(function(c){var u=uFind(c.dataset.ugu);if(!u)return;var gg=utGOf(u,utGL()),inG=gg&&gg.id===id;if(c.checked&&!inG)u.g=id;else if(!c.checked&&inG)u.g='-'});
+  UT.gopen=UT.gopen||{};UT.gopen[id]=1;utSave();try{saveNotes(true)}catch(_){}spRender()},
+  cust&&!isNew?function(){var go=function(){UT.grps=(UT.grps||[]).filter(function(x){return x.id!==g.id});UT.list.forEach(function(u){if(u.g===g.id)delete u.g});if(UT.gopen)delete UT.gopen[g.id];utSave();try{saveNotes(true)}catch(_){}spRender()};if(typeof ask==='function')ask('Ștergi grupul? Plățile rămân, doar ies din grup.',go);else if(confirm(TR('Ștergi grupul?')))go()}:null)}
+document.addEventListener('click',function(e){var v=$('spView');if(!v||!v.contains(e.target))return;var b=e.target.closest('[data-ug]');if(!b)return;e.stopPropagation();e.preventDefault();utGCfg(b.dataset.ug==='new'?null:b.dataset.gid)},true);
+window.utGCfg=utGCfg;
+window.UTX={get:function(){return UT},save:utSave};
 function utScroll(id){setTimeout(function(){var v=$('spView');if(!v)return;var e=null;v.querySelectorAll('.spsec').forEach(function(x){if(x.dataset.u===id)e=x.querySelector('.spyr.open .spnext')});if(e&&e.scrollIntoView)e.scrollIntoView({block:'center'})},60)} /* v168: next unpaid month in view */
 /* v168: payment plan — first date, amount (monthly rate or total), number of installments → monthly rows (same day, clamped to month end) */
 function utPlanRows(d0,amt,n,tot){n=Math.max(1,Math.min(360,n|0));var dom=dParse(d0).getDate(),c=Math.round(amt*100),per=tot?Math.floor(c/n):c,o=[];for(var i=0;i<n;i++)o.push({d:rAddM(d0,i,dom),amt:(tot&&i===n-1?c-per*(n-1):per)/100});return o}
@@ -4465,7 +4491,7 @@ function medShareTxt(m){var pp=pFind(m.p),L=['💊 '+m.name];if(m.adm)L.push(TR(
 function medShare(m){var all=medShareTxt(m),ti=m.name,fb=function(){try{navigator.clipboard.writeText(all).then(function(){toast(TR('Copiat'))},function(){toast(TR('Copiat'))})}catch(_){toast(all)}};
  try{if(window.NotisNative&&NotisNative.shareText){NotisNative.shareText(all,ti);return}}catch(_){}
  if(navigator.share){navigator.share({title:ti,text:all}).catch(function(e){if(!e||e.name!=='AbortError')fb()})}else fb()}
-function medEdit(m,pid){var isNew=!m;m=m||{id:uid(),p:pid,name:'',pat:[1,0,1],t:['','',''],al:[0,0,0],rep:0,st:'08:00',ral:1,days:14,d0:mTreat0(pid)};var T=(m.t||['','','']).slice(),A=(m.al||[]).slice(),P=(m.pat||[1,1,1]).slice(),K=mKind(m),sc=m.sch||{},WD=sc.wd|0||(1<<new Date().getDay()),ob=m.obs||{};
+function medEdit(m,pid){var isNew=!m,PRE=window.__mdPre;window.__mdPre=null;if(!m&&PRE){m=JSON.parse(JSON.stringify(PRE));m.id=uid();m.p=pid;m.d0=mTreat0(pid);delete m.sch_d0}m=m||{id:uid(),p:pid,name:'',pat:[1,0,1],t:['','',''],al:[0,0,0],rep:0,st:'08:00',ral:1,days:14,d0:mTreat0(pid)};var T=(m.t||['','','']).slice(),A=(m.al||[]).slice(),P=(m.pat||[1,1,1]).slice(),K=mKind(m),sc=m.sch||{},WD=sc.wd|0||(1<<new Date().getDay()),ob=m.obs||{};
  if(m.adm===undefined){var inf=MED.info[mKey(m.name)];if(inf&&inf.h)m.adm=String(inf.h)}
  var dz='';[0,1,2].forEach(function(i){dz+='<div class="mdz" data-s="'+i+'"><button type="button" class="mdg mdpt ux'+(P[i]?' on1':'')+'" id="mdP'+i+'">'+(P[i]?1:0)+'</button><span class="mdzl">'+SLOT[i]+'</span><input type="time" id="mdT'+i+'" value="'+esc(T[i]||'')+'"><label class="mdal"><input type="checkbox" id="mdA'+i+'"'+(A[i]?' checked':'')+'> ⏰</label></div>'});
  var wdb='<div class="mdwd" id="mdWd">'+[1,2,3,4,5,6,0].map(function(d){return '<button type="button" class="btn ux'+(WD&(1<<d)?' on':'')+'" data-d="'+d+'">'+esc(wdNm(d))+'</button>'}).join('')+'</div>';
@@ -4489,8 +4515,8 @@ function medEdit(m,pid){var isNew=!m;m=m||{id:uid(),p:pid,name:'',pat:[1,0,1],t:
    else{m.rep=0;m.pat=pat;m.n=pat.filter(Boolean).length;m.t=[0,1,2].map(function(i){return $('mdT'+i).value||''});m.al=[0,1,2].map(function(i){return m.pat[i]&&$('mdA'+i).checked&&$('mdT'+i).value?1:0});
     m.sch=k==='xd'?{k:'xd',n:Math.max(2,Math.min(60,parseInt($('mdXn').value,10)||2)),d0:d0}:k==='wd'?{k:'wd',wd:w}:{k:'d'}}
    m.adm=$('mdAdm').value.trim();var oe=segVal('mdOe')||'',ot=$('mdOt').value.trim();if(oe||ot)m.obs={e:oe,t:ot};else delete m.obs;
-   MED.hist[mKey(n)]=n;if(isNew)MED.list.push(m);if(m.c)m.c.s=[];medSave();spRender();alPerm()},
-  isNew?null:function(){ask('Ștergi medicamentul?',function(){MED.list=MED.list.filter(function(x){return x!==m});medSave();jvClose('spModal');spRender()})});
+   MED.hist[mKey(n)]=n;if(isNew)MED.list.push(m);if(m.c)m.c.s=[];mTplPut(m);if(isNew&&VLIB)VLIB=0;medSave();spRender();alPerm()},
+  isNew?null:function(){ask('Ștergi medicamentul?',function(){mTplPut(m);MED.list=MED.list.filter(function(x){return x!==m});medSave();jvClose('spModal');spRender()})});
  var cur=function(){var k=segVal('mdK')||'d',x={name:$('mdN').value.trim(),p:m.p,rep:0,st:$('mdSt').value,pat:[0,1,2].map(function(i){return $('mdP'+i).textContent==='1'?1:0}),t:[0,1,2].map(function(i){return $('mdT'+i).value||''}),al:[],d0:$('mdD0').value,adm:$('mdAdm').value.trim(),obs:{e:segVal('mdOe')||'',t:$('mdOt').value.trim()}};
   if(k==='xh')x.rep=parseInt($('mdH').value,10)||6;var w=0;$('mdWd').querySelectorAll('button.on').forEach(function(b){w|=1<<(+b.dataset.d)});x.sch={k:k,n:parseInt($('mdXn').value,10)||2,wd:w,d0:x.d0};var dz=parseInt($('mdDz').value,10);if(dz>0)x.days=dz;return x};
  var sum=function(){if(window.mdTUp)mdTUp();var x=cur();$('mdSa').textContent=x.name;$('mdSb').textContent=(x.adm||'').split('\n')[0].slice(0,40);$('mdSc').textContent=schTxt(x);$('mdSd').textContent=obsTxt(x).split('\n')[0].slice(0,40)};
@@ -4508,11 +4534,15 @@ function medEdit(m,pid){var isNew=!m;m=m||{id:uid(),p:pid,name:'',pat:[1,0,1],t:
  $('mdWd').onclick=function(e){var b=e.target.closest('button');if(b)b.classList.toggle('on')};
  segWire('mdK',vis);$('mdOe').onclick=function(e){var b=e.target.closest('.mdob');if(!b)return;var on=!b.classList.contains('on');this.querySelectorAll('.mdob').forEach(function(x){var y=on&&x===b;x.classList.toggle('on',y);x.querySelector('.mdrg').textContent=y?'✓':''});sum()};if($('mdShr'))$('mdShr').onclick=function(){var x=cur();x.name=x.name||m.name;medShare(x)};vis();sum()}
 /* ---- v71: ⚙ library — every medicine ever added (deduplicated by name) + library-only + alternative treatments; info per name ---- */
-var VLIB=0,LOP={},LFOP={},LF=[['s','Simptome'],['h','Cum se administrează'],['w','Atenție']];
+var VLIB=0,LOP={},LFOP={},LF=[['s','Simptome'],['h','Cum se administrează'],['w','Atenție']],LFA=[['h','Mod administrare'],['d','Despre tratament']]; /* v183: Alternative = Denumirea, Mod administrare, Despre tratament */
 function mKey(n){return String(n||'').trim().toLowerCase()}
-function libLists(){var used=[],seen={},now={};MED.list.forEach(function(m){var k=mKey(m.name);if(k&&!now[k])now[k]=m.name});
- Object.keys(MED.hist).forEach(function(k){if(k&&!seen[k]){seen[k]=1;used.push({k:k,name:now[k]||MED.hist[k]})}});
- var un=MED.lib.filter(function(x){var k=mKey(x.name);if(!k||seen[k])return false;seen[k]=1;return true}).map(function(x){return{k:mKey(x.name),name:x.name}});
+/* v183: settings template per medicine name (mode, hours, alarms, days, administration) — reused when added again from Nefolosite */
+function mTplOf(m){var o={};['name','pat','t','al','rep','st','ral','sch','days','adm','n'].forEach(function(k){if(m[k]!==undefined)o[k]=JSON.parse(JSON.stringify(m[k]))});if(o.sch)delete o.sch.d0;return o}
+function mTplPut(m){var k=mKey(m&&m.name);if(!k)return;if(!MED.tpl||typeof MED.tpl!=='object')MED.tpl={};MED.tpl[k]=mTplOf(m)}
+function mAct(m){return mRange(m)[1]>=today()}
+function libLists(){var used=[],seen={},now={};MED.list.forEach(function(m){var k=mKey(m.name);if(k&&!now[k]&&mAct(m))now[k]=m.name});
+ Object.keys(now).forEach(function(k){if(k&&!seen[k]){seen[k]=1;used.push({k:k,name:now[k]})}});
+ var un=Object.keys(MED.hist).filter(function(k){if(!k||seen[k])return false;seen[k]=1;return true}).map(function(k){return{k:k,name:MED.hist[k]}}).concat(MED.lib.filter(function(x){var k=mKey(x.name);if(!k||seen[k])return false;seen[k]=1;return true}).map(function(x){return{k:mKey(x.name),name:x.name}}));
  var al=MED.alt.map(function(x){return{k:x.id,name:x.name}});
  var az=MED.lo.az!==0,so=function(L,o){o=o||[];return L.sort(function(a,b){if(az)return a.name.localeCompare(b.name,undefined,{sensitivity:'base'});var i=o.indexOf(a.k),j=o.indexOf(b.k);return (i<0?1e6:i)-(j<0?1e6:j)})};
  return{u:so(used,MED.lo.u),n:so(un,MED.lo.n),a:so(al,MED.lo.a)}}
@@ -4521,8 +4551,8 @@ function libRender(){var L=libLists(),az=MED.lo.az!==0,h='<div class="spv spmed 
  [['u','Folosite'],['n','Nefolosite încă'],['a','Tratamente alternative']].forEach(function(S){var o=!!MED.lopen[S[0]],R=L[S[0]];
   h+='<div class="spsec lbsec'+(o?' open':'')+'" data-l="'+S[0]+'"><div class="sphd" data-a="lstog"><span class="spnm">'+S[1]+'</span><span class="spcnt">'+(R.length||'')+'</span><i class="sparr"></i></div>';
   if(o){h+='<div class="spbd lblist">';R.forEach(function(it){var id=S[0]+'|'+it.k,io=!!LOP[id],inf=libInfo(S[0],it.k)||{};
-    h+='<div class="lbit'+(io?' open':'')+'" data-k="'+esc(it.k)+'"><div class="lbhd" data-a="litog"><span class="mdnm ux">'+esc(it.name)+'</span>'+(io?'':'<span class="lbdot ux">'+LF.map(function(f){return inf[f[0]]?'•':''}).join('')+'</span>')+'<i class="sparr"></i></div>';
-    if(io){h+='<div class="lbbd">';LF.forEach(function(f){var fo=!!LFOP[id+'|'+f[0]];h+='<div class="lbf'+(fo?' open':'')+'"><div class="lbfh" data-a="lftog" data-f="'+f[0]+'"><span>'+f[1]+'</span>'+(!fo&&inf[f[0]]?'<small class="ux">'+esc(String(inf[f[0]]).split('\n')[0].slice(0,40))+'</small>':'')+'<i class="sparr"></i></div>'+(fo?'<textarea class="lbta ux" data-f="'+f[0]+'" rows="2">'+esc(inf[f[0]]||'')+'</textarea>':'')+'</div>'});h+='</div>'}
+    var FL=S[0]==='a'?LFA:LF;h+='<div class="lbit'+(io?' open':'')+'" data-k="'+esc(it.k)+'"><div class="lbhd" data-a="litog"><span class="mdnm ux">'+esc(it.name)+'</span>'+(io?'':'<span class="lbdot ux">'+FL.map(function(f){return inf[f[0]]?'•':''}).join('')+'</span>')+(S[0]==='n'?'<button type="button" class="lbuse" data-a="luse" aria-label="'+esc(TR('Adaugă în tratament'))+'">＋</button>':'')+'<i class="sparr"></i></div>';
+    if(io){h+='<div class="lbbd">'+(S[0]==='a'?'<div class="lbf lbname" data-a="lren"><div class="lbfh"><span>'+esc(TR('Denumirea'))+'</span><small class="ux">'+esc(it.name)+'</small></div></div>':'');FL.forEach(function(f){var fo=!!LFOP[id+'|'+f[0]];h+='<div class="lbf'+(fo?' open':'')+'"><div class="lbfh" data-a="lftog" data-f="'+f[0]+'"><span>'+f[1]+'</span>'+(!fo&&inf[f[0]]?'<small class="ux">'+esc(String(inf[f[0]]).split('\n')[0].slice(0,40))+'</small>':'')+'<i class="sparr"></i></div>'+(fo?'<textarea class="lbta ux" data-f="'+f[0]+'" rows="2">'+esc(inf[f[0]]||'')+'</textarea>':'')+'</div>'});if(S[0]==='a')h+='<div class="lbshw"><button type="button" class="shGo lbsh" data-a="lash" aria-label="'+esc(TR('Distribuie'))+'"><svg class="shI" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.3 10.8l7.4-4.4M8.3 13.2l7.4 4.4"/></svg></button></div>';h+='</div>'}
     h+='</div>'});
    if(S[0]!=='u')h+='<button type="button" class="btn spnew spplus" data-a="lnew" aria-label="+">+</button>';else if(!R.length)h+='<div class="spempty">Niciun medicament.</div>';h+='</div>'}
   h+='</div>'});return h+'</div>'}
@@ -4564,6 +4594,11 @@ document.addEventListener('click',function(e){var v=$('spView');if(!v||!v.contai
  if(A==='lord'){if(a.dataset.v==='man'){if(MED.lo.az!==0){var L=libLists();MED.lo.u=L.u.map(function(x){return x.k});MED.lo.n=L.n.map(function(x){return x.k});MED.lo.a=L.a.map(function(x){return x.k})}MED.lo.az=0}else MED.lo.az=1;LS.set('ns_med',MED);spRender()}
  else if(A==='lstog'&&l){MED.lopen[l]=MED.lopen[l]?0:1;LS.set('ns_med',MED);spRender()}
  else if(A==='lnew'&&l)libEdit(l,null);
+ else if(A==='luse'&&it){e.stopPropagation();var tk=it.dataset.k,tp=(MED.tpl||{})[tk],nm=MED.hist[tk]||(MED.lib.filter(function(x){return mKey(x.name)===tk})[0]||{}).name||tk,lp=LS.get('ns_medlast',''),pp=pFind(lp)||MED.persons.filter(function(p){return MED.open[p.id]})[0]||MED.persons[0];if(!pp){toast(TR('Persoană nouă'));return}
+  var pre=tp?JSON.parse(JSON.stringify(tp)):{pat:[1,0,1],t:['','',''],al:[0,0,0],rep:0,st:'08:00',ral:1,days:14};pre.name=nm;if(pre.adm===undefined&&MED.info[tk]&&MED.info[tk].h)pre.adm=String(MED.info[tk].h);window.__mdPre=pre;MED.open[pp.id]=1;medEdit(null,pp.id)}
+ else if(A==='lren'&&it&&l)libEdit(l,it.dataset.k);
+ else if(A==='lash'&&it){var al0=MED.alt.filter(function(x){return x.id===it.dataset.k})[0];if(al0){var ii=al0.info||{},tx=[al0.name].concat(LFA.filter(function(f){return ii[f[0]]}).map(function(f){return TR(f[1])+':\n'+ii[f[0]]})).join('\n\n'),fb=function(){try{navigator.clipboard.writeText(tx).then(function(){toast(TR('Copiat'))},function(){toast(TR('Copiat'))})}catch(_){toast(tx)}};
+  try{if(window.NotisNative&&NotisNative.shareText){NotisNative.shareText(tx,al0.name);return}}catch(_){}if(navigator.share)navigator.share({title:al0.name,text:tx}).catch(function(x){if(!x||x.name!=='AbortError')fb()});else fb()}}
  else if(A==='litog'&&it){LOP[id]=LOP[id]?0:1;spRender()}
  else if(A==='lftog'&&it){var fk=id+'|'+a.dataset.f;LFOP[fk]=LFOP[fk]?0:1;spRender();if(LFOP[fk]){var ta=$('spView').querySelector('.lbit[data-k="'+CSS.escape(it.dataset.k)+'"] .lbta[data-f="'+a.dataset.f+'"]');if(ta){ta.style.height=ta.scrollHeight+'px';ta.focus()}}}},true);
 /* dose alarm instants */
@@ -4598,7 +4633,7 @@ function medTick(){if(DEMO)return;var now=Date.now();try{if(noteTabs.some(functi
  medAlarms().forEach(function(a){if(a.snz)return;var last=a.prev!==undefined?a.prev:a.at-a.rep*60000;if(last>boot&&now-last<5*60000&&!fired[a.id+last]){fired[a.id+last]=1;try{alFire({id:a.id,text:a.text,med:1},null)}catch(_){}}})}
 setInterval(medTick,15000);
 /* ---- render into the notes page ---- */
-document.addEventListener('click',function(e){var v=$('spView');if(!v||!v.contains(e.target))return;var sb=e.target.closest('.utsub button');if(sb){e.stopPropagation();UT.sub=sb.dataset.v==='firm'?'firm':'home';utSave();spRender();return}
+document.addEventListener('click',function(e){var v=$('spView');if(!v||!v.contains(e.target))return;var gh=e.target.closest('.sput .spghd');if(gh){e.stopPropagation();var gk=gh.parentNode.dataset.g;UT.gopen=UT.gopen||{};UT.gopen[gk]=UT.gopen[gk]?0:1;if(!UT.gopen[gk])delete UT.gopen[gk];utSave();spRender();return}var sb=e.target.closest('.utsub button');if(sb){e.stopPropagation();UT.sub=sb.dataset.v==='firm'?'firm':'home';utSave();spRender();return}
  var pb=e.target.closest('.sput [data-a="pd"]');if(!pb)return;e.stopPropagation();e.preventDefault();var rw=pb.closest('.sprow'),su=rw&&rw.closest('.spsec'),u=su&&uFind(su.dataset.u),r=u&&(u.rows||[]).filter(function(x){return x.id===rw.dataset.r})[0];if(!r)return;r.pd=pb.classList.contains('spck')?(r.pd===1?0:1):(r.pd===0?1:0);utYearly(u);utSave();try{utRoll();saveNotes(true)}catch(_){}spRender()},true); /* v123 */
 /* v74: global search over Utilități / Medicamente / library */
 window.spSearch=function(qs,fold){var R=[],M=function(t){var f=fold(t);return qs.every(function(w){return f.indexOf(w)>=0})},TB=function(k){return noteTabs.filter(function(t){return t.kind===k})};
@@ -4608,7 +4643,7 @@ window.spSearch=function(qs,fold){var R=[],M=function(t){var f=fold(t);return qs
    MED.list.forEach(function(m){if(m.p===p.id&&M(m.name||''))R.push({tab:t.id,path:[t.name,pn],text:m.name,act:{k:'m',p:p.id,m:m.id}})})});
   var L=libLists();[['u','Folosite'],['n','Nefolosite încă'],['a','Tratamente alternative']].forEach(function(S){L[S[0]].forEach(function(it){var sn=TR(S[1]);
    if(M(it.name))R.push({tab:t.id,path:[t.name,sn],text:it.name,act:{k:'l',S:S[0],key:it.k}});var inf=libInfo(S[0],it.k)||{};
-   LF.forEach(function(f){if(inf[f[0]]&&M(inf[f[0]]))R.push({tab:t.id,path:[t.name,sn,it.name,TR(f[1])],text:String(inf[f[0]]),act:{k:'l',S:S[0],key:it.k,f:f[0]}})})})})});
+   (S[0]==='a'?LFA:LF).forEach(function(f){if(inf[f[0]]&&M(inf[f[0]]))R.push({tab:t.id,path:[t.name,sn,it.name,TR(f[1])],text:String(inf[f[0]]),act:{k:'l',S:S[0],key:it.k,f:f[0]}})})})})});
  return R};
 window.spGo=function(a){var sel='';
  if(a.k==='u'){var gu=uFind(a.u);if(gu){UT.sub=gu.grp||'home';if(a.r){var gr=(gu.rows||[]).filter(function(x){return x.id===a.r})[0];if(gr){UT.yo=UT.yo||{};UT.yo[gu.id+'|'+rY(gr)]=1}}}UT.open[a.u]=1;utSave();sel=a.r?'.sput [data-r="'+a.r+'"]':'.sput [data-u="'+a.u+'"]'}
@@ -4717,7 +4752,7 @@ window.__ctPerm=function(ok){AG.perm=ok?'ok':'no';if(ok){try{localStorage.remove
 function agAdd(i){var x=AG.L&&AG.L[i];if(!x)return;var h=agHave();if(x.tel.some(function(t){return h[digits(t)]})){toast(TR('există deja'));agPaint();return}
  var c={id:uid(),grp:C.sub,name:x.name||x.tel[0],tel:x.tel.slice(0,3),addr:'',email:'',st:C.st[0].id,hist:[],cf:{},rem:{on:0},work:[]};C.list.push(c);save();rr();toast(TR('Adăugat în CRM'));clientOpen(c)}
 function agPerm(){var x='';try{x=NotisNative.contactsAsk()}catch(_){}if(x==='ok')window.__ctPerm(true)}
-function render(){var p=C.sub,h='<div class="spv crm">'+'<div class="alseg utsub crsub">'+[['firm',TR('Firmă')],['home',TR('Acasă')]].map(function(o){return '<button type="button" class="btn'+(o[0]===p?' on':'')+'" data-cs="'+o[0]+'">'+esc(o[1])+(C.lock[o[0]]?' 🔒':'')+'</button>'}).join('')+'</div>';
+function render(){var AFM=window.afMode?afMode('crm'):'both';if(AFM!=='both')C.sub=AFM;var p=C.sub,h='<div class="spv crm">'+(AFM!=='both'?'':'<div class="alseg utsub crsub">'+[['firm',TR('Firmă')],['home',TR('Acasă')]].map(function(o){return '<button type="button" class="btn'+(o[0]===p?' on':'')+'" data-cs="'+o[0]+'">'+esc(o[1])+(C.lock[o[0]]?' 🔒':'')+'</button>'}).join('')+'</div>');
  if(lockedP(p))return h+'<div class="crlock"><div>🔒 '+esc(TR('CRM protejat cu PIN'))+'</div><button type="button" class="btn" data-c="unl">'+esc(TR('Deblochează'))+'</button></div></div>';
  var V=vis(),cnt={};V.all.forEach(function(c){cnt[c.st]=(cnt[c.st]||0)+1});
  var SOL=[['rem','⏰','⏰ '+TR('Reamintire')],['last','🕘',TR('Ultimul contact')],['name','A–Z',TR('Nume')],['st','●',TR('Stare')]],SOc=SOL.filter(function(o){return o[0]===C.sort})[0]||SOL[0];
@@ -4734,7 +4769,7 @@ function render(){var p=C.sub,h='<div class="spv crm">'+'<div class="alseg utsub
   if(EXP!==c.id){h+='<div class="crc crn'+(o?' crov':'')+'" data-id="'+esc(c.id)+'" style="'+scv(s.c)+'">'+hxH(c,s,c.tel[0]&&shown(p,'tel')?c.tel[0]:'')+(o?'<i class="crdot"></i>':'')+'</div>';return}
   h+='<div class="crc crexp" data-id="'+esc(c.id)+'" style="'+scv(s.c)+'">'+hxH(c,s,c.tel[0]&&shown(p,'tel')?c.tel[0]:'')+'<div class="crr"><span class="crchip ux" style="'+scv(s.c)+'">'+esc(stName(s))+'</span><span class="crmut">'+(l?esc(TR('ultim'))+': '+fT(l):'')+'</span></div>'+(ra?'<div class="crr"><span class="crmut ux">'+esc(c.firm&&shown(p,'firm')?c.firm:city(c))+'</span><span class="'+(o?'crred':'crmut')+'">'+(o?'<i class="crdot"></i>':'')+'⏰ '+esc(fTH(ra))+'</span></div>':'')+'</div>'})}
  h+=agH();
- return h+'</div></div>'}
+ return h+(window.afSel?afSel('crm'):'')+'</div></div>'}
 window.crmRender=render;
 window.__crm={get:function(){return C},set:function(d){C=norm(d);save();rr()},norm:norm,csv:csv,unl:unl,reload:function(){C=load()},vis:vis,ask:dial,ret:back,pending:function(){return pend},contacts:function(a){impShow(a)},tabs:function(){return noteTabs},ag:function(){return AG},agRun:agRun,go:function(){var t=noteTabs.filter(function(x){return x.kind==='crm'})[0];if(typeof notesOpen==='function')notesOpen();noteTab=t.id;try{nFolder=''}catch(_){}renderNotes()},st:function(){return {unl:unl,pend:pend}}};
 function rr(){try{if(window.spRender)spRender()}catch(e){console.warn(e)}}
@@ -4997,7 +5032,7 @@ function touch(){lastAct=Date.now();if(!tmr)tmr=setInterval(function(){var m=M()
 /* v176: lock mode — 'exit' (leave Parole / background / inactivity timer), 'session' (default: unlocked while the app process lives), 'manual' (🔒 only). The key stays in memory only; a cold start is always locked. */
 function lmode(){var m=M();return m&&(m.lm==='exit'||m.lm==='manual')?m.lm:'session'}
 var PWF=false,BFL=false,BAUTO=false,BTT=0,BPEND=false;
-function pwAuto(){if(K||BAUTO||document.hidden||!document.querySelector('#spView .pwlk[data-bio]'))return;BAUTO=true;BPEND=true;setTimeout(function(){if(!K&&!document.hidden&&document.querySelector('#spView .pwlk[data-bio]'))bio('open');else{BPEND=false;rer()}},250);clearTimeout(BTT);BTT=setTimeout(function(){if(!K&&!BFL){BFL=true;rer()}},8000)}
+function pwAuto(){return;/* v183: no automatic fingerprint prompt when Parole opens; only on tap */if(K||BAUTO||document.hidden||!document.querySelector('#spView .pwlk[data-bio]'))return;BAUTO=true;BPEND=true;setTimeout(function(){if(!K&&!document.hidden&&document.querySelector('#spView .pwlk[data-bio]'))bio('open');else{BPEND=false;rer()}},250);clearTimeout(BTT);BTT=setTimeout(function(){if(!K&&!BFL){BFL=true;rer()}},8000)}
 function pwFail(){BPEND=false;if(K)return;BFL=true;rer()}
 function pwPills(osl){var r=document.querySelector('#spView .pwcats');if(!r)return;if(osl>0)r.scrollLeft=osl;var a=r.querySelector('.ntab.on');if(!a)return;var L=a.offsetLeft-r.offsetLeft,Rt=L+a.offsetWidth,pad=16;if(L-pad<r.scrollLeft)r.scrollLeft=Math.max(0,L-pad);else if(Rt+pad>r.scrollLeft+r.clientWidth)r.scrollLeft=Rt+pad-r.clientWidth}
 function sec(on){try{var n=NN();if(n&&n.secure)n.secure(!!on)}catch(_){}}
@@ -5025,7 +5060,7 @@ function catOf(id){return D.cats.filter(function(c){return c.id===id})[0]}
 function H(){var m=M();if(!C)return '<div class="spv pwv"><p class="pwhint">'+esc(TR('Seiful are nevoie de o conexiune securizată (HTTPS).'))+'</p></div>';
  if(!m)return '<div class="spv pwv"><div class="pwhd"><b>🔑 '+esc(TR('Parole'))+'</b></div><p class="pwhint">'+esc(TR('Păstrează aici parolele tale, criptate doar pe telefon. Alege o parolă principală pe care n-o uiți.'))+'</p><button type="button" class="btn pwbig" data-pa="setup">'+esc(TR('Creează seiful'))+'</button></div>';
  if(!K){var bio=m.bio&&NN()&&NN().bioHas&&NN().bioHas('vault');/* v176: fingerprint enabled -> fingerprint only (auto prompt), password only after a failure/cancel; otherwise password only */
- if(bio&&!PWF)return '<div class="spv pwv pwlk pwqt" data-bio="1"><div class="pwhd"><b>🔒 '+esc(TR('Seif blocat'))+'</b></div>'+(BPEND?'':'<button type="button" class="btn pwfp" data-pa="bio" aria-label="'+esc(TR('Amprentă'))+'">☝ '+esc(TR('Amprentă'))+'</button>')+'<div id="pwErr" class="pwerr"></div><button type="button" class="pwlink" data-pa="usepw">'+esc(TR('Folosește parola'))+'</button></div>';bio=false;return '<div class="spv pwv pwlk"><div class="pwhd"><b>🔒 '+esc(TR('Seif blocat'))+'</b></div><input type="password" id="pwIn" class="pwin" autocomplete="off" data-lpignore="true" placeholder="'+esc(TR('Parola principală'))+'"><div id="pwErr" class="pwerr"></div><div class="pwrow2"><button type="button" class="btn pwbig" data-pa="unlock">'+esc(TR('Deblochează'))+'</button>'+(bio?'<button type="button" class="btn pwbig" data-pa="bio">☝ '+esc(TR('Amprentă'))+'</button>':'')+'</div><button type="button" class="pwlink" data-pa="forgot">'+esc(TR('Am uitat parola'))+'</button></div>'}
+ if(0&&bio&&!PWF)return '<div class="spv pwv pwlk pwqt" data-bio="1"><div class="pwhd"><b>🔒 '+esc(TR('Seif blocat'))+'</b></div>'+(0?'':'<button type="button" class="btn pwfp" data-pa="bio" aria-label="'+esc(TR('Amprentă'))+'">☝ '+esc(TR('Amprentă'))+'</button>')+'<div id="pwErr" class="pwerr"></div><button type="button" class="pwlink" data-pa="usepw">'+esc(TR('Folosește parola'))+'</button></div>';/* v183: both options visible (fingerprint button + password), no auto prompt */return '<div class="spv pwv pwlk" data-bio2="'+(bio?1:0)+'"><div class="pwhd"><b>🔒 '+esc(TR('Seif blocat'))+'</b></div><input type="password" id="pwIn" class="pwin" autocomplete="off" data-lpignore="true" placeholder="'+esc(TR('Parola principală'))+'"><div id="pwErr" class="pwerr"></div><div class="pwrow2"><button type="button" class="btn pwbig" data-pa="unlock">'+esc(TR('Deblochează'))+'</button>'+(bio?'<button type="button" class="btn pwbig" data-pa="bio">☝ '+esc(TR('Amprentă'))+'</button>':'')+'</div><button type="button" class="pwlink" data-pa="forgot">'+esc(TR('Am uitat parola'))+'</button></div>'}
  var R=reps(),srch=q.trim(),c=catOf(cat),h='<div class="spv pwv"><div class="pwhd"><b>🔑 '+esc(TR('Parole'))+'</b>';var nw=D.items.filter(function(x){return !x.part&&x.pw&&str(x.pw).l===1}).length,nr=Object.keys(R).length;
  if(c&&c.kind&&xMode()!=='complete'){cat=D.cats.filter(function(y){return !y.kind})[0].id;c=catOf(cat)}
  if(nw||nr)h+='<span class="pwcnt">'+(nw?'<i class="pwfw">⚠ '+nw+'</i>':'')+(nr?'<i class="pwfr">⟳ '+nr+'</i>':'')+'</span>';
@@ -5402,7 +5437,7 @@ mig();wrapSP();try{renderNotes()}catch(_){}
 })();
 
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v182';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v183';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};
@@ -5439,7 +5474,7 @@ window.urgPre=function(n){if(!n||n.del)return '';var t=findNT(n.tab);if(!isUrgTa
   var tsl=$('fTst')&&$('fTst').querySelector('label');if(tsl)tsl.style.display='none';
   [thH,bgH,icH].forEach(function(x){if(x&&x.classList.contains('sec'))x.remove()})}
  /* ---- TABURI / Bibliotecă ---- */
- var EX=[['util','ut','Utilități','#5fd38d'],['med','med','Medicamente','#ff8a65'],['crm','crm','CRM','#f5d76e']];
+ var EX=[['util','ut','Plăți','#5fd38d'],['med','med','Medicamente','#ff8a65'],['crm','crm','CRM','#f5d76e']];
  var lib=$('tbLib'),uU=$('tbUser'),uE=$('tbEx'),unl=false;
  function pinGet(){var p=LS.get('ns_libpin',null);return p&&p.ct?p:null}
  function locked(){return !!pinGet()&&!unl}
@@ -5624,6 +5659,84 @@ window.NOTIS_BOOTED=true;try{setTimeout(function(){try{window.tabFix179&&tabFix1
 if(NOTIS_AB.changed&&!DEMO){try{localStorage.setItem('ns_lastver',NOTIS_AB.cur)}catch(_){}
  var rec0=NOTIS_AB.rec;phDump().then(function(p){rec0.photos=p;return abStore(rec0)}).then(renderAbList)}
 renderAbList();
+
+(function(){
+function rr(){try{renderNotes()}catch(_){try{spRender()}catch(__){}}}
+/* ---- Acasă / Firmă ---- */
+function afGet(){var o=LS.get('ns_afvis',null);return o&&typeof o==='object'?o:{}}
+window.afMode=function(k){var v=afGet()[k];return v==='home'||v==='firm'?v:'both'};
+window.afSel=function(k){var m=afMode(k);return '<div class="afrow"><span>'+esc(TR('Afișează'))+'</span><select class="afsel" data-af="'+k+'" aria-label="'+esc(TR('Afișează'))+'">'+[['both',TR('Acasă și Firmă')],['home',TR('Doar Acasă')],['firm',TR('Doar Firmă')]].map(function(o){return '<option value="'+o[0]+'"'+(o[0]===m?' selected':'')+'>'+esc(o[1])+'</option>'}).join('')+'</select></div>'};
+document.addEventListener('change',function(e){var s=e.target;if(!s.classList||!s.classList.contains('afsel'))return;var o=afGet();o[s.dataset.af]=s.value;LS.set('ns_afvis',o);try{saveNotes(true)}catch(_){}try{spRender()}catch(_){}});
+/* onboarding: new users only (inside the first-run card); existing users keep both parts */
+(function(){if(LS.get('ns_afOb',0))return;if(LS.get('ns_afvis',null)){LS.set('ns_afOb',1);return}var ans='both';
+ function add(o){var c=o.querySelector('.obc'),go=o.querySelector('#obGo');if(!c||!go||c.querySelector('.afq'))return;var d=document.createElement('div');d.className='afq';
+  d.innerHTML='<div class="obt">🏠 🏢 '+esc(TR('Pentru ce folosești Plăți și CRM?'))+'</div><div class="afqb"><button type="button" class="afy" data-af1="home">'+esc(TR('Acasă'))+'</button><button type="button" class="afy" data-af1="firm">'+esc(TR('Firmă'))+'</button><button type="button" class="afy on" data-af1="both">'+esc(TR('Ambele'))+'</button></div><div class="obt afqs">'+esc(TR('Plăți și CRM pot avea o parte separată pentru firmă. O poți activa sau ascunde oricând, din partea de jos a taburilor Plăți și CRM. Nimic nu se șterge.'))+'</div>';
+  c.insertBefore(d,go);d.addEventListener('click',function(e){var b=e.target.closest('[data-af1]');if(!b)return;ans=b.dataset.af1;d.querySelectorAll('[data-af1]').forEach(function(x){x.classList.toggle('on',x===b)})});
+  go.addEventListener('click',function(){var v=afGet();v.ut=ans;v.crm=ans;LS.set('ns_afvis',v);LS.set('ns_afOb',1);try{spRender()}catch(_){}},true)}
+ var x=document.getElementById('nwOb');if(x)add(x);
+ try{var mo=new MutationObserver(function(){var o=document.getElementById('nwOb');if(o)add(o);if(LS.get('ns_afOb',0))mo.disconnect()});mo.observe(document.body,{childList:true})}catch(_){}
+ setTimeout(function(){if(!document.getElementById('nwOb')&&LS.get('ns_newsOb',false)&&!LS.get('ns_afOb',0)){LS.set('ns_afOb',1)}},8000)})();
+/* ---- Utilități → Plăți (only an unrenamed tab; data in ns_util untouched) ---- */
+(function(){try{if(LS.get('ns_plati183',0))return;var ch=false;(noteTabs||[]).forEach(function(t){if(t&&t.kind==='util'){var f=nFold(String(t.name||'')).trim();if(f==='utilitati'||f===nFold(TR('Utilități')).trim()){t.name=TR('Plăți');ch=true}}});LS.set('ns_plati183',1);if(ch){saveNotes(true);rr()}}catch(e){console.warn(e)}})();
+/* ---- Recordings: default pill white (dot stays red) ---- */
+(function(){try{if(LS.get('ns_rec183',0))return;var ch=false;(noteTabs||[]).forEach(function(t){if(t&&t.kind==='rec'&&String(t.color||'').toLowerCase()==='#ff5a5a'){t.color='#ffffff';ch=true}});LS.set('ns_rec183',1);if(ch){saveNotes(true);rr()}}catch(e){console.warn(e)}})();
+/* ---- Parole: tap anywhere on the locked screen = fingerprint prompt ---- */
+document.addEventListener('click',function(e){var lk=e.target.closest&&e.target.closest('#spView .pwlk');if(!lk||e.target.closest('button,a,input,select,textarea,[data-pa]'))return;var b=lk.querySelector('[data-pa=bio]');if(b&&lk.dataset.bio2==='1')b.click();else{var i=lk.querySelector('input[type=password],input');if(i)i.focus()}});
+/* ---- Medicamente: header fixed, only the day list scrolls (inner container), today centred ---- */
+var MDS={};function mdTK(){try{if(typeof dkey==='function')return dkey()}catch(_){}var d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()}
+function mdFit(){var v=$('spView');if(!v)return;var L=v.querySelectorAll('.spmed:not(.mdlib) .mdlist');if(!L.length){MDS={};return}var vh=window.innerHeight||640,bb=0;try{var nav=document.querySelector('#bnav,.bnav,#bottomNav,nav.tabbar');if(nav&&nav.getClientRects().length&&getComputedStyle(nav).position==='fixed')bb=nav.getBoundingClientRect().height}catch(_){}
+ L.forEach(function(l){var sec=l.closest('.spbd'),per=l.closest('.mdper'),key=(per&&per.dataset.p)||'',tail=0;if(sec){var aft=false;[].forEach.call(sec.children,function(c){if(c===l){aft=true;return}if(aft)tail+=c.getBoundingClientRect().height+6})}
+  var nx=per&&per.nextElementSibling,ex=0;while(nx){ex+=nx.getBoundingClientRect().height;nx=nx.nextElementSibling}var h=Math.max(170,Math.floor(vh-Math.max(0,l.getBoundingClientRect().top)-tail-Math.min(ex,90)-bb-10));l.style.maxHeight=h+'px';
+  var st=MDS[key+'|'+mdTK()];if(st!=null)l.scrollTop=st;else{var t=l.querySelector('.mdday.mdtoday');if(t){l.scrollTop=Math.max(0,t.offsetTop-l.offsetTop-(l.clientHeight-t.offsetHeight)/2)}}
+  if(!l.__mdf){l.__mdf=1;l.addEventListener('scroll',function(){MDS[key+'|'+mdTK()]=l.scrollTop},{passive:true})}})}
+window.__mdFit=mdFit;
+(function(){var q=0;function w(){var v=$('spView');if(!v||v.__mdo||!window.MutationObserver)return;v.__mdo=1;new MutationObserver(function(){if(q)return;var f=v.querySelector('.spmed:not(.mdlib) .mdlist');if(!f||f.__mdf)return;q=1;Promise.resolve().then(function(){q=0;try{mdFit()}catch(_){}})}).observe(v,{childList:true,subtree:true})}try{w()}catch(_){}setTimeout(function(){try{w()}catch(_){}},400)})();
+/* ---- quick settings per tab (ns_tabstyle {tabId:{fs,c,lh}}) ---- */
+function TS(){var o=LS.get('ns_tabstyle',null);return o&&typeof o==='object'?o:{}}
+function tsApply(){var pg=$('notesPg');if(!pg)return;var s=TS()[noteTab]||{};pg.classList.toggle('tsF',!!s.fs);pg.classList.toggle('tsC',!!s.c);pg.classList.toggle('tsL',!!s.lh);
+ if(s.fs)pg.style.setProperty('--tsfs',s.fs+'px');else pg.style.removeProperty('--tsfs');if(s.c)pg.style.setProperty('--tsc',s.c);else pg.style.removeProperty('--tsc');if(s.lh)pg.style.setProperty('--tslh',String(s.lh));else pg.style.removeProperty('--tslh')}
+window.tsApply=tsApply;
+var COL=['#ffffff','#e5e7eb','#a5f3fc','#bbf7d0','#fde68a','#fecdd3','#ddd6fe','#111827','#1e3a8a'];
+function tsSet(f){var o=TS(),s=o[noteTab]||{};f(s);Object.keys(s).forEach(function(k){if(s[k]==null||s[k]==='')delete s[k]});if(Object.keys(s).length)o[noteTab]=s;else delete o[noteTab];LS.set('ns_tabstyle',o);try{saveNotes(true)}catch(_){}tsApply();tsPaint()}
+function tsPaint(){var m=$('tsMenu');if(!m)return;var s=TS()[noteTab]||{};m.querySelector('[data-v="fs"]').textContent=s.fs?s.fs+'px':TR('Auto');m.querySelector('[data-v="lh"]').textContent=s.lh?String(s.lh):TR('Auto');m.querySelectorAll('.tsw button').forEach(function(b){b.classList.toggle('on',(b.dataset.c||'')===(s.c||''))})}
+function tsClose(){var m=$('tsMenu');if(m)m.remove();document.removeEventListener('pointerdown',tsOut,true)}
+function tsOut(e){var m=$('tsMenu');if(m&&!m.contains(e.target)){e.stopPropagation();e.preventDefault();tsClose();TSX.sup=Date.now()}}
+function tsOpen(){tsClose();var t=findNT(noteTab);var m=document.createElement('div');m.id='tsMenu';m.__tab=noteTab;m.setAttribute('role','dialog');
+ m.innerHTML='<div class="tsh"><span>'+esc(TR('Aspect tab'))+(t?' · '+esc(t.name):'')+'</span><button type="button" class="tsx" data-ts="x" aria-label="'+esc(TR('Închide'))+'">×</button></div>'+
+  '<div class="tsr"><span class="tsl">'+esc(TR('Mărime font'))+'</span><button type="button" class="tsb" data-ts="fs-">−</button><span class="tsv" data-v="fs"></span><button type="button" class="tsb" data-ts="fs+">+</button></div>'+
+  '<div class="tsr"><span class="tsl">'+esc(TR('Culoare font'))+'</span></div><div class="tsw"><button type="button" class="tsa" data-ts="c" data-c="" aria-label="'+esc(TR('Auto'))+'"></button>'+COL.map(function(c){return '<button type="button" data-ts="c" data-c="'+c+'" style="background:'+c+'" aria-label="'+c+'"></button>'}).join('')+'</div>'+
+  '<div class="tsr"><span class="tsl">'+esc(TR('Spațiere rânduri'))+'</span><button type="button" class="tsb" data-ts="lh-">−</button><span class="tsv" data-v="lh"></span><button type="button" class="tsb" data-ts="lh+">+</button></div>'+
+  '<button type="button" class="tsrs" data-ts="rs">'+esc(TR('Resetare'))+'</button>';
+ document.body.appendChild(m);tsPaint();setTimeout(function(){document.addEventListener('pointerdown',tsOut,true)},0);
+ m.addEventListener('click',function(e){var b=e.target.closest('[data-ts]');if(!b)return;var a=b.dataset.ts;
+  if(a==='x'){tsClose();return}
+  if(a==='rs'){tsSet(function(s){delete s.fs;delete s.c;delete s.lh});return}
+  if(a==='c'){tsSet(function(s){s.c=b.dataset.c||''});return}
+  if(a==='fs+'||a==='fs-')tsSet(function(s){var v=s.fs||16;v+=a==='fs+'?1:-1;s.fs=Math.max(11,Math.min(28,v))});
+  if(a==='lh+'||a==='lh-')tsSet(function(s){var v=s.lh||1.4;v=Math.round((v+(a==='lh+'?.1:-.1))*10)/10;s.lh=Math.max(1,Math.min(2.2,v))})})}
+window.tsOpen=tsOpen;
+/* long-press ONLY on empty background (never on a note, row, button, field or header) */
+var TSX={t:0,x:0,y:0,fired:0,sup:0};
+function bgTarget(el){if(!el||!el.closest)return false;var pg=$('notesPg');if(!pg||!pg.contains(el)||!pg.classList.contains('show')&&getComputedStyle(pg).display==='none')return false;
+ if(el.closest('button,a,input,textarea,select,label,li.note,.nfo,.nxr,[data-a],[data-pa],[data-c],[data-cs],[data-id],[data-r],[data-k],[data-u],.sphd,.spghd,.lbhd,.ntabs,.ntab,.pwlk,.mdday,.crc,#tsMenu,.qrr,.qrb,[contenteditable]'))return false;
+ return true} /* anything inside the tab page that is not an item, control or header */
+document.addEventListener('pointerdown',function(e){clearTimeout(TSX.t);TSX.fired=0;if(e.button>0||document.querySelector('.modal.show,#noteFull.show'))return;if(!bgTarget(e.target))return;TSX.x=e.clientX;TSX.y=e.clientY;
+ TSX.t=setTimeout(function(){TSX.fired=1;try{navigator.vibrate&&navigator.vibrate(15)}catch(_){}tsOpen()},650)},true);
+['pointerup','pointercancel'].forEach(function(t){document.addEventListener(t,function(){clearTimeout(TSX.t)},true)});
+document.addEventListener('pointermove',function(e){if(Math.abs(e.clientX-TSX.x)+Math.abs(e.clientY-TSX.y)>10)clearTimeout(TSX.t)},true);
+window.addEventListener('scroll',function(){clearTimeout(TSX.t)},true);
+document.addEventListener('click',function(e){if(TSX.fired||Date.now()-TSX.sup<400){if(!(e.target.closest&&e.target.closest('#tsMenu'))){TSX.fired=0;e.stopPropagation();e.preventDefault()}}},true);
+document.addEventListener('contextmenu',function(e){if(bgTarget(e.target))e.preventDefault()},true);
+/* hooks: apply on every render / tab change */
+var rn0=window.renderNotes||renderNotes;renderNotes=function(){var r=rn0.apply(this,arguments);try{tsApply();if(document.getElementById('tsMenu')&&$('tsMenu').__tab!==noteTab)tsClose()}catch(_){}try{mdFit()}catch(_){}return r};
+var sr0=window.spRender;if(sr0){window.spRender=function(){var r=sr0.apply(this,arguments);try{tsApply();mdFit()}catch(_){}return r};if(sr0.__pw)window.spRender.__pw=1}
+window.addEventListener('resize',function(){try{mdFit()}catch(_){}});
+setTimeout(function(){try{tsApply();mdFit()}catch(_){}},300);
+/* ---- backups carry the new keys ---- */
+var KS=['ns_tabstyle','ns_afvis'];
+(function wrap(){var c=window.spCollect,a=window.spApply;if(!c){setTimeout(wrap,300);return}if(c._v183)return;window.spCollect=function(){var o=c.apply(this,arguments)||{};KS.forEach(function(k){var v=LS.get(k,null);if(v!=null)o[k]=v});return o};window.spCollect._v183=1;
+ window.spApply=function(d){var r=a&&a.apply(this,arguments);try{KS.forEach(function(k){if(d&&d[k]&&typeof d[k]==='object')LS.set(k,d[k])});tsApply()}catch(_){}return r}})();
+})();
 })();
 
 
@@ -5647,7 +5760,11 @@ renderAbList();
   h.addEventListener('click',tg);h.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tg()}})});
  var css=document.createElement('style');css.textContent='#modal .sect{cursor:pointer;display:flex;align-items:center;justify-content:space-between;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;padding-bottom:4px}'+
   '#modal .sect::after{content:none;display:none}'+
-  '#modal .secact{cursor:pointer;display:flex;align-items:center;justify-content:space-between;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;padding-bottom:4px}#modal .secact::after{content:none;display:none}#modal .secact.shRow{justify-content:flex-start;gap:10px}#modal .shRow .shApp{width:22px;height:22px;border-radius:6px;flex:none;object-fit:cover}#modal .shRow .shL{flex:1;min-width:0;font:inherit!important;letter-spacing:inherit!important;text-transform:inherit!important;color:inherit!important;opacity:1!important}#modal .shRow .shI{width:20px;height:20px;flex:none;color:var(--cyan)}'+'#modal .secb{display:none}#modal .sect.open+.secb{display:block}';document.head.appendChild(css)})();
+  '#modal .secact{cursor:pointer;display:flex;align-items:center;justify-content:space-between;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;padding-bottom:4px}#modal .secact::after{content:none;display:none}#modal .secact.shRow{justify-content:flex-start;gap:10px}#modal .shRow .shApp{width:22px;height:22px;border-radius:6px;flex:none;object-fit:cover}#modal .shRow .shL{flex:1;min-width:0;font:inherit!important;letter-spacing:inherit!important;text-transform:inherit!important;color:inherit!important;opacity:1!important}#modal .shRow .shI{width:20px;height:20px;flex:none;color:var(--cyan)}'+'#modal .secb{display:none}#modal .sect.open+.secb{display:block}';document.head.appendChild(css)
+;/* v183: Acasă / Firmă choice (Plăți + CRM), onboarding question, Plăți rename, quick settings per tab, Parole tap-to-unlock, Recordings defaults, backups */
+
+
+})();
 </script>
 
 <style id="v64css">
@@ -5744,5 +5861,57 @@ renderAbList();
 #spView .spinfo .btn{display:block;margin-top:8px;min-height:40px}
 #spView .spold{margin-top:8px}
 </style>
+<style id="v183css">
+/* v183 Plăți groups */
+.sput .spgrp{border-bottom:1px solid rgba(var(--lnR),.14)}
+.sput .spghd{display:flex;align-items:center;gap:8px;min-height:44px;padding:6px 2px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.sput .spgnm{flex:1;font-family:Oswald,sans-serif;font-weight:300;font-size:18px;color:var(--txt);letter-spacing:.3px}
+.sput .spgch{width:10px;height:10px;border-right:2px solid #9aa0a6;border-bottom:2px solid #9aa0a6;transform:rotate(45deg);margin:0 8px 4px}
+.sput .spgrp.open>.spghd .spgch{border-color:#4ade80;transform:rotate(-135deg);margin:6px 8px 0}
+.sput .spgbd{padding-left:10px}
+/* v183 Acasă / Firmă choice */
+.afrow{display:flex;align-items:center;justify-content:center;gap:8px;margin:14px 0 4px;font-size:13px;color:var(--mut);font-weight:300}
+.afrow select{background:transparent;color:var(--txt);border:1px solid rgba(var(--lnR),.3);border-radius:8px;padding:5px 8px;font-size:13px;font-weight:300}
+#nwOb .afq{display:flex;flex-direction:column;gap:8px;border-top:1px solid rgba(255,255,255,.12);padding-top:10px}
+#nwOb .afqb{display:flex;gap:8px}
+#nwOb .afqb button{align-self:auto;flex:1;padding:8px 0;border-radius:10px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;font-weight:400}
+#nwOb .afqb button.on{background:#3fd8ff;color:#000;border-color:#3fd8ff}
+#nwOb .afqs{font-size:12.5px;opacity:.75}
+/* v183 Medicamente: fixed top, only the days scroll; slightly smaller and tighter */
+.spmed:not(.mdlib) .mdlist{overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.spmed .mddt{font-size:19.5px;font-weight:300;padding-top:4px;padding-bottom:4px}
+.spmed .mddh{min-height:40px;gap:6px}
+.spmed .mdnm{font-size:14.5px;line-height:27px}
+.spmed .spnm{font-size:14.5px}
+.spmed .mddays{font-size:12px}
+.spmed .mdrow{padding:2px 0}
+/* v183 library */
+.mdlib .lbuse{flex:none;background:none;border:1px solid rgba(var(--lnR),.3);border-radius:50%;width:30px;height:30px;color:var(--cyan);font-size:16px;line-height:1;padding:0;margin-right:4px}
+.mdlib .lbshw{display:flex;justify-content:flex-end;padding:4px 2px 2px}
+.mdlib .lbname .lbfh small{font-size:14px;opacity:.95}
+/* v183 recordings share like everywhere */
+.qrb.qrsh{border:0;background:none;color:var(--cyan)}
+/* v183 Parole: whole locked screen is the tap target */
+#spView .pwlk{min-height:46vh;cursor:pointer}
+/* v183 quick settings per tab */
+#tsMenu{position:fixed;z-index:30;left:50%;top:50%;transform:translate(-50%,-50%);width:min(300px,calc(100vw - 28px));background:#18181b;color:#f4f4f5;border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:12px 14px;box-shadow:0 10px 40px rgba(0,0,0,.5);font-weight:300}
+#tsMenu .tsh{display:flex;align-items:center;font-family:Oswald,sans-serif;font-weight:300;font-size:17px;margin-bottom:8px}
+#tsMenu .tsh span{flex:1}#tsMenu .tsx{background:none;border:0;color:#f4f4f5;font-size:22px;padding:0 4px;font-weight:300}
+#tsMenu .tsr{display:flex;align-items:center;gap:8px;margin:8px 0}
+#tsMenu .tsl{flex:1;font-size:14px;color:#d4d4d8}
+#tsMenu .tsb{min-width:38px;height:34px;border-radius:9px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;font-size:17px;font-weight:300}
+#tsMenu .tsv{min-width:40px;text-align:center;font-variant-numeric:tabular-nums;font-size:14px}
+#tsMenu .tsw{display:flex;flex-wrap:wrap;gap:7px;margin:4px 0 6px}
+#tsMenu .tsw button{width:28px;height:28px;border-radius:50%;border:1px solid rgba(255,255,255,.35);padding:0}
+#tsMenu .tsw button.on{outline:2px solid #3fd8ff;outline-offset:2px}
+#tsMenu .tsw button.tsa{background:conic-gradient(#fff 0 50%,#18181b 0);}
+#tsMenu .tsrs{margin-top:8px;width:100%;height:36px;border-radius:9px;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fca5a5;font-size:14px;font-weight:300}
+#notesPg.tsF #notesList .note .t,#notesPg.tsF #notesList .t,#notesPg.tsF #spView :is(.ux,.spnm,.mddl,.spgnm,.mdnm,.pwt,.pwi,.lbf,.lbfh,.spmd,.spma,p,li,td,label,.t,[class^=cr] span,[class^=qr] span,[class^=sh] span){font-size:var(--tsfs)!important}
+#notesPg.tsC #notesList .note .t,#notesPg.tsC #notesList .t,#notesPg.tsC #notesList .note .nts,#notesPg.tsC #spView :is(.ux,.spnm,.mddl,.spgnm,.mdnm,.pwt,.pwi,.lbf,.lbfh,.spmd,.spma,p,li,td,label,.t,[class^=cr] span,[class^=qr] span,[class^=sh] span){color:var(--tsc)!important}
+#notesPg.tsL #notesList .note .t,#notesPg.tsL #notesList .t,#notesPg.tsL #spView :is(.ux,.spnm,.mddl,.spgnm,.mdnm,.pwt,.pwi,.lbf,.lbfh,.spmd,.spma,p,li,td,label,.t,[class^=cr] span,[class^=qr] span,[class^=sh] span){line-height:var(--tslh)!important}
+#notesPg.tsL #notesList .note{padding-top:calc(var(--tslh) * 5px - 4px);padding-bottom:calc(var(--tslh) * 5px - 4px)}
+</style>
+
+
 </body>
 </html>
