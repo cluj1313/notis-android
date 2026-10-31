@@ -32,4 +32,13 @@ public class SnoozeTest {
         String r = src("RingActivity.java");
         assertTrue(r.contains("R.string.snooze10") && r.contains("R.string.snooze20") && r.contains("R.string.snooze30") && r.contains("R.string.alarm_stop"));
     }
+    /** 2.18.2: Snooze must not make the same notification re-appear */
+    @Test public void noReappearAfterSnooze() throws Exception {
+        String r = src("RingService.java"), a = src("AlarmReceiver.java");
+        assertTrue(r.contains("STOP_MODE = STOP_FOREGROUND_REMOVE") && r.contains("s.stopForeground(STOP_MODE)") && !r.contains("STOP_FOREGROUND_DETACH"));
+        assertTrue(r.contains("static void quit() { pending = null;")); /* an in-flight start cannot re-post it */
+        int q = a.indexOf("RingService.quit();"), k = a.indexOf(".cancel(nid.hashCode())", q), z = a.indexOf("Scheduler.snooze(", k);
+        assertTrue(q > 0 && k > q && z > k); /* silence -> remove -> exactly one snooze */
+        assertEquals(1, a.split("Scheduler\\.snooze\\(").length - 1);
+    }
 }

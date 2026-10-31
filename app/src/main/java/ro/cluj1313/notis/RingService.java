@@ -21,7 +21,11 @@ public class RingService extends Service {
         } catch (Exception e) { pending = null; return false; }
     }
     static boolean active() { return me != null; }
-    static void quit() { RingService s = me; me = null; if (s != null) { try { s.stopForeground(STOP_FOREGROUND_DETACH); } catch (Exception ignored) {} s.stopSelf(); } }
+    /* 2.18.2: snooze/stop re-appear fix. DETACH kept the foreground notification and the system re-posted it as a normal notification after
+       our cancel() (which NotificationManager ignores while the service still owns it) -> the same alarm popped up again < 1 s after Snooze.
+       REMOVE takes the notification away together with the foreground state; a start still in flight is dropped too. */
+    static final int STOP_MODE = STOP_FOREGROUND_REMOVE;
+    static void quit() { pending = null; RingService s = me; me = null; if (s != null) { try { s.stopForeground(STOP_MODE); } catch (Exception ignored) {} s.stopSelf(); } }
 
     @Override public int onStartCommand(Intent i, int f, int sid) {
         if (i != null && STOP.equals(i.getAction())) { AlarmSound.stop(); stopSelf(); return START_NOT_STICKY; }
