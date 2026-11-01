@@ -72,7 +72,7 @@ function gRender(){var P=[[1,'1 zi'],[7,'1 săptămână'],[30,'1 lună'],[90,'3
  +'<div class="ngoc"><a data-g="oall">'+E(T('Deschide toate'))+'</a><a data-g="call">'+E(T('Închide toate'))+'</a></div><div class="ngmonths">'+gTable()+'</div></div>'
  +'<div class="ngcard"><div class="ngh2">'+E(T('Grafic'))+'</div><div class="ngper">'+P.map(function(p){return'<button type="button" class="ngpill'+(PER===p[0]?' on':'')+'" data-g="per" data-p="'+p[0]+'">'+E(T(p[1]))+'</button>'}).join('')+'</div><div class="ngchw">'+gChart(300)+'</div>'
  +'<div class="nglg"><span><i style="background:#ca8a04"></i>&lt;70</span><span><i style="background:#16a34a"></i>70–140</span><span><i style="background:#ea580c"></i>140–250</span><span><i style="background:#dc2626"></i>&gt;250</span></div><div class="ngnote">'+E(T('Benzi orientative, nu sunt sfat medical.'))+'</div></div>'
- +'<details class="ngcard nggi"><summary class="ngh2">'+E(T('Indice glicemic produse'))+' <small>▾</small></summary><input type="search" class="ngq" placeholder="'+E(T('Caută produs…'))+'" autocomplete="off"><div class="ngil">'+giList('')+'</div></details>'}
+ +'<details class="ngcard nggi"><summary class="ngh2">'+E(T('Indice glicemic produse'))+' <small>⌄</small></summary><input type="search" class="ngq" placeholder="'+E(T('Caută produs…'))+'" autocomplete="off"><div class="ngil">'+giList('')+'</div></details>'}
 function giList(q){q=nrm(q||'');var r=GI.filter(function(g){return nrm(g[0]).indexOf(q)>=0||nrm(T(g[0])).indexOf(q)>=0});return r.map(function(g){return'<div class="nggr '+giC(g[1])+'"><span>'+E(T(g[0]))+'</span><b>'+g[1]+'</b></div>'}).join('')||'<div class="nggr">'+E(T('Niciun produs'))+'</div>'}
 function listRender(id){var L=C.items[id]||[];var h='<div class="ngcard"><div class="nghd"><span class="ngh2">'+E(cname(id))+'</span><button type="button" class="ngpill" data-g="iadd" data-c="'+E(id)+'">+ '+E(T('Adaugă'))+'</button></div>';
  if(!L.length)h+='<div class="ngempty">'+E(T('Nimic încă'))+'</div>';
@@ -86,7 +86,7 @@ function syncV(){var x=X();if(!x)return;var v=x.getV()?1:0;if(LASTV!==null&&v!==
 function render(medRender){var x=X();if(!x)return medRender();C=catLoad();G=gLoad();syncV();var multi=C.act.length>1;
  var h='<div class="ngwrap"><div class="ngpills">'+C.ord.map(function(id){return'<button type="button" class="ngpill'+(C.act.indexOf(id)>=0?' on':'')+'" data-g="cat" data-c="'+E(id)+'">'+E(cname(id))+'</button>'}).join('')+'<button type="button" class="ngpill ngplus" data-g="cadd" aria-label="'+E(T('Categorie nouă'))+'">+</button></div>';
  C.act.forEach(function(id){h+='<section class="ngsec" data-c="'+E(id)+'">'+(multi?'<div class="ngsecT">'+E(cname(id))+'</div>':'')+(id==='p'?pastRender(medRender):id==='g'?gRender():listRender(id))+'</section>'});
- h+='<div class="afrow ngaf">'+E(T('Afișează'))+' <button type="button" class="ngpill" data-g="afopen">'+E(C.act.map(cname).join(' · '))+' ▾</button></div></div>';
+ h+='<div class="afrow ngaf">'+E(T('Afișează'))+' <button type="button" class="ngpill" data-g="afopen">'+E(C.act.map(cname).join(' · '))+' ⌄</button></div></div>';
  setTimeout(post,0);return h}
 function post(){var v=document.getElementById('spView');if(!v)return;v.querySelectorAll('.ngchw').forEach(function(w){var cw=w.clientWidth-2;if(cw>0){w.innerHTML=gChart(cw)}w.scrollLeft=w.scrollWidth})}
 function rr(){if(window.spRender)window.spRender()}
