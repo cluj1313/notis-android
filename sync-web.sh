@@ -8,6 +8,7 @@ cp "$SRC"/icons/*.png "$D/icons/"; cp "$SRC"/art/*.svg "$SRC"/art/*.webp "$SRC"/
 mkdir -p "$D/snd"; cp "$SRC"/snd/*.mp3 "$D/snd/" 2>/dev/null || true
 mkdir -p "$D/fonts"; cp "$SRC"/fonts/* "$D/fonts/"
 mkdir -p "$D/i18n"; cp "$SRC"/i18n/*.js "$D/i18n/"
+mkdir -p "$D/js"; cp "$SRC"/js/*.js "$D/js/"
 [ -f "$SRC/blank.html" ] && cp "$SRC/blank.html" "$D/" || true
 sed -i "/nt_test=1/d" "$D/index.html"  # no test hook in the shipped bundle
 du -sh "$D"

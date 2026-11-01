@@ -4566,7 +4566,7 @@ function libLists(){var used=[],seen={},now={};MED.list.forEach(function(m){var 
  return{u:so(used,MED.lo.u),n:so(un,MED.lo.n),a:so(al,MED.lo.a)}}
 function libInfo(l,k,mk){if(l==='a'){var a=MED.alt.filter(function(x){return x.id===k})[0];if(!a)return null;if(!a.info)a.info={};return a.info}if(!MED.info[k]){if(!mk)return {};MED.info[k]={}}return MED.info[k]}
 function libRender(){var L=libLists(),az=MED.lo.az!==0,h='<div class="spv spmed mdlib"><div class="mdtop"><span class="alseg mdord"><button type="button" class="btn'+(az?' on':'')+'" data-a="lord" data-v="az">A–Z</button><button type="button" class="btn'+(az?'':' on')+'" data-a="lord" data-v="man">↕</button></span><button type="button" class="mdall on" data-a="lib">Toate</button></div>';
- [['u','Folosite'],['n','Nefolosite încă'],['a','Tratamente alternative']].forEach(function(S){var o=!!MED.lopen[S[0]],R=L[S[0]];
+ [['u','Folosite'],['n','Toate'],['a','Tratamente alternative']].forEach(function(S){var o=!!MED.lopen[S[0]],R=L[S[0]];
   h+='<div class="spsec lbsec'+(o?' open':'')+'" data-l="'+S[0]+'"><div class="sphd" data-a="lstog"><span class="spnm">'+S[1]+'</span><span class="spcnt">'+(R.length||'')+'</span><i class="sparr"></i></div>';
   if(o){h+='<div class="spbd lblist">';R.forEach(function(it){var id=S[0]+'|'+it.k,io=!!LOP[id],inf=libInfo(S[0],it.k)||{};
     var FL=S[0]==='a'?LFA:LF;h+='<div class="lbit'+(io?' open':'')+'" data-k="'+esc(it.k)+'"><div class="lbhd" data-a="litog"><span class="mdnm ux">'+esc(it.name)+'</span>'+(io?'':'<span class="lbdot ux">'+FL.map(function(f){return inf[f[0]]?'•':''}).join('')+'</span>')+(S[0]==='n'?'<button type="button" class="lbuse" data-a="luse" aria-label="'+esc(TR('Adaugă în tratament'))+'">＋</button>':'')+'<i class="sparr"></i></div>';
@@ -4659,7 +4659,7 @@ window.spSearch=function(qs,fold){var R=[],M=function(t){var f=fold(t);return qs
   (u.rows||[]).forEach(function(r){var tx=(u.mode==='idx'?monLbl(r.d)+' '+fmt(r.a)+' → '+fmt(r.b)+' '+(u.unit||''):dLbl(r.d)+' '+fmt(r.amt)+' '+(u.cur||''))+(r.nt?' · '+r.nt:'')+(r.pd===0?' · '+TR('Neachitat'):r.pd===1?' · '+TR('Achitat'):'');if(M(tx))R.push({tab:t.id,path:[t.name,TR(u.grp==='firm'?'Firmă':'Acasă'),un+' '+rY(r)],text:tx,act:{k:'u',u:u.id,r:r.id}})})})});
  TB('med').forEach(function(t){MED.persons.forEach(function(p){var pn=pName(p);if(M(pn))R.push({tab:t.id,path:[t.name],text:pn,act:{k:'p',p:p.id}});
    MED.list.forEach(function(m){if(m.p===p.id&&M(m.name||''))R.push({tab:t.id,path:[t.name,pn],text:m.name,act:{k:'m',p:p.id,m:m.id}})})});
-  var L=libLists();[['u','Folosite'],['n','Nefolosite încă'],['a','Tratamente alternative']].forEach(function(S){L[S[0]].forEach(function(it){var sn=TR(S[1]);
+  var L=libLists();[['u','Folosite'],['n','Toate'],['a','Tratamente alternative']].forEach(function(S){L[S[0]].forEach(function(it){var sn=TR(S[1]);
    if(M(it.name))R.push({tab:t.id,path:[t.name,sn],text:it.name,act:{k:'l',S:S[0],key:it.k}});var inf=libInfo(S[0],it.k)||{};
    (S[0]==='a'?LFA:LF).forEach(function(f){if(inf[f[0]]&&M(inf[f[0]]))R.push({tab:t.id,path:[t.name,sn,it.name,TR(f[1])],text:String(inf[f[0]]),act:{k:'l',S:S[0],key:it.k,f:f[0]}})})})})});
  return R};
@@ -4668,8 +4668,10 @@ window.spGo=function(a){var sel='';
  else if(a.k==='p'||a.k==='m'){VLIB=0;MED.open[a.p]=1;LS.set('ns_med',MED);sel=a.m?'.mdrow[data-m="'+a.m+'"]':'.mdper[data-p="'+a.p+'"]'}
  else if(a.k==='l'){VLIB=1;MED.lopen[a.S]=1;var id=a.S+'|'+a.key;LOP[id]=1;if(a.f)LFOP[id+'|'+a.f]=1;LS.set('ns_med',MED);sel='.lbsec[data-l="'+a.S+'"] .lbit[data-k="'+String(a.key).replace(/"/g,'\\"')+'"]'+(a.f?' .lbfh[data-f="'+a.f+'"]':'')}
  spRender();return sel};
+/* v187: small interface for js/glicemie.js (categories + Glicemie); Pastile code unchanged */
+window.__medX={sched:function(){var s=VLIB;VLIB=0;try{return medRender()}finally{VLIB=s}},lib:function(){return libRender()},getV:function(){return VLIB},setV:function(x){VLIB=x?1:0},dOpen:dOpen,ask:ask,close:function(){jvClose('spModal')},LS:LS};
 window.spRender=function(){var v=$('spView');if(!v)return;var k=kindOf(),srch=!!nFold(nQ).trim(),on=k&&!nTrash&&!srch&&!tbHidden(noteTab)&&!nFolder;
- $('notesPg').classList.toggle('sptab',!!on);if(!on){v.innerHTML='';v.hidden=true;MDCEN='';return}v.hidden=false;v.innerHTML=k==='util'?utRender():k==='crm'?(window.crmRender?crmRender():''):medRender();if(k==='med'&&!VLIB)mdCenter(v);else MDCEN='';
+ $('notesPg').classList.toggle('sptab',!!on);if(!on){v.innerHTML='';v.hidden=true;MDCEN='';return}v.hidden=false;v.innerHTML=k==='util'?utRender():k==='crm'?(window.crmRender?crmRender():''):(window.NSG&&window.__medX?NSG.render(medRender):medRender());if(k==='med'&&!VLIB)mdCenter(v);else MDCEN='';
  var has=notes.some(function(n){return !n.del&&n.tab===noteTab&&(n.fd||'')===''&&(n.lock||String(n.text||'').trim())})||noteFolders.some(function(f){return f.tab===noteTab&&!f.del});$('notesPg').classList.toggle('spnone',!has)};
 var rn=renderNotes;renderNotes=function(){var r=rn.apply(this,arguments);try{spRender()}catch(e){console.warn(e)}return r};
 var lpT=0,lpDone=0;document.addEventListener('pointerdown',function(e){var v=$('spView');if(!v||!v.contains(e.target))return;var hd=e.target.closest('.mdper .sphd');lpDone=0;clearTimeout(lpT);if(!hd)return;lpT=setTimeout(function(){var pp=pFind(hd.closest('.mdper').dataset.p);if(pp){lpDone=1;try{navigator.vibrate&&navigator.vibrate(20)}catch(_){}pCfg(pp)}},550)});
@@ -5455,7 +5457,7 @@ mig();wrapSP();try{renderNotes()}catch(_){}
 })();
 
 var CREATOR_CONTACT='cluj1313@gmail.com'; /* adresa de e-mail a creatorului; goală = se deschide meniul Distribuie */
-var NOTIS_TIER='Free',NOTIS_WEB_REL='v183';
+var NOTIS_TIER='Free',NOTIS_WEB_REL='v187';
 var URG_ICONS=['⚡','⚠️','📯','❗','‼️','🚨','🚀','🧨','📢','📣','🪙','⏰','💣','🔴','⭕','❌','🚫','♨️','☣️','☢️'];
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 window.ntFixCur=function(){var t=findNT(noteTab);if(t&&!t.off)return;var v=noteTabs.filter(function(x){return !x.off})[0];if(v){noteTab=v.id;LS.set('ns_notetab',noteTab)}};
@@ -5736,7 +5738,7 @@ window.tsOpen=tsOpen;
 /* long-press ONLY on empty background (never on a note, row, button, field or header) */
 var TSX={t:0,x:0,y:0,fired:0,sup:0};
 function bgTarget(el){if(!el||!el.closest)return false;var pg=$('notesPg');if(!pg||!pg.contains(el)||!pg.classList.contains('show')&&getComputedStyle(pg).display==='none')return false;
- if(el.closest('button,a,input,textarea,select,label,li.note,.nfo,.nxr,[data-a],[data-pa],[data-c],[data-cs],[data-id],[data-r],[data-k],[data-u],.sphd,.spghd,.lbhd,.ntabs,.ntab,.pwlk,.mdday,.crc,#tsMenu,.qrr,.qrb,[contenteditable]'))return false;
+ if(el.closest('button,a,input,textarea,select,label,li.note,.nfo,.nxr,[data-a],[data-pa],[data-c],[data-cs],[data-id],[data-r],[data-k],[data-u],[data-g],.ngwrap .ngtb,.sphd,.spghd,.lbhd,.ntabs,.ntab,.pwlk,.mdday,.crc,#tsMenu,.qrr,.qrb,[contenteditable]'))return false;
  return true} /* anything inside the tab page that is not an item, control or header */
 document.addEventListener('pointerdown',function(e){clearTimeout(TSX.t);TSX.fired=0;if(e.button>0||document.querySelector('.modal.show,#noteFull.show'))return;if(!bgTarget(e.target))return;TSX.x=e.clientX;TSX.y=e.clientY;
  TSX.t=setTimeout(function(){TSX.fired=1;try{navigator.vibrate&&navigator.vibrate(15)}catch(_){}tsOpen()},650)},true);
@@ -5955,5 +5957,33 @@ var KS=['ns_tabstyle','ns_afvis'];
 </style>
 
 
+<style>/* v187: Medicamente categorii + Glicemie (js/glicemie.js) */
+.ngwrap{font-weight:300}.ngwrap b,.ngwrap strong,.ngwrap th{font-weight:300}
+.ngwrap .mdall[data-a=lib]{display:none}
+.ngpills,.ngsub,.ngper{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 2px 8px;-webkit-overflow-scrolling:touch;flex-wrap:wrap}.ngpills::-webkit-scrollbar,.ngper::-webkit-scrollbar{display:none}
+.ngpill{flex:0 0 auto;background:transparent;color:var(--txt);border:1px solid rgba(var(--lnR),.3);border-radius:999px;padding:5px 13px;font:inherit;font-size:14px;font-weight:300;white-space:nowrap;cursor:pointer}
+.ngpill.on{border-color:var(--cyan);color:var(--cyan);background:color-mix(in srgb,var(--cyan) 12%,transparent)}
+.ngsub{justify-content:center}.ngsec{scroll-margin-top:8px}.ngsecT{font-size:13px;color:var(--mut);letter-spacing:.06em;text-transform:uppercase;margin:12px 4px 4px}
+.ngcard{border:1px solid rgba(var(--lnR),.18);border-radius:14px;padding:10px 2px;margin:0 3px 12px;background:color-mix(in srgb,var(--card) 70%,transparent)}
+.nghd{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:0 6px 6px}.ngh2{font-size:17px;font-weight:300;color:var(--txt);padding:0 6px}.ngh2 small{font-size:12px;color:var(--mut)}
+.ngexm{border:1px solid rgba(var(--lnR),.25);border-radius:12px;padding:8px;margin:0 6px 8px}.ngexr{display:flex;gap:6px 12px;flex-wrap:wrap;margin-bottom:6px;font-size:14px}.ngmsg{font-size:12px;color:var(--mut)}
+.ngoc{display:flex;justify-content:flex-end;gap:14px;font-size:12.5px;margin:0 8px 4px}.ngoc a{color:var(--cyan);opacity:.85;cursor:pointer}.ngoc a+a{color:var(--mut)}
+.ngmon{border-top:1px solid rgba(var(--lnR),.14)}.ngmh{display:flex;justify-content:space-between;align-items:center;padding:10px 6px;font-size:16px;cursor:pointer}.ngmh small{color:var(--mut);font-size:12px}.ngcv{display:inline-block;transition:transform .2s;color:var(--mut)}.ngmon.open .ngcv{transform:rotate(180deg)}
+.ngtw{overflow-x:auto;-webkit-overflow-scrolling:touch}.ngtb{border-collapse:separate;border-spacing:0;font-size:14px;width:max-content}
+.ngtb th{white-space:nowrap;padding:6px 12px;font-size:12px;color:var(--mut);text-align:left}.ngtb td{padding:5px 12px 6px;border-top:1px solid rgba(var(--lnR),.1);white-space:nowrap}
+.ngtb th:first-child,.ngtb td:first-child{position:sticky;left:0;z-index:1;background:var(--card);width:1%;padding:5px 5px 5px 3px;font-size:13px}
+.ngtb td.v{min-width:96px;cursor:pointer}.ngtb td.v .n{display:block;line-height:1.2}.ngtb td.v .n u{text-decoration:none;font-size:11px;color:var(--mut);margin-left:3px}.ngdash{color:var(--mut);opacity:.6}
+.ngtb td.y .n{color:#eab308}.ngtb td.g .n{color:#22c55e}.ngtb td.o .n{color:#f97316}.ngtb td.r .n{color:#ef4444}.ngtoday td{background:color-mix(in srgb,var(--cyan) 7%,transparent)}.ngtoday td:first-child{background:color-mix(in srgb,var(--cyan) 7%,var(--card))}
+.ngbar{position:relative;height:3px;border-radius:2px;margin:4px 0 1px;background:linear-gradient(90deg,#eab308 0%,#eab308 5%,#22c55e 18%,#22c55e 32%,#f97316 45%,#f97316 74%,#ef4444 87%,#ef4444 100%)}.ngbar.e{opacity:.22}
+.ngbar i{position:absolute;top:50%;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.6)}
+.ngchw{overflow-x:auto;color:var(--txt);margin:0 4px}.ngch{display:block}.nglg{display:flex;gap:12px;justify-content:center;font-size:12px;color:var(--mut);margin-top:6px}.nglg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:4px;vertical-align:-1px}
+.ngnote{font-size:11.5px;color:var(--mut);text-align:center;margin-top:4px}
+.nggi summary{list-style:none;cursor:pointer;padding:4px 6px}.nggi summary::-webkit-details-marker{display:none}.ngq{width:calc(100% - 12px);margin:6px;box-sizing:border-box;background:transparent;color:var(--txt);border:1px solid rgba(var(--lnR),.3);border-radius:10px;padding:7px 10px;font:inherit;font-weight:300}
+.ngil{max-height:320px;overflow-y:auto}.nggr{display:flex;justify-content:space-between;padding:6px 10px;border-top:1px solid rgba(var(--lnR),.1);font-size:14px}.nggr b{font-weight:300}.nggr.g b,.nggr.g span{color:#22c55e}.nggr.y b,.nggr.y span{color:#eab308}.nggr.r b,.nggr.r span{color:#ef4444}
+.ngit{padding:8px 8px;border-top:1px solid rgba(var(--lnR),.12);cursor:pointer}.ngit-t{float:right;font-size:12px;color:var(--mut)}.ngit-n{font-size:12.5px;color:var(--mut);margin-top:2px}.ngempty{padding:10px 8px;color:var(--mut);font-size:13px}
+.ngafl{display:flex;flex-direction:column;gap:4px}.ngafr{display:flex;align-items:center;gap:10px;padding:6px 4px;border:1px solid rgba(var(--lnR),.18);border-radius:10px;touch-action:none}.ngafr.drag{opacity:.6;border-color:var(--cyan)}.ngafr label{flex:1}.ngdrag{cursor:grab;padding:0 6px;font-size:18px;color:var(--mut)}
+</style>
+
+<script src="js/glicemie.js"></script>
 </body>
 </html>
