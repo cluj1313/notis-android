@@ -1466,5 +1466,16 @@ NOTIS_I18N={
 "Credit Auto": "Autóhitel",
 "Internet": "Internet",
 "Plăți streaming": "Streaming-díjak",
-"Mergi la final": "Ugrás a végére"
+"Mergi la final": "Ugrás a végére",
+"Contor anonim de instalări": "Névtelen telepítésszámláló",
+"Trimite doar o numărătoare anonimă (țara, versiunea aplicației). Fără nume, notițe sau IP.": "Csak névtelen számlálást küld (ország, alkalmazásverzió). Nincs név, jegyzet vagy IP.",
+"Ai un cod?": "Van kódod?",
+"Introdu codul": "Írd be a kódot",
+"Activează": "Aktiválás",
+"Cod activat: Super Class": "Kód aktiválva: Super Class",
+"Cod invalid": "Érvénytelen kód",
+"Codul a fost deja folosit": "Ezt a kódot már felhasználták",
+"Codul a expirat": "Ez a kód lejárt",
+"Super Class activ până la": "Super Class aktív eddig:",
+"Super Class activ pe viață": "Super Class élethosszig aktív"
 };

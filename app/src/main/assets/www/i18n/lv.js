@@ -1466,5 +1466,16 @@ NOTIS_I18N={
 "Credit Casă": "Mājokļa kredīts",
 "Credit Auto": "Auto kredīts",
 "Plăți streaming": "Straumēšanas maksājumi",
-"Mergi la final": "Uz beigām"
+"Mergi la final": "Uz beigām",
+"Contor anonim de instalări": "Anonīms instalāciju skaitītājs",
+"Trimite doar o numărătoare anonimă (țara, versiunea aplicației). Fără nume, notițe sau IP.": "Sūta tikai anonīmu skaitu (valsts, lietotnes versija). Bez vārda, piezīmēm vai IP.",
+"Ai un cod?": "Vai tev ir kods?",
+"Introdu codul": "Ievadi kodu",
+"Activează": "Aktivizēt",
+"Cod activat: Super Class": "Kods aktivizēts: Super Class",
+"Cod invalid": "Nederīgs kods",
+"Codul a fost deja folosit": "Šis kods jau ir izmantots",
+"Codul a expirat": "Šim kodam beidzies derīgums",
+"Super Class activ până la": "Super Class aktīvs līdz",
+"Super Class activ pe viață": "Super Class aktīvs uz mūžu"
 };

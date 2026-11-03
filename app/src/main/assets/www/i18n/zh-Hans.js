@@ -1465,5 +1465,16 @@ NOTIS_I18N={
 "Credit Casă": "房贷",
 "Credit Auto": "车贷",
 "Plăți streaming": "流媒体付费",
-"Mergi la final": "跳到末尾"
+"Mergi la final": "跳到末尾",
+"Contor anonim de instalări": "匿名安装计数器",
+"Trimite doar o numărătoare anonimă (țara, versiunea aplicației). Fără nume, notițe sau IP.": "仅发送匿名计数(国家、应用版本)。不含姓名、笔记或 IP。",
+"Ai un cod?": "有兑换码吗?",
+"Introdu codul": "输入兑换码",
+"Activează": "激活",
+"Cod activat: Super Class": "兑换码已激活:Super Class",
+"Cod invalid": "无效的兑换码",
+"Codul a fost deja folosit": "此兑换码已被使用",
+"Codul a expirat": "此兑换码已过期",
+"Super Class activ până la": "Super Class 有效期至",
+"Super Class activ pe viață": "Super Class 永久有效"
 };

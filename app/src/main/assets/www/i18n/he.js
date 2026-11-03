@@ -1465,5 +1465,16 @@ NOTIS_I18N={
 "Credit Casă": "משכנתה",
 "Credit Auto": "הלוואת רכב",
 "Plăți streaming": "תשלומי סטרימינג",
-"Mergi la final": "מעבר לסוף"
+"Mergi la final": "מעבר לסוף",
+"Contor anonim de instalări": "מונה התקנות אנונימי",
+"Trimite doar o numărătoare anonimă (țara, versiunea aplicației). Fără nume, notițe sau IP.": "שולח רק ספירה אנונימית (מדינה, גרסת האפליקציה). ללא שם, פתקים או IP.",
+"Ai un cod?": "יש לך קוד?",
+"Introdu codul": "הזן את הקוד",
+"Activează": "הפעל",
+"Cod activat: Super Class": "הקוד הופעל: Super Class",
+"Cod invalid": "קוד לא תקין",
+"Codul a fost deja folosit": "הקוד הזה כבר נוצל",
+"Codul a expirat": "תוקף הקוד פג",
+"Super Class activ până la": "Super Class פעיל עד",
+"Super Class activ pe viață": "Super Class פעיל לכל החיים"
 };

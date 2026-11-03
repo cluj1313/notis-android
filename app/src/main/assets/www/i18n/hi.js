@@ -1465,5 +1465,16 @@ NOTIS_I18N={
 "Credit Casă": "गृह ऋण",
 "Credit Auto": "कार ऋण",
 "Plăți streaming": "स्ट्रीमिंग भुगतान",
-"Mergi la final": "अंत तक जाएँ"
+"Mergi la final": "अंत तक जाएँ",
+"Contor anonim de instalări": "गुमनाम इंस्टॉल काउंटर",
+"Trimite doar o numărătoare anonimă (țara, versiunea aplicației). Fără nume, notițe sau IP.": "केवल एक गुमनाम गिनती भेजता है (देश, ऐप संस्करण)। कोई नाम, नोट या IP नहीं।",
+"Ai un cod?": "क्या आपके पास कोड है?",
+"Introdu codul": "कोड दर्ज करें",
+"Activează": "सक्रिय करें",
+"Cod activat: Super Class": "कोड सक्रिय: Super Class",
+"Cod invalid": "अमान्य कोड",
+"Codul a fost deja folosit": "यह कोड पहले ही इस्तेमाल हो चुका है",
+"Codul a expirat": "यह कोड समाप्त हो गया है",
+"Super Class activ până la": "Super Class सक्रिय तक",
+"Super Class activ pe viață": "Super Class आजीवन सक्रिय"
 };

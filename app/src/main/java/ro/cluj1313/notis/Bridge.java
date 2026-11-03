@@ -119,6 +119,8 @@ final class Bridge {
     @JavascriptInterface public void newsSeen(String id) { if (!MainActivity.trusted) return; NewsReceiver.seen(ctx, id); }
     @JavascriptInterface public boolean isNative() { if (!MainActivity.trusted) return false; return true; }
     @JavascriptInterface public String version() { if (!MainActivity.trusted) return ""; try { return ctx.getPackageManager().getPackageInfo(ctx.getPackageName(), 0).versionName; } catch (Exception e) { return ""; } }
+    /* 2.22.0: install source for the anonymous counter (apk|play) */
+    @JavascriptInterface public boolean isPlay() { return BuildConfig.PLAY; }
 
     /* 2.5.0: display settings mirrored in native prefs (committed to disk at once) so app updates can't roll them back */
     private static final java.util.Set<String> UIK = new java.util.HashSet<>(java.util.Arrays.asList("ns_nrowpad", "ns_sidemg", "ns_bgk", "ns_cardop", "ns_cardcol", "ns_bg", "ns_bgcol", "ns_theme", "ns_tabst", "ns_newssize", "ns_tabcol", "ns_font", "ns_ssaver", "ns_ssspd", "ns_tipoff", "ns_tipseen", "ns_tipi", "ns_labels"));

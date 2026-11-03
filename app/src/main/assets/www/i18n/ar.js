@@ -1465,5 +1465,16 @@ NOTIS_I18N={
 "Credit Casă": "قرض المنزل",
 "Credit Auto": "قرض السيارة",
 "Plăți streaming": "مدفوعات البث",
-"Mergi la final": "الانتقال إلى النهاية"
+"Mergi la final": "الانتقال إلى النهاية",
+"Contor anonim de instalări": "عدّاد تثبيت مجهول",
+"Trimite doar o numărătoare anonimă (țara, versiunea aplicației). Fără nume, notițe sau IP.": "يرسل عدًّا مجهولًا فقط (البلد، إصدار التطبيق). بلا اسم أو ملاحظات أو عنوان IP.",
+"Ai un cod?": "هل لديك رمز؟",
+"Introdu codul": "أدخل الرمز",
+"Activează": "تفعيل",
+"Cod activat: Super Class": "تم تفعيل الرمز: Super Class",
+"Cod invalid": "رمز غير صالح",
+"Codul a fost deja folosit": "تم استخدام هذا الرمز مسبقًا",
+"Codul a expirat": "انتهت صلاحية هذا الرمز",
+"Super Class activ până la": "Super Class مفعّل حتى",
+"Super Class activ pe viață": "Super Class مفعّل مدى الحياة"
 };

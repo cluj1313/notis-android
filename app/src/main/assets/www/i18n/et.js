@@ -1467,5 +1467,16 @@ NOTIS_I18N={
 "Credit Auto": "Autolaen",
 "Internet": "Internet",
 "Plăți streaming": "Voogedastuse maksed",
-"Mergi la final": "Mine lõppu"
+"Mergi la final": "Mine lõppu",
+"Contor anonim de instalări": "Anonüümne paigalduste loendur",
+"Trimite doar o numărătoare anonimă (țara, versiunea aplicației). Fără nume, notițe sau IP.": "Saadab ainult anonüümse loenduse (riik, rakenduse versioon). Ei nime, märkmeid ega IP-d.",
+"Ai un cod?": "Kas sul on kood?",
+"Introdu codul": "Sisesta kood",
+"Activează": "Aktiveeri",
+"Cod activat: Super Class": "Kood aktiveeritud: Super Class",
+"Cod invalid": "Vigane kood",
+"Codul a fost deja folosit": "Seda koodi on juba kasutatud",
+"Codul a expirat": "See kood on aegunud",
+"Super Class activ până la": "Super Class aktiivne kuni",
+"Super Class activ pe viață": "Super Class aktiivne eluaegselt"
 };

@@ -1466,5 +1466,16 @@ NOTIS_I18N={
 "Credit Auto": "Préstec del cotxe",
 "Internet": "Internet",
 "Plăți streaming": "Pagaments de streaming",
-"Mergi la final": "Ves al final"
+"Mergi la final": "Ves al final",
+"Contor anonim de instalări": "Comptador anònim d'instal·lacions",
+"Trimite doar o numărătoare anonimă (țara, versiunea aplicației). Fără nume, notițe sau IP.": "Només envia un recompte anònim (país, versió de l'app). Sense nom, notes ni IP.",
+"Ai un cod?": "Tens un codi?",
+"Introdu codul": "Escriu el codi",
+"Activează": "Activa",
+"Cod activat: Super Class": "Codi activat: Super Class",
+"Cod invalid": "Codi no vàlid",
+"Codul a fost deja folosit": "Aquest codi ja s’ha fet servir",
+"Codul a expirat": "Aquest codi ha caducat",
+"Super Class activ până la": "Super Class actiu fins al",
+"Super Class activ pe viață": "Super Class actiu per sempre"
 };

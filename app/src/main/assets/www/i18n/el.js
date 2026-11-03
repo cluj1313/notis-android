@@ -1465,5 +1465,16 @@ NOTIS_I18N={
 "Credit Casă": "Στεγαστικό δάνειο",
 "Credit Auto": "Δάνειο αυτοκινήτου",
 "Plăți streaming": "Πληρωμές streaming",
-"Mergi la final": "Μετάβαση στο τέλος"
+"Mergi la final": "Μετάβαση στο τέλος",
+"Contor anonim de instalări": "Ανώνυμος μετρητής εγκαταστάσεων",
+"Trimite doar o numărătoare anonimă (țara, versiunea aplicației). Fără nume, notițe sau IP.": "Στέλνει μόνο μια ανώνυμη καταμέτρηση (χώρα, έκδοση εφαρμογής). Χωρίς όνομα, σημειώσεις ή IP.",
+"Ai un cod?": "Έχεις κωδικό;",
+"Introdu codul": "Πληκτρολόγησε τον κωδικό",
+"Activează": "Ενεργοποίηση",
+"Cod activat: Super Class": "Ο κωδικός ενεργοποιήθηκε: Super Class",
+"Cod invalid": "Μη έγκυρος κωδικός",
+"Codul a fost deja folosit": "Αυτός ο κωδικός έχει ήδη χρησιμοποιηθεί",
+"Codul a expirat": "Αυτός ο κωδικός έχει λήξει",
+"Super Class activ până la": "Super Class ενεργό έως",
+"Super Class activ pe viață": "Super Class ενεργό εφ’ όρου ζωής"
 };

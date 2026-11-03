@@ -1465,5 +1465,16 @@ NOTIS_I18N={
 "Credit Casă": "وام مسکن",
 "Credit Auto": "وام خودرو",
 "Plăți streaming": "پرداخت‌های استریم",
-"Mergi la final": "رفتن به انتها"
+"Mergi la final": "رفتن به انتها",
+"Contor anonim de instalări": "شمارندهٔ ناشناس نصب",
+"Trimite doar o numărătoare anonimă (țara, versiunea aplicației). Fără nume, notițe sau IP.": "فقط یک شمارش ناشناس می‌فرستد (کشور، نسخهٔ برنامه). بدون نام، یادداشت یا IP.",
+"Ai un cod?": "کد داری؟",
+"Introdu codul": "کد را وارد کن",
+"Activează": "فعال‌سازی",
+"Cod activat: Super Class": "کد فعال شد: Super Class",
+"Cod invalid": "کد نامعتبر",
+"Codul a fost deja folosit": "این کد قبلاً استفاده شده",
+"Codul a expirat": "این کد منقضی شده",
+"Super Class activ până la": "Super Class فعال تا",
+"Super Class activ pe viață": "Super Class مادام‌العمر فعال"
 };

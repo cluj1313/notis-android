@@ -1466,5 +1466,16 @@ NOTIS_I18N={
 "Credit Auto": "Pinjaman kereta",
 "Internet": "Internet",
 "Plăți streaming": "Bayaran penstriman",
-"Mergi la final": "Pergi ke akhir"
+"Mergi la final": "Pergi ke akhir",
+"Contor anonim de instalări": "Pembilang pemasangan tanpa nama",
+"Trimite doar o numărătoare anonimă (țara, versiunea aplicației). Fără nume, notițe sau IP.": "Hanya menghantar kiraan tanpa nama (negara, versi aplikasi). Tiada nama, nota atau IP.",
+"Ai un cod?": "Ada kod?",
+"Introdu codul": "Masukkan kod",
+"Activează": "Aktifkan",
+"Cod activat: Super Class": "Kod diaktifkan: Super Class",
+"Cod invalid": "Kod tidak sah",
+"Codul a fost deja folosit": "Kod ini sudah digunakan",
+"Codul a expirat": "Kod ini telah tamat tempoh",
+"Super Class activ până la": "Super Class aktif sehingga",
+"Super Class activ pe viață": "Super Class aktif seumur hidup"
 };

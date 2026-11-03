@@ -1466,5 +1466,16 @@ NOTIS_I18N={
 "Credit Auto": "Vay mua xe",
 "Internet": "Internet",
 "Plăți streaming": "Thanh toán streaming",
-"Mergi la final": "Đến cuối"
+"Mergi la final": "Đến cuối",
+"Contor anonim de instalări": "Bộ đếm lượt cài đặt ẩn danh",
+"Trimite doar o numărătoare anonimă (țara, versiunea aplicației). Fără nume, notițe sau IP.": "Chỉ gửi một số đếm ẩn danh (quốc gia, phiên bản ứng dụng). Không tên, ghi chú hay IP.",
+"Ai un cod?": "Bạn có mã không?",
+"Introdu codul": "Nhập mã",
+"Activează": "Kích hoạt",
+"Cod activat: Super Class": "Đã kích hoạt mã: Super Class",
+"Cod invalid": "Mã không hợp lệ",
+"Codul a fost deja folosit": "Mã này đã được sử dụng",
+"Codul a expirat": "Mã này đã hết hạn",
+"Super Class activ până la": "Super Class hoạt động đến",
+"Super Class activ pe viață": "Super Class hoạt động trọn đời"
 };

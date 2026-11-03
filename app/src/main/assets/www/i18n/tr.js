@@ -1465,5 +1465,16 @@ NOTIS_I18N={
 "Credit Casă": "Konut kredisi",
 "Credit Auto": "Taşıt kredisi",
 "Plăți streaming": "Yayın ödemeleri",
-"Mergi la final": "Sona git"
+"Mergi la final": "Sona git",
+"Contor anonim de instalări": "Anonim kurulum sayacı",
+"Trimite doar o numărătoare anonimă (țara, versiunea aplicației). Fără nume, notițe sau IP.": "Yalnızca anonim bir sayım gönderir (ülke, uygulama sürümü). Ad, not veya IP yok.",
+"Ai un cod?": "Kodun var mı?",
+"Introdu codul": "Kodu gir",
+"Activează": "Etkinleştir",
+"Cod activat: Super Class": "Kod etkinleştirildi: Super Class",
+"Cod invalid": "Geçersiz kod",
+"Codul a fost deja folosit": "Bu kod zaten kullanıldı",
+"Codul a expirat": "Bu kodun süresi doldu",
+"Super Class activ până la": "Super Class şu tarihe kadar etkin:",
+"Super Class activ pe viață": "Super Class ömür boyu etkin"
 };

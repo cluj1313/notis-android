@@ -1466,5 +1466,16 @@ NOTIS_I18N={
 "Credit Casă": "Asuntolaina",
 "Credit Auto": "Autolaina",
 "Plăți streaming": "Suoratoistomaksut",
-"Mergi la final": "Siirry loppuun"
+"Mergi la final": "Siirry loppuun",
+"Contor anonim de instalări": "Anonyymi asennuslaskuri",
+"Trimite doar o numărătoare anonimă (țara, versiunea aplicației). Fără nume, notițe sau IP.": "Lähettää vain anonyymin laskennan (maa, sovellusversio). Ei nimeä, muistiinpanoja tai IP:tä.",
+"Ai un cod?": "Onko sinulla koodi?",
+"Introdu codul": "Syötä koodi",
+"Activează": "Aktivoi",
+"Cod activat: Super Class": "Koodi aktivoitu: Super Class",
+"Cod invalid": "Virheellinen koodi",
+"Codul a fost deja folosit": "Koodi on jo käytetty",
+"Codul a expirat": "Koodi on vanhentunut",
+"Super Class activ până la": "Super Class voimassa asti",
+"Super Class activ pe viață": "Super Class voimassa ikuisesti"
 };

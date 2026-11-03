@@ -1465,5 +1465,16 @@ NOTIS_I18N={
 "Credit Casă": "주택 대출",
 "Credit Auto": "자동차 대출",
 "Plăți streaming": "스트리밍 결제",
-"Mergi la final": "끝으로 이동"
+"Mergi la final": "끝으로 이동",
+"Contor anonim de instalări": "익명 설치 카운터",
+"Trimite doar o numărătoare anonimă (țara, versiunea aplicației). Fără nume, notițe sau IP.": "익명 집계(국가, 앱 버전)만 보냅니다. 이름, 메모, IP는 보내지 않습니다.",
+"Ai un cod?": "코드가 있나요?",
+"Introdu codul": "코드 입력",
+"Activează": "활성화",
+"Cod activat: Super Class": "코드 활성화됨: Super Class",
+"Cod invalid": "잘못된 코드",
+"Codul a fost deja folosit": "이미 사용된 코드입니다",
+"Codul a expirat": "만료된 코드입니다",
+"Super Class activ până la": "Super Class 활성 기한",
+"Super Class activ pe viață": "Super Class 평생 활성"
 };

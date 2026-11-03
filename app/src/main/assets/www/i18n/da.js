@@ -1465,5 +1465,16 @@ NOTIS_I18N={
 "Credit Casă": "Boliglån",
 "Credit Auto": "Billån",
 "Plăți streaming": "Streamingbetalinger",
-"Mergi la final": "Gå til slutningen"
+"Mergi la final": "Gå til slutningen",
+"Contor anonim de instalări": "Anonym installationstæller",
+"Trimite doar o numărătoare anonimă (țara, versiunea aplicației). Fără nume, notițe sau IP.": "Sender kun en anonym optælling (land, appversion). Intet navn, ingen noter eller IP.",
+"Ai un cod?": "Har du en kode?",
+"Introdu codul": "Indtast koden",
+"Activează": "Aktivér",
+"Cod activat: Super Class": "Kode aktiveret: Super Class",
+"Cod invalid": "Ugyldig kode",
+"Codul a fost deja folosit": "Koden er allerede brugt",
+"Codul a expirat": "Koden er udløbet",
+"Super Class activ până la": "Super Class aktiv indtil",
+"Super Class activ pe viață": "Super Class aktiv for livet"
 };

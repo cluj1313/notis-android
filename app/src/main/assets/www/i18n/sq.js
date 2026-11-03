@@ -1465,5 +1465,16 @@ NOTIS_I18N={
 "Credit Casă": "Kredi për shtëpi",
 "Credit Auto": "Kredi për makinë",
 "Plăți streaming": "Pagesa streaming",
-"Mergi la final": "Shko në fund"
+"Mergi la final": "Shko në fund",
+"Contor anonim de instalări": "Numërues anonim i instalimeve",
+"Trimite doar o numărătoare anonimă (țara, versiunea aplicației). Fără nume, notițe sau IP.": "Dërgon vetëm një numërim anonim (vendi, versioni i aplikacionit). Pa emër, shënime ose IP.",
+"Ai un cod?": "Ke një kod?",
+"Introdu codul": "Shkruaj kodin",
+"Activează": "Aktivizo",
+"Cod activat: Super Class": "Kodi u aktivizua: Super Class",
+"Cod invalid": "Kod i pavlefshëm",
+"Codul a fost deja folosit": "Ky kod është përdorur tashmë",
+"Codul a expirat": "Ky kod ka skaduar",
+"Super Class activ până la": "Super Class aktiv deri më",
+"Super Class activ pe viață": "Super Class aktiv përjetë"
 };
