@@ -1478,5 +1478,14 @@ NOTIS_I18N={
 "Codul a expirat": "Koodi on vanhentunut",
 "Super Class activ până la": "Super Class voimassa asti",
 "Super Class activ pe viață": "Super Class voimassa ikuisesti",
-"{name} e blocat": "{name} on lukittu"
+"{name} e blocat": "{name} on lukittu",
+"Unic": "Kerran",
+"Ore": "Tunnit",
+"Custom": "Oma",
+"X minute": "X min",
+"1 minut": "1 min",
+"X ore": "X t",
+"X zile": "X pv",
+"X s\u0103pt\u0103m\u00e2ni": "X vk",
+"X luni": "X kk"
 };

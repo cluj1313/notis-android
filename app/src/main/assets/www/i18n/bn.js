@@ -1477,5 +1477,14 @@ NOTIS_I18N={
 "Codul a expirat": "এই কোডের মেয়াদ শেষ",
 "Super Class activ până la": "Super Class সক্রিয় পর্যন্ত",
 "Super Class activ pe viață": "Super Class আজীবন সক্রিয়",
-"{name} e blocat": "{name} লক করা আছে"
+"{name} e blocat": "{name} লক করা আছে",
+"Unic": "একবার",
+"Ore": "ঘণ্টা",
+"Custom": "কাস্টম",
+"X minute": "X মিনিট",
+"1 minut": "১ মিনিট",
+"X ore": "X ঘণ্টা",
+"X zile": "X দিন",
+"X s\u0103pt\u0103m\u00e2ni": "X সপ্তাহ",
+"X luni": "X মাস"
 };

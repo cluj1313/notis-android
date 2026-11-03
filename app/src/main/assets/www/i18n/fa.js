@@ -1477,5 +1477,14 @@ NOTIS_I18N={
 "Codul a expirat": "این کد منقضی شده",
 "Super Class activ până la": "Super Class فعال تا",
 "Super Class activ pe viață": "Super Class مادام‌العمر فعال",
-"{name} e blocat": "{name} قفل است"
+"{name} e blocat": "{name} قفل است",
+"Unic": "یک‌بار",
+"Ore": "ساعت",
+"Custom": "سفارشی",
+"X minute": "X دقیقه",
+"1 minut": "۱ دقیقه",
+"X ore": "X ساعت",
+"X zile": "X روز",
+"X s\u0103pt\u0103m\u00e2ni": "X هفته",
+"X luni": "X ماه"
 };

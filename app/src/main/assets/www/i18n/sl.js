@@ -1478,5 +1478,14 @@ NOTIS_I18N={
 "Codul a expirat": "Ta koda je potekla",
 "Super Class activ până la": "Super Class aktiven do",
 "Super Class activ pe viață": "Super Class aktiven doživljenjsko",
-"{name} e blocat": "{name} je zaklenjeno"
+"{name} e blocat": "{name} je zaklenjeno",
+"Unic": "Enkrat",
+"Ore": "Ure",
+"Custom": "Po meri",
+"X minute": "X min",
+"1 minut": "1 min",
+"X ore": "X h",
+"X zile": "X dni",
+"X s\u0103pt\u0103m\u00e2ni": "X tednov",
+"X luni": "X mes."
 };

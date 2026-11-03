@@ -1477,5 +1477,14 @@ NOTIS_I18N={
 "Codul a expirat": "Αυτός ο κωδικός έχει λήξει",
 "Super Class activ până la": "Super Class ενεργό έως",
 "Super Class activ pe viață": "Super Class ενεργό εφ’ όρου ζωής",
-"{name} e blocat": "Το {name} είναι κλειδωμένο"
+"{name} e blocat": "Το {name} είναι κλειδωμένο",
+"Unic": "Μία φορά",
+"Ore": "Ώρες",
+"Custom": "Προσαρμ.",
+"X minute": "X λεπτά",
+"1 minut": "1 λεπτό",
+"X ore": "X ώρες",
+"X zile": "X ημέρες",
+"X s\u0103pt\u0103m\u00e2ni": "X εβδομάδες",
+"X luni": "X μήνες"
 };

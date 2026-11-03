@@ -1479,5 +1479,14 @@ NOTIS_I18N={
 "Codul a expirat": "See kood on aegunud",
 "Super Class activ până la": "Super Class aktiivne kuni",
 "Super Class activ pe viață": "Super Class aktiivne eluaegselt",
-"{name} e blocat": "{name} on lukus"
+"{name} e blocat": "{name} on lukus",
+"Unic": "Ühekordne",
+"Ore": "Tunnid",
+"Custom": "Kohandatud",
+"X minute": "X min",
+"1 minut": "1 min",
+"X ore": "X h",
+"X zile": "X päeva",
+"X s\u0103pt\u0103m\u00e2ni": "X nädalat",
+"X luni": "X kuud"
 };

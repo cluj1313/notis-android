@@ -1477,5 +1477,14 @@ NOTIS_I18N={
 "Codul a expirat": "このコードは期限切れです",
 "Super Class activ până la": "Super Class 有効期限",
 "Super Class activ pe viață": "Super Class 永久に有効",
-"{name} e blocat": "{name}はロックされています"
+"{name} e blocat": "{name}はロックされています",
+"Unic": "1回",
+"Ore": "時間",
+"Custom": "カスタム",
+"X minute": "X分",
+"1 minut": "1分",
+"X ore": "X時間",
+"X zile": "X日",
+"X s\u0103pt\u0103m\u00e2ni": "X週間",
+"X luni": "Xか月"
 };

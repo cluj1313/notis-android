@@ -41,7 +41,7 @@ TR.x=function(s){var D=NOTIS_I18N,m,r,i;if(Object.prototype.hasOwnProperty.call(
  for(i=0;i<NOTIS_I18N_RX.length;i++){var x=NOTIS_I18N_RX[i];x[0].lastIndex=0;if(x[0].test(s)){x[0].lastIndex=0;return s.replace(x[0],function(){var g=arguments;return x[1].replace(/\$(\d)/g,function(_,k){var v=g[+k]||'';var q=TR.x(v);return q==null?v:q})})}}
  return null};
 /* DOM pass: static HTML + HTML built from strings. User content (note text, tab/folder names, inputs) is never touched. */
-if(NL!=='ro')(function(){var SKIP='.ux,textarea,input,select option[data-u],.t,.nsnip,.nstab,.ntab,.fcrumb,.fcb,.fil,.nfo .t,#nfBlocks,#nfItems,#alTask,#alfTask,[data-mv],[data-fmv],.nbt,script,style,svg';
+if(NL!=='ro')(function(){var SKIP='.ux,textarea,input,select option[data-u],.t,.nsnip,.nstab,.ntab,.fcrumb,.fcb,.fil,.nfo .t,#nfBlocks,#nfItems,#alTask,#alfTask,#alChips,#alWd,[data-mv],[data-fmv],.nbt,script,style,svg';
  var AT=['aria-label','title','placeholder','alt'];
  function txt(n){var p=n.parentNode;if(!p||p.nodeType!==1||p.closest(SKIP))return;var v=n.nodeValue;if(!v||!/\S/.test(v)||!/\p{L}/u.test(v))return;var r=TR.x(v);if(r!=null&&r!==v)n.nodeValue=r}
  function el(e){if(e.hasAttribute('data-u'))return;for(var i=0;i<AT.length;i++){var a=e.getAttribute(AT[i]);if(a){var r=TR.x(a);if(r!=null&&r!==a)e.setAttribute(AT[i],r)}}}
@@ -178,6 +178,11 @@ ul.tasks{list-style:none;margin:0;padding:0}
 .task .al small{font-size:9.5px;margin-top:2px;white-space:nowrap;color:var(--cyan)}
 .task.editing .al{display:none}
 .alseg{display:flex;gap:8px}.alseg .btn,.alc{flex:1}
+.alseg .btn{min-width:0;padding-left:4px;padding-right:4px;font-weight:400;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.aldw{position:relative;display:flex;flex:1;min-width:0}.aldw input{flex:1}
+#alDate,#alUDate{color:transparent}#alDate::-webkit-datetime-edit,#alUDate::-webkit-datetime-edit{color:transparent}
+.aldt{position:absolute;left:9px;top:50%;transform:translateY(-50%);pointer-events:none;font-size:15px;font-weight:300;color:var(--txt);white-space:nowrap}
+.alcu{display:flex;gap:8px;align-items:center}.alcu input{width:72px!important;flex:0 0 72px;text-align:center}.alcu select{flex:1;min-width:0;height:34px;padding:0 8px!important}
 .alseg .btn.on,.alc.on{border-color:rgba(var(--acR),.7);background:rgba(var(--acR),.14);color:var(--cyan)}
 .alchips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
 .alc{flex:0 0 auto;background:rgba(var(--s2R),.6);border:1px solid var(--line);color:var(--txt);border-radius:999px;padding:7px 11px;font:inherit;font-size:13px;cursor:pointer}
@@ -1283,13 +1288,14 @@ html[data-font] body,html[data-font] button,html[data-font] input,html[data-font
 </div></div>
 <div class="modal" id="alModal"><div class="card"><div class="lbl"><span>⏰ Alarmă</span></div>
  <div class="field" style="color:var(--mut);font-size:14px" id="alTask"></div>
- <div class="field"><label>Data și ora</label><div class="al2"><input type="date" id="alDate"><input type="time" id="alTime"></div></div>
- <div class="field"><label>Tip</label><div class="alseg"><button type="button" class="btn" id="alT1">Unică</button><button type="button" class="btn" id="alT2">Repetiție oră</button><button type="button" class="btn" id="alT3">Repetiție zile</button></div></div>
+ <div class="field"><label>Data și ora</label><div class="al2"><span class="aldw"><input type="date" id="alDate"><span class="aldt" id="alDateTx"></span></span><input type="time" id="alTime"></div></div>
+ <div class="field"><label>Tip</label><div class="alseg"><button type="button" class="btn" id="alT1">Unic</button><button type="button" class="btn" id="alT2">Ore</button><button type="button" class="btn" id="alT3">Zile</button><button type="button" class="btn" id="alT4">Custom</button></div></div>
  <div id="alRepBox"><div class="field"><label>Repetă la fiecare</label><div class="alchips" id="alChips"></div><input type="number" id="alMin" min="1" inputmode="numeric" placeholder="sau ore (ex. 1.5)" step="0.5"></div></div>
  <div id="alDayBox"><div class="field"><label>La fiecare câte zile</label><input type="number" id="alDays" min="1" max="365" inputmode="numeric" value="1"></div><div class="field"><label>În zilele (opțional)</label><div class="alchips" id="alWd"></div></div></div>
+ <div id="alCuBox"><div class="field"><label>Repetă la fiecare</label><div class="alcu"><input type="number" id="alCuN" min="1" max="999" inputmode="numeric" value="3"><select id="alCuU"></select></div></div></div>
  <div id="alEndBox">
  <div class="field"><label>Sfârșit</label><select id="alEnd"><option value="none">Fără sfârșit</option><option value="until">Până la…</option></select>
- <div class="al2" id="alUntilBox" style="margin-top:8px"><input type="date" id="alUDate"><input type="time" id="alUTime"></div></div></div>
+ <div class="al2" id="alUntilBox" style="margin-top:8px"><span class="aldw"><input type="date" id="alUDate"><span class="aldt" id="alUDateTx"></span></span><input type="time" id="alUTime"></div></div></div>
  <div class="mrow"><button type="button" class="btn" id="alDel">Șterge alarma</button><button type="button" class="btn" id="alCancel">Anulează</button><button type="button" class="btn" id="alSave">Salvează</button></div>
 </div></div>
 <div class="modal" id="alFire"><div class="card"><div class="lbl"><span>⏰ Alarmă</span></div><div id="alfTask"></div>

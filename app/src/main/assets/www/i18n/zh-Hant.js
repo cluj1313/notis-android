@@ -1477,5 +1477,14 @@ NOTIS_I18N={
 "Codul a expirat": "此兌換碼已過期",
 "Super Class activ până la": "Super Class 有效期至",
 "Super Class activ pe viață": "Super Class 永久有效",
-"{name} e blocat": "{name}已鎖定"
+"{name} e blocat": "{name}已鎖定",
+"Unic": "單次",
+"Ore": "小時",
+"Custom": "自訂",
+"X minute": "X分鐘",
+"1 minut": "1分鐘",
+"X ore": "X小時",
+"X zile": "X天",
+"X s\u0103pt\u0103m\u00e2ni": "X週",
+"X luni": "X個月"
 };

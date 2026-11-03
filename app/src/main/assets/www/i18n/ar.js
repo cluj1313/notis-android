@@ -1477,5 +1477,14 @@ NOTIS_I18N={
 "Codul a expirat": "انتهت صلاحية هذا الرمز",
 "Super Class activ până la": "Super Class مفعّل حتى",
 "Super Class activ pe viață": "Super Class مفعّل مدى الحياة",
-"{name} e blocat": "{name} مقفل"
+"{name} e blocat": "{name} مقفل",
+"Unic": "مرة واحدة",
+"Ore": "ساعات",
+"Custom": "مخصص",
+"X minute": "X دقيقة",
+"1 minut": "دقيقة واحدة",
+"X ore": "X ساعة",
+"X zile": "X يوم",
+"X s\u0103pt\u0103m\u00e2ni": "X أسبوع",
+"X luni": "X شهر"
 };

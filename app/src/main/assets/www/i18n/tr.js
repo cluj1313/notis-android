@@ -1477,5 +1477,14 @@ NOTIS_I18N={
 "Codul a expirat": "Bu kodun süresi doldu",
 "Super Class activ până la": "Super Class şu tarihe kadar etkin:",
 "Super Class activ pe viață": "Super Class ömür boyu etkin",
-"{name} e blocat": "{name} kilitli"
+"{name} e blocat": "{name} kilitli",
+"Unic": "Tek",
+"Ore": "Saat",
+"Custom": "Özel",
+"X minute": "X dakika",
+"1 minut": "1 dakika",
+"X ore": "X saat",
+"X zile": "X gün",
+"X s\u0103pt\u0103m\u00e2ni": "X hafta",
+"X luni": "X ay"
 };

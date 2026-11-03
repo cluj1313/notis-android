@@ -1477,5 +1477,14 @@ NOTIS_I18N={
 "Codul a expirat": "만료된 코드입니다",
 "Super Class activ până la": "Super Class 활성 기한",
 "Super Class activ pe viață": "Super Class 평생 활성",
-"{name} e blocat": "{name}이(가) 잠겨 있습니다"
+"{name} e blocat": "{name}이(가) 잠겨 있습니다",
+"Unic": "한 번",
+"Ore": "시간",
+"Custom": "사용자 지정",
+"X minute": "X분",
+"1 minut": "1분",
+"X ore": "X시간",
+"X zile": "X일",
+"X s\u0103pt\u0103m\u00e2ni": "X주",
+"X luni": "X개월"
 };

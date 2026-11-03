@@ -1478,5 +1478,14 @@ NOTIS_I18N={
 "Codul a expirat": "Mã này đã hết hạn",
 "Super Class activ până la": "Super Class hoạt động đến",
 "Super Class activ pe viață": "Super Class hoạt động trọn đời",
-"{name} e blocat": "{name} đang bị khóa"
+"{name} e blocat": "{name} đang bị khóa",
+"Unic": "Một lần",
+"Ore": "Giờ",
+"Custom": "Tùy chỉnh",
+"X minute": "X phút",
+"1 minut": "1 phút",
+"X ore": "X giờ",
+"X zile": "X ngày",
+"X s\u0103pt\u0103m\u00e2ni": "X tuần",
+"X luni": "X tháng"
 };

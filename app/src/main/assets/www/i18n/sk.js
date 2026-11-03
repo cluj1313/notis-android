@@ -1479,5 +1479,14 @@ NOTIS_I18N={
 "Codul a expirat": "Platnosť kódu vypršala",
 "Super Class activ până la": "Super Class aktívne do",
 "Super Class activ pe viață": "Super Class aktívne doživotne",
-"{name} e blocat": "{name} je zamknuté"
+"{name} e blocat": "{name} je zamknuté",
+"Unic": "Raz",
+"Ore": "Hodiny",
+"Custom": "Vlastné",
+"X minute": "X min",
+"1 minut": "1 min",
+"X ore": "X hod.",
+"X zile": "X dní",
+"X s\u0103pt\u0103m\u00e2ni": "X týž.",
+"X luni": "X mes."
 };

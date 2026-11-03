@@ -1477,5 +1477,14 @@ NOTIS_I18N={
 "Codul a expirat": "Šio kodo galiojimas baigėsi",
 "Super Class activ până la": "Super Class aktyvus iki",
 "Super Class activ pe viață": "Super Class aktyvus visam laikui",
-"{name} e blocat": "{name} užrakinta"
+"{name} e blocat": "{name} užrakinta",
+"Unic": "Vienkartinis",
+"Ore": "Valandos",
+"Custom": "Pasirinktinis",
+"X minute": "X min.",
+"1 minut": "1 min.",
+"X ore": "X val.",
+"X zile": "X d.",
+"X s\u0103pt\u0103m\u00e2ni": "X sav.",
+"X luni": "X mėn."
 };

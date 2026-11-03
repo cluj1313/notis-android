@@ -1477,5 +1477,14 @@ NOTIS_I18N={
 "Codul a expirat": "โค้ดนี้หมดอายุแล้ว",
 "Super Class activ până la": "Super Class ใช้งานได้ถึง",
 "Super Class activ pe viață": "Super Class ใช้งานได้ตลอดชีพ",
-"{name} e blocat": "{name} ถูกล็อกอยู่"
+"{name} e blocat": "{name} ถูกล็อกอยู่",
+"Unic": "ครั้งเดียว",
+"Ore": "ชั่วโมง",
+"Custom": "กำหนดเอง",
+"X minute": "X นาที",
+"1 minut": "1 นาที",
+"X ore": "X ชั่วโมง",
+"X zile": "X วัน",
+"X s\u0103pt\u0103m\u00e2ni": "X สัปดาห์",
+"X luni": "X เดือน"
 };

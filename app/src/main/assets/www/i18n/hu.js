@@ -1478,5 +1478,14 @@ NOTIS_I18N={
 "Codul a expirat": "Ez a kód lejárt",
 "Super Class activ până la": "Super Class aktív eddig:",
 "Super Class activ pe viață": "Super Class élethosszig aktív",
-"{name} e blocat": "{name} zárolva van"
+"{name} e blocat": "{name} zárolva van",
+"Unic": "Egyszeri",
+"Ore": "Órák",
+"Custom": "Egyéni",
+"X minute": "X perc",
+"1 minut": "1 perc",
+"X ore": "X óra",
+"X zile": "X nap",
+"X s\u0103pt\u0103m\u00e2ni": "X hét",
+"X luni": "X hónap"
 };

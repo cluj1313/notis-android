@@ -1110,25 +1110,35 @@ function alAll(){var a=[];tasks.forEach(function(t){if(!t.deleted)a.push({r:{k:'
 function alChips(){var box=$('alChips');box.innerHTML='';[[30,TR('30 min')],[60,TR('1 oră')],[120,TR('2 ore')],[240,TR('4 ore')],[360,TR('6 ore')],[480,TR('8 ore')],[720,TR('12 ore')],[1440,TR('24 ore')]].forEach(function(c){
  var b=document.createElement('button');b.type='button';b.className='alc'+(alRep===c[0]?' on':'');b.textContent=c[1];b.onclick=function(){alRep=c[0];$('alMin').value='';alChips()};box.appendChild(b)})}
 var alWdM=0,alMode=0;
-function alType(m){m=m===true?1:m||0;alMode=m;$('alT1').classList.toggle('on',!m);$('alT2').classList.toggle('on',m===1);$('alT3').classList.toggle('on',m===2);$('alRepBox').style.display=m===1?'':'none';$('alDayBox').style.display=m===2?'':'none';$('alEndBox').style.display=m?'':'none'}
+function alType(m){m=m===true?1:m||0;alMode=m;$('alT1').classList.toggle('on',!m);$('alT2').classList.toggle('on',m===1);$('alT3').classList.toggle('on',m===2);$('alT4').classList.toggle('on',m===3);$('alRepBox').style.display=m===1?'':'none';$('alDayBox').style.display=m===2?'':'none';$('alCuBox').style.display=m===3?'':'none';$('alEndBox').style.display=m?'':'none'}
 function alWdUI(){var box=$('alWd');box.innerHTML='';[1,2,3,4,5,6,0].forEach(function(d){var b=document.createElement('button');b.type='button';b.className='alc'+(alWdM&(1<<d)?' on':'');b.textContent=ZILE_S[d];b.onclick=function(){alWdM^=(1<<d);alWdUI()};box.appendChild(b)});$('alDays').disabled=!!alWdM;$('alDays').style.opacity=alWdM?.4:1}
 /* v118: day repeats keep the local clock time (DST-safe): a.rd = every N days, a.wd = weekday bitmask (bit0 = Sunday); a.rep stays as minutes for older readers */
-function alRollA(a,at,now){if(!a)return at;now=now||Date.now();if(at>now&&!(a.wd&&!(a.wd&(1<<new Date(at).getDay()))))return at;
+/* v198: custom repeat a.cu={n,u} (u: mi|h|d|w|mo); months use a.repM + a.dom (same as payments, native rollMonths) */
+function alRollM(at,M,dom,now){if(at>now)return at;var d=new Date(at),h=d.getHours(),mi=d.getMinutes(),y=d.getFullYear(),m=d.getMonth();dom=dom||d.getDate();for(var k=0;k<2400;k++){m+=M;var x=new Date(y,m,1,h,mi,0,0),ml=new Date(y,m+1,0).getDate();x.setDate(Math.min(dom,ml));if(x.getTime()>now)return x.getTime()}return at}
+var AL_CU={mi:['X minute','1 minut'],h:['X ore','1 oră'],d:['X zile','1 zi'],w:['X săptămâni','1 săptămână'],mo:['X luni','1 lună']};
+function alCuTxt(c){var k=AL_CU[c.u]||AL_CU.d,n=Math.max(1,c.n|0);return n===1?TR(k[1]):TR(k[0]).replace('X',n)}
+function alRollA(a,at,now){if(!a)return at;now=now||Date.now();if(a.repM>0)return alRollM(at,a.repM|0,a.dom|0,now);if(at>now&&!(a.wd&&!(a.wd&(1<<new Date(at).getDay()))))return at;
  if(a.wd||a.rd){var d=new Date(at),h=d.getHours(),mi=d.getMinutes(),st=a.wd?1:Math.max(1,a.rd|0);for(var k=0;k<4000;k++){d.setDate(d.getDate()+st);d.setHours(h,mi,0,0);var x=d.getTime();if(x>now&&(!a.wd||a.wd&(1<<d.getDay())))return x}return at}
  return a.rep?alRoll(at,a.rep):at}
-function alRepTxt(a){if(!a||!a.rep)return '';if(a.wd){var L=[];[1,2,3,4,5,6,0].forEach(function(d){if(a.wd&(1<<d))L.push(ZILE_S[d])});return TR('Repetiție zile')+': '+L.join(' ')}if(a.rd)return TR('Repetiție zile')+': '+a.rd;return TR('Repetiție oră')+': '+(Math.round(a.rep/6)/10)+'h'}
+function alRepTxt(a){if(!a||!a.rep)return '';if(a.cu&&a.cu.n)return TR('Custom')+': '+alCuTxt(a.cu);if(a.wd){var L=[];[1,2,3,4,5,6,0].forEach(function(d){if(a.wd&(1<<d))L.push(ZILE_S[d])});return TR('Repetiție zile')+': '+L.join(' ')}if(a.rd)return TR('Repetiție zile')+': '+a.rd;return TR('Repetiție oră')+': '+(Math.round(a.rep/6)/10)+'h'}
+/* v198: date shown DD/MM/YYYY whatever the phone locale; the input value stays YYYY-MM-DD */
+function alDmy(v){var p=String(v||'').split('-');return p.length===3?p[2]+'/'+p[1]+'/'+p[0]:''}
+function alDtUI(){$('alDateTx').textContent=alDmy($('alDate').value);$('alUDateTx').textContent=alDmy($('alUDate').value)}
+function alCuOpts(){var S=$('alCuU'),v=S.value;S.innerHTML='';['mi','h','d','w','mo'].forEach(function(u){var o=document.createElement('option');o.value=u;o.setAttribute('data-u','1');o.textContent=TR(AL_CU[u][0]).replace('X','').trim();S.appendChild(o)});if(v)S.value=v}
 function alFull(ms){return fDate(new Date(ms),1)}
 function alEndUI(){$('alUntilBox').style.display=$('alEnd').value==='until'?'':'none'}
 function openAlarm(r){var t=alGet(r);if(!t)return;var a=t.alarm||{};alId=r;$('alTask').textContent=t.lock?(t.ltitle||TR('Notiță blocată')):t.text;
  var at=a.at||(Date.now()+3600000-Date.now()%60000),L=alLocal(at);$('alDate').value=L.d;$('alTime').value=L.t;
- var dm=!!(a.rep&&(a.rd||a.wd));alRep=a.rep&&!dm?a.rep:120;var pre=[30,60,120,240,360,480,720,1440].indexOf(alRep)>=0;$('alMin').value=pre?'':Math.round(alRep/6)/10;alChips();alWdM=a.wd||0;$('alDays').value=a.rd||1;alWdUI();alType(!a.rep?0:dm?2:1);
- $('alEnd').value=a.until?'until':'none';var U=alLocal(a.until||at+86400000);$('alUDate').value=U.d;$('alUTime').value=U.t;alEndUI();
+ var dm=!!(a.rep&&(a.rd||a.wd));alRep=a.rep&&!dm?a.rep:120;var pre=[30,60,120,240,360,480,720,1440].indexOf(alRep)>=0;$('alMin').value=pre?'':Math.round(alRep/6)/10;alChips();alWdM=a.wd||0;$('alDays').value=a.rd||1;alWdUI();var cu=a.rep&&a.cu&&AL_CU[a.cu.u]?a.cu:null;$('alCuN').value=cu?cu.n:3;$('alCuU').value=cu?cu.u:'d';alType(cu?3:!a.rep?0:dm?2:1);alDtUI();
+ $('alEnd').value=a.until?'until':'none';var U=alLocal(a.until||at+86400000);$('alUDate').value=U.d;$('alUTime').value=U.t;alEndUI();alDtUI();alCuOpts();
  $('alDel').style.display=t.alarm?'':'none';$('alModal').classList.add('show')}
 function closeAlarm(){$('alModal').classList.remove('show');alId=null}
 function alSave(){var t=alGet(alId);if(!t)return closeAlarm();var at=alParse($('alDate').value,$('alTime').value);if(!at){toast(TR('Alege data și ora'));return}
  var hv=parseFloat(String($('alMin').value).replace(',','.')),rd=0,wd=0,rep=alMode===1?(hv>0?Math.round(hv*60):alRep):0;if(alMode===2){wd=alWdM;rd=wd?0:Math.max(0,Math.round(+$('alDays').value));if(!wd&&!rd){toast(TR('Interval invalid'));return}rep=wd?1440:rd*1440}if(alMode===1&&!(rep>=1)){toast(TR('Interval invalid'));return}
+ var cu=null,repM=0;if(alMode===3){var cn=Math.round(+$('alCuN').value),cuU=$('alCuU').value;if(!(cn>=1&&cn<=999)||!AL_CU[cuU]){toast(TR('Interval invalid'));return}cu={n:cn,u:cuU};
+  if(cuU==='mi')rep=cn;else if(cuU==='h')rep=cn*60;else if(cuU==='d'){rd=cn;rep=cn*1440}else if(cuU==='w'){rd=cn*7;rep=rd*1440}else{repM=cn;rep=cn*43200}}
  var until=rep&&$('alEnd').value==='until'?alParse($('alUDate').value,$('alUTime').value):null;
- var na={at:at,rep:rep,until:until||null,snz:null};if(rd)na.rd=rd;if(wd)na.wd=wd;if(rep)at=na.at=alRollA(na,at,Date.now());if(!rep&&at<Date.now()-30000){toast(TR('Ora a trecut deja'));return}
+ var na={at:at,rep:rep,until:until||null,snz:null};if(rd)na.rd=rd;if(wd)na.wd=wd;if(repM){na.repM=repM;na.dom=new Date(at).getDate()}if(cu)na.cu=cu;if(rep)at=na.at=alRollA(na,at,Date.now());if(!rep&&at<Date.now()-30000){toast(TR('Ora a trecut deja'));return}
  t.alarm=na;alPersist(alId);closeAlarm();toast(TR('Alarmă setată · ')+alShort(at));
  alPerm();alSchedule(t)}
 function alRoll(at,rep){var now=Date.now(),st=rep*60000;if(at>now)return at;return at+Math.ceil((now-at+1)/st)*st}
@@ -1163,7 +1173,7 @@ function alCheck(){var now=Date.now(),chg=[];alAll().forEach(function(e){var t=e
  if(a.snz&&a.snz<=now){a.snz=null;if(a.at>now)return}
  if(a.rep){a.at=alRollA(a,a.at,now);if(a.until&&a.at>a.until)delete t.alarm;else alSchedule(t)}else delete t.alarm});
  var ks={};chg.forEach(function(r){var key=r.k+(r.tab||'');if(!ks[key]){ks[key]=1;alPersist(r,true)}})}
-function alInit(){$('alT1').onclick=function(){alType(0)};$('alT2').onclick=function(){alType(1)};$('alT3').onclick=function(){alType(2)};$('alEnd').onchange=alEndUI;
+function alInit(){$('alT1').onclick=function(){alType(0)};$('alT2').onclick=function(){alType(1)};$('alT3').onclick=function(){alType(2)};$('alT4').onclick=function(){alType(3)};$('alDate').oninput=$('alDate').onchange=$('alUDate').oninput=$('alUDate').onchange=alDtUI;alCuOpts();$('alEnd').onchange=alEndUI;
  $('alMin').oninput=function(){var v=parseFloat(String(this.value).replace(',','.'));if(v>0){alRep=Math.round(v*60);alChips()}};
  $('alSave').onclick=alSave;$('alDel').onclick=alDelete;$('alCancel').onclick=closeAlarm;
  $('alOff').onclick=function(){alStop(false)};$('alSnz').onclick=function(){alStop(10)};$('alSnz20').onclick=function(){alStop(20)};$('alSnz30').onclick=function(){alStop(30)};
@@ -2605,7 +2615,7 @@ if(window.launchQueue&&launchQueue.setConsumer)launchQueue.setConsumer(function(
 /* v40/v41: bridge to the native Android app (home-screen widgets). Only active when window.NotisNative exists. */
 (function(){var N=window.NotisNative;if(!N||!N.saveSnapshot||DEMO)return; /* demo never reaches widgets/alarms */var T=null;
  function title(n){var t=n.type==='check'?(n.title||''):'';if(!t.trim())t=String(n.text||'').split('\n').filter(function(x){return x.trim()})[0]||'';return t.trim().slice(0,80)}
- function al(n){var a=n.alarm;return a&&a.at?{at:a.at,rep:a.rep||0,until:a.until||null,snz:a.snz||null,rd:a.rd||0,wd:a.wd||0}:null}
+ function al(n){var a=n.alarm;return a&&a.at?{at:a.at,rep:a.rep||0,until:a.until||null,snz:a.snz||null,rd:a.rd||0,wd:a.wd||0,repM:a.repM||0,dom:a.dom||0}:null}
  function snap(){var L=[],NS=[];notes.forEach(function(n){if(n.del||n.lock||(n.fd&&(!fdAlive(n.fd)||fdLocked(n.fd)))||(findNT(n.tab)||{}).lk)return;var it=[];
    var base=n.createdAt||n.ts||'';function W(x,raw,b){var o={i:x.id,t:String(x.text||'').trim(),d:!!x.done,o:raw.indexOf(x),c:x.createdAt||base,u:x.updatedAt||x.createdAt||base};if(b)o.b=b;return o}
    if(n.type==='check')chkOrder(n).forEach(function(x){if(String(x.text||'').trim())it.push(W(x,n.items||[]))});
@@ -2630,7 +2640,7 @@ if(window.launchQueue&&launchQueue.setConsumer)launchQueue.setConsumer(function(
   if(op==='dn'){n.del=now;n.delTab=n.tab;return true}
   /* v95: widget edit — text note (en) / list item (ei), same id, alarm, done state and position */
   if(op==='en'){var tx=String(c.text||'');if((n.type&&n.type!=='text')||!tx.trim()||n.text===tx)return false;n.text=tx;n.updatedAt=n.editedAt=now;return true}
-  if(op==='al'){if(c.a&&c.a.at){var o0=n.alarm;n.alarm={at:+c.a.at,rep:+c.a.rep||0,until:c.a.until||null,snz:null};if(o0&&o0.rep&&o0.rep===n.alarm.rep){if(o0.rd)n.alarm.rd=o0.rd;if(o0.wd)n.alarm.wd=o0.wd}}else if(n.alarm)delete n.alarm;else return false;try{alSchedule(n)}catch(_){}return true}
+  if(op==='al'){if(c.a&&c.a.at){var o0=n.alarm;n.alarm={at:+c.a.at,rep:+c.a.rep||0,until:c.a.until||null,snz:null};if(o0&&o0.rep&&o0.rep===n.alarm.rep){if(o0.rd)n.alarm.rd=o0.rd;if(o0.wd)n.alarm.wd=o0.wd;if(o0.repM){n.alarm.repM=o0.repM;n.alarm.dom=o0.dom}if(o0.cu)n.alarm.cu=o0.cu}}else if(n.alarm)delete n.alarm;else return false;try{alSchedule(n)}catch(_){}return true}
   if(op==='ar'){var A=n.alarm;if(!A||!A.at||A.at>c.at)return false;if(A.snz&&A.snz<=c.at)A.snz=null;if(A.rep){A.at=alRollA(A,A.at,Math.max(c.at,A.at));if(A.at<Date.now())A.at=alRollA(A,A.at,Date.now());if(A.until&&A.at>A.until)delete n.alarm}else delete n.alarm;return true}
   var arr=chkArr(n,c.b,op==='ai');if(!arr)return false;
   if(op==='ei'){var et=String(c.t||'').trim(),eh=false;if(!et)return false;arr.forEach(function(x){if(x.id===c.i&&String(x.text||'').trim()!==et){x.text=et;x.updatedAt=now;eh=true}});if(eh)touch(n);return eh}

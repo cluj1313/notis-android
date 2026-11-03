@@ -1477,5 +1477,14 @@ NOTIS_I18N={
 "Codul a expirat": "תוקף הקוד פג",
 "Super Class activ până la": "Super Class פעיל עד",
 "Super Class activ pe viață": "Super Class פעיל לכל החיים",
-"{name} e blocat": "{name} נעול"
+"{name} e blocat": "{name} נעול",
+"Unic": "חד־פעמי",
+"Ore": "שעות",
+"Custom": "מותאם",
+"X minute": "X דקות",
+"1 minut": "דקה אחת",
+"X ore": "X שעות",
+"X zile": "X ימים",
+"X s\u0103pt\u0103m\u00e2ni": "X שבועות",
+"X luni": "X חודשים"
 };
