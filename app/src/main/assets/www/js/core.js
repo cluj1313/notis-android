@@ -1698,8 +1698,11 @@ function ntChipShow(){var c=document.querySelector('#noteTabs .ntab.on');if(c)tr
 function ntGo(d){var VT=noteTabs.filter(function(t){return !t.off}),i=VT.findIndex(function(t){return t.id===noteTab}),j=i+d;if(i<0||j<0||j>=VT.length)return false;if(draftId)draftFinish();noteTab=VT[j].id;saveNotes();renderNotes();ntChipShow();
  var ul=$('notesList');ul.classList.remove('nsw-l','nsw-r');void ul.offsetWidth;ul.classList.add(d>0?'nsw-l':'nsw-r');setTimeout(function(){ul.classList.remove('nsw-l','nsw-r')},200);return true}
 window.ntGo=ntGo;
+/* v196: a swipe starting inside a horizontally scrollable area (Glicemie table etc.) scrolls it, never switches tabs */
+function nHScr(t){for(var e=t;e&&e.nodeType===1&&e!==document.body;e=e.parentElement){if(e.id==='notesPg')return false;if(e.scrollWidth>e.clientWidth+2){var o=getComputedStyle(e).overflowX;if(o==='auto'||o==='scroll')return true}}return false}
+window.nHScr=nHScr;
 (function(){var pg=$('notesPg'),S=null;
- function blocked(t){return nQ||nTrash||pg.classList.contains('nsrch')||ndrag||$('noteFull').classList.contains('show')||document.querySelector('.modal.show')||$('lpMenu').classList.contains('show')||(t.closest&&t.closest('#noteTabs,input,textarea,select,.ntop,#shModal,#crop,#phView,.pwv'))||(window.pwSwOn&&pwSwOn(t))}
+ function blocked(t){return nHScr(t)||nQ||nTrash||pg.classList.contains('nsrch')||ndrag||$('noteFull').classList.contains('show')||document.querySelector('.modal.show')||$('lpMenu').classList.contains('show')||(t.closest&&t.closest('#noteTabs,input,textarea,select,.ntop,#shModal,#crop,#phView,.pwv'))||(window.pwSwOn&&pwSwOn(t))}
  pg.addEventListener('touchstart',function(e){S=null;if(e.touches.length!==1)return;var t=e.touches[0];if(t.clientX<24||t.clientX>innerWidth-24||blocked(e.target))return;S={x:t.clientX,y:t.clientY,t:Date.now(),li:e.target.closest&&e.target.closest('#notesList .note')}},{passive:true});
  pg.addEventListener('touchmove',function(e){if(!S)return;var t=e.touches[0];if(Math.abs(t.clientY-S.y)>40&&Math.abs(t.clientY-S.y)>Math.abs(t.clientX-S.x))S=null},{passive:true});
  pg.addEventListener('touchend',function(e){if(!S)return;var t=e.changedTouches[0],dx=t.clientX-S.x,dy=t.clientY-S.y,s0=S;S=null;if(Date.now()-s0.t>800||lpJust||ndrag)return;if(Math.abs(dx)>=40&&Math.abs(dx)>1.5*Math.abs(dy)&&s0.li&&s0.li.querySelector('.ndt')){var L0=s0.li,on=L0.classList.contains('nswp');if(dx<0&&!on){document.querySelectorAll('#notesList .note.nswp').forEach(function(x){x.classList.remove('nswp')});L0.style.setProperty('--ndw',(L0.querySelector('.ndt').offsetWidth+14)+'px');L0.classList.add('nswp');window.__nswpT=Date.now();return}if(dx>0&&on){L0.classList.remove('nswp');window.__nswpT=Date.now();return}}
@@ -1955,7 +1958,7 @@ window.addEventListener('popstate',function(){if(selOn()&&!nIgnorePop){selExit(t
 $('notesBack').addEventListener('click',function(){notesClose()});
 var sw=null;
 document.addEventListener('touchstart',function(e){sw=null;if(e.touches.length!==1)return;var t=e.target;
- if(t.closest&&t.closest('input,textarea,select,.modal.show,#lpMenu,.news-search,#noteTabs'))return;if(window.pwSwOn&&pwSwOn(t))return;if(document.querySelector('.modal.show')||$('lpMenu').classList.contains('show'))return;
+ if(t.closest&&t.closest('input,textarea,select,.modal.show,#lpMenu,.news-search,#noteTabs'))return;if(window.pwSwOn&&pwSwOn(t))return;if(nHScr(t))return;if(document.querySelector('.modal.show')||$('lpMenu').classList.contains('show'))return;
  sw={x:e.touches[0].clientX,y:e.touches[0].clientY,t:Date.now()}},{passive:true});
 document.addEventListener('touchend',function(e){var d=sw;sw=null;if(Date.now()-(window.__nswpT||0)<500)return;if(!d||lpJust||lpCur||ndrag||Date.now()-ndragT<600)return;var c=e.changedTouches[0],dx=c.clientX-d.x,dy=c.clientY-d.y;
  if(Math.abs(dx)<60||Math.abs(dx)<Math.abs(dy)*1.6)return;var open=$('notesPg').classList.contains('show');
