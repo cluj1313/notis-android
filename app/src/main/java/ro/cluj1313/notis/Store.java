@@ -319,7 +319,7 @@ final class Store {
     // ---- per-widget settings ----
     static void put(Context c, String k, String v) { SharedPreferences.Editor e = sp(c).edit(); if (v == null) e.remove(k); else e.putString(k, v); e.commit(); }
     static String get(Context c, String k) { return sp(c).getString(k, null); }
-    static void forget(Context c, int wid) { SharedPreferences.Editor e = sp(c).edit(); for (String p : new String[]{"w_", "th_", "tab_", "ex_", "arm_", "narm_", "undo_", "lay_", "rth_", "ask_"}) e.remove(p + wid); e.commit(); }
+    static void forget(Context c, int wid) { SharedPreferences.Editor e = sp(c).edit(); for (String p : new String[]{"w_", "th_", "tab_", "ex_", "arm_", "narm_", "undo_", "lay_", "rth_", "ask_", "sc_"}) e.remove(p + wid); e.commit(); }
     /** pure: theme id stored for a radio index (clamped) */
     static String themeAt(int index) { return Themes.IDS[Math.max(0, Math.min(Themes.IDS.length - 1, index))]; }
     static void setChoice(Context c, int wid, String nid) { put(c, "w_" + wid, nid); }

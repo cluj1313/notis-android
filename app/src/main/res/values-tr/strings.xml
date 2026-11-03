@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Alışveriş</string>
     <string name="h_urg">Aci̇l</string>
+    <string name="sw_desc_med">Bugünün ilaçları ve işaretleri.</string>
+    <string name="sw_desc_util">Sonraki vadesiyle ödemeler.</string>
+    <string name="sw_desc_crm">CRM hatırlatıcıları ve kişileri.</string>
+    <string name="sw_home">Ev</string>
+    <string name="sw_firm">Firma</string>
+    <string name="sw_all">Tümü</string>
+    <string name="sw_person">Kişi</string>
+    <string name="sw_group">Grup</string>
+    <string name="sw_show">Göster</string>
+    <string name="sw_rows">Satır</string>
+    <string name="sw_font">Yazı boyutu</string>
+    <string name="sw_small">Küçük</string>
+    <string name="sw_medium">Orta</string>
+    <string name="sw_large">Büyük</string>
+    <string name="sw_opacity">Opaklık</string>
+    <string name="sw_checks">Onay kutularını göster</string>
+    <string name="sw_open_once">Verileri yüklemek için Notis\'i bir kez açın.</string>
+    <string name="sw_empty_med">Bugün ilaç yok.</string>
+    <string name="sw_empty_util">Henüz ödeme yok.</string>
+    <string name="sw_empty_crm">Kişi veya hatırlatıcı yok.</string>
 </resources>

@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Spesa</string>
     <string name="h_urg">Urgenze</string>
+    <string name="sw_desc_med">Le pillole di oggi con la spunta.</string>
+    <string name="sw_desc_util">Pagamenti con la prossima scadenza.</string>
+    <string name="sw_desc_crm">Promemoria e contatti del CRM.</string>
+    <string name="sw_home">Casa</string>
+    <string name="sw_firm">Azienda</string>
+    <string name="sw_all">Tutti</string>
+    <string name="sw_person">Persona</string>
+    <string name="sw_group">Gruppo</string>
+    <string name="sw_show">Mostra</string>
+    <string name="sw_rows">Righe</string>
+    <string name="sw_font">Dimensione testo</string>
+    <string name="sw_small">Piccolo</string>
+    <string name="sw_medium">Medio</string>
+    <string name="sw_large">Grande</string>
+    <string name="sw_opacity">Opacità</string>
+    <string name="sw_checks">Mostra caselle</string>
+    <string name="sw_open_once">Apri Notis una volta per caricare i dati.</string>
+    <string name="sw_empty_med">Nessuna pillola oggi.</string>
+    <string name="sw_empty_util">Ancora nessun pagamento.</string>
+    <string name="sw_empty_crm">Nessun contatto o promemoria.</string>
 </resources>

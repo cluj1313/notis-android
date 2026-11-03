@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Nákupy</string>
     <string name="h_urg">Naléhavé</string>
+    <string name="sw_desc_med">Dnešní léky se zaškrtnutím.</string>
+    <string name="sw_desc_util">Platby s nejbližší splatností.</string>
+    <string name="sw_desc_crm">Připomínky a kontakty CRM.</string>
+    <string name="sw_home">Domov</string>
+    <string name="sw_firm">Firma</string>
+    <string name="sw_all">Vše</string>
+    <string name="sw_person">Osoba</string>
+    <string name="sw_group">Skupina</string>
+    <string name="sw_show">Zobrazit</string>
+    <string name="sw_rows">Řádky</string>
+    <string name="sw_font">Velikost písma</string>
+    <string name="sw_small">Malé</string>
+    <string name="sw_medium">Střední</string>
+    <string name="sw_large">Velké</string>
+    <string name="sw_opacity">Neprůhlednost</string>
+    <string name="sw_checks">Zobrazit zaškrtávací pole</string>
+    <string name="sw_open_once">Otevřete Notis jednou pro načtení dat.</string>
+    <string name="sw_empty_med">Dnes žádné léky.</string>
+    <string name="sw_empty_util">Zatím žádné platby.</string>
+    <string name="sw_empty_crm">Žádné kontakty ani připomínky.</string>
 </resources>

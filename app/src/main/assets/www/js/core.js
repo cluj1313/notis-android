@@ -1242,7 +1242,7 @@ function nDateL(n,m){var u=(m==='updated'&&n.updatedAt&&n.updatedAt!==n.createdA
 function nPeekL(n){var U=[],tl=function(v){String(v||'').split('\n').forEach(function(l){if(l.trim())U.push(l.trim())})},it=function(x){if((x.text||'').trim())U.push((x.done?'☑ ':'☐ ')+x.text.trim())};
  if(n.type==='mix')(n.blocks||[]).forEach(function(b){if(b.t==='text')tl(b.v);else if(b.t==='chk')(b.items||[]).forEach(it)});else if(n.type==='check'){tl(n.title);(n.items||[]).forEach(it)}else tl(n.text);return U}
 /* v190: peek also for one long line (wraps); card fits the text, max 5 lines in total */
-function nPeekCan(li){var n=findN(li.dataset.id);if(!n||n.lock||n.del)return false;var t=li.querySelector('.t');return !!(li.querySelector('.npk')||t&&t.scrollWidth>t.clientWidth+1)}
+function nPeekCan(li){var n=findN(li.dataset.id);/* v191: tap 1 ALWAYS expands to the card first (also single-line notes); tap 2 opens */return !(!n||n.lock||n.del)}
 function nPeekFit(li){var t=li.querySelector('.t'),k=li.querySelector('.npk');if(!t)return;var lh=parseFloat(getComputedStyle(t).lineHeight)||20,tl=Math.max(1,Math.round(t.getBoundingClientRect().height/lh));if(k){var r=Math.max(0,5-tl);var pl=k.querySelector('.npl'),ph=pl?parseFloat(getComputedStyle(pl).lineHeight)||lh:lh;k.style.maxHeight=r?Math.floor(r*ph)+'px':'0px';k.style.display=r?'':'none'}}
 function nPeekH(n){if(n.lock||n.del)return '';var U=nPeekL(n).slice(1,6);return U.length?'<span class="npk">'+U.map(function(l){return '<span class="npl">'+esc(l)+'</span>'}).join('')+'</span>':''}
 function nPeekOff(x){document.querySelectorAll('#notesList .note.npeek').forEach(function(l){if(l!==x)l.classList.remove('npeek')})}
@@ -2610,7 +2610,8 @@ if(window.launchQueue&&launchQueue.setConsumer)launchQueue.setConsumer(function(
    if(it.length||n.type==='check')L.push({id:n.id,tab:n.tab||'',title:title(n)||TR('Listă'),upd:n.updatedAt||n.ts||'',srt:n.isort||'alpha',base:base,items:it});
    NS.push({id:n.id,tab:n.tab||'',type:n.type||'text',title:title(n),text:String(n.text||'').slice(0,4000),upd:n.updatedAt||n.ts||'',alarm:al(n)})});
   if(typeof medSnap==='function')try{NS=NS.concat(medSnap())}catch(_){}
-  return JSON.stringify({v:2,ts:new Date().toISOString(),theme:typeof thCur!=='undefined'?thCur:'color',lang:NL,tabs:noteTabs.filter(function(t){return !t.lk}).map(function(t){return{id:t.id,name:t.name}}),lists:L,notes:NS})}
+  return JSON.stringify({v:2,ts:new Date().toISOString(),theme:typeof thCur!=='undefined'?thCur:'color',lang:NL,tabs:noteTabs.filter(function(t){return !t.lk}).map(function(t){return{id:t.id,name:t.name}}),lists:L,notes:NS,sec:secAll()})}
+ function secAll(){var o={};[['med','secSnapMed'],['util','secSnapUtil'],['crm','secSnapCrm']].forEach(function(x){try{var f=window[x[1]];var v=typeof f==='function'?f():null;if(v)o[x[0]]=v}catch(_){}});return o} /* v191: Pastile/Plăți/CRM widgets */
  function push(){T=null;try{N.saveSnapshot(snap())}catch(_){}}
  function pushSoon(){clearTimeout(T);T=setTimeout(push,250)}
  var sv=saveNotes;saveNotes=function(){var r=sv.apply(this,arguments);pushSoon();return r};

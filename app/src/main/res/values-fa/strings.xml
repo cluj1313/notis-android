@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">خرید</string>
     <string name="h_urg">فوری</string>
+    <string name="sw_desc_med">قرص‌های امروز با علامت مصرف.</string>
+    <string name="sw_desc_util">پرداخت‌ها با سررسید بعدی.</string>
+    <string name="sw_desc_crm">یادآورها و مخاطبان CRM.</string>
+    <string name="sw_home">خانه</string>
+    <string name="sw_firm">شرکت</string>
+    <string name="sw_all">همه</string>
+    <string name="sw_person">شخص</string>
+    <string name="sw_group">گروه</string>
+    <string name="sw_show">نمایش</string>
+    <string name="sw_rows">ردیف‌ها</string>
+    <string name="sw_font">اندازه قلم</string>
+    <string name="sw_small">کوچک</string>
+    <string name="sw_medium">متوسط</string>
+    <string name="sw_large">بزرگ</string>
+    <string name="sw_opacity">کدری</string>
+    <string name="sw_checks">نمایش کادرهای انتخاب</string>
+    <string name="sw_open_once">برای بارگیری داده‌ها یک بار Notis را باز کنید.</string>
+    <string name="sw_empty_med">امروز قرصی نیست.</string>
+    <string name="sw_empty_util">هنوز پرداختی نیست.</string>
+    <string name="sw_empty_crm">مخاطب یا یادآوری نیست.</string>
 </resources>

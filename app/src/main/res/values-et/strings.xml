@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Ostud</string>
     <string name="h_urg">Kiire</string>
+    <string name="sw_desc_med">Tänased tabletid koos märkega.</string>
+    <string name="sw_desc_util">Maksed koos järgmise tähtajaga.</string>
+    <string name="sw_desc_crm">CRM-i meeldetuletused ja kontaktid.</string>
+    <string name="sw_home">Kodu</string>
+    <string name="sw_firm">Firma</string>
+    <string name="sw_all">Kõik</string>
+    <string name="sw_person">Isik</string>
+    <string name="sw_group">Grupp</string>
+    <string name="sw_show">Näita</string>
+    <string name="sw_rows">Read</string>
+    <string name="sw_font">Kirja suurus</string>
+    <string name="sw_small">Väike</string>
+    <string name="sw_medium">Keskmine</string>
+    <string name="sw_large">Suur</string>
+    <string name="sw_opacity">Läbipaistmatus</string>
+    <string name="sw_checks">Näita märkeruute</string>
+    <string name="sw_open_once">Ava Notis üks kord andmete laadimiseks.</string>
+    <string name="sw_empty_med">Täna tablette pole.</string>
+    <string name="sw_empty_util">Makseid veel pole.</string>
+    <string name="sw_empty_crm">Kontakte ega meeldetuletusi pole.</string>
 </resources>

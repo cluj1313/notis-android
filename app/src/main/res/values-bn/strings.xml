@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">কেনাকাটা</string>
     <string name="h_urg">জরুরি</string>
+    <string name="sw_desc_med">আজকের ওষুধ, টিক সহ।</string>
+    <string name="sw_desc_util">পরবর্তী নির্ধারিত তারিখসহ পেমেন্ট।</string>
+    <string name="sw_desc_crm">CRM রিমাইন্ডার ও পরিচিতি।</string>
+    <string name="sw_home">বাড়ি</string>
+    <string name="sw_firm">ফার্ম</string>
+    <string name="sw_all">সব</string>
+    <string name="sw_person">ব্যক্তি</string>
+    <string name="sw_group">গ্রুপ</string>
+    <string name="sw_show">দেখান</string>
+    <string name="sw_rows">সারি</string>
+    <string name="sw_font">ফন্টের আকার</string>
+    <string name="sw_small">ছোট</string>
+    <string name="sw_medium">মাঝারি</string>
+    <string name="sw_large">বড়</string>
+    <string name="sw_opacity">অস্বচ্ছতা</string>
+    <string name="sw_checks">চেকবক্স দেখান</string>
+    <string name="sw_open_once">ডেটা লোড করতে Notis একবার খুলুন।</string>
+    <string name="sw_empty_med">আজ কোনো ওষুধ নেই।</string>
+    <string name="sw_empty_util">এখনও কোনো পেমেন্ট নেই।</string>
+    <string name="sw_empty_crm">কোনো পরিচিতি বা রিমাইন্ডার নেই।</string>
 </resources>

@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Ψώνια</string>
     <string name="h_urg">Επειγον</string>
+    <string name="sw_desc_med">Τα σημερινά χάπια με το σημάδι τους.</string>
+    <string name="sw_desc_util">Πληρωμές με την επόμενη λήξη.</string>
+    <string name="sw_desc_crm">Υπενθυμίσεις και επαφές CRM.</string>
+    <string name="sw_home">Σπίτι</string>
+    <string name="sw_firm">Εταιρεία</string>
+    <string name="sw_all">Όλα</string>
+    <string name="sw_person">Άτομο</string>
+    <string name="sw_group">Ομάδα</string>
+    <string name="sw_show">Εμφάνιση</string>
+    <string name="sw_rows">Γραμμές</string>
+    <string name="sw_font">Μέγεθος γραμματοσειράς</string>
+    <string name="sw_small">Μικρό</string>
+    <string name="sw_medium">Μεσαίο</string>
+    <string name="sw_large">Μεγάλο</string>
+    <string name="sw_opacity">Αδιαφάνεια</string>
+    <string name="sw_checks">Εμφάνιση πλαισίων</string>
+    <string name="sw_open_once">Ανοίξτε το Notis μία φορά για να φορτωθούν τα δεδομένα.</string>
+    <string name="sw_empty_med">Κανένα χάπι σήμερα.</string>
+    <string name="sw_empty_util">Καμία πληρωμή ακόμα.</string>
+    <string name="sw_empty_crm">Καμία επαφή ή υπενθύμιση.</string>
 </resources>

@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">購物</string>
     <string name="h_urg">緊急</string>
+    <string name="sw_desc_med">今天的藥及勾選狀態。</string>
+    <string name="sw_desc_util">附下次到期日的付款。</string>
+    <string name="sw_desc_crm">CRM 提醒和聯絡人。</string>
+    <string name="sw_home">家庭</string>
+    <string name="sw_firm">公司</string>
+    <string name="sw_all">全部</string>
+    <string name="sw_person">人員</string>
+    <string name="sw_group">群組</string>
+    <string name="sw_show">顯示</string>
+    <string name="sw_rows">行數</string>
+    <string name="sw_font">字型大小</string>
+    <string name="sw_small">小</string>
+    <string name="sw_medium">中</string>
+    <string name="sw_large">大</string>
+    <string name="sw_opacity">不透明度</string>
+    <string name="sw_checks">顯示核取方塊</string>
+    <string name="sw_open_once">請開啟一次 Notis 以載入資料。</string>
+    <string name="sw_empty_med">今天沒有藥。</string>
+    <string name="sw_empty_util">還沒有付款。</string>
+    <string name="sw_empty_crm">沒有聯絡人或提醒。</string>
 </resources>

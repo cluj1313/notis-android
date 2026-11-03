@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Belanja</string>
     <string name="h_urg">Mendesak</string>
+    <string name="sw_desc_med">Obat hari ini beserta tanda centang.</string>
+    <string name="sw_desc_util">Pembayaran dengan jatuh tempo berikutnya.</string>
+    <string name="sw_desc_crm">Pengingat dan kontak CRM.</string>
+    <string name="sw_home">Rumah</string>
+    <string name="sw_firm">Perusahaan</string>
+    <string name="sw_all">Semua</string>
+    <string name="sw_person">Orang</string>
+    <string name="sw_group">Grup</string>
+    <string name="sw_show">Tampilkan</string>
+    <string name="sw_rows">Baris</string>
+    <string name="sw_font">Ukuran huruf</string>
+    <string name="sw_small">Kecil</string>
+    <string name="sw_medium">Sedang</string>
+    <string name="sw_large">Besar</string>
+    <string name="sw_opacity">Opasitas</string>
+    <string name="sw_checks">Tampilkan kotak centang</string>
+    <string name="sw_open_once">Buka Notis sekali untuk memuat data.</string>
+    <string name="sw_empty_med">Tidak ada obat hari ini.</string>
+    <string name="sw_empty_util">Belum ada pembayaran.</string>
+    <string name="sw_empty_crm">Tidak ada kontak atau pengingat.</string>
 </resources>

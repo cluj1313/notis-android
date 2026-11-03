@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Ostokset</string>
     <string name="h_urg">Kiireellinen</string>
+    <string name="sw_desc_med">Tämän päivän lääkkeet merkintöineen.</string>
+    <string name="sw_desc_util">Maksut ja seuraava eräpäivä.</string>
+    <string name="sw_desc_crm">CRM-muistutukset ja yhteystiedot.</string>
+    <string name="sw_home">Koti</string>
+    <string name="sw_firm">Yritys</string>
+    <string name="sw_all">Kaikki</string>
+    <string name="sw_person">Henkilö</string>
+    <string name="sw_group">Ryhmä</string>
+    <string name="sw_show">Näytä</string>
+    <string name="sw_rows">Rivit</string>
+    <string name="sw_font">Fonttikoko</string>
+    <string name="sw_small">Pieni</string>
+    <string name="sw_medium">Keskikoko</string>
+    <string name="sw_large">Suuri</string>
+    <string name="sw_opacity">Peittävyys</string>
+    <string name="sw_checks">Näytä valintaruudut</string>
+    <string name="sw_open_once">Avaa Notis kerran tietojen lataamiseksi.</string>
+    <string name="sw_empty_med">Ei lääkkeitä tänään.</string>
+    <string name="sw_empty_util">Ei vielä maksuja.</string>
+    <string name="sw_empty_crm">Ei yhteystietoja tai muistutuksia.</string>
 </resources>

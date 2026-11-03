@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Compras</string>
     <string name="h_urg">Urgente</string>
+    <string name="sw_desc_med">Las pastillas de hoy con su marca.</string>
+    <string name="sw_desc_util">Pagos con el próximo vencimiento.</string>
+    <string name="sw_desc_crm">Recordatorios y contactos del CRM.</string>
+    <string name="sw_home">Casa</string>
+    <string name="sw_firm">Empresa</string>
+    <string name="sw_all">Todos</string>
+    <string name="sw_person">Persona</string>
+    <string name="sw_group">Grupo</string>
+    <string name="sw_show">Mostrar</string>
+    <string name="sw_rows">Filas</string>
+    <string name="sw_font">Tamaño de letra</string>
+    <string name="sw_small">Pequeño</string>
+    <string name="sw_medium">Mediano</string>
+    <string name="sw_large">Grande</string>
+    <string name="sw_opacity">Opacidad</string>
+    <string name="sw_checks">Mostrar casillas</string>
+    <string name="sw_open_once">Abre Notis una vez para cargar los datos.</string>
+    <string name="sw_empty_med">Hoy no hay pastillas.</string>
+    <string name="sw_empty_util">Aún no hay pagos.</string>
+    <string name="sw_empty_crm">No hay contactos ni recordatorios.</string>
 </resources>

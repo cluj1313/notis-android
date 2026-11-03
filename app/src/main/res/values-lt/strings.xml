@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Pirkiniai</string>
     <string name="h_urg">Skubu</string>
+    <string name="sw_desc_med">Šiandienos vaistai su žyma.</string>
+    <string name="sw_desc_util">Mokėjimai su artimiausiu terminu.</string>
+    <string name="sw_desc_crm">CRM priminimai ir kontaktai.</string>
+    <string name="sw_home">Namai</string>
+    <string name="sw_firm">Įmonė</string>
+    <string name="sw_all">Visi</string>
+    <string name="sw_person">Asmuo</string>
+    <string name="sw_group">Grupė</string>
+    <string name="sw_show">Rodyti</string>
+    <string name="sw_rows">Eilutės</string>
+    <string name="sw_font">Šrifto dydis</string>
+    <string name="sw_small">Mažas</string>
+    <string name="sw_medium">Vidutinis</string>
+    <string name="sw_large">Didelis</string>
+    <string name="sw_opacity">Nepermatomumas</string>
+    <string name="sw_checks">Rodyti žymimuosius langelius</string>
+    <string name="sw_open_once">Atidarykite Notis vieną kartą, kad įkeltų duomenis.</string>
+    <string name="sw_empty_med">Šiandien vaistų nėra.</string>
+    <string name="sw_empty_util">Mokėjimų dar nėra.</string>
+    <string name="sw_empty_crm">Nėra kontaktų ar priminimų.</string>
 </resources>

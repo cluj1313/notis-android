@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Boodschappen</string>
     <string name="h_urg">Dringend</string>
+    <string name="sw_desc_med">De pillen van vandaag met vinkje.</string>
+    <string name="sw_desc_util">Betalingen met de volgende vervaldatum.</string>
+    <string name="sw_desc_crm">CRM-herinneringen en contacten.</string>
+    <string name="sw_home">Thuis</string>
+    <string name="sw_firm">Bedrijf</string>
+    <string name="sw_all">Alle</string>
+    <string name="sw_person">Persoon</string>
+    <string name="sw_group">Groep</string>
+    <string name="sw_show">Tonen</string>
+    <string name="sw_rows">Rijen</string>
+    <string name="sw_font">Lettergrootte</string>
+    <string name="sw_small">Klein</string>
+    <string name="sw_medium">Middel</string>
+    <string name="sw_large">Groot</string>
+    <string name="sw_opacity">Dekking</string>
+    <string name="sw_checks">Vakjes tonen</string>
+    <string name="sw_open_once">Open Notis één keer om de gegevens te laden.</string>
+    <string name="sw_empty_med">Vandaag geen pillen.</string>
+    <string name="sw_empty_util">Nog geen betalingen.</string>
+    <string name="sw_empty_crm">Geen contacten of herinneringen.</string>
 </resources>

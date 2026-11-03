@@ -85,6 +85,7 @@ public class NotisWidget extends AppWidgetProvider {
         for (int id : ids) draw(c, m, id);
         if (ids.length > 0 && Build.VERSION.SDK_INT < 31) m.notifyAppWidgetViewDataChanged(ids, R.id.w_list);
         NotesWidget.refreshAll(c);
+        SecWidget.refreshAll(c);
     }
 
     static PendingIntent openApp(Context c, int req, String q) {

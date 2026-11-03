@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Compras</string>
     <string name="h_urg">Urgente</string>
+    <string name="sw_desc_med">Os comprimidos de hoje com o seu visto.</string>
+    <string name="sw_desc_util">Pagamentos com o próximo vencimento.</string>
+    <string name="sw_desc_crm">Lembretes e contactos do CRM.</string>
+    <string name="sw_home">Casa</string>
+    <string name="sw_firm">Empresa</string>
+    <string name="sw_all">Todos</string>
+    <string name="sw_person">Pessoa</string>
+    <string name="sw_group">Grupo</string>
+    <string name="sw_show">Mostrar</string>
+    <string name="sw_rows">Linhas</string>
+    <string name="sw_font">Tamanho da letra</string>
+    <string name="sw_small">Pequeno</string>
+    <string name="sw_medium">Médio</string>
+    <string name="sw_large">Grande</string>
+    <string name="sw_opacity">Opacidade</string>
+    <string name="sw_checks">Mostrar caixas</string>
+    <string name="sw_open_once">Abra o Notis uma vez para carregar os dados.</string>
+    <string name="sw_empty_med">Sem comprimidos hoje.</string>
+    <string name="sw_empty_util">Ainda sem pagamentos.</string>
+    <string name="sw_empty_crm">Sem contactos nem lembretes.</string>
 </resources>

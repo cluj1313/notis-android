@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- v190: raised 3D round button (shadow, blue/cyan body, soft top highlight, thin ring) -->
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:top="3dp" android:left="1dp" android:right="1dp"><shape android:shape="oval"><solid android:color="#55000814"/></shape></item>
-    <item android:bottom="3dp"><shape android:shape="oval"><gradient android:type="radial" android:gradientRadius="34dp" android:centerX="0.38" android:centerY="0.3" android:startColor="#FF4FD8F0" android:centerColor="#FF1E88C8" android:endColor="#FF0B3E73"/></shape></item>
-    <item android:bottom="3dp"><shape android:shape="oval"><stroke android:width="1dp" android:color="#8838C8F0"/></shape></item>
-    <item android:top="3dp" android:left="11dp" android:right="11dp" android:bottom="27dp"><shape android:shape="oval"><gradient android:angle="270" android:startColor="#70FFFFFF" android:endColor="#00FFFFFF"/></shape></item>
-    <item android:top="6dp" android:left="6dp" android:right="6dp" android:bottom="9dp"><shape android:shape="oval"><stroke android:width="1dp" android:color="#CCDDF6FF"/></shape></item>
-</layer-list>

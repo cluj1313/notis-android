@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Bevásárlás</string>
     <string name="h_urg">Sürgős</string>
+    <string name="sw_desc_med">A mai gyógyszerek pipával.</string>
+    <string name="sw_desc_util">Fizetések a következő határidővel.</string>
+    <string name="sw_desc_crm">CRM emlékeztetők és névjegyek.</string>
+    <string name="sw_home">Otthon</string>
+    <string name="sw_firm">Cég</string>
+    <string name="sw_all">Összes</string>
+    <string name="sw_person">Személy</string>
+    <string name="sw_group">Csoport</string>
+    <string name="sw_show">Mutat</string>
+    <string name="sw_rows">Sorok</string>
+    <string name="sw_font">Betűméret</string>
+    <string name="sw_small">Kicsi</string>
+    <string name="sw_medium">Közepes</string>
+    <string name="sw_large">Nagy</string>
+    <string name="sw_opacity">Átlátszatlanság</string>
+    <string name="sw_checks">Jelölőnégyzetek mutatása</string>
+    <string name="sw_open_once">Nyisd meg egyszer a Notist az adatok betöltéséhez.</string>
+    <string name="sw_empty_med">Ma nincs gyógyszer.</string>
+    <string name="sw_empty_util">Még nincs fizetés.</string>
+    <string name="sw_empty_crm">Nincs névjegy vagy emlékeztető.</string>
 </resources>

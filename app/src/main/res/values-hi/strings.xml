@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">ख़रीदारी</string>
     <string name="h_urg">ज़रूरी</string>
+    <string name="sw_desc_med">आज की दवाइयाँ, टिक के साथ।</string>
+    <string name="sw_desc_util">अगली देय तिथि के साथ भुगतान।</string>
+    <string name="sw_desc_crm">CRM रिमाइंडर और संपर्क।</string>
+    <string name="sw_home">घर</string>
+    <string name="sw_firm">फ़र्म</string>
+    <string name="sw_all">सभी</string>
+    <string name="sw_person">व्यक्ति</string>
+    <string name="sw_group">समूह</string>
+    <string name="sw_show">दिखाएँ</string>
+    <string name="sw_rows">पंक्तियाँ</string>
+    <string name="sw_font">फ़ॉन्ट आकार</string>
+    <string name="sw_small">छोटा</string>
+    <string name="sw_medium">मध्यम</string>
+    <string name="sw_large">बड़ा</string>
+    <string name="sw_opacity">अपारदर्शिता</string>
+    <string name="sw_checks">चेकबॉक्स दिखाएँ</string>
+    <string name="sw_open_once">डेटा लोड करने के लिए Notis एक बार खोलें।</string>
+    <string name="sw_empty_med">आज कोई दवा नहीं।</string>
+    <string name="sw_empty_util">अभी कोई भुगतान नहीं।</string>
+    <string name="sw_empty_crm">कोई संपर्क या रिमाइंडर नहीं।</string>
 </resources>

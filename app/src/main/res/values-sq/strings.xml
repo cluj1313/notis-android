@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Blerje</string>
     <string name="h_urg">Urgjente</string>
+    <string name="sw_desc_med">Pilulat e sotme me shenjën e tyre.</string>
+    <string name="sw_desc_util">Pagesat me afatin e ardhshëm.</string>
+    <string name="sw_desc_crm">Kujtesat dhe kontaktet e CRM.</string>
+    <string name="sw_home">Shtëpi</string>
+    <string name="sw_firm">Firmë</string>
+    <string name="sw_all">Të gjitha</string>
+    <string name="sw_person">Personi</string>
+    <string name="sw_group">Grupi</string>
+    <string name="sw_show">Shfaq</string>
+    <string name="sw_rows">Rreshta</string>
+    <string name="sw_font">Madhësia e shkronjave</string>
+    <string name="sw_small">E vogël</string>
+    <string name="sw_medium">Mesatare</string>
+    <string name="sw_large">E madhe</string>
+    <string name="sw_opacity">Patejdukshmëria</string>
+    <string name="sw_checks">Shfaq kutitë</string>
+    <string name="sw_open_once">Hap Notis një herë për të ngarkuar të dhënat.</string>
+    <string name="sw_empty_med">Asnjë pilulë sot.</string>
+    <string name="sw_empty_util">Ende asnjë pagesë.</string>
+    <string name="sw_empty_crm">Asnjë kontakt ose kujtesë.</string>
 </resources>

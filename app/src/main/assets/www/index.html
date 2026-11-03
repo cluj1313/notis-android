@@ -536,7 +536,7 @@ html.notis #modal .field:has(#sName),html.notis #modal .field:has(#sRemindUrg),h
 .hist#bUndo:disabled,.hist#bRedo:disabled,.hist#nUndo:disabled,.hist#nRedo:disabled,#nfUndo:disabled,#nfRedo:disabled{opacity:.45;box-shadow:none}
 #nfUndo svg,#nfRedo svg,#bUndo svg,#bRedo svg,#nUndo svg,#nRedo svg,#drUndo svg{width:21px;height:21px;display:block}
 /* v113: undo/redo are perfect circles everywhere */#nUndo.btn,#nRedo.btn,#bUndo.btn,#bRedo.btn,#nfUndo.btn,#nfRedo.btn,#drUndo.btn,#drRedo.btn,#nUndo,#nRedo,#bUndo,#bRedo,#nfUndo,#nfRedo,#drUndo,#drRedo{width:36px!important;height:36px!important;min-width:36px!important;max-width:36px!important;min-height:36px!important;max-height:36px!important;aspect-ratio:1/1;border-radius:50%!important;padding:0!important;flex:0 0 36px!important;display:inline-grid!important;place-items:center;box-sizing:border-box!important;line-height:1}
-#notesList .note.ncol{background:linear-gradient(90deg,color-mix(in srgb,var(--nc) 70%,#fff 30%) 0,color-mix(in srgb,var(--nc) 85%,transparent) 55%,color-mix(in srgb,var(--nc) 35%,transparent) 100%)!important;border-radius:10px;box-shadow:inset 3px 0 0 color-mix(in srgb,var(--nc) 45%,#fff 55%)}
+#notesList .note.ncol{background:var(--nc)!important;border-radius:0;box-shadow:none} /* v191: flat fill, exactly the chosen colour */
 .npal i.ncdef{background:transparent!important;border:1.5px dashed rgba(160,200,230,.6);box-sizing:border-box}
 #noteFull.mix #nfPh{display:none}
 .nbi{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:8px;margin:8px 0}

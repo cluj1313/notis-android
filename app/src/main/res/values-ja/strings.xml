@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">買い物</string>
     <string name="h_urg">緊急</string>
+    <string name="sw_desc_med">今日の薬とチェック状態。</string>
+    <string name="sw_desc_util">次の期日つきの支払い。</string>
+    <string name="sw_desc_crm">CRMのリマインダーと連絡先。</string>
+    <string name="sw_home">自宅</string>
+    <string name="sw_firm">会社</string>
+    <string name="sw_all">すべて</string>
+    <string name="sw_person">人</string>
+    <string name="sw_group">グループ</string>
+    <string name="sw_show">表示</string>
+    <string name="sw_rows">行数</string>
+    <string name="sw_font">文字サイズ</string>
+    <string name="sw_small">小</string>
+    <string name="sw_medium">中</string>
+    <string name="sw_large">大</string>
+    <string name="sw_opacity">不透明度</string>
+    <string name="sw_checks">チェックボックスを表示</string>
+    <string name="sw_open_once">データを読み込むためにNotisを一度開いてください。</string>
+    <string name="sw_empty_med">今日の薬はありません。</string>
+    <string name="sw_empty_util">まだ支払いはありません。</string>
+    <string name="sw_empty_crm">連絡先やリマインダーはありません。</string>
 </resources>

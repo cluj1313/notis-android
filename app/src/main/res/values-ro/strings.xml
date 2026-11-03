@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Cumpărături</string>
     <string name="h_urg">Urgențe</string>
+    <string name="sw_desc_med">Pastilele de azi, cu bifa lor.</string>
+    <string name="sw_desc_util">Plățile, cu următoarea scadență.</string>
+    <string name="sw_desc_crm">Mementourile și contactele din CRM.</string>
+    <string name="sw_home">Acasă</string>
+    <string name="sw_firm">Firmă</string>
+    <string name="sw_all">Toate</string>
+    <string name="sw_person">Persoană</string>
+    <string name="sw_group">Grup</string>
+    <string name="sw_show">Afișează</string>
+    <string name="sw_rows">Rânduri</string>
+    <string name="sw_font">Mărime font</string>
+    <string name="sw_small">Mic</string>
+    <string name="sw_medium">Mediu</string>
+    <string name="sw_large">Mare</string>
+    <string name="sw_opacity">Opacitate</string>
+    <string name="sw_checks">Arată căsuțele de bifat</string>
+    <string name="sw_open_once">Deschide Notis o dată ca să încarce datele.</string>
+    <string name="sw_empty_med">Nicio pastilă azi.</string>
+    <string name="sw_empty_util">Nicio plată încă.</string>
+    <string name="sw_empty_crm">Niciun contact sau memento.</string>
 </resources>

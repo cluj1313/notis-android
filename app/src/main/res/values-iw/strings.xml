@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">קניות</string>
     <string name="h_urg">דחוף</string>
+    <string name="sw_desc_med">התרופות של היום עם סימון.</string>
+    <string name="sw_desc_util">תשלומים עם מועד החיוב הבא.</string>
+    <string name="sw_desc_crm">תזכורות ואנשי קשר ב-CRM.</string>
+    <string name="sw_home">בית</string>
+    <string name="sw_firm">עסק</string>
+    <string name="sw_all">הכל</string>
+    <string name="sw_person">אדם</string>
+    <string name="sw_group">קבוצה</string>
+    <string name="sw_show">הצג</string>
+    <string name="sw_rows">שורות</string>
+    <string name="sw_font">גודל גופן</string>
+    <string name="sw_small">קטן</string>
+    <string name="sw_medium">בינוני</string>
+    <string name="sw_large">גדול</string>
+    <string name="sw_opacity">אטימות</string>
+    <string name="sw_checks">הצג תיבות סימון</string>
+    <string name="sw_open_once">פתח את Notis פעם אחת כדי לטעון את הנתונים.</string>
+    <string name="sw_empty_med">אין תרופות היום.</string>
+    <string name="sw_empty_util">אין עדיין תשלומים.</string>
+    <string name="sw_empty_crm">אין אנשי קשר או תזכורות.</string>
 </resources>

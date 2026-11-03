@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Купување</string>
     <string name="h_urg">Итно</string>
+    <string name="sw_desc_med">Денешните апчиња со ознака.</string>
+    <string name="sw_desc_util">Плаќања со следниот рок.</string>
+    <string name="sw_desc_crm">CRM потсетници и контакти.</string>
+    <string name="sw_home">Дома</string>
+    <string name="sw_firm">Фирма</string>
+    <string name="sw_all">Сите</string>
+    <string name="sw_person">Лице</string>
+    <string name="sw_group">Група</string>
+    <string name="sw_show">Прикажи</string>
+    <string name="sw_rows">Редови</string>
+    <string name="sw_font">Големина на фонт</string>
+    <string name="sw_small">Мал</string>
+    <string name="sw_medium">Среден</string>
+    <string name="sw_large">Голем</string>
+    <string name="sw_opacity">Непроѕирност</string>
+    <string name="sw_checks">Прикажи полиња</string>
+    <string name="sw_open_once">Отворете го Notis еднаш за да се вчитаат податоците.</string>
+    <string name="sw_empty_med">Денес нема апчиња.</string>
+    <string name="sw_empty_util">Сè уште нема плаќања.</string>
+    <string name="sw_empty_crm">Нема контакти или потсетници.</string>
 </resources>

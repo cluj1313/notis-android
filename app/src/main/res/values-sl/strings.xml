@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Nakupi</string>
     <string name="h_urg">Nujno</string>
+    <string name="sw_desc_med">Današnje tablete z oznako.</string>
+    <string name="sw_desc_util">Plačila z naslednjim rokom.</string>
+    <string name="sw_desc_crm">Opomniki in stiki CRM.</string>
+    <string name="sw_home">Doma</string>
+    <string name="sw_firm">Podjetje</string>
+    <string name="sw_all">Vse</string>
+    <string name="sw_person">Oseba</string>
+    <string name="sw_group">Skupina</string>
+    <string name="sw_show">Prikaži</string>
+    <string name="sw_rows">Vrstice</string>
+    <string name="sw_font">Velikost pisave</string>
+    <string name="sw_small">Majhna</string>
+    <string name="sw_medium">Srednja</string>
+    <string name="sw_large">Velika</string>
+    <string name="sw_opacity">Prekrivnost</string>
+    <string name="sw_checks">Prikaži potrditvena polja</string>
+    <string name="sw_open_once">Enkrat odprite Notis, da naloži podatke.</string>
+    <string name="sw_empty_med">Danes ni tablet.</string>
+    <string name="sw_empty_util">Še ni plačil.</string>
+    <string name="sw_empty_crm">Ni stikov ali opomnikov.</string>
 </resources>

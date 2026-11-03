@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Einkaufen</string>
     <string name="h_urg">Dringend</string>
+    <string name="sw_desc_med">Die heutigen Tabletten mit Häkchen.</string>
+    <string name="sw_desc_util">Zahlungen mit nächster Fälligkeit.</string>
+    <string name="sw_desc_crm">CRM-Erinnerungen und Kontakte.</string>
+    <string name="sw_home">Privat</string>
+    <string name="sw_firm">Firma</string>
+    <string name="sw_all">Alle</string>
+    <string name="sw_person">Person</string>
+    <string name="sw_group">Gruppe</string>
+    <string name="sw_show">Anzeigen</string>
+    <string name="sw_rows">Zeilen</string>
+    <string name="sw_font">Schriftgröße</string>
+    <string name="sw_small">Klein</string>
+    <string name="sw_medium">Mittel</string>
+    <string name="sw_large">Groß</string>
+    <string name="sw_opacity">Deckkraft</string>
+    <string name="sw_checks">Kästchen anzeigen</string>
+    <string name="sw_open_once">Öffne Notis einmal, um die Daten zu laden.</string>
+    <string name="sw_empty_med">Heute keine Tabletten.</string>
+    <string name="sw_empty_util">Noch keine Zahlungen.</string>
+    <string name="sw_empty_crm">Keine Kontakte oder Erinnerungen.</string>
 </resources>

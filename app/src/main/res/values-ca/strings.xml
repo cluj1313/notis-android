@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Compres</string>
     <string name="h_urg">Urgent</string>
+    <string name="sw_desc_med">Les pastilles d\'avui amb la seva marca.</string>
+    <string name="sw_desc_util">Pagaments amb el proper venciment.</string>
+    <string name="sw_desc_crm">Recordatoris i contactes del CRM.</string>
+    <string name="sw_home">Casa</string>
+    <string name="sw_firm">Empresa</string>
+    <string name="sw_all">Tots</string>
+    <string name="sw_person">Persona</string>
+    <string name="sw_group">Grup</string>
+    <string name="sw_show">Mostra</string>
+    <string name="sw_rows">Files</string>
+    <string name="sw_font">Mida de lletra</string>
+    <string name="sw_small">Petita</string>
+    <string name="sw_medium">Mitjana</string>
+    <string name="sw_large">Gran</string>
+    <string name="sw_opacity">Opacitat</string>
+    <string name="sw_checks">Mostra les caselles</string>
+    <string name="sw_open_once">Obre Notis un cop per carregar les dades.</string>
+    <string name="sw_empty_med">Avui no hi ha pastilles.</string>
+    <string name="sw_empty_util">Encara no hi ha pagaments.</string>
+    <string name="sw_empty_crm">No hi ha contactes ni recordatoris.</string>
 </resources>

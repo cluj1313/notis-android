@@ -43,7 +43,7 @@ var UT=utLoad(),MED=medLoad();
  if(!MED.tpl||typeof MED.tpl!=='object')MED.tpl={};MED.list.forEach(function(m){var k=mKey(m.name);if(k&&!MED.tpl[k])MED.tpl[k]=mTplOf(m)});
  MED.alt.forEach(function(a){var i=a.info||{};if(!i.d&&(i.s||i.w)){i.d=[i.s?TR('Simptome')+': '+i.s:'',i.w?TR('Atenție')+': '+i.w:''].filter(Boolean).join('\n');a.info=i}});
  var L=libLists();LS.set('ns_med_mig183',{ts:Date.now(),act:L.u.map(function(x){return x.name}),moved:L.n.map(function(x){return x.name})});if(raw)LS.set('ns_med',MED)}catch(e){console.warn(e)}})();
-function utSave(){LS.set('ns_util',UT)}
+function utSave(){LS.set('ns_util',UT);try{saveNotes(true)}catch(_){}} /* v191: push widget snapshot */
 function medSave(){LS.set('ns_med',MED);try{saveNotes(true)}catch(_){}} /* saveNotes pushes the snapshot (native alarms) */
 window.spReload=function(){UT=utLoad();MED=medLoad()};
 window.spCollect=function(){var o={ns_util:JSON.parse(JSON.stringify(UT)),ns_med:JSON.parse(JSON.stringify(MED))},b=LS.get('ns_util_bak168',null);if(b)o.ns_util_bak168=b;return o};
@@ -378,6 +378,10 @@ function medDayAl(a,m,k,now){var p=a.hm.split(':'),at0=function(d){var x=new Dat
  if(!nx){var x2=new Date(dParse(m.sch.d0||m.d0||today()));if(at0(x2).getTime()>now)nx=at0(x2).getTime()}a.at=nx||hmNext(a.hm,1440,now);a.prev=pv||0}
 function medSnz(out,now){Object.keys(MED.snz||{}).forEach(function(k){var z=MED.snz[k];if(z&&z.at>now)out.push({id:k+'-z',text:z.text,at:z.at,rep:0,snz:1})});return out}
 window.medSnooze=function(id,text,mn){mn=mn===20||mn===30?mn:10;MED.snz=MED.snz||{};var now=Date.now();for(var k in MED.snz)if(!MED.snz[k]||MED.snz[k].at<now-6e5)delete MED.snz[k];MED.snz[String(id).replace(/-z$/,'')]={at:now+mn*60000,text:text};medSave()};
+/* v191: data for the native Pastile / Plăți home-screen widgets (local only, never logged). Locked tabs export nothing. */
+function secTabOk(k){var t=noteTabs.filter(function(x){return x.kind===k})[0];return !!(t&&!t.lk)}
+window.secSnapMed=function(){if(!secTabOk('med'))return null;var k=today(),o=[];mSort(mdDayMeds(MED.list,k)).forEach(function(m){var sl=mSlots(m),S=mS(m,k),p=pFind(m.p);mReq(m).forEach(function(i){o.push({m:String(m.id),i:i,t:String(m.name||'').slice(0,60),tm:((m.rep>0?sl[i]:sl.filter(function(x){return x.s===i})[0])||{}).lbl||'',d:!!S[i],p:p?String(pName(p)).slice(0,30):''})})});return {day:k,rows:o.slice(0,60)}};
+window.secSnapUtil=function(){if(!secTabOk('util'))return null;var L=utGL(),o=[];(UT.list||[]).forEach(function(u){var n=uNext(u),g=utGOf(u,L),st=uSt(uRows(u));o.push({u:String(u.id||''),t:String(uName(u)).slice(0,60),g:g?String(g.name||TR(g.name)||'').slice(0,40):'',sub:u.grp==='firm'?'firm':'home',due:n?String(n.d||''):'',amt:n&&n.amt!=null?String(n.amt):'',late:st.late||0})});o.sort(function(a,b){return (a.due||'9').localeCompare(b.due||'9')});return {groups:L.map(function(G){return String(G.name||'')}).filter(Boolean).slice(0,30),rows:o.slice(0,80)}};
 window.medSnap=function(){var t=(noteTabs.filter(function(x){return x.kind==='med'})[0]||{}).id||'';return medAlarms().concat(payAlarms()).map(function(a){var al={at:a.at,rep:a.rep,until:null,snz:null};if(a.repM){al.repM=a.repM;al.dom=a.dom}if(a.rd)al.rd=a.rd;if(a.wd)al.wd=a.wd;return{id:a.id,tab:'__med',type:'med',title:a.text,text:a.text,upd:'',alarm:al}})};
 /* in-page ring (web, or app on screen; native rings when the app is closed) */
 var fired={},boot=Date.now();

@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Membeli-belah</string>
     <string name="h_urg">Segera</string>
+    <string name="sw_desc_med">Ubat hari ini dengan tanda semak.</string>
+    <string name="sw_desc_util">Pembayaran dengan tarikh akhir seterusnya.</string>
+    <string name="sw_desc_crm">Peringatan dan kenalan CRM.</string>
+    <string name="sw_home">Rumah</string>
+    <string name="sw_firm">Syarikat</string>
+    <string name="sw_all">Semua</string>
+    <string name="sw_person">Orang</string>
+    <string name="sw_group">Kumpulan</string>
+    <string name="sw_show">Tunjuk</string>
+    <string name="sw_rows">Baris</string>
+    <string name="sw_font">Saiz fon</string>
+    <string name="sw_small">Kecil</string>
+    <string name="sw_medium">Sederhana</string>
+    <string name="sw_large">Besar</string>
+    <string name="sw_opacity">Kelegapan</string>
+    <string name="sw_checks">Tunjuk kotak semak</string>
+    <string name="sw_open_once">Buka Notis sekali untuk memuatkan data.</string>
+    <string name="sw_empty_med">Tiada ubat hari ini.</string>
+    <string name="sw_empty_util">Belum ada pembayaran.</string>
+    <string name="sw_empty_crm">Tiada kenalan atau peringatan.</string>
 </resources>

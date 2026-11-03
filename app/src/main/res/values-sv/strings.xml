@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Inköp</string>
     <string name="h_urg">Brådskande</string>
+    <string name="sw_desc_med">Dagens tabletter med bock.</string>
+    <string name="sw_desc_util">Betalningar med nästa förfallodag.</string>
+    <string name="sw_desc_crm">CRM-påminnelser och kontakter.</string>
+    <string name="sw_home">Hem</string>
+    <string name="sw_firm">Företag</string>
+    <string name="sw_all">Alla</string>
+    <string name="sw_person">Person</string>
+    <string name="sw_group">Grupp</string>
+    <string name="sw_show">Visa</string>
+    <string name="sw_rows">Rader</string>
+    <string name="sw_font">Textstorlek</string>
+    <string name="sw_small">Liten</string>
+    <string name="sw_medium">Mellan</string>
+    <string name="sw_large">Stor</string>
+    <string name="sw_opacity">Opacitet</string>
+    <string name="sw_checks">Visa kryssrutor</string>
+    <string name="sw_open_once">Öppna Notis en gång för att ladda data.</string>
+    <string name="sw_empty_med">Inga tabletter i dag.</string>
+    <string name="sw_empty_util">Inga betalningar än.</string>
+    <string name="sw_empty_crm">Inga kontakter eller påminnelser.</string>
 </resources>

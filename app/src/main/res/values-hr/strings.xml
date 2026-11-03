@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Kupovina</string>
     <string name="h_urg">Hitno</string>
+    <string name="sw_desc_med">Današnje tablete s kvačicom.</string>
+    <string name="sw_desc_util">Plaćanja sa sljedećim rokom.</string>
+    <string name="sw_desc_crm">CRM podsjetnici i kontakti.</string>
+    <string name="sw_home">Kuća</string>
+    <string name="sw_firm">Tvrtka</string>
+    <string name="sw_all">Sve</string>
+    <string name="sw_person">Osoba</string>
+    <string name="sw_group">Grupa</string>
+    <string name="sw_show">Prikaži</string>
+    <string name="sw_rows">Retci</string>
+    <string name="sw_font">Veličina fonta</string>
+    <string name="sw_small">Mali</string>
+    <string name="sw_medium">Srednji</string>
+    <string name="sw_large">Veliki</string>
+    <string name="sw_opacity">Neprozirnost</string>
+    <string name="sw_checks">Prikaži kućice</string>
+    <string name="sw_open_once">Otvorite Notis jednom da učita podatke.</string>
+    <string name="sw_empty_med">Danas nema tableta.</string>
+    <string name="sw_empty_util">Još nema plaćanja.</string>
+    <string name="sw_empty_crm">Nema kontakata ni podsjetnika.</string>
 </resources>

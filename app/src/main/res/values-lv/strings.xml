@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Iepirkumi</string>
     <string name="h_urg">Steidzami</string>
+    <string name="sw_desc_med">Šodienas tabletes ar atzīmi.</string>
+    <string name="sw_desc_util">Maksājumi ar nākamo termiņu.</string>
+    <string name="sw_desc_crm">CRM atgādinājumi un kontakti.</string>
+    <string name="sw_home">Mājas</string>
+    <string name="sw_firm">Firma</string>
+    <string name="sw_all">Visi</string>
+    <string name="sw_person">Persona</string>
+    <string name="sw_group">Grupa</string>
+    <string name="sw_show">Rādīt</string>
+    <string name="sw_rows">Rindas</string>
+    <string name="sw_font">Fonta izmērs</string>
+    <string name="sw_small">Mazs</string>
+    <string name="sw_medium">Vidējs</string>
+    <string name="sw_large">Liels</string>
+    <string name="sw_opacity">Necaurredzamība</string>
+    <string name="sw_checks">Rādīt izvēles rūtiņas</string>
+    <string name="sw_open_once">Atveriet Notis vienreiz, lai ielādētu datus.</string>
+    <string name="sw_empty_med">Šodien nav tablešu.</string>
+    <string name="sw_empty_util">Vēl nav maksājumu.</string>
+    <string name="sw_empty_crm">Nav kontaktu vai atgādinājumu.</string>
 </resources>

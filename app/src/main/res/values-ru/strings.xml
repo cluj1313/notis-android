@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Покупки</string>
     <string name="h_urg">Срочно</string>
+    <string name="sw_desc_med">Сегодняшние таблетки с отметками.</string>
+    <string name="sw_desc_util">Платежи со следующим сроком.</string>
+    <string name="sw_desc_crm">Напоминания и контакты CRM.</string>
+    <string name="sw_home">Дом</string>
+    <string name="sw_firm">Фирма</string>
+    <string name="sw_all">Все</string>
+    <string name="sw_person">Человек</string>
+    <string name="sw_group">Группа</string>
+    <string name="sw_show">Показать</string>
+    <string name="sw_rows">Строки</string>
+    <string name="sw_font">Размер шрифта</string>
+    <string name="sw_small">Мелкий</string>
+    <string name="sw_medium">Средний</string>
+    <string name="sw_large">Крупный</string>
+    <string name="sw_opacity">Непрозрачность</string>
+    <string name="sw_checks">Показывать флажки</string>
+    <string name="sw_open_once">Откройте Notis один раз, чтобы загрузить данные.</string>
+    <string name="sw_empty_med">Сегодня таблеток нет.</string>
+    <string name="sw_empty_util">Платежей пока нет.</string>
+    <string name="sw_empty_crm">Нет контактов и напоминаний.</string>
 </resources>

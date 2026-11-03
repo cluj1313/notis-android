@@ -97,4 +97,24 @@
     <string name="h_urg">Urgent</string>
     <string name="h_label">Notis · 💊 💳 👥 🛒 🚨</string>
     <string name="h_desc">💊 💳 👥 🛒 🚨</string>
+    <string name="sw_desc_med">Today\'s pills with their check state.</string>
+    <string name="sw_desc_util">Payments with the next due date.</string>
+    <string name="sw_desc_crm">CRM reminders and contacts.</string>
+    <string name="sw_home">Home</string>
+    <string name="sw_firm">Business</string>
+    <string name="sw_all">All</string>
+    <string name="sw_person">Person</string>
+    <string name="sw_group">Group</string>
+    <string name="sw_show">Show</string>
+    <string name="sw_rows">Rows</string>
+    <string name="sw_font">Font size</string>
+    <string name="sw_small">Small</string>
+    <string name="sw_medium">Medium</string>
+    <string name="sw_large">Large</string>
+    <string name="sw_opacity">Opacity</string>
+    <string name="sw_checks">Show checkboxes</string>
+    <string name="sw_open_once">Open Notis once to load the data.</string>
+    <string name="sw_empty_med">No pills today.</string>
+    <string name="sw_empty_util">No payments yet.</string>
+    <string name="sw_empty_crm">No contacts or reminders.</string>
 </resources>

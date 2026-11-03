@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">쇼핑</string>
     <string name="h_urg">긴급</string>
+    <string name="sw_desc_med">오늘의 약과 복용 체크.</string>
+    <string name="sw_desc_util">다음 납부일이 있는 결제.</string>
+    <string name="sw_desc_crm">CRM 알림과 연락처.</string>
+    <string name="sw_home">집</string>
+    <string name="sw_firm">회사</string>
+    <string name="sw_all">전체</string>
+    <string name="sw_person">사람</string>
+    <string name="sw_group">그룹</string>
+    <string name="sw_show">표시</string>
+    <string name="sw_rows">행 수</string>
+    <string name="sw_font">글꼴 크기</string>
+    <string name="sw_small">작게</string>
+    <string name="sw_medium">보통</string>
+    <string name="sw_large">크게</string>
+    <string name="sw_opacity">불투명도</string>
+    <string name="sw_checks">체크박스 표시</string>
+    <string name="sw_open_once">데이터를 불러오려면 Notis를 한 번 여세요.</string>
+    <string name="sw_empty_med">오늘은 약이 없습니다.</string>
+    <string name="sw_empty_util">아직 결제가 없습니다.</string>
+    <string name="sw_empty_crm">연락처나 알림이 없습니다.</string>
 </resources>

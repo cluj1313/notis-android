@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Indkøb</string>
     <string name="h_urg">Haster</string>
+    <string name="sw_desc_med">Dagens piller med flueben.</string>
+    <string name="sw_desc_util">Betalinger med næste forfaldsdato.</string>
+    <string name="sw_desc_crm">CRM-påmindelser og kontakter.</string>
+    <string name="sw_home">Hjem</string>
+    <string name="sw_firm">Firma</string>
+    <string name="sw_all">Alle</string>
+    <string name="sw_person">Person</string>
+    <string name="sw_group">Gruppe</string>
+    <string name="sw_show">Vis</string>
+    <string name="sw_rows">Rækker</string>
+    <string name="sw_font">Skriftstørrelse</string>
+    <string name="sw_small">Lille</string>
+    <string name="sw_medium">Mellem</string>
+    <string name="sw_large">Stor</string>
+    <string name="sw_opacity">Dækkevne</string>
+    <string name="sw_checks">Vis afkrydsningsfelter</string>
+    <string name="sw_open_once">Åbn Notis én gang for at indlæse data.</string>
+    <string name="sw_empty_med">Ingen piller i dag.</string>
+    <string name="sw_empty_util">Ingen betalinger endnu.</string>
+    <string name="sw_empty_crm">Ingen kontakter eller påmindelser.</string>
 </resources>

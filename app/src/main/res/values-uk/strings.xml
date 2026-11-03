@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Покупки</string>
     <string name="h_urg">Терміново</string>
+    <string name="sw_desc_med">Сьогоднішні пігулки з позначками.</string>
+    <string name="sw_desc_util">Платежі з наступним терміном.</string>
+    <string name="sw_desc_crm">Нагадування та контакти CRM.</string>
+    <string name="sw_home">Дім</string>
+    <string name="sw_firm">Фірма</string>
+    <string name="sw_all">Усі</string>
+    <string name="sw_person">Особа</string>
+    <string name="sw_group">Група</string>
+    <string name="sw_show">Показати</string>
+    <string name="sw_rows">Рядки</string>
+    <string name="sw_font">Розмір шрифту</string>
+    <string name="sw_small">Малий</string>
+    <string name="sw_medium">Середній</string>
+    <string name="sw_large">Великий</string>
+    <string name="sw_opacity">Непрозорість</string>
+    <string name="sw_checks">Показувати прапорці</string>
+    <string name="sw_open_once">Відкрийте Notis один раз, щоб завантажити дані.</string>
+    <string name="sw_empty_med">Сьогодні пігулок немає.</string>
+    <string name="sw_empty_util">Платежів ще немає.</string>
+    <string name="sw_empty_crm">Немає контактів чи нагадувань.</string>
 </resources>

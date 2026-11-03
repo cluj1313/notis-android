@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Courses</string>
     <string name="h_urg">Urgent</string>
+    <string name="sw_desc_med">Les médicaments du jour, cochés ou non.</string>
+    <string name="sw_desc_util">Paiements avec la prochaine échéance.</string>
+    <string name="sw_desc_crm">Rappels et contacts du CRM.</string>
+    <string name="sw_home">Maison</string>
+    <string name="sw_firm">Entreprise</string>
+    <string name="sw_all">Tous</string>
+    <string name="sw_person">Personne</string>
+    <string name="sw_group">Groupe</string>
+    <string name="sw_show">Afficher</string>
+    <string name="sw_rows">Lignes</string>
+    <string name="sw_font">Taille du texte</string>
+    <string name="sw_small">Petit</string>
+    <string name="sw_medium">Moyen</string>
+    <string name="sw_large">Grand</string>
+    <string name="sw_opacity">Opacité</string>
+    <string name="sw_checks">Afficher les cases</string>
+    <string name="sw_open_once">Ouvrez Notis une fois pour charger les données.</string>
+    <string name="sw_empty_med">Aucun médicament aujourd\'hui.</string>
+    <string name="sw_empty_util">Aucun paiement pour l\'instant.</string>
+    <string name="sw_empty_crm">Aucun contact ni rappel.</string>
 </resources>

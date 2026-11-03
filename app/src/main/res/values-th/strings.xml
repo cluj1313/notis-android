@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">ช้อปปิ้ง</string>
     <string name="h_urg">ด่วน</string>
+    <string name="sw_desc_med">ยาของวันนี้พร้อมเครื่องหมาย</string>
+    <string name="sw_desc_util">การชำระเงินพร้อมวันครบกำหนดถัดไป</string>
+    <string name="sw_desc_crm">การเตือนและรายชื่อติดต่อ CRM</string>
+    <string name="sw_home">บ้าน</string>
+    <string name="sw_firm">บริษัท</string>
+    <string name="sw_all">ทั้งหมด</string>
+    <string name="sw_person">บุคคล</string>
+    <string name="sw_group">กลุ่ม</string>
+    <string name="sw_show">แสดง</string>
+    <string name="sw_rows">แถว</string>
+    <string name="sw_font">ขนาดตัวอักษร</string>
+    <string name="sw_small">เล็ก</string>
+    <string name="sw_medium">กลาง</string>
+    <string name="sw_large">ใหญ่</string>
+    <string name="sw_opacity">ความทึบ</string>
+    <string name="sw_checks">แสดงช่องทำเครื่องหมาย</string>
+    <string name="sw_open_once">เปิด Notis หนึ่งครั้งเพื่อโหลดข้อมูล</string>
+    <string name="sw_empty_med">วันนี้ไม่มียา</string>
+    <string name="sw_empty_util">ยังไม่มีการชำระเงิน</string>
+    <string name="sw_empty_crm">ไม่มีรายชื่อหรือการเตือน</string>
 </resources>

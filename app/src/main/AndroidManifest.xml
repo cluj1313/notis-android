@@ -59,6 +59,9 @@
         <activity-alias android:screenOrientation="portrait" android:name=".LauncherClassic" android:targetActivity=".MainActivity" android:exported="true" android:enabled="false" android:icon="@mipmap/icc_launcher" android:roundIcon="@mipmap/icc_launcher_round">
             <intent-filter><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.LAUNCHER" /></intent-filter>
         </activity-alias>
+        <activity android:name=".SecConfigActivity" android:exported="true" android:label="@string/cfg_label" android:theme="@style/NotisDialog" android:excludeFromRecents="true" android:noHistory="true" android:taskAffinity="ro.cluj1313.notis.widgetui">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" /></intent-filter>
+        </activity>
         <activity android:name=".WidgetConfigActivity" android:exported="true" android:label="@string/cfg_label" android:theme="@style/NotisDialog" android:excludeFromRecents="true" android:noHistory="true" android:taskAffinity="ro.cluj1313.notis.widgetui">
             <intent-filter><action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" /></intent-filter>
         </activity>
@@ -78,25 +81,17 @@
             <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/notes_widget_info" />
         </receiver>
-        <receiver android:name=".TileWidget$Med" android:exported="true" android:label="@string/h_med">
+        <receiver android:name=".SecWidget$Med" android:exported="true" android:label="@string/h_med">
             <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/tw_med_info" />
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/sw_med_info" />
         </receiver>
-        <receiver android:name=".TileWidget$Util" android:exported="true" android:label="@string/h_util">
+        <receiver android:name=".SecWidget$Util" android:exported="true" android:label="@string/h_util">
             <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/tw_util_info" />
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/sw_util_info" />
         </receiver>
-        <receiver android:name=".TileWidget$Crm" android:exported="true" android:label="@string/h_crm">
+        <receiver android:name=".SecWidget$Crm" android:exported="true" android:label="@string/h_crm">
             <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/tw_crm_info" />
-        </receiver>
-        <receiver android:name=".TileWidget$Shop" android:exported="true" android:label="@string/h_shop">
-            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/tw_shop_info" />
-        </receiver>
-        <receiver android:name=".TileWidget$Urg" android:exported="true" android:label="@string/h_urg">
-            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/tw_urg_info" />
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/sw_crm_info" />
         </receiver>
         <receiver android:name=".AlarmReceiver" android:exported="false" />
         <receiver android:name=".ListActReceiver" android:exported="false" />

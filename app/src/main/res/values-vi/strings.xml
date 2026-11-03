@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">Mua sắm</string>
     <string name="h_urg">Khẩn cấp</string>
+    <string name="sw_desc_med">Thuốc hôm nay kèm dấu tích.</string>
+    <string name="sw_desc_util">Các khoản thanh toán với hạn kế tiếp.</string>
+    <string name="sw_desc_crm">Nhắc nhở và liên hệ CRM.</string>
+    <string name="sw_home">Nhà</string>
+    <string name="sw_firm">Công ty</string>
+    <string name="sw_all">Tất cả</string>
+    <string name="sw_person">Người</string>
+    <string name="sw_group">Nhóm</string>
+    <string name="sw_show">Hiển thị</string>
+    <string name="sw_rows">Số dòng</string>
+    <string name="sw_font">Cỡ chữ</string>
+    <string name="sw_small">Nhỏ</string>
+    <string name="sw_medium">Vừa</string>
+    <string name="sw_large">Lớn</string>
+    <string name="sw_opacity">Độ mờ đục</string>
+    <string name="sw_checks">Hiện ô đánh dấu</string>
+    <string name="sw_open_once">Mở Notis một lần để tải dữ liệu.</string>
+    <string name="sw_empty_med">Hôm nay không có thuốc.</string>
+    <string name="sw_empty_util">Chưa có khoản thanh toán.</string>
+    <string name="sw_empty_crm">Không có liên hệ hay nhắc nhở.</string>
 </resources>

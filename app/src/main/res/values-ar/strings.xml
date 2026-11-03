@@ -94,4 +94,24 @@
     <string name="h_crm">CRM</string>
     <string name="h_shop">التسوق</string>
     <string name="h_urg">عاجل</string>
+    <string name="sw_desc_med">أدوية اليوم مع علامة التناول.</string>
+    <string name="sw_desc_util">المدفوعات مع موعد الاستحقاق التالي.</string>
+    <string name="sw_desc_crm">تذكيرات وجهات اتصال CRM.</string>
+    <string name="sw_home">المنزل</string>
+    <string name="sw_firm">الشركة</string>
+    <string name="sw_all">الكل</string>
+    <string name="sw_person">الشخص</string>
+    <string name="sw_group">المجموعة</string>
+    <string name="sw_show">عرض</string>
+    <string name="sw_rows">الصفوف</string>
+    <string name="sw_font">حجم الخط</string>
+    <string name="sw_small">صغير</string>
+    <string name="sw_medium">متوسط</string>
+    <string name="sw_large">كبير</string>
+    <string name="sw_opacity">العتامة</string>
+    <string name="sw_checks">إظهار مربعات الاختيار</string>
+    <string name="sw_open_once">افتح Notis مرة واحدة لتحميل البيانات.</string>
+    <string name="sw_empty_med">لا أدوية اليوم.</string>
+    <string name="sw_empty_util">لا مدفوعات بعد.</string>
+    <string name="sw_empty_crm">لا جهات اتصال أو تذكيرات.</string>
 </resources>
