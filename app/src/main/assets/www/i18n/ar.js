@@ -374,7 +374,7 @@ NOTIS_I18N={
 "🗑 Șterge tabul": "🗑 حذف علامة التبويب",
 "↔ Mută": "↔ تحرك",
 "🎨 Culoare": "🎨 اللون",
-"🔓 Deblochează": "🔓 Fig.",
+"🔓 Deblochează": "🔓 إلغاء القفل",
 "🔒 Blochează": "🔒 قفل",
 "↩ Reface": "↩ استعادة",
 "× Șterge definitiv": "× الحذف بشكل دائم",
@@ -1476,5 +1476,6 @@ NOTIS_I18N={
 "Codul a fost deja folosit": "تم استخدام هذا الرمز مسبقًا",
 "Codul a expirat": "انتهت صلاحية هذا الرمز",
 "Super Class activ până la": "Super Class مفعّل حتى",
-"Super Class activ pe viață": "Super Class مفعّل مدى الحياة"
+"Super Class activ pe viață": "Super Class مفعّل مدى الحياة",
+"{name} e blocat": "{name} مقفل"
 };

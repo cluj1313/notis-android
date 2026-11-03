@@ -1476,5 +1476,6 @@ NOTIS_I18N={
 "Codul a fost deja folosit": "Bu kod zaten kullanıldı",
 "Codul a expirat": "Bu kodun süresi doldu",
 "Super Class activ până la": "Super Class şu tarihe kadar etkin:",
-"Super Class activ pe viață": "Super Class ömür boyu etkin"
+"Super Class activ pe viață": "Super Class ömür boyu etkin",
+"{name} e blocat": "{name} kilitli"
 };

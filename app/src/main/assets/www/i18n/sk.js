@@ -1478,5 +1478,6 @@ NOTIS_I18N={
 "Codul a fost deja folosit": "Tento kód už bol použitý",
 "Codul a expirat": "Platnosť kódu vypršala",
 "Super Class activ până la": "Super Class aktívne do",
-"Super Class activ pe viață": "Super Class aktívne doživotne"
+"Super Class activ pe viață": "Super Class aktívne doživotne",
+"{name} e blocat": "{name} je zamknuté"
 };

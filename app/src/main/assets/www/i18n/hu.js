@@ -1477,5 +1477,6 @@ NOTIS_I18N={
 "Codul a fost deja folosit": "Ezt a kódot már felhasználták",
 "Codul a expirat": "Ez a kód lejárt",
 "Super Class activ până la": "Super Class aktív eddig:",
-"Super Class activ pe viață": "Super Class élethosszig aktív"
+"Super Class activ pe viață": "Super Class élethosszig aktív",
+"{name} e blocat": "{name} zárolva van"
 };

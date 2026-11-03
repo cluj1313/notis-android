@@ -1476,5 +1476,6 @@ NOTIS_I18N={
 "Codul a fost deja folosit": "このコードは使用済みです",
 "Codul a expirat": "このコードは期限切れです",
 "Super Class activ până la": "Super Class 有効期限",
-"Super Class activ pe viață": "Super Class 永久に有効"
+"Super Class activ pe viață": "Super Class 永久に有効",
+"{name} e blocat": "{name}はロックされています"
 };

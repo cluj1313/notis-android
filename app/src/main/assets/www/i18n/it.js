@@ -1478,5 +1478,6 @@ NOTIS_I18N={
 "Codul a fost deja folosit": "Questo codice è già stato usato",
 "Codul a expirat": "Questo codice è scaduto",
 "Super Class activ până la": "Super Class attivo fino al",
-"Super Class activ pe viață": "Super Class attivo a vita"
+"Super Class activ pe viață": "Super Class attivo a vita",
+"{name} e blocat": "{name} è bloccato"
 };

@@ -1476,5 +1476,6 @@ NOTIS_I18N={
 "Codul a fost deja folosit": "এই কোডটি আগেই ব্যবহার হয়েছে",
 "Codul a expirat": "এই কোডের মেয়াদ শেষ",
 "Super Class activ până la": "Super Class সক্রিয় পর্যন্ত",
-"Super Class activ pe viață": "Super Class আজীবন সক্রিয়"
+"Super Class activ pe viață": "Super Class আজীবন সক্রিয়",
+"{name} e blocat": "{name} লক করা আছে"
 };

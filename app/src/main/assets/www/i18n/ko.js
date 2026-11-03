@@ -1476,5 +1476,6 @@ NOTIS_I18N={
 "Codul a fost deja folosit": "이미 사용된 코드입니다",
 "Codul a expirat": "만료된 코드입니다",
 "Super Class activ până la": "Super Class 활성 기한",
-"Super Class activ pe viață": "Super Class 평생 활성"
+"Super Class activ pe viață": "Super Class 평생 활성",
+"{name} e blocat": "{name}이(가) 잠겨 있습니다"
 };

@@ -1476,5 +1476,6 @@ NOTIS_I18N={
 "Codul a fost deja folosit": "Αυτός ο κωδικός έχει ήδη χρησιμοποιηθεί",
 "Codul a expirat": "Αυτός ο κωδικός έχει λήξει",
 "Super Class activ până la": "Super Class ενεργό έως",
-"Super Class activ pe viață": "Super Class ενεργό εφ’ όρου ζωής"
+"Super Class activ pe viață": "Super Class ενεργό εφ’ όρου ζωής",
+"{name} e blocat": "Το {name} είναι κλειδωμένο"
 };

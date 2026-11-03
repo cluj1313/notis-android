@@ -1476,5 +1476,6 @@ NOTIS_I18N={
 "Codul a fost deja folosit": "Šis kodas jau panaudotas",
 "Codul a expirat": "Šio kodo galiojimas baigėsi",
 "Super Class activ până la": "Super Class aktyvus iki",
-"Super Class activ pe viață": "Super Class aktyvus visam laikui"
+"Super Class activ pe viață": "Super Class aktyvus visam laikui",
+"{name} e blocat": "{name} užrakinta"
 };

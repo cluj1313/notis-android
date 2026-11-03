@@ -1477,5 +1477,6 @@ NOTIS_I18N={
 "Codul a fost deja folosit": "Mã này đã được sử dụng",
 "Codul a expirat": "Mã này đã hết hạn",
 "Super Class activ până la": "Super Class hoạt động đến",
-"Super Class activ pe viață": "Super Class hoạt động trọn đời"
+"Super Class activ pe viață": "Super Class hoạt động trọn đời",
+"{name} e blocat": "{name} đang bị khóa"
 };

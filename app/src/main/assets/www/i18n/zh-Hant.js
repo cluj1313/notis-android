@@ -1476,5 +1476,6 @@ NOTIS_I18N={
 "Codul a fost deja folosit": "此兌換碼已被使用",
 "Codul a expirat": "此兌換碼已過期",
 "Super Class activ până la": "Super Class 有效期至",
-"Super Class activ pe viață": "Super Class 永久有效"
+"Super Class activ pe viață": "Super Class 永久有效",
+"{name} e blocat": "{name}已鎖定"
 };

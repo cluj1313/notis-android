@@ -1476,5 +1476,6 @@ NOTIS_I18N={
 "Codul a fost deja folosit": "โค้ดนี้ถูกใช้ไปแล้ว",
 "Codul a expirat": "โค้ดนี้หมดอายุแล้ว",
 "Super Class activ până la": "Super Class ใช้งานได้ถึง",
-"Super Class activ pe viață": "Super Class ใช้งานได้ตลอดชีพ"
+"Super Class activ pe viață": "Super Class ใช้งานได้ตลอดชีพ",
+"{name} e blocat": "{name} ถูกล็อกอยู่"
 };

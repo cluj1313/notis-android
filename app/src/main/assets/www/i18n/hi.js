@@ -1476,5 +1476,6 @@ NOTIS_I18N={
 "Codul a fost deja folosit": "यह कोड पहले ही इस्तेमाल हो चुका है",
 "Codul a expirat": "यह कोड समाप्त हो गया है",
 "Super Class activ până la": "Super Class सक्रिय तक",
-"Super Class activ pe viață": "Super Class आजीवन सक्रिय"
+"Super Class activ pe viață": "Super Class आजीवन सक्रिय",
+"{name} e blocat": "{name} लॉक है"
 };

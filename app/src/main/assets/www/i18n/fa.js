@@ -1476,5 +1476,6 @@ NOTIS_I18N={
 "Codul a fost deja folosit": "این کد قبلاً استفاده شده",
 "Codul a expirat": "این کد منقضی شده",
 "Super Class activ până la": "Super Class فعال تا",
-"Super Class activ pe viață": "Super Class مادام‌العمر فعال"
+"Super Class activ pe viață": "Super Class مادام‌العمر فعال",
+"{name} e blocat": "{name} قفل است"
 };
