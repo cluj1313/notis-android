@@ -1464,5 +1464,6 @@ NOTIS_I18N={
 "Credite": "貸款",
 "Credit Casă": "房貸",
 "Credit Auto": "車貸",
-"Plăți streaming": "串流付費"
+"Plăți streaming": "串流付費",
+"Mergi la final": "跳到末尾"
 };

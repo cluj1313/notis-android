@@ -1464,5 +1464,6 @@ NOTIS_I18N={
 "Credite": "Krediler",
 "Credit Casă": "Konut kredisi",
 "Credit Auto": "Taşıt kredisi",
-"Plăți streaming": "Yayın ödemeleri"
+"Plăți streaming": "Yayın ödemeleri",
+"Mergi la final": "Sona git"
 };

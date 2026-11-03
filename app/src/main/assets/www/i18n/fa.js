@@ -1464,5 +1464,6 @@ NOTIS_I18N={
 "Credite": "وام‌ها",
 "Credit Casă": "وام مسکن",
 "Credit Auto": "وام خودرو",
-"Plăți streaming": "پرداخت‌های استریم"
+"Plăți streaming": "پرداخت‌های استریم",
+"Mergi la final": "رفتن به انتها"
 };

@@ -1465,5 +1465,6 @@ NOTIS_I18N={
 "Credit Casă": "Lakáshitel",
 "Credit Auto": "Autóhitel",
 "Internet": "Internet",
-"Plăți streaming": "Streaming-díjak"
+"Plăți streaming": "Streaming-díjak",
+"Mergi la final": "Ugrás a végére"
 };

@@ -1465,5 +1465,6 @@ NOTIS_I18N={
 "Credit Casă": "Pinjaman rumah",
 "Credit Auto": "Pinjaman kereta",
 "Internet": "Internet",
-"Plăți streaming": "Bayaran penstriman"
+"Plăți streaming": "Bayaran penstriman",
+"Mergi la final": "Pergi ke akhir"
 };

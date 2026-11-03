@@ -1464,5 +1464,6 @@ NOTIS_I18N={
 "Credite": "القروض",
 "Credit Casă": "قرض المنزل",
 "Credit Auto": "قرض السيارة",
-"Plăți streaming": "مدفوعات البث"
+"Plăți streaming": "مدفوعات البث",
+"Mergi la final": "الانتقال إلى النهاية"
 };

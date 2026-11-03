@@ -1464,5 +1464,6 @@ NOTIS_I18N={
 "Credite": "Kreditai",
 "Credit Casă": "Būsto kreditas",
 "Credit Auto": "Automobilio kreditas",
-"Plăți streaming": "Srautinio turinio mokėjimai"
+"Plăți streaming": "Srautinio turinio mokėjimai",
+"Mergi la final": "Eiti į pabaigą"
 };

@@ -2752,3 +2752,18 @@ function lnkAsk(k,v){var cf=$('cfModal').querySelector('.cftxt'),ok=$('cfOk'),no
 })();
 function ntApplyOrder(ids){var pos=[];noteTabs.forEach(function(t,i){if(ids.indexOf(t.id)>=0)pos.push(i)});var by={};noteTabs.forEach(function(t){by[t.id]=t});var nt=noteTabs.slice();pos.forEach(function(p,k){nt[p]=by[ids[k]]});noteTabs=nt}
 function isUrgTab(t){if(!t)return false;var f=nFold(t.name).trim();return t.id==='u'||f==='urgente'||f===nFold(TR('URGENȚE')).trim()}
+
+/* v193: "go to end" round arrow in the note editor/reader — only when the text is longer than the screen and we are not at the bottom; never takes focus */
+(function(){var nf=$('noteFull');if(!nf)return;var b=document.createElement('button');b.type='button';b.id='nfEnd';b.tabIndex=-1;b.setAttribute('aria-label',TR('Mergi la final'));b.title=TR('Mergi la final');
+ b.innerHTML='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v13M6.5 12.5 12 18l5.5-5.5"/></svg>';nf.appendChild(b);
+ function vis(e){return e&&e.offsetParent!==null&&getComputedStyle(e).display!=='none'}
+ function sc(){var t=$('nfText');if(vis(t)&&t.scrollHeight>t.clientHeight+4)return t;return nf}
+ var raf=0;function upd(){raf=0;var on=false;if(nf.classList.contains('show')){var t=$('nfText'),rem=0;if(vis(t)){rem=t.scrollHeight-t.scrollTop-t.clientHeight}else{var c=['nfView','nfChk','nfBlocks'].map($).filter(vis)[0],dn=$('nfDone'),lim=vis(dn)?dn.getBoundingClientRect().top:innerHeight-90;if(c)rem=c.getBoundingClientRect().bottom-lim;rem=Math.min(rem,nf.scrollHeight-nf.scrollTop-nf.clientHeight)}on=rem>40;if(on)b.setAttribute('aria-label',b.title=TR('Mergi la final'));
+  var d=$('nfDone'),r=vis(d)?d.getBoundingClientRect():null;if(r&&r.width){b.style.bottom=Math.round(innerHeight-r.bottom+(r.height-36)/2)+'px';b.style.right=Math.round(innerWidth-r.left+12)+'px'}else{b.style.bottom='';b.style.right=''}}
+  b.classList.toggle('on',on)}
+ function q(){if(!raf)raf=requestAnimationFrame(upd)}
+ nf.addEventListener('scroll',q,true);nf.addEventListener('input',q,true);addEventListener('resize',q);if(window.visualViewport)visualViewport.addEventListener('resize',q);
+ new MutationObserver(q).observe(nf,{attributes:true,attributeFilter:['class'],subtree:true,childList:true});
+ b.addEventListener('pointerdown',function(e){e.preventDefault()});b.addEventListener('mousedown',function(e){e.preventDefault()});
+ b.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();var x=sc();try{x.scrollTo({top:x.scrollHeight,behavior:'smooth'})}catch(_){x.scrollTop=x.scrollHeight}setTimeout(q,450)});
+ window.nfEndUpd=q})();

@@ -1465,5 +1465,6 @@ NOTIS_I18N={
 "Credit Casă": "KPR",
 "Credit Auto": "Kredit mobil",
 "Internet": "Internet",
-"Plăți streaming": "Pembayaran streaming"
+"Plăți streaming": "Pembayaran streaming",
+"Mergi la final": "Ke akhir"
 };

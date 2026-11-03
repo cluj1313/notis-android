@@ -1464,5 +1464,6 @@ NOTIS_I18N={
 "Credite": "ローン",
 "Credit Casă": "住宅ローン",
 "Credit Auto": "自動車ローン",
-"Plăți streaming": "ストリーミングの支払い"
+"Plăți streaming": "ストリーミングの支払い",
+"Mergi la final": "末尾へ移動"
 };

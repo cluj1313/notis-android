@@ -1464,5 +1464,6 @@ NOTIS_I18N={
 "Credite": "Δάνεια",
 "Credit Casă": "Στεγαστικό δάνειο",
 "Credit Auto": "Δάνειο αυτοκινήτου",
-"Plăți streaming": "Πληρωμές streaming"
+"Plăți streaming": "Πληρωμές streaming",
+"Mergi la final": "Μετάβαση στο τέλος"
 };

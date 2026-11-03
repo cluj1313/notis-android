@@ -1464,5 +1464,6 @@ NOTIS_I18N={
 "Credite": "ঋণ",
 "Credit Casă": "গৃহঋণ",
 "Credit Auto": "গাড়ির ঋণ",
-"Plăți streaming": "স্ট্রিমিং পেমেন্ট"
+"Plăți streaming": "স্ট্রিমিং পেমেন্ট",
+"Mergi la final": "শেষে যান"
 };

@@ -1464,5 +1464,6 @@ NOTIS_I18N={
 "Credite": "Кредити",
 "Credit Casă": "Жилищен кредит",
 "Credit Auto": "Автокредит",
-"Plăți streaming": "Плащания за стрийминг"
+"Plăți streaming": "Плащания за стрийминг",
+"Mergi la final": "Към края"
 };

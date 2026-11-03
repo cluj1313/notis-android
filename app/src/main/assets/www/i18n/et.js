@@ -1466,5 +1466,6 @@ NOTIS_I18N={
 "Credit Casă": "Kodulaen",
 "Credit Auto": "Autolaen",
 "Internet": "Internet",
-"Plăți streaming": "Voogedastuse maksed"
+"Plăți streaming": "Voogedastuse maksed",
+"Mergi la final": "Mine lõppu"
 };
