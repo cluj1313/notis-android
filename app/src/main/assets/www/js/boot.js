@@ -79,7 +79,7 @@ window.tsOpen=tsOpen;
 /* long-press ONLY on empty background (never on a note, row, button, field or header) */
 var TSX={t:0,x:0,y:0,fired:0,sup:0};
 function bgTarget(el){if(!el||!el.closest)return false;var pg=$('notesPg');if(!pg||!pg.contains(el)||!pg.classList.contains('show')&&getComputedStyle(pg).display==='none')return false;
- if(el.closest('button,a,input,textarea,select,label,li.note,.nfo,.nxr,[data-a],[data-pa],[data-c],[data-cs],[data-id],[data-r],[data-k],[data-u],[data-g],.sphd,.spghd,.lbhd,.ntabs,.ntab,.pwlk,.mdday,.crc,#tsMenu,.qrr,.qrb,[contenteditable]'))return false;
+ if(el.closest('button,a,input,textarea,select,label,li.note,.nfo,.nxr,[data-a],[data-pa],[data-c],[data-cs],[data-id],[data-r],[data-k],[data-u],[data-g],.sphd,.spghd,.lbhd,.ntabs,.ntab,.pwlk,.mdday,.crc,#tsMenu,#hdrIco,.ntop,#crRing,.qrr,.qrb,[contenteditable]'))return false;
  return true} /* anything inside the tab page that is not an item, control or header */
 document.addEventListener('pointerdown',function(e){clearTimeout(TSX.t);TSX.fired=0;if(e.button>0||document.querySelector('.modal.show,#noteFull.show'))return;if(!bgTarget(e.target))return;TSX.x=e.clientX;TSX.y=e.clientY;
  TSX.t=setTimeout(function(){TSX.fired=1;try{navigator.vibrate&&navigator.vibrate(15)}catch(_){}tsOpen()},650)},true);
