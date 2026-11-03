@@ -89,4 +89,9 @@
     <string name="edit_item">Редагувати пункт</string>
     <string name="edit_note">Редагувати нотатку</string>
     <string name="alarm_stop">Стоп</string>
+    <string name="h_med">Таблетки</string>
+    <string name="h_util">Платежі</string>
+    <string name="h_crm">CRM</string>
+    <string name="h_shop">Покупки</string>
+    <string name="h_urg">Терміново</string>
 </resources>

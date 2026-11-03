@@ -89,4 +89,9 @@
     <string name="edit_item">Измени ставку</string>
     <string name="edit_note">Измени белешку</string>
     <string name="alarm_stop">Заустави</string>
+    <string name="h_med">Tablete</string>
+    <string name="h_util">Плаћања</string>
+    <string name="h_crm">CRM</string>
+    <string name="h_shop">Куповина</string>
+    <string name="h_urg">Хитно</string>
 </resources>

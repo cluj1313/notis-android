@@ -89,4 +89,9 @@
     <string name="edit_item">تعديل العنصر</string>
     <string name="edit_note">تعديل الملاحظة</string>
     <string name="alarm_stop">إيقاف</string>
+    <string name="h_med">حبوب</string>
+    <string name="h_util">المدفوعات</string>
+    <string name="h_crm">CRM</string>
+    <string name="h_shop">التسوق</string>
+    <string name="h_urg">عاجل</string>
 </resources>

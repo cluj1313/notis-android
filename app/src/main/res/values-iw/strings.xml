@@ -89,4 +89,9 @@
     <string name="edit_item">עריכת פריט</string>
     <string name="edit_note">עריכת פתק</string>
     <string name="alarm_stop">עצור</string>
+    <string name="h_med">כדורים</string>
+    <string name="h_util">תשלומים</string>
+    <string name="h_crm">CRM</string>
+    <string name="h_shop">קניות</string>
+    <string name="h_urg">דחוף</string>
 </resources>

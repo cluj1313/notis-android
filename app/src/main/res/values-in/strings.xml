@@ -89,4 +89,9 @@
     <string name="edit_item">Ubah item</string>
     <string name="edit_note">Ubah catatan</string>
     <string name="alarm_stop">Hentikan</string>
+    <string name="h_med">Pil</string>
+    <string name="h_util">Pembayaran</string>
+    <string name="h_crm">CRM</string>
+    <string name="h_shop">Belanja</string>
+    <string name="h_urg">Mendesak</string>
 </resources>

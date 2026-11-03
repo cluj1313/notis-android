@@ -104,6 +104,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         /* 2.17.7: four pills 10 | 20 | 30 | STOP on top (custom RemoteViews, decorated so the system header/icon stay) */
         RemoteViews small = pills(c, R.layout.notif_alarm, nid, text);
         RemoteViews big = pills(c, R.layout.notif_alarm_big, nid, text);
+        small.setTextViewText(R.id.ntitle, tb[0]); /* 2.20.0: collapsed shows the title (one line, ellipsized) */
         big.setTextViewText(R.id.ntitle, tb[0]);
         big.setTextViewText(R.id.nbody, tb[1]);
         big.setViewVisibility(R.id.nbody, tb[1].isEmpty() ? android.view.View.GONE : android.view.View.VISIBLE);

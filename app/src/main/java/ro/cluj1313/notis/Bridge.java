@@ -36,6 +36,22 @@ final class Bridge {
             return true;
         } catch (Exception ex) { return false; }
     }
+    /** v189: backup share: writes cache/cam/<notis-backup-*.json> and opens the system share sheet (WhatsApp etc.) with a one-off read grant. Content never logged. */
+    @JavascriptInterface public boolean shareFile(String name, String content, String title) { if (!MainActivity.trusted || name == null || content == null) return false;
+        String n = name.replaceAll("[^0-9A-Za-z_.-]", "-"); if (CamProvider.safe(n) == null || !n.endsWith(".json")) return false;
+        final android.app.Activity a = MainActivity.cur; final Context c = a != null ? a : ctx;
+        try { File d = new File(ctx.getCacheDir(), "cam"); d.mkdirs();
+            File[] old = d.listFiles(); if (old != null) for (File o : old) if (o.getName().startsWith("notis-backup-") && System.currentTimeMillis() - o.lastModified() > 3600000L) o.delete();
+            try (FileOutputStream os = new FileOutputStream(new File(d, n))) { os.write(content.getBytes(java.nio.charset.StandardCharsets.UTF_8)); }
+            Uri u = Uri.parse("content://" + ctx.getPackageName() + ".cam/" + n);
+            Intent s = new Intent(Intent.ACTION_SEND).setType("application/json").putExtra(Intent.EXTRA_STREAM, u).addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            if (title != null && title.length() > 0) { s.putExtra(Intent.EXTRA_SUBJECT, title); s.putExtra(Intent.EXTRA_TITLE, title); }
+            s.setClipData(android.content.ClipData.newRawUri(n, u));
+            Intent go = Intent.createChooser(s, title).addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION); if (a == null) go.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            final Intent fg = go; if (a != null) a.runOnUiThread(() -> { try { a.startActivity(fg); } catch (Exception ignored) {} }); else c.startActivity(fg);
+            return true;
+        } catch (Exception ex) { return false; }
+    }
     @JavascriptInterface public void shareText(String text, String title) { if (!MainActivity.trusted || text == null) return;
         final android.app.Activity a = MainActivity.cur; final Context c = a != null ? a : ctx;
         Intent s = new Intent(Intent.ACTION_SEND).setType("text/plain").putExtra(Intent.EXTRA_TEXT, text);

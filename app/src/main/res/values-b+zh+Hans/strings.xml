@@ -89,4 +89,9 @@
     <string name="edit_item">编辑项目</string>
     <string name="edit_note">编辑笔记</string>
     <string name="alarm_stop">停止</string>
+    <string name="h_med">药片</string>
+    <string name="h_util">付款</string>
+    <string name="h_crm">CRM</string>
+    <string name="h_shop">购物</string>
+    <string name="h_urg">紧急</string>
 </resources>

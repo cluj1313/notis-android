@@ -89,4 +89,9 @@
     <string name="edit_item">Sửa mục</string>
     <string name="edit_note">Sửa ghi chú</string>
     <string name="alarm_stop">Dừng</string>
+    <string name="h_med">Thuốc viên</string>
+    <string name="h_util">Thanh toán</string>
+    <string name="h_crm">CRM</string>
+    <string name="h_shop">Mua sắm</string>
+    <string name="h_urg">Khẩn cấp</string>
 </resources>

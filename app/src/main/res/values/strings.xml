@@ -90,4 +90,11 @@
     <string name="edit_item">Edit item</string>
     <string name="edit_note">Edit note</string>
     <string name="alarm_stop">Stop</string>
+    <string name="h_med">Pills</string>
+    <string name="h_util">Payments</string>
+    <string name="h_crm">CRM</string>
+    <string name="h_shop">Shopping</string>
+    <string name="h_urg">Urgent</string>
+    <string name="h_label">Notis · 💊 💳 👥 🛒 🚨</string>
+    <string name="h_desc">💊 💳 👥 🛒 🚨</string>
 </resources>

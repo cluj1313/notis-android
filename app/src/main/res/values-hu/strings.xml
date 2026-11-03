@@ -89,4 +89,9 @@
     <string name="edit_item">Tétel szerkesztése</string>
     <string name="edit_note">Jegyzet szerkesztése</string>
     <string name="alarm_stop">Leállítás</string>
+    <string name="h_med">Tabletták</string>
+    <string name="h_util">Fizetések</string>
+    <string name="h_crm">CRM</string>
+    <string name="h_shop">Bevásárlás</string>
+    <string name="h_urg">Sürgős</string>
 </resources>

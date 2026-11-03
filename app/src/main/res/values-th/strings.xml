@@ -89,4 +89,9 @@
     <string name="edit_item">แก้ไขรายการ</string>
     <string name="edit_note">แก้ไขโน้ต</string>
     <string name="alarm_stop">หยุด</string>
+    <string name="h_med">ยาเม็ด</string>
+    <string name="h_util">การชำระเงิน</string>
+    <string name="h_crm">CRM</string>
+    <string name="h_shop">ช้อปปิ้ง</string>
+    <string name="h_urg">ด่วน</string>
 </resources>

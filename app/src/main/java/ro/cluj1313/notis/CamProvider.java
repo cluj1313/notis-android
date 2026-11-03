@@ -14,8 +14,8 @@ import java.io.FileNotFoundException;
  *  Not exported; access only through the per-intent URI grant. No CAMERA permission is declared or needed. */
 public class CamProvider extends ContentProvider {
     @Override public boolean onCreate() { return true; }
-    static String safe(String n) { return n != null && (n.matches("photo-\\d+\\.jpg") || n.matches("rec-\\d+\\.(m4a|webm|ogg)")) ? n : null; }
-    static String type(String n) { if (n == null) return "image/jpeg"; if (n.endsWith(".m4a")) return "audio/mp4"; if (n.endsWith(".webm")) return "audio/webm"; if (n.endsWith(".ogg")) return "audio/ogg"; return "image/jpeg"; }
+    static String safe(String n) { return n != null && (n.matches("photo-\\d+\\.jpg") || n.matches("rec-\\d+\\.(m4a|webm|ogg)") || n.matches("notis-backup-[0-9A-Za-z_-]{1,60}\\.json")) ? n : null; }
+    static String type(String n) { if (n == null) return "image/jpeg"; if (n.endsWith(".m4a")) return "audio/mp4"; if (n.endsWith(".webm")) return "audio/webm"; if (n.endsWith(".ogg")) return "audio/ogg"; if (n.endsWith(".json")) return "application/json"; return "image/jpeg"; }
     private File file(Uri u) throws FileNotFoundException {
         String n = safe(u.getLastPathSegment());
         if (n == null) throw new FileNotFoundException();

@@ -89,4 +89,9 @@
     <string name="edit_item">Sunting item</string>
     <string name="edit_note">Sunting nota</string>
     <string name="alarm_stop">Hentikan</string>
+    <string name="h_med">Pil</string>
+    <string name="h_util">Bayaran</string>
+    <string name="h_crm">CRM</string>
+    <string name="h_shop">Membeli-belah</string>
+    <string name="h_urg">Segera</string>
 </resources>

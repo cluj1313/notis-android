@@ -89,4 +89,9 @@
     <string name="edit_item">Modifier l\'élément</string>
     <string name="edit_note">Modifier la note</string>
     <string name="alarm_stop">Arrêter</string>
+    <string name="h_med">Comprimés</string>
+    <string name="h_util">Paiements</string>
+    <string name="h_crm">CRM</string>
+    <string name="h_shop">Courses</string>
+    <string name="h_urg">Urgent</string>
 </resources>

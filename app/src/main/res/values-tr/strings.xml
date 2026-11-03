@@ -89,4 +89,9 @@
     <string name="edit_item">Öğeyi düzenle</string>
     <string name="edit_note">Notu düzenle</string>
     <string name="alarm_stop">Durdur</string>
+    <string name="h_med">Haplar</string>
+    <string name="h_util">Ödemeler</string>
+    <string name="h_crm">CRM</string>
+    <string name="h_shop">Alışveriş</string>
+    <string name="h_urg">Aci̇l</string>
 </resources>

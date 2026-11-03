@@ -89,4 +89,9 @@
     <string name="edit_item">आइटम संपादित करें</string>
     <string name="edit_note">नोट संपादित करें</string>
     <string name="alarm_stop">रोकें</string>
+    <string name="h_med">गोलियाँ</string>
+    <string name="h_util">भुगतान</string>
+    <string name="h_crm">CRM</string>
+    <string name="h_shop">ख़रीदारी</string>
+    <string name="h_urg">ज़रूरी</string>
 </resources>

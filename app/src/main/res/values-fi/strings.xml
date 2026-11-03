@@ -89,4 +89,9 @@
     <string name="edit_item">Muokkaa kohdetta</string>
     <string name="edit_note">Muokkaa muistiinpanoa</string>
     <string name="alarm_stop">Pysäytä</string>
+    <string name="h_med">Pillerit</string>
+    <string name="h_util">Maksut</string>
+    <string name="h_crm">CRM</string>
+    <string name="h_shop">Ostokset</string>
+    <string name="h_urg">Kiireellinen</string>
 </resources>

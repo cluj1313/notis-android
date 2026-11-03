@@ -89,4 +89,9 @@
     <string name="edit_item">Ndrysho artikullin</string>
     <string name="edit_note">Ndrysho shënimin</string>
     <string name="alarm_stop">Ndalo</string>
+    <string name="h_med">Pilula</string>
+    <string name="h_util">Pagesa</string>
+    <string name="h_crm">CRM</string>
+    <string name="h_shop">Blerje</string>
+    <string name="h_urg">Urgjente</string>
 </resources>

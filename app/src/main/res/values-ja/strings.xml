@@ -89,4 +89,9 @@
     <string name="edit_item">項目を編集</string>
     <string name="edit_note">メモを編集</string>
     <string name="alarm_stop">停止</string>
+    <string name="h_med">錠剤</string>
+    <string name="h_util">支払い</string>
+    <string name="h_crm">CRM</string>
+    <string name="h_shop">買い物</string>
+    <string name="h_urg">緊急</string>
 </resources>

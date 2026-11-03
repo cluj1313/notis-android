@@ -89,4 +89,9 @@
     <string name="edit_item">Editează elementul</string>
     <string name="edit_note">Editează notița</string>
     <string name="alarm_stop">Oprește</string>
+    <string name="h_med">Pastile</string>
+    <string name="h_util">Plăți</string>
+    <string name="h_crm">CRM</string>
+    <string name="h_shop">Cumpărături</string>
+    <string name="h_urg">Urgențe</string>
 </resources>

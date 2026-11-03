@@ -89,4 +89,9 @@
     <string name="edit_item">Muuda kirjet</string>
     <string name="edit_note">Muuda märkmet</string>
     <string name="alarm_stop">Peata</string>
+    <string name="h_med">Tabletid</string>
+    <string name="h_util">Maksed</string>
+    <string name="h_crm">CRM</string>
+    <string name="h_shop">Ostud</string>
+    <string name="h_urg">Kiire</string>
 </resources>

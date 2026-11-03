@@ -89,4 +89,9 @@
     <string name="edit_item">আইটেম সম্পাদনা</string>
     <string name="edit_note">নোট সম্পাদনা</string>
     <string name="alarm_stop">থামান</string>
+    <string name="h_med">ট্যাবলেট</string>
+    <string name="h_util">পেমেন্ট</string>
+    <string name="h_crm">CRM</string>
+    <string name="h_shop">কেনাকাটা</string>
+    <string name="h_urg">জরুরি</string>
 </resources>
