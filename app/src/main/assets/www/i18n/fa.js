@@ -1459,5 +1459,10 @@ NOTIS_I18N={
 "3 luni": "۳ ماه",
 "Tot istoricul": "کل تاریخچه",
 "Ștergi valoarea?": "مقدار حذف شود؟",
-"Ștergi?": "حذف شود؟"
+"Ștergi?": "حذف شود؟",
+"Vignetă": "برچسب عوارض جاده",
+"Credite": "وام‌ها",
+"Credit Casă": "وام مسکن",
+"Credit Auto": "وام خودرو",
+"Plăți streaming": "پرداخت‌های استریم"
 };

@@ -1459,5 +1459,11 @@ NOTIS_I18N={
 "3 luni": "3 hónap",
 "Tot istoricul": "Teljes időszak",
 "Ștergi valoarea?": "Törlöd az értéket?",
-"Ștergi?": "Törlöd?"
+"Ștergi?": "Törlöd?",
+"Vignetă": "Matrica",
+"Credite": "Hitelek",
+"Credit Casă": "Lakáshitel",
+"Credit Auto": "Autóhitel",
+"Internet": "Internet",
+"Plăți streaming": "Streaming-díjak"
 };

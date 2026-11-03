@@ -1459,5 +1459,10 @@ NOTIS_I18N={
 "3 luni": "3 أشهر",
 "Tot istoricul": "كل السجل",
 "Ștergi valoarea?": "حذف القيمة؟",
-"Ștergi?": "حذف؟"
+"Ștergi?": "حذف؟",
+"Vignetă": "ملصق الطريق",
+"Credite": "القروض",
+"Credit Casă": "قرض المنزل",
+"Credit Auto": "قرض السيارة",
+"Plăți streaming": "مدفوعات البث"
 };

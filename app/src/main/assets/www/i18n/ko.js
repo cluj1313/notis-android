@@ -1459,5 +1459,10 @@ NOTIS_I18N={
 "3 luni": "3개월",
 "Tot istoricul": "전체 기록",
 "Ștergi valoarea?": "값을 삭제할까요?",
-"Ștergi?": "삭제할까요?"
+"Ștergi?": "삭제할까요?",
+"Vignetă": "도로 통행 스티커",
+"Credite": "대출",
+"Credit Casă": "주택 대출",
+"Credit Auto": "자동차 대출",
+"Plăți streaming": "스트리밍 결제"
 };

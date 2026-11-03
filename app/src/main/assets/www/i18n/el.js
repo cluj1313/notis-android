@@ -1459,5 +1459,10 @@ NOTIS_I18N={
 "3 luni": "3 μήνες",
 "Tot istoricul": "Όλο το ιστορικό",
 "Ștergi valoarea?": "Διαγραφή τιμής;",
-"Ștergi?": "Διαγραφή;"
+"Ștergi?": "Διαγραφή;",
+"Vignetă": "Βινιέτα",
+"Credite": "Δάνεια",
+"Credit Casă": "Στεγαστικό δάνειο",
+"Credit Auto": "Δάνειο αυτοκινήτου",
+"Plăți streaming": "Πληρωμές streaming"
 };

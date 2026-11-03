@@ -1459,5 +1459,10 @@ NOTIS_I18N={
 "3 luni": "3 muaj",
 "Tot istoricul": "Gjithë historiku",
 "Ștergi valoarea?": "Të fshihet vlera?",
-"Ștergi?": "Të fshihet?"
+"Ștergi?": "Të fshihet?",
+"Vignetă": "Vinjeta",
+"Credite": "Kreditë",
+"Credit Casă": "Kredi për shtëpi",
+"Credit Auto": "Kredi për makinë",
+"Plăți streaming": "Pagesa streaming"
 };

@@ -1459,5 +1459,10 @@ NOTIS_I18N={
 "3 luni": "3 महीने",
 "Tot istoricul": "पूरा इतिहास",
 "Ștergi valoarea?": "मान हटाएँ?",
-"Ștergi?": "हटाएँ?"
+"Ștergi?": "हटाएँ?",
+"Vignetă": "सड़क विनेट",
+"Credite": "ऋण",
+"Credit Casă": "गृह ऋण",
+"Credit Auto": "कार ऋण",
+"Plăți streaming": "स्ट्रीमिंग भुगतान"
 };

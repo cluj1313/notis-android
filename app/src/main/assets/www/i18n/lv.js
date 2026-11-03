@@ -1460,5 +1460,10 @@ NOTIS_I18N={
 "3 luni": "3 mēneši",
 "Tot istoricul": "Visa vēsture",
 "Ștergi valoarea?": "Dzēst vērtību?",
-"Ștergi?": "Dzēst?"
+"Ștergi?": "Dzēst?",
+"Vignetă": "Vinjete",
+"Credite": "Kredīti",
+"Credit Casă": "Mājokļa kredīts",
+"Credit Auto": "Auto kredīts",
+"Plăți streaming": "Straumēšanas maksājumi"
 };

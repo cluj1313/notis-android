@@ -1459,5 +1459,10 @@ NOTIS_I18N={
 "3 luni": "3 ay",
 "Tot istoricul": "Tüm geçmiş",
 "Ștergi valoarea?": "Değer silinsin mi?",
-"Ștergi?": "Silinsin mi?"
+"Ștergi?": "Silinsin mi?",
+"Vignetă": "Otoyol vinyeti",
+"Credite": "Krediler",
+"Credit Casă": "Konut kredisi",
+"Credit Auto": "Taşıt kredisi",
+"Plăți streaming": "Yayın ödemeleri"
 };

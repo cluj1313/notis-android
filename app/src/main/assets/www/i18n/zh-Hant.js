@@ -1459,5 +1459,10 @@ NOTIS_I18N={
 "3 luni": "3 個月",
 "Tot istoricul": "全部歷史",
 "Ștergi valoarea?": "刪除該數值？",
-"Ștergi?": "刪除？"
+"Ștergi?": "刪除？",
+"Vignetă": "公路通行證",
+"Credite": "貸款",
+"Credit Casă": "房貸",
+"Credit Auto": "車貸",
+"Plăți streaming": "串流付費"
 };

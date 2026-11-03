@@ -1459,5 +1459,11 @@ NOTIS_I18N={
 "3 luni": "3 tháng",
 "Tot istoricul": "Toàn bộ lịch sử",
 "Ștergi valoarea?": "Xóa giá trị?",
-"Ștergi?": "Xóa?"
+"Ștergi?": "Xóa?",
+"Vignetă": "Tem đường bộ",
+"Credite": "Khoản vay",
+"Credit Casă": "Vay mua nhà",
+"Credit Auto": "Vay mua xe",
+"Internet": "Internet",
+"Plăți streaming": "Thanh toán streaming"
 };

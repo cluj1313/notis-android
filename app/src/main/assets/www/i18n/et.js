@@ -1460,5 +1460,11 @@ NOTIS_I18N={
 "3 luni": "3 kuud",
 "Tot istoricul": "Kogu ajalugu",
 "Ștergi valoarea?": "Kustutada väärtus?",
-"Ștergi?": "Kustutada?"
+"Ștergi?": "Kustutada?",
+"Vignetă": "Teekasutustasu",
+"Credite": "Laenud",
+"Credit Casă": "Kodulaen",
+"Credit Auto": "Autolaen",
+"Internet": "Internet",
+"Plăți streaming": "Voogedastuse maksed"
 };

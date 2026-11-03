@@ -1459,5 +1459,10 @@ NOTIS_I18N={
 "3 luni": "3 mėnesiai",
 "Tot istoricul": "Visa istorija",
 "Ștergi valoarea?": "Ištrinti reikšmę?",
-"Ștergi?": "Ištrinti?"
+"Ștergi?": "Ištrinti?",
+"Vignetă": "Vinjetė",
+"Credite": "Kreditai",
+"Credit Casă": "Būsto kreditas",
+"Credit Auto": "Automobilio kreditas",
+"Plăți streaming": "Srautinio turinio mokėjimai"
 };
