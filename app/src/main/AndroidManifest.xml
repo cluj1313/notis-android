@@ -78,9 +78,25 @@
             <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/notes_widget_info" />
         </receiver>
-        <receiver android:name=".HubWidget" android:exported="true" android:label="@string/h_label">
+        <receiver android:name=".TileWidget$Med" android:exported="true" android:label="@string/h_med">
             <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/hub_widget_info" />
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/tw_med_info" />
+        </receiver>
+        <receiver android:name=".TileWidget$Util" android:exported="true" android:label="@string/h_util">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/tw_util_info" />
+        </receiver>
+        <receiver android:name=".TileWidget$Crm" android:exported="true" android:label="@string/h_crm">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/tw_crm_info" />
+        </receiver>
+        <receiver android:name=".TileWidget$Shop" android:exported="true" android:label="@string/h_shop">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/tw_shop_info" />
+        </receiver>
+        <receiver android:name=".TileWidget$Urg" android:exported="true" android:label="@string/h_urg">
+            <intent-filter><action android:name="android.appwidget.action.APPWIDGET_UPDATE" /></intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/tw_urg_info" />
         </receiver>
         <receiver android:name=".AlarmReceiver" android:exported="false" />
         <receiver android:name=".ListActReceiver" android:exported="false" />
