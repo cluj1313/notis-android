@@ -29,10 +29,10 @@ var LUNI_S=['ian','feb','mar','apr','mai','iun','iul','aug','sept','oct','nov','
 if(NL!=='ro')try{(function(){var f=function(o,set){var r=[];for(var i=0;i<12;i++)r.push(new Intl.DateTimeFormat(NL,o).format(new Date(2026,i,15)).replace(/\.$/,''));return r};LUNI=f({month:'long'});LUNI_S=f({month:'short'});for(var d=0;d<7;d++){var x=new Date(2026,0,4+d);ZILE[d]=new Intl.DateTimeFormat(NL,{weekday:'long'}).format(x);ZILE_S[d]=new Intl.DateTimeFormat(NL,{weekday:'short'}).format(x).replace(/\.$/,'')}ZILE=ZILE.map(function(z){return z.charAt(0).toUpperCase()+z.slice(1)})})()}catch(_){}
 function pad(n){return (n<10?'0':'')+n}
 function dkey(d){d=d||new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}
-/* v161: ONE display format for every date in the app: dd.mm.yyyy - Weekday[, hh:mm]. Display only; stored formats never change. */
+/* v161: ONE display format for every date in the app: dd/mm/yyyy - Weekday (v200: '/' separator)[, hh:mm]. Display only; stored formats never change. */
 var FDW={};function fDate(x,hm){var d;if(x instanceof Date)d=x;else if(typeof x==='string'&&/^\d{4}-\d\d-\d\d$/.test(x)){var q=x.split('-');d=new Date(+q[0],+q[1]-1,+q[2])}else if(x==null||x==='')return '';else d=new Date(x);if(isNaN(d.getTime()))return String(x);
  var L=(typeof NL==='string'&&NL)||'ro',lc=L==='ro'?'ro-RO':L,wd=d.getDay(),ck=lc+wd,w=FDW[ck];if(w==null){try{w=new Intl.DateTimeFormat(lc,{weekday:'long'}).format(d)}catch(_){w=(typeof ZILE!=='undefined'&&ZILE[wd])||''}w=w?w.charAt(0).toLocaleUpperCase(lc)+w.slice(1):'';FDW[ck]=w}
- var r=pad(d.getDate())+'.'+pad(d.getMonth()+1)+'.'+d.getFullYear()+(w?' - '+w:'');if(hm)r+=', '+pad(d.getHours())+':'+pad(d.getMinutes());return r}
+ var r=pad(d.getDate())+'/'+pad(d.getMonth()+1)+'/'+d.getFullYear()+(w?' - '+w:'');if(hm)r+=', '+pad(d.getHours())+':'+pad(d.getMinutes());return r}
 window.fDate=fDate;
 function toast(m){var t=$('toast');t.textContent=TR(m);t.classList.add('show');clearTimeout(toast._t);toast._t=setTimeout(function(){t.classList.remove('show')},3000)}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
@@ -1247,7 +1247,7 @@ var nQ='';function nFold(x){return String(x||'').normalize('NFD').replace(/[\u03
 function nHay(n){if(n.lock){var c=typeof SX!=='undefined'&&SX.n[n.id];return nFold((n.ltitle||'')+(c?'\n'+c:''))}var t=[n.title||'',n.text||''];(n.items||[]).forEach(function(x){t.push(x.text||'')});(n.blocks||[]).forEach(function(b){if(b.t==='text')t.push(b.v||'');(b.items||[]).forEach(function(x){t.push(x.text||'')})});return nFold(t.join('\n'))}
 function ul0(){return $('notesList')}
 /* v189 (4): row date hidden off to the right; swipe the row left to reveal. dd.mm.yyyy - Weekday · HH:MM (modified date when sorted by modification) */
-function nDateL(n,m){var u=(m==='updated'&&n.updatedAt&&n.updatedAt!==n.createdAt)?n.updatedAt:(n.createdAt||n.ts),d=new Date(u);if(isNaN(d))return '';var p=function(x){return('0'+x).slice(-2)},w='';try{w=d.toLocaleDateString(NL==='ro'?'ro-RO':NL,{weekday:'long'})}catch(_){w=d.toLocaleDateString('ro-RO',{weekday:'long'})}w=w.charAt(0).toLocaleUpperCase()+w.slice(1);return p(d.getDate())+'.'+p(d.getMonth()+1)+'.'+d.getFullYear()+' - '+w+' · '+p(d.getHours())+':'+p(d.getMinutes())}
+function nDateL(n,m){var u=(m==='updated'&&n.updatedAt&&n.updatedAt!==n.createdAt)?n.updatedAt:(n.createdAt||n.ts),d=new Date(u);if(isNaN(d))return '';var p=function(x){return('0'+x).slice(-2)},w='';try{w=d.toLocaleDateString(NL==='ro'?'ro-RO':NL,{weekday:'long'})}catch(_){w=d.toLocaleDateString('ro-RO',{weekday:'long'})}w=w.charAt(0).toLocaleUpperCase()+w.slice(1);return p(d.getDate())+'/'+p(d.getMonth()+1)+'/'+d.getFullYear()+' - '+w+' · '+p(d.getHours())+':'+p(d.getMinutes())}
 /* v189 (2): 1st tap = peek (up to 5 written lines), 2nd = open for reading, tap in text = edit; tap outside collapses */
 function nPeekL(n){var U=[],tl=function(v){String(v||'').split('\n').forEach(function(l){if(l.trim())U.push(l.trim())})},it=function(x){if((x.text||'').trim())U.push((x.done?'☑ ':'☐ ')+x.text.trim())};
  if(n.type==='mix')(n.blocks||[]).forEach(function(b){if(b.t==='text')tl(b.v);else if(b.t==='chk')(b.items||[]).forEach(it)});else if(n.type==='check'){tl(n.title);(n.items||[]).forEach(it)}else tl(n.text);return U}

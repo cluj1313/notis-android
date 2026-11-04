@@ -17,7 +17,7 @@
  /* ---- Super Class (harmless local flag) ---- */
  function sup(){try{var s=JSON.parse(ls('ns_super')||'null');return s&&(!s.exp||s.exp>Date.now())?s:null}catch(_){return null}}
  window.NOTIS_SUPER=!!sup();
- function supTxt(){var s=sup();if(!s)return '';return s.exp?TR('Super Class activ până la')+' '+new Date(s.exp).toLocaleDateString():TR('Super Class activ pe viață')}
+ function supTxt(){var s=sup();if(!s)return '';return s.exp?TR('Super Class activ până la')+' '+(window.fDate?fDate(new Date(s.exp)):new Date(s.exp).toLocaleDateString()):TR('Super Class activ pe viață')}
  /* ---- Settings: opt-out toggle + "Ai un cod?" ---- */
  var css=document.createElement('style');css.textContent='#fStat .hint{font-size:12px;opacity:.75;line-height:1.35}#fCode .crow{display:flex;gap:6px;margin-top:6px}#fCode input{flex:1;min-width:0;text-transform:uppercase;letter-spacing:.5px}#fCode .cst{font-size:12.5px;margin-top:5px;opacity:.85}#fCode .cst.ok{color:var(--cyan)}'+
   '#crx .adg{display:grid;grid-template-columns:1fr auto;gap:2px 10px;font-size:13px;font-weight:300}#crx .adg b{font-weight:500}#crx .adt{font-size:26px;font-weight:300}#crx select,#crx .adn{padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:#0c0c0e;color:#fff;font-size:14px}#crx .adl{font-family:monospace;font-size:12px;max-height:220px;overflow:auto;white-space:pre;background:#0c0c0e;border-radius:8px;padding:6px;user-select:all}#crx .ads{font-size:11px;opacity:.6;text-transform:uppercase;letter-spacing:.6px;margin-top:4px}';

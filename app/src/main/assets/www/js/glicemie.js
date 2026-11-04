@@ -30,7 +30,7 @@ function key(d){return d.getFullYear()+'-'+p2(d.getMonth()+1)+'-'+p2(d.getDate()
 function cl(v){return v==null?'':v<70?'y':v>250?'r':v>140?'o':'g'}
 function pc(v){return(Math.max(40,Math.min(300,v))-40)/260*100}
 function giC(n){return n>=70?'r':n>=56?'y':'g'}
-function fmt(d){return p2(d.getDate())+'.'+p2(d.getMonth()+1)+'.'+d.getFullYear()+' - '+T(ZI[d.getDay()])}
+function fmt(d){return p2(d.getDate())+'/'+p2(d.getMonth()+1)+'/'+d.getFullYear()+' - '+T(ZI[d.getDay()])}
 function mk(m){return m.getFullYear()+'-'+p2(m.getMonth()+1)}
 function mname(m){return T(LU[m.getMonth()])+' '+m.getFullYear()}
 function nrm(s){return String(s).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'')}
@@ -48,7 +48,7 @@ function html(ms,pr){var b='';ms.forEach(function(m){b+='<h1>'+E(T('Monitorizare
 function chart(per,cw){var pad=30,pts=[],xl=[],W,t=today();cw=Math.max(300,cw||300);
  if(per===1){var v=vals(key(t));W=cw;var st=(W-pad-14)/6;v.forEach(function(x,j){if(x!=null)pts.push({X:pad+8+j*st,v:x})});SH.forEach(function(s,j){xl.push([pad+8+j*st,T(s),1])})}
  else{var dd=[];months().forEach(function(m){if(m<=t)days(m).forEach(function(d){if(!per||(t-d)/864e5<per)dd.push(d)})});var step=per===7?Math.max(44,(cw-pad-20)/7):per===30?40:per===90?16:Math.max(16,Math.min(44,(cw-pad-20)/Math.max(1,dd.length)));W=Math.max(cw,pad+dd.length*step+20);
-  var lab=step<30?7:1;dd.forEach(function(d,di){vals(key(d)).forEach(function(x,j){if(x!=null)pts.push({X:pad+(di+j/7)*step,v:x})});xl.push([pad+di*step,di%lab?'':p2(d.getDate())+'.'+p2(d.getMonth()+1),0])});pts.days=dd.length}
+  var lab=step<30?7:1;dd.forEach(function(d,di){vals(key(d)).forEach(function(x,j){if(x!=null)pts.push({X:pad+(di+j/7)*step,v:x})});xl.push([pad+di*step,di%lab?'':p2(d.getDate())+'/'+p2(d.getMonth()+1),0])});pts.days=dd.length}
  return{pts:pts,xl:xl,W:W,pad:pad}}
 /* ---------- render ---------- */
 function cell(x,f){if(f)return'';if(x==null)return'<span class="n ngdash">–</span><div class="ngbar e"></div>';return'<span class="n">'+x+'<u>mg/dl</u></span><div class="ngbar"><i style="left:'+pc(x).toFixed(1)+'%"></i></div>'}

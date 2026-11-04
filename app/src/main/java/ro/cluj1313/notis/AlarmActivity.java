@@ -116,7 +116,7 @@ public class AlarmActivity extends Activity {
     @Override public void onRequestPermissionsResult(int rc, String[] p, int[] r) { finish(); }
 
     private void label() {
-        bDate.setText(DateFormat.format("EEE, dd.MM.yyyy", when));
+        bDate.setText(DateFormat.format("EEE, dd/MM/yyyy", when));
         bTime.setText(DateFormat.format("HH:mm", when));
     }
 }

@@ -54,7 +54,7 @@ public class WidgetService extends RemoteViewsService {
         if (t.get(Calendar.YEAR) == n.get(Calendar.YEAR) && t.get(Calendar.DAY_OF_YEAR) == n.get(Calendar.DAY_OF_YEAR)) return hm;
         n.add(Calendar.DAY_OF_YEAR, 1);
         if (t.get(Calendar.YEAR) == n.get(Calendar.YEAR) && t.get(Calendar.DAY_OF_YEAR) == n.get(Calendar.DAY_OF_YEAR)) return Tr.s(c, R.string.tomorrow_at, hm);
-        return DateFormat.format("dd.MM HH:mm", t).toString();
+        return DateFormat.format("dd/MM/yyyy HH:mm", t).toString();
     }
 
     /* ---- row builders shared by the inline collection (API 31+) and the legacy factory ---- */
