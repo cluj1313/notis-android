@@ -151,6 +151,9 @@ window.tkDef=tkDef;
  var on=!nTrash&&!nFold(nQ).trim()&&!tbHidden(noteTab)&&!nFolder;$('notesPg').classList.toggle('sptab',on);if(!on){v.innerHTML='';v.hidden=true;return}try{migNotes()}catch(e){console.warn(e)}v.hidden=false;v.innerHTML=tkRender();
  var has=notes.some(function(n){return !n.del&&n.tab===noteTab&&(n.fd||'')===''&&(n.lock||String(n.text||'').trim())})||noteFolders.some(function(f){return f.tab===noteTab&&!f.del});$('notesPg').classList.toggle('spnone',!has);try{if(window.tsApply)tsApply()}catch(_){}};
  for(var k in o)if(Object.prototype.hasOwnProperty.call(o,k))window.spRender[k]=o[k];window.spRender.__tk=1})();
+/* v207: startup could render the Sarcini tab with plati's base renderer (Medicamente content) before this wrapper existed — re-render once now; persist the current tab on every switch and when leaving the app */
+try{var _t7=findNT(noteTab);if(_t7&&_t7.kind==='task')renderNotes()}catch(e){console.warn(e)}
+(function(){function sv(){try{if(noteTab&&findNT(noteTab))LS.set('ns_notetab',noteTab)}catch(_){}}document.addEventListener('visibilitychange',function(){if(document.hidden)sv()});window.addEventListener('pagehide',sv)})();
 /* backup: metadata via spCollect/spApply (merge, never drops local tasks); photo bytes via phDump ('tk:' prefix) */
 (function wrap(){var c=window.spCollect,a=window.spApply;if(!c||c._tk){if(!c)window.addEventListener('load',wrap);return}
  window.spCollect=function(){var r=c.apply(this,arguments)||{};r.ns_tk=JSON.parse(JSON.stringify(TK));return r};
