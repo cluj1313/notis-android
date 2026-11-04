@@ -19,22 +19,23 @@
  window.NOTIS_SUPER=!!sup();
  function supTxt(){var s=sup();if(!s)return '';return s.exp?TR('Super Class activ până la')+' '+(window.fDate?fDate(new Date(s.exp)):new Date(s.exp).toLocaleDateString()):TR('Super Class activ pe viață')}
  /* ---- Settings: opt-out toggle + "Ai un cod?" ---- */
- var css=document.createElement('style');css.textContent='#fStat .hint{font-size:12px;opacity:.75;line-height:1.35}#fCode .crow{display:flex;gap:6px;margin-top:6px}#fCode input{flex:1;min-width:0;text-transform:uppercase;letter-spacing:.5px}#fCode .cst{font-size:12.5px;margin-top:5px;opacity:.85}#fCode .cst.ok{color:var(--cyan)}#shBoxN #fCode{flex:1 0 100%;margin:8px 0 0;padding:0}#shBoxN #cdOpen{font-weight:300}#fStat{border-top:1px solid rgba(255,255,255,.14);margin-top:14px;padding-top:12px}'+
+ var css=document.createElement('style');css.textContent='#fStat .hint{font-size:12px;opacity:.75;line-height:1.35}#fCode .crow{display:flex;gap:6px;margin-top:6px}#fCode input{flex:1;min-width:0;text-transform:uppercase;letter-spacing:.5px}#fCode .cst{font-size:12.5px;margin-top:5px;opacity:.85}#fCode .cst.ok{color:var(--cyan)}.shBox .fCode{flex:1 0 100%;margin:8px 0 0;padding:0}.shBox .fCode .btn{font-weight:300}.fCode .crow{display:flex;gap:6px;margin-top:6px}.fCode input{flex:1;min-width:0;text-transform:uppercase;letter-spacing:.5px}.fCode .cst{font-size:12.5px;margin-top:5px;opacity:.85}.fCode .cst.ok{color:var(--cyan)}'+
   '#crx .adg{display:grid;grid-template-columns:1fr auto;gap:2px 10px;font-size:13px;font-weight:300}#crx .adg b{font-weight:500}#crx .adt{font-size:26px;font-weight:300}#crx select,#crx .adn{padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:#0c0c0e;color:#fff;font-size:14px}#crx .adl{font-family:monospace;font-size:12px;max-height:220px;overflow:auto;white-space:pre;background:#0c0c0e;border-radius:8px;padding:6px;user-select:all}#crx .ads{font-size:11px;opacity:.6;text-transform:uppercase;letter-spacing:.6px;margin-top:4px}';
  document.head.appendChild(css);
- (function(){var anchor=$('secMsg');if(!anchor)return;var d=document.createElement('div');
-  d.innerHTML='<div class="field" id="fStat"><label style="display:flex;align-items:center;gap:10px;margin:0 0 4px"><span id="sStatL" style="flex:1;min-width:0;color:var(--txt);font-size:15px"></span><input type="checkbox" id="sStat" style="flex:none;width:20px;height:20px;margin:0;padding:0;accent-color:var(--cyan)"></label><div class="hint" id="sStatH"></div></div>'+
-   '<div class="field" id="fCode"><button type="button" class="btn" id="cdOpen"></button><div id="cdBox" hidden><div class="crow"><input id="cdIn" class="ux" maxlength="20" autocomplete="off" autocapitalize="characters" spellcheck="false"><button type="button" class="btn" id="cdGo"></button></div></div><div class="cst" id="cdSt"></div></div>';
-  while(d.firstChild)anchor.parentNode.insertBefore(d.firstChild,anchor);
-  var shN=$('shBoxN');if(shN&&$('fCode'))shN.appendChild($('fCode')); /* v203: code entry belongs to Share Notis */
-  var cb=$('sStat');cb.checked=ls('ns_stat_off')!=='1';cb.addEventListener('change',function(){ls('ns_stat_off',cb.checked?null:'1');if(cb.checked)ping()});
-  function lbl(){$('sStatL').textContent=TR('Contor anonim de instalări');$('sStatH').textContent=TR('Trimite doar o numărătoare anonimă (țara, versiunea aplicației). Fără nume, notițe sau IP.');$('cdOpen').textContent=TR('Ai un cod?');$('cdGo').textContent=TR('Activează');$('cdIn').placeholder=TR('Introdu codul');var st=$('cdSt');st.textContent=supTxt();st.className='cst'+(sup()?' ok':'')}
+ /* v204: no counter toggle in Setări (on by default, stored opt-out 'ns_stat_off' still honored; switch lives in the creator's Zona Secretă).
+    "Ai un cod?" in both Share Notis and Share Jarvis — same box, same /redeem flow. */
+ (function(){var K=[];
+  function mk(host,p){if(!host||$(p+'Open'))return;var f=document.createElement('div');f.className='field fCode';f.id=p==='cd'?'fCode':'fCode'+p;
+   f.innerHTML='<button type="button" class="btn" id="'+p+'Open"></button><div id="'+p+'Box" hidden><div class="crow"><input id="'+p+'In" class="ux" maxlength="20" autocomplete="off" autocapitalize="characters" spellcheck="false"><button type="button" class="btn" id="'+p+'Go"></button></div></div><div class="cst" id="'+p+'St"></div>';
+   host.appendChild(f);K.push(p);
+   $(p+'Open').onclick=function(){var b=$(p+'Box');b.hidden=!b.hidden;if(!b.hidden)$(p+'In').focus()};
+   $(p+'Go').onclick=function(){var c=$(p+'In').value.trim().toUpperCase(),st=$(p+'St'),go=$(p+'Go');if(c.length<6){st.textContent=TR('Cod invalid');st.className='cst';return}
+    go.disabled=true;st.textContent='…';st.className='cst';
+    post('/redeem',{code:c,id:iid()}).then(function(r){go.disabled=false;if(r&&r.ok){ls('ns_super',JSON.stringify({exp:r.exp||0,code:c}));window.NOTIS_SUPER=true;toast(TR('Cod activat: Super Class'));$(p+'In').value='';$(p+'Box').hidden=true;lbl();return}
+     var e=r&&r.e;st.textContent=TR(e==='used'?'Codul a fost deja folosit':e==='expired'?'Codul a expirat':'Cod invalid')}).catch(function(){go.disabled=false;st.textContent=TR('Fără conexiune la internet')})}}
+  function lbl(){K.forEach(function(p){$(p+'Open').textContent=TR('Ai un cod?');$(p+'Go').textContent=TR('Activează');$(p+'In').placeholder=TR('Introdu codul');var st=$(p+'St');st.textContent=supTxt();st.className='cst'+(sup()?' ok':'')})}
+  mk($('shBoxN'),'cd');mk($('shBoxJ'),'cdj');
   lbl();document.addEventListener('click',function(e){if(e.target&&e.target.closest&&e.target.closest('#bSettings'))setTimeout(lbl,0)},true);
-  $('cdOpen').onclick=function(){var b=$('cdBox');b.hidden=!b.hidden;if(!b.hidden)$('cdIn').focus()};
-  $('cdGo').onclick=function(){var c=$('cdIn').value.trim().toUpperCase(),st=$('cdSt'),go=$('cdGo');if(c.length<6){st.textContent=TR('Cod invalid');st.className='cst';return}
-   go.disabled=true;st.textContent='…';st.className='cst';
-   post('/redeem',{code:c,id:iid()}).then(function(r){go.disabled=false;if(r&&r.ok){ls('ns_super',JSON.stringify({exp:r.exp||0,code:c}));window.NOTIS_SUPER=true;toast(TR('Cod activat: Super Class'));$('cdIn').value='';$('cdBox').hidden=true;lbl();return}
-    var e=r&&r.e;st.textContent=TR(e==='used'?'Codul a fost deja folosit':e==='expired'?'Codul a expirat':'Cod invalid')}).catch(function(){go.disabled=false;st.textContent=TR('Fără conexiune la internet')})};
  })();
  /* ---- Admin (opened only from the creator menu). Romanian only; session token kept in memory only. ---- */
  var tok=null;
@@ -53,9 +54,11 @@
   var used=codes.filter(function(x){return x.used}).length;
   box('<div class="ads">Instalări (total)</div><div class="adt">'+s.total+'</div><div class="hint">Dezinstalările nu pot fi măsurate de aplicație — le vezi în Google Play Console. Numărul de mai sus include doar cei cu contorul pornit.</div>'+
    '<div class="ads">Activi pe zi</div><div class="adg">'+rows(s.active)+'</div><div class="ads">Pe țări</div><div class="adg">'+rows(s.country)+'</div><div class="ads">Pe versiuni</div><div class="adg">'+rows(s.ver)+'</div><div class="ads">Sursă</div><div class="adg">'+rows(s.src)+'</div>'+
+   '<div class="ads">Contor pe acest telefon</div><label style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:300"><input type="checkbox" id="adStat"'+(ls('ns_stat_off')==='1'?'':' checked')+'> Trimite numărătoarea anonimă de pe acest dispozitiv</label>'+
    '<div class="ads">Generează coduri</div><div class="crb" style="justify-content:flex-start"><input id="adN" class="adn" type="number" min="1" max="500" value="10" style="width:80px"><select id="adD"><option value="0">Pe viață</option><option value="30">30 zile</option><option value="90">90 zile</option><option value="365">365 zile</option></select><button type="button" id="adGen">Generează</button></div>'+
    '<div class="ads">Coduri: '+codes.length+' · folosite '+used+' · nefolosite '+(codes.length-used)+'</div><div class="adl" id="adL">'+esc(list())+'</div>'+
    '<div class="crb"><button type="button" class="alt" id="adOut">Ieși</button><button type="button" class="alt" id="adCp">Copiază nefolosite</button><button type="button" id="adCsv">Export CSV</button></div>');
+  $('adStat').onchange=function(){var on=this.checked;ls('ns_stat_off',on?null:'1');if(on)ping();toast(on?'Contor pornit':'Contor oprit')};
   $('adGen').onclick=function(){var n=Math.max(1,Math.min(500,parseInt($('adN').value,10)||0));if(!n)return er('1–500');$('adGen').disabled=true;er('…');
    post('/admin/gen',{n:n,days:+$('adD').value},tok).then(function(r){if(!r.ok)return er('Eroare');toast(r.codes.length+' coduri');dash()}).catch(function(){er('Fără conexiune la internet')})};
   $('adCp').onclick=function(){var t=codes.filter(function(x){return !x.used}).map(function(x){return x.code}).join('\n');try{navigator.clipboard.writeText(t).then(function(){toast(TR('Copiat'))})}catch(_){}};
