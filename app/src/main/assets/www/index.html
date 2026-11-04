@@ -1257,12 +1257,15 @@ html[data-font] body,html[data-font] button,html[data-font] input,html[data-font
  <div class="field"><label for="sNewsSize">Mărime text știri <span class="val" id="vNewsSize"></span></label><input type="range" id="sNewsSize" min="80" max="160" step="5"><div class="hint" id="newsSizePrev" style="font-size:calc(14px*var(--ns,1));color:#9eb8cc;--ns:1">Exemplu titlu de știre AI</div></div>
 </div>
  <div class="sec">Backup</div>
+ <div id="bkGrp"><div class="ssec" id="bkSubM" role="button" tabindex="0" aria-expanded="false"><span>Backup manual</span><i class="sparr"></i></div><div class="ssecb">
  <div class="field">
   <div class="prow" style="margin-bottom:8px"><button type="button" class="btn" id="bBkSave">Salvează backup</button><button type="button" class="btn" id="bBkImport">Importă fișier</button><button type="button" class="btn" id="bJvImport">Importă din Jarvis</button><input type="file" id="bBkFile" accept="application/json,.json" hidden></div>
   <div class="hint">Salvează pe telefon notițele, taburile de notițe și setările vocii. Poți restaura un backup vechi sau îl poți trimite ca fișier .json.</div>
   <div class="bklist" id="jvBkList" style="margin-bottom:8px"></div><div class="bklist" id="bkList"><div class="bkempty">Niciun backup încă.</div></div>
  </div>
- <div class="sec" id="bkAuto">Backup-uri automate</div><div class="field"><div class="hint">Înainte de fiecare actualizare a aplicației, Notis salvează automat tot (notițe, taburi, foldere, poze, înregistrări, desene, setări). Se păstrează ultimele 5 copii.</div><div class="bklist" id="abList"></div></div>
+ </div>
+ <div class="ssec" id="bkSubA" role="button" tabindex="0" aria-expanded="false"><span>Backup automat</span><i class="sparr"></i></div><div class="ssecb"><div class="field"><div class="hint">Înainte de fiecare actualizare a aplicației, Notis salvează automat tot (notițe, taburi, foldere, poze, înregistrări, desene, setări). Se păstrează ultimele 5 copii.</div><div class="bklist" id="abList"></div></div></div></div>
+ <div class="sec" id="bkAuto" style="display:none" aria-hidden="true"></div>
 <div id="fBio" style="display:none"><div class="sec">Deblocare cu amprenta</div><div class="field"><label class="chk"><input type="checkbox" id="bioOn"> Deblocare cu amprenta</label><div class="hint">Deschide cu amprenta ce e blocat cu 🔒 PIN. Prima dată introduci PIN-ul, apoi ajunge amprenta. PIN-ul rămâne mereu valabil.</div></div></div>
 <div class="sec">Sunet alarmă</div><div class="field" id="alsField"><div class="alsl" id="alsList"></div><div class="hint" id="alsHint"></div><div class="alvr"><label for="alVol" id="alVolL">Volum alarmă</label><input type="range" id="alVol" min="0" max="100" step="5"><span id="alVolV"></span><button type="button" class="btn alvt" id="alVolT">Test</button></div><label class="chk alsil"><input type="checkbox" id="alSil"> <span id="alSilL">Sună și în modul silențios</span></label><div class="hint" id="alSilH">Implicit: pe silențios alarma nu sună, pe vibrații doar vibrează. Notificarea apare mereu.</div></div>
 <div class="sec">Cum funcționează</div><div class="field"><div class="throw"><button type="button" class="thc" id="bDemo"></button><button type="button" class="thc" id="bDemoReset">Resetează exemplele</button></div><div class="bgkl"><span id="demoHint"></span></div></div>

@@ -6,7 +6,16 @@
 var TK=tkLoad(),tkURL={},tkLP=0,tkLPT=0;
 function tkNorm(r){if(!r||typeof r!=='object'||!Array.isArray(r.list))return null;r.list=r.list.filter(function(x){return x&&x.id});r.list.forEach(function(x){if(!Array.isArray(x.sub))x.sub=[];if(!Array.isArray(x.ph))x.ph=[];x.sub.forEach(function(s){if(!Array.isArray(s.ph))s.ph=[]})});return r}
 function tkLoad(){return tkNorm(LS.get('ns_tk',null))||tkNorm(LS.get('ns_tk_bak',null))||{list:[]}}
-function tkSave(){try{var o=LS.get('ns_tk',null);if(o)LS.set('ns_tk_bak',o)}catch(_){}LS.set('ns_tk',TK)}
+function tkSave(){try{var o=LS.get('ns_tk',null);if(o)LS.set('ns_tk_bak',o)}catch(_){}LS.set('ns_tk',TK);/* v206: re-push the native snapshot so task alarms are (re)scheduled or cancelled */try{if(window.NotisNative&&typeof saveNotes==='function')saveNotes(true)}catch(_){}}
+/* v206: optional task alarm. Stored in the task: al:1 (+ ald = day the alarm was set, used when the task has no date = today), alS = when it was armed.
+   Alarm time = (d || ald) + s. Done / unchecked / deleted / no start time = no alarm. A time already past is never scheduled (no instant ring). */
+function alAt(x){if(!x||!x.al||x.done||!x.s)return 0;var d=x.d||x.ald;if(!d)return 0;var m=/^(\d{4})-(\d\d)-(\d\d)$/.exec(d),h=/^(\d\d):(\d\d)$/.exec(x.s);if(!m||!h)return 0;return new Date(+m[1],m[2]-1,+m[3],+h[1],+h[2],0,0).getTime()}
+function alArm(o,on){if(on&&o.s){o.al=1;if(!o.d)o.ald=today();else delete o.ald;o.alS=Date.now();if(alAt(o)<=Date.now())setTimeout(function(){toast(TR('Ora a trecut deja'))},350)}else{delete o.al;delete o.ald;delete o.alS}}
+window.tkAlarms=function(){var now=Date.now(),o=[];TK.list.forEach(function(x){var at=alAt(x);if(at&&at>now&&(x.alS||0)<at)o.push({id:'tk-'+x.id,text:'⏰ '+String(x.t||'')+' · '+x.s,at:at})});return o};
+window.__tkAlDue=function(){var now=Date.now(),o=[];TK.list.forEach(function(x){var at=alAt(x);if(at&&at<=now&&now-at<5*60000&&(x.alS||0)<at)o.push({id:'tk-'+x.id,text:'⏰ '+String(x.t||'')+' · '+x.s,at:at})});return o};
+function alBox(id,x){return '<label class="tkal"><input type="checkbox" id="'+id+'"'+(x.al?' checked':'')+(x.s?'':' disabled')+'><span>⏰ <span class="ux">'+esc(TR('Alarmă la ora setată'))+'</span></span></label>'}
+function alWire(cb,tm){var c=$(cb),t=$(tm);if(!c||!t)return;function u(){c.disabled=!t.value;if(!t.value)c.checked=false}t.addEventListener('input',u);t.addEventListener('change',u)}
+var BELL='<svg class="tkbell" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-label="⏰"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg>';
 function tkId(p){return p+Date.now().toString(36)+Math.random().toString(36).slice(2,6)}
 function p2(n){return(n<10?'0':'')+n}
 function today(){var d=new Date();return d.getFullYear()+'-'+p2(d.getMonth()+1)+'-'+p2(d.getDate())}
@@ -21,7 +30,7 @@ var IC={ph:'<svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="
 window.tkIcon=IC.ph;
 function chips(ph,tid,sid){if(!ph.length)return '';return '<div class="tkp">'+ph.map(function(p){return '<button type="button" class="tkch" data-ta="pv" data-t="'+esc(tid)+'"'+(sid?' data-s="'+esc(sid)+'"':'')+' data-p="'+esc(p.id)+'">'+IC.ph+'<span class="ux">'+esc(p.nm||TR('Foto'))+'</span></button>'}).join('')+'</div>'}
 function row(x,sub,tid){var lbl=esc(TR(x.done?'Marchează ca nefinalizată':'Marchează ca finalizată'));
- return '<div class="tkr"><button type="button" class="tkc'+(x.done?' on':'')+'" data-ta="'+(sub?'schk':'chk')+'" aria-label="'+lbl+'"></button><div class="tkm" data-ta="'+(sub?'sed':'ed')+'"><div class="tkt ux">'+esc(x.t||'')+'</div>'+(!sub&&line(x)?'<div class="tks ux">'+esc(line(x))+'</div>':'')+'</div>'+
+ return '<div class="tkr"><button type="button" class="tkc'+(x.done?' on':'')+'" data-ta="'+(sub?'schk':'chk')+'" aria-label="'+lbl+'"></button><div class="tkm" data-ta="'+(sub?'sed':'ed')+'"><div class="tkt ux">'+esc(x.t||'')+'</div>'+(!sub&&line(x)?'<div class="tks ux">'+(alAt(x)?BELL+' ':'')+esc(line(x))+'</div>':'')+'</div>'+
  '<button type="button" class="tkb" data-ta="'+(sub?'sph':'ph')+'" aria-label="'+esc(TR('Adaugă poză'))+'">'+IC.ph+'</button>'+(sub?'':'<button type="button" class="tkb" data-ta="sub" aria-label="'+esc(TR('Adaugă subsarcină'))+'">'+IC.sub+'</button>')+'</div>'}
 function ord(a){var u=a.filter(function(x){return !x.done}),d=a.filter(function(x){return x.done});return{u:u,d:d}}
 window.tkRender=function(){var tab=noteTab,L=TK.list.filter(function(x){return x.tab===tab}),u=L.filter(function(x){return !x.done}).sort(function(a,b){var ka=key(a),kb=key(b);return ka<kb?-1:ka>kb?1:(a.ts||0)-(b.ts||0)}),d=L.filter(function(x){return x.done}).sort(function(a,b){return(b.dt||0)-(a.dt||0)});
@@ -36,11 +45,11 @@ function X(){return window.__medX}
 function edTask(t){var isNew=!t,x=t||{t:'',d:'',s:'',e:''};
  var body='<div class="field"><label class="ux">'+esc(TR('Sarcină'))+'</label><input id="tkT" maxlength="200" value="'+esc(x.t)+'"></div>'+
   '<div class="field"><label class="ux">'+esc(TR('Data'))+'</label><input type="date" id="tkD" value="'+esc(x.d||(isNew?today():''))+'"></div>'+
-  '<div class="al2"><div class="field"><label class="ux">'+esc(TR('Început'))+'</label><input type="time" id="tkS" value="'+esc(x.s)+'"></div><div class="field"><label class="ux">'+esc(TR('Sfârșit (opțional)'))+'</label><input type="time" id="tkE" value="'+esc(x.e)+'"></div></div>';
+  '<div class="al2"><div class="field"><label class="ux">'+esc(TR('Început'))+'</label><input type="time" id="tkS" value="'+esc(x.s)+'"></div><div class="field"><label class="ux">'+esc(TR('Sfârșit (opțional)'))+'</label><input type="time" id="tkE" value="'+esc(x.e)+'"></div></div>'+alBox('tkA',x);
  var b=X().dOpen(TR(isNew?'Sarcină nouă':'Editează sarcina'),body,function(){var v=$('tkT').value.trim();if(!v){$('tkT').focus();return false}
-  var o=t||{id:tkId('t'),tab:noteTab,done:0,ts:Date.now(),sub:[],ph:[]};o.t=v.slice(0,200);o.d=$('tkD').value||'';o.s=$('tkS').value||'';o.e=$('tkE').value||'';if(isNew)TK.list.push(o);tkSave();rr()},
+  var o=t||{id:tkId('t'),tab:noteTab,done:0,ts:Date.now(),sub:[],ph:[]};o.t=v.slice(0,200);o.d=$('tkD').value||'';o.s=$('tkS').value||'';o.e=$('tkE').value||'';alArm(o,!!($('tkA')&&$('tkA').checked));if(isNew)TK.list.push(o);tkSave();rr()},
   isNew?null:function(){X().ask('Ștergi sarcina?',function(){X().close();delTask(t)})});
- setTimeout(function(){try{if(isNew)$('tkT').focus()}catch(_){}},40);return b}
+ alWire('tkA','tkS');setTimeout(function(){try{if(isNew)$('tkT').focus()}catch(_){}},40);return b}
 function edSub(t,s){var isNew=!s;X().dOpen(TR(isNew?'Subsarcină nouă':'Editează subsarcina'),'<div class="field"><label class="ux">'+esc(TR('Subsarcină'))+'</label><input id="tkU" maxlength="200" value="'+esc(s?s.t:'')+'"></div>',
   function(){var v=$('tkU').value.trim();if(!v){$('tkU').focus();return false}if(isNew)t.sub.push({id:tkId('s'),t:v.slice(0,200),done:0,ph:[]});else s.t=v.slice(0,200);tkSave();rr()},
   isNew?null:function(){X().ask('Ștergi subsarcina?',function(){X().close();var ids=s.ph.map(function(p){return p.id});t.sub=t.sub.filter(function(q){return q.id!==s.id});tkSave();ids.forEach(function(i){phDel(i).catch(function(){})});rr()})});
@@ -63,7 +72,8 @@ function phMenu(btn,cb){var p=$('tkPop');if(!p){p=document.createElement('div');
  p.classList.add('show');var r=btn.getBoundingClientRect();p.style.left=Math.max(8,Math.min(innerWidth-p.offsetWidth-8,r.right-p.offsetWidth))+'px';p.style.top=(r.bottom+p.offsetHeight+8>innerHeight?Math.max(8,r.top-p.offsetHeight-6):r.bottom+6)+'px'}
 window.tkPhMenu=phMenu;window.tkPick=pickVia;
 function urlOf(pid){if(tkURL[pid])return Promise.resolve(tkURL[pid]);return phGet(pid).then(function(r){if(!r||!r.buf)throw new Error('missing');var u=URL.createObjectURL(new Blob([r.buf],{type:r.mt||'image/jpeg'}));tkURL[pid]=u;return u})}
-function view(t,s,pid){var arr=(s||t).ph;Promise.all(arr.map(function(p){return urlOf(p.id).catch(function(){return null})})).then(function(us){var i=arr.map(function(p){return p.id}).indexOf(pid);if(!us[i]){toast(TR('Poza lipsește'));return}var ok=[];arr.forEach(function(p,k){if(us[k])ok.push(p.id)});phView(us[i],us.filter(Boolean));PV={t:t.id,s:s?s.id:'',ids:ok};pvBar().classList.add('on')})}
+function urlTO(pid,tid){return new Promise(function(res){var ok=0,tm=setTimeout(function(){if(!ok){ok=1;res(null)}},6000);urlOf(pid).catch(function(){/* fallback: by the task key */return phOf('tk:'+tid).then(function(a){var r=(a||[]).filter(function(x){return x.id===pid})[0];if(!r||!r.buf)return null;var u=URL.createObjectURL(new Blob([r.buf],{type:r.mt||'image/jpeg'}));tkURL[pid]=u;return u})}).then(function(u){if(!ok){ok=1;clearTimeout(tm);res(u||null)}},function(){if(!ok){ok=1;clearTimeout(tm);res(null)}})})}
+function view(t,s,pid){var arr=(s||t).ph;Promise.all(arr.map(function(p){return urlTO(p.id,t.id)})).then(function(us){var i=arr.map(function(p){return p.id}).indexOf(pid);if(!us[i]){toast(TR('Poza lipsește'));return}var ok=[];arr.forEach(function(p,k){if(us[k])ok.push(p.id)});phView(us[i],us.filter(Boolean));PV={t:t.id,s:s?s.id:'',ids:ok};pvBar().classList.add('on')})}
 function phEdit(t,s,pid){var arr=(s||t).ph,p=arr.filter(function(q){return q.id===pid})[0];if(!p)return;
  X().dOpen(TR('Poză'),'<div class="field"><label class="ux">'+esc(TR('Numele pozei'))+'</label><input id="tkPN" maxlength="40" value="'+esc(p.nm||'')+'"></div>',function(){var v=$('tkPN').value.trim();if(!v){$('tkPN').focus();return false}p.nm=v.slice(0,40);tkSave();rr()},
   function(){X().ask('Ștergi poza?',function(){X().close();var k=arr.indexOf(p);if(k>=0)arr.splice(k,1);tkSave();phDel(pid).catch(function(){});try{URL.revokeObjectURL(tkURL[pid])}catch(_){}delete tkURL[pid];rr()})})}
@@ -110,8 +120,8 @@ document.addEventListener('click',function(e){var v=$('spView');if(!v||!v.contai
  else if(k==='pv')view(t,s,a.dataset.p)});
 
 /* v200: long-press a task row → Edit / Move to another time / Delete (Da/Nu) */
-function moveTask(t){X().dOpen(TR('Mută la altă oră'),'<div class="field"><label class="ux">'+esc(TR('Data'))+'</label><input type="date" id="tkMD" value="'+esc(t.d||today())+'"></div><div class="al2"><div class="field"><label class="ux">'+esc(TR('Început'))+'</label><input type="time" id="tkMS" value="'+esc(t.s)+'"></div><div class="field"><label class="ux">'+esc(TR('Sfârșit (opțional)'))+'</label><input type="time" id="tkME" value="'+esc(t.e)+'"></div></div>',
- function(){t.d=$('tkMD').value||'';t.s=$('tkMS').value||'';t.e=$('tkME').value||'';tkSave();rr()})}
+function moveTask(t){X().dOpen(TR('Mută la altă oră'),'<div class="field"><label class="ux">'+esc(TR('Data'))+'</label><input type="date" id="tkMD" value="'+esc(t.d||today())+'"></div><div class="al2"><div class="field"><label class="ux">'+esc(TR('Început'))+'</label><input type="time" id="tkMS" value="'+esc(t.s)+'"></div><div class="field"><label class="ux">'+esc(TR('Sfârșit (opțional)'))+'</label><input type="time" id="tkME" value="'+esc(t.e)+'"></div></div>'+alBox('tkMA',t),
+ function(){t.d=$('tkMD').value||'';t.s=$('tkMS').value||'';t.e=$('tkME').value||'';alArm(t,!!($('tkMA')&&$('tkMA').checked));tkSave();rr()});alWire('tkMA','tkMS')}
 function taskMenu(el,t){var p=$('tkPop');if(!p){phMenu(el,function(){});p=$('tkPop')}
  p.innerHTML='<button type="button" data-m="ed"><span class="ux">'+esc(TR('Editează'))+'</span></button><button type="button" data-m="mv"><span class="ux">'+esc(TR('Mută la altă oră'))+'</span></button><button type="button" data-m="del"><span class="ux">'+esc(TR('Șterge'))+'</span></button>';
  p.onclick=function(e){var b=e.target.closest('[data-m]');if(!b)return;p.classList.remove('show');var m=b.dataset.m;if(m==='ed')edTask(t);else if(m==='mv')moveTask(t);else X().ask('Ștergi sarcina?',function(){delTask(t)})};
@@ -151,5 +161,30 @@ window.phPickN=function(files){var list=[].slice.call(files||[]);if(!list.length
  var caret=mCaret?JSON.parse(JSON.stringify(mCaret)):null;
  cropName(list,0).then(function(out){if(!out.length)return;mCaret=caret;var n=fullId&&findN(fullId);if(!n){var now=new Date().toISOString();n={id:ntUid(),text:$('nfText').value||'',ts:now,createdAt:now,updatedAt:now,tab:noteTab,fd:nFolder||undefined};notes.push(n);fullId=n.id;fullIsNew=true}
   return phStore(n,out.map(function(o){return o.b})).then(function(ids){var m=null;mCaret=caret;ids.forEach(function(id,i){var nb={id:bUid(),t:'img',ph:[id],nm:out[i].nm},r=mInsertB(nb);if(!r)return;m=r;var bi=r.blocks.indexOf(nb),nx=r.blocks[bi+1];mCaret=nx&&nx.t==='text'?{b:nx.id,pos:0}:null});if(!m)return;return phCount(m).then(function(a){mAdopt(m,a);nFlush();mRender()})})}).catch(function(e){console.warn(e);toast(TR('Nu am putut adăuga poza'))})};
+window.__tkLPon=function(){var v=tkLP;tkLP=0;return !!v};
+document.addEventListener('tkpv',function(e){var q=e.detail||{},t=q.t&&find(q.t),s=t&&q.s?subOf(t,q.s):null;if(t&&q.p)view(t,s,q.p)});
 window.tkDbg={st:function(){return JSON.parse(JSON.stringify(TK))},set:function(o){TK=tkNorm(o)||{list:[]};tkSave();rr()}};
 })();
+/* v206: robust photo-chip tap (2.23.6 phone report: tapping a named photo row did not open the viewer).
+   Opens on a short pointer tap itself (no dependence on the synthetic click, which a WebView can drop after a
+   pointer/touch sequence), dedupes the click that may follow, finds the bytes by id OR via the task's photo list
+   (key 'tk:'+id) and never hangs silently: a 6 s timeout or missing bytes show a toast. Viewer forced on top. */
+(function(){var D=null,lastOpen=0;
+function open(c){var now=Date.now();if(now-lastOpen<700)return;lastOpen=now;var it=c.closest('.tki'),si=c.closest('.tksi');
+ c.dispatchEvent(new CustomEvent('tkpv',{bubbles:true,detail:{t:it&&it.dataset.id,s:si&&si.dataset.sid,p:c.dataset.p}}))}
+window.__tkPvOpen=open;window.__tkPvLast=function(){return lastOpen};
+document.addEventListener('pointerdown',function(e){var c=e.target.closest&&e.target.closest('#spView .tkch');D=c?{c:c,x:e.clientX,y:e.clientY,t:Date.now(),id:e.pointerId}:null},true);
+document.addEventListener('pointermove',function(e){if(D&&e.pointerId===D.id&&Math.abs(e.clientX-D.x)+Math.abs(e.clientY-D.y)>10)D=null},true);
+document.addEventListener('pointercancel',function(){D=null},true);
+document.addEventListener('pointerup',function(e){var d=D;D=null;if(!d||e.pointerId!==d.id)return;if(Date.now()-d.t>480)return;/* long-press = rename */
+ if(Math.abs(e.clientX-d.x)+Math.abs(e.clientY-d.y)>10)return;if(!document.contains(d.c))return;open(d.c)},true);
+/* the click (if the WebView still sends it) is ignored when the pointer tap already opened the viewer; else it opens via the same path */
+document.addEventListener('click',function(e){var c=e.target.closest&&e.target.closest('#spView .tkch');if(!c)return;e.stopImmediatePropagation();e.preventDefault();if(Date.now()-lastOpen<700)return;if(window.__tkLPon&&window.__tkLPon())return;open(c)},true);
+var st=document.createElement('style');st.textContent='#spView .tkch{touch-action:manipulation;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;position:relative;z-index:2}#spView .tkch *{pointer-events:none}';document.head.appendChild(st)})();
+/* v206: task alarms → native snapshot (same path as Medicamente/CRM: Scheduler exact alarms, Sunet alarmă, Stop/snooze, reboot via BootReceiver) + web fallback ring */
+(function w(){var s=window.medSnap;if(typeof s!=='function'){setTimeout(w,300);return}if(s._tk)return;var f=function(){var r=s.apply(this,arguments)||[];var a=[];try{a=window.tkAlarms()}catch(_){}return r.concat(a.map(function(x){return{id:x.id,tab:'__med',type:'med',title:x.text,text:x.text,upd:'',alarm:{at:x.at,rep:0,until:null,snz:null}}}))};for(var k in s)if(Object.prototype.hasOwnProperty.call(s,k))f[k]=s[k];f._tk=1;window.medSnap=f;try{if(window.NotisNative&&typeof saveNotes==='function')saveNotes(true)}catch(_){}})();
+(function(){var K='ns_tk_fired';setInterval(function(){if(window.DEMO||window.NotisNative)return;/* the app rings natively */var F={};try{F=LS.get(K,{})||{}}catch(_){}var ch=0,now=Date.now();
+ for(var k in F)if(F[k]<now-864e5){delete F[k];ch=1}
+ (window.__tkAlDue?__tkAlDue():[]).forEach(function(a){var key=a.id+'@'+a.at;if(F[key])return;F[key]=now;ch=1;try{alFire({id:a.id,text:a.text,med:1},null)}catch(_){}});
+ if(ch)try{LS.set(K,F)}catch(_){}},15000)})();
+(function(){var st=document.createElement('style');st.textContent='.tkal{display:flex;align-items:center;gap:8px;margin:6px 2px 2px;font-weight:300;font-size:14px;cursor:pointer}.tkal input{width:18px;height:18px;margin:0;accent-color:currentColor}.tkal input:disabled+span{opacity:.45}.tkbell{vertical-align:-1px;opacity:.85}';document.head.appendChild(st)})();
