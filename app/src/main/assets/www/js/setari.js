@@ -31,7 +31,7 @@
   var tsl=$('fTst')&&$('fTst').querySelector('label');if(tsl)tsl.style.display='none';
   [thH,bgH,icH].forEach(function(x){if(x&&x.classList.contains('sec'))x.remove()})}
  /* ---- TABURI / Bibliotecă ---- */
- var EX=[['util','ut','Plăți','#5fd38d'],['med','med','Medicamente','#ff8a65'],['crm','crm','CRM','#f5d76e']];
+ var EX=[['util','ut','Plăți','#5fd38d'],['med','med','Medicamente','#ff8a65'],['crm','crm','CRM','#f5d76e'],['task','tk','Sarcini','#8fd3ff']];
  var lib=$('tbLib'),uU=$('tbUser'),uE=$('tbEx'),unl=false;
  function pinGet(){var p=LS.get('ns_libpin',null);return p&&p.ct?p:null}
  function locked(){return !!pinGet()&&!unl}
