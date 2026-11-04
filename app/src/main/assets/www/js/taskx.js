@@ -55,7 +55,7 @@ window.tkAskName=askName;
 function pickVia(cam,cb){var i=document.createElement('input');i.type='file';i.accept='image/*';if(cam)i.setAttribute('capture','environment');else i.multiple=true;i.hidden=true;document.body.appendChild(i);
  i.addEventListener('change',function(){var f=[].slice.call(i.files||[]);i.remove();if(f.length)cb(f)});i.click();setTimeout(function(){if(document.body.contains(i)&&!i.files.length)i.remove()},120000)}
 function cropName(files,n0){var out=[];return files.reduce(function(p,f,i){return p.then(function(){return cropEdit(f,i+1,files.length).then(function(b){if(!b)return;return askName(TR('Foto')+' '+(n0+out.length+1)).then(function(nm){if(nm)out.push({b:b,nm:nm})})},function(e){console.warn(e)})})},Promise.resolve()).then(function(){return out})}
-function addPh(t,s,files){var arr=(s||t).ph;cropName(files,arr.length).then(function(out){return out.reduce(function(p,o,i){return p.then(function(){return o.b.arrayBuffer().then(function(buf){var id=tkId('p');return phPut({id:id,note:'tk:'+t.id,ts:Date.now()+i,buf:buf,mt:o.b.type||'image/jpeg'}).then(function(){arr.push({id:id,nm:o.nm})})})})},Promise.resolve())}).then(function(){tkSave();rr()}).catch(function(e){console.warn(e);toast(TR('Nu am putut adăuga poza'))})}
+function addPh(t,s,files){var arr=(s||t).ph;cropName(files,arr.length).then(function(out){return out.reduce(function(p,o,i){return p.then(function(){return o.b.arrayBuffer().then(function(buf){var id=tkId('p');return phPut({id:id,note:'tk:'+t.id,ts:Date.now()+i,buf:buf,mt:o.b.type||'image/jpeg'}).then(function(){arr.push({id:id,nm:o.nm})})})})},Promise.resolve()).then(function(){return out.length})}).then(function(n){tkSave();rr();if(n)toast(TR('Poză adăugată')+(n>1?' ('+n+')':''))}).catch(function(e){console.warn(e);toast(TR('Nu am putut adăuga poza'))})}
 function phMenu(btn,cb){var p=$('tkPop');if(!p){p=document.createElement('div');p.id='tkPop';document.body.appendChild(p);
   document.addEventListener('pointerdown',function(e){if(p.classList.contains('show')&&!p.contains(e.target))p.classList.remove('show')},true)}
  p.innerHTML='<button type="button" data-c="0">'+IC.ph+'<span class="ux">'+esc(TR('Alege imagine'))+'</span></button><button type="button" data-c="1">'+IC.cam+'<span class="ux">'+esc(TR('Fă o poză'))+'</span></button>';
@@ -63,10 +63,36 @@ function phMenu(btn,cb){var p=$('tkPop');if(!p){p=document.createElement('div');
  p.classList.add('show');var r=btn.getBoundingClientRect();p.style.left=Math.max(8,Math.min(innerWidth-p.offsetWidth-8,r.right-p.offsetWidth))+'px';p.style.top=(r.bottom+p.offsetHeight+8>innerHeight?Math.max(8,r.top-p.offsetHeight-6):r.bottom+6)+'px'}
 window.tkPhMenu=phMenu;window.tkPick=pickVia;
 function urlOf(pid){if(tkURL[pid])return Promise.resolve(tkURL[pid]);return phGet(pid).then(function(r){if(!r||!r.buf)throw new Error('missing');var u=URL.createObjectURL(new Blob([r.buf],{type:r.mt||'image/jpeg'}));tkURL[pid]=u;return u})}
-function view(t,s,pid){var arr=(s||t).ph;Promise.all(arr.map(function(p){return urlOf(p.id).catch(function(){return null})})).then(function(us){var i=arr.map(function(p){return p.id}).indexOf(pid);if(!us[i]){toast(TR('Poza lipsește'));return}phView(us[i],us.filter(Boolean))})}
+function view(t,s,pid){var arr=(s||t).ph;Promise.all(arr.map(function(p){return urlOf(p.id).catch(function(){return null})})).then(function(us){var i=arr.map(function(p){return p.id}).indexOf(pid);if(!us[i]){toast(TR('Poza lipsește'));return}var ok=[];arr.forEach(function(p,k){if(us[k])ok.push(p.id)});phView(us[i],us.filter(Boolean));PV={t:t.id,s:s?s.id:'',ids:ok};pvBar().classList.add('on')})}
 function phEdit(t,s,pid){var arr=(s||t).ph,p=arr.filter(function(q){return q.id===pid})[0];if(!p)return;
  X().dOpen(TR('Poză'),'<div class="field"><label class="ux">'+esc(TR('Numele pozei'))+'</label><input id="tkPN" maxlength="40" value="'+esc(p.nm||'')+'"></div>',function(){var v=$('tkPN').value.trim();if(!v){$('tkPN').focus();return false}p.nm=v.slice(0,40);tkSave();rr()},
   function(){X().ask('Ștergi poza?',function(){X().close();var k=arr.indexOf(p);if(k>=0)arr.splice(k,1);tkSave();phDel(pid).catch(function(){});try{URL.revokeObjectURL(tkURL[pid])}catch(_){}delete tkURL[pid];rr()})})}
+
+/* v202: viewer + crop overlays lived inside #noteFull (hidden outside the note editor) → from the Sarcini tab the crop step was invisible, so the photo was never saved/shown. Move them to <body>. */
+function tkLift(){['crop','phView'].forEach(function(id){var e=$(id);if(e&&e.parentNode!==document.body)document.body.appendChild(e)})}
+tkLift();if(document.readyState!=='complete')window.addEventListener('load',tkLift);
+/* v202: task photo viewer toolbar: Decupează / Rotește / Redenumește / Mută în altă sarcină / Șterge (Da/Nu) */
+var PV=null;
+function pvBar(){var b=$('tkPvBar');if(b)return b;b=document.createElement('div');b.id='tkPvBar';
+ [['crop','M6 2v14a2 2 0 0 0 2 2h14M2 6h14a2 2 0 0 1 2 2v14','Decupează'],['rot','M21 12a9 9 0 1 1-3-6.7L21 8M21 3v5h-5','Rotește'],['ren','M4 20h4L19 9l-4-4L4 16v4zM14 6l4 4','Redenumește'],['mv','M5 12h14M13 6l6 6-6 6','Mută în altă sarcină'],['del','M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13','Șterge']].forEach(function(a){
+  b.insertAdjacentHTML('beforeend','<button type="button" data-pa="'+a[0]+'"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="'+a[1]+'"/></svg><span class="ux">'+esc(TR(a[2]))+'</span></button>')});
+ ['pointerdown','touchstart','click'].forEach(function(n){b.addEventListener(n,function(e){e.stopPropagation()},n==='click'?false:{passive:true})});
+ b.addEventListener('click',function(e){var x=e.target.closest('[data-pa]');if(!x||!PV)return;pvAct(x.dataset.pa)});
+ $('phView').appendChild(b);new MutationObserver(function(){if(!$('phView').classList.contains('show')){PV=null;b.classList.remove('on')}}).observe($('phView'),{attributes:true,attributeFilter:['class']});return b}
+function cur(){if(!PV)return null;var t=find(PV.t),s=t&&PV.s?subOf(t,PV.s):null,arr=t?(s||t).ph:[],pid=PV.ids[window.pvI|0],p=arr.filter(function(q){return q.id===pid})[0];return p?{t:t,s:s,arr:arr,p:p}:null}
+function reopen(c,pid){try{URL.revokeObjectURL(tkURL[pid])}catch(_){}delete tkURL[pid];tkSave();rr();try{phViewClose(true)}catch(_){}setTimeout(function(){view(c.t,c.s,pid)},250)}
+function rewrite(pid,blob,note){return phGet(pid).then(function(r){if(!r)throw new Error('missing');var go=function(buf){r.buf=buf;if(blob)r.mt=blob.type||'image/jpeg';if(note)r.note=note;return phPut(r)};return blob?blob.arrayBuffer().then(go):go(r.buf)})}
+function rot90(pid){return phGet(pid).then(function(r){return new Promise(function(ok,ko){var u=URL.createObjectURL(new Blob([r.buf],{type:r.mt||'image/jpeg'})),im=new Image();im.onload=function(){var c=document.createElement('canvas');c.width=im.naturalHeight;c.height=im.naturalWidth;var g=c.getContext('2d');g.translate(c.width,0);g.rotate(Math.PI/2);g.drawImage(im,0,0);URL.revokeObjectURL(u);c.toBlob(function(b){b?ok(b):ko(new Error('blob'))},'image/jpeg',.92)};im.onerror=ko;im.src=u})})}
+function pvAct(k){var c=cur();if(!c)return;var pid=c.p.id,err=function(e){console.warn(e);toast(TR('Nu am putut adăuga poza'))};
+ if(k==='ren'){askName(c.p.nm||TR('Foto')).then(function(v){if(v&&v.trim()){c.p.nm=v.trim().slice(0,40);tkSave();rr();toast(TR('Salvat'))}})}
+ else if(k==='rot'){rot90(pid).then(function(b){return rewrite(pid,b)}).then(function(){reopen(c,pid)}).catch(err)}
+ else if(k==='crop'){phGet(pid).then(function(r){var f=new File([r.buf],(c.p.nm||'foto')+'.jpg',{type:r.mt||'image/jpeg'});return cropEdit(f,1,1)}).then(function(b){if(b)return rewrite(pid,b).then(function(){reopen(c,pid)})}).catch(err)}
+ else if(k==='del'){X().ask('Ștergi poza?',function(){var i=c.arr.indexOf(c.p);if(i>=0)c.arr.splice(i,1);tkSave();phDel(pid).catch(function(){});try{URL.revokeObjectURL(tkURL[pid])}catch(_){}delete tkURL[pid];try{phViewClose(true)}catch(_){}rr()})}
+ else if(k==='mv'){var others=TK.list.filter(function(x){return x.id!==c.t.id||c.s}).sort(function(a,b){return(a.tab===noteTab?0:1)-(b.tab===noteTab?0:1)||(a.done?1:0)-(b.done?1:0)});
+  if(!others.length){toast(TR('Nicio sarcină încă. Adaugă una cu ora de început.'));return}
+  try{phViewClose(true)}catch(_){}
+  setTimeout(function(){X().dOpen(TR('Mută în altă sarcină'),'<div class="field"><label class="ux">'+esc(TR('Sarcină'))+'</label><select id="tkPvT">'+others.map(function(x){return '<option value="'+esc(x.id)+'">'+esc(x.t)+(x.d?' · '+dmy(x.d):'')+'</option>'}).join('')+'</select></div>',function(){var to=find($('tkPvT').value);if(!to)return;var i=c.arr.indexOf(c.p);if(i<0)return;
+   rewrite(pid,null,'tk:'+to.id).then(function(){c.arr.splice(i,1);to.ph.push(c.p);tkSave();rr();toast(TR('Salvat'))}).catch(err)})},250)}}
 function ctx(el){var it=el.closest('.tki'),t=it&&find(it.dataset.id),si=el.closest('.tksi'),s=t&&si?subOf(t,si.dataset.sid):null;return{t:t,s:s}}
 /* long-press a photo chip → rename / delete */
 document.addEventListener('pointerdown',function(e){var v=$('spView');if(!v||!v.contains(e.target))return;var c=e.target.closest('.tkch');clearTimeout(tkLPT);tkLP=0;if(!c)return;

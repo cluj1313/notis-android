@@ -1510,4 +1510,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "Tandai selesai",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Tandai belum selesai",
 "Mut\u0103 la alt\u0103 or\u0103": "Pindahkan ke waktu lain",
+"Poz\u0103 ad\u0103ugat\u0103": "Foto ditambahkan",
+"Decupeaz\u0103": "Pangkas",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Pindahkan ke tugas lain",
 };

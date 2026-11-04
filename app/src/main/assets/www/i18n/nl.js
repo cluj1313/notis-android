@@ -1511,4 +1511,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "Markeren als klaar",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Markeren als niet klaar",
 "Mut\u0103 la alt\u0103 or\u0103": "Verplaatsen naar een ander tijdstip",
+"Poz\u0103 ad\u0103ugat\u0103": "Foto toegevoegd",
+"Decupeaz\u0103": "Bijsnijden",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Verplaatsen naar andere taak",
 };

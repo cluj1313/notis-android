@@ -1510,4 +1510,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "Megjelölés készként",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Megjelölés nem készként",
 "Mut\u0103 la alt\u0103 or\u0103": "\u00c1thelyez\u00e9s m\u00e1sik id\u0151pontra",
+"Poz\u0103 ad\u0103ugat\u0103": "Fot\u00f3 hozz\u00e1adva",
+"Decupeaz\u0103": "V\u00e1g\u00e1s",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "\u00c1thelyez\u00e9s m\u00e1sik feladatba",
 };

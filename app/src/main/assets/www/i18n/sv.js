@@ -1510,4 +1510,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "Markera som klar",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Markera som ej klar",
 "Mut\u0103 la alt\u0103 or\u0103": "Flytta till en annan tid",
+"Poz\u0103 ad\u0103ugat\u0103": "Foto tillagt",
+"Decupeaz\u0103": "Besk\u00e4r",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Flytta till en annan uppgift",
 };

@@ -1511,4 +1511,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "Segna come completata",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Segna come non completata",
 "Mut\u0103 la alt\u0103 or\u0103": "Sposta a un altro orario",
+"Poz\u0103 ad\u0103ugat\u0103": "Foto aggiunta",
+"Decupeaz\u0103": "Ritaglia",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Sposta in un'altra attivit\u00e0",
 };

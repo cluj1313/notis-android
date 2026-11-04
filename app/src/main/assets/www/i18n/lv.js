@@ -1510,4 +1510,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "Atzīmēt kā pabeigtu",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Atzīmēt kā nepabeigtu",
 "Mut\u0103 la alt\u0103 or\u0103": "P\u0101rvietot uz citu laiku",
+"Poz\u0103 ad\u0103ugat\u0103": "Foto pievienots",
+"Decupeaz\u0103": "Apgriezt",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "P\u0101rvietot uz citu uzdevumu",
 };

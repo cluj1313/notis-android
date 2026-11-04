@@ -1510,4 +1510,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "Označi kot opravljeno",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Označi kot neopravljeno",
 "Mut\u0103 la alt\u0103 or\u0103": "Premakni na drug \u010das",
+"Poz\u0103 ad\u0103ugat\u0103": "Fotografija dodana",
+"Decupeaz\u0103": "Obre\u017ei",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Premakni v drugo opravilo",
 };

@@ -1509,4 +1509,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "সম্পন্ন হিসেবে চিহ্নিত করুন",
 "Marcheaz\u0103 ca nefinalizat\u0103": "অসম্পন্ন হিসেবে চিহ্নিত করুন",
 "Mut\u0103 la alt\u0103 or\u0103": "\u0985\u09a8\u09cd\u09af \u09b8\u09ae\u09af\u09bc\u09c7 \u09b8\u09b0\u09be\u09a8",
+"Poz\u0103 ad\u0103ugat\u0103": "\u099b\u09ac\u09bf \u09af\u09cb\u0997 \u09b9\u09af\u09bc\u09c7\u099b\u09c7",
+"Decupeaz\u0103": "\u0995\u09cd\u09b0\u09aa",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "\u0985\u09a8\u09cd\u09af \u0995\u09be\u099c\u09c7 \u09b8\u09b0\u09be\u09a8",
 };

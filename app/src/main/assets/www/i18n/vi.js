@@ -1510,4 +1510,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "Đánh dấu đã xong",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Đánh dấu chưa xong",
 "Mut\u0103 la alt\u0103 or\u0103": "Chuy\u1ec3n sang gi\u1edd kh\u00e1c",
+"Poz\u0103 ad\u0103ugat\u0103": "\u0110\u00e3 th\u00eam \u1ea3nh",
+"Decupeaz\u0103": "C\u1eaft",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Chuy\u1ec3n sang vi\u1ec7c kh\u00e1c",
 };

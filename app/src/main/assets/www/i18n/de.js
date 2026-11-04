@@ -1511,4 +1511,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "Als erledigt markieren",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Als nicht erledigt markieren",
 "Mut\u0103 la alt\u0103 or\u0103": "Auf andere Zeit verschieben",
+"Poz\u0103 ad\u0103ugat\u0103": "Foto hinzugef\u00fcgt",
+"Decupeaz\u0103": "Zuschneiden",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "In andere Aufgabe verschieben",
 };

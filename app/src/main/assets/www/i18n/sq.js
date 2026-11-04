@@ -1509,4 +1509,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "Shëno si të kryer",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Shëno si të pakryer",
 "Mut\u0103 la alt\u0103 or\u0103": "Zhvendos n\u00eb nj\u00eb or\u00eb tjet\u00ebr",
+"Poz\u0103 ad\u0103ugat\u0103": "Fotoja u shtua",
+"Decupeaz\u0103": "Prit",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Zhvendos n\u00eb nj\u00eb detyr\u00eb tjet\u00ebr",
 };

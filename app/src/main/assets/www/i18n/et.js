@@ -1511,4 +1511,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "Märgi tehtuks",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Märgi tegemata",
 "Mut\u0103 la alt\u0103 or\u0103": "Teisalda teisele ajale",
+"Poz\u0103 ad\u0103ugat\u0103": "Foto lisatud",
+"Decupeaz\u0103": "K\u00e4rbi",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Teisalda teise \u00fclesandesse",
 };

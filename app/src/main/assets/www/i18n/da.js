@@ -1509,4 +1509,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "Markér som udført",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Markér som ikke udført",
 "Mut\u0103 la alt\u0103 or\u0103": "Flyt til et andet tidspunkt",
+"Poz\u0103 ad\u0103ugat\u0103": "Foto tilf\u00f8jet",
+"Decupeaz\u0103": "Besk\u00e6r",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Flyt til en anden opgave",
 };

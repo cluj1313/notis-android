@@ -1509,4 +1509,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "标记为已完成",
 "Marcheaz\u0103 ca nefinalizat\u0103": "标记为未完成",
 "Mut\u0103 la alt\u0103 or\u0103": "\u79fb\u5230\u5176\u4ed6\u65f6\u95f4",
+"Poz\u0103 ad\u0103ugat\u0103": "\u5df2\u6dfb\u52a0\u7167\u7247",
+"Decupeaz\u0103": "\u88c1\u526a",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "\u79fb\u5230\u5176\u4ed6\u4efb\u52a1",
 };

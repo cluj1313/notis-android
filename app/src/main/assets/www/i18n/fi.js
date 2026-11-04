@@ -1510,4 +1510,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "Merkitse valmiiksi",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Merkitse keskeneräiseksi",
 "Mut\u0103 la alt\u0103 or\u0103": "Siirr\u00e4 toiseen aikaan",
+"Poz\u0103 ad\u0103ugat\u0103": "Kuva lis\u00e4tty",
+"Decupeaz\u0103": "Rajaa",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Siirr\u00e4 toiseen teht\u00e4v\u00e4\u00e4n",
 };

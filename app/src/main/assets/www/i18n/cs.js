@@ -1511,4 +1511,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "Označit jako hotové",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Označit jako nehotové",
 "Mut\u0103 la alt\u0103 or\u0103": "P\u0159esunout na jin\u00fd \u010das",
+"Poz\u0103 ad\u0103ugat\u0103": "Fotka p\u0159id\u00e1na",
+"Decupeaz\u0103": "O\u0159\u00edznout",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "P\u0159esunout do jin\u00e9ho \u00fakolu",
 };

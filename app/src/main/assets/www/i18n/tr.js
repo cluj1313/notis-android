@@ -1509,4 +1509,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "Tamamlandı olarak işaretle",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Tamamlanmadı olarak işaretle",
 "Mut\u0103 la alt\u0103 or\u0103": "Ba\u015fka bir saate ta\u015f\u0131",
+"Poz\u0103 ad\u0103ugat\u0103": "Foto\u011fraf eklendi",
+"Decupeaz\u0103": "K\u0131rp",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Ba\u015fka bir g\u00f6reve ta\u015f\u0131",
 };

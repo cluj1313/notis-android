@@ -1509,4 +1509,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "Pažymėti kaip atliktą",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Pažymėti kaip neatliktą",
 "Mut\u0103 la alt\u0103 or\u0103": "Perkelti \u012f kit\u0105 laik\u0105",
+"Poz\u0103 ad\u0103ugat\u0103": "Nuotrauka prid\u0117ta",
+"Decupeaz\u0103": "Apkirpti",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Perkelti \u012f kit\u0105 u\u017eduot\u012f",
 };

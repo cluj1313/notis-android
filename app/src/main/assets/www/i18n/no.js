@@ -1509,4 +1509,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "Merk som fullført",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Merk som ikke fullført",
 "Mut\u0103 la alt\u0103 or\u0103": "Flytt til et annet tidspunkt",
+"Poz\u0103 ad\u0103ugat\u0103": "Bilde lagt til",
+"Decupeaz\u0103": "Beskj\u00e6r",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Flytt til en annen oppgave",
 };

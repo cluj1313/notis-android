@@ -1510,4 +1510,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "Marcar como hecha",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Marcar como no hecha",
 "Mut\u0103 la alt\u0103 or\u0103": "Mover a otra hora",
+"Poz\u0103 ad\u0103ugat\u0103": "Foto a\u00f1adida",
+"Decupeaz\u0103": "Recortar",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Mover a otra tarea",
 };

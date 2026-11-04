@@ -1510,4 +1510,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "Marca com a feta",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Marca com a no feta",
 "Mut\u0103 la alt\u0103 or\u0103": "Mou a una altra hora",
+"Poz\u0103 ad\u0103ugat\u0103": "Foto afegida",
+"Decupeaz\u0103": "Retalla",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Mou a una altra tasca",
 };

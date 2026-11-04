@@ -1511,4 +1511,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "Označi kao gotovo",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Označi kao nedovršeno",
 "Mut\u0103 la alt\u0103 or\u0103": "Premjesti na drugo vrijeme",
+"Poz\u0103 ad\u0103ugat\u0103": "Fotografija dodana",
+"Decupeaz\u0103": "Izre\u017ei",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Premjesti u drugi zadatak",
 };

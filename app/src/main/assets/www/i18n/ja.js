@@ -1509,4 +1509,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "完了にする",
 "Marcheaz\u0103 ca nefinalizat\u0103": "未完了にする",
 "Mut\u0103 la alt\u0103 or\u0103": "\u5225\u306e\u6642\u9593\u306b\u79fb\u52d5",
+"Poz\u0103 ad\u0103ugat\u0103": "\u5199\u771f\u3092\u8ffd\u52a0\u3057\u307e\u3057\u305f",
+"Decupeaz\u0103": "\u5207\u308a\u629c\u304d",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "\u5225\u306e\u30bf\u30b9\u30af\u306b\u79fb\u52d5",
 };

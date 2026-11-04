@@ -1510,4 +1510,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "Mark as done",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Mark as not done",
 "Mut\u0103 la alt\u0103 or\u0103": "Move to another time",
+"Poz\u0103 ad\u0103ugat\u0103": "Photo added",
+"Decupeaz\u0103": "Crop",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Move to another task",
 };

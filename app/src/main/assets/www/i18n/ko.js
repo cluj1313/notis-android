@@ -1509,4 +1509,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "완료로 표시",
 "Marcheaz\u0103 ca nefinalizat\u0103": "미완료로 표시",
 "Mut\u0103 la alt\u0103 or\u0103": "\ub2e4\ub978 \uc2dc\uac04\uc73c\ub85c \uc774\ub3d9",
+"Poz\u0103 ad\u0103ugat\u0103": "\uc0ac\uc9c4\uc774 \ucd94\uac00\ub428",
+"Decupeaz\u0103": "\uc790\ub974\uae30",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "\ub2e4\ub978 \uc791\uc5c5\uc73c\ub85c \uc774\ub3d9",
 };

@@ -1511,4 +1511,7 @@ NOTIS_I18N={
 "Marcheaz\u0103 ca finalizat\u0103": "Označiť ako hotové",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Označiť ako nehotové",
 "Mut\u0103 la alt\u0103 or\u0103": "Presun\u00fa\u0165 na in\u00fd \u010das",
+"Poz\u0103 ad\u0103ugat\u0103": "Fotka pridan\u00e1",
+"Decupeaz\u0103": "Oreza\u0165",
+"Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Presun\u00fa\u0165 do inej \u00falohy",
 };
