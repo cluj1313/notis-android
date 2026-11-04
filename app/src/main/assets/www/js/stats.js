@@ -35,6 +35,8 @@
      var e=r&&r.e;st.textContent=TR(e==='used'?'Codul a fost deja folosit':e==='expired'?'Codul a expirat':'Cod invalid')}).catch(function(){go.disabled=false;st.textContent=TR('Fără conexiune la internet')})}}
   function lbl(){K.forEach(function(p){$(p+'Open').textContent=TR('Ai un cod?');$(p+'Go').textContent=TR('Activează');$(p+'In').placeholder=TR('Introdu codul');var st=$(p+'St');st.textContent=supTxt();st.className='cst'+(sup()?' ok':'')})}
   mk($('shBoxN'),'cd');mk($('shBoxJ'),'cdj');
+  /* v205: counter checkbox back in Setări, own section 'Confidențialitate' (independent of Share Jarvis) */
+  var cb=$('sStat');if(cb){cb.checked=ls('ns_stat_off')!=='1';cb.addEventListener('change',function(){ls('ns_stat_off',cb.checked?null:'1');if(cb.checked)ping()})}
   lbl();document.addEventListener('click',function(e){if(e.target&&e.target.closest&&e.target.closest('#bSettings'))setTimeout(lbl,0)},true);
  })();
  /* ---- Admin (opened only from the creator menu). Romanian only; session token kept in memory only. ---- */
@@ -58,7 +60,7 @@
    '<div class="ads">Generează coduri</div><div class="crb" style="justify-content:flex-start"><input id="adN" class="adn" type="number" min="1" max="500" value="10" style="width:80px"><select id="adD"><option value="0">Pe viață</option><option value="30">30 zile</option><option value="90">90 zile</option><option value="365">365 zile</option></select><button type="button" id="adGen">Generează</button></div>'+
    '<div class="ads">Coduri: '+codes.length+' · folosite '+used+' · nefolosite '+(codes.length-used)+'</div><div class="adl" id="adL">'+esc(list())+'</div>'+
    '<div class="crb"><button type="button" class="alt" id="adOut">Ieși</button><button type="button" class="alt" id="adCp">Copiază nefolosite</button><button type="button" id="adCsv">Export CSV</button></div>');
-  $('adStat').onchange=function(){var on=this.checked;ls('ns_stat_off',on?null:'1');if(on)ping();toast(on?'Contor pornit':'Contor oprit')};
+  $('adStat').onchange=function(){var on=this.checked;ls('ns_stat_off',on?null:'1');if($('sStat'))$('sStat').checked=on;if(on)ping();toast(on?'Contor pornit':'Contor oprit')};
   $('adGen').onclick=function(){var n=Math.max(1,Math.min(500,parseInt($('adN').value,10)||0));if(!n)return er('1–500');$('adGen').disabled=true;er('…');
    post('/admin/gen',{n:n,days:+$('adD').value},tok).then(function(r){if(!r.ok)return er('Eroare');toast(r.codes.length+' coduri');dash()}).catch(function(){er('Fără conexiune la internet')})};
   $('adCp').onclick=function(){var t=codes.filter(function(x){return !x.used}).map(function(x){return x.code}).join('\n');try{navigator.clipboard.writeText(t).then(function(){toast(TR('Copiat'))})}catch(_){}};
