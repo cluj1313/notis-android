@@ -2700,6 +2700,39 @@ function abRestore(id){abGet(id).then(function(rec){if(!rec||!rec.raw){toast(TR(
  if(!confirm(TR('Se înlocuiește tot ce e acum în aplicație cu backup-ul din ')+bkLabel(new Date(rec.ts))+'?'))return;
  /* safety first: snapshot of the current state, then restore */
  return abNow('before-restore').then(function(){NOTIS_ABput(rec.raw);return rec.photos&&rec.photos.length?phLoad(rec.photos):0}).then(function(){toast(TR('Restaurat · ')+bkLabel(new Date(rec.ts)));setTimeout(function(){location.reload()},700)})}).catch(function(e){console.warn(e);toast(TR('Nu am putut restaura backup-ul'))})}
+/* ---------- v208: silent weekly backup file (Android: Downloads/Notis via MediaStore; no reminders/toasts/notifications) ----------
+ same format as Backup manual → Trimite (importable with Import); written only when idle, skipped when nothing changed (hash of data+media); native keeps the last 4 */
+var WK_DAYS=7,WK_DAY=864e5;
+function wkNat(){return !!(window.NotisNative&&NotisNative.weeklyWrite&&NotisNative.weeklyList)}
+function wkOff(){return !!LS.get('ns_wkbk_off',false)}
+function wkIdle(){return new Promise(function(r){if(window.requestIdleCallback)requestIdleCallback(function(){r()},{timeout:5000});else setTimeout(r,60)})}
+/* chunked 2x32-bit hash so long strings never block the UI for long */
+function wkHash(s){return new Promise(function(res){var h1=0x811c9dc5|0,h2=5381,i=0,n=s.length;(function step(){var e=Math.min(n,i+250000);for(;i<e;i++){var c=s.charCodeAt(i);h1=Math.imul(h1^c,16777619);h2=(Math.imul(h2,33)+c)|0}if(i<n)setTimeout(step,0);else res((h1>>>0).toString(36)+'.'+(h2>>>0).toString(36)+'.'+n)})()})}
+function wkName(d){var p=function(x){return (x<10?'0':'')+x};return 'notis-autobackup-'+d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+'.json'}
+function wkWait(nm){return new Promise(function(res){var t0=Date.now();(function poll(){var s='';try{s=NotisNative.weeklyState()||''}catch(_){}if(s==='ok:'+nm)return res(true);if(s==='fail:'+nm||Date.now()-t0>180000)return res(false);setTimeout(poll,400)})()})}
+function wkDue(st,now){return !st||!st.chk||now-st.chk>=WK_DAYS*WK_DAY||now<st.chk}
+function wkRun(force){if(DEMO||!wkNat()||wkOff()||window.__wkBusy)return Promise.resolve('skip');var st=LS.get('ns_wkbk',null)||{},now=Date.now();if(!force&&!wkDue(st,now))return Promise.resolve('notdue');
+ window.__wkBusy=1;var data,ph,h;var retry=function(){LS.set('ns_wkbk',Object.assign({},st,{chk:now-(WK_DAYS-1)*WK_DAY}))};/* failed → try again in about a day */
+ return wkIdle().then(function(){data=bkCollect();return phDump()}).then(function(p){ph=p||[];return wkIdle()}).then(function(){return wkHash(JSON.stringify(data)+'\u0001'+JSON.stringify(ph))}).then(function(x){h=x;
+   if(h===st.h&&!force){LS.set('ns_wkbk',Object.assign({},st,{chk:now}));return 'same'}
+   return wkIdle().then(function(){var d=new Date(now),e={id:'wk-'+now,ts:d.toISOString(),label:bkLabel(d),data:data},json,nm=wkName(d);bkPhTmp=ph;try{json=JSON.stringify(bkExportPayload(e))}finally{bkPhTmp=null}
+    var ok=false;try{ok=!!NotisNative.weeklyWrite(nm,json)}catch(_){}json=null;if(!ok){retry();return 'fail'}
+    return wkWait(nm).then(function(w){if(w)LS.set('ns_wkbk',{chk:now,h:h,last:nm,ts:d.toISOString()});else retry();try{renderWkList()}catch(_){}return w?'written':'fail'})})
+ }).catch(function(e){console.warn('weekly backup',e);retry();return 'fail'}).then(function(r){window.__wkBusy=0;return r})}
+window.notisWeeklyRun=wkRun;
+function wkFiles(){if(!wkNat())return [];try{var j=JSON.parse(NotisNative.weeklyList()||'{}');return Array.isArray(j.files)?j.files:[]}catch(_){return []}}
+function wkLabel(n){var m=/(\d{4})-(\d{2})-(\d{2})/.exec(n);if(!m)return n;var d=new Date(+m[1],+m[2]-1,+m[3],12);try{return d.toLocaleDateString(document.documentElement.lang||undefined,{year:'numeric',month:'long',day:'numeric'})}catch(_){return bkLabel(d)}}
+function renderWkList(){var bx=$('wkBox'),box=$('wkList');if(!bx||!box)return;if(!wkNat()){bx.hidden=true;return}bx.hidden=false;var on=$('wkOn');if(on)on.checked=!wkOff();
+ var a=wkFiles();box.innerHTML='';if(!a.length){var e=document.createElement('div');e.className='bkempty';e.textContent=TR('Nicio copie săptămânală încă.');box.appendChild(e);return}
+ a.forEach(function(f){var row=document.createElement('div');row.className='bkrow';var l=document.createElement('div');l.className='bklbl';l.setAttribute('data-u','');l.textContent=wkLabel(f.name)+' · '+(f.size>=1048576?(f.size/1048576).toFixed(1)+' MB':Math.max(1,Math.round(f.size/1024))+' KB');row.appendChild(l);
+  var acts=document.createElement('div');acts.className='bkacts';var b=document.createElement('button');b.type='button';b.className='btn';b.textContent=TR('Restaurează');b.onclick=function(){wkRestore(f.name)};acts.appendChild(b);row.appendChild(acts);box.appendChild(row)})}
+function wkRestore(nm){var raw='';try{raw=NotisNative.weeklyGet(nm)||'';var j=JSON.parse(raw);if(!j||!j.data)raw=''}catch(e){raw=''}if(!raw){toast(TR('Nu am putut restaura backup-ul'));return}
+ if(!confirm(TR('Se înlocuiește tot ce e acum în aplicație cu backup-ul din ')+wkLabel(nm)+'?'))return;
+ /* safety first: snapshot of the current state; photos from the file are added (bkParseImport), then data restored */
+ abNow('before-restore').catch(function(){}).then(function(){var entry=bkParseImport(raw);raw='';bkApply(entry.data);toast(TR('Restaurat · ')+wkLabel(nm))}).catch(function(e){console.warn(e);toast(TR('Nu am putut restaura backup-ul'))})}
+(function(){var on=$('wkOn');if(on)on.onchange=function(){LS.set('ns_wkbk_off',!on.checked);if(on.checked)setTimeout(function(){wkRun()},1500)};try{renderWkList()}catch(_){}
+ /* after startup settles, then re-checked every 6 h while open (cheap: only a timestamp compare unless due) */
+ if(wkNat()){setTimeout(function(){wkRun()},45000);setInterval(function(){if(document.visibilityState==='visible')wkRun()},6*3600e3)}})();
 /* boot finished: this version is now the last good one; complete the pre-update backup with photos */
 /* v58: "Read aloud" label must never cover the editor toolbar in long languages: cap width to the free space, shrink font to fit */
 function nfReadFit(){var r=$('nfRead');if(!r||!r.getClientRects().length)return;var tb=document.querySelector('#noteFull .nfhist');var free=78;

@@ -201,6 +201,15 @@ final class Bridge {
     @JavascriptInterface public String autoBackups() { if (!MainActivity.trusted) return "[]"; return AutoBackup.index(ctx.getFilesDir()); }
     @JavascriptInterface public String autoBackupGet(String id) { if (!MainActivity.trusted) return ""; return AutoBackup.read(ctx.getFilesDir(), id); }
 
+    /* v208 silent weekly backup files (Downloads/Notis on Android 10+); write runs off the UI thread, result via weeklyState() */
+    static volatile String WK_STATE = "";
+    @JavascriptInterface public boolean weeklyWrite(final String name, final String json) { if (!MainActivity.trusted || !WeeklyBackup.validName(name) || json == null) return false;
+        final Context c = ctx.getApplicationContext(); WK_STATE = "busy:" + name;
+        new Thread(() -> { boolean ok = WeeklyBackup.write(c, name, json); WK_STATE = (ok ? "ok:" : "fail:") + name; }, "notis-weekly").start(); return true; }
+    @JavascriptInterface public String weeklyState() { if (!MainActivity.trusted) return ""; return WK_STATE; }
+    @JavascriptInterface public String weeklyList() { if (!MainActivity.trusted) return "{}"; return WeeklyBackup.index(ctx); }
+    @JavascriptInterface public String weeklyGet(String name) { if (!MainActivity.trusted) return ""; return WeeklyBackup.read(ctx, name); }
+
     /** backup export: writes the JSON file into Downloads */
     @JavascriptInterface public boolean saveFile(String name, String content) { if (!MainActivity.trusted) return false;
         try {
