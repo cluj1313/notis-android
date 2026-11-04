@@ -1508,4 +1508,5 @@ NOTIS_I18N={
 "Foto cu nume": "صورة باسم",
 "Marcheaz\u0103 ca finalizat\u0103": "وضع علامة كمكتملة",
 "Marcheaz\u0103 ca nefinalizat\u0103": "وضع علامة كغير مكتملة",
+"Mut\u0103 la alt\u0103 or\u0103": "\u0646\u0642\u0644 \u0625\u0644\u0649 \u0648\u0642\u062a \u0622\u062e\u0631",
 };

@@ -1508,4 +1508,5 @@ NOTIS_I18N={
 "Foto cu nume": "תמונה עם שם",
 "Marcheaz\u0103 ca finalizat\u0103": "סימון כהושלמה",
 "Marcheaz\u0103 ca nefinalizat\u0103": "סימון כלא הושלמה",
+"Mut\u0103 la alt\u0103 or\u0103": "\u05d4\u05e2\u05d1\u05e8 \u05dc\u05e9\u05e2\u05d4 \u05d0\u05d7\u05e8\u05ea",
 };

@@ -1510,4 +1510,5 @@ NOTIS_I18N={
 "Foto cu nume": "Foto koos nimega",
 "Marcheaz\u0103 ca finalizat\u0103": "Märgi tehtuks",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Märgi tegemata",
+"Mut\u0103 la alt\u0103 or\u0103": "Teisalda teisele ajale",
 };

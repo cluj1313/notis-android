@@ -28,7 +28,8 @@ window.tkRender=function(){var tab=noteTab,L=TK.list.filter(function(x){return x
  var h='<div class="tkv"><button type="button" class="btn pill tknew" data-ta="new">+ <span class="ux">'+esc(TR('Sarcină nouă'))+'</span></button>';
  if(!L.length)h+='<div class="tkemp ux">'+esc(TR('Nicio sarcină încă. Adaugă una cu ora de început.'))+'</div>';
  function one(x){var s=ord(x.sub);return '<div class="tki'+(x.done?' done':'')+'" data-id="'+esc(x.id)+'">'+row(x,0)+chips(x.ph,x.id)+(x.sub.length?'<div class="tksb">'+s.u.concat(s.d).map(function(q){return '<div class="tksi'+(q.done?' done':'')+'" data-sid="'+esc(q.id)+'">'+row(q,1)+chips(q.ph,x.id,q.id)+'</div>'}).join('')+'</div>':'')+'</div>'}
- h+=u.map(one).join('');if(d.length)h+='<div class="tksep ux">'+esc(TR('Finalizate'))+' ('+d.length+')</div>'+d.map(one).join('');return h+'</div>'};
+ function grp(A){return A.map(function(x,i){var o=one(x);return i<A.length-1?o.replace('class="tki','class="tki tkl'):o}).join('')}
+ h+=grp(u);if(d.length)h+='<div class="tksep ux">'+esc(TR('Finalizate'))+' ('+d.length+')</div>'+grp(d);return h+'</div>'};
 function rr(){try{window.spRender()}catch(e){console.warn(e)}}
 /* dialogs */
 function X(){return window.__medX}
@@ -74,16 +75,38 @@ document.addEventListener('pointerdown',function(e){var v=$('spView');if(!v||!v.
 document.addEventListener('pointermove',function(e){if(Math.abs(e.movementX)+Math.abs(e.movementY)>6)clearTimeout(tkLPT)});
 document.addEventListener('contextmenu',function(e){if(e.target.closest&&e.target.closest('.tkch'))e.preventDefault()});
 document.addEventListener('click',function(e){var v=$('spView');if(!v||!v.contains(e.target))return;var a=e.target.closest('[data-ta]');if(!a)return;
- if(tkLP&&a.dataset.ta==='pv'){tkLP=0;return}var k=a.dataset.ta,q=ctx(a),t=q.t,s=q.s;
+ if(tkLP===2){tkLP=0;return}if(tkLP&&a.dataset.ta==='pv'){tkLP=0;return}var k=a.dataset.ta,q=ctx(a),t=q.t,s=q.s;
  if(k==='new'){edTask(null);return}if(!t)return;
  if(k==='chk'){t.done=t.done?0:1;if(t.done)t.dt=Date.now();else delete t.dt;tkSave();rr()}
  else if(k==='schk'&&s){s.done=s.done?0:1;tkSave();rr()}
  else if(k==='ed')edTask(t);else if(k==='sed'&&s)edSub(t,s);else if(k==='sub')edSub(t,null);
  else if(k==='ph')phMenu(a,function(f){addPh(t,null,f)});else if(k==='sph'&&s)phMenu(a,function(f){addPh(t,s,f)});
  else if(k==='pv')view(t,s,a.dataset.p)});
+
+/* v200: long-press a task row → Edit / Move to another time / Delete (Da/Nu) */
+function moveTask(t){X().dOpen(TR('Mută la altă oră'),'<div class="field"><label class="ux">'+esc(TR('Data'))+'</label><input type="date" id="tkMD" value="'+esc(t.d||today())+'"></div><div class="al2"><div class="field"><label class="ux">'+esc(TR('Început'))+'</label><input type="time" id="tkMS" value="'+esc(t.s)+'"></div><div class="field"><label class="ux">'+esc(TR('Sfârșit (opțional)'))+'</label><input type="time" id="tkME" value="'+esc(t.e)+'"></div></div>',
+ function(){t.d=$('tkMD').value||'';t.s=$('tkMS').value||'';t.e=$('tkME').value||'';tkSave();rr()})}
+function taskMenu(el,t){var p=$('tkPop');if(!p){phMenu(el,function(){});p=$('tkPop')}
+ p.innerHTML='<button type="button" data-m="ed"><span class="ux">'+esc(TR('Editează'))+'</span></button><button type="button" data-m="mv"><span class="ux">'+esc(TR('Mută la altă oră'))+'</span></button><button type="button" data-m="del"><span class="ux">'+esc(TR('Șterge'))+'</span></button>';
+ p.onclick=function(e){var b=e.target.closest('[data-m]');if(!b)return;p.classList.remove('show');var m=b.dataset.m;if(m==='ed')edTask(t);else if(m==='mv')moveTask(t);else X().ask('Ștergi sarcina?',function(){delTask(t)})};
+ p.classList.add('show');var r=el.getBoundingClientRect();p.style.left=Math.max(8,Math.min(innerWidth-p.offsetWidth-8,r.left+40))+'px';p.style.top=(r.bottom+p.offsetHeight+8>innerHeight?Math.max(8,r.top-p.offsetHeight-6):r.bottom+4)+'px'}
+var tkRT=0,tkRP=null;
+document.addEventListener('pointerdown',function(e){var v=$('spView');if(!v||!v.contains(e.target))return;clearTimeout(tkRT);var m=e.target.closest('.tki>.tkr .tkm');if(!m||e.target.closest('.tkch'))return;var it=m.closest('.tki');tkRP={x:e.clientX,y:e.clientY};
+ tkRT=setTimeout(function(){var t=find(it.dataset.id);if(!t)return;tkLP=2;it.classList.add('tklp');setTimeout(function(){it.classList.remove('tklp')},350);try{navigator.vibrate&&navigator.vibrate(20)}catch(_){}taskMenu(m,t)},550)});
+['pointerup','pointercancel'].forEach(function(n){document.addEventListener(n,function(){clearTimeout(tkRT)})});
+document.addEventListener('pointermove',function(e){if(tkRP&&Math.abs(e.clientX-tkRP.x)+Math.abs(e.clientY-tkRP.y)>8)clearTimeout(tkRT)});
+document.addEventListener('contextmenu',function(e){if(e.target.closest&&e.target.closest('#spView .tkm'))e.preventDefault()});
+/* v200: in a task tab the + button makes a task; plain notes left in a task tab become tasks (note → trash, recoverable) */
+function isTT(){var t=typeof findNT==='function'&&findNT(noteTab);return t&&t.kind==='task'&&!nTrash&&!nFolder}
+document.addEventListener('click',function(e){var f=e.target.closest&&e.target.closest('#noteFab');if(!f||!isTT())return;e.preventDefault();e.stopImmediatePropagation();edTask(null)},true);
+function strip(s){return String(s||'').replace(/^\s*(?:[-*•]\s*)?(?:\[[ xX]?\]\s*)?/,'').trim()}
+function migNotes(){if(!isTT())return;var ch=0;notes.forEach(function(n){if(n.del||n.tab!==noteTab||(n.fd||'')!==''||n.lock)return;var L=String(n.text||'').split('\n').map(strip).filter(Boolean);if(!L.length)return;
+ TK.list.push({id:tkId('t'),tab:noteTab,t:L[0].slice(0,200),d:'',s:'',e:'',done:0,ts:Date.parse(n.createdAt||n.ts)||Date.now(),ph:[],from:n.id,sub:L.slice(1).map(function(x){return{id:tkId('s'),t:x.slice(0,200),done:0,ph:[]}})});
+ try{saveNotes()}catch(_){}n.del=new Date().toISOString();n.delTab=n.tab;ch=1});if(ch){tkSave();try{nFlush()}catch(_){}}}
+window.tkMig=migNotes;
 /* tab view */
 (function wrapSP(){var o=window.spRender;if(!o||o.__tk)return;window.spRender=function(){var v=$('spView'),t=findNT(noteTab);if(!v||!t||t.kind!=='task')return o.apply(this,arguments);
- var on=!nTrash&&!nFold(nQ).trim()&&!tbHidden(noteTab)&&!nFolder;$('notesPg').classList.toggle('sptab',on);if(!on){v.innerHTML='';v.hidden=true;return}v.hidden=false;v.innerHTML=tkRender();
+ var on=!nTrash&&!nFold(nQ).trim()&&!tbHidden(noteTab)&&!nFolder;$('notesPg').classList.toggle('sptab',on);if(!on){v.innerHTML='';v.hidden=true;return}try{migNotes()}catch(e){console.warn(e)}v.hidden=false;v.innerHTML=tkRender();
  var has=notes.some(function(n){return !n.del&&n.tab===noteTab&&(n.fd||'')===''&&(n.lock||String(n.text||'').trim())})||noteFolders.some(function(f){return f.tab===noteTab&&!f.del});$('notesPg').classList.toggle('spnone',!has);try{if(window.tsApply)tsApply()}catch(_){}};
  for(var k in o)if(Object.prototype.hasOwnProperty.call(o,k))window.spRender[k]=o[k];window.spRender.__tk=1})();
 /* backup: metadata via spCollect/spApply (merge, never drops local tasks); photo bytes via phDump ('tk:' prefix) */

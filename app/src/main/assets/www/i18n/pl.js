@@ -1509,4 +1509,5 @@ NOTIS_I18N={
 "Foto cu nume": "Zdjęcie z nazwą",
 "Marcheaz\u0103 ca finalizat\u0103": "Oznacz jako zrobione",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Oznacz jako niezrobione",
+"Mut\u0103 la alt\u0103 or\u0103": "Przenie\u015b na inn\u0105 godzin\u0119",
 };

@@ -1508,4 +1508,5 @@ NOTIS_I18N={
 "Foto cu nume": "带名称的照片",
 "Marcheaz\u0103 ca finalizat\u0103": "标记为已完成",
 "Marcheaz\u0103 ca nefinalizat\u0103": "标记为未完成",
+"Mut\u0103 la alt\u0103 or\u0103": "\u79fb\u5230\u5176\u4ed6\u65f6\u95f4",
 };

@@ -1508,4 +1508,5 @@ NOTIS_I18N={
 "Foto cu nume": "이름 있는 사진",
 "Marcheaz\u0103 ca finalizat\u0103": "완료로 표시",
 "Marcheaz\u0103 ca nefinalizat\u0103": "미완료로 표시",
+"Mut\u0103 la alt\u0103 or\u0103": "\ub2e4\ub978 \uc2dc\uac04\uc73c\ub85c \uc774\ub3d9",
 };

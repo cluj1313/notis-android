@@ -1508,4 +1508,5 @@ NOTIS_I18N={
 "Foto cu nume": "Adlı fotoğraf",
 "Marcheaz\u0103 ca finalizat\u0103": "Tamamlandı olarak işaretle",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Tamamlanmadı olarak işaretle",
+"Mut\u0103 la alt\u0103 or\u0103": "Ba\u015fka bir saate ta\u015f\u0131",
 };

@@ -1509,4 +1509,5 @@ NOTIS_I18N={
 "Foto cu nume": "Kuva nimellä",
 "Marcheaz\u0103 ca finalizat\u0103": "Merkitse valmiiksi",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Merkitse keskeneräiseksi",
+"Mut\u0103 la alt\u0103 or\u0103": "Siirr\u00e4 toiseen aikaan",
 };

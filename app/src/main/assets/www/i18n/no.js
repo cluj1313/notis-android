@@ -1508,4 +1508,5 @@ NOTIS_I18N={
 "Foto cu nume": "Bilde med navn",
 "Marcheaz\u0103 ca finalizat\u0103": "Merk som fullført",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Merk som ikke fullført",
+"Mut\u0103 la alt\u0103 or\u0103": "Flytt til et annet tidspunkt",
 };

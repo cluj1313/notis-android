@@ -1509,4 +1509,5 @@ NOTIS_I18N={
 "Foto cu nume": "Fotó névvel",
 "Marcheaz\u0103 ca finalizat\u0103": "Megjelölés készként",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Megjelölés nem készként",
+"Mut\u0103 la alt\u0103 or\u0103": "\u00c1thelyez\u00e9s m\u00e1sik id\u0151pontra",
 };

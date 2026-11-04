@@ -1508,4 +1508,5 @@ NOTIS_I18N={
 "Foto cu nume": "รูปภาพพร้อมชื่อ",
 "Marcheaz\u0103 ca finalizat\u0103": "ทำเครื่องหมายว่าเสร็จ",
 "Marcheaz\u0103 ca nefinalizat\u0103": "ทำเครื่องหมายว่ายังไม่เสร็จ",
+"Mut\u0103 la alt\u0103 or\u0103": "\u0e22\u0e49\u0e32\u0e22\u0e44\u0e1b\u0e40\u0e27\u0e25\u0e32\u0e2d\u0e37\u0e48\u0e19",
 };

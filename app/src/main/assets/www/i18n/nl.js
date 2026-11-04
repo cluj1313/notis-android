@@ -1510,4 +1510,5 @@ NOTIS_I18N={
 "Foto cu nume": "Foto met naam",
 "Marcheaz\u0103 ca finalizat\u0103": "Markeren als klaar",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Markeren als niet klaar",
+"Mut\u0103 la alt\u0103 or\u0103": "Verplaatsen naar een ander tijdstip",
 };

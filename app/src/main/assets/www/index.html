@@ -1789,7 +1789,7 @@ label.chk.alsil{display:flex!important;flex-direction:row-reverse;align-items:ce
 #spView .tkv{font-family:"Oswald",Roboto,system-ui,sans-serif;font-weight:300;margin:0 0 10px}
 .tknew{display:flex;align-items:center;gap:6px;margin:0 0 10px;font-size:15px;padding:7px 14px;font-weight:300}
 .tkemp{opacity:.7;font-size:14px;padding:6px 2px}
-.tki{border:1px solid var(--line);border-radius:14px;padding:6px 8px;margin:0 0 7px;background:rgba(var(--s1,18,22,30),.35)}
+.tki{position:relative;border:1px solid var(--line);border-radius:14px;padding:6px 8px;margin:0 0 7px;background:rgba(var(--s1,18,22,30),.35)}
 .tkr{display:flex;align-items:center;gap:10px;min-height:38px}
 .tkc{flex:none;width:22px;height:22px;border-radius:50%;border:2px solid currentColor;background:transparent;padding:0;opacity:.85;position:relative;cursor:pointer}
 .tkc.on{background:currentColor;opacity:.55}
@@ -1803,6 +1803,8 @@ label.chk.alsil{display:flex!important;flex-direction:row-reverse;align-items:ce
 .tksi .tkr{min-height:32px}.tksi .tkc{width:18px;height:18px}.tksi .tkc.on::after{left:4px;top:1px;width:4px;height:8px}.tksi .tkt{font-size:15px}
 .tki.done>.tkr .tkt,.tksi.done .tkt{text-decoration:line-through;opacity:.5}
 .tki.done{opacity:.6}
+.tki.tkl::after{content:'';position:absolute;left:18px;top:35px;bottom:-23px;width:2px;border-radius:1px;background:currentColor;opacity:.32;pointer-events:none;z-index:1}
+.tki.tklp{background:rgba(127,127,127,.16)}
 .tkp{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 6px 32px}
 .tksi .tkp{margin-left:28px}
 .tkch{display:inline-flex;align-items:center;gap:6px;max-width:100%;border:1px solid rgba(127,127,127,.55);border-radius:9px;background:transparent;color:inherit;font:inherit;font-weight:300;font-size:13px;padding:4px 10px 4px 8px;cursor:pointer;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}

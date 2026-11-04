@@ -1510,4 +1510,5 @@ NOTIS_I18N={
 "Foto cu nume": "Fotka s názvom",
 "Marcheaz\u0103 ca finalizat\u0103": "Označiť ako hotové",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Označiť ako nehotové",
+"Mut\u0103 la alt\u0103 or\u0103": "Presun\u00fa\u0165 na in\u00fd \u010das",
 };

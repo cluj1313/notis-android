@@ -1509,4 +1509,5 @@ NOTIS_I18N={
 "Foto cu nume": "Foto con nombre",
 "Marcheaz\u0103 ca finalizat\u0103": "Marcar como hecha",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Marcar como no hecha",
+"Mut\u0103 la alt\u0103 or\u0103": "Mover a otra hora",
 };

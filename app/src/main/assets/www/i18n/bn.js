@@ -1508,4 +1508,5 @@ NOTIS_I18N={
 "Foto cu nume": "নামসহ ছবি",
 "Marcheaz\u0103 ca finalizat\u0103": "সম্পন্ন হিসেবে চিহ্নিত করুন",
 "Marcheaz\u0103 ca nefinalizat\u0103": "অসম্পন্ন হিসেবে চিহ্নিত করুন",
+"Mut\u0103 la alt\u0103 or\u0103": "\u0985\u09a8\u09cd\u09af \u09b8\u09ae\u09af\u09bc\u09c7 \u09b8\u09b0\u09be\u09a8",
 };

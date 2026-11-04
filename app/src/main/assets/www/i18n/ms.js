@@ -1509,4 +1509,5 @@ NOTIS_I18N={
 "Foto cu nume": "Foto dengan nama",
 "Marcheaz\u0103 ca finalizat\u0103": "Tandakan selesai",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Tandakan belum selesai",
+"Mut\u0103 la alt\u0103 or\u0103": "Pindah ke masa lain",
 };

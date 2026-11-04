@@ -1508,4 +1508,5 @@ NOTIS_I18N={
 "Foto cu nume": "नाम के साथ फ़ोटो",
 "Marcheaz\u0103 ca finalizat\u0103": "पूरा हुआ चिह्नित करें",
 "Marcheaz\u0103 ca nefinalizat\u0103": "अधूरा चिह्नित करें",
+"Mut\u0103 la alt\u0103 or\u0103": "\u0926\u0942\u0938\u0930\u0947 \u0938\u092e\u092f \u092a\u0930 \u0932\u0947 \u091c\u093e\u090f\u0901",
 };

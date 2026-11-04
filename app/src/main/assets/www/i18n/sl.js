@@ -1509,4 +1509,5 @@ NOTIS_I18N={
 "Foto cu nume": "Fotografija z imenom",
 "Marcheaz\u0103 ca finalizat\u0103": "Označi kot opravljeno",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Označi kot neopravljeno",
+"Mut\u0103 la alt\u0103 or\u0103": "Premakni na drug \u010das",
 };

@@ -1508,4 +1508,5 @@ NOTIS_I18N={
 "Foto cu nume": "Nuotrauka su pavadinimu",
 "Marcheaz\u0103 ca finalizat\u0103": "Pažymėti kaip atliktą",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Pažymėti kaip neatliktą",
+"Mut\u0103 la alt\u0103 or\u0103": "Perkelti \u012f kit\u0105 laik\u0105",
 };

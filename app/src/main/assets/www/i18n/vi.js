@@ -1509,4 +1509,5 @@ NOTIS_I18N={
 "Foto cu nume": "Ảnh có tên",
 "Marcheaz\u0103 ca finalizat\u0103": "Đánh dấu đã xong",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Đánh dấu chưa xong",
+"Mut\u0103 la alt\u0103 or\u0103": "Chuy\u1ec3n sang gi\u1edd kh\u00e1c",
 };

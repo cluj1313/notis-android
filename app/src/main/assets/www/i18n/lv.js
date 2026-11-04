@@ -1509,4 +1509,5 @@ NOTIS_I18N={
 "Foto cu nume": "Foto ar nosaukumu",
 "Marcheaz\u0103 ca finalizat\u0103": "Atzīmēt kā pabeigtu",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Atzīmēt kā nepabeigtu",
+"Mut\u0103 la alt\u0103 or\u0103": "P\u0101rvietot uz citu laiku",
 };

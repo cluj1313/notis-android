@@ -1508,4 +1508,5 @@ NOTIS_I18N={
 "Foto cu nume": "Φωτογραφία με όνομα",
 "Marcheaz\u0103 ca finalizat\u0103": "Σήμανση ως ολοκληρωμένη",
 "Marcheaz\u0103 ca nefinalizat\u0103": "Σήμανση ως μη ολοκληρωμένη",
+"Mut\u0103 la alt\u0103 or\u0103": "\u039c\u03b5\u03c4\u03b1\u03ba\u03af\u03bd\u03b7\u03c3\u03b7 \u03c3\u03b5 \u03ac\u03bb\u03bb\u03b7 \u03ce\u03c1\u03b1",
 };
