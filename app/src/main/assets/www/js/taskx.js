@@ -1,4 +1,4 @@
-/* v199: TASKS tab (kind 'task', opt-in from Settings → Tabs) + named photos (tasks, subtasks, notes).
+/* v199: TASKS tab (kind 'task', ON by default since v201, can be hidden in Settings → Tabs) + named photos (tasks, subtasks, notes).
    Data: ns_tk {list:[{id,tab,t,d:'YYYY-MM-DD',s:'HH:MM',e:'HH:MM',done,dt,ts,ph:[{id,nm}],sub:[{id,t,done,ph:[{id,nm}]}]}]} + ns_tk_bak (previous copy).
    Photo bytes: same IndexedDB store as note photos, note:'tk:'+taskId (never garbage-collected, carried by phDump/phLoad).
    Sorting: open tasks by start (date+time; time without date = today; no date/time = at the end); done tasks below, dimmed. End time is optional. */
@@ -104,6 +104,12 @@ function migNotes(){if(!isTT())return;var ch=0;notes.forEach(function(n){if(n.de
  TK.list.push({id:tkId('t'),tab:noteTab,t:L[0].slice(0,200),d:'',s:'',e:'',done:0,ts:Date.parse(n.createdAt||n.ts)||Date.now(),ph:[],from:n.id,sub:L.slice(1).map(function(x){return{id:tkId('s'),t:x.slice(0,200),done:0,ph:[]}})});
  try{saveNotes()}catch(_){}n.del=new Date().toISOString();n.delTab=n.tab;ch=1});if(ch){tkSave();try{nFlush()}catch(_){}}}
 window.tkMig=migNotes;
+/* v201: Sarcini tab ON by default (once per install; an existing task tab, even hidden with t.off, is respected; appended at the end, nothing reordered) */
+function tkDef(){try{if(LS.get('ns_tkdef',0))return;if(!Array.isArray(window.noteTabs)&&typeof noteTabs==='undefined')return;
+ if(!noteTabs.some(function(t){return t.kind==='task'})){var id='tk';while(findNT(id))id='tk'+Math.random().toString(36).slice(2,5);noteTabs.push({id:id,name:TR('Sarcini'),color:'#8fd3ff',kind:'task'});saveNotes();try{renderNotes()}catch(_){}try{window.tbLibRender&&tbLibRender()}catch(_){}}
+ LS.set('ns_tkdef',1)}catch(e){console.warn(e)}}
+if(document.readyState==='complete')setTimeout(tkDef,0);else window.addEventListener('load',function(){setTimeout(tkDef,0)});
+window.tkDef=tkDef;
 /* tab view */
 (function wrapSP(){var o=window.spRender;if(!o||o.__tk)return;window.spRender=function(){var v=$('spView'),t=findNT(noteTab);if(!v||!t||t.kind!=='task')return o.apply(this,arguments);
  var on=!nTrash&&!nFold(nQ).trim()&&!tbHidden(noteTab)&&!nFolder;$('notesPg').classList.toggle('sptab',on);if(!on){v.innerHTML='';v.hidden=true;return}try{migNotes()}catch(e){console.warn(e)}v.hidden=false;v.innerHTML=tkRender();
