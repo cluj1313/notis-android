@@ -1101,8 +1101,8 @@ function alShort(ms){var d=new Date(ms),n=new Date(),hm=pad(d.getHours())+':'+pa
 function alLocal(ms){var d=new Date(ms);return{d:dkey(d),t:pad(d.getHours())+':'+pad(d.getMinutes())}}
 function alParse(d,t){if(!d||!t)return 0;var p=d.split('-'),q=t.split(':');return new Date(+p[0],+p[1]-1,+p[2],+q[0],+q[1],0,0).getTime()}
 var alId=null,alRep=120;
-function alGet(r){if(!r)return null;if(r.k==='t'){var i=findT(r.id);return i<0?null:tasks[i]}if(r.k==='s')return findS(r.id);if(r.k==='n')return findN(r.id);var tb=findTab(r.tab);return tb?findTI(tb,r.id):null}
-function alPersist(r,quiet){if(r.k==='t'){quiet?LS.set('ns_tasks',tasks):save();renderTasks()}else if(r.k==='s'){quiet?LS.set('ns_shop',shop):saveShop();renderShop()}else if(r.k==='n'){saveNotes();renderNotes()}else{quiet?LS.set('ns_tabs',tabs):saveTabs();var tb=findTab(r.tab);if(tb)renderTabItems(tb)}}
+function alGet(r){if(!r)return null;if(r.k==='u')return window.uaDraft?uaDraft():null;if(r.k==='t'){var i=findT(r.id);return i<0?null:tasks[i]}if(r.k==='s')return findS(r.id);if(r.k==='n')return findN(r.id);var tb=findTab(r.tab);return tb?findTI(tb,r.id):null}
+function alPersist(r,quiet){if(r.k==='u'){if(window.uaDone)uaDone();return}if(r.k==='t'){quiet?LS.set('ns_tasks',tasks):save();renderTasks()}else if(r.k==='s'){quiet?LS.set('ns_shop',shop):saveShop();renderShop()}else if(r.k==='n'){saveNotes();renderNotes()}else{quiet?LS.set('ns_tabs',tabs):saveTabs();var tb=findTab(r.tab);if(tb)renderTabItems(tb)}}
 function alAll(){var a=[];tasks.forEach(function(t){if(!t.deleted)a.push({r:{k:'t',id:t.id},o:t,off:t.done})});
  shop.forEach(function(s){if(!s.hidden)a.push({r:{k:'s',id:s.id},o:s,off:s.bought})});
  tabs.forEach(function(tb){(tb.items||[]).forEach(function(s){if(!s.hidden)a.push({r:{k:'b',tab:tb.id,id:s.id},o:s,off:s.done})})});
@@ -1128,7 +1128,7 @@ function alCuOpts(){var S=$('alCuU'),v=S.value;S.innerHTML='';['mi','h','d','w',
 function alFull(ms){return fDate(new Date(ms),1)}
 function alEndUI(){$('alUntilBox').style.display=$('alEnd').value==='until'?'':'none'}
 function openAlarm(r){var t=alGet(r);if(!t)return;var a=t.alarm||{};alId=r;$('alTask').textContent=t.lock?(t.ltitle||TR('Notiță blocată')):t.text;
- var at=a.at||(Date.now()+3600000-Date.now()%60000),L=alLocal(at);$('alDate').value=L.d;$('alTime').value=L.t;
+ var at=a.at||t.alDef||(Date.now()+3600000-Date.now()%60000),L=alLocal(at);$('alDate').value=L.d;$('alTime').value=L.t;
  var dm=!!(a.rep&&(a.rd||a.wd));alRep=a.rep&&!dm?a.rep:120;var pre=[30,60,120,240,360,480,720,1440].indexOf(alRep)>=0;$('alMin').value=pre?'':Math.round(alRep/6)/10;alChips();alWdM=a.wd||0;$('alDays').value=a.rd||1;alWdUI();var cu=a.rep&&a.cu&&AL_CU[a.cu.u]?a.cu:null;$('alCuN').value=cu?cu.n:3;$('alCuU').value=cu?cu.u:'d';alType(cu?3:!a.rep?0:dm?2:1);alDtUI();
  $('alEnd').value=a.until?'until':'none';var U=alLocal(a.until||at+86400000);$('alUDate').value=U.d;$('alUTime').value=U.t;alEndUI();alDtUI();alCuOpts();
  $('alDel').style.display=t.alarm?'':'none';$('alModal').classList.add('show')}
@@ -1139,8 +1139,8 @@ function alSave(){var t=alGet(alId);if(!t)return closeAlarm();var at=alParse($('
   if(cuU==='mi')rep=cn;else if(cuU==='h')rep=cn*60;else if(cuU==='d'){rd=cn;rep=cn*1440}else if(cuU==='w'){rd=cn*7;rep=rd*1440}else{repM=cn;rep=cn*43200}}
  var until=rep&&$('alEnd').value==='until'?alParse($('alUDate').value,$('alUTime').value):null;
  var na={at:at,rep:rep,until:until||null,snz:null};if(rd)na.rd=rd;if(wd)na.wd=wd;if(repM){na.repM=repM;na.dom=new Date(at).getDate()}if(cu)na.cu=cu;if(rep)at=na.at=alRollA(na,at,Date.now());if(!rep&&at<Date.now()-30000){toast(TR('Ora a trecut deja'));return}
- t.alarm=na;alPersist(alId);closeAlarm();toast(TR('Alarmă setată · ')+alShort(at));
- alPerm();alSchedule(t)}
+ var alId0=alId;t.alarm=na;alPersist(alId);closeAlarm();toast(TR('Alarmă setată · ')+alShort(at));
+ alPerm();if(alId0.k!=='u')alSchedule(t)}
 function alRoll(at,rep){var now=Date.now(),st=rep*60000;if(at>now)return at;return at+Math.ceil((now-at+1)/st)*st}
 function alPerm(){var N=window.NotisNative;if(N&&N.alarmPerms&&!DEMO){try{var st=N.alarmPerms(true);if(st&&st!=='ok'){toast(TR('Permite notificările și alarmele pentru Notis, ca să sune la timp'));return}
   if(N.isXiaomi&&N.isXiaomi()&&N.openAutostart&&!LS.get('ns_xmhint',0)){LS.set('ns_xmhint',1);setTimeout(function(){var cf=$('cfModal').querySelector('.cftxt'),t0=cf.textContent,ok=$('cfOk'),no=$('cfNo'),o0=ok.textContent,n0=no.textContent,back=function(){cf.textContent=t0;ok.textContent=o0;no.textContent=n0};
