@@ -42,6 +42,10 @@ window.tkRender=function(){var tab=noteTab,L=TK.list.filter(function(x){return x
  function one(x){var s=ord(x.sub);return '<div class="tki'+(x.done?' done':'')+'" data-id="'+esc(x.id)+'">'+row(x,0)+chips(x.ph,x.id)+(x.sub.length?'<div class="tksb">'+s.u.concat(s.d).map(function(q){return '<div class="tksi'+(q.done?' done':'')+'" data-sid="'+esc(q.id)+'">'+row(q,1)+chips(q.ph,x.id,q.id)+'</div>'}).join('')+'</div>':'')+'</div>'}
  function grp(A){return A.map(function(x,i){var o=one(x);return i<A.length-1?o.replace('class="tki','class="tki tkl'):o}).join('')}
  h+=grp(u);if(d.length)h+='<div class="tksep ux">'+esc(TR('Finalizate'))+' ('+d.length+')</div>'+grp(d);return h+'</div>'};
+/* v210: global search over task text (all lines) and subtasks */
+window.tkSearch=function(qs,fold){var R=[],M=function(t){var f=fold(t);return qs.every(function(w){return f.indexOf(w)>=0})},nm=function(id){var t=findNT(id);return t?t.name:''};
+ (TK&&TK.list||[]).forEach(function(x){if(!x||!findNT(x.tab))return;if(M(x.t||''))R.push({path:[nm(x.tab)],text:String(x.t||''),tab:x.tab,tk:x.id});
+  (x.sub||[]).forEach(function(q){if(M(q.t||''))R.push({path:[nm(x.tab),ttl(x)],text:String(q.t||''),tab:x.tab,tk:x.id,sid:q.id})})});return R};
 function rr(){try{window.spRender()}catch(e){console.warn(e)}}
 /* dialogs */
 function X(){return window.__medX}
