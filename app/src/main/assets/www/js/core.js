@@ -1187,7 +1187,7 @@ function jvClose(id){$(id).classList.remove('show')}
 function jvPrompt(title,val,ok){$('prTitle').textContent=title;var i=$('prIn');i.value=val||'';$('prModal').classList.add('show');setTimeout(function(){try{i.focus();i.select()}catch(_){}},30);
  function done(){var v=i.value.trim();if(!v){i.focus();return}jvClose('prModal');ok(v)}
  $('prOk').onclick=done;$('prNo').onclick=function(){jvClose('prModal')};i.onkeydown=function(e){if(e.key==='Enter'){e.preventDefault();done()}}}
-$('cfModal').addEventListener('click',function(e){if(e.target===this)jvClose('cfModal')});$('prModal').addEventListener('click',function(e){if(e.target===this)jvClose('prModal')});
+$('cfModal').addEventListener('click',function(e){if(e.target===this)jvClose('cfModal')});$('prModal').addEventListener('click',function(e){if(e.target===this&&Date.now()-(this._ot||0)>700)jvClose('prModal')});/* v211: a stray 2nd tap right after open must not dismiss */
 /* ---------- v48: Notițe page with note tabs, one-line list, full-note editor, autosave ---------- */
 var notes=LS.get('ns_notes',[]);if(!Array.isArray(notes))notes=[];
 var noteTabs=LS.get('ns_notetabs',null),noteTab=LS.get('ns_notetab',null);
@@ -2113,8 +2113,10 @@ document.addEventListener('keydown',function(e){var t=e.target;if(!isItem(t))ret
 document.addEventListener('input',function(e){var t=e.target;if(!t||!(isItem(t)||t.id==='nfTitle'||t.id==='prIn'))return;if(imeOn||e.isComposing)return;if(/[\r\n]/.test(t.value))nlFix(t)},true);
 function fitSoon(t){if(t._fitq)return;t._fitq=1;requestAnimationFrame(function(){t._fitq=0;mFit(t)})}
 /* ---------- v8: photos on notes (IndexedDB 'notis-photos'; locked notes: bytes AES-GCM encrypted with the note key) ---------- */
-var phDB=null;function phOpen(){if(phDB)return phDB;phDB=new Promise(function(res,rej){var r=indexedDB.open(DEMO?'notis-photos-demo':'notis-photos',1);r.onupgradeneeded=function(){var s=r.result.createObjectStore('p',{keyPath:'id'});s.createIndex('note','note')};r.onsuccess=function(){res(r.result)};r.onerror=function(){rej(r.error)}});return phDB}
-function phTx(mode,fn){return phOpen().then(function(db){return new Promise(function(res,rej){var t=db.transaction('p',mode),s=t.objectStore('p'),out=fn(s);t.oncomplete=function(){res(out&&out.result!==undefined?out.result:out)};t.onerror=function(){rej(t.error)}})})}
+var phDB=null;function phOpen(){if(phDB)return phDB;phDB=new Promise(function(res,rej){var r=indexedDB.open(DEMO?'notis-photos-demo':'notis-photos',1);r.onupgradeneeded=function(){var s=r.result.createObjectStore('p',{keyPath:'id'});s.createIndex('note','note')};r.onsuccess=function(){var d=r.result;try{d.onversionchange=function(){try{d.close()}catch(_){}phDB=null};d.onclose=function(){phDB=null}}catch(_){}res(d)};r.onerror=function(){phDB=null;rej(r.error)}});return phDB}
+/* v211: a transaction that aborts (e.g. storage quota full on commit) fires only 'abort' -> reject instead of hanging forever; a closed DB is reopened once */
+function phTx(mode,fn,again){return phOpen().then(function(db){return new Promise(function(res,rej){var t;try{t=db.transaction('p',mode)}catch(e){if(!again&&e&&e.name==='InvalidStateError'){phDB=null;return res(phTx(mode,fn,1))}return rej(e)}var s=t.objectStore('p'),out=fn(s),dn=false;t.oncomplete=function(){dn=true;res(out&&out.result!==undefined?out.result:out)};t.onerror=function(ev){if(dn)return;dn=true;rej(t.error||(ev&&ev.target&&ev.target.error)||new Error('idb'))};t.onabort=function(){if(dn)return;dn=true;rej(t.error||new DOMException('aborted','AbortError'))}})})}
+window.phIsFull=function(e){return !!e&&(e.name==='QuotaExceededError'||e.code===22||/quota/i.test(String(e.message||'')))};
 function phAll(){return phTx('readonly',function(s){return s.getAll()})}
 function phOf(nid,all){return phTx('readonly',function(s){return s.index('note').getAll(nid)}).then(function(a){return(a||[]).filter(function(r){return all||r.k!=='a'}).sort(function(x,y){return x.ts-y.ts})})}
 function phPut(r){return phTx('readwrite',function(s){s.put(r)})}
@@ -2398,7 +2400,7 @@ function cropEdit1(file,idx,tot){try{var ae=document.activeElement;if(ae&&ae.blu
   $('cropOk').onclick=$('cropNo').onclick=$('cropRot').onclick=null;window.removeEventListener('resize',onRs);ov.classList.remove('show');ov.classList.remove('ld');im.removeAttribute('src');URL.revokeObjectURL(u);done(v)}
  var used=false;im.onload=function(){W=im.naturalWidth;H=im.naturalHeight;ov.classList.add('show');cropBusy(0);nsKick();requestAnimationFrame(function(){requestAnimationFrame(reset)});setTimeout(function(){if(!used)reset()},350)};im.onerror=function(){toast(TR('Nu pot deschide poza'));close(null)};im.src=u;
  st.addEventListener('pointerdown',down);st.addEventListener('pointermove',move);st.addEventListener('pointerup',up);st.addEventListener('pointercancel',up);var onRs=function(){if(!used)reset()};window.addEventListener('resize',onRs);
- $('cropRot').onclick=function(){rot=(rot+90)%360;used=false;reset()};$('cropNo').onclick=function(){close(null)};var busy=false;$('cropOk').onclick=function(){if(busy)return;busy=true;out().then(function(b){busy=false;if(!b||b.size<200){toast(TR('Nu am putut decupa poza'));return}close(b)},function(){busy=false;toast(TR('Nu am putut decupa poza'))})}})}
+ $('cropRot').onclick=function(){rot=(rot+90)%360;used=false;reset()};$('cropNo').onclick=function(){close(null)};var busy=false;$('cropOk').onclick=function(){if(busy)return;busy=true;ov.classList.add('ld');/* v211: paint the busy state before the heavy draw/encode */new Promise(function(r){requestAnimationFrame(function(){setTimeout(r,16)})}).then(out).then(function(b){busy=false;if(!b||b.size<200){ov.classList.remove('ld');toast(TR('Nu am putut decupa poza'));return}close(b)},function(){busy=false;ov.classList.remove('ld');toast(TR('Nu am putut decupa poza'))})}})}
 $('bJvImport').onclick=function(){nsImportJarvis();nsRenderJv()};
 $('nsImpGo').onclick=function(){if(!nsImportJarvis()){toast(TR('Alege fișierul de backup Jarvis (.json)'));$('bBkFile').value='';$('bBkFile').click()}};
 $('nsImpX').onclick=function(){try{localStorage.setItem('ns_impban','off')}catch(_){}nsBanner()};
