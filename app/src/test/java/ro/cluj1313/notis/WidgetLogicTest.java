@@ -136,4 +136,20 @@ public class WidgetLogicTest {
         assertEquals("", SecWidget.dayLabel(null, "x"));
         assertEquals("", SecWidget.dayLabel(null, null));
     }
+
+    @Test public void alreadyPlacedConfigShowsDays() throws Exception {
+        /* 2.25.6: widgets already on the home screen have no mh/lang in sc; that must not hide every row. */
+        JSONArray rows = new JSONArray()
+            .put(new JSONObject("{\"m\":\"a\",\"day\":\"2026-11-03\",\"t\":\"A\",\"p\":\"Ion\",\"d\":true}"))
+            .put(new JSONObject("{\"m\":\"b\",\"day\":\"2026-11-03\",\"t\":\"B\",\"p\":\"Ion\",\"d\":false}"))
+            .put(new JSONObject("{\"m\":\"c\",\"day\":\"2026-11-10\",\"t\":\"C\",\"p\":\"Ana\",\"d\":false}"));
+        java.util.LinkedHashMap<String, int[]> all = SecWidget.medDayCounts(rows, "", null, "2026-11-10");
+        assertEquals("empty person + missing mh must show every day", 2, all.size());
+        assertArrayEquals(new int[]{1, 2}, all.get("2026-11-03"));
+        assertArrayEquals(new int[]{0, 1}, all.get("2026-11-10"));
+        java.util.LinkedHashMap<String, int[]> emptyMh = SecWidget.medDayCounts(rows, "", new JSONArray(), "2026-11-10");
+        assertEquals(2, emptyMh.size());
+        JSONArray hideAll = new JSONArray().put("a").put("b").put("c");
+        assertTrue("only an explicit hidden list may empty the widget", SecWidget.medDayCounts(rows, "", hideAll, "2026-11-10").isEmpty());
+    }
 }

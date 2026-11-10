@@ -26,7 +26,9 @@ final class Tr {
     }
     static String langLabel(Context c, String code) {
         if (code == null || code.isEmpty()) return s(c, R.string.sw_lang_app);
-        Locale loc = loc(code), disp = ctx(c).getResources().getConfiguration().getLocales().get(0);
+        Locale loc = loc(code);
+        android.os.LocaleList ll = ctx(c).getResources().getConfiguration().getLocales();
+        Locale disp = (ll != null && !ll.isEmpty()) ? ll.get(0) : Locale.getDefault();
         String n = loc.getDisplayName(disp);
         if (n == null || n.isEmpty()) n = code;
         return n.substring(0, 1).toUpperCase(disp) + n.substring(1);

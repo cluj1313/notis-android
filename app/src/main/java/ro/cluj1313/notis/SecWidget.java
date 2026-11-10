@@ -100,6 +100,7 @@ public abstract class SecWidget extends AppWidgetProvider {
 
     static void draw(Context c, AppWidgetManager m, int id, String k) {
         RemoteViews v = new RemoteViews(c.getPackageName(), R.layout.sec_widget);
+        try {
         JSONObject sc = cfg(c, id);
         Themes th = Store.get(c, "th_" + id) == null ? Themes.of("jad") : Themes.forWidget(c, id);
         int alpha = Math.max(0, Math.min(100, sc.optInt("a", 100)));
@@ -118,11 +119,8 @@ public abstract class SecWidget extends AppWidgetProvider {
         v.setTextViewText(R.id.sw_title, ttl);
         v.setContentDescription(R.id.sw_cfg, Tr.s(c, R.string.cd_settings));
         android.app.PendingIntent open = NotisWidget.openApp(c, base(k) + id, "?tk=" + k);
-        /* title opens the app; ⚙ must stay clickable (a click on sw_head would swallow it) */
+        /* title (not the whole header) opens the app so ⚙ stays clickable */
         v.setOnClickPendingIntent(R.id.sw_title, open);
-        /* rows / empty must not open the app — only the title bar does (2.25.1) */
-        v.setOnClickPendingIntent(R.id.sw_rows, null);
-        v.setOnClickPendingIntent(R.id.sw_empty, null);
         Intent ci = new Intent(c, SecConfigActivity.class).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id).putExtra("fromWidget", true);
         ci.setData(Uri.parse("notis://seccfg/" + id));
         v.setOnClickPendingIntent(R.id.sw_cfg, NotisWidget.activity(c, base(k) + 5000 + id, ci));
@@ -168,21 +166,14 @@ public abstract class SecWidget extends AppWidgetProvider {
                 } else v.setTextViewText(R.id.sw_cnt, "0/7");
             } else v.setTextViewText(R.id.sw_cnt, filled + "/7");
             v.setViewVisibility(R.id.sw_empty, View.GONE);
-            m.updateAppWidget(id, v);
             return;
         }
 
         if ("med".equals(k)) {
             Context tc = Tr.ctx(c, sc.optString("lang", ""));
             JSONArray mh = sc.optJSONArray("mh");
-            LinkedHashMap<String, int[]> days = new LinkedHashMap<>();
-            if (rows != null) for (int i = 0; i < rows.length(); i++) {
-                JSONObject r = rows.optJSONObject(i); if (r == null || !pass(r, k, f) || hidden(r, mh)) continue;
-                tot++; if (r.optBoolean("d")) done++;
-                String rd = r.optString("day"); if (rd.length() == 0) rd = day;
-                int[] ct = days.get(rd); if (ct == null) { ct = new int[]{0, 0}; days.put(rd, ct); }
-                ct[1]++; if (r.optBoolean("d")) ct[0]++;
-            }
+            LinkedHashMap<String, int[]> days = medDayCounts(rows, f, mh, day);
+            for (int[] ct : days.values()) { tot += ct[1]; done += ct[0]; }
             List<String> keys = new ArrayList<>(days.keySet());
             Collections.sort(keys);
             for (String rd : keys) {
@@ -208,7 +199,6 @@ public abstract class SecWidget extends AppWidgetProvider {
                 v.setViewVisibility(R.id.sw_empty, View.VISIBLE);
                 v.setTextViewText(R.id.sw_empty, Tr.s(tc, d == null ? R.string.sw_open_once : R.string.sw_empty_med));
             } else v.setViewVisibility(R.id.sw_empty, View.GONE);
-            m.updateAppWidget(id, v);
             return;
         }
 
@@ -243,7 +233,28 @@ public abstract class SecWidget extends AppWidgetProvider {
             int emptyId = d == null ? R.string.sw_open_once : "med".equals(k) ? R.string.sw_empty_med : "util".equals(k) ? R.string.sw_empty_util : R.string.sw_empty_crm;
             v.setTextViewText(R.id.sw_empty, Tr.s(c, emptyId));
         } else v.setViewVisibility(R.id.sw_empty, View.GONE);
-        m.updateAppWidget(id, v);
+        } catch (Exception e) {
+            try {
+                v.setTextViewText(R.id.sw_title, icon(k) + Tr.s(c, title(k)));
+                v.removeAllViews(R.id.sw_rows);
+                v.setViewVisibility(R.id.sw_empty, View.VISIBLE);
+                v.setTextViewText(R.id.sw_empty, Tr.s(c, R.string.sw_open_once));
+            } catch (Exception ignored) {}
+        } finally {
+            try { m.updateAppWidget(id, v); } catch (Exception ignored) {}
+        }
+    }
+    /** day -> [done, total] for visible medicines. Missing mh / empty person = show all (already-placed widgets). */
+    static LinkedHashMap<String, int[]> medDayCounts(JSONArray rows, String person, JSONArray mh, String today) {
+        LinkedHashMap<String, int[]> days = new LinkedHashMap<>();
+        if (rows == null) return days;
+        for (int i = 0; i < rows.length(); i++) {
+            JSONObject r = rows.optJSONObject(i); if (r == null || !pass(r, "med", person) || hidden(r, mh)) continue;
+            String rd = r.optString("day"); if (rd.length() == 0) rd = today;
+            int[] ct = days.get(rd); if (ct == null) { ct = new int[]{0, 0}; days.put(rd, ct); }
+            ct[1]++; if (r.optBoolean("d")) ct[0]++;
+        }
+        return days;
     }
     static boolean hidden(JSONObject r, JSONArray mh) {
         if (mh == null || mh.length() == 0) return false;
@@ -269,7 +280,8 @@ public abstract class SecWidget extends AppWidgetProvider {
         String dm = day.substring(8, 10) + "/" + day.substring(5, 7) + "/" + day.substring(0, 4);
         try {
             Date d = new SimpleDateFormat("yyyy-MM-dd", Locale.US).parse(day);
-            Locale loc = c.getResources().getConfiguration().getLocales().get(0);
+            android.os.LocaleList ll = c.getResources().getConfiguration().getLocales();
+            Locale loc = (ll != null && !ll.isEmpty()) ? ll.get(0) : Locale.getDefault();
             String w = new SimpleDateFormat("EEEE", loc).format(d);
             if (w.length() > 0) w = w.substring(0, 1).toUpperCase(loc) + w.substring(1);
             return dm + " · " + w;
