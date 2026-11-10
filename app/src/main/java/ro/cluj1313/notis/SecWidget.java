@@ -44,8 +44,16 @@ public abstract class SecWidget extends AppWidgetProvider {
         }
     }
     static String kindOf(Context c, int wid) {
-        android.appwidget.AppWidgetProviderInfo i = AppWidgetManager.getInstance(c).getAppWidgetInfo(wid);
-        if (i == null) return null; String n = i.provider.getClassName();
+        AppWidgetManager m = AppWidgetManager.getInstance(c);
+        android.appwidget.AppWidgetProviderInfo i = m.getAppWidgetInfo(wid);
+        String n = (i != null && i.provider != null) ? i.provider.getClassName() : null;
+        if (n == null) {
+            for (int k = 0; k < ALL.length; k++) {
+                for (int id : m.getAppWidgetIds(new ComponentName(c, ALL[k]))) if (id == wid) { n = ALL[k].getName(); break; }
+                if (n != null) break;
+            }
+        }
+        if (n == null) return null;
         return n.endsWith("$MedGlic") ? "glic" : n.endsWith("$Med") ? "med" : n.endsWith("$Util") ? "util" : n.endsWith("$Crm") ? "crm" : null;
     }
     static JSONObject cfg(Context c, int wid) {

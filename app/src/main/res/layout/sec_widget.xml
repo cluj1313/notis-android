@@ -10,7 +10,7 @@
         </LinearLayout>
         <ImageView android:id="@+id/sw_line" android:layout_width="match_parent" android:layout_height="1dp" android:layout_marginTop="6dp" android:layout_marginBottom="2dp" android:src="@drawable/w_line" android:scaleType="fitXY" />
         <FrameLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
-            <ListView android:id="@+id/sw_list" android:layout_width="match_parent" android:layout_height="match_parent" android:divider="@null" android:dividerHeight="0dp" android:scrollbars="none" android:fadeScrollbars="true" />
+            <ListView android:id="@+id/sw_list" android:layout_width="match_parent" android:layout_height="match_parent" android:divider="@null" android:dividerHeight="0dp" android:scrollbars="none" />
             <TextView android:id="@+id/sw_empty" android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center" android:padding="8dp" android:textColor="#9FBFB2" android:textSize="13sp" android:visibility="gone" />
         </FrameLayout>
     </LinearLayout>

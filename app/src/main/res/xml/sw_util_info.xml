@@ -2,6 +2,6 @@
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     android:minWidth="180dp" android:minHeight="110dp" android:minResizeWidth="110dp" android:minResizeHeight="70dp"
     android:targetCellWidth="3" android:targetCellHeight="2" android:resizeMode="horizontal|vertical"
-    android:updatePeriodMillis="1800000" android:initialLayout="@layout/sec_widget" android:previewLayout="@layout/sec_widget"
+    android:updatePeriodMillis="1800000" android:initialLayout="@layout/sec_widget" android:previewLayout="@layout/sec_preview_util"
     android:description="@string/sw_desc_util" android:configure="ro.cluj1313.notis.SecConfigActivity"
     android:widgetFeatures="reconfigurable|configuration_optional" android:widgetCategory="home_screen" />

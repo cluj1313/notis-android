@@ -39,9 +39,17 @@ public class SecConfigActivity extends Activity {
         if (ex != null) wid = ex.getInt(AppWidgetManager.EXTRA_APPWIDGET_ID, wid);
         setResult(RESULT_CANCELED, new Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, wid));
         final String k = wid == AppWidgetManager.INVALID_APPWIDGET_ID ? null : SecWidget.kindOf(this, wid);
-        if (k == null) { finish(); return; }
+        if (k == null) {
+            /* launcher add: never cancel just because the kind is not yet known — place the widget, ⚙ configures later */
+            if (wid != AppWidgetManager.INVALID_APPWIDGET_ID) {
+                setResult(RESULT_OK, new Intent().putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, wid));
+                try { SecWidget.refreshAll(this); } catch (Exception ignored) {}
+            }
+            finish();
+            return;
+        }
         final JSONObject sc = SecWidget.cfg(this, wid);
-        JSONObject sec = Store.snapshot(this).optJSONObject("sec"), d = sec == null ? null : sec.optJSONObject(k);
+        JSONObject snap = Store.snapshot(this), sec = snap == null ? null : snap.optJSONObject("sec"), d = sec == null ? null : sec.optJSONObject(k);
 
         LinearLayout c = Ui.col(this);
         c.addView(Ui.title(this, SecWidget.icon(k) + Tr.s(this, SecWidget.title(k))));
