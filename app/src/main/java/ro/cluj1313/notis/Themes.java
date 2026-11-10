@@ -5,11 +5,11 @@ import org.json.JSONObject;
 
 /** Widget palettes. "auto" follows the theme picked inside Notis (from the snapshot). */
 final class Themes {
-    static final String[] IDS = {"auto", "gold", "salon", "exc", "light", "dark", "jad", "lac"};
-    static final String[] NAMES = {"Ca în aplicație", "Dark-Gold", "Salon Auriu", "Excalibur", "Light", "Dark (argintiu)", "Jad", "Lac Roșu"};
+    static final String[] IDS = {"auto", "gold", "salon", "exc", "light", "dark", "jad", "navy"};
+    static final String[] NAMES = {"Ca în aplicație", "Dark-Gold", "Salon Auriu", "Excalibur", "Light", "Dark (argintiu)", "Jad", "Navy Aur"};
     /** localized theme name (2.1.0) */
     static String name(android.content.Context c, int i) {
-        switch (i) { case 0: return Tr.s(c, R.string.th_app); case 2: return Tr.s(c, R.string.th_salon); case 5: return Tr.s(c, R.string.th_silver); case 6: return Tr.s(c, R.string.th_jade); case 7: return Tr.s(c, R.string.th_lac); default: return NAMES[i]; }
+        switch (i) { case 0: return Tr.s(c, R.string.th_app); case 2: return Tr.s(c, R.string.th_salon); case 5: return Tr.s(c, R.string.th_silver); case 6: return Tr.s(c, R.string.th_jade); case 7: return "Navy Aur"; default: return NAMES[i]; }
     }
 
     final String id; final int bg, add, title, text, mut, acc, line, danger;
@@ -24,7 +24,8 @@ final class Themes {
             case "light": return new Themes(id, R.drawable.w_bg_light, R.drawable.w_add_light, 0xFF2F5372, 0xFF1A2633, 0xFF5B6B7A, 0xFF2F5372, 0x337D98AD, 0xFFB3261E);
             case "dark":  return new Themes(id, R.drawable.w_bg_dark, R.drawable.w_add_dark, 0xFFE6E8EA, 0xFFF2F2F2, 0xFF9A9A9A, 0xFFC9CDD1, 0x40C9CDD1, 0xFFFF6B6B);
             case "jad":   return new Themes(id, R.drawable.w_bg_jad, R.drawable.w_add_jad, 0xFF8FDCBC, 0xFFEAF5EF, 0xFF9FBFB2, 0xFF8FDCBC, 0x408FDCBC, 0xFFFF8A80);
-            case "lac":   return new Themes(id, R.drawable.w_bg_lac, R.drawable.w_add_lac, 0xFFF0C27A, 0xFFFFEFF4, 0xFFD6A7B6, 0xFFF0C27A, 0x40F0C27A, 0xFFFFB4A8);
+            case "navy":  return new Themes(id, R.drawable.w_bg_gold, R.drawable.w_add_gold, 0xFFC9A45C, 0xFFF2EAD8, 0xFFA89B86, 0xFFC9A45C, 0x40C9A45C, 0xFFFF8A80);
+            case "lac":   return of("navy");
             case "color": return new Themes(id, R.drawable.w_bg_color, R.drawable.w_add_color, 0xFF3FD8FF, 0xFFEAF6FF, 0xFF8FB0C8, 0xFF3FD8FF, 0x403FD8FF, 0xFFFF6B6B);
             default:      return new Themes("gold", R.drawable.w_bg_gold, R.drawable.w_add_gold, 0xFFE8C98A, 0xFFF2EAD8, 0xFF8C8476, 0xFFE8C98A, 0x40C9A45C, 0xFFFF8A80);
         }
@@ -38,7 +39,7 @@ final class Themes {
             case "light": return "light";
             case "vip": return "gold";
             case "jad": return "jad";
-            case "lac": return "lac";
+            case "lac": case "navy": return "navy";
             case "exc": return "exc";
             case "salon": case "pap": case "cleo": case "tus": return "salon";
             default: return "color";

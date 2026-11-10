@@ -89,6 +89,8 @@
     <string name="edit_item">Rediģēt vienumu</string>
     <string name="edit_note">Rediģēt piezīmi</string>
     <string name="alarm_stop">Apturēt</string>
+    <string name="h_glic">Glucose</string>
+    <string name="sw_desc_glic">Today\'s glucose readings</string>
     <string name="h_med">Tabletes</string>
     <string name="h_util">Maksājumi</string>
     <string name="h_crm">CRM</string>

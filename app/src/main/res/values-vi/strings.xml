@@ -89,6 +89,8 @@
     <string name="edit_item">Sửa mục</string>
     <string name="edit_note">Sửa ghi chú</string>
     <string name="alarm_stop">Dừng</string>
+    <string name="h_glic">Glucose</string>
+    <string name="sw_desc_glic">Today\'s glucose readings</string>
     <string name="h_med">Thuốc viên</string>
     <string name="h_util">Thanh toán</string>
     <string name="h_crm">CRM</string>

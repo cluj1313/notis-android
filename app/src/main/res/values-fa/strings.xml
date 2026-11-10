@@ -89,6 +89,8 @@
     <string name="edit_item">ویرایش مورد</string>
     <string name="edit_note">ویرایش یادداشت</string>
     <string name="alarm_stop">توقف</string>
+    <string name="h_glic">Glucose</string>
+    <string name="sw_desc_glic">Today\'s glucose readings</string>
     <string name="h_med">قرص‌ها</string>
     <string name="h_util">پرداخت‌ها</string>
     <string name="h_crm">CRM</string>

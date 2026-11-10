@@ -20,10 +20,11 @@ public abstract class SecWidget extends AppWidgetProvider {
     @Override public void onDeleted(Context c, int[] ids) { for (int id : ids) Store.forget(c, id); }
 
     public static class Med extends SecWidget { String kind() { return "med"; } }
+    public static class MedGlic extends SecWidget { String kind() { return "glic"; } }
     public static class Util extends SecWidget { String kind() { return "util"; } }
     public static class Crm extends SecWidget { String kind() { return "crm"; } }
-    static final Class<?>[] ALL = {Med.class, Util.class, Crm.class};
-    static final String[] KINDS = {"med", "util", "crm"};
+    static final Class<?>[] ALL = {Med.class, MedGlic.class, Util.class, Crm.class};
+    static final String[] KINDS = {"med", "glic", "util", "crm"};
 
     static void refreshAll(Context c) {
         AppWidgetManager m = AppWidgetManager.getInstance(c);
@@ -32,15 +33,15 @@ public abstract class SecWidget extends AppWidgetProvider {
     static String kindOf(Context c, int wid) {
         android.appwidget.AppWidgetProviderInfo i = AppWidgetManager.getInstance(c).getAppWidgetInfo(wid);
         if (i == null) return null; String n = i.provider.getClassName();
-        return n.endsWith("$Med") ? "med" : n.endsWith("$Util") ? "util" : n.endsWith("$Crm") ? "crm" : null;
+        return n.endsWith("$MedGlic") ? "glic" : n.endsWith("$Med") ? "med" : n.endsWith("$Util") ? "util" : n.endsWith("$Crm") ? "crm" : null;
     }
     static JSONObject cfg(Context c, int wid) {
         try { String s = Store.get(c, "sc_" + wid); if (s != null) return new JSONObject(s); } catch (Exception ignored) {}
         return new JSONObject();
     }
-    static int title(String k) { return "med".equals(k) ? R.string.h_med : "util".equals(k) ? R.string.h_util : R.string.h_crm; }
-    static String icon(String k) { return "med".equals(k) ? "💊 " : "util".equals(k) ? "💳 " : "👥 "; }
-    static int base(String k) { return "med".equals(k) ? 710000 : "util".equals(k) ? 720000 : 730000; }
+    static int title(String k) { return "med".equals(k) ? R.string.h_med : "glic".equals(k) ? R.string.h_med : "util".equals(k) ? R.string.h_util : R.string.h_crm; }
+    static String icon(String k) { return "med".equals(k) ? "💊 " : "glic".equals(k) ? "🩸 " : "util".equals(k) ? "💳 " : "👥 "; }
+    static int base(String k) { return "med".equals(k) ? 710000 : "glic".equals(k) ? 711000 : "util".equals(k) ? 720000 : 730000; }
     static boolean pass(JSONObject r, String k, String f) {
         if (f == null || f.length() == 0) return true;
         if ("med".equals(k)) return f.equals(r.optString("p"));
@@ -79,7 +80,7 @@ public abstract class SecWidget extends AppWidgetProvider {
 
         JSONObject snap = Store.snapshot(c), sec = snap.optJSONObject("sec"), d = sec == null ? null : sec.optJSONObject(k);
         JSONArray rows = d == null ? null : d.optJSONArray("rows");
-        if ("med".equals(k) && d != null && !d.optString("day").equals(new java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US).format(new java.util.Date()))) { rows = null; d = null; } /* stale day: wait for the app to push today */
+        if (("med".equals(k)||"glic".equals(k)) && d != null && !d.optString("day").equals(new java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US).format(new java.util.Date()))) { rows = null; d = null; } /* stale day: wait for the app to push today */
         int tot = 0, done = 0, shown = 0;
         long now = System.currentTimeMillis();
         if (rows != null) for (int i = 0; i < rows.length(); i++) {

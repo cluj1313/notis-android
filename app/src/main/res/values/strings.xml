@@ -90,6 +90,8 @@
     <string name="edit_item">Edit item</string>
     <string name="edit_note">Edit note</string>
     <string name="alarm_stop">Stop</string>
+    <string name="h_glic">Glucose</string>
+    <string name="sw_desc_glic">Today\'s glucose readings</string>
     <string name="h_med">Pills</string>
     <string name="h_util">Payments</string>
     <string name="h_crm">CRM</string>

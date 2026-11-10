@@ -89,6 +89,8 @@
     <string name="edit_item">Editează elementul</string>
     <string name="edit_note">Editează notița</string>
     <string name="alarm_stop">Oprește</string>
+    <string name="h_glic">Glicemie</string>
+    <string name="sw_desc_glic">Citirile de glicemie de azi</string>
     <string name="h_med">Pastile</string>
     <string name="h_util">Plăți</string>
     <string name="h_crm">CRM</string>

@@ -515,7 +515,7 @@ function lpTabOpen(hd){lpCur={li:hd,tabHd:true};$('lpBox').innerHTML='<button da
 function lpNTOpen(b){lpCur={li:b,nt:b.dataset.id};$('lpBox').innerHTML='<button data-a="ntren">📛 Redenumește</button><button data-a="ntmv">📦 Mută</button><button data-a="ntcol">🎨 Culoare</button>'+((findNT(b.dataset.id)||{}).lk?'<button data-a="ntunl">🔓 Deblochează</button>':'<button data-a="ntlock">🔒 Blochează</button>')+'<button data-a="ntdel" class="dng">🗑 Șterge tabul</button>';$('lpMenu').classList.add('show');b.classList.add('jv-lpon');lpPos()}
 function lpNoteOpen(li){if((findN(li.dataset.id)||{}).del){lpCur={li:li,note:true};$('lpBox').innerHTML='<button data-a="nrest">↩ Reface</button><button data-a="npurge" class="dng">× Șterge definitiv</button>';$('lpMenu').classList.add('show');lpPos();return}lpCur={li:li,note:true};try{var _sn=findN(li.dataset.id);nShP=_sn&&!(_sn.lock&&!_sn._key)?nSharePrep(_sn):null}catch(_){nShP=null}$('lpBox').innerHTML='<button data-a="nal">⏰ Alarmă</button><button data-a="ned">✎ Editează</button><button data-a="nshr">📤 Trimite</button><button data-a="ndrag">✥ Mută (drag &amp; drop)</button><button data-a="nmv">📦 Mută în alt tab</button><button data-a="nlbl">🏷 Etichete</button>'+((findN(li.dataset.id)||{}).pin?'<button data-a="npin">📌 Anulează fixarea</button>':'<button data-a="npin">📌 Fixează</button>')+''+((findN(li.dataset.id)||{}).lock?'<button data-a="nunl">🔓 Deblochează</button>':'<button data-a="nlock">🔒 Blochează</button>')+'<button data-a="ndel" class="dng">× Șterge</button>';$('lpMenu').classList.add('show');li.classList.add('jv-lpon');lpPos()}
 function lpClose(){$('lpMenu').classList.remove('show');if(lpCur&&lpCur.li)lpCur.li.classList.remove('jv-lpon');lpCur=null}
-$('lpMenu').addEventListener('click',function(e){if(lpJust){lpJust=false;return}var c=lpCur;if(!c){lpClose();return}var b=e.target.closest('button');if(!b){lpClose();return}if(c.sel){selPop(b);return}if(c.fd){fdAct(b,c);return}if(b.dataset.a&&/^at(img|imn|cam|drw|rec)$/.test(b.dataset.a)){var aa=b.dataset.a;lpClose();atDo(aa);return}if(b.dataset.a==='fnew'){lpClose();fdNew(noteTab,nFolder);return}
+$('lpMenu').addEventListener('click',function(e){if(lpJust){lpJust=false;return}var c=lpCur;if(!c){lpClose();return}var b=e.target.closest('button');if(!b){lpClose();return}if(c.sel){selPop(b);return}if(c.fd){fdAct(b,c);return}if(b.dataset.a&&/^at(img|imn|cam|card|drw|rec)$/.test(b.dataset.a)){var aa=b.dataset.a;lpClose();atDo(aa);return}if(b.dataset.a==='fnew'){lpClose();fdNew(noteTab,nFolder);return}
  if(b.dataset.mv!=null){var T=lpLists()[+b.dataset.mv];if(T.key===c.S.key){lpClose();return}lpMove(T);return}
  var a=b.dataset.a;
  if(a==='npin'){var pn=findN(c.li.dataset.id);lpClose();if(pn){saveNotes();if(pn.pin)delete pn.pin;else pn.pin=true;nFlush();renderNotes();toast(pn.pin?TR('Fixată sus'):TR('Nu mai e fixată'))}return}
@@ -527,7 +527,7 @@ $('lpMenu').addEventListener('click',function(e){if(lpJust){lpJust=false;return}
  if(b.dataset.nt!=null){var nn=findN(c.li.dataset.id),kk=b.dataset.nt;lpClose();if(nn&&kk!==nn.tab+'|'+(nn.fd||'')){fdPlace(nn,kk);saveNotes();renderNotes();toast(TR('Mutat în ')+fdKeyName(kk))}return}
  if(a==='nmv'){var nX=findN(c.li.dataset.id)||{};$('lpBox').innerHTML=fdTargets('data-nt',nX.tab+'|'+(nX.fd||''));lpPos();return}
  if(a==='nlock'||a==='nunl'){var id5=c.li.dataset.id;lpClose();if(a==='nlock')lkLock(id5);else lkUnlock(id5);return}
- if(a==='ndrag'){var li2=c.li;lpClose();if(ntSortOf()!=='manual'){var tM=findNT(noteTab);if(tM)delete tM.sort;saveNotes();renderNotes();toast(TR('Sortare')+': '+TR('Manual'));setTimeout(function(){var l3=document.querySelector('#notesList .note[data-id="'+li2.dataset.id+'"]');if(l3)ndArm(l3)},700)}else ndArm(li2);return}
+ if(a==='ndrag'){var li2=c.li;lpClose();ndModeOn(li2.dataset.id);return}
  if(a==='nrest'||a==='npurge'){var id9=c.li.dataset.id;lpClose();if(a==='nrest')nRestore(id9);else nPurge(id9);return}if(a==='trash'){lpClose();nTrashOpen(true);return}if(a==='lbman'){lpClose();lbOpen(null);return}if(a==='nlbl'){var idL=c.li.dataset.id;lpClose();lbOpen(idL);return}if(a==='ftrash'){lpClose();fullClose(false);setTimeout(function(){nTrashOpen(true)},50);return}if(a==='fdel'){var fid=fullId;lpClose();if(!fid)return;noteDel(fid);var o9=$('cfOk').onclick;$('cfOk').onclick=function(){o9&&o9();if((findN(fid)||{}).del)fullClose(false)};return}if(a==='nal'){var id0=c.li.dataset.id;lpClose();openAlarm({k:'n',id:id0});return}
  if(a==='ntcol'){var ct=findNT(c.nt)||{},hh='<div class="lph">Culoare</div><div class="npal">';NT_COLORS.forEach(function(k){hh+='<button data-ntc="'+k[0]+'" class="'+((ct.color||'#3fd8ff')===k[0]?'cur':'')+'" style="--nc:'+k[0]+'" aria-label="'+k[1]+'"><i></i></button>'});$('lpBox').innerHTML=hh+'</div>';lpPos();return}
  if(a==='ntmv'){var tmid=c.nt;lpClose();tmArm(tmid);return}
@@ -1391,11 +1391,16 @@ function draftFinish(){if(!$('iNote')){draftId=null;return}var n=draftId&&findN(
 function noteGrow(){var i=$('iNote');if(!i)return;i.style.height='auto';i.style.height=i.scrollHeight+'px'}
 /* v50: top input removed; new notes start from the + button in the full editor */
 var fullId=null;
-function fullOpen(id){if(draftId)draftFinish();var n=findN(id);if(!n)return;if(n.lock&&!n._key){lkOpen(id);return}$('noteFull').classList.toggle('nro',!!n.del);nHlClear();var hp=nHlPend&&nHlPend.id===id?nHlPend:null;nHlPend=null;if(hp)setTimeout(function(){if(fullId===id)nHlApply(hp.q)},250);fullId=id;fullIsNew=false;var ta=$('nfText');ta.value=n.text;mShow(n);$('noteFull').classList.toggle('chk',n.type==='check');phClear();if(n.type==='mix')mRender();edState();setTimeout(phRender,0);if(n.type==='check')chkRender();$('noteFull').classList.add('show');setTimeout(function(){window.nfReadFit&&nfReadFit()},0);document.documentElement.classList.add('jv-nfull');try{history.pushState({jvNote:1},'')}catch(_){}}
-function fullInput(){var n=fullId&&findN(fullId);if(!n){var v=$('nfText').value;if(!v.trim())return;var now=new Date().toISOString();n={id:ntUid(),text:v,ts:now,createdAt:now,updatedAt:now,tab:noteTab,fd:nFolder||undefined};notes.push(n);fullId=n.id;fullIsNew=true;nSaveSoon();return}if(n.type==='check'||n.type==='mix')return;n.text=$('nfText').value;n.editedAt=n.updatedAt=new Date().toISOString();nSaveSoon()}
-function fullFlush(){if(!fullId)return;var n=findN(fullId);if(n){if(n.type==='check')chkSync(n);else if(n.type==='mix')mSync(n);else n.text=$('nfText').value;if(!n.text.trim()&&!n.ph)notes=notes.filter(function(x){return x!==n})}nFlush()}
+
+/* v213: pin toggle in editor (bottom-left above undo) */
+function nfPinSync(){var b=$('nfPin');if(!b)return;var n=fullId&&findN(fullId);var on=n?!!n.pin:!!window.__edPin;b.classList.toggle('on',on);b.setAttribute('aria-label',on?TR('Anulează fixarea'):TR('Fixează'));b.title=on?TR('Anulează fixarea'):TR('Fixează')}
+document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('#nfPin');if(!b)return;e.preventDefault();e.stopPropagation();var n=fullId&&findN(fullId);if(n){saveNotes();if(n.pin)delete n.pin;else n.pin=true;window.__edPin=!!n.pin;nFlush();nfPinSync();toast(n.pin?TR('Fixată sus'):TR('Nu mai e fixată'))}else{window.__edPin=!window.__edPin;nfPinSync();toast(window.__edPin?TR('Va fi fixată la salvare'):TR('Nu mai e fixată'))}});
+
+function fullOpen(id){if(draftId)draftFinish();var n=findN(id);if(!n)return;if(n.lock&&!n._key){lkOpen(id);return}$('noteFull').classList.toggle('nro',!!n.del);nHlClear();var hp=nHlPend&&nHlPend.id===id?nHlPend:null;nHlPend=null;if(hp)setTimeout(function(){if(fullId===id)nHlApply(hp.q)},250);fullId=id;fullIsNew=false;window.__edPin=!!(n&&n.pin);try{nfPinSync()}catch(_){};var ta=$('nfText');ta.value=n.text;mShow(n);$('noteFull').classList.toggle('chk',n.type==='check');phClear();if(n.type==='mix')mRender();edState();setTimeout(phRender,0);if(n.type==='check')chkRender();$('noteFull').classList.add('show');setTimeout(function(){window.nfReadFit&&nfReadFit()},0);document.documentElement.classList.add('jv-nfull');try{history.pushState({jvNote:1},'')}catch(_){}}
+function fullInput(){var n=fullId&&findN(fullId);if(!n&&fullId){n=notes.filter(function(x){return x.id===fullId})[0]}if(!n){var v=$('nfText').value;if(!v.trim())return;var now=new Date().toISOString();n={id:fullId||ntUid(),text:v,ts:now,createdAt:now,updatedAt:now,tab:noteTab,fd:nFolder||undefined};if(window.__edPin)n.pin=true;if(!notes.some(function(x){return x.id===n.id}))notes.push(n);fullId=n.id;fullIsNew=true;nSaveSoon();return}if(n.type==='check'||n.type==='mix')return;n.text=$('nfText').value;n.editedAt=n.updatedAt=new Date().toISOString();nSaveSoon()}
+function fullFlush(){if(!fullId)return;var n=findN(fullId);if(n){if(n.type==='check')chkSync(n);else if(n.type==='mix')mSync(n);else n.text=$('nfText').value;if(!n.text.trim()&&!n.ph&&!n.__phPend)notes=notes.filter(function(x){return x!==n})}nFlush()}
 var fullIsNew=false;
-function fullNew(){var ta=$('nfText');ta.value='';$('noteFull').classList.remove('mix');ncApply(null);$('nfAlarm').classList.remove('on');phGen++;phClear();phFit();fullId=null;fullIsNew=false;$('noteFull').classList.remove('chk');$('noteFull').classList.add('show');setTimeout(function(){window.nfReadFit&&nfReadFit()},0);document.documentElement.classList.add('jv-nfull');try{history.pushState({jvNote:1},'')}catch(_){}try{ta.focus()}catch(_){}}
+function fullNew(){window.__edPin=false;try{nfPinSync()}catch(_){};var ta=$('nfText');ta.value='';$('noteFull').classList.remove('mix');ncApply(null);$('nfAlarm').classList.remove('on');phGen++;phClear();phFit();fullId=null;fullIsNew=false;$('noteFull').classList.remove('chk');$('noteFull').classList.add('show');setTimeout(function(){window.nfReadFit&&nfReadFit()},0);document.documentElement.classList.add('jv-nfull');try{history.pushState({jvNote:1},'')}catch(_){}try{ta.focus()}catch(_){}}
 $('noteFab').addEventListener('click',fullNew);
 /* v57: separate undo/redo for Notițe (snapshots never hold more plaintext than storage; ciphertext comes from a cache) */
 var nLockCache={},nH={u:[],r:[],cur:null},NH_MAX=60;
@@ -1574,23 +1579,37 @@ $('nFdNew').addEventListener('click',function(){fdNew(noteTab,nFolder)});$('nSor
  lpCur={li:b,sortMenu:true};$('lpBox').innerHTML=h;$('lpMenu').classList.add('show');lpPos();var bx=$('lpBox'),r=b.getBoundingClientRect();bx.style.left=Math.max(12,r.right-bx.offsetWidth)+'px'});
 /* v53: note drag & drop (armed from the long-press menu) */
 var ndrag=null,ndragT=0;
-function ndArm(li){li=document.querySelector('#notesList .note[data-id="'+li.dataset.id+'"]')||li;ndrag={li:li,id:li.dataset.id,on:false,pid:null,y:0,raf:0};li.classList.add('ndrag');try{if(navigator.vibrate)navigator.vibrate(15)}catch(_){}toast(TR('Trage notița unde vrei'))}
-function ndEnd(save){var d=ndrag;if(!d)return;ndrag=null;ndragT=Date.now();cancelAnimationFrame(d.raf);d.li.classList.remove('ndrag','ndon');
- if(save){var ids=[].map.call($('notesList').querySelectorAll('.note'),function(x){return x.dataset.id}),slots=[];
+function ndHandles(){document.querySelectorAll('#notesList .note').forEach(function(li){if(li.querySelector('.ndh'))return;var h=document.createElement('span');h.className='ndh';h.textContent='≡';h.setAttribute('aria-hidden','true');li.appendChild(h)})}
+function ndModeOn(focusId){if(ntSortOf()!=='manual'){var tM=findNT(noteTab);if(tM)delete tM.sort;saveNotes()}
+ document.body.classList.add('ndmode');selExit&&selExit();renderNotes();ndHandles();
+ if(focusId){var li=document.querySelector('#notesList .note[data-id="'+focusId+'"]');if(li)ndArm(li,true)}
+ toast(TR('Trage de ≡ · ✓ salvează ordinea'));try{if(navigator.vibrate)navigator.vibrate(15)}catch(_){}}
+function ndModeOff(save){var was=document.body.classList.contains('ndmode');
+ if(ndrag)ndEnd(!!save,true);document.body.classList.remove('ndmode');
+ if(was&&save){var ids=[].map.call($('notesList').querySelectorAll('.note'),function(x){return x.dataset.id}),slots=[];
   notes.forEach(function(n,i){if(ids.indexOf(n.id)>=0)slots.push(i)});var sorted=ids.map(findN).filter(Boolean);
-  if(sorted.length===slots.length){slots.forEach(function(si,k){notes[si]=sorted[k]});saveNotes()}lpJust=true}
+  if(sorted.length===slots.length){slots.forEach(function(si,k){notes[si]=sorted[k]});saveNotes();toast(TR('Ordine salvată'))}}
  renderNotes()}
+function ndArm(li,quiet){li=document.querySelector('#notesList .note[data-id="'+li.dataset.id+'"]')||li;if(!document.body.classList.contains('ndmode')){ndModeOn(li.dataset.id);return}
+ ndrag={li:li,id:li.dataset.id,on:false,pid:null,y:0,raf:0};li.classList.add('ndrag');if(!quiet)try{if(navigator.vibrate)navigator.vibrate(12)}catch(_){}}
+function ndEnd(save,keepMode){var d=ndrag;if(!d)return;ndrag=null;ndragT=Date.now();cancelAnimationFrame(d.raf);d.li.classList.remove('ndrag','ndon');
+ if(save&&!keepMode&&!document.body.classList.contains('ndmode')){var ids=[].map.call($('notesList').querySelectorAll('.note'),function(x){return x.dataset.id}),slots=[];
+  notes.forEach(function(n,i){if(ids.indexOf(n.id)>=0)slots.push(i)});var sorted=ids.map(findN).filter(Boolean);
+  if(sorted.length===slots.length){slots.forEach(function(si,k){notes[si]=sorted[k]});saveNotes()}lpJust=true;renderNotes()}
+ else if(!keepMode&&!document.body.classList.contains('ndmode'))renderNotes()}
 function ndPlace(y){var d=ndrag,ul=$('notesList'),items=[].filter.call(ul.querySelectorAll('.note'),function(x){return x!==d.li&&!!(findN(x.dataset.id)||{}).pin===!!(findN(d.id)||{}).pin});
  var before=null;for(var i=0;i<items.length;i++){var r=items[i].getBoundingClientRect();if(y<r.top+r.height/2){before=items[i];break}}
  if(!before&&items.length){var la=items[items.length-1];before=la.nextSibling;if(before===d.li)before=d.li.nextSibling}if(before){if(d.li.nextSibling!==before&&before!==d.li)ul.insertBefore(d.li,before)}else if(ul.lastElementChild!==d.li)ul.appendChild(d.li)}
 function ndTick(){var d=ndrag;if(!d||!d.on)return;var pg=$('notesPg'),h=window.innerHeight,v=0;if(d.y<90)v=-Math.ceil((90-d.y)/6);else if(d.y>h-90)v=Math.ceil((d.y-(h-90))/6);
  if(v){var t0=pg.scrollTop;pg.scrollTop+=v;if(pg.scrollTop!==t0)ndPlace(d.y)}d.raf=requestAnimationFrame(ndTick)}
-document.addEventListener('pointerdown',function(e){var d=ndrag;if(!d)return;var li=e.target.closest&&e.target.closest('.note');
- if(li!==d.li){e.preventDefault();e.stopPropagation();ndEnd(false);return}
+document.addEventListener('pointerdown',function(e){
+ if(document.body.classList.contains('ndmode')&&!ndrag){var h=e.target.closest&&e.target.closest('.ndh');if(h){var li0=h.closest('.note');if(li0){e.preventDefault();e.stopPropagation();ndArm(li0,true);var d0=ndrag;if(d0){d0.on=true;d0.pid=e.pointerId;d0.y=e.clientY;d0.li.classList.add('ndon');try{d0.li.setPointerCapture&&d0.li.setPointerCapture(e.pointerId)}catch(_){}d0.raf=requestAnimationFrame(ndTick)}return}}}
+ var d=ndrag;if(!d)return;var li=e.target.closest&&e.target.closest('.note');
+ if(li!==d.li){e.preventDefault();e.stopPropagation();ndEnd(false,true);return}
  e.preventDefault();d.on=true;d.pid=e.pointerId;d.y=e.clientY;d.li.classList.add('ndon');try{d.li.setPointerCapture&&d.li.setPointerCapture(e.pointerId)}catch(_){}d.raf=requestAnimationFrame(ndTick)},true);
 document.addEventListener('pointermove',function(e){var d=ndrag;if(!d||!d.on||e.pointerId!==d.pid)return;e.preventDefault();d.y=e.clientY;ndPlace(e.clientY)},{capture:true,passive:false});
-document.addEventListener('pointerup',function(e){var d=ndrag;if(!d||!d.on||e.pointerId!==d.pid)return;ndEnd(true)},true);
-document.addEventListener('pointercancel',function(e){var d=ndrag;if(d&&d.on&&e.pointerId===d.pid)ndEnd(true)},true);
+document.addEventListener('pointerup',function(e){var d=ndrag;if(!d||!d.on||e.pointerId!==d.pid)return;ndEnd(true,document.body.classList.contains('ndmode'))},true);
+document.addEventListener('pointercancel',function(e){var d=ndrag;if(d&&d.on&&e.pointerId===d.pid)ndEnd(true,document.body.classList.contains('ndmode'))},true);
 document.addEventListener('touchmove',function(e){if(ndrag&&ndrag.on&&e.cancelable)e.preventDefault()},{passive:false});
 document.addEventListener('click',function(e){if(Date.now()-ndragT<400&&e.target.closest&&e.target.closest('#notesPg')){e.stopPropagation();e.preventDefault()}},true);
 /* read-aloud word bar over editor fields: mirror overlays, inputs untouched (read-only while reading) */
@@ -1756,7 +1775,7 @@ function selPop(b){var L=selList();lpClose();if(!L.length)return;
  if(x==='lbl'){var ids=L.map(function(n){return n.id});selExit();lbOpen(ids);return}
  var id=L[0].id;selExit();
  if(x==='nal')openAlarm({k:'n',id:id});else if(x==='nshr')nShare(id);else if(x==='nlock')lkLock(id);else if(x==='nunl')lkUnlock(id);
- else{var li=document.querySelector('#notesList .note[data-id="'+id+'"]');if(!li)return;if(x==='ned')noteEdit(li);else if(x==='ndrag'){if(ntSortOf()!=='manual'){var tM=findNT(noteTab);if(tM)delete tM.sort;saveNotes();renderNotes();toast(TR('Sortare')+': '+TR('Manual'));setTimeout(function(){var l3=document.querySelector('#notesList .note[data-id="'+id+'"]');if(l3)ndArm(l3)},700)}else ndArm(li)}}}
+ else{var li=document.querySelector('#notesList .note[data-id="'+id+'"]');if(!li)return;if(x==='ned')noteEdit(li);else if(x==='ndrag'){ndModeOn(id)}}}
 function nTrashed(){return notes.filter(function(n){return n.del})}
 function nRestore(id){var n=findN(id);if(!n||!n.del)return;saveNotes();var t=n.delTab||n.tab;if(!findNT(t))t=(findNT('general')||noteTabs[0]).id;n.tab=t;if(n.fd&&(!fdAlive(n.fd)||(findF(n.fd)||{}).tab!==t))delete n.fd;delete n.del;delete n.delTab;nFlush();renderNotes();toast(TR('Refăcută în ')+findNT(t).name)}
 function nPurge(id){jvConfirm(function(){notes=notes.filter(function(x){return x.id!==id});saveNotes();renderNotes();phGC();toast(TR('Ștearsă definitiv'))})}
@@ -1840,8 +1859,8 @@ function phInsert(out,caret){if(!out.length)return Promise.resolve();mCaret=care
  return phStore(n,out).then(function(ids){mCaret=caret;var nb={id:bUid(),t:'img',ph:ids},m=mInsertB(nb);if(!m)return;var bi=m.blocks.indexOf(nb),nx=m.blocks[bi+1];mCaret=nx&&nx.t==='text'?{b:nx.id,pos:0}:null;return phCount(m).then(function(a){mAdopt(m,a);nFlush()})})}
 function atLocked(){var n0=fullId&&findN(fullId);if(n0&&n0.lock&&!n0._key){toast(TR('Notiță blocată'));return true}return false}
 $('nfPhoto').addEventListener('click',function(){var I=function(p){return '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+p+'</svg>'};
- edPop(this,'<button data-a="atimg" class="atm">'+I('<rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="10" r="1.7"/><path d="M21 16l-5-5-8 8"/>')+'Alege imagine</button><button data-a="atimn" class="atm">'+I('<rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="10" r="1.7"/><path d="M21 16l-5-5-8 8"/><path d="M7 22h10"/>')+'Foto cu nume</button><button data-a="atcam" class="atm">'+I('<path d="M4 8h3l2-2.5h6L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/>')+'Fă o poză</button><button data-a="atdrw" class="atm">'+I('<path d="M4 20c2.5 0 3.5-1.2 3.5-3a2.5 2.5 0 0 1 5 0"/><path d="M10 14.5L19.5 5a1.8 1.8 0 0 1 2.5 2.5L12.5 17"/>')+'Desen</button><button data-a="atrec" class="atm">'+I('<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/>')+'Înregistrare</button>','att')});
-function atDo(a){if(atLocked())return;if(a==='atimg'){var i=$('nfPhIn');i.value='';i.click()}else if(a==='atimn'){if(window.tkPick)tkPick(false,function(f){phPickN(f)})}else if(a==='atcam'){var c=$('nfCamIn');c.value='';c.click()}else if(a==='atdrw')drOpen();else if(a==='atrec')recOpen()}
+ edPop(this,'<button data-a="atimg" class="atm">'+I('<rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="10" r="1.7"/><path d="M21 16l-5-5-8 8"/>')+'Alege imagine</button><button data-a="atimn" class="atm">'+I('<rect x="3" y="5" width="18" height="14" rx="2.5"/><circle cx="9" cy="10" r="1.7"/><path d="M21 16l-5-5-8 8"/><path d="M7 22h10"/>')+'Foto cu nume</button><button data-a="atcam" class="atm">'+I('<path d="M4 8h3l2-2.5h6L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/>')+'Fă o poză</button><button data-a="atcard" class="atm">📇 '+esc(TR('Carte de vizită'))+'</button><button data-a="atdrw" class="atm">'+I('<path d="M4 20c2.5 0 3.5-1.2 3.5-3a2.5 2.5 0 0 1 5 0"/><path d="M10 14.5L19.5 5a1.8 1.8 0 0 1 2.5 2.5L12.5 17"/>')+'Desen</button><button data-a="atrec" class="atm">'+I('<rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/>')+'Înregistrare</button>','att')});
+function atDo(a){if(atLocked())return;if(a==='atimg'){var i=$('nfPhIn');i.value='';i.click()}else if(a==='atimn'){if(window.tkPick)tkPick(false,function(f){phPickN(f)})}else if(a==='atcam'){var c=$('nfCamIn');c.value='';c.click()}else if(a==='atcard'){window.__cropCard=1;var c2=$('nfCamIn');c2.value='';c2.click()}else if(a==='atdrw')drOpen();else if(a==='atrec')recOpen()}
 $('nfCamIn').addEventListener('change',function(){phPick(this.files)});
 /* drawing */
 var DR={st:[],cur:null,col:'#1d1d1f',w:6,er:false,dpr:1,caret:null};
@@ -2001,12 +2020,18 @@ function nsRenderJv(){var box=$('jvBkList');if(!box)return;var a=nsJvBackups();b
   var ac=document.createElement('div');ac.className='bkacts';var b=document.createElement('button');b.type='button';b.className='btn';b.textContent=TR('Importă');b.onclick=function(){var n=nsMerge(x.s);try{localStorage.setItem('ns_impban','off')}catch(_){}nsBanner();nsMsg(n,1)};ac.appendChild(b);row.appendChild(ac);box.appendChild(row)})}
 function nsBanner(){var el=$('nsImp');if(!el)return;var off=false;try{off=localStorage.getItem('ns_impban')==='off'}catch(_){}el.hidden=off||nsReal()>0}
 /* v88: Setări → Distribuie aplicația (same order as note Share: native/WhatsApp → share sheet → wa.me → clipboard) */
-$('sShareApp').onclick=function(){var U='https://cluj1313.github.io/notis/apk/',ti='Notis',all=TR('Notis – notițe, liste și memento-uri')+'\n'+U;
- function cp(){var ok=function(){toast(TR('Link copiat'))};try{if(navigator.clipboard&&navigator.clipboard.writeText)return navigator.clipboard.writeText(all).then(ok,leg)}catch(_){}leg();
-  function leg(){var ta=document.createElement('textarea');ta.value=all;document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(_){}ta.remove();ok()}}
- function fb(){var w=null;try{w=window.open('https://wa.me/?text='+encodeURIComponent(all),'_blank')}catch(_){}if(!w)cp()}
- try{if(window.NotisNative&&NotisNative.shareText){NotisNative.shareText(all,ti);return}}catch(_){}
- if(navigator.share){navigator.share({title:ti,text:all}).catch(function(e){if(!e||e.name!=='AbortError')fb()});return}fb()};
+$('sShareApp').onclick=function(){ /* v213: pick share validity; recipient gets local grant; expiry never deletes notes */
+ var opts=[[1,TR('1 lună')],[2,TR('2 luni')],[3,TR('3 luni')],[6,TR('6 luni')],[12,TR('1 an')]];
+ var body='<div class="field"><label>'+esc(TR('Valabilitate pentru destinatar'))+'</label><div class="pwseg" id="invSeg">'+opts.map(function(o,i){return '<button type="button" class="'+(i===2?'on':'')+'" data-m="'+o[0]+'">'+esc(o[1])+'</button>'}).join('')+'</div><p class="hint">'+esc(TR('După expirare, notițele rămân pe telefon; se pot citi și exporta. Nu se șterge nimic.'))+'</p></div>';
+ dOpen(TR('Distribuie Notis'),body,function(){var m=parseInt((document.querySelector('#invSeg .on')||{}).dataset.m,10)||3;
+  var exp=Date.now()+m*30*864e5,tok=btoa(unescape(encodeURIComponent(JSON.stringify({e:exp,v:1})))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+  var U='https://cluj1313.github.io/notis/apk/?inv='+tok,ti='Notis';
+  var all=TR('Notis – notițe, liste și memento-uri')+'\n'+TR('Acces partajat')+': '+(m===12?TR('1 an'):(m+' '+TR('luni')))+'\n'+U;
+  function cp(){var ok=function(){toast(TR('Link copiat'))};try{if(navigator.clipboard&&navigator.clipboard.writeText)return navigator.clipboard.writeText(all).then(ok,leg)}catch(_){}leg();function leg(){var ta=document.createElement('textarea');ta.value=all;document.body.appendChild(ta);ta.select();try{document.execCommand('copy')}catch(_){}ta.remove();ok()}}
+  function fb(){var w=null;try{w=window.open('https://wa.me/?text='+encodeURIComponent(all),'_blank')}catch(_){}if(!w)cp()}
+  try{if(window.NotisNative&&NotisNative.shareText){NotisNative.shareText(all,ti);return}}catch(_){}
+  if(navigator.share){navigator.share({title:ti,text:all}).catch(function(e){if(!e||e.name!=='AbortError')fb()});return}fb()});
+ setTimeout(function(){var seg=$('invSeg');if(!seg)return;seg.onclick=function(e){var b=e.target.closest('[data-m]');if(!b)return;[].forEach.call(seg.querySelectorAll('[data-m]'),function(x){x.classList.toggle('on',x===b)})}},0)};
 $('sShareApp').addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();this.click()}});
 ['N','J'].forEach(function(k){var r=$('shRow'+k),bx=$('shBox'+k);r.onclick=function(){var o=bx.hidden;bx.hidden=!o;r.classList.toggle('open',o);r.setAttribute('aria-expanded',o?'true':'false')};r.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();r.click()}})});
 /* v132: Setări – readable text contrast per theme (lighter on dark, darker on light, never pure white/black) */
@@ -2137,11 +2162,13 @@ function phRender(){var g=++phGen,n=fullId&&findN(fullId);if(!n){phClear();phFit
   xs.forEach(function(x){if(!x)return;var u=URL.createObjectURL(x.b);phURLs.push(u);var d=document.createElement('div');d.className='phi';d.dataset.id=x.r.id;d.dataset.u=u;d.style.backgroundImage='url('+u+')';box.appendChild(d)});
   $('noteFull').classList.toggle('hasph',box.children.length>0);phFit()})})}
 function phAdd(files){var n=fullId&&findN(fullId);
- if(!n){var now=new Date().toISOString();n={id:ntUid(),text:$('nfText').value||'',ts:now,createdAt:now,updatedAt:now,tab:noteTab,fd:nFolder||undefined};notes.push(n);fullId=n.id;fullIsNew=true}
+ if(!n){ /* v213: never invent a second note while an editor session is open on a known id */ if(fullId){n=notes.filter(function(x){return x.id===fullId})[0]} }
+ if(!n){var now=new Date().toISOString();n={id:ntUid(),text:$('nfText').value||'',ts:now,createdAt:now,updatedAt:now,tab:noteTab,fd:nFolder||undefined};if(window.__edPin)n.pin=true;notes.push(n);fullId=n.id;fullIsNew=true}
+ n.__phPend=(n.__phPend|0)+1;
  var nid=n.id,key=n.lock?n._key:null;if(n.lock&&!key){toast(TR('Notiță blocată'));return}
  var list=[].slice.call(files||[]);if(!list.length)return;
  list.reduce(function(p,f,i){return p.then(function(){return phCompress(f).then(function(b){return b.arrayBuffer()}).then(function(buf){return key?phSeal(key,buf):{buf:buf}}).then(function(x){var r={id:ntUid(),note:nid,ts:Date.now()+i,buf:x.buf};if(x.iv)r.iv=x.iv;return phPut(r)}).catch(function(e){console.warn(e);toast(TR('Nu am putut adăuga poza'))})})},Promise.resolve())
-  .then(function(){var m=findN(nid);if(m){m.updatedAt=new Date().toISOString();return phCount(m)}}).then(function(){nFlush();if(fullId===nid)phRender()})}
+  .then(function(){var m=findN(nid);if(m){m.__phPend=Math.max(0,(m.__phPend|0)-1);if(!m.__phPend)delete m.__phPend;m.updatedAt=new Date().toISOString();return phCount(m)}}).then(function(){nFlush();if(fullId===nid)phRender()})}
 function phGC(){return phAll().then(function(a){var ids={};notes.forEach(function(n){ids[n.id]=1});return Promise.all(a.filter(function(r){return !ids[r.note]&&String(r.note).indexOf('rec:')!==0&&String(r.note).indexOf('pw:')!==0&&String(r.note).indexOf('tk:')!==0}).map(function(r){return phDel(r.id)}))}).catch(function(){})}
 function phAb2b64(buf){var u=new Uint8Array(buf),s='',C=0x8000;for(var i=0;i<u.length;i+=C)s+=String.fromCharCode.apply(null,u.subarray(i,i+C));return btoa(s)}
 function phB642ab(s){var b=atob(s),u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return u.buffer}
@@ -2369,13 +2396,32 @@ function cropSrc(file){var MX=2048;function fin2(bm){var c;if(window.OffscreenCa
  return Promise.race([p,new Promise(function(_,no){setTimeout(function(){no(new Error('timeout'))},20000)})])}
 function cropBusy(on){var o=$('crop');o.classList.toggle('ld',!!on);if(on){o.classList.add('show');nsKick()}}
 window.nsKick=function(){try{void document.body.offsetHeight;requestAnimationFrame(function(){requestAnimationFrame(function(){var y=scrollY;scrollTo(0,y+1);scrollTo(0,y);void document.body.offsetHeight})})}catch(_){}};
+
+/* v213: business-card auto crop — find bright card rectangle; force portrait */
+function cropAutoCard(im,C,W,H,rot,s0,z,tx,ty,PAD){try{
+  var d=rot%180?{w:H,h:W}:{w:W,h:H},s=s0*z,cw=Math.min(320,d.w),ch=Math.round(cw*d.h/d.w);
+  var cv=document.createElement('canvas');cv.width=cw;cv.height=ch;var g=cv.getContext('2d');
+  g.save();if(rot%180){g.translate(cw/2,ch/2);g.rotate(rot*Math.PI/180);g.drawImage(im,-ch/2,-cw/2,ch,cw)}else g.drawImage(im,0,0,cw,ch);g.restore();
+  var id=g.getImageData(0,0,cw,ch).data,lum=new Float32Array(cw*ch);
+  for(var i=0,p=0;i<id.length;i+=4,p++)lum[p]=0.3*id[i]+0.59*id[i+1]+0.11*id[i+2];
+  var thr=0,hist=new Array(256).fill(0);for(var p=0;p<lum.length;p++)hist[lum[p]|0]++;
+  var mid=lum.length*0.55,acc=0;for(thr=255;thr>40;thr--){acc+=hist[thr];if(acc>mid*0.15)break}
+  function rowOk(y){var n=0;for(var x=2;x<cw-2;x++)if(lum[y*cw+x]>thr)n++;return n>cw*0.25}
+  function colOk(x){var n=0;for(var y=2;y<ch-2;y++)if(lum[y*cw+x]>thr)n++;return n>ch*0.25}
+  var y0=2,y1=ch-3,x0=2,x1=cw-3;while(y0<ch/2&&!rowOk(y0))y0++;while(y1>ch/2&&!rowOk(y1))y1--;while(x0<cw/2&&!colOk(x0))x0++;while(x1>cw/2&&!colOk(x1))x1--;
+  if(x1-x0<cw*0.25||y1-y0<ch*0.2)return null;
+  var iw=d.w*s,ih=d.h*s,X0=tx-iw/2,Y0=ty-ih/2;
+  return{x:X0+(x0/cw)*iw,y:Y0+(y0/ch)*ih,w:((x1-x0)/cw)*iw,h:((y1-y0)/ch)*ih};
+}catch(_){return null}}
+function cropForcePortrait(file,rot){ /* if landscape capture of a card, rotate so user sees portrait */ return rot}
+
 function cropEdit(file0,idx,tot){try{var ae=document.activeElement;if(ae&&ae.blur&&ae!==document.body)ae.blur()}catch(_){}$('cropImg').removeAttribute('src');$('cropFrame').style.width='0px';cropBusy(1);return cropSrc(file0).then(function(file){return cropEdit1(file,idx,tot)},function(e){console.warn(e);cropBusy(0);$('crop').classList.remove('show');toast(TR('Nu pot deschide poza ')+(tot>1?idx+'/'+tot:''));return null})}
 function cropEdit1(file,idx,tot){try{var ae=document.activeElement;if(ae&&ae.blur&&ae!==document.body)ae.blur()}catch(_){}return new Promise(function(done){var ov=$('crop'),st=$('cropStage'),im=$('cropImg'),fr=$('cropFrame'),u=URL.createObjectURL(file);
  var W=0,H=0,rot=0,s0=1,z=1,tx=0,ty=0,C={x:0,y:0,w:0,h:0},ptr={},mode=null,h0=null,c0=null,p0=null,g0=null;
  $('cropCount').textContent=tot>1?idx+' / '+tot:TR('Trage de colțuri sau mută chenarul');
  function dims(){return rot%180?{w:H,h:W}:{w:W,h:H}}
  function sb(){return st.getBoundingClientRect()}
- var dead=false,tries=0;function reset(){if(dead)return;var r=sb(),d=dims();if(r.width<50||r.height<50||!d.w||!d.h){if(++tries<40)setTimeout(reset,120);return}s0=(r.width-32)/d.w;z=1;tx=r.width/2;ty=r.height/2;var s=s0*z,iw=d.w*s,ih=d.h*s,x1=Math.max(16,tx-iw/2),y1=Math.max(16,ty-ih/2),x2=Math.min(r.width-16,tx+iw/2),y2=Math.min(r.height-16,ty+ih/2),ix=Math.min(24,(x2-x1)*.06),iy=Math.min(24,(y2-y1)*.06);x1+=ix;x2-=ix;y1+=iy;y2-=iy;C={x:x1,y:y1,w:x2-x1,h:y2-y1};draw()}
+ var dead=false,tries=0;function reset(){if(dead)return;var r=sb(),d=dims();if(r.width<50||r.height<50||!d.w||!d.h){if(++tries<40)setTimeout(reset,120);return}var PAD=36; /* v213: inset from screen edges so side-gesture apps don't fire; frame aligns to image outer edge */ s0=Math.min((r.width-PAD*2)/d.w,(r.height-PAD*2)/d.h);z=1;tx=r.width/2;ty=r.height/2;var s=s0*z,iw=d.w*s,ih=d.h*s,x1=tx-iw/2,y1=ty-ih/2,x2=tx+iw/2,y2=ty+ih/2;C={x:x1,y:y1,w:x2-x1,h:y2-y1};if(window.__cropCard){var ac=cropAutoCard(im,C,W,H,rot,s0,z,tx,ty,PAD);if(ac)C=ac;window.__cropCard=0}draw()}
  function draw(){var s=s0*z;im.style.width=W+'px';im.style.height=H+'px';im.style.transform='translate('+(tx-W/2)+'px,'+(ty-H/2)+'px) rotate('+rot+'deg) scale('+s+')';
   fr.style.left=C.x+'px';fr.style.top=C.y+'px';fr.style.width=C.w+'px';fr.style.height=C.h+'px'}
  function pt(e){var r=sb();return{x:e.clientX-r.left,y:e.clientY-r.top}}
@@ -2431,15 +2477,15 @@ function vipMix(v){var k=v/100,lo=[20,19,18],hi=[244,242,238],c=lo.map(function(
 var NC_TH={light:{'#103a3d':'#d3eff1','#163a22':'#dbf2e1','#3a3514':'#f8f0c4','#3e2812':'#fde3c8','#3d1a1c':'#fcdcdc','#3a1832':'#f9dcef','#291c48':'#e5ddfa','#2b313b':'#e3e7ec','#14304a':'#d6e6f8','#1f2550':'#dde0f8','#0f3a33':'#cff0ea','#2c3a12':'#ebf4cf','#3a2a1e':'#efe2d6','#3d1226':'#f6d6e2','#1e2a33':'#dbe3ea'},
  vip:{'#103a3d':'#14302f','#163a22':'#1b3123','#3a3514':'#3a3116','#3e2812':'#3d2916','#3d1a1c':'#3b1c1d','#3a1832':'#371b2e','#291c48':'#2a2140','#2b313b':'#2d2b29','#14304a':'#1d2b3a','#1f2550':'#23243a','#0f3a33':'#14302b','#2c3a12':'#2c3119','#3a2a1e':'#36291f','#3d1226':'#381a26','#1e2a33':'#232a2e'}};
 function ncT(c){var m=typeof NC_TH!=='undefined'&&NC_TH[thCur];return c&&m&&m[c.toLowerCase()]||c}
-Object.assign(TH_META,{"jad": "#0f2a24", "lac": "#470e25", "tus": "#efe0b0", "neon": "#0a0a14", "pap": "#d6bf91", "cleo": "#e6cf98", "salon": "#f6ead8", "exc": "#07090c"});var TH_LIGHT={light:1,tus:1,pap:1,cleo:1,salon:1};
-Object.assign(NC_TH,{"exc": {"#103a3d": "#0c3238", "#163a22": "#1e3a12", "#3a3514": "#383a0e", "#3e2812": "#3c2a10", "#3d1a1c": "#3d1518", "#3a1832": "#36152f", "#291c48": "#24204a", "#2b313b": "#262c32"}, "jad": {"#103a3d": "#0f3d3c", "#163a22": "#1d4a30", "#3a3514": "#4a4318", "#3e2812": "#4d3217", "#3d1a1c": "#4b1f22", "#3a1832": "#47203b", "#291c48": "#2f2752", "#2b313b": "#2c3a37"}, "lac": {"#103a3d": "#14302f", "#163a22": "#1c3122", "#3a3514": "#3d3013", "#3e2812": "#44240f", "#3d1a1c": "#4a0f1e", "#3a1832": "#4a1434", "#291c48": "#2e1640", "#2b313b": "#33222a"}, "tus": {"#103a3d": "#d9e8dc", "#163a22": "#e0e8c4", "#3a3514": "#f5e7b2", "#3e2812": "#f2d4ad", "#3d1a1c": "#f0cbbf", "#3a1832": "#eed2d6", "#291c48": "#ddd5e3", "#2b313b": "#e6dfca"}, "neon": {"#103a3d": "#0b3340", "#163a22": "#0f3a2a", "#3a3514": "#3a3410", "#3e2812": "#40250f", "#3d1a1c": "#40101f", "#3a1832": "#3d0f33", "#291c48": "#2a1550", "#2b313b": "#22243a"}, "pap": {"#103a3d": "#d3e6df", "#163a22": "#dde6c8", "#3a3514": "#f1e1a8", "#3e2812": "#f0d2ae", "#3d1a1c": "#eecbbd", "#3a1832": "#ecd1d4", "#291c48": "#dad1e2", "#2b313b": "#e3d9c6"}, "cleo": {"#103a3d": "#cfe8e6", "#163a22": "#dbe6c4", "#3a3514": "#f3e1a0", "#3e2812": "#f1cfa4", "#3d1a1c": "#efc6b6", "#3a1832": "#ecccd2", "#291c48": "#d6d2ea", "#2b313b": "#e7dbc0"}, "salon": {"#103a3d": "#e3eee7", "#163a22": "#e7edd9", "#3a3514": "#f6e6b6", "#3e2812": "#f4dcc0", "#3d1a1c": "#f1d5cc", "#3a1832": "#efd9dd", "#291c48": "#e3ddec", "#2b313b": "#eee5d7"}});
+Object.assign(TH_META,{"jad": "#0f2a24", "navy": "#0b1526", "lac": "#470e25", "tus": "#efe0b0", "neon": "#0a0a14", "pap": "#d6bf91", "cleo": "#e6cf98", "salon": "#f6ead8", "exc": "#07090c"});var TH_LIGHT={light:1,tus:1,pap:1,cleo:1,salon:1};
+Object.assign(NC_TH,{"navy": {"#103a3d": "#0f2a38", "#163a22": "#152a22", "#3a3514": "#3a3010", "#3e2812": "#3c2810", "#3d1a1c": "#3a1820", "#3a1832": "#322038", "#291c48": "#242448", "#2b313b": "#222830"}, "exc": {"#103a3d": "#0c3238", "#163a22": "#1e3a12", "#3a3514": "#383a0e", "#3e2812": "#3c2a10", "#3d1a1c": "#3d1518", "#3a1832": "#36152f", "#291c48": "#24204a", "#2b313b": "#262c32"}, "jad": {"#103a3d": "#0f3d3c", "#163a22": "#1d4a30", "#3a3514": "#4a4318", "#3e2812": "#4d3217", "#3d1a1c": "#4b1f22", "#3a1832": "#47203b", "#291c48": "#2f2752", "#2b313b": "#2c3a37"}, "lac": {"#103a3d": "#14302f", "#163a22": "#1c3122", "#3a3514": "#3d3013", "#3e2812": "#44240f", "#3d1a1c": "#4a0f1e", "#3a1832": "#4a1434", "#291c48": "#2e1640", "#2b313b": "#33222a"}, "tus": {"#103a3d": "#d9e8dc", "#163a22": "#e0e8c4", "#3a3514": "#f5e7b2", "#3e2812": "#f2d4ad", "#3d1a1c": "#f0cbbf", "#3a1832": "#eed2d6", "#291c48": "#ddd5e3", "#2b313b": "#e6dfca"}, "neon": {"#103a3d": "#0b3340", "#163a22": "#0f3a2a", "#3a3514": "#3a3410", "#3e2812": "#40250f", "#3d1a1c": "#40101f", "#3a1832": "#3d0f33", "#291c48": "#2a1550", "#2b313b": "#22243a"}, "pap": {"#103a3d": "#d3e6df", "#163a22": "#dde6c8", "#3a3514": "#f1e1a8", "#3e2812": "#f0d2ae", "#3d1a1c": "#eecbbd", "#3a1832": "#ecd1d4", "#291c48": "#dad1e2", "#2b313b": "#e3d9c6"}, "cleo": {"#103a3d": "#cfe8e6", "#163a22": "#dbe6c4", "#3a3514": "#f3e1a0", "#3e2812": "#f1cfa4", "#3d1a1c": "#efc6b6", "#3a1832": "#ecccd2", "#291c48": "#d6d2ea", "#2b313b": "#e7dbc0"}, "salon": {"#103a3d": "#e3eee7", "#163a22": "#e7edd9", "#3a3514": "#f6e6b6", "#3e2812": "#f4dcc0", "#3d1a1c": "#f1d5cc", "#3a1832": "#efd9dd", "#291c48": "#e3ddec", "#2b313b": "#eee5d7"}});
 var thCur='color';
 function thApply(t){if(!TH_META[t])t='color';thCur=t;var R0=document.documentElement;if(t==='color')R0.removeAttribute('data-theme');else R0.setAttribute('data-theme',t);
  var meta=TH_META[t];['--vbg','--vbg2','--vout','--vglow'].forEach(function(k){R0.style.removeProperty(k)});
  if(t==='vip'){var v=+LS.get('ns_vipint',85),x=vipMix(v);R0.style.setProperty('--vbg',x.bg);R0.style.setProperty('--vbg2',x.bg2);R0.style.setProperty('--vout',x.out);R0.style.setProperty('--vglow',x.glow);meta=x.bg;$('vipInt').value=v}
  var m=document.querySelector('meta[name=theme-color]');if(m)m.setAttribute('content',meta);var cs=document.querySelector('meta[name=color-scheme]');if(!cs&&t!=='color'){cs=document.createElement('meta');cs.name='color-scheme';document.head.appendChild(cs)}if(cs&&t==='color'){cs.remove();cs=null}if(cs)cs.setAttribute('content',(typeof TH_LIGHT!=='undefined'&&TH_LIGHT[t])||(t==='vip'&&+LS.get('ns_vipint',85)>50)?'light':'dark');
  document.querySelectorAll('#thRow .thc').forEach(function(b){b.classList.toggle('on',b.dataset.th===t)})}
-thApply(LS.get('ns_theme','color'));if(thCur!=='color')try{renderNotes()}catch(_){}
+(function(){var t=LS.get('ns_theme','color');if(t==='lac'){t='navy';LS.set('ns_theme',t)} /* v213: Lac Roșu removed → Navy Aur */ thApply(t);if(thCur!=='color')try{renderNotes()}catch(_){}})();
 var BG_IDS=['none','lup','mist','forest','lake','sea','snow','night','color','photo'];function bgApply(b){if(BG_IDS.indexOf(b)<0)b='lup';var R=document.documentElement;if(b==='lup')R.removeAttribute('data-bg');else R.setAttribute('data-bg',b);document.querySelectorAll('#bgRow .bgc').forEach(function(x){x.classList.toggle('on',x.dataset.bg===b)})}
 $('bDemo').textContent=DEMO?TR('Ieși din Mod demo'):TR('Mod demo (exemple)');$('demoHint').textContent=DEMO?TR('Ești în Mod demo. Datele tale reale sunt păstrate separat.'):TR('Deschide exemplele într-un spațiu separat; datele tale nu sunt atinse.');$('bDemoReset').style.display=DEMO?'':'none';$('bDemo').onclick=function(){demoSet(!DEMO)};$('bDemoReset').onclick=function(){demoReset();location.reload()};
 bgApply(LS.get('ns_bg','lup'));
@@ -2628,7 +2674,7 @@ if(window.launchQueue&&launchQueue.setConsumer)launchQueue.setConsumer(function(
    NS.push({id:n.id,tab:n.tab||'',type:n.type||'text',title:title(n),text:String(n.text||'').slice(0,4000),upd:n.updatedAt||n.ts||'',alarm:al(n)})});
   if(typeof medSnap==='function')try{NS=NS.concat(medSnap())}catch(_){}
   return JSON.stringify({v:2,ts:new Date().toISOString(),theme:typeof thCur!=='undefined'?thCur:'color',lang:NL,tabs:noteTabs.filter(function(t){return !t.lk}).map(function(t){return{id:t.id,name:t.name}}),lists:L,notes:NS,sec:secAll()})}
- function secAll(){var o={};[['med','secSnapMed'],['util','secSnapUtil'],['crm','secSnapCrm']].forEach(function(x){try{var f=window[x[1]];var v=typeof f==='function'?f():null;if(v)o[x[0]]=v}catch(_){}});return o} /* v191: Pastile/Plăți/CRM widgets */
+ function secAll(){var o={};[['med','secSnapMed'],['glic','secSnapGlic'],['util','secSnapUtil'],['crm','secSnapCrm']].forEach(function(x){try{var f=window[x[1]];var v=typeof f==='function'?f():null;if(v)o[x[0]]=v}catch(_){}});return o} /* v191: Pastile/Plăți/CRM widgets */
  function push(){T=null;try{N.saveSnapshot(snap())}catch(_){}}
  function pushSoon(){clearTimeout(T);T=setTimeout(push,250)}
  var sv=saveNotes;saveNotes=function(){var r=sv.apply(this,arguments);pushSoon();return r};
@@ -2817,3 +2863,45 @@ function isUrgTab(t){if(!t)return false;var f=nFold(t.name).trim();return t.id==
  b.addEventListener('pointerdown',function(e){e.preventDefault()});b.addEventListener('mousedown',function(e){e.preventDefault()});
  b.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();var x=sc();try{x.scrollTo({top:x.scrollHeight,behavior:'smooth'})}catch(_){x.scrollTop=x.scrollHeight}setTimeout(q,450)});
  window.nfEndUpd=q})();
+
+
+document.addEventListener('click',function(e){if(e.target&&e.target.id==='ndDone'){e.preventDefault();ndModeOff(true)}});
+(function(){var _rn=window.renderNotes||renderNotes;window.renderNotes=function(){var r=_rn.apply(this,arguments);if(document.body.classList.contains('ndmode'))try{ndHandles()}catch(_){}return r};})();
+
+
+/* v213: single voice button menu — Citire / Dictare / Înregistrare */
+(function(){
+ function closeVc(){var m=$('vcMenu');if(m)m.remove()}
+ function openVc(anchor){closeVc();var m=document.createElement('div');m.id='vcMenu';
+  var voices=[{id:'auto',l:TR('Automat')},{id:'ro',l:TR('Română — Mihai')},{id:'en',l:TR('Engleză — Joe')}];
+  var cur=(LS.get('ns_vcpick','auto')||'auto');
+  var h='<div class="vch">'+esc(TR('Citire'))+'</div>';
+  voices.forEach(function(v){h+='<button type="button" class="vci'+(cur===v.id?' on':'')+'" data-vc="'+v.id+'">'+esc(v.l)+(cur===v.id?' ✓':'')+'</button>'});
+  h+='<div class="vcs"></div><button type="button" class="vci" data-vc="dict">'+esc(TR('Dictare'))+'</button>';
+  h+='<div class="vcs"></div><button type="button" class="vci" data-vc="rec">'+esc(TR('Înregistrare'))+' 🔴</button>';
+  m.innerHTML=h;document.body.appendChild(m);
+  var r=anchor.getBoundingClientRect();m.style.left=Math.max(8,Math.min(window.innerWidth-m.offsetWidth-8,r.right-m.offsetWidth))+'px';
+  m.style.bottom=(window.innerHeight-r.top+8)+'px';
+  m.onclick=function(ev){var b=ev.target.closest('[data-vc]');if(!b)return;var k=b.dataset.vc;closeVc();
+   if(k==='dict'){if(dict.on)dictStop();else dictStart();return}
+   if(k==='rec'){try{if(typeof atDo==='function')atDo('atrec');else if($('nfPhoto'))$('nfPhoto').click()}catch(_){}return}
+   LS.set('ns_vcpick',k);try{if(typeof noteRead==='function')noteRead();else if($('nfRead'))$('nfRead').click()}catch(_){}};
+  setTimeout(function(){document.addEventListener('pointerdown',function x(e){if(!e.target.closest||!e.target.closest('#vcMenu,#nfMic,#nfRead')){closeVc();document.removeEventListener('pointerdown',x,true)}},true)},0)}
+ document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('#nfMic');if(!b)return;e.preventDefault();e.stopImmediatePropagation();openVc(b)},true);
+ /* hide separate Citește in toolbar — keep for legacy callers; mic becomes the combined control */
+ var st=document.createElement('style');st.textContent='#noteFull #nfRead{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;left:-9999px}#noteFull .nfhist #nfMic{order:99}';document.head.appendChild(st);
+})();
+
+
+/* v213: shared-access invite (?inv=) — grants local Super until exp; on expiry notes stay, banner + export OK */
+(function(){
+ function b64(s){try{s=s.replace(/-/g,'+').replace(/_/g,'/');while(s.length%4)s+='=';return JSON.parse(decodeURIComponent(escape(atob(s))))}catch(_){return null}}
+ try{var q=new URLSearchParams(location.search).get('inv');if(q){var o=b64(q);if(o&&o.e){LS.set('ns_inv',{until:o.e,at:Date.now()});if(o.e>Date.now()){var cur=null;try{cur=JSON.parse(localStorage.getItem('ns_super')||'null')}catch(_){}
+  if(!cur||!cur.exp||cur.exp<o.e){localStorage.setItem('ns_super',JSON.stringify({exp:o.e,src:'inv'}));window.NOTIS_SUPER=true;toast(TR('Acces partajat activ'))}}}}}catch(_){}
+ function ban(){try{var inv=LS.get('ns_inv',null);if(!inv||!inv.until||inv.until>Date.now())return;if(LS.get('ns_inv_seen',0)===inv.until)return;
+  var el=document.getElementById('invBanner');if(!el){el=document.createElement('div');el.id='invBanner';var pg=$('notesPg'),w=pg&&pg.querySelector('.nwrap');if(w)w.insertBefore(el,w.firstChild);else document.body.prepend(el)}
+  el.textContent=TR('Perioada de folosire partajată a expirat. Notițele tale rămân; le poți citi și exporta oricând.');
+  el.onclick=function(){LS.set('ns_inv_seen',inv.until);el.remove()};
+ }catch(_){}}
+ setTimeout(ban,1200);document.addEventListener('visibilitychange',function(){if(!document.hidden)setTimeout(ban,400)});
+})();

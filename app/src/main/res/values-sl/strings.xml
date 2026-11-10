@@ -89,6 +89,8 @@
     <string name="edit_item">Uredi element</string>
     <string name="edit_note">Uredi zapisek</string>
     <string name="alarm_stop">Ustavi</string>
+    <string name="h_glic">Glucose</string>
+    <string name="sw_desc_glic">Today\'s glucose readings</string>
     <string name="h_med">Tablete</string>
     <string name="h_util">Plačila</string>
     <string name="h_crm">CRM</string>

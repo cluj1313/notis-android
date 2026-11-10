@@ -89,6 +89,8 @@
     <string name="edit_item">항목 편집</string>
     <string name="edit_note">메모 편집</string>
     <string name="alarm_stop">중지</string>
+    <string name="h_glic">Glucose</string>
+    <string name="sw_desc_glic">Today\'s glucose readings</string>
     <string name="h_med">알약</string>
     <string name="h_util">결제</string>
     <string name="h_crm">CRM</string>

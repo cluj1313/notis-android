@@ -97,7 +97,7 @@ public class AlarmReceiver extends BroadcastReceiver {
             .setCategory(Notification.CATEGORY_ALARM)
             .setAutoCancel(true)
             .setContentIntent(RingActivity.pi(c, nid, text))
-            .setFullScreenIntent(NotisWidget.openApp(c, 700000 + Math.abs(nid.hashCode() % 90000), "?open=" + Uri.encode(nid)), true)
+            .setFullScreenIntent(RingActivity.pi(c, nid, text), true)
             .setPriority(Notification.PRIORITY_MAX)
             .setVisibility(Notification.VISIBILITY_PUBLIC)
             .setDeleteIntent(stopPi(c, nid)); /* swipe away = Stop */

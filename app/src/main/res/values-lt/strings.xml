@@ -89,6 +89,8 @@
     <string name="edit_item">Redaguoti elementą</string>
     <string name="edit_note">Redaguoti užrašą</string>
     <string name="alarm_stop">Sustabdyti</string>
+    <string name="h_glic">Glucose</string>
+    <string name="sw_desc_glic">Today\'s glucose readings</string>
     <string name="h_med">Tabletės</string>
     <string name="h_util">Mokėjimai</string>
     <string name="h_crm">CRM</string>

@@ -136,6 +136,7 @@ document.addEventListener('input',function(e){var t=e.target;if(t&&t.classList&&
 /* ---------- backup ---------- */
 function wrap(){var c=window.spCollect,a=window.spApply;if(!c){setTimeout(wrap,300);return}if(c._v187)return;
  window.spCollect=function(){var o=c.apply(this,arguments)||{};var mc=LSG('ns_medcat',null),gl=LSG('ns_glic',null);if(mc)o.ns_medcat=mc;if(gl)o.ns_glic=gl;return o};window.spCollect._v187=1;
+ window.secSnapGlic=function(){try{G=gLoad();var t=today(),k=key(t),v=vals(k),o=[];COLS.forEach(function(c,i){if(v[i]==null)return;o.push({m:'g'+i,i:i,t:String(T(c)).slice(0,40)+': '+v[i]+' mg/dl',tm:T(SH[i]),d:false,p:T('Glicemie')})});return{day:k,rows:o.slice(0,20)}}catch(_){return null}};
  window.spApply=function(d){var r=a&&a.apply(this,arguments);try{if(d&&d.ns_medcat&&typeof d.ns_medcat==='object')LSS('ns_medcat',d.ns_medcat);if(d&&d.ns_glic&&typeof d.ns_glic==='object'&&d.ns_glic.d)LSS('ns_glic',d.ns_glic);C=catLoad();G=gLoad()}catch(_){}return r}}
 wrap();
 window.NSG={ok:1,render:render,cl:cl,pc:pc,giC:giC,csv:csv,html:html,months:months,days:days,chart:chart,fmt:fmt,key:key,GI:GI,COLS:COLS,state:function(){return{C:C,G:G,OPEN:OPEN,PER:PER}},reload:function(){C=catLoad();G=gLoad()}};

@@ -89,6 +89,8 @@
     <string name="edit_item">Edita l\'element</string>
     <string name="edit_note">Edita la nota</string>
     <string name="alarm_stop">Atura</string>
+    <string name="h_glic">Glucose</string>
+    <string name="sw_desc_glic">Today\'s glucose readings</string>
     <string name="h_med">Pastilles</string>
     <string name="h_util">Pagaments</string>
     <string name="h_crm">CRM</string>

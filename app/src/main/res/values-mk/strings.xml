@@ -89,6 +89,8 @@
     <string name="edit_item">Уреди ставка</string>
     <string name="edit_note">Уреди белешка</string>
     <string name="alarm_stop">Запри</string>
+    <string name="h_glic">Glucose</string>
+    <string name="sw_desc_glic">Today\'s glucose readings</string>
     <string name="h_med">Апчиња</string>
     <string name="h_util">Плаќања</string>
     <string name="h_crm">CRM</string>

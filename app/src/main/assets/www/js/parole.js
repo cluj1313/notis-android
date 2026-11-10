@@ -91,7 +91,7 @@ function H(){var m=M();if(!C)return '<div class="spv pwv"><p class="pwhint">'+es
  if(!srch)h+=xMode()==='complete'&&c&&c===xBank()?'<button type="button" class="btn pwbig pwadd" data-pa="cnew">💳 + '+esc(TR('Adaugă card'))+'</button>':'<button type="button" class="btn pwbig pwadd" data-pa="new">+ '+esc(TR(c&&c.id==='mail'?'Adaugă email':'Adaugă parolă'))+'</button>';
  return h+'</div>'}
 function rer(){if((findNT(noteTab)||{}).kind==='pw'&&window.spRender)spRender()}
-function wrapSP(){var o=window.spRender;if(!o||o.__pw)return;window.spRender=function(){var v=$('spView'),t=findNT(noteTab);if(!v||!t||t.kind!=='pw'){var pg=$('notesPg');if(pg)pg.classList.remove('pwtab');if(K){if(lmode()==='exit')lock();else{catOK={};shClose();try{xZc();xBigC()}catch(_){}}}sec(false);return o.apply(this,arguments)}
+function wrapSP(){var o=window.spRender;if(!o||o.__pw)return;window.spRender=function(){var v=$('spView'),t=findNT(noteTab);if(!v||!t||t.kind!=='pw'){var pg=$('notesPg');if(pg)pg.classList.remove('pwtab');if(K){if(lmode()==='exit')lock();else{/* v213: keep category unlocks for the whole session */shClose();try{xZc();xBigC()}catch(_){}}}sec(false);return o.apply(this,arguments)}
  var on=!nTrash&&!nFold(nQ).trim()&&!tbHidden(noteTab)&&!nFolder;$('notesPg').classList.toggle('sptab',on);$('notesPg').classList.toggle('pwtab',on);if(!on){v.innerHTML='';v.hidden=true;return}v.hidden=false;
  var ae=document.activeElement,qf=ae&&ae.id==='pwQ',ss=qf?ae.selectionStart:0,oc=v.querySelector('.pwcats'),osl=oc?oc.scrollLeft:-1;v.innerHTML=H();xDocs();xBzList();xPLfill();pwPills(osl);pwAuto();if(qf){var nq=$('pwQ');if(nq){nq.focus();try{nq.setSelectionRange(ss,ss)}catch(_){}}}
  window.pwSecSync();$('notesPg').classList.toggle('spnone',!notes.some(function(n){return !n.del&&n.tab===noteTab}))};window.spRender.__pw=1}
@@ -203,7 +203,7 @@ function wipe(){ask(TR('Ștergi seiful cu toate parolele?'),function(){setTimeou
 function catUn(){var c=catOf(cat),m=M();if(m.bio&&NN()&&NN().bioHas&&NN().bioHas('vault')){bio('cat');return}
  sh(TR('Categorie protejată'),P('pwO',TR('Parola principală'))+'<div class="pwerr"></div>',B('cun2',TR('Deblochează'),'pwbig'))}
 function cun2(){var w=flWait();if(w){err(waitMsg(w));return}if(busy)return;busy=true;err(TR('Se verifică…'));unwrap($('pwO').value,M().wp).then(function(){flOk();busy=false;catOK[cat]=1;shClose();rer()},function(){flBad();busy=false;var w2=flWait();err(TR('Parolă greșită')+(w2?'. '+waitMsg(w2):''))})}
-function goCat(d){if(!D)return;var V=D.cats.filter(function(c){return (!c.kind||xMode()==='complete')&&!xIdnHide(c)}),i=V.findIndex(function(c){return c.id===cat}),j=i+d;if(j<0||j>=V.length)return 'edge';cat=V[j].id;catOK={};q='';rer();return true}
+function goCat(d){if(!D)return;var V=D.cats.filter(function(c){return (!c.kind||xMode()==='complete')&&!xIdnHide(c)}),i=V.findIndex(function(c){return c.id===cat}),j=i+d;if(j<0||j>=V.length)return 'edge';cat=V[j].id;if(lmode()!=='session')catOK={};q='';rer();return true}
 window.pwGoCat=goCat;
 /* ---- v174: Parole stage 2 (complete mode): store cards, ID photos, bank cards, identity data. superClass = feature flag (on for everyone, no billing). ---- */
 var superClass=true;
@@ -405,7 +405,7 @@ var F2={xnew:function(){var k=xKindCat(catOf(cat));if(k)xEdit(null,k)},cnew:func
 /* events */
 document.addEventListener('click',function(e){var v=$('spView'),s=$('pwSheet'),inV=v&&v.contains(e.target)&&v.querySelector('.pwv'),inS=s&&s.contains(e.target);if(!inV&&!inS)return;if(K)touch();var lmb=e.target.closest('#pwLM [data-lm]');if(lmb){var mm=M();mm.lm=lmb.dataset.lm;Mset(mm);sets();return}
  var ey=e.target.closest('[data-eye]');if(ey){var i=$(ey.dataset.eye);if(i)i.type=i.type==='password'?'text':'password';return}
- var pc=e.target.closest('[data-pc]');if(pc){if(pc.dataset.pc!==cat)catOK={};cat=pc.dataset.pc;q='';rer();return}
+ var pc=e.target.closest('[data-pc]');if(pc){if(pc.dataset.pc!==cat&&lmode()!=='session')catOK={};cat=pc.dataset.pc;q='';rer();return}
  var pcx=e.target.closest('.pwpc');if(pcx&&!e.target.closest('[data-pa]')){pcTap(pcx,e);return}
  var dd=e.target.closest('.pwdoc');if(dd&&!pcx){xZoom(dd.dataset.did);return}
  var zr=e.target.closest('[data-zr]');if(zr){xZoom(zr.dataset.zr,1);return}

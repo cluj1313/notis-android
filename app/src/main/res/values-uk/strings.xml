@@ -89,6 +89,8 @@
     <string name="edit_item">Редагувати пункт</string>
     <string name="edit_note">Редагувати нотатку</string>
     <string name="alarm_stop">Стоп</string>
+    <string name="h_glic">Glucose</string>
+    <string name="sw_desc_glic">Today\'s glucose readings</string>
     <string name="h_med">Таблетки</string>
     <string name="h_util">Платежі</string>
     <string name="h_crm">CRM</string>

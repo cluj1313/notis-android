@@ -89,6 +89,8 @@
     <string name="edit_item">Muokkaa kohdetta</string>
     <string name="edit_note">Muokkaa muistiinpanoa</string>
     <string name="alarm_stop">Pysäytä</string>
+    <string name="h_glic">Glucose</string>
+    <string name="sw_desc_glic">Today\'s glucose readings</string>
     <string name="h_med">Pillerit</string>
     <string name="h_util">Maksut</string>
     <string name="h_crm">CRM</string>

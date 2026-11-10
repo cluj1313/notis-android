@@ -89,6 +89,8 @@
     <string name="edit_item">Tétel szerkesztése</string>
     <string name="edit_note">Jegyzet szerkesztése</string>
     <string name="alarm_stop">Leállítás</string>
+    <string name="h_glic">Glucose</string>
+    <string name="sw_desc_glic">Today\'s glucose readings</string>
     <string name="h_med">Tabletták</string>
     <string name="h_util">Fizetések</string>
     <string name="h_crm">CRM</string>

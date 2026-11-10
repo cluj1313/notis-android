@@ -89,6 +89,8 @@
     <string name="edit_item">Item bewerken</string>
     <string name="edit_note">Notitie bewerken</string>
     <string name="alarm_stop">Stoppen</string>
+    <string name="h_glic">Glucose</string>
+    <string name="sw_desc_glic">Today\'s glucose readings</string>
     <string name="h_med">Pillen</string>
     <string name="h_util">Betalingen</string>
     <string name="h_crm">CRM</string>

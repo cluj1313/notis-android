@@ -44,12 +44,12 @@
  function box(h){var o=$('crx');if(!o){o=document.createElement('div');o.id='crx';document.body.appendChild(o)}o.innerHTML='<div class="crc"><h3><span>📊 Statistici și coduri</span><button type="button" id="adX" aria-label="×">×</button></h3>'+h+'<div class="cre" id="adE"></div></div>';$('adX').onclick=function(){o.remove()}}
  function er(t){var e=$('adE');if(e)e.textContent=t||''}
  function pw(id,ph){return '<div class="crf"><input id="'+id+'" type="password" placeholder="'+ph+'" autocomplete="off" autocapitalize="off" spellcheck="false"></div>'}
- function open(){box('<div class="hint">…</div>');get('/admin/state').then(function(s){if(tok)return dash();s&&s.claimed?login():claim()}).catch(function(){er('Fără conexiune la internet')})}
+ function open(){box('<div class="hint">…</div>');try{if(!tok)tok=sessionStorage.getItem('ns_adtok')||null}catch(_){}get('/admin/state').then(function(s){if(tok)return dash();s&&s.claimed?login():claim()}).catch(function(){er('Fără conexiune la internet')})}
  function claim(){box('<div class="hint">Prima dată: alege parola de admin (minim 10 caractere). Se salvează doar un hash pe server. O poate seta o singură dată.</div>'+pw('adP1','Parolă admin')+pw('adP2','Repetă parola')+'<div class="crb"><button type="button" id="adGo">Setează</button></div>');
   $('adGo').onclick=function(){var a=$('adP1').value,b=$('adP2').value;if(a.length<10)return er('Minim 10 caractere');if(a!==b)return er('Parolele nu coincid');er('…');
    post('/admin/claim',{pass:a}).then(function(r){if(!r.ok)return er(r.e==='claimed'?'Parola e deja setată':'Eroare');return doLogin(a)}).catch(function(){er('Fără conexiune la internet')})}}
- function doLogin(a){return post('/admin/login',{pass:a}).then(function(r){if(r.ok){tok=r.t;dash()}else er(r.e==='rate'?'Prea multe încercări. Încearcă peste o oră.':'Parolă greșită')})}
- function login(){box(pw('adP1','Parolă admin')+'<div class="crb"><button type="button" id="adGo">Intră</button></div>');$('adGo').onclick=function(){er('…');doLogin($('adP1').value).catch(function(){er('Fără conexiune la internet')})}}
+ function doLogin(a){return post('/admin/login',{pass:a}).then(function(r){if(r.ok){tok=r.t;try{sessionStorage.setItem('ns_adtok',tok)}catch(_){}dash()}else er(r.e==='rate'?'Prea multe încercări. Încearcă peste o oră.':'Parolă greșită')})}
+ function login(){box(pw('adP1','Parolă admin')+pw('adSec','Cod secret')+'<div class="crb"><button type="button" id="adGo">Intră</button></div>');$('adGo').onclick=function(){er('…');var sec=($('adSec').value||'').trim(),need=null;try{need=sessionStorage.getItem('ns_adsec')}catch(_){};if(need&&sec!==need){er('Cod secret greșit');return}doLogin($('adP1').value).then(function(){if(sec)try{sessionStorage.setItem('ns_adsec',sec)}catch(_){}}).catch(function(){er('Fără conexiune la internet')})}}
  function rows(a){return (a||[]).map(function(x){return '<span>'+esc(x.k||'—')+'</span><b>'+x.n+'</b>'}).join('')}
  var codes=[];
  function dash(){box('<div class="hint">…</div>');Promise.all([get('/admin/stats',tok),get('/admin/codes',tok)]).then(function(v){var s=v[0],c=v[1];if(!s.ok||!c.ok){tok=null;return login()}codes=c.codes||[];

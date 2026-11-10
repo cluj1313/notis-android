@@ -89,6 +89,8 @@
     <string name="edit_item">Επεξεργασία στοιχείου</string>
     <string name="edit_note">Επεξεργασία σημείωσης</string>
     <string name="alarm_stop">Διακοπή</string>
+    <string name="h_glic">Glucose</string>
+    <string name="sw_desc_glic">Today\'s glucose readings</string>
     <string name="h_med">Χάπια</string>
     <string name="h_util">Πληρωμές</string>
     <string name="h_crm">CRM</string>

@@ -89,6 +89,8 @@
     <string name="edit_item">Muuda kirjet</string>
     <string name="edit_note">Muuda märkmet</string>
     <string name="alarm_stop">Peata</string>
+    <string name="h_glic">Glucose</string>
+    <string name="sw_desc_glic">Today\'s glucose readings</string>
     <string name="h_med">Tabletid</string>
     <string name="h_util">Maksed</string>
     <string name="h_crm">CRM</string>

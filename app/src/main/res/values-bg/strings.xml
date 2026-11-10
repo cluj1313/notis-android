@@ -89,6 +89,8 @@
     <string name="edit_item">Редактиране на елемент</string>
     <string name="edit_note">Редактиране на бележка</string>
     <string name="alarm_stop">Спри</string>
+    <string name="h_glic">Glucose</string>
+    <string name="sw_desc_glic">Today\'s glucose readings</string>
     <string name="h_med">Хапчета</string>
     <string name="h_util">Плащания</string>
     <string name="h_crm">CRM</string>
