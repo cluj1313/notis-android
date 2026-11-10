@@ -1560,5 +1560,8 @@ NOTIS_I18N={
 "Se \u0219terge\u2026": "Trinama\u2026",
 "Ieri": "Vakar",
 "M\u00e2ine": "Rytoj",
-
+"Widget": "Valdiklis",
+"Pe widgetul Pastile, atinge ⚙ ca să alegi limba, persoana și medicamentele. Setările țin doar de acel widget.": "Pastile valdiklyje bakstelėkite ⚙, kad pasirinktumėte kalbą, asmenį ir vaistus. Nustatymai galioja tik tam valdikliui.",
+"Vrei să ieși din Zona secretă?": "Ar norite išeiti iš slaptosios zonos?",
+"Ieșire": "Išeiti"
 };

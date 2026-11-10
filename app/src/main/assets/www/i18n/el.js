@@ -1560,5 +1560,8 @@ NOTIS_I18N={
 "Se \u0219terge\u2026": "\u0394\u03b9\u03b1\u03b3\u03c1\u03b1\u03c6\u03ae\u2026",
 "Ieri": "\u03a7\u03b8\u03b5\u03c2",
 "M\u00e2ine": "\u0391\u03cd\u03c1\u03b9\u03bf",
-
+"Widget": "Γραφικό στοιχείο",
+"Pe widgetul Pastile, atinge ⚙ ca să alegi limba, persoana și medicamentele. Setările țin doar de acel widget.": "Στο γραφικό στοιχείο Pastile, πατήστε ⚙ για να επιλέξετε γλώσσα, άτομο και φάρμακα. Οι ρυθμίσεις ισχύουν μόνο για αυτό το στοιχείο.",
+"Vrei să ieși din Zona secretă?": "Θέλετε να βγείτε από τη Μυστική ζώνη;",
+"Ieșire": "Έξοδος"
 };

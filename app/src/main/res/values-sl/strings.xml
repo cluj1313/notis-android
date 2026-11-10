@@ -105,6 +105,9 @@
     <string name="sw_firm">Podjetje</string>
     <string name="sw_all">Vse</string>
     <string name="sw_person">Oseba</string>
+    <string name="sw_lang">Jezik pripomočka</string>
+    <string name="sw_lang_app">Jezik aplikacije</string>
+    <string name="sw_meds">Zdravila</string>
     <string name="sw_group">Skupina</string>
     <string name="sw_show">Prikaži</string>
     <string name="sw_rows">Vrstice</string>

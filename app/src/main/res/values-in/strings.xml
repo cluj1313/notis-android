@@ -105,6 +105,9 @@
     <string name="sw_firm">Perusahaan</string>
     <string name="sw_all">Semua</string>
     <string name="sw_person">Orang</string>
+    <string name="sw_lang">Bahasa widget</string>
+    <string name="sw_lang_app">Bahasa aplikasi</string>
+    <string name="sw_meds">Obat</string>
     <string name="sw_group">Grup</string>
     <string name="sw_show">Tampilkan</string>
     <string name="sw_rows">Baris</string>

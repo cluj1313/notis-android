@@ -105,6 +105,9 @@
     <string name="sw_firm">Фирма</string>
     <string name="sw_all">Сите</string>
     <string name="sw_person">Лице</string>
+    <string name="sw_lang">Јазик на виџетот</string>
+    <string name="sw_lang_app">Јазик на апликацијата</string>
+    <string name="sw_meds">Лекови</string>
     <string name="sw_group">Група</string>
     <string name="sw_show">Прикажи</string>
     <string name="sw_rows">Редови</string>

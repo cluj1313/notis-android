@@ -105,6 +105,9 @@
     <string name="sw_firm">Εταιρεία</string>
     <string name="sw_all">Όλα</string>
     <string name="sw_person">Άτομο</string>
+    <string name="sw_lang">Γλώσσα γραφικού στοιχείου</string>
+    <string name="sw_lang_app">Γλώσσα εφαρμογής</string>
+    <string name="sw_meds">Φάρμακα</string>
     <string name="sw_group">Ομάδα</string>
     <string name="sw_show">Εμφάνιση</string>
     <string name="sw_rows">Γραμμές</string>

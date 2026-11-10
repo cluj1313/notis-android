@@ -116,4 +116,24 @@ public class WidgetLogicTest {
         assertEquals(123L, n.getJSONObject("alarm").optLong("at"));
         assertNotNull(Store.find(s, false, "L", "", "b")); assertNull(Store.find(s, false, "L", "", "zz")); assertEquals("n1", Store.find(s, true, "n1", null, null).optString("id"));
     }
+
+    @Test public void medHiddenAndDayFilter() throws Exception {
+        JSONArray rows = new JSONArray()
+            .put(new JSONObject("{\"m\":\"a\",\"day\":\"2026-11-03\",\"t\":\"A\",\"p\":\"Ion\",\"d\":true}"))
+            .put(new JSONObject("{\"m\":\"b\",\"day\":\"2026-11-03\",\"t\":\"B\",\"p\":\"Ion\",\"d\":false}"))
+            .put(new JSONObject("{\"m\":\"a\",\"day\":\"2026-11-04\",\"t\":\"A\",\"p\":\"Ion\",\"d\":false}"))
+            .put(new JSONObject("{\"m\":\"c\",\"day\":\"2026-11-03\",\"t\":\"C\",\"p\":\"Ana\",\"d\":false}"));
+        JSONArray mh = new JSONArray().put("b");
+        java.util.List<JSONObject> d = SecWidget.medDayRows(rows, "", mh, "2026-11-03");
+        assertEquals(2, d.size());
+        assertEquals("a", d.get(0).optString("m"));
+        assertEquals("c", d.get(1).optString("m"));
+        java.util.List<JSONObject> ion = SecWidget.medDayRows(rows, "Ion", null, "2026-11-03");
+        assertEquals(2, ion.size());
+        assertFalse(SecWidget.hidden(rows.getJSONObject(0), null));
+        assertTrue(SecWidget.hidden(rows.getJSONObject(1), mh));
+        assertFalse(SecWidget.hidden(rows.getJSONObject(0), new JSONArray()));
+        assertEquals("", SecWidget.dayLabel(null, "x"));
+        assertEquals("", SecWidget.dayLabel(null, null));
+    }
 }

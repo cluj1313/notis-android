@@ -1562,5 +1562,8 @@ NOTIS_I18N={
 "Se \u0219terge\u2026": "Kustutamine\u2026",
 "Ieri": "Eile",
 "M\u00e2ine": "Homme",
-
+"Widget": "Vidin",
+"Pe widgetul Pastile, atinge ⚙ ca să alegi limba, persoana și medicamentele. Setările țin doar de acel widget.": "Pastile vidinal toksake ⚙, et valida keel, isik ja ravimid. Sätted kehtivad ainult selle vidina kohta.",
+"Vrei să ieși din Zona secretă?": "Kas soovid salatsoonist väljuda?",
+"Ieșire": "Välju"
 };

@@ -105,6 +105,9 @@
     <string name="sw_firm">شرکت</string>
     <string name="sw_all">همه</string>
     <string name="sw_person">شخص</string>
+    <string name="sw_lang">زبان ویجت</string>
+    <string name="sw_lang_app">زبان برنامه</string>
+    <string name="sw_meds">داروها</string>
     <string name="sw_group">گروه</string>
     <string name="sw_show">نمایش</string>
     <string name="sw_rows">ردیف‌ها</string>

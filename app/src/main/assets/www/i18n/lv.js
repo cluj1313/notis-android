@@ -1561,5 +1561,8 @@ NOTIS_I18N={
 "Se \u0219terge\u2026": "Dz\u0113\u0161\u2026",
 "Ieri": "Vakar",
 "M\u00e2ine": "R\u012bt",
-
+"Widget": "Logrīks",
+"Pe widgetul Pastile, atinge ⚙ ca să alegi limba, persoana și medicamentele. Setările țin doar de acel widget.": "Pastile logrīkā pieskarieties ⚙, lai izvēlētos valodu, personu un zāles. Iestatījumi attiecas tikai uz šo logrīku.",
+"Vrei să ieși din Zona secretă?": "Vai vēlaties iziet no slepenās zonas?",
+"Ieșire": "Iziet"
 };

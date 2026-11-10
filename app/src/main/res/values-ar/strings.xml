@@ -105,6 +105,9 @@
     <string name="sw_firm">الشركة</string>
     <string name="sw_all">الكل</string>
     <string name="sw_person">الشخص</string>
+    <string name="sw_lang">لغة الأداة</string>
+    <string name="sw_lang_app">لغة التطبيق</string>
+    <string name="sw_meds">الأدوية</string>
     <string name="sw_group">المجموعة</string>
     <string name="sw_show">عرض</string>
     <string name="sw_rows">الصفوف</string>

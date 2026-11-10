@@ -1560,5 +1560,8 @@ NOTIS_I18N={
 "Se \u0219terge\u2026": "Siliniyor\u2026",
 "Ieri": "D\u00fcn",
 "M\u00e2ine": "Yar\u0131n",
-
+"Widget": "Widget",
+"Pe widgetul Pastile, atinge ⚙ ca să alegi limba, persoana și medicamentele. Setările țin doar de acel widget.": "Pastile widget’ında dil, kişi ve ilaçları seçmek için ⚙ simgesine dokunun. Ayarlar yalnızca o widget için geçerlidir.",
+"Vrei să ieși din Zona secretă?": "Gizli Bölge’den çıkmak istiyor musunuz?",
+"Ieșire": "Çıkış"
 };

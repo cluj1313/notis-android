@@ -105,6 +105,9 @@
     <string name="sw_firm">Công ty</string>
     <string name="sw_all">Tất cả</string>
     <string name="sw_person">Người</string>
+    <string name="sw_lang">Ngôn ngữ widget</string>
+    <string name="sw_lang_app">Ngôn ngữ ứng dụng</string>
+    <string name="sw_meds">Thuốc</string>
     <string name="sw_group">Nhóm</string>
     <string name="sw_show">Hiển thị</string>
     <string name="sw_rows">Số dòng</string>

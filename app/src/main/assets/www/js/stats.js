@@ -20,7 +20,7 @@
  function supTxt(){var s=sup();if(!s)return '';return s.exp?TR('Super Class activ până la')+' '+(window.fDate?fDate(new Date(s.exp)):new Date(s.exp).toLocaleDateString()):TR('Super Class activ pe viață')}
  /* ---- Settings: opt-out toggle + "Ai un cod?" ---- */
  var css=document.createElement('style');css.textContent='#fStat .hint{font-size:12px;opacity:.75;line-height:1.35}#fCode .crow{display:flex;gap:6px;margin-top:6px}#fCode input{flex:1;min-width:0;text-transform:uppercase;letter-spacing:.5px}#fCode .cst{font-size:12.5px;margin-top:5px;opacity:.85}#fCode .cst.ok{color:var(--cyan)}.shBox .fCode{flex:1 0 100%;margin:8px 0 0;padding:0}.shBox .fCode .btn{font-weight:300}.fCode .crow{display:flex;gap:6px;margin-top:6px}.fCode input{flex:1;min-width:0;text-transform:uppercase;letter-spacing:.5px}.fCode .cst{font-size:12.5px;margin-top:5px;opacity:.85}.fCode .cst.ok{color:var(--cyan)}'+
-  '#crx .adg{display:grid;grid-template-columns:1fr auto;gap:2px 10px;font-size:13px;font-weight:300}#crx .adg b{font-weight:500}#crx .adt{font-size:26px;font-weight:300}#crx select,#crx .adn{padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:#0c0c0e;color:#fff;font-size:14px}#crx .adl{font-family:monospace;font-size:12px;max-height:220px;overflow:auto;white-space:pre;background:#0c0c0e;border-radius:8px;padding:6px;user-select:all}#crx .ads{font-size:11px;opacity:.6;text-transform:uppercase;letter-spacing:.6px;margin-top:4px}';
+  '#crx #adx{position:absolute;inset:0;z-index:2;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;padding:14px}#crx .adg,#adx .adg{display:grid;grid-template-columns:1fr auto;gap:2px 10px;font-size:13px;font-weight:300}#crx .adg b,#adx .adg b{font-weight:500}#crx .adt,#adx .adt{font-size:26px;font-weight:300}#crx select,#crx .adn,#adx select,#adx .adn{padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:#0c0c0e;color:#fff;font-size:14px}#crx .adl,#adx .adl{font-family:monospace;font-size:12px;max-height:220px;overflow:auto;white-space:pre;background:#0c0c0e;border-radius:8px;padding:6px;user-select:all}#crx .ads,#adx .ads{font-size:11px;opacity:.6;text-transform:uppercase;letter-spacing:.6px;margin-top:4px}';
  document.head.appendChild(css);
  /* v204: no counter toggle in Setări (on by default, stored opt-out 'ns_stat_off' still honored; switch lives in the creator's Zona Secretă).
     "Ai un cod?" in both Share Notis and Share Jarvis — same box, same /redeem flow. */
@@ -41,7 +41,11 @@
  })();
  /* ---- Admin (opened only from the creator menu). Romanian only; session token kept in memory only. ---- */
  var tok=null;
- function box(h){var o=$('crx');if(!o){o=document.createElement('div');o.id='crx';document.body.appendChild(o)}o.innerHTML='<div class="crc"><h3><span>📊 Statistici și coduri</span><button type="button" id="adX" aria-label="×">×</button></h3>'+h+'<div class="cre" id="adE"></div></div>';$('adX').onclick=function(){o.remove()}}
+ function box(h){var host=$('crx');if(!host){host=document.createElement('div');host.id='crx';document.body.appendChild(host)}
+  var o=$('adx');if(!o){o=document.createElement('div');o.id='adx';host.appendChild(o)}
+  o.innerHTML='<div class="crc"><h3><span>📊 Statistici și coduri</span><button type="button" id="adX" aria-label="×">×</button></h3>'+h+'<div class="cre" id="adE"></div></div>';
+  function back(){if(o&&o.parentNode)o.remove()}
+  $('adX').onclick=back;o.onclick=function(e){if(e.target===o)back()}}
  function er(t){var e=$('adE');if(e)e.textContent=t||''}
  function pw(id,ph){return '<div class="crf"><input id="'+id+'" type="password" placeholder="'+ph+'" autocomplete="off" autocapitalize="off" spellcheck="false"></div>'}
  function open(){box('<div class="hint">…</div>');try{if(!tok)tok=sessionStorage.getItem('ns_adtok')||null}catch(_){}get('/admin/state').then(function(s){if(tok)return dash();s&&s.claimed?login():claim()}).catch(function(){er('Fără conexiune la internet')})}
@@ -66,7 +70,7 @@
   $('adCp').onclick=function(){var t=codes.filter(function(x){return !x.used}).map(function(x){return x.code}).join('\n');try{navigator.clipboard.writeText(t).then(function(){toast(TR('Copiat'))})}catch(_){}};
   $('adCsv').onclick=function(){var t='code,type,status,used,expires\n'+codes.map(function(x){var e=x.used&&x.days?new Date(x.used+x.days*864e5).toISOString().slice(0,10):'';return [x.code,x.days?x.days+'d':'lifetime',x.used?'used':'unused',x.used?new Date(x.used).toISOString().slice(0,10):'',e].join(',')}).join('\n')+'\n',n='notis-coduri-'+new Date().toISOString().slice(0,10)+'.csv';
    try{if(window.NotisNative&&NotisNative.shareFile&&NotisNative.shareFile(n,t,n))return}catch(_){}var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([t],{type:'text/csv'}));a.download=n;document.body.appendChild(a);a.click();a.remove()};
-  $('adOut').onclick=function(){post('/admin/logout',{},tok).catch(function(){});tok=null;var o=$('crx');if(o)o.remove()}}).catch(function(){er('Fără conexiune la internet')})}
+  $('adOut').onclick=function(){var o=$('adx');if(o)o.remove()}}).catch(function(){er('Fără conexiune la internet')})}
  function list(){return codes.slice(0,300).map(function(x){var ty=x.days?x.days+'z':'viață',st=x.used?('folosit '+new Date(x.used).toISOString().slice(0,10)+(x.days?' → exp '+new Date(x.used+x.days*864e5).toISOString().slice(0,10):'')):'nefolosit';return x.code+'  '+ty+'  '+st}).join('\n')}
  window.NotisAdmin={open:open};
 })();

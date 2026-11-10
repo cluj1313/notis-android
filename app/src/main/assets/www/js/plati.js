@@ -95,7 +95,7 @@ function rY(r){var y=String(r&&r.d||'').slice(0,4);return /^\d{4}$/.test(y)?+y:n
 function uYears(u){var S={};(u.rows||[]).forEach(function(r){S[rY(r)]=1});(u.yrs||[]).forEach(function(y){S[y]=1});if(!Object.keys(S).length)S[new Date().getFullYear()]=1;return Object.keys(S).map(Number).sort(function(a,b){return a-b})} /* v168: chronological */
 function uNext(u){return (u.rows||[]).filter(function(r){return r.pd===0}).sort(function(a,b){return String(a.d).localeCompare(String(b.d))})[0]||null}
 function uSt(R){var t=today(),late=0,due=0,pd=0;R.forEach(function(r){if(r.pd===0&&r.d<t)late++;if(r.d<=t&&(r.pd===0||r.pd===1)){due++;if(r.pd===1)pd++}});return{late:late,ok:due>0&&pd===due}}
-function stCls(s){return s.late?' stlate':s.ok?' stok':''}
+function stCls(s){return s.late?' stlate':''}
 function stB(s){return s.late?'<span class="spst" aria-label="'+esc(TR('Neachitat'))+'">'+s.late+'</span>':''}
 function utYearly(u){if(!u||!u.yr)return false;var R=(u.rows||[]).filter(function(r){return r.amt!=null&&r.amt!==''}).sort(function(a,b){return String(a.d).localeCompare(String(b.d))}),L=R[R.length-1],ch=false,k=0;
  while(L&&(L.pd===1||+String(L.d).slice(0,4)<new Date().getFullYear())&&k++<60){var n={id:uid(),d:rAddM(L.d,12,u.dom||dParse(L.d).getDate()),amt:L.amt,pd:0,ts:Date.now()+k,auto:1};u.rows.push(n);L=n;ch=true}return ch} /* v168: yearly repeat — next year's row appears once this one is paid, or when its year is already over */

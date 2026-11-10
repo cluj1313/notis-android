@@ -105,6 +105,9 @@
     <string name="sw_firm">Företag</string>
     <string name="sw_all">Alla</string>
     <string name="sw_person">Person</string>
+    <string name="sw_lang">Widgetens språk</string>
+    <string name="sw_lang_app">Appens språk</string>
+    <string name="sw_meds">Läkemedel</string>
     <string name="sw_group">Grupp</string>
     <string name="sw_show">Visa</string>
     <string name="sw_rows">Rader</string>

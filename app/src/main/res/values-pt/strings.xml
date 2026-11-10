@@ -105,6 +105,9 @@
     <string name="sw_firm">Empresa</string>
     <string name="sw_all">Todos</string>
     <string name="sw_person">Pessoa</string>
+    <string name="sw_lang">Idioma do widget</string>
+    <string name="sw_lang_app">Idioma da aplicação</string>
+    <string name="sw_meds">Medicamentos</string>
     <string name="sw_group">Grupo</string>
     <string name="sw_show">Mostrar</string>
     <string name="sw_rows">Linhas</string>

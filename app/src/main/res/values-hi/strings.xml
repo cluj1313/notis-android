@@ -105,6 +105,9 @@
     <string name="sw_firm">फ़र्म</string>
     <string name="sw_all">सभी</string>
     <string name="sw_person">व्यक्ति</string>
+    <string name="sw_lang">विजेट की भाषा</string>
+    <string name="sw_lang_app">ऐप की भाषा</string>
+    <string name="sw_meds">दवाइयाँ</string>
     <string name="sw_group">समूह</string>
     <string name="sw_show">दिखाएँ</string>
     <string name="sw_rows">पंक्तियाँ</string>

@@ -5,6 +5,7 @@ import android.appwidget.AppWidgetManager;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
@@ -12,6 +13,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -43,6 +45,25 @@ public class SecConfigActivity extends Activity {
 
         LinearLayout c = Ui.col(this);
         c.addView(Ui.title(this, SecWidget.icon(k) + Tr.s(this, SecWidget.title(k))));
+        /* per-widget language: empty = app language */
+        final String[] langCodes;
+        final Spinner langSp;
+        {
+            String curL = sc.optString("lang", "");
+            java.util.ArrayList<String> codes = new java.util.ArrayList<>(); codes.add("");
+            java.util.ArrayList<String> names = new java.util.ArrayList<>(); names.add(Tr.s(this, R.string.sw_lang_app));
+            int sel = 0;
+            for (int i = 0; i < Tr.LANGS.length; i++) {
+                String code = Tr.LANGS[i]; codes.add(code); names.add(Tr.langLabel(this, code));
+                if (code.equals(curL)) sel = codes.size() - 1;
+            }
+            langCodes = codes.toArray(new String[0]);
+            c.addView(Ui.text(this, Tr.s(this, R.string.sw_lang), Ui.MUT, 13), Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 12)));
+            langSp = new Spinner(this);
+            ArrayAdapter<String> ad = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, names);
+            langSp.setAdapter(ad); langSp.setSelection(sel);
+            c.addView(langSp);
+        }
         /* filter: person (med) / group (util) / home-firm (crm) */
         final List<String> fv = new ArrayList<>(); fv.add("");
         if ("crm".equals(k)) { fv.add("home"); fv.add("firm"); }
@@ -60,6 +81,30 @@ public class SecConfigActivity extends Activity {
             String[] fn = new String[fv.size()]; int fsel = 0;
             for (int i = 0; i < fv.size(); i++) { String x = fv.get(i); fn[i] = x.length() == 0 ? Tr.s(this, R.string.sw_all) : "home".equals(x) && "crm".equals(k) ? Tr.s(this, R.string.sw_home) : "firm".equals(x) && "crm".equals(k) ? Tr.s(this, R.string.sw_firm) : x; if (x.equals(sc.optString("f", ""))) fsel = i; }
             fg = group(c, Tr.s(this, "med".equals(k) ? R.string.sw_person : "util".equals(k) ? R.string.sw_group : R.string.sw_show), fn, fsel, 3000);
+        }
+        final List<String> medIds = new ArrayList<>();
+        final List<CheckBox> medCb = new ArrayList<>();
+        if ("med".equals(k) && d != null) {
+            JSONArray mh = sc.optJSONArray("mh");
+            LinkedHashSet<String> seen = new LinkedHashSet<>();
+            JSONArray rows = d.optJSONArray("rows");
+            if (rows != null) for (int i = 0; i < rows.length(); i++) {
+                JSONObject r = rows.optJSONObject(i); if (r == null) continue;
+                String mid = r.optString("m"); if (mid.length() == 0 || !seen.add(mid)) continue;
+                medIds.add(mid);
+                String lab = r.optString("t"); String p = r.optString("p"); if (p.length() > 0) lab += " · " + p;
+                CheckBox x = new CheckBox(this);
+                x.setText(lab.length() > 0 ? lab : mid);
+                x.setTextColor(Ui.TXT);
+                x.setButtonTintList(ColorStateList.valueOf(Ui.GOLD));
+                boolean hide = false; if (mh != null) for (int j = 0; j < mh.length(); j++) if (mid.equals(mh.optString(j))) hide = true;
+                x.setChecked(!hide);
+                medCb.add(x);
+            }
+            if (!medCb.isEmpty()) {
+                c.addView(Ui.text(this, Tr.s(this, R.string.sw_meds), Ui.MUT, 13), Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 12)));
+                for (CheckBox x : medCb) c.addView(x, Ui.lp(Ui.MP, Ui.WC, Ui.dp(this, 2)));
+            }
         }
         final CheckBox[] slotCb = new CheckBox[7];
         if ("glic".equals(k)) {
@@ -120,6 +165,13 @@ public class SecConfigActivity extends Activity {
                     StringBuilder vis = new StringBuilder();
                     for (int i = 0; i < 7; i++) vis.append(slotCb[i] != null && slotCb[i].isChecked() ? '1' : '0');
                     o.put("vis", vis.toString());
+                }
+                int li = langSp.getSelectedItemPosition();
+                o.put("lang", li >= 0 && li < langCodes.length ? langCodes[li] : "");
+                if ("med".equals(k)) {
+                    JSONArray hide = new JSONArray();
+                    for (int i = 0; i < medCb.size(); i++) if (!medCb.get(i).isChecked()) hide.put(medIds.get(i));
+                    o.put("mh", hide);
                 }
                 Store.put(this, "sc_" + wid, o.toString());
             } catch (Exception ignored) {}

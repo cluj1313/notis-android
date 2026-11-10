@@ -105,6 +105,9 @@
     <string name="sw_firm">Bedrijf</string>
     <string name="sw_all">Alle</string>
     <string name="sw_person">Persoon</string>
+    <string name="sw_lang">Widgettaal</string>
+    <string name="sw_lang_app">App-taal</string>
+    <string name="sw_meds">Medicijnen</string>
     <string name="sw_group">Groep</string>
     <string name="sw_show">Tonen</string>
     <string name="sw_rows">Rijen</string>

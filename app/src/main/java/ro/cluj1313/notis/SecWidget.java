@@ -14,7 +14,11 @@ import android.widget.RemoteViews;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Locale;
 
 /** 2.25.1: Pastile / Glicemie widgets are usable on the home screen (checkbox / add reading).
@@ -114,7 +118,8 @@ public abstract class SecWidget extends AppWidgetProvider {
         v.setTextViewText(R.id.sw_title, ttl);
         v.setContentDescription(R.id.sw_cfg, Tr.s(c, R.string.cd_settings));
         android.app.PendingIntent open = NotisWidget.openApp(c, base(k) + id, "?tk=" + k);
-        v.setOnClickPendingIntent(R.id.sw_head, open);
+        /* title opens the app; ⚙ must stay clickable (a click on sw_head would swallow it) */
+        v.setOnClickPendingIntent(R.id.sw_title, open);
         /* rows / empty must not open the app — only the title bar does (2.25.1) */
         v.setOnClickPendingIntent(R.id.sw_rows, null);
         v.setOnClickPendingIntent(R.id.sw_empty, null);
@@ -167,24 +172,50 @@ public abstract class SecWidget extends AppWidgetProvider {
             return;
         }
 
-        String lastG = "";
+        if ("med".equals(k)) {
+            Context tc = Tr.ctx(c, sc.optString("lang", ""));
+            JSONArray mh = sc.optJSONArray("mh");
+            LinkedHashMap<String, int[]> days = new LinkedHashMap<>();
+            if (rows != null) for (int i = 0; i < rows.length(); i++) {
+                JSONObject r = rows.optJSONObject(i); if (r == null || !pass(r, k, f) || hidden(r, mh)) continue;
+                tot++; if (r.optBoolean("d")) done++;
+                String rd = r.optString("day"); if (rd.length() == 0) rd = day;
+                int[] ct = days.get(rd); if (ct == null) { ct = new int[]{0, 0}; days.put(rd, ct); }
+                ct[1]++; if (r.optBoolean("d")) ct[0]++;
+            }
+            List<String> keys = new ArrayList<>(days.keySet());
+            Collections.sort(keys);
+            for (String rd : keys) {
+                if (shown >= max) break;
+                int[] ct = days.get(rd);
+                boolean isToday = day.equals(rd);
+                RemoteViews it = new RemoteViews(c.getPackageName(), R.layout.sec_item);
+                it.setViewVisibility(R.id.si_box, View.GONE);
+                it.setTextViewText(R.id.si_text, dayLabel(tc, rd));
+                it.setTextColor(R.id.si_text, isToday ? th.acc : th.text);
+                it.setTextViewTextSize(R.id.si_text, TypedValue.COMPLEX_UNIT_SP, fs);
+                it.setTextViewText(R.id.si_meta, ct[0] + "/" + ct[1]);
+                it.setTextColor(R.id.si_meta, isToday ? th.acc : th.mut);
+                it.setTextViewTextSize(R.id.si_meta, TypedValue.COMPLEX_UNIT_SP, Math.max(10, fs - 2));
+                Intent di = new Intent(c, DayMedActivity.class)
+                    .putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id).putExtra("day", rd)
+                    .setData(Uri.parse("notis://daymed/" + id + "/" + rd));
+                it.setOnClickPendingIntent(R.id.si_row, NotisWidget.activity(c, base(k) + id * 40 + shown, di));
+                v.addView(R.id.sw_rows, it); shown++;
+            }
+            v.setTextViewText(R.id.sw_cnt, d == null ? "" : done + "/" + tot);
+            if (shown == 0) {
+                v.setViewVisibility(R.id.sw_empty, View.VISIBLE);
+                v.setTextViewText(R.id.sw_empty, Tr.s(tc, d == null ? R.string.sw_open_once : R.string.sw_empty_med));
+            } else v.setViewVisibility(R.id.sw_empty, View.GONE);
+            m.updateAppWidget(id, v);
+            return;
+        }
+
         if (rows != null) for (int i = 0; i < rows.length(); i++) {
             JSONObject r = rows.optJSONObject(i); if (r == null || !pass(r, k, f)) continue;
             tot++; if (r.optBoolean("d")) done++;
             if (shown >= max) continue;
-            if ("med".equals(k)) {
-                String g = r.optString("g");
-                if (g.length() > 0 && !g.equals(lastG)) {
-                    lastG = g;
-                    RemoteViews hd = new RemoteViews(c.getPackageName(), R.layout.sec_item);
-                    hd.setViewVisibility(R.id.si_box, View.GONE);
-                    hd.setTextViewText(R.id.si_text, g); hd.setTextColor(R.id.si_text, th.acc);
-                    hd.setTextViewTextSize(R.id.si_text, TypedValue.COMPLEX_UNIT_SP, Math.max(10, fs - 1));
-                    hd.setTextViewText(R.id.si_meta, "");
-                    v.addView(R.id.sw_rows, hd); shown++;
-                    if (shown >= max) continue;
-                }
-            }
             RemoteViews it = new RemoteViews(c.getPackageName(), R.layout.sec_item);
             String txt = r.optString("t"), meta = "";
             boolean box = false, on = false, warn = false;
@@ -214,7 +245,37 @@ public abstract class SecWidget extends AppWidgetProvider {
         } else v.setViewVisibility(R.id.sw_empty, View.GONE);
         m.updateAppWidget(id, v);
     }
-    private static boolean multiP(JSONArray rows) {
+    static boolean hidden(JSONObject r, JSONArray mh) {
+        if (mh == null || mh.length() == 0) return false;
+        String id = r.optString("m");
+        for (int i = 0; i < mh.length(); i++) if (id.equals(mh.optString(i))) return true;
+        return false;
+    }
+    static List<JSONObject> medDayRows(JSONArray rows, String person, JSONArray mh, String day) {
+        List<JSONObject> o = new ArrayList<>();
+        if (rows == null) return o;
+        for (int i = 0; i < rows.length(); i++) {
+            JSONObject r = rows.optJSONObject(i); if (r == null) continue;
+            if (!pass(r, "med", person) || hidden(r, mh)) continue;
+            String rd = r.optString("day"); if (rd.length() == 0) rd = today();
+            if (day != null && !day.equals(rd)) continue;
+            o.add(r);
+        }
+        return o;
+    }
+    /** DD/MM/YYYY + weekday in the widget language */
+    static String dayLabel(Context c, String day) {
+        if (day == null || day.length() < 10) return "";
+        String dm = day.substring(8, 10) + "/" + day.substring(5, 7) + "/" + day.substring(0, 4);
+        try {
+            Date d = new SimpleDateFormat("yyyy-MM-dd", Locale.US).parse(day);
+            Locale loc = c.getResources().getConfiguration().getLocales().get(0);
+            String w = new SimpleDateFormat("EEEE", loc).format(d);
+            if (w.length() > 0) w = w.substring(0, 1).toUpperCase(loc) + w.substring(1);
+            return dm + " · " + w;
+        } catch (Exception e) { return dm; }
+    }
+    static boolean multiP(JSONArray rows) {
         String a = null; for (int i = 0; i < rows.length(); i++) { JSONObject r = rows.optJSONObject(i); if (r == null) continue; String p = r.optString("p"); if (a == null) a = p; else if (!a.equals(p)) return true; }
         return false;
     }

@@ -105,6 +105,9 @@
     <string name="sw_firm">עסק</string>
     <string name="sw_all">הכל</string>
     <string name="sw_person">אדם</string>
+    <string name="sw_lang">שפת הווידג\'ט</string>
+    <string name="sw_lang_app">שפת האפליקציה</string>
+    <string name="sw_meds">תרופות</string>
     <string name="sw_group">קבוצה</string>
     <string name="sw_show">הצג</string>
     <string name="sw_rows">שורות</string>

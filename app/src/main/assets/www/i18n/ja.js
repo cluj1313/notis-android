@@ -1560,5 +1560,8 @@ NOTIS_I18N={
 "Se \u0219terge\u2026": "\u524a\u9664\u4e2d\u2026",
 "Ieri": "\u6628\u65e5",
 "M\u00e2ine": "\u660e\u65e5",
-
+"Widget": "ウィジェット",
+"Pe widgetul Pastile, atinge ⚙ ca să alegi limba, persoana și medicamentele. Setările țin doar de acel widget.": "Pastileウィジェットの⚙をタップして、言語・対象の人・薬を選べます。設定はそのウィジェットだけに適用されます。",
+"Vrei să ieși din Zona secretă?": "シークレットゾーンを出ますか？",
+"Ieșire": "終了"
 };

@@ -1561,5 +1561,8 @@ NOTIS_I18N={
 "Se \u0219terge\u2026": "S\u2019est\u00e0 suprimint\u2026",
 "Ieri": "Ahir",
 "M\u00e2ine": "Dem\u00e0",
-
+"Widget": "Giny",
+"Pe widgetul Pastile, atinge ⚙ ca să alegi limba, persoana și medicamentele. Setările țin doar de acel widget.": "Al giny Pastile, toqueu ⚙ per triar l’idioma, la persona i els medicaments. Els paràmetres s’apliquen només a aquest giny.",
+"Vrei să ieși din Zona secretă?": "Vols sortir de la Zona secreta?",
+"Ieșire": "Surt"
 };

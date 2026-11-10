@@ -14,10 +14,22 @@ final class Tr {
         if (!ok || l.equals(lang(c))) return false;
         Store.sp(c).edit().putString("lang", l).commit(); return true;
     }
-    static Context ctx(Context c) {
-        String l = lang(c); if (l.isEmpty()) return c;
+    static Context ctx(Context c) { return ctx(c, lang(c)); }
+    /** empty override = app language (or the phone language if none is set) */
+    static Context ctx(Context c, String override) {
+        String l = override != null && override.length() > 0 ? override : lang(c);
+        if (l == null || l.isEmpty()) return c;
+        boolean ok = false; for (String x : LANGS) if (x.equals(l)) ok = true;
+        if (!ok) return c;
         Configuration cf = new Configuration(c.getResources().getConfiguration()); cf.setLocale(loc(l));
         return c.createConfigurationContext(cf);
+    }
+    static String langLabel(Context c, String code) {
+        if (code == null || code.isEmpty()) return s(c, R.string.sw_lang_app);
+        Locale loc = loc(code), disp = ctx(c).getResources().getConfiguration().getLocales().get(0);
+        String n = loc.getDisplayName(disp);
+        if (n == null || n.isEmpty()) n = code;
+        return n.substring(0, 1).toUpperCase(disp) + n.substring(1);
     }
     /** app language code -> res/values-* directory */
     static String resDir(String l) {

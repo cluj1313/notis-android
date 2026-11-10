@@ -1560,5 +1560,8 @@ NOTIS_I18N={
 "Se \u0219terge\u2026": "\u09ae\u09c1\u099b\u09c7 \u09ab\u09c7\u09b2\u09be \u09b9\u099a\u09cd\u099b\u09c7\u2026",
 "Ieri": "\u0997\u09a4\u0995\u09be\u09b2",
 "M\u00e2ine": "\u0986\u0997\u09be\u09ae\u09c0\u0995\u09be\u09b2",
-
+"Widget": "উইজেট",
+"Pe widgetul Pastile, atinge ⚙ ca să alegi limba, persoana și medicamentele. Setările țin doar de acel widget.": "Pastile উইজেটে ⚙ চাপুন ভাষা, ব্যক্তি ও ওষুধ বেছে নিতে। সেটিংস শুধু সেই উইজেটে প্রযোজ্য।",
+"Vrei să ieși din Zona secretă?": "গোপন অঞ্চল থেকে বের হতে চান?",
+"Ieșire": "প্রস্থান"
 };

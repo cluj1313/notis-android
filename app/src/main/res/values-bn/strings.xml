@@ -105,6 +105,9 @@
     <string name="sw_firm">ফার্ম</string>
     <string name="sw_all">সব</string>
     <string name="sw_person">ব্যক্তি</string>
+    <string name="sw_lang">উইজেটের ভাষা</string>
+    <string name="sw_lang_app">অ্যাপের ভাষা</string>
+    <string name="sw_meds">ওষুধ</string>
     <string name="sw_group">গ্রুপ</string>
     <string name="sw_show">দেখান</string>
     <string name="sw_rows">সারি</string>

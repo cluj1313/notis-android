@@ -105,6 +105,9 @@
     <string name="sw_firm">会社</string>
     <string name="sw_all">すべて</string>
     <string name="sw_person">人</string>
+    <string name="sw_lang">ウィジェットの言語</string>
+    <string name="sw_lang_app">アプリの言語</string>
+    <string name="sw_meds">薬</string>
     <string name="sw_group">グループ</string>
     <string name="sw_show">表示</string>
     <string name="sw_rows">行数</string>

@@ -105,6 +105,9 @@
     <string name="sw_firm">Įmonė</string>
     <string name="sw_all">Visi</string>
     <string name="sw_person">Asmuo</string>
+    <string name="sw_lang">Valdiklio kalba</string>
+    <string name="sw_lang_app">Programėlės kalba</string>
+    <string name="sw_meds">Vaistai</string>
     <string name="sw_group">Grupė</string>
     <string name="sw_show">Rodyti</string>
     <string name="sw_rows">Eilutės</string>

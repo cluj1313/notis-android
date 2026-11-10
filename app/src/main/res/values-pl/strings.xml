@@ -105,6 +105,9 @@
     <string name="sw_firm">Firma</string>
     <string name="sw_all">Wszystkie</string>
     <string name="sw_person">Osoba</string>
+    <string name="sw_lang">Język widżetu</string>
+    <string name="sw_lang_app">Język aplikacji</string>
+    <string name="sw_meds">Leki</string>
     <string name="sw_group">Grupa</string>
     <string name="sw_show">Pokaż</string>
     <string name="sw_rows">Wiersze</string>

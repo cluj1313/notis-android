@@ -1561,5 +1561,8 @@ NOTIS_I18N={
 "Se \u0219terge\u2026": "T\u00f6rl\u00e9s\u2026",
 "Ieri": "Tegnap",
 "M\u00e2ine": "Holnap",
-
+"Widget": "Widget",
+"Pe widgetul Pastile, atinge ⚙ ca să alegi limba, persoana și medicamentele. Setările țin doar de acel widget.": "A Pastile widgeten koppints a ⚙ ikonra a nyelv, a személy és a gyógyszerek kiválasztásához. A beállítások csak arra a widgetre vonatkoznak.",
+"Vrei să ieși din Zona secretă?": "Ki akarsz lépni a Titkos zónából?",
+"Ieșire": "Kilépés"
 };

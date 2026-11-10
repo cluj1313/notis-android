@@ -1561,5 +1561,8 @@ NOTIS_I18N={
 "Se \u0219terge\u2026": "Deleting\u2026",
 "Ieri": "Yesterday",
 "M\u00e2ine": "Tomorrow",
-
+"Widget": "Widgets",
+"Pe widgetul Pastile, atinge ⚙ ca să alegi limba, persoana și medicamentele. Setările țin doar de acel widget.": "On the Pastile widget, tap ⚙ to choose the language, the person and the medicines. The settings apply only to that widget.",
+"Vrei să ieși din Zona secretă?": "Do you want to leave the Secret Zone?",
+"Ieșire": "Exit"
 };

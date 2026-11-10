@@ -1,7 +1,7 @@
 /* Notis module: hdr — Iconiță antet. See MODULES.md */
 'use strict';
 (function(){var ico=$('hdrIco');if(!ico||!(window.crypto&&crypto.subtle))return;
- var KH='ns_crsec',KT='ns_crtok',IT=200000,REPO='cluj1313/notis-news',FILE='creator.json',sess=null,swallow=0;
+ var KH='ns_crsec',KT='ns_crtok',IT=200000,REPO='cluj1313/notis-news',FILE='creator.json',sess=null,swallow=0,draft={t:'',b:'',te:'',be:''};
  var get=function(k){try{return JSON.parse(localStorage.getItem(k))}catch(_){return null}},put=function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(_){}};
  var enc=new TextEncoder(),h64=function(u){return btoa(String.fromCharCode.apply(null,new Uint8Array(u)))},d64=function(s){return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0)})};
  var u8b64=function(s){return btoa(unescape(encodeURIComponent(s)))},b64u8=function(s){return decodeURIComponent(escape(atob(s.replace(/\s/g,''))))};
@@ -27,13 +27,22 @@
  document.addEventListener('visibilitychange',function(){if(document.hidden)stop()});
  document.addEventListener('click',function(e){if(swallow&&Date.now()-swallow<4000&&HT.some(function(el){return el.contains(e.target)})){e.stopImmediatePropagation();e.preventDefault();swallow=0}},true);
  function fld(id,ph,type,eye){return '<div class="crf"><input id="'+id+'" type="'+(type||'text')+'" placeholder="'+esc(ph)+'" autocomplete="off" autocapitalize="off" spellcheck="false"'+(id==='crCh'?' maxlength="4"':'')+'>'+(eye?'<button type="button" class="eye" data-f="'+id+'" aria-label="'+esc(TR('Arată / ascunde'))+'">👁</button>':'')+'</div>'}
+ function hide(){var o=$('crx');if(o)o.remove()}
+ function exit(){sess=null;draft={t:'',b:'',te:'',be:''};var a=$('adx');if(a)a.remove();hide()}
+ function wantLeave(){if(!sess){hide();return}ask(TR('Vrei să ieși din Zona secretă?'),function(){exit()})}
+ function saveDraft(){if($('crT'))draft={t:$('crT').value,b:$('crB').value,te:$('crTe').value,be:$('crBe').value}}
+ function bindShell(o){if(!o||o._crBound)return;o._crBound=1;
+  o.addEventListener('click',function(e){if(e.target!==o)return;if($('adx'))return;wantLeave()})}
  function ui(title,body){var o=$('crx');if(!o){o=document.createElement('div');o.id='crx';document.body.appendChild(o)}
+  bindShell(o);
   o.innerHTML='<div class="crc"><h3><span>🔐 '+esc(title)+'</span><button type="button" id="crX" aria-label="'+esc(TR('Închide'))+'">×</button></h3>'+body+'<div class="cre" id="crE"></div></div>';
-  $('crX').onclick=close;o.querySelectorAll('.eye').forEach(function(b){b.onclick=function(){var i=$(b.dataset.f),sh=i.type==='password';i.type=sh?'text':'password';b.classList.toggle('on',sh)}})}
+  $('crX').onclick=function(){if(sess)wantLeave();else hide()};o.querySelectorAll('.eye').forEach(function(b){b.onclick=function(){var i=$(b.dataset.f),sh=i.type==='password';i.type=sh?'text':'password';b.classList.toggle('on',sh)}})}
  function err(t){var e=$('crE');if(e)e.textContent=t||''}
- function close(){sess=null;var o=$('crx');if(o)o.remove()}
- function ask(txt,yes){var cf=$('cfModal').querySelector('.cftxt'),t0=cf.textContent;cf.textContent=txt;jvConfirm(function(){cf.textContent=t0;yes()});var no=$('cfNo').onclick;$('cfNo').onclick=function(){cf.textContent=t0;no&&no()}}
- function open(){if(get(KH))unlock();else setup()}
+ function ask(txt,yes){var cf=$('cfModal').querySelector('.cftxt'),ok=$('cfOk'),no=$('cfNo'),t0=cf.textContent,o0=ok.textContent,n0=no.textContent;
+  cf.textContent=txt;ok.textContent=TR('Da');no.textContent=TR('Nu');
+  var back=function(){cf.textContent=t0;ok.textContent=o0;no.textContent=n0};
+  jvConfirm(function(){back();yes()});var n1=no.onclick;no.onclick=function(){back();n1&&n1()}}
+ function open(){if(sess)return main();if(get(KH))unlock();else setup()}
  function setup(){ui(TR('Meniu creator'),fld('crP1',TR('Parolă'),'password',1)+fld('crP2',TR('Repetă parola'),'password',1)+fld('crCh',TR('Caracter secret'),'password',1)+'<div class="hint">'+esc(TR('Minim 8 caractere'))+'</div><div class="crb"><button type="button" id="crGo">'+esc(TR('Creează'))+'</button></div>');
   $('crGo').onclick=function(){var a=$('crP1').value,b=$('crP2').value,c=$('crCh').value;if(a.length<8)return err(TR('Minim 8 caractere'));if(a!==b)return err(TR('Parolele nu coincid'));if(!c)return err(TR('Alege un caracter secret'));
    var salt=crypto.getRandomValues(new Uint8Array(16));err('…');hash(a,c,salt,IT).then(function(h){put(KH,{salt:h64(salt),hash:h,iter:IT});sess={pw:a,ch:c};main()})}}
@@ -59,8 +68,9 @@
    box.onclick=function(e){var b=e.target.closest('[data-del]');if(!b)return;var id=b.getAttribute('data-del');ask(TR('Ștergi mesajul?'),function(){delMsg(id)})}}).catch(function(e){err(crMsg(e)+' ('+(e&&e.message||e)+')')})}
  function delMsg(id){if(!id)return;err(TR('Se șterge…'));ghFile().then(function(g){g.j.messages=g.j.messages.filter(function(m){return m.id!==id});
   return fetch(g.url,{method:'PUT',headers:g.hd,body:JSON.stringify({message:'news: delete '+id,content:u8b64(JSON.stringify(g.j,null,1)+'\n'),sha:g.sha,branch:'main'})})}).then(function(r){if(!r.ok)throw new Error('PUT '+r.status);toast(TR('Mesaj șters'));inbox()}).catch(function(e){err(crMsg(e)+' ('+(e&&e.message||e)+')')})}
- function compose(){ui(TR('Meniu creator'),fld('crT',TR('Titlu'))+'<textarea id="crB" placeholder="'+esc(TR('Mesaj'))+'"></textarea>'+fld('crTe',TR('Titlu EN (opțional)'))+'<textarea id="crBe" placeholder="'+esc(TR('Mesaj EN (opțional)'))+'"></textarea><div class="crb"><button type="button" class="alt" id="crAd" aria-label="📊">📊</button><button type="button" class="alt" id="crMs">'+esc(TR('Mesaje'))+'</button><button type="button" class="alt" id="crDt">'+esc(TR('Șterge tokenul'))+'</button><button type="button" id="crGo">'+esc(TR('Trimite'))+'</button></div>');
-  $('crAd').onclick=function(){if(window.NotisAdmin)NotisAdmin.open()};$('crMs').onclick=function(){inbox()};$('crDt').onclick=function(){ask(TR('Șterge tokenul')+'?',function(){try{localStorage.removeItem(KT)}catch(_){}tokForm()})};
+ function compose(){ui(TR('Meniu creator'),fld('crT',TR('Titlu'))+'<textarea id="crB" placeholder="'+esc(TR('Mesaj'))+'"></textarea>'+fld('crTe',TR('Titlu EN (opțional)'))+'<textarea id="crBe" placeholder="'+esc(TR('Mesaj EN (opțional)'))+'"></textarea><div class="crb"><button type="button" class="alt" id="crAd" aria-label="📊">📊</button><button type="button" class="alt" id="crMs">'+esc(TR('Mesaje'))+'</button><button type="button" class="alt" id="crDt">'+esc(TR('Șterge tokenul'))+'</button><button type="button" class="alt" id="crOut">'+esc(TR('Ieșire'))+'</button><button type="button" id="crGo">'+esc(TR('Trimite'))+'</button></div>');
+  if($('crT')){$('crT').value=draft.t||'';$('crB').value=draft.b||'';$('crTe').value=draft.te||'';$('crBe').value=draft.be||''}
+  $('crAd').onclick=function(){saveDraft();if(window.NotisAdmin)NotisAdmin.open()};$('crMs').onclick=function(){saveDraft();inbox()};$('crOut').onclick=wantLeave;$('crDt').onclick=function(){ask(TR('Șterge tokenul')+'?',function(){try{localStorage.removeItem(KT)}catch(_){}tokForm()})};
   $('crGo').onclick=function(){var t=$('crT').value.trim(),b=$('crB').value.trim(),te=$('crTe').value.trim(),be=$('crBe').value.trim();if(!t||!b)return err(TR('Completează titlul și mesajul'));
    var go=$('crGo');go.disabled=true;err(TR('Se trimite…'));var tok,url='https://api.github.com/repos/'+REPO+'/contents/'+FILE,hd;
    token().then(function(x){tok=x;hd={'Authorization':'Bearer '+tok,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};return fetch(url+'?ref=main&t='+Date.now(),{headers:hd,cache:'no-store'})}).then(function(r){if(!r.ok)throw new Error('GET '+r.status);return r.json()}).then(function(f){
@@ -69,5 +79,9 @@
     j.messages.push(m);
     return fetch(url,{method:'PUT',headers:hd,body:JSON.stringify({message:'news: '+t.slice(0,60),content:u8b64(JSON.stringify(j,null,1)+'\n'),sha:f.sha,branch:'main'})})}).then(function(r){if(!r.ok)throw new Error('PUT '+r.status);
     toast(TR('Mesaj trimis tuturor'));['crT','crB','crTe','crBe'].forEach(function(i){$(i).value=''});err('');go.disabled=false}).catch(function(e){go.disabled=false;err(crMsg(e)+' ('+(e&&e.message||e)+')')})}}
-})();
 
+ window.notisSecretBack=function(){if($('cfModal')&&$('cfModal').classList.contains('show'))return false;if($('adx')){var x=$('adX');if(x)x.click();else $('adx').remove();return true}if(!$('crx'))return false;if($('crBack')){$('crBack').click();return true}if(!sess){hide();return true}wantLeave();return true};
+ (function(){var hb=window.notisHandleBack;window.notisHandleBack=function(){try{if(window.notisSecretBack&&notisSecretBack())return true}catch(_){}return hb?hb.apply(this,arguments):false}})();
+ document.addEventListener('keydown',function(e){if(e.key!=='Escape')return;if($('cfModal')&&$('cfModal').classList.contains('show'))return;if($('adx')||$('crx')){e.preventDefault();notisSecretBack()}},true);
+
+})();

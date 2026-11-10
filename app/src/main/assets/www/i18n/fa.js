@@ -1560,5 +1560,8 @@ NOTIS_I18N={
 "Se \u0219terge\u2026": "\u062f\u0631 \u062d\u0627\u0644 \u062d\u0630\u0641\u2026",
 "Ieri": "\u062f\u06cc\u0631\u0648\u0632",
 "M\u00e2ine": "\u0641\u0631\u062f\u0627",
-
+"Widget": "ویجت",
+"Pe widgetul Pastile, atinge ⚙ ca să alegi limba, persoana și medicamentele. Setările țin doar de acel widget.": "در ویجت Pastile روی ⚙ بزنید تا زبان، شخص و داروها را انتخاب کنید. تنظیمات فقط برای همان ویجت است.",
+"Vrei să ieși din Zona secretă?": "می‌خواهید از منطقهٔ محرمانه خارج شوید؟",
+"Ieșire": "خروج"
 };

@@ -105,6 +105,9 @@
     <string name="sw_firm">Фирма</string>
     <string name="sw_all">Всички</string>
     <string name="sw_person">Човек</string>
+    <string name="sw_lang">Език на приспособлението</string>
+    <string name="sw_lang_app">Език на приложението</string>
+    <string name="sw_meds">Лекарства</string>
     <string name="sw_group">Група</string>
     <string name="sw_show">Покажи</string>
     <string name="sw_rows">Редове</string>

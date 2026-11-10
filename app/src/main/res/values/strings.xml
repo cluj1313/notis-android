@@ -106,6 +106,9 @@
     <string name="sw_firm">Business</string>
     <string name="sw_all">All</string>
     <string name="sw_person">Person</string>
+    <string name="sw_lang">Widget language</string>
+    <string name="sw_lang_app">App language</string>
+    <string name="sw_meds">Medicines</string>
     <string name="sw_group">Group</string>
     <string name="sw_show">Show</string>
     <string name="sw_rows">Rows</string>

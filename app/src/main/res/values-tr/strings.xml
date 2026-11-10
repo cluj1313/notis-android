@@ -105,6 +105,9 @@
     <string name="sw_firm">Firma</string>
     <string name="sw_all">Tümü</string>
     <string name="sw_person">Kişi</string>
+    <string name="sw_lang">Widget dili</string>
+    <string name="sw_lang_app">Uygulama dili</string>
+    <string name="sw_meds">İlaçlar</string>
     <string name="sw_group">Grup</string>
     <string name="sw_show">Göster</string>
     <string name="sw_rows">Satır</string>
