@@ -1548,4 +1548,17 @@ NOTIS_I18N={
 "Poz\u0103 ad\u0103ugat\u0103": "Nuotrauka prid\u0117ta",
 "Decupeaz\u0103": "Apkirpti",
 "Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Perkelti \u012f kit\u0105 u\u017eduot\u012f",
+"Doar titlul": "Tik pavadinimas",
+"Istoricul mesajelor trimise. R\u0103m\u00e2n p\u00e2n\u0103 le \u0219tergi.": "I\u0161si\u0173st\u0173 \u017einu\u010di\u0173 istorija. Jos lieka, kol jas i\u0161trinate.",
+"Mesaj \u0219ters": "\u017dinut\u0117 i\u0161trinta",
+"Arat\u0103 conturul cardurilor": "Rodyti korteli\u0173 kont\u016br\u0105",
+
+"mutat": "perkelta",
+"Deschide din nou Set\u0103rile": "V\u0117l atidarykite Nustatymus",
+"Mesaje": "\u017dinut\u0117s",
+"Niciun mesaj": "N\u0117ra \u017einu\u010di\u0173",
+"Se \u0219terge\u2026": "Trinama\u2026",
+"Ieri": "Vakar",
+"M\u00e2ine": "Rytoj",
+
 };

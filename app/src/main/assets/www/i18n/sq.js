@@ -1548,4 +1548,17 @@ NOTIS_I18N={
 "Poz\u0103 ad\u0103ugat\u0103": "Fotoja u shtua",
 "Decupeaz\u0103": "Prit",
 "Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Zhvendos n\u00eb nj\u00eb detyr\u00eb tjet\u00ebr",
+"Doar titlul": "Vet\u00ebm titulli",
+"Istoricul mesajelor trimise. R\u0103m\u00e2n p\u00e2n\u0103 le \u0219tergi.": "Historiku i mesazheve t\u00eb d\u00ebrguara. Q\u00ebndrojn\u00eb derisa t\u2019i fshish.",
+"Mesaj \u0219ters": "Mesazhi u fshi",
+"Arat\u0103 conturul cardurilor": "Shfaq konturin e kartave",
+
+"mutat": "zhvendosur",
+"Deschide din nou Set\u0103rile": "Hap s\u00ebrish Cil\u00ebsimet",
+"Mesaje": "Mesazhe",
+"Niciun mesaj": "Asnj\u00eb mesazh",
+"Se \u0219terge\u2026": "Po fshihet\u2026",
+"Ieri": "Dje",
+"M\u00e2ine": "Nes\u00ebr",
+
 };

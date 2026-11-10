@@ -1549,4 +1549,17 @@ NOTIS_I18N={
 "Poz\u0103 ad\u0103ugat\u0103": "Fot\u00f3 hozz\u00e1adva",
 "Decupeaz\u0103": "V\u00e1g\u00e1s",
 "Mut\u0103 \u00een alt\u0103 sarcin\u0103": "\u00c1thelyez\u00e9s m\u00e1sik feladatba",
+"Doar titlul": "Csak c\u00edm",
+"Istoricul mesajelor trimise. R\u0103m\u00e2n p\u00e2n\u0103 le \u0219tergi.": "Az elk\u00fcld\u00f6tt \u00fczenetek el\u0151zm\u00e9nyei. Addig maradnak, am\u00edg t\u00f6rl\u00f6d \u0151ket.",
+"Mesaj \u0219ters": "\u00dczenet t\u00f6r\u00f6lve",
+"Arat\u0103 conturul cardurilor": "K\u00e1rtyakeret megjelen\u00edt\u00e9se",
+
+"mutat": "\u00e1thelyezve",
+"Deschide din nou Set\u0103rile": "Nyisd meg \u00fajra a Be\u00e1ll\u00edt\u00e1sokat",
+"Mesaje": "\u00dczenetek",
+"Niciun mesaj": "Nincs \u00fczenet",
+"Se \u0219terge\u2026": "T\u00f6rl\u00e9s\u2026",
+"Ieri": "Tegnap",
+"M\u00e2ine": "Holnap",
+
 };

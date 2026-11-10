@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="glic_slots">
+        <item>Morn.</item>
+        <item>+2h brk.</item>
+        <item>Pre-lunch</item>
+        <item>+2h lunch</item>
+        <item>Pre-dinner</item>
+        <item>+2h dinner</item>
+        <item>Bedtime</item>
+    </string-array>
+</resources>

@@ -37,7 +37,7 @@ function row(x,sub,tid){var lbl=esc(TR(x.done?'Marchează ca nefinalizată':'Mar
  '<button type="button" class="tkb" data-ta="'+(sub?'sph':'ph')+'" aria-label="'+esc(TR('Adaugă poză'))+'">'+IC.ph+'</button>'+(sub?'':'<button type="button" class="tkb" data-ta="sub" aria-label="'+esc(TR('Adaugă subsarcină'))+'">'+IC.sub+'</button>')+'</div>'}
 function ord(a){var u=a.filter(function(x){return !x.done}),d=a.filter(function(x){return x.done});return{u:u,d:d}}
 window.tkRender=function(){var tab=noteTab,L=TK.list.filter(function(x){return x.tab===tab}),u=L.filter(function(x){return !x.done}).sort(function(a,b){var ka=key(a),kb=key(b);return ka<kb?-1:ka>kb?1:(a.ts||0)-(b.ts||0)}),d=L.filter(function(x){return x.done}).sort(function(a,b){return(b.dt||0)-(a.dt||0)});
- var h='<div class="tkv"><button type="button" class="btn pill tknew" data-ta="new">+ <span class="ux">'+esc(TR('Sarcină nouă'))+'</span></button>';
+ var compact=!!LS.get('ns_tkcompact',0);var h='<div class="tkv'+(compact?' tkcomp':'')+'"><button type="button" class="btn pill tknew" data-ta="new">+ <span class="ux">'+esc(TR('Sarcină nouă'))+'</span></button><button type="button" class="btn pill tkcmp'+(compact?' on':'')+'" data-ta="cmp" aria-pressed="'+compact+'">'+esc(TR('Doar titlul'))+'</button>';
  if(!L.length)h+='<div class="tkemp ux">'+esc(TR('Nicio sarcină încă. Adaugă una cu ora de început.'))+'</div>';
  function one(x){var s=ord(x.sub);return '<div class="tki'+(x.done?' done':'')+'" data-id="'+esc(x.id)+'">'+row(x,0)+chips(x.ph,x.id)+(x.sub.length?'<div class="tksb">'+s.u.concat(s.d).map(function(q){return '<div class="tksi'+(q.done?' done':'')+'" data-sid="'+esc(q.id)+'">'+row(q,1)+chips(q.ph,x.id,q.id)+'</div>'}).join('')+'</div>':'')+'</div>'}
  function grp(A){return A.map(function(x,i){var o=one(x);return i<A.length-1?o.replace('class="tki','class="tki tkl'):o}).join('')}
@@ -149,6 +149,8 @@ document.addEventListener('pointermove',function(e){if(Math.abs(e.movementX)+Mat
 document.addEventListener('contextmenu',function(e){if(e.target.closest&&e.target.closest('.tkch'))e.preventDefault()});
 document.addEventListener('click',function(e){var v=$('spView');if(!v||!v.contains(e.target))return;var a=e.target.closest('[data-ta]');if(!a)return;
  if(tkLP===2){tkLP=0;return}if(tkLP&&a.dataset.ta==='pv'){tkLP=0;return}var k=a.dataset.ta,q=ctx(a),t=q.t,s=q.s;
+ if(k==='cmp'){LS.set('ns_tkcompact',LS.get('ns_tkcompact',0)?0:1);rr();return}
+ if(e.target.closest('.tkt')&&e.target.closest('.tkv.tkcomp')){var ki=e.target.closest('.tki,.tksi');if(ki){ki.classList.toggle('open');return}}
  if(k==='new'){edTask(null);return}if(!t)return;
  if(k==='chk'){t.done=t.done?0:1;if(t.done)t.dt=Date.now();else delete t.dt;tkSave();rr()}
  else if(k==='schk'&&s){s.done=s.done?0:1;tkSave();rr()}
@@ -204,6 +206,10 @@ window.phPickN=function(files){var list=[].slice.call(files||[]);if(!list.length
 window.__tkLPon=function(){var v=tkLP;tkLP=0;return !!v};
 document.addEventListener('tkpv',function(e){var q=e.detail||{},t=q.t&&find(q.t),s=t&&q.s?subOf(t,q.s):null;if(t&&q.p)view(t,s,q.p)});
 window.tkDbg={st:function(){return JSON.parse(JSON.stringify(TK))},set:function(o){TK=tkNorm(o)||{list:[]};tkSave();rr()}};
+window.tkSnap=function(){var ids=noteTabs.filter(function(t){return t.kind==='task'}).map(function(t){return t.id}),o=[];
+ (TK.list||[]).forEach(function(x){if(ids.indexOf(x.tab)<0)return;o.push({id:'tk-'+x.id,tab:x.tab,type:'task',title:ttl(x),text:String(x.t||'').slice(0,4000),upd:new Date(x.ts||x.dt||0).toISOString(),d:!!x.done,tk:x.id})});
+ return o};
+(function(){var prev=window.secApply;window.secApply=function(c){if(c&&c.op==='tt'){try{var t=find(c.tk||(c.n||'').replace(/^tk-/,''));if(!t)return false;var want=!!c.d;if(!!t.done===want)return false;t.done=want?1:0;if(want)t.dt=Date.now();else delete t.dt;tkSave();try{rr()}catch(_){}return true}catch(e){return false}}return prev?prev(c):false}})();
 })();
 /* v206: robust photo-chip tap (2.23.6 phone report: tapping a named photo row did not open the viewer).
    Opens on a short pointer tap itself (no dependence on the synthetic click, which a WebView can drop after a

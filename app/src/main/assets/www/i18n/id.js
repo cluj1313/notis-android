@@ -1549,4 +1549,17 @@ NOTIS_I18N={
 "Poz\u0103 ad\u0103ugat\u0103": "Foto ditambahkan",
 "Decupeaz\u0103": "Pangkas",
 "Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Pindahkan ke tugas lain",
+"Doar titlul": "Judul saja",
+"Istoricul mesajelor trimise. R\u0103m\u00e2n p\u00e2n\u0103 le \u0219tergi.": "Riwayat pesan yang dikirim. Tetap ada sampai Anda menghapusnya.",
+"Mesaj \u0219ters": "Pesan dihapus",
+"Arat\u0103 conturul cardurilor": "Tampilkan garis kartu",
+
+"mutat": "dipindahkan",
+"Deschide din nou Set\u0103rile": "Buka lagi Pengaturan",
+"Mesaje": "Pesan",
+"Niciun mesaj": "Tidak ada pesan",
+"Se \u0219terge\u2026": "Menghapus\u2026",
+"Ieri": "Kemarin",
+"M\u00e2ine": "Besok",
+
 };

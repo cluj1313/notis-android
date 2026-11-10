@@ -26,7 +26,7 @@
   sub('ts',TR('Stil taburi'),null,[$('fTst')]);
   sub('font',TR('Font'),null,[$('fFont')]);sub('ssv',TR('Protecție ecran'),null,[$('fSsv')]);
   sub('bg',TR('Fundal'),bgH.querySelector('.peekb'),[bgF]);
-  sub('fine',TR('Setări fine'),null,[$('fBgk'),$('fNrp'),$('fSmg'),$('fCdo')]);
+  sub('fine',TR('Setări fine'),null,[$('fBgk'),$('fNrp'),$('fSmg'),$('fCdo'),$('fCbd')]);
   sub('ico',TR('Iconiță'),null,[icF]);
   var tsl=$('fTst')&&$('fTst').querySelector('label');if(tsl)tsl.style.display='none';
   [thH,bgH,icH].forEach(function(x){if(x&&x.classList.contains('sec'))x.remove()})}

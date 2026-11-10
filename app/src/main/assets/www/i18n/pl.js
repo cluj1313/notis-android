@@ -1549,4 +1549,17 @@ NOTIS_I18N={
 "Poz\u0103 ad\u0103ugat\u0103": "Dodano zdj\u0119cie",
 "Decupeaz\u0103": "Przytnij",
 "Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Przenie\u015b do innego zadania",
+"Doar titlul": "Tylko tytu\u0142",
+"Istoricul mesajelor trimise. R\u0103m\u00e2n p\u00e2n\u0103 le \u0219tergi.": "Historia wys\u0142anych wiadomo\u015bci. Zostaj\u0105, dop\u00f3ki ich nie usuniesz.",
+"Mesaj \u0219ters": "Wiadomo\u015b\u0107 usuni\u0119ta",
+"Arat\u0103 conturul cardurilor": "Poka\u017c obramowanie kart",
+
+"mutat": "przeniesiono",
+"Deschide din nou Set\u0103rile": "Otw\u00f3rz ponownie Ustawienia",
+"Mesaje": "Wiadomo\u015bci",
+"Niciun mesaj": "Brak wiadomo\u015bci",
+"Se \u0219terge\u2026": "Usuwanie\u2026",
+"Ieri": "Wczoraj",
+"M\u00e2ine": "Jutro",
+
 };

@@ -1548,4 +1548,17 @@ NOTIS_I18N={
 "Poz\u0103 ad\u0103ugat\u0103": "Foto\u011fraf eklendi",
 "Decupeaz\u0103": "K\u0131rp",
 "Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Ba\u015fka bir g\u00f6reve ta\u015f\u0131",
+"Doar titlul": "Yaln\u0131zca ba\u015fl\u0131k",
+"Istoricul mesajelor trimise. R\u0103m\u00e2n p\u00e2n\u0103 le \u0219tergi.": "G\u00f6nderilen iletilerin ge\u00e7mi\u015fi. Silene kadar kal\u0131rlar.",
+"Mesaj \u0219ters": "\u0130leti silindi",
+"Arat\u0103 conturul cardurilor": "Kart \u00e7er\u00e7evesini g\u00f6ster",
+
+"mutat": "ta\u015f\u0131nd\u0131",
+"Deschide din nou Set\u0103rile": "Ayarlar\u0131 yeniden a\u00e7\u0131n",
+"Mesaje": "Mesajlar",
+"Niciun mesaj": "Mesaj yok",
+"Se \u0219terge\u2026": "Siliniyor\u2026",
+"Ieri": "D\u00fcn",
+"M\u00e2ine": "Yar\u0131n",
+
 };

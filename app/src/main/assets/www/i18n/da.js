@@ -1548,4 +1548,17 @@ NOTIS_I18N={
 "Poz\u0103 ad\u0103ugat\u0103": "Foto tilf\u00f8jet",
 "Decupeaz\u0103": "Besk\u00e6r",
 "Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Flyt til en anden opgave",
+"Doar titlul": "Kun titel",
+"Istoricul mesajelor trimise. R\u0103m\u00e2n p\u00e2n\u0103 le \u0219tergi.": "Historik over sendte beskeder. De bliver, indtil du sletter dem.",
+"Mesaj \u0219ters": "Besked slettet",
+"Arat\u0103 conturul cardurilor": "Vis kortenes ramme",
+
+"mutat": "flyttet",
+"Deschide din nou Set\u0103rile": "\u00c5bn Indstillinger igen",
+"Mesaje": "Beskeder",
+"Niciun mesaj": "Ingen beskeder",
+"Se \u0219terge\u2026": "Sletter\u2026",
+"Ieri": "I g\u00e5r",
+"M\u00e2ine": "I morgen",
+
 };

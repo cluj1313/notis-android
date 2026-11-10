@@ -1550,4 +1550,17 @@ NOTIS_I18N={
 "Poz\u0103 ad\u0103ugat\u0103": "Fotka pridan\u00e1",
 "Decupeaz\u0103": "Oreza\u0165",
 "Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Presun\u00fa\u0165 do inej \u00falohy",
+"Doar titlul": "Len n\u00e1zov",
+"Istoricul mesajelor trimise. R\u0103m\u00e2n p\u00e2n\u0103 le \u0219tergi.": "Hist\u00f3ria odoslan\u00fdch spr\u00e1v. Zostan\u00fa, k\u00fdm ich neodstr\u00e1nite.",
+"Mesaj \u0219ters": "Spr\u00e1va odstr\u00e1nen\u00e1",
+"Arat\u0103 conturul cardurilor": "Zobrazi\u0165 obrys kariet",
+
+"mutat": "presunut\u00e9",
+"Deschide din nou Set\u0103rile": "Znova otvorte Nastavenia",
+"Mesaje": "Spr\u00e1vy",
+"Niciun mesaj": "\u017diadne spr\u00e1vy",
+"Se \u0219terge\u2026": "Odstra\u0148uje sa\u2026",
+"Ieri": "V\u010dera",
+"M\u00e2ine": "Zajtra",
+
 };

@@ -1548,4 +1548,17 @@ NOTIS_I18N={
 "Poz\u0103 ad\u0103ugat\u0103": "\u5df2\u6dfb\u52a0\u7167\u7247",
 "Decupeaz\u0103": "\u88c1\u526a",
 "Mut\u0103 \u00een alt\u0103 sarcin\u0103": "\u79fb\u5230\u5176\u4ed6\u4efb\u52a1",
+"Doar titlul": "\u4ec5\u6807\u9898",
+"Istoricul mesajelor trimise. R\u0103m\u00e2n p\u00e2n\u0103 le \u0219tergi.": "\u5df2\u53d1\u9001\u6d88\u606f\u7684\u8bb0\u5f55\u3002\u5220\u9664\u524d\u4f1a\u4e00\u76f4\u4fdd\u7559\u3002",
+"Mesaj \u0219ters": "\u6d88\u606f\u5df2\u5220\u9664",
+"Arat\u0103 conturul cardurilor": "\u663e\u793a\u5361\u7247\u8fb9\u6846",
+
+"mutat": "\u5df2\u79fb\u52a8",
+"Deschide din nou Set\u0103rile": "\u8bf7\u518d\u6b21\u6253\u5f00\u8bbe\u7f6e",
+"Mesaje": "\u6d88\u606f",
+"Niciun mesaj": "\u6682\u65e0\u6d88\u606f",
+"Se \u0219terge\u2026": "\u6b63\u5728\u5220\u9664\u2026",
+"Ieri": "\u6628\u5929",
+"M\u00e2ine": "\u660e\u5929",
+
 };

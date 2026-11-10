@@ -1549,4 +1549,17 @@ NOTIS_I18N={
 "Poz\u0103 ad\u0103ugat\u0103": "Kuva lis\u00e4tty",
 "Decupeaz\u0103": "Rajaa",
 "Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Siirr\u00e4 toiseen teht\u00e4v\u00e4\u00e4n",
+"Doar titlul": "Vain otsikko",
+"Istoricul mesajelor trimise. R\u0103m\u00e2n p\u00e2n\u0103 le \u0219tergi.": "L\u00e4hetettyjen viestien historia. Ne s\u00e4ilyv\u00e4t, kunnes poistat ne.",
+"Mesaj \u0219ters": "Viesti poistettu",
+"Arat\u0103 conturul cardurilor": "N\u00e4yt\u00e4 korttien reuna",
+
+"mutat": "siirretty",
+"Deschide din nou Set\u0103rile": "Avaa Asetukset uudelleen",
+"Mesaje": "Viestit",
+"Niciun mesaj": "Ei viestej\u00e4",
+"Se \u0219terge\u2026": "Poistetaan\u2026",
+"Ieri": "Eilen",
+"M\u00e2ine": "Huomenna",
+
 };

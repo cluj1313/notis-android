@@ -1550,4 +1550,17 @@ NOTIS_I18N={
 "Poz\u0103 ad\u0103ugat\u0103": "Foto toegevoegd",
 "Decupeaz\u0103": "Bijsnijden",
 "Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Verplaatsen naar andere taak",
+"Doar titlul": "Alleen titel",
+"Istoricul mesajelor trimise. R\u0103m\u00e2n p\u00e2n\u0103 le \u0219tergi.": "Geschiedenis van verzonden berichten. Ze blijven tot je ze verwijdert.",
+"Mesaj \u0219ters": "Bericht verwijderd",
+"Arat\u0103 conturul cardurilor": "Kaartrand tonen",
+
+"mutat": "verplaatst",
+"Deschide din nou Set\u0103rile": "Open Instellingen opnieuw",
+"Mesaje": "Berichten",
+"Niciun mesaj": "Geen berichten",
+"Se \u0219terge\u2026": "Verwijderen\u2026",
+"Ieri": "Gisteren",
+"M\u00e2ine": "Morgen",
+
 };

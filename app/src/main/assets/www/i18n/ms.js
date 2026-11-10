@@ -1549,4 +1549,17 @@ NOTIS_I18N={
 "Poz\u0103 ad\u0103ugat\u0103": "Foto ditambah",
 "Decupeaz\u0103": "Pangkas",
 "Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Pindah ke tugas lain",
+"Doar titlul": "Tajuk sahaja",
+"Istoricul mesajelor trimise. R\u0103m\u00e2n p\u00e2n\u0103 le \u0219tergi.": "Sejarah mesej yang dihantar. Ia kekal sehingga anda memadamkannya.",
+"Mesaj \u0219ters": "Mesej dipadam",
+"Arat\u0103 conturul cardurilor": "Tunjukkan garisan kad",
+
+"mutat": "dipindahkan",
+"Deschide din nou Set\u0103rile": "Buka semula Tetapan",
+"Mesaje": "Mesej",
+"Niciun mesaj": "Tiada mesej",
+"Se \u0219terge\u2026": "Memadam\u2026",
+"Ieri": "Semalam",
+"M\u00e2ine": "Esok",
+
 };

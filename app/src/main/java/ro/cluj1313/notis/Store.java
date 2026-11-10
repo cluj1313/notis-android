@@ -12,7 +12,8 @@ import java.util.UUID;
  * Snapshot pushed by the web app + a queue of changes made natively (widgets, alarms) that the web app
  * applies on resume (idempotent ops keyed by ids) and then acknowledges. The widgets always display
  * snapshot+queue, so nothing looks reverted while the queue is pending.
- * ops: t (toggle), ai (add item), ri (remove item), an (add note), al (set/cancel alarm), ar (alarm fired/rolled)
+ * ops: t (toggle), ai (add item), ri (remove item), an (add note), al (set/cancel alarm), ar (alarm fired/rolled),
+ *      mt (medicine slot check), gv (glucose reading)
  */
 final class Store {
     private static final String P = "notis";
@@ -44,6 +45,18 @@ final class Store {
 
     static void toggle(Context c, String nid, String bid, String iid, boolean done) {
         try { JSONObject o = new JSONObject().put("op", "t").put("n", nid).put("i", iid).put("d", done); if (bid != null && bid.length() > 0) o.put("b", bid); addOp(c, o); } catch (Exception ignored) {}
+    }
+    /** widget: toggle a medicine dose for a calendar day (yyyy-MM-dd); last op for the same slot wins */
+    static void medToggle(Context c, String mid, int slot, boolean done, String day) {
+        try { addOp(c, new JSONObject().put("op", "mt").put("m", mid).put("i", slot).put("d", done).put("day", day == null ? "" : day)); } catch (Exception ignored) {}
+    }
+    /** widget: set or clear a glucose slot (v mg/dl, or clr); lbl/tm used so the overlay can paint the row */
+    static void glicVal(Context c, String day, int slot, Integer v, String lbl, String tm) {
+        try {
+            JSONObject o = new JSONObject().put("op", "gv").put("day", day == null ? "" : day).put("i", slot).put("lbl", lbl == null ? "" : lbl).put("tm", tm == null ? "" : tm);
+            if (v == null) o.put("clr", true); else o.put("v", v.intValue());
+            addOp(c, o);
+        } catch (Exception ignored) {}
     }
     static String addItem(Context c, String nid, String bid, String text) {
         String id = uid();
@@ -259,6 +272,7 @@ final class Store {
             for (int k = 0; k < pend.length(); k++) {
                 JSONObject p = pend.optJSONObject(k); if (p == null) continue;
                 String op = p.optString("op", "t"), nid = p.optString("n");
+                if (op.equals("mt") || op.equals("gv")) { applySec(s, p); continue; }
                 if (op.equals("an")) {
                     if (byId(notes, nid) == null) {
                         String txt = p.optString("text"), first = txt.trim().split("\n")[0];
@@ -306,7 +320,53 @@ final class Store {
         return s;
     }
 
-    static String iso(long ms) {
+    /** apply a medicine toggle / glucose value onto snapshot.sec, per slot; other rows and notes stay untouched */
+    static void applySec(JSONObject s, JSONObject p) throws org.json.JSONException {
+        String kind = "mt".equals(p.optString("op")) ? "med" : "glic";
+        JSONObject sec = s.optJSONObject("sec");
+        if (sec == null) { sec = new JSONObject(); s.put("sec", sec); }
+        JSONObject d = sec.optJSONObject(kind);
+        if (d == null) { d = new JSONObject(); sec.put(kind, d); }
+        String day = p.optString("day");
+        if (day.length() > 0 && d.optString("day").length() == 0) d.put("day", day);
+        JSONArray rows = d.optJSONArray("rows");
+        if (rows == null) { rows = new JSONArray(); d.put("rows", rows); }
+        if ("mt".equals(p.optString("op"))) {
+            String mid = p.optString("m"); int slot = p.optInt("i", -1); boolean on = p.optBoolean("d");
+            JSONObject hit = null;
+            for (int j = 0; j < rows.length(); j++) {
+                JSONObject r = rows.optJSONObject(j);
+                if (r == null || !mid.equals(r.optString("m")) || r.optInt("i") != slot) continue;
+                String rd = r.optString("day");
+                if (day.length() == 0 || rd.length() == 0 || day.equals(rd)) { hit = r; if (day.length() == 0 || day.equals(rd)) break; }
+            }
+            if (hit != null) { hit.put("d", on); if (day.length() > 0) hit.put("day", day); }
+            return;
+        }
+        int slot = p.optInt("i", -1); if (slot < 0) return;
+        boolean clr = p.optBoolean("clr") || !p.has("v");
+        Integer v = clr ? null : Integer.valueOf(p.optInt("v"));
+        String lbl = p.optString("lbl"); if (lbl.length() == 0) lbl = p.optString("tm");
+        String text = lbl + (v == null ? "" : ": " + v + " mg/dl");
+        String meta = v == null ? "—" : (v + " mg/dl");
+        for (int j = 0; j < rows.length(); j++) {
+            JSONObject r = rows.optJSONObject(j);
+            if (r != null && r.optInt("i") == slot) {
+                r.put("t", text); r.put("tm", p.optString("tm", r.optString("tm")));
+                if (v == null) { r.put("v", JSONObject.NULL); } else r.put("v", v.intValue());
+                r.put("d", false);
+                return;
+            }
+        }
+        JSONObject r = new JSONObject().put("m", "g" + slot).put("i", slot).put("t", text).put("tm", p.optString("tm", lbl)).put("d", false).put("p", "");
+        if (v == null) r.put("v", JSONObject.NULL); else r.put("v", v.intValue());
+        /* keep slot order 0..6 */
+        int at = rows.length();
+        for (int j = 0; j < rows.length(); j++) { JSONObject x = rows.optJSONObject(j); if (x != null && x.optInt("i") > slot) { at = j; break; } }
+        insertAt(rows, at, r);
+    }
+
+        static String iso(long ms) {
         java.text.SimpleDateFormat f = new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", java.util.Locale.US);
         f.setTimeZone(java.util.TimeZone.getTimeZone("UTC")); return f.format(new java.util.Date(ms));
     }

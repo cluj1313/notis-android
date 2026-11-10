@@ -1549,4 +1549,17 @@ NOTIS_I18N={
 "Poz\u0103 ad\u0103ugat\u0103": "Foto afegida",
 "Decupeaz\u0103": "Retalla",
 "Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Mou a una altra tasca",
+"Doar titlul": "Nom\u00e9s el t\u00edtol",
+"Istoricul mesajelor trimise. R\u0103m\u00e2n p\u00e2n\u0103 le \u0219tergi.": "Historial dels missatges enviats. Es queden fins que els esborris.",
+"Mesaj \u0219ters": "Missatge esborrat",
+"Arat\u0103 conturul cardurilor": "Mostra el contorn de les targetes",
+
+"mutat": "mogut",
+"Deschide din nou Set\u0103rile": "Torna a obrir els Ajustos",
+"Mesaje": "Missatges",
+"Niciun mesaj": "Cap missatge",
+"Se \u0219terge\u2026": "S\u2019est\u00e0 suprimint\u2026",
+"Ieri": "Ahir",
+"M\u00e2ine": "Dem\u00e0",
+
 };

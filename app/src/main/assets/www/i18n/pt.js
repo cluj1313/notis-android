@@ -1549,4 +1549,17 @@ NOTIS_I18N={
 "Poz\u0103 ad\u0103ugat\u0103": "Foto adicionada",
 "Decupeaz\u0103": "Recortar",
 "Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Mover para outra tarefa",
+"Doar titlul": "S\u00f3 o t\u00edtulo",
+"Istoricul mesajelor trimise. R\u0103m\u00e2n p\u00e2n\u0103 le \u0219tergi.": "Hist\u00f3rico das mensagens enviadas. Ficam at\u00e9 as apagar.",
+"Mesaj \u0219ters": "Mensagem apagada",
+"Arat\u0103 conturul cardurilor": "Mostrar o contorno dos cart\u00f5es",
+
+"mutat": "movido",
+"Deschide din nou Set\u0103rile": "Abra novamente as Defini\u00e7\u00f5es",
+"Mesaje": "Mensagens",
+"Niciun mesaj": "Nenhuma mensagem",
+"Se \u0219terge\u2026": "A eliminar\u2026",
+"Ieri": "Ontem",
+"M\u00e2ine": "Amanh\u00e3",
+
 };

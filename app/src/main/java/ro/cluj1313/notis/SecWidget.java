@@ -1,19 +1,24 @@
 package ro.cluj1313.notis;
 
+import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.RemoteViews;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
-/** 2.21.0: content widgets for Pastile / Plăți / CRM. Read-only view of the snapshot the app pushes (snapshot.sec.*);
- *  nothing is logged. Settings per widget in "sc_"+wid: f filter, n rows, a opacity %, fs font size, cb show checkboxes. */
+/** 2.25.1: Pastile / Glicemie widgets are usable on the home screen (checkbox / add reading).
+ *  Only the header opens the app. Plăți / CRM stay a read-only view of snapshot.sec.*. */
 public abstract class SecWidget extends AppWidgetProvider {
     abstract String kind();
     @Override public void onUpdate(Context c, AppWidgetManager m, int[] ids) { for (int id : ids) draw(c, m, id, kind()); }
@@ -39,7 +44,7 @@ public abstract class SecWidget extends AppWidgetProvider {
         try { String s = Store.get(c, "sc_" + wid); if (s != null) return new JSONObject(s); } catch (Exception ignored) {}
         return new JSONObject();
     }
-    static int title(String k) { return "med".equals(k) ? R.string.h_med : "glic".equals(k) ? R.string.h_med : "util".equals(k) ? R.string.h_util : R.string.h_crm; }
+    static int title(String k) { return "med".equals(k) ? R.string.h_med : "glic".equals(k) ? R.string.h_glic : "util".equals(k) ? R.string.h_util : R.string.h_crm; }
     static String icon(String k) { return "med".equals(k) ? "💊 " : "glic".equals(k) ? "🩸 " : "util".equals(k) ? "💳 " : "👥 "; }
     static int base(String k) { return "med".equals(k) ? 710000 : "glic".equals(k) ? 711000 : "util".equals(k) ? 720000 : 730000; }
     static boolean pass(JSONObject r, String k, String f) {
@@ -48,7 +53,46 @@ public abstract class SecWidget extends AppWidgetProvider {
         if ("util".equals(k)) return f.equals(r.optString("g"));
         return f.equals(r.optString("sub"));
     }
-    static String dm(String d) { /* yyyy-mm-dd -> dd.mm */ return d != null && d.length() >= 10 ? d.substring(8, 10) + "." + d.substring(5, 7) : ""; }
+    static String dm(String d) { /* yyyy-mm-dd -> dd/mm */ return d != null && d.length() >= 10 ? d.substring(8, 10) + "/" + d.substring(5, 7) : ""; }
+    static String today() { return new SimpleDateFormat("yyyy-MM-dd", Locale.US).format(new Date()); }
+
+    static PendingIntent togglePi(Context c, int req, String mid, int slot, boolean on, String day) {
+        Intent i = new Intent(c, SecActReceiver.class).setAction(SecActReceiver.TOGGLE)
+            .putExtra("m", mid).putExtra("i", slot).putExtra("d", on).putExtra("day", day)
+            .setData(Uri.parse("notis://sectog/" + Uri.encode(mid) + "/" + slot + "/" + Uri.encode(day == null ? "" : day)));
+        return PendingIntent.getBroadcast(c, req, i, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+    }
+    static PendingIntent glicPi(Context c, int req, int wid, String day, int slot, int val, String lbl, String tm) {
+        Intent i = new Intent(c, GlicInputActivity.class)
+            .putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, wid)
+            .putExtra("day", day).putExtra("i", slot).putExtra("v", val)
+            .putExtra("lbl", lbl).putExtra("tm", tm)
+            .setData(Uri.parse("notis://glicin/" + wid + "/" + slot))
+            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        int fl = PendingIntent.FLAG_UPDATE_CURRENT | (Build.VERSION.SDK_INT >= 31 ? PendingIntent.FLAG_MUTABLE : PendingIntent.FLAG_IMMUTABLE);
+        /* IMMUTABLE is fine: extras are set here, no fill-in */
+        return PendingIntent.getActivity(c, req, i, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+    }
+
+    static String[] glicLabs(Context c) {
+        try { return Tr.ctx(c).getResources().getStringArray(R.array.glic_slots); } catch (Exception e) { return new String[]{"1","2","3","4","5","6","7"}; }
+    }
+
+    /** 7 slots for today: snapshot rows (if same day) plus any overlay values already in snapshot() */
+    static JSONObject[] glicToday(Context c, JSONObject d, String day) {
+        JSONObject[] slots = new JSONObject[7];
+        String[] labs = glicLabs(c);
+        boolean same = d != null && day.equals(d.optString("day"));
+        JSONArray rows = same && d != null ? d.optJSONArray("rows") : null;
+        if (rows != null) for (int i = 0; i < rows.length(); i++) {
+            JSONObject r = rows.optJSONObject(i); if (r == null) continue;
+            int j = r.optInt("i", -1); if (j >= 0 && j < 7 && slots[j] == null) slots[j] = r;
+        }
+        for (int i = 0; i < 7; i++) if (slots[i] == null) {
+            try { slots[i] = new JSONObject().put("m", "g" + i).put("i", i).put("t", labs[i]).put("tm", labs[i]).put("d", false).put("v", JSONObject.NULL); } catch (Exception ignored) {}
+        }
+        return slots;
+    }
 
     static void draw(Context c, AppWidgetManager m, int id, String k) {
         RemoteViews v = new RemoteViews(c.getPackageName(), R.layout.sec_widget);
@@ -56,7 +100,7 @@ public abstract class SecWidget extends AppWidgetProvider {
         Themes th = Store.get(c, "th_" + id) == null ? Themes.of("jad") : Themes.forWidget(c, id);
         int alpha = Math.max(0, Math.min(100, sc.optInt("a", 100)));
         float fs = (float) Math.max(11, Math.min(20, sc.optInt("fs", 14)));
-        int max = Math.max(1, Math.min(12, sc.optInt("n", 5)));
+        int max = Math.max(1, Math.min(20, sc.optInt("n", "glic".equals(k) ? 7 : "med".equals(k) ? 12 : 5)));
         boolean cb = sc.optBoolean("cb", true);
         String f = sc.optString("f", "");
         v.setImageViewResource(R.id.sw_bg, th.bg);
@@ -71,22 +115,76 @@ public abstract class SecWidget extends AppWidgetProvider {
         v.setContentDescription(R.id.sw_cfg, Tr.s(c, R.string.cd_settings));
         android.app.PendingIntent open = NotisWidget.openApp(c, base(k) + id, "?tk=" + k);
         v.setOnClickPendingIntent(R.id.sw_head, open);
-        v.setOnClickPendingIntent(R.id.sw_rows, open);
-        v.setOnClickPendingIntent(R.id.sw_empty, open);
+        /* rows / empty must not open the app — only the title bar does (2.25.1) */
+        v.setOnClickPendingIntent(R.id.sw_rows, null);
+        v.setOnClickPendingIntent(R.id.sw_empty, null);
         Intent ci = new Intent(c, SecConfigActivity.class).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id).putExtra("fromWidget", true);
         ci.setData(Uri.parse("notis://seccfg/" + id));
         v.setOnClickPendingIntent(R.id.sw_cfg, NotisWidget.activity(c, base(k) + 5000 + id, ci));
         v.removeAllViews(R.id.sw_rows);
 
         JSONObject snap = Store.snapshot(c), sec = snap.optJSONObject("sec"), d = sec == null ? null : sec.optJSONObject(k);
+        String day = today();
         JSONArray rows = d == null ? null : d.optJSONArray("rows");
-        if (("med".equals(k)||"glic".equals(k)) && d != null && !d.optString("day").equals(new java.text.SimpleDateFormat("yyyy-MM-dd", java.util.Locale.US).format(new java.util.Date()))) { rows = null; d = null; } /* stale day: wait for the app to push today */
+        /* 2.25.1: rows carry their own day (past / today / upcoming); do not drop the list */
         int tot = 0, done = 0, shown = 0;
         long now = System.currentTimeMillis();
+
+        if ("glic".equals(k)) {
+            JSONObject[] slots = glicToday(c, d, day);
+            String vis = sc.optString("vis", "1111111");
+            if (vis.length() < 7) vis = (vis + "1111111").substring(0, 7);
+            int filled = 0;
+            for (int i = 0; i < slots.length && shown < max; i++) {
+                if (i < vis.length() && vis.charAt(i) == '0') continue;
+                JSONObject r = slots[i]; if (r == null) continue;
+                boolean has = r.has("v") && !r.isNull("v") && r.optInt("v") > 0;
+                if (has) filled++;
+                String tm = r.optString("tm"); if (tm.length() == 0) tm = r.optString("t");
+                String lbl = tm;
+                int colon = lbl.indexOf(':'); if (colon > 0) lbl = lbl.substring(0, colon).trim();
+                String text = lbl;
+                String meta = has ? (r.optInt("v") + " mg/dl") : "—";
+                RemoteViews it = new RemoteViews(c.getPackageName(), R.layout.sec_item);
+                it.setViewVisibility(R.id.si_box, View.GONE);
+                it.setTextViewText(R.id.si_text, text); it.setTextColor(R.id.si_text, th.text);
+                it.setTextViewTextSize(R.id.si_text, TypedValue.COMPLEX_UNIT_SP, fs);
+                it.setTextViewText(R.id.si_meta, meta); it.setTextColor(R.id.si_meta, has ? th.acc : th.mut);
+                it.setTextViewTextSize(R.id.si_meta, TypedValue.COMPLEX_UNIT_SP, Math.max(10, fs - 2));
+                int val = has ? r.optInt("v") : -1;
+                it.setOnClickPendingIntent(R.id.si_row, glicPi(c, base(k) + id * 20 + i, id, day, i, val, lbl, tm));
+                v.addView(R.id.sw_rows, it); shown++; tot++;
+            }
+            if (filled == 0 && d != null) {
+                JSONObject last = d.optJSONObject("last");
+                if (last != null && last.optInt("v") > 0) {
+                    String lastTxt = dm(last.optString("day")) + "  " + last.optString("tm") + "  " + last.optInt("v") + " mg/dl";
+                    v.setTextViewText(R.id.sw_cnt, Tr.s(c, R.string.glic_last, lastTxt));
+                } else v.setTextViewText(R.id.sw_cnt, "0/7");
+            } else v.setTextViewText(R.id.sw_cnt, filled + "/7");
+            v.setViewVisibility(R.id.sw_empty, View.GONE);
+            m.updateAppWidget(id, v);
+            return;
+        }
+
+        String lastG = "";
         if (rows != null) for (int i = 0; i < rows.length(); i++) {
             JSONObject r = rows.optJSONObject(i); if (r == null || !pass(r, k, f)) continue;
             tot++; if (r.optBoolean("d")) done++;
             if (shown >= max) continue;
+            if ("med".equals(k)) {
+                String g = r.optString("g");
+                if (g.length() > 0 && !g.equals(lastG)) {
+                    lastG = g;
+                    RemoteViews hd = new RemoteViews(c.getPackageName(), R.layout.sec_item);
+                    hd.setViewVisibility(R.id.si_box, View.GONE);
+                    hd.setTextViewText(R.id.si_text, g); hd.setTextColor(R.id.si_text, th.acc);
+                    hd.setTextViewTextSize(R.id.si_text, TypedValue.COMPLEX_UNIT_SP, Math.max(10, fs - 1));
+                    hd.setTextViewText(R.id.si_meta, "");
+                    v.addView(R.id.sw_rows, hd); shown++;
+                    if (shown >= max) continue;
+                }
+            }
             RemoteViews it = new RemoteViews(c.getPackageName(), R.layout.sec_item);
             String txt = r.optString("t"), meta = "";
             boolean box = false, on = false, warn = false;
@@ -99,13 +197,20 @@ public abstract class SecWidget extends AppWidgetProvider {
             it.setTextViewTextSize(R.id.si_text, TypedValue.COMPLEX_UNIT_SP, fs);
             it.setTextViewText(R.id.si_meta, meta); it.setTextColor(R.id.si_meta, warn ? th.danger : th.mut);
             it.setTextViewTextSize(R.id.si_meta, TypedValue.COMPLEX_UNIT_SP, Math.max(10, fs - 2));
-            it.setOnClickPendingIntent(R.id.si_row, open);
+            if ("med".equals(k)) {
+                String rday = r.optString("day"); if (rday.length() == 0) rday = day;
+                PendingIntent tog = togglePi(c, base(k) + id * 40 + shown, r.optString("m"), r.optInt("i"), on, rday);
+                it.setOnClickPendingIntent(R.id.si_row, tog);
+                it.setOnClickPendingIntent(R.id.si_box, tog);
+            }
+            /* util / crm: no row click — only the header opens the app */
             v.addView(R.id.sw_rows, it); shown++;
         }
         v.setTextViewText(R.id.sw_cnt, d == null ? "" : "med".equals(k) ? done + "/" + tot : String.valueOf(tot));
         if (shown == 0) {
             v.setViewVisibility(R.id.sw_empty, View.VISIBLE);
-            v.setTextViewText(R.id.sw_empty, d == null ? Tr.s(c, R.string.sw_open_once) : Tr.s(c, "med".equals(k) ? R.string.sw_empty_med : "util".equals(k) ? R.string.sw_empty_util : R.string.sw_empty_crm));
+            int emptyId = d == null ? R.string.sw_open_once : "med".equals(k) ? R.string.sw_empty_med : "util".equals(k) ? R.string.sw_empty_util : R.string.sw_empty_crm;
+            v.setTextViewText(R.id.sw_empty, Tr.s(c, emptyId));
         } else v.setViewVisibility(R.id.sw_empty, View.GONE);
         m.updateAppWidget(id, v);
     }

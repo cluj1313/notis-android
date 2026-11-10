@@ -67,6 +67,7 @@
         </activity>
         <activity android:name=".AddItemActivity" android:exported="false" android:theme="@style/NotisDialog" android:excludeFromRecents="true" android:noHistory="true" android:taskAffinity="ro.cluj1313.notis.widgetui" android:windowSoftInputMode="stateAlwaysVisible|adjustResize" />
         <activity android:name=".AddNoteActivity" android:exported="false" android:theme="@style/NotisDialog" android:excludeFromRecents="true" android:noHistory="true" android:taskAffinity="ro.cluj1313.notis.widgetui" android:windowSoftInputMode="stateAlwaysVisible|adjustResize" />
+        <activity android:name=".GlicInputActivity" android:exported="false" android:theme="@style/NotisDialog" android:excludeFromRecents="true" android:noHistory="true" android:taskAffinity="ro.cluj1313.notis.widgetui" android:windowSoftInputMode="stateAlwaysVisible|adjustResize" />
         <activity android:screenOrientation="portrait" android:name=".AlarmActivity" android:exported="false" android:theme="@style/NotisDialog" android:excludeFromRecents="true" android:noHistory="true" android:taskAffinity="ro.cluj1313.notis.widgetui" />
         <activity android:name=".RingActivity" android:exported="false" android:theme="@style/NotisDialog" android:excludeFromRecents="true" android:noHistory="true" android:taskAffinity="ro.cluj1313.notis.ring" android:showWhenLocked="true" android:turnScreenOn="true" />
         <activity android:name=".PickActivity" android:exported="false" android:theme="@style/NotisDialog" android:excludeFromRecents="true" android:noHistory="true" android:taskAffinity="ro.cluj1313.notis.widgetui" />
@@ -99,6 +100,7 @@
         </receiver>
         <receiver android:name=".AlarmReceiver" android:exported="false" />
         <receiver android:name=".ListActReceiver" android:exported="false" />
+        <receiver android:name=".SecActReceiver" android:exported="false" />
         <receiver android:name=".NewsReceiver" android:exported="false" />
         <receiver android:name=".BootReceiver" android:exported="true">
             <intent-filter>

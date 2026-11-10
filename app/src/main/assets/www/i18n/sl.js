@@ -1549,4 +1549,17 @@ NOTIS_I18N={
 "Poz\u0103 ad\u0103ugat\u0103": "Fotografija dodana",
 "Decupeaz\u0103": "Obre\u017ei",
 "Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Premakni v drugo opravilo",
+"Doar titlul": "Samo naslov",
+"Istoricul mesajelor trimise. R\u0103m\u00e2n p\u00e2n\u0103 le \u0219tergi.": "Zgodovina poslanih sporo\u010dil. Ostanejo, dokler jih ne izbri\u0161ete.",
+"Mesaj \u0219ters": "Sporo\u010dilo izbrisano",
+"Arat\u0103 conturul cardurilor": "Prika\u017ei obrobo kartic",
+
+"mutat": "premaknjeno",
+"Deschide din nou Set\u0103rile": "Ponovno odprite Nastavitve",
+"Mesaje": "Sporo\u010dila",
+"Niciun mesaj": "Ni sporo\u010dil",
+"Se \u0219terge\u2026": "Brisanje\u2026",
+"Ieri": "V\u010deraj",
+"M\u00e2ine": "Jutri",
+
 };

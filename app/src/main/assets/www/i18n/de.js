@@ -1550,4 +1550,17 @@ NOTIS_I18N={
 "Poz\u0103 ad\u0103ugat\u0103": "Foto hinzugef\u00fcgt",
 "Decupeaz\u0103": "Zuschneiden",
 "Mut\u0103 \u00een alt\u0103 sarcin\u0103": "In andere Aufgabe verschieben",
+"Doar titlul": "Nur Titel",
+"Istoricul mesajelor trimise. R\u0103m\u00e2n p\u00e2n\u0103 le \u0219tergi.": "Verlauf der gesendeten Nachrichten. Sie bleiben, bis Sie sie l\u00f6schen.",
+"Mesaj \u0219ters": "Nachricht gel\u00f6scht",
+"Arat\u0103 conturul cardurilor": "Kartenrahmen anzeigen",
+
+"mutat": "verschoben",
+"Deschide din nou Set\u0103rile": "Einstellungen erneut \u00f6ffnen",
+"Mesaje": "Nachrichten",
+"Niciun mesaj": "Keine Nachrichten",
+"Se \u0219terge\u2026": "Wird gel\u00f6scht\u2026",
+"Ieri": "Gestern",
+"M\u00e2ine": "Morgen",
+
 };

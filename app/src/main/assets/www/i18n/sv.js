@@ -1549,4 +1549,17 @@ NOTIS_I18N={
 "Poz\u0103 ad\u0103ugat\u0103": "Foto tillagt",
 "Decupeaz\u0103": "Besk\u00e4r",
 "Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Flytta till en annan uppgift",
+"Doar titlul": "Endast titel",
+"Istoricul mesajelor trimise. R\u0103m\u00e2n p\u00e2n\u0103 le \u0219tergi.": "Historik \u00f6ver skickade meddelanden. De finns kvar tills du tar bort dem.",
+"Mesaj \u0219ters": "Meddelandet raderat",
+"Arat\u0103 conturul cardurilor": "Visa kortens ram",
+
+"mutat": "flyttad",
+"Deschide din nou Set\u0103rile": "\u00d6ppna Inst\u00e4llningar igen",
+"Mesaje": "Meddelanden",
+"Niciun mesaj": "Inga meddelanden",
+"Se \u0219terge\u2026": "Tar bort\u2026",
+"Ieri": "Ig\u00e5r",
+"M\u00e2ine": "Imorgon",
+
 };

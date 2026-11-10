@@ -1549,4 +1549,17 @@ NOTIS_I18N={
 "Poz\u0103 ad\u0103ugat\u0103": "Foto pievienots",
 "Decupeaz\u0103": "Apgriezt",
 "Mut\u0103 \u00een alt\u0103 sarcin\u0103": "P\u0101rvietot uz citu uzdevumu",
+"Doar titlul": "Tikai virsraksts",
+"Istoricul mesajelor trimise. R\u0103m\u00e2n p\u00e2n\u0103 le \u0219tergi.": "Nos\u016bt\u012bto zi\u0146u v\u0113sture. T\u0101s paliek, l\u012bdz t\u0101s izdz\u0113s.",
+"Mesaj \u0219ters": "Zi\u0146a izdz\u0113sta",
+"Arat\u0103 conturul cardurilor": "R\u0101d\u012bt kar\u0161u kont\u016bru",
+
+"mutat": "p\u0101rvietots",
+"Deschide din nou Set\u0103rile": "Atveriet Iestat\u012bjumus v\u0113lreiz",
+"Mesaje": "Zi\u0146as",
+"Niciun mesaj": "Nav zi\u0146u",
+"Se \u0219terge\u2026": "Dz\u0113\u0161\u2026",
+"Ieri": "Vakar",
+"M\u00e2ine": "R\u012bt",
+
 };

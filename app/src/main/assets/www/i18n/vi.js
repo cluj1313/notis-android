@@ -1549,4 +1549,17 @@ NOTIS_I18N={
 "Poz\u0103 ad\u0103ugat\u0103": "\u0110\u00e3 th\u00eam \u1ea3nh",
 "Decupeaz\u0103": "C\u1eaft",
 "Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Chuy\u1ec3n sang vi\u1ec7c kh\u00e1c",
+"Doar titlul": "Ch\u1ec9 ti\u00eau \u0111\u1ec1",
+"Istoricul mesajelor trimise. R\u0103m\u00e2n p\u00e2n\u0103 le \u0219tergi.": "L\u1ecbch s\u1eed tin \u0111\u00e3 g\u1eedi. Ch\u00fang \u0111\u01b0\u1ee3c gi\u1eef cho \u0111\u1ebfn khi b\u1ea1n x\u00f3a.",
+"Mesaj \u0219ters": "\u0110\u00e3 x\u00f3a tin",
+"Arat\u0103 conturul cardurilor": "Hi\u1ec7n vi\u1ec1n th\u1ebb",
+
+"mutat": "\u0111\u00e3 chuy\u1ec3n",
+"Deschide din nou Set\u0103rile": "M\u1edf l\u1ea1i C\u00e0i \u0111\u1eb7t",
+"Mesaje": "Tin nh\u1eafn",
+"Niciun mesaj": "Kh\u00f4ng c\u00f3 tin",
+"Se \u0219terge\u2026": "\u0110ang x\u00f3a\u2026",
+"Ieri": "H\u00f4m qua",
+"M\u00e2ine": "Ng\u00e0y mai",
+
 };

@@ -1550,4 +1550,17 @@ NOTIS_I18N={
 "Poz\u0103 ad\u0103ugat\u0103": "Foto lisatud",
 "Decupeaz\u0103": "K\u00e4rbi",
 "Mut\u0103 \u00een alt\u0103 sarcin\u0103": "Teisalda teise \u00fclesandesse",
+"Doar titlul": "Ainult pealkiri",
+"Istoricul mesajelor trimise. R\u0103m\u00e2n p\u00e2n\u0103 le \u0219tergi.": "Saadetud s\u00f5numite ajalugu. Need j\u00e4\u00e4vad alles, kuni need kustutad.",
+"Mesaj \u0219ters": "S\u00f5num kustutatud",
+"Arat\u0103 conturul cardurilor": "N\u00e4ita kaartide piirjoont",
+
+"mutat": "teisaldatud",
+"Deschide din nou Set\u0103rile": "Ava Seaded uuesti",
+"Mesaje": "S\u00f5numid",
+"Niciun mesaj": "S\u00f5numeid pole",
+"Se \u0219terge\u2026": "Kustutamine\u2026",
+"Ieri": "Eile",
+"M\u00e2ine": "Homme",
+
 };

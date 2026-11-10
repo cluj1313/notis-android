@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="glic_slots">
+        <item>Dim.</item>
+        <item>+2h mic dej.</item>
+        <item>Înt. prânz</item>
+        <item>+2h prânz</item>
+        <item>Înt. cină</item>
+        <item>+2h cină</item>
+        <item>Culcare</item>
+    </string-array>
+</resources>
