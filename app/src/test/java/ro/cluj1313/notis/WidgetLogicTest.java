@@ -152,4 +152,20 @@ public class WidgetLogicTest {
         JSONArray hideAll = new JSONArray().put("a").put("b").put("c");
         assertTrue("only an explicit hidden list may empty the widget", SecWidget.medDayCounts(rows, "", hideAll, "2026-11-10").isEmpty());
     }
+    @Test public void todayIndexPrefersTodayThenNext() throws Exception {
+        java.util.List<org.json.JSONObject> rows = new java.util.ArrayList<>();
+        rows.add(new JSONObject().put("day", "2026-11-08").put("done", 1).put("tot", 1));
+        rows.add(new JSONObject().put("day", "2026-11-09").put("done", 0).put("tot", 1));
+        rows.add(new JSONObject().put("day", "2026-11-10").put("done", 0).put("tot", 2));
+        rows.add(new JSONObject().put("day", "2026-11-11").put("done", 0).put("tot", 1));
+        assertEquals(2, SecWidget.todayIndex(rows, "2026-11-10"));
+        assertEquals(3, SecWidget.todayIndex(rows, "2026-11-11"));
+        /* today missing: first day on or after today */
+        java.util.List<org.json.JSONObject> gap = new java.util.ArrayList<>();
+        gap.add(new JSONObject().put("day", "2026-11-08"));
+        gap.add(new JSONObject().put("day", "2026-11-12"));
+        assertEquals(1, SecWidget.todayIndex(gap, "2026-11-10"));
+        assertEquals(0, SecWidget.todayIndex(new java.util.ArrayList<>(), "2026-11-10"));
+    }
+
 }

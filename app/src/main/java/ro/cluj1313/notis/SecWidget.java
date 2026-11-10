@@ -37,7 +37,11 @@ public abstract class SecWidget extends AppWidgetProvider {
 
     static void refreshAll(Context c) {
         AppWidgetManager m = AppWidgetManager.getInstance(c);
-        for (int k = 0; k < ALL.length; k++) for (int id : m.getAppWidgetIds(new ComponentName(c, ALL[k]))) draw(c, m, id, KINDS[k]);
+        for (int k = 0; k < ALL.length; k++) {
+            int[] ids = m.getAppWidgetIds(new ComponentName(c, ALL[k]));
+            for (int id : ids) draw(c, m, id, KINDS[k]);
+            if (ids.length > 0 && Build.VERSION.SDK_INT < 31) m.notifyAppWidgetViewDataChanged(ids, R.id.sw_list);
+        }
     }
     static String kindOf(Context c, int wid) {
         android.appwidget.AppWidgetProviderInfo i = AppWidgetManager.getInstance(c).getAppWidgetInfo(wid);
@@ -124,40 +128,16 @@ public abstract class SecWidget extends AppWidgetProvider {
         Intent ci = new Intent(c, SecConfigActivity.class).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id).putExtra("fromWidget", true);
         ci.setData(Uri.parse("notis://seccfg/" + id));
         v.setOnClickPendingIntent(R.id.sw_cfg, NotisWidget.activity(c, base(k) + 5000 + id, ci));
-        v.removeAllViews(R.id.sw_rows);
-
-        JSONObject snap = Store.snapshot(c), sec = snap.optJSONObject("sec"), d = sec == null ? null : sec.optJSONObject(k);
+        List<JSONObject> items = listRows(c, id, k);
         String day = today();
-        JSONArray rows = d == null ? null : d.optJSONArray("rows");
-        /* 2.25.1: rows carry their own day (past / today / upcoming); do not drop the list */
-        int tot = 0, done = 0, shown = 0;
-        long now = System.currentTimeMillis();
-
-        if ("glic".equals(k)) {
-            JSONObject[] slots = glicToday(c, d, day);
-            String vis = sc.optString("vis", "1111111");
-            if (vis.length() < 7) vis = (vis + "1111111").substring(0, 7);
-            int filled = 0;
-            for (int i = 0; i < slots.length && shown < max; i++) {
-                if (i < vis.length() && vis.charAt(i) == '0') continue;
-                JSONObject r = slots[i]; if (r == null) continue;
-                boolean has = r.has("v") && !r.isNull("v") && r.optInt("v") > 0;
-                if (has) filled++;
-                String tm = r.optString("tm"); if (tm.length() == 0) tm = r.optString("t");
-                String lbl = tm;
-                int colon = lbl.indexOf(':'); if (colon > 0) lbl = lbl.substring(0, colon).trim();
-                String text = lbl;
-                String meta = has ? (r.optInt("v") + " mg/dl") : "—";
-                RemoteViews it = new RemoteViews(c.getPackageName(), R.layout.sec_item);
-                it.setViewVisibility(R.id.si_box, View.GONE);
-                it.setTextViewText(R.id.si_text, text); it.setTextColor(R.id.si_text, th.text);
-                it.setTextViewTextSize(R.id.si_text, TypedValue.COMPLEX_UNIT_SP, fs);
-                it.setTextViewText(R.id.si_meta, meta); it.setTextColor(R.id.si_meta, has ? th.acc : th.mut);
-                it.setTextViewTextSize(R.id.si_meta, TypedValue.COMPLEX_UNIT_SP, Math.max(10, fs - 2));
-                int val = has ? r.optInt("v") : -1;
-                it.setOnClickPendingIntent(R.id.si_row, glicPi(c, base(k) + id * 20 + i, id, day, i, val, lbl, tm));
-                v.addView(R.id.sw_rows, it); shown++; tot++;
-            }
+        int tot = 0, done = 0, filled = 0;
+        JSONObject snap = Store.snapshot(c), sec = snap == null ? null : snap.optJSONObject("sec"), d = sec == null ? null : sec.optJSONObject(k);
+        if ("med".equals(k)) {
+            for (JSONObject r : items) { tot += r.optInt("tot"); done += r.optInt("done"); }
+            v.setTextViewText(R.id.sw_cnt, d == null ? "" : done + "/" + tot);
+            v.setTextViewText(R.id.sw_empty, Tr.s(Tr.ctx(c, sc.optString("lang", "")), d == null ? R.string.sw_open_once : R.string.sw_empty_med));
+        } else if ("glic".equals(k)) {
+            for (JSONObject r : items) if (r.has("v") && !r.isNull("v") && r.optInt("v") > 0) filled++;
             if (filled == 0 && d != null) {
                 JSONObject last = d.optJSONObject("last");
                 if (last != null && last.optInt("v") > 0) {
@@ -165,85 +145,154 @@ public abstract class SecWidget extends AppWidgetProvider {
                     v.setTextViewText(R.id.sw_cnt, Tr.s(c, R.string.glic_last, lastTxt));
                 } else v.setTextViewText(R.id.sw_cnt, "0/7");
             } else v.setTextViewText(R.id.sw_cnt, filled + "/7");
-            v.setViewVisibility(R.id.sw_empty, View.GONE);
-            return;
+            v.setTextViewText(R.id.sw_empty, Tr.s(c, R.string.sw_open_once));
+        } else {
+            tot = items.size();
+            v.setTextViewText(R.id.sw_cnt, d == null ? "" : String.valueOf(tot));
+            int emptyId = d == null ? R.string.sw_open_once : "util".equals(k) ? R.string.sw_empty_util : R.string.sw_empty_crm;
+            v.setTextViewText(R.id.sw_empty, Tr.s(c, emptyId));
         }
-
+        Intent svc = new Intent(c, WidgetService.class).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id).putExtra("kind", "sec").putExtra("sk", k);
+        svc.setData(Uri.parse("notis://widget/sec/" + k + "/" + id));
+        if (Build.VERSION.SDK_INT >= 31) v.setRemoteAdapter(R.id.sw_list, WidgetService.secItems(c, id, k));
+        else v.setRemoteAdapter(R.id.sw_list, svc);
+        v.setEmptyView(R.id.sw_list, R.id.sw_empty);
+        int fl = PendingIntent.FLAG_UPDATE_CURRENT | (Build.VERSION.SDK_INT >= 31 ? PendingIntent.FLAG_MUTABLE : 0);
         if ("med".equals(k)) {
-            Context tc = Tr.ctx(c, sc.optString("lang", ""));
-            JSONArray mh = sc.optJSONArray("mh");
-            LinkedHashMap<String, int[]> days = medDayCounts(rows, f, mh, day);
-            for (int[] ct : days.values()) { tot += ct[1]; done += ct[0]; }
-            List<String> keys = new ArrayList<>(days.keySet());
-            Collections.sort(keys);
-            for (String rd : keys) {
-                if (shown >= max) break;
-                int[] ct = days.get(rd);
+            Intent t = new Intent(c, DayMedActivity.class).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id)
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY)
+                .setData(Uri.parse("notis://daymed/" + id));
+            v.setPendingIntentTemplate(R.id.sw_list, PendingIntent.getActivity(c, base(k) + 8000 + id, t, fl));
+        } else if ("glic".equals(k)) {
+            Intent t = new Intent(c, GlicInputActivity.class).putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id)
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NO_HISTORY)
+                .setData(Uri.parse("notis://glicin/" + id));
+            v.setPendingIntentTemplate(R.id.sw_list, PendingIntent.getActivity(c, base(k) + 8000 + id, t, fl));
+        }
+        int todayAt = todayIndex(items, day);
+        if (todayAt >= 0) v.setScrollPosition(R.id.sw_list, todayAt);
+        } catch (Exception e) {
+            try {
+                v.setTextViewText(R.id.sw_title, icon(k) + Tr.s(c, title(k)));
+                v.setTextViewText(R.id.sw_empty, Tr.s(c, R.string.sw_open_once));
+                v.setEmptyView(R.id.sw_list, R.id.sw_empty);
+            } catch (Exception ignored) {}
+        } finally {
+            try { m.updateAppWidget(id, v); if (Build.VERSION.SDK_INT < 31) m.notifyAppWidgetViewDataChanged(id, R.id.sw_list); } catch (Exception ignored) {}
+        }
+    }
+    /** every visible day/slot/row, no cap — already-placed widgets with empty config show all */
+    static List<JSONObject> listRows(Context c, int id, String k) {
+        List<JSONObject> o = new ArrayList<>();
+        try {
+            JSONObject sc = cfg(c, id);
+            String f = sc.optString("f", ""), day = today();
+            JSONObject snap = Store.snapshot(c), sec = snap == null ? null : snap.optJSONObject("sec"), d = sec == null ? null : sec.optJSONObject(k);
+            if ("glic".equals(k)) {
+                JSONObject[] slots = glicToday(c, d, day);
+                String vis = sc.optString("vis", "1111111");
+                if (vis.length() < 7) vis = (vis + "1111111").substring(0, 7);
+                for (int i = 0; i < slots.length; i++) {
+                    if (i < vis.length() && vis.charAt(i) == '0') continue;
+                    JSONObject r = slots[i]; if (r == null) continue;
+                    JSONObject x = new JSONObject(r.toString());
+                    x.put("day", day);
+                    o.add(x);
+                }
+                return o;
+            }
+            JSONArray rows = d == null ? null : d.optJSONArray("rows");
+            if ("med".equals(k)) {
+                LinkedHashMap<String, int[]> days = medDayCounts(rows, f, sc.optJSONArray("mh"), day);
+                List<String> keys = new ArrayList<>(days.keySet());
+                Collections.sort(keys);
+                for (String rd : keys) {
+                    int[] ct = days.get(rd);
+                    o.add(new JSONObject().put("day", rd).put("done", ct[0]).put("tot", ct[1]));
+                }
+                return o;
+            }
+            if (rows != null) for (int i = 0; i < rows.length(); i++) {
+                JSONObject r = rows.optJSONObject(i); if (r == null || !pass(r, k, f)) continue;
+                o.add(r);
+            }
+        } catch (Exception ignored) {}
+        return o;
+    }
+    static int todayIndex(List<JSONObject> items, String today) {
+        if (items == null || today == null) return 0;
+        int next = -1;
+        for (int i = 0; i < items.size(); i++) {
+            String d = items.get(i).optString("day");
+            if (today.equals(d)) return i;
+            if (next < 0 && d.compareTo(today) >= 0) next = i;
+        }
+        return next >= 0 ? next : 0;
+    }
+    static long itemId(String k, JSONObject r, int p) {
+        if (r == null) return p;
+        if ("med".equals(k)) return ("d:" + r.optString("day")).hashCode();
+        if ("glic".equals(k)) return ("g:" + r.optInt("i")).hashCode();
+        String id = r.optString("m"); if (id.length() == 0) id = r.optString("u"); if (id.length() == 0) id = r.optString("c");
+        return (k + ":" + id + ":" + r.optString("t") + ":" + p).hashCode();
+    }
+    static RemoteViews itemView(Context c, int wid, String k, List<JSONObject> rows, int p) {
+        RemoteViews it = new RemoteViews(c.getPackageName(), R.layout.sec_item);
+        if (p < 0 || p >= rows.size()) return it;
+        JSONObject r = rows.get(p), sc = cfg(c, wid);
+        Themes th = Store.get(c, "th_" + wid) == null ? Themes.of("jad") : Themes.forWidget(c, wid);
+        float fs = (float) Math.max(11, Math.min(20, sc.optInt("fs", 14)));
+        String day = today();
+        try {
+            if ("med".equals(k)) {
+                Context tc = Tr.ctx(c, sc.optString("lang", ""));
+                String rd = r.optString("day");
                 boolean isToday = day.equals(rd);
-                RemoteViews it = new RemoteViews(c.getPackageName(), R.layout.sec_item);
                 it.setViewVisibility(R.id.si_box, View.GONE);
                 it.setTextViewText(R.id.si_text, dayLabel(tc, rd));
                 it.setTextColor(R.id.si_text, isToday ? th.acc : th.text);
                 it.setTextViewTextSize(R.id.si_text, TypedValue.COMPLEX_UNIT_SP, fs);
-                it.setTextViewText(R.id.si_meta, ct[0] + "/" + ct[1]);
+                it.setTextViewText(R.id.si_meta, r.optInt("done") + "/" + r.optInt("tot"));
                 it.setTextColor(R.id.si_meta, isToday ? th.acc : th.mut);
                 it.setTextViewTextSize(R.id.si_meta, TypedValue.COMPLEX_UNIT_SP, Math.max(10, fs - 2));
-                Intent di = new Intent(c, DayMedActivity.class)
-                    .putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, id).putExtra("day", rd)
-                    .setData(Uri.parse("notis://daymed/" + id + "/" + rd));
-                it.setOnClickPendingIntent(R.id.si_row, NotisWidget.activity(c, base(k) + id * 40 + shown, di));
-                v.addView(R.id.sw_rows, it); shown++;
+                it.setOnClickFillInIntent(R.id.si_row, new Intent().putExtra("day", rd));
+                return it;
             }
-            v.setTextViewText(R.id.sw_cnt, d == null ? "" : done + "/" + tot);
-            if (shown == 0) {
-                v.setViewVisibility(R.id.sw_empty, View.VISIBLE);
-                v.setTextViewText(R.id.sw_empty, Tr.s(tc, d == null ? R.string.sw_open_once : R.string.sw_empty_med));
-            } else v.setViewVisibility(R.id.sw_empty, View.GONE);
-            return;
-        }
-
-        if (rows != null) for (int i = 0; i < rows.length(); i++) {
-            JSONObject r = rows.optJSONObject(i); if (r == null || !pass(r, k, f)) continue;
-            tot++; if (r.optBoolean("d")) done++;
-            if (shown >= max) continue;
-            RemoteViews it = new RemoteViews(c.getPackageName(), R.layout.sec_item);
+            if ("glic".equals(k)) {
+                boolean has = r.has("v") && !r.isNull("v") && r.optInt("v") > 0;
+                String tm = r.optString("tm"); if (tm.length() == 0) tm = r.optString("t");
+                String lbl = tm; int colon = lbl.indexOf(':'); if (colon > 0) lbl = lbl.substring(0, colon).trim();
+                it.setViewVisibility(R.id.si_box, View.GONE);
+                it.setTextViewText(R.id.si_text, lbl); it.setTextColor(R.id.si_text, th.text);
+                it.setTextViewTextSize(R.id.si_text, TypedValue.COMPLEX_UNIT_SP, fs);
+                it.setTextViewText(R.id.si_meta, has ? (r.optInt("v") + " mg/dl") : "—");
+                it.setTextColor(R.id.si_meta, has ? th.acc : th.mut);
+                it.setTextViewTextSize(R.id.si_meta, TypedValue.COMPLEX_UNIT_SP, Math.max(10, fs - 2));
+                int val = has ? r.optInt("v") : -1;
+                it.setOnClickFillInIntent(R.id.si_row, new Intent().putExtra("day", r.optString("day", day)).putExtra("i", r.optInt("i")).putExtra("v", val).putExtra("lbl", lbl).putExtra("tm", tm));
+                return it;
+            }
             String txt = r.optString("t"), meta = "";
-            boolean box = false, on = false, warn = false;
-            if ("med".equals(k)) { box = cb; on = r.optBoolean("d"); meta = r.optString("tm"); String p = r.optString("p"); if (f.length() == 0 && p.length() > 0 && multiP(rows)) txt += " · " + p; }
-            else if ("util".equals(k)) { String due = r.optString("due"); meta = due.length() > 0 ? dm(due) + (r.optString("amt").length() > 0 ? "  " + r.optString("amt") : "") : "—"; warn = r.optInt("late") > 0; }
-            else { long at = r.optLong("rem"); if (at > 0) { meta = dm(r.optString("rd")) + " " + r.optString("hm"); warn = at < now; } }
-            it.setViewVisibility(R.id.si_box, box ? View.VISIBLE : View.GONE);
-            if (box) { it.setImageViewResource(R.id.si_box, on ? R.drawable.ic_box_on : R.drawable.ic_box); it.setInt(R.id.si_box, "setColorFilter", on ? th.acc : th.mut); }
-            it.setTextViewText(R.id.si_text, txt); it.setTextColor(R.id.si_text, on ? th.mut : th.text);
+            boolean warn = false;
+            if ("util".equals(k)) {
+                String due = r.optString("due");
+                meta = due.length() > 0 ? dm(due) + (r.optString("amt").length() > 0 ? "  " + r.optString("amt") : "") : "—";
+                warn = r.optInt("late") > 0;
+            } else {
+                long at = r.optLong("rem");
+                if (at > 0) { meta = dm(r.optString("rd")) + " " + r.optString("hm"); warn = at < System.currentTimeMillis(); }
+            }
+            it.setViewVisibility(R.id.si_box, View.GONE);
+            it.setTextViewText(R.id.si_text, txt); it.setTextColor(R.id.si_text, th.text);
             it.setTextViewTextSize(R.id.si_text, TypedValue.COMPLEX_UNIT_SP, fs);
             it.setTextViewText(R.id.si_meta, meta); it.setTextColor(R.id.si_meta, warn ? th.danger : th.mut);
             it.setTextViewTextSize(R.id.si_meta, TypedValue.COMPLEX_UNIT_SP, Math.max(10, fs - 2));
-            if ("med".equals(k)) {
-                String rday = r.optString("day"); if (rday.length() == 0) rday = day;
-                PendingIntent tog = togglePi(c, base(k) + id * 40 + shown, r.optString("m"), r.optInt("i"), on, rday);
-                it.setOnClickPendingIntent(R.id.si_row, tog);
-                it.setOnClickPendingIntent(R.id.si_box, tog);
-            }
-            /* util / crm: no row click — only the header opens the app */
-            v.addView(R.id.sw_rows, it); shown++;
-        }
-        v.setTextViewText(R.id.sw_cnt, d == null ? "" : "med".equals(k) ? done + "/" + tot : String.valueOf(tot));
-        if (shown == 0) {
-            v.setViewVisibility(R.id.sw_empty, View.VISIBLE);
-            int emptyId = d == null ? R.string.sw_open_once : "med".equals(k) ? R.string.sw_empty_med : "util".equals(k) ? R.string.sw_empty_util : R.string.sw_empty_crm;
-            v.setTextViewText(R.id.sw_empty, Tr.s(c, emptyId));
-        } else v.setViewVisibility(R.id.sw_empty, View.GONE);
         } catch (Exception e) {
-            try {
-                v.setTextViewText(R.id.sw_title, icon(k) + Tr.s(c, title(k)));
-                v.removeAllViews(R.id.sw_rows);
-                v.setViewVisibility(R.id.sw_empty, View.VISIBLE);
-                v.setTextViewText(R.id.sw_empty, Tr.s(c, R.string.sw_open_once));
-            } catch (Exception ignored) {}
-        } finally {
-            try { m.updateAppWidget(id, v); } catch (Exception ignored) {}
+            it.setTextViewText(R.id.si_text, r.optString("t"));
         }
+        return it;
     }
+
     /** day -> [done, total] for visible medicines. Missing mh / empty person = show all (already-placed widgets). */
     static LinkedHashMap<String, int[]> medDayCounts(JSONArray rows, String person, JSONArray mh, String today) {
         LinkedHashMap<String, int[]> days = new LinkedHashMap<>();

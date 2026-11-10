@@ -20,7 +20,10 @@ import java.util.List;
 public class WidgetService extends RemoteViewsService {
     @Override public RemoteViewsFactory onGetViewFactory(Intent i) {
         int wid = i.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, 0);
-        return "notes".equals(i.getStringExtra("kind")) ? new NotesF(getApplicationContext(), wid) : new F(getApplicationContext(), wid);
+        String kind = i.getStringExtra("kind");
+        if ("notes".equals(kind)) return new NotesF(getApplicationContext(), wid);
+        if ("sec".equals(kind)) return new SecF(getApplicationContext(), wid, i.getStringExtra("sk"));
+        return new F(getApplicationContext(), wid);
     }
 
     /** text notes of a tab, newest first (checklists have their own widget) */
@@ -198,6 +201,21 @@ public class WidgetService extends RemoteViewsService {
         return b.build();
     }
 
+    @android.annotation.TargetApi(31)
+    static RemoteViews.RemoteCollectionItems secItems(Context c, int wid, String k) {
+        RemoteViews.RemoteCollectionItems.Builder b = new RemoteViews.RemoteCollectionItems.Builder().setHasStableIds(true).setViewTypeCount(1);
+        try {
+            List<JSONObject> rs = SecWidget.listRows(c, wid, k);
+            java.util.Set<Long> seen = new java.util.HashSet<>();
+            for (int p = 0; p < rs.size(); p++) {
+                long id = SecWidget.itemId(k, rs.get(p), p);
+                while (!seen.add(id)) id++;
+                b.addItem(id, SecWidget.itemView(c, wid, k, rs, p));
+            }
+        } catch (Exception ignored) {}
+        return b.build();
+    }
+
     static final class F implements RemoteViewsFactory {
         private final Context c; private final int wid;
         private volatile List<JSONObject> rows = new ArrayList<>(); private volatile String nid = ""; private volatile Themes th;
@@ -242,6 +260,25 @@ public class WidgetService extends RemoteViewsService {
         @Override public RemoteViews getLoadingView() { return null; }
         @Override public int getViewTypeCount() { return 1; }
         @Override public long getItemId(int p) { List<JSONObject> rs = rows; return p < rs.size() ? ((rs.get(p).optBoolean("undo") ? "undo:" : "") + rs.get(p).optString("id")).hashCode() : p; }
+        @Override public boolean hasStableIds() { return true; }
+    }
+
+    static final class SecF implements RemoteViewsFactory {
+        private final Context c; private final int wid; private final String k;
+        private volatile List<JSONObject> rows = new ArrayList<>();
+        SecF(Context c, int wid, String k) { this.c = c; this.wid = wid; this.k = k == null ? "med" : k; }
+        @Override public void onCreate() {}
+        @Override public void onDestroy() { rows.clear(); }
+        @Override public void onDataSetChanged() {
+            List<JSONObject> r;
+            try { r = SecWidget.listRows(c, wid, k); } catch (Exception e) { r = new ArrayList<>(); }
+            rows = r;
+        }
+        @Override public int getCount() { return rows.size(); }
+        @Override public RemoteViews getViewAt(int p) { return SecWidget.itemView(c, wid, k, rows, p); }
+        @Override public RemoteViews getLoadingView() { return null; }
+        @Override public int getViewTypeCount() { return 1; }
+        @Override public long getItemId(int p) { List<JSONObject> rs = rows; return p < rs.size() ? SecWidget.itemId(k, rs.get(p), p) : p; }
         @Override public boolean hasStableIds() { return true; }
     }
 }
