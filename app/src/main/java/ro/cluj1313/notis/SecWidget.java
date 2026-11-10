@@ -8,6 +8,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.RemoteViews;
@@ -216,7 +219,7 @@ public abstract class SecWidget extends AppWidgetProvider {
                 Collections.sort(keys);
                 for (String rd : keys) {
                     int[] ct = days.get(rd);
-                    o.add(new JSONObject().put("day", rd).put("done", ct[0]).put("tot", ct[1]));
+                    o.add(new JSONObject().put("day", rd).put("done", ct[0]).put("tot", ct[1]).put("mk", medDayMarks(rows, f, sc.optJSONArray("mh"), rd, day)));
                 }
                 return o;
             }
@@ -260,9 +263,14 @@ public abstract class SecWidget extends AppWidgetProvider {
                 it.setTextViewText(R.id.si_text, dayLabel(tc, rd));
                 it.setTextColor(R.id.si_text, isToday ? th.acc : th.text);
                 it.setTextViewTextSize(R.id.si_text, TypedValue.COMPLEX_UNIT_SP, fs);
-                it.setTextViewText(R.id.si_meta, r.optInt("done") + "/" + r.optInt("tot"));
-                it.setTextColor(R.id.si_meta, isToday ? th.acc : th.mut);
-                it.setTextViewTextSize(R.id.si_meta, TypedValue.COMPLEX_UNIT_SP, Math.max(10, fs - 2));
+                CharSequence dots = marksSpan(r.optJSONArray("mk"));
+                it.setTextViewText(R.id.si_meta, dots);
+                if (dots.length() == 0) {
+                    it.setTextViewText(R.id.si_meta, r.optInt("done") + "/" + r.optInt("tot"));
+                    it.setTextColor(R.id.si_meta, isToday ? th.acc : th.mut);
+                }
+                int nmk = r.optJSONArray("mk") == null ? 0 : r.optJSONArray("mk").length();
+                it.setTextViewTextSize(R.id.si_meta, TypedValue.COMPLEX_UNIT_SP, nmk > 10 ? 10 : nmk > 6 ? 11 : Math.max(11, fs - 1));
                 it.setOnClickFillInIntent(R.id.si_row, new Intent().putExtra("day", rd));
                 return it;
             }
@@ -331,7 +339,56 @@ public abstract class SecWidget extends AppWidgetProvider {
         }
         return o;
     }
-    /** DD/MM/YYYY + weekday in the widget language */
+    /** 0 pending (white outline), 1 taken (green), 2 missed after that day's midnight (red). Time order. */
+    static JSONArray medDayMarks(JSONArray rows, String person, JSONArray mh, String day, String today) {
+        JSONArray o = new JSONArray();
+        if (rows == null || day == null) return o;
+        List<JSONObject> list = medDayRows(rows, person, mh, day);
+        Collections.sort(list, (a, b) -> tmKey(a.optString("tm")).compareTo(tmKey(b.optString("tm"))));
+        boolean past = today != null && day.compareTo(today) < 0;
+        try {
+            for (JSONObject r : list) o.put(r.optBoolean("d") ? 1 : (past ? 2 : 0));
+        } catch (Exception ignored) {}
+        return o;
+    }
+    static String tmKey(String tm) {
+        if (tm == null) return "99:99";
+        int h = 99, m = 99;
+        for (int i = 0; i < tm.length(); i++) {
+            if (tm.charAt(i) >= '0' && tm.charAt(i) <= '9') {
+                int a = i; while (i < tm.length() && tm.charAt(i) >= '0' && tm.charAt(i) <= '9') i++;
+                int n = 0; try { n = Integer.parseInt(tm.substring(a, i)); } catch (Exception ignored) {}
+                if (i < tm.length() && tm.charAt(i) == ':') { h = n; i++;
+                    int b = i; while (i < tm.length() && tm.charAt(i) >= '0' && tm.charAt(i) <= '9') i++;
+                    try { m = Integer.parseInt(tm.substring(b, i)); } catch (Exception ignored) {}
+                }
+                break;
+            }
+        }
+        return String.format(Locale.US, "%02d:%02d", h, m);
+    }
+    static final int MK_GREEN = 0xFF22A447, MK_RED = 0xFFFF5350, MK_WHITE = 0xFFFFFFFF;
+    static CharSequence marksSpan(JSONArray mk) {
+        if (mk == null || mk.length() == 0) return "";
+        StringBuilder b = new StringBuilder();
+        int n = mk.length();
+        int[] st = new int[n];
+        for (int i = 0; i < n; i++) {
+            if (i > 0) b.append('\u2009');
+            st[i] = mk.optInt(i);
+            b.append(st[i] == 0 ? '\u25CB' : '\u25CF');
+        }
+        SpannableString s = new SpannableString(b);
+        int pos = 0;
+        for (int i = 0; i < n; i++) {
+            if (i > 0) pos++;
+            int col = st[i] == 1 ? MK_GREEN : st[i] == 2 ? MK_RED : MK_WHITE;
+            s.setSpan(new ForegroundColorSpan(col), pos, pos + 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            pos++;
+        }
+        return s;
+    }
+        /** DD/MM/YYYY + weekday in the widget language */
     static String dayLabel(Context c, String day) {
         if (day == null || day.length() < 10) return "";
         String dm = day.substring(8, 10) + "/" + day.substring(5, 7) + "/" + day.substring(0, 4);

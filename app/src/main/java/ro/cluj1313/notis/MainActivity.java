@@ -38,6 +38,9 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity {
     static volatile boolean trusted = false;
     WebView web;
     private ValueCallback<Uri[]> fileCb;
+    /** widget/share query to apply after the page loads — never baked into the WebView URL */
+    private String pendingLaunch;
+
 
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface"})
     @Override protected void onCreate(Bundle b) {
@@ -86,6 +89,13 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity {
                 return offline(r);
             }
             @Override public void onPageStarted(WebView v, String url, android.graphics.Bitmap f) { trusted = url != null && url.startsWith(BASE); super.onPageStarted(v, url, f); }
+            @Override public void onPageFinished(WebView v, String url) {
+                super.onPageFinished(v, url);
+                if (pendingLaunch == null || url == null || !url.startsWith(BASE)) return;
+                String q = pendingLaunch; pendingLaunch = null;
+                String js = "(function(u){if(window.NotisApp)NotisApp.launch(u);else location.href=u})(" + JSONObject.quote(BASE + q) + ")";
+                v.evaluateJavascript(js, null);
+            }
             @Override public void doUpdateVisitedHistory(WebView v, String url, boolean reload) { trusted = url != null && url.startsWith(BASE); super.doUpdateVisitedHistory(v, url, reload); }
             @Override public boolean shouldOverrideUrlLoading(WebView v, WebResourceRequest r) {
                 Uri u = r.getUrl();
@@ -149,25 +159,44 @@ public class MainActivity extends androidx.fragment.app.FragmentActivity {
         });
         Scheduler.rescheduleAll(this);
         Updater.check(this);
+        String q = launchQuery(getIntent());
         if (b != null) web.restoreState(b);
-        else web.loadUrl(BASE + query(getIntent()));
+        else web.loadUrl(BASE);
+        /* explicit widget/share only — after an update the task often restarts with a leftover ?tk=med */
+        if (q.length() > 0) pendingLaunch = q;
+        adoptCleanIntent();
     }
 
-    private static String query(Intent i) {
-        if (i == null) return "";
+    /** empty unless this start is an explicit widget / share / view, not a recents or launcher restore */
+    static String launchQuery(Intent i) {
+        if (i == null || !isExplicitLaunch(i.getAction(), i.getFlags())) return "";
         String q = i.getStringExtra("q");
         if (q != null) return q;
         if (Intent.ACTION_VIEW.equals(i.getAction()) && i.getData() != null) return ShareLink.query(i.getData().toString());
         if (Intent.ACTION_SEND.equals(i.getAction())) return ShareLink.query(i.getStringExtra(Intent.EXTRA_TEXT));
         return "";
     }
+    /** launcher icon and recents must not replay a previous widget ?tk= */
+    static boolean isExplicitLaunch(String action, int flags) {
+        if ((flags & Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY) != 0) return false;
+        if (Intent.ACTION_MAIN.equals(action)) return false;
+        return true;
+    }
+    private void adoptCleanIntent() {
+        Intent clean = new Intent(this, MainActivity.class);
+        clean.setAction(Intent.ACTION_MAIN);
+        clean.addCategory(Intent.CATEGORY_LAUNCHER);
+        setIntent(clean);
+    }
 
     @Override protected void onNewIntent(Intent i) {
         super.onNewIntent(i);
-        String q = query(i);
-        if (q.length() == 0) return;
+        String q = launchQuery(i);
+        if (q.length() == 0) { adoptCleanIntent(); return; }
+        setIntent(i);
         String js = "(function(u){if(window.NotisApp)NotisApp.launch(u);else location.href=u})(" + JSONObject.quote(BASE + q) + ")";
         web.evaluateJavascript(js, null);
+        adoptCleanIntent();
     }
 
     private static final int NOTIF_REQ = 45;

@@ -168,4 +168,35 @@ public class WidgetLogicTest {
         assertEquals(0, SecWidget.todayIndex(new java.util.ArrayList<>(), "2026-11-10"));
     }
 
+
+    @Test public void medDayMarksOrderTakenGreenPastRedPendingWhite() throws Exception {
+        JSONArray rows = new JSONArray()
+            .put(new JSONObject().put("m","a").put("i",0).put("day","2026-11-09").put("tm","16:00").put("d",false).put("p","Gabi").put("t","Hepiflor"))
+            .put(new JSONObject().put("m","b").put("i",0).put("day","2026-11-09").put("tm","13:00").put("d",true).put("p","Gabi").put("t","Axtrifiz"))
+            .put(new JSONObject().put("m","b").put("i",0).put("day","2026-11-10").put("tm","13:00").put("d",false).put("p","Gabi").put("t","Axtrifiz"))
+            .put(new JSONObject().put("m","a").put("i",0).put("day","2026-11-10").put("tm","16:00").put("d",false).put("p","Gabi").put("t","Hepiflor"))
+            .put(new JSONObject().put("m","b").put("i",0).put("day","2026-11-11").put("tm","13:00").put("d",true).put("p","Gabi").put("t","Axtrifiz"));
+        JSONArray past = SecWidget.medDayMarks(rows, "Gabi", null, "2026-11-09", "2026-11-10");
+        /* time order 13:00 taken, 16:00 missed after midnight */
+        assertEquals(2, past.length());
+        assertEquals(1, past.getInt(0));
+        assertEquals(2, past.getInt(1));
+        JSONArray today = SecWidget.medDayMarks(rows, "Gabi", null, "2026-11-10", "2026-11-10");
+        assertEquals(0, today.getInt(0));
+        assertEquals(0, today.getInt(1));
+        JSONArray fut = SecWidget.medDayMarks(rows, "Gabi", null, "2026-11-11", "2026-11-10");
+        assertEquals(1, fut.getInt(0)); /* taken stays green in the future too */
+        assertEquals("13:00", SecWidget.tmKey("13:00"));
+        assertEquals("09:05", SecWidget.tmKey("9:05"));
+        /* SpannableString is stubbed in JVM unit tests; length/order of marks is what we assert above */
+        assertEquals(0, SecWidget.marksSpan(new JSONArray()).length());
+    }
+
+    @Test public void launchQueryIgnoresLauncherAndRecents() {
+        /* 0x00100000 = FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY; ACTION_MAIN is a launcher/restore open */
+        assertFalse(MainActivity.isExplicitLaunch("android.intent.action.MAIN", 0));
+        assertFalse(MainActivity.isExplicitLaunch(null, 0x00100000));
+        assertTrue(MainActivity.isExplicitLaunch(null, 0));
+        assertTrue(MainActivity.isExplicitLaunch("android.intent.action.VIEW", 0));
+    }
 }
