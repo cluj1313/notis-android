@@ -710,7 +710,14 @@ function vcClose(){var c=$('vcCard');if(c)c.remove();try{localStorage.setItem('n
 function vcShow(){if($('vcCard'))return;var c=document.createElement('div');c.id='vcCard';c.setAttribute('role','dialog');
  c.innerHTML='<div class="vcb"><div class="vct">'+esc(TR('Intră în meniul VOCE din Setări dacă vrei ca textele să ți fie citite.'))+'</div><div class="vcr"><button type="button" class="btn" id="vcOpen">'+esc(TR('Deschide Voce'))+'</button><button type="button" class="btn" id="vcOk">OK</button></div></div>';
  document.body.appendChild(c);c.addEventListener('click',function(e){if(e.target===c){vcClose();return}if(e.target.id==='vcOk')vcClose();else if(e.target.id==='vcOpen'){vcClose();vcOpenVoice()}})}
-function vcOpenVoice(){try{$('bSettings').click();setTimeout(function(){var f=$('fVoices');if(!f)return;var b=f.closest('.secb'),h=b&&b.previousElementSibling;if(h&&h.classList.contains('sect')&&!h.classList.contains('open'))h.click();setTimeout(function(){f.scrollIntoView({block:'start'})},60)},250)}catch(_){}}
+function vcOpenVoice(){try{var m=$('modal');if(m){m.classList.add('vcTop');document.documentElement.classList.add('vcset')}
+ $('bSettings').click();
+ setTimeout(function(){var f=$('fVoices');if(!f)return;
+  var b=f.closest('.secb'),h=b&&b.previousElementSibling;if(h&&h.classList.contains('sect')&&!h.classList.contains('open'))h.click();
+  [].forEach.call(document.querySelectorAll('#modal .sec,#modal .sect'),function(x){if(/^\s*Voce\s*$/i.test(x.textContent||'')&&!x.classList.contains('open'))x.click()});
+  setTimeout(function(){f.scrollIntoView({block:'start'});try{vlRender()}catch(_){}},80);
+ },280);
+ if(m&&!m._vcLift){m._vcLift=1;new MutationObserver(function(){if(!m.classList.contains('show')){m.classList.remove('vcTop');document.documentElement.classList.remove('vcset')}}).observe(m,{attributes:true,attributeFilter:['class']})}}catch(_){}}
 window.__vc={show:vcShow,maybe:vcMaybe,busy:vcBusy};
 function vOn(id){return !(cfg.vOn&&cfg.vOn[id]===false)}
 function vAvail(v){return !!v&&(v.bundled||TTS.has(v.engine)||TTS.state(v.engine)==='ready')}
@@ -1350,38 +1357,46 @@ document.addEventListener('pointermove',function(e){var d=ndrag;if(!d||!d.on||e.
 document.addEventListener('pointerup',function(e){var d=ndrag;if(!d||!d.on||e.pointerId!==d.pid||!d.tt)return;var t=d.tt,tid=t.dataset.id,n=findN(d.id);t.classList.remove('ndtgt');e.stopImmediatePropagation();e.preventDefault();ndEnd(false);if(!n||tid===noteTab)return;
  n.tab=tid;if(n.fd){var f=findF(n.fd);if(!f||f.tab!==tid)delete n.fd}saveNotes();renderNotes();var tb=findNT(tid);toast(TR('Mutat în ')+(tb?tb.name:''));try{if(navigator.vibrate)navigator.vibrate(20)}catch(_){}},true);
 /* v115: dictation into the note — Web Speech, or native SpeechRecognizer on Android */
-var dict={on:false,rec:null,el:null,s:0,e:0};
+var dict={on:false,rec:null,el:null,s:0,e:0,live:0,mark:0};
 document.addEventListener('focusout',function(e){var t=e.target;if(t&&t.closest&&t.closest('#noteFull')&&(t.tagName==='TEXTAREA'||(t.tagName==='INPUT'&&/^(text|search)?$/.test(t.type||''))||t.isContentEditable)){dict.el=t;try{dict.s=t.selectionStart;dict.e=t.selectionEnd}catch(_){}}},true);
 function dictLang(){return NL==='ro'?'ro-RO':(NL||'ro-RO')}
-function dictIns(txt){txt=String(txt||'').trim();if(!txt)return;var el=dict.el;if(!el||!document.contains(el)||!el.closest('#noteFull'))el=$('nfText');if(!el||el.offsetParent===null){el=$('nfText');if(el.offsetParent===null){var c=[].filter.call($('noteFull').querySelectorAll('textarea,input[type=text],[contenteditable=true]'),function(x){return x.offsetParent!==null&&x.id!=='nfTitle'});el=c[c.length-1]||$('nfText')}}
- if(el.isContentEditable){el.focus();try{document.execCommand('insertText',false,txt+' ')}catch(_){el.textContent+=' '+txt}return}
- var v=el.value||'',s=dict.el===el&&dict.s!=null?Math.min(dict.s,v.length):v.length,en=dict.el===el&&dict.e!=null?Math.min(dict.e,v.length):s;
- var pre=v.slice(0,s),ins=(pre&&!/\s$/.test(pre)?' ':'')+txt+' ';el.value=pre+ins+v.slice(en);var p=s+ins.length;dict.el=el;dict.s=dict.e=p;try{el.setSelectionRange(p,p)}catch(_){}
+function dictEl(){var el=dict.el;if(!el||!document.contains(el)||!el.closest||!el.closest('#noteFull'))el=$('nfText');if(!el||el.offsetParent===null){el=$('nfText');if(el&&el.offsetParent===null){var c=[].filter.call($('noteFull').querySelectorAll('textarea,input[type=text],[contenteditable=true]'),function(x){return x.offsetParent!==null&&x.id!=='nfTitle'});el=c[c.length-1]||$('nfText')}}return el}
+function dictLive(){var d=$('dictLive');if(d)d.remove()} /* v215: no italic overlay; text goes into the note */
+function dictWrite(txt,live){txt=String(txt||'');if(!live)txt=txt.trim();if(!txt&&!dict.live)return;var el=dictEl();if(!el)return;
+ if(el.isContentEditable){if(live)return;el.focus();try{document.execCommand('insertText',false,txt+' ')}catch(_){el.textContent+=' '+txt}return}
+ var v=el.value||'',start,end;
+ if(dict.live&&dict.el===el&&dict.mark!=null){start=Math.min(dict.mark,v.length);end=Math.min(start+dict.live,v.length)}
+ else{start=dict.el===el&&dict.s!=null?Math.min(dict.s,v.length):v.length;end=dict.el===el&&dict.e!=null?Math.min(dict.e,v.length):start}
+ var pre=v.slice(0,start),ins=txt;
+ if(!live){if(ins&&pre&&!/\s$/.test(pre)&&!/^\s/.test(ins))ins=' '+ins;if(ins&&!/\s$/.test(ins))ins=ins+' '}
+ else if(ins&&pre&&!/\s$/.test(pre)&&!/^\s/.test(ins)&&!dict.live)ins=' '+ins;
+ el.value=pre+ins+v.slice(end);var p=start+ins.length;dict.el=el;dict.mark=start;dict.live=live?ins.length:0;dict.s=dict.e=p;
+ try{el.focus();el.setSelectionRange(p,p)}catch(_){}
  el.dispatchEvent(new Event('input',{bubbles:true}))}
-function dictUi(on){dict.on=on;var b=$('nfMic');if(b){b.classList.toggle('rec',on);b.setAttribute('aria-pressed',on?'true':'false')}}
+function dictIns(txt){dictWrite(txt,false)}
+function dictUi(on){dict.on=on;var b=$('nfMic');if(b){b.classList.toggle('rec',on);b.setAttribute('aria-pressed',on?'true':'false')}if(!on)dict.live=0}
 function dictNative(){try{return !!(window.NotisNative&&NotisNative.sttStart)}catch(_){return false}}
 window.__sttLog=[];
-function dictLive(t){var d=$('dictLive');if(!t){if(d)d.remove();return}if(!d){d=document.createElement('div');d.id='dictLive';$('noteFull').appendChild(d)}d.textContent=t}
 var DICT_ERR={nomatch:'Nu am auzit nimic',timeout:'Nu am auzit nimic',noservice:'Lipsește serviciul de recunoaștere vocală Google',network:'Fără internet pentru dictare',busy:'Recunoașterea vocală e ocupată, încearcă din nou',lang:'Limba nu e disponibilă pentru dictare',perm:'Fără acces la microfon'};
 function dictSave(){try{fullFlush()}catch(_){}try{nFlush()}catch(_){}}
 window.__stt=function(k,t){try{__sttLog.push(new Date().toISOString().slice(11,19)+' '+k+':'+t);if(__sttLog.length>40)__sttLog.shift();localStorage.setItem('ns_sttlog',JSON.stringify(__sttLog))}catch(_){}
- if(k==='part'){dict.part=t;dictLive(t)}
- else if(k==='final'){dict.part='';dictLive('');dictIns(t);dict.got=1;dictSave()}
- else if(k==='err'){var p=dict.part;dict.part='';dictLive('');if(p&&!dict.got){dictIns(p);dictUi(false);return}dictUi(false);toast(DICT_ERR[t]?TR(DICT_ERR[t]):TR('Dictarea nu a mers')+(t?' ('+t+')':''))}
- else if(k==='end'){if(dict.part&&!dict.got)dictIns(dict.part);dict.part='';dictLive('');dictUi(false)}};
+ if(k==='part'){dict.part=t;dictWrite(t,true)}
+ else if(k==='final'){dict.part='';dictWrite(t,false);dict.got=1;dictSave()}
+ else if(k==='err'){var p=dict.part;dict.part='';if((p||dict.live)&&!dict.got){if(p)dictWrite(p,false);else dict.live=0;dictUi(false);dictSave();return}dictUi(false);toast(DICT_ERR[t]?TR(DICT_ERR[t]):TR('Dictarea nu a mers')+(t?' ('+t+')':''))}
+ else if(k==='end'){if(dict.part&&!dict.got){dictWrite(dict.part,false);dict.got=1}dict.part='';dict.live=0;if(dict.got)dictSave();dictUi(false)}};
 window.__sttPerm=function(ok){if(ok)dictStart();else{dictUi(false);toast(TR('Fără acces la microfon'))}};
-window.__sttDeliver=function(kind,t){try{window.__stt('dbg','deliver '+kind+' '+String(t||'').length)}catch(_){}dictLive('');dict.part='';
- if(kind==='final'&&t){var open=$('noteFull').classList.contains('show');if(open&&(!dict.nid||fullId===dict.nid||!fullId)){dictIns(t);dict.got=1;dictSave()}
+window.__sttDeliver=function(kind,t){try{window.__stt('dbg','deliver '+kind+' '+String(t||'').length)}catch(_){}dict.part='';
+ if(kind==='final'&&t){var open=$('noteFull').classList.contains('show');if(open&&(!dict.nid||fullId===dict.nid||!fullId)){dictWrite(t,false);dict.got=1;dictSave()}
   else{var n=dict.nid&&findN(dict.nid);if(n&&!n.lock&&n.type!=='check'&&n.type!=='mix'){n.text=String(n.text||'').replace(/\s*$/,n.text?' ':'')+String(t).trim();n.updatedAt=new Date().toISOString();try{saveNotes()}catch(_){}try{nFlush()}catch(_){}try{renderNotes()}catch(_){}toast(TR('Salvat'))}}}
  else if(kind==='nomatch')toast(TR('Nu am auzit nimic'));dictUi(false);return 'ok'};
-function dictStart(){dict.got=0;dict.part='';dict.nid=fullId||null;if(dictNative()){var r='';try{r=NotisNative.sttStart(dictLang())}catch(e){r='err:'+e}if(r==='ok'){dictUi(true);toast(TR('Vorbește acum…'))}else if(r==='perm'){}else{dictUi(false);toast(r==='err:noservice'?TR(DICT_ERR.noservice):TR('Dictarea nu e disponibilă pe acest telefon'))}return}
+function dictStart(){dict.got=0;dict.part='';dict.live=0;dict.nid=fullId||null;if(dictNative()){var r='';try{r=NotisNative.sttStart(dictLang())}catch(e){r='err:'+e}if(r==='ok'){dictUi(true);toast(TR('Vorbește acum…'))}else if(r==='perm'){}else{dictUi(false);toast(r==='err:noservice'?TR(DICT_ERR.noservice):TR('Dictarea nu e disponibilă pe acest telefon'))}return}
  var SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){toast(TR('Dictarea nu e disponibilă în acest browser'));return}
- try{var rc=new SR();rc.lang=dictLang();rc.continuous=true;rc.interimResults=false;rc.onresult=function(ev){for(var i=ev.resultIndex;i<ev.results.length;i++)if(ev.results[i].isFinal)dictIns(ev.results[i][0].transcript)};
-  rc.onerror=function(ev){window.__stt('err',ev.error==='not-allowed'?'':(ev.error==='no-speech'?'nomatch':ev.error));if(ev.error==='not-allowed')toast(TR('Fără acces la microfon'))};rc.onend=function(){dict.rec=null;dictUi(false)};rc.start();dict.rec=rc;dictUi(true);toast(TR('Vorbește acum…'))}catch(e){dictUi(false);toast(TR('Dictarea nu a mers'))}}
+ try{var rc=new SR();rc.lang=dictLang();rc.continuous=true;rc.interimResults=true;rc.onresult=function(ev){var live='',fin='';for(var i=ev.resultIndex;i<ev.results.length;i++){var t=ev.results[i][0].transcript;if(ev.results[i].isFinal)fin+=(fin?' ':'')+t;else live+=(live?' ':'')+t}if(fin){dictWrite(fin,false);dict.got=1;dictSave()}else if(live)dictWrite(live,true)};
+  rc.onerror=function(ev){window.__stt('err',ev.error==='not-allowed'?'':(ev.error==='no-speech'?'nomatch':ev.error));if(ev.error==='not-allowed')toast(TR('Fără acces la microfon'))};rc.onend=function(){if(dict.live&&!dict.got)dict.live=0;dict.rec=null;dictUi(false);if(dict.got)dictSave()};rc.start();dict.rec=rc;dictUi(true);toast(TR('Vorbește acum…'))}catch(e){dictUi(false);toast(TR('Dictarea nu a mers'))}}
 function dictStop(){if(dictNative()){try{NotisNative.sttStop()}catch(_){}}else if(dict.rec){try{dict.rec.stop()}catch(_){}}dictUi(false)}
 document.addEventListener('pointerdown',function(e){if(e.target.closest&&e.target.closest('#nfMic'))e.preventDefault()},true);
 document.addEventListener('pointerdown',function(e){if(!(e.target.closest&&e.target.closest('#nfMic')))return;var a=document.activeElement;if(a&&a.closest&&a.closest('#noteFull')&&(a.tagName==='TEXTAREA'||a.tagName==='INPUT'||a.isContentEditable)){dict.el=a;try{dict.s=a.selectionStart;dict.e=a.selectionEnd}catch(_){}}},true);
-document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('#nfMic');if(!b)return;e.preventDefault();e.stopPropagation();if(dict.on)dictStop();else dictStart()});
+
 
 function nFlush(){clearTimeout(nSaveT);nSaveT=null;saveNotes();var on=fullId&&findN(fullId);if(on&&on.lock&&on._key)lkReseal(on)}
 var draftId=null;
@@ -1919,7 +1934,7 @@ function recStop(keep){if(REC&&REC.nat){var R0=REC;REC=null;clearInterval(R0.iv)
 $('recStop').addEventListener('click',function(){recStop(true)});$('recCancel').addEventListener('click',function(){recStop(false)});
 function recStore(blob,dur,caret){var n=fullId&&findN(fullId);if(!n){var now=new Date().toISOString();n={id:ntUid(),text:$('nfText').value||'',ts:now,createdAt:now,updatedAt:now,tab:noteTab,fd:nFolder||undefined};notes.push(n);fullId=n.id;fullIsNew=true}
  var key=n.lock?n._key:null,id='a'+ntUid();return blob.arrayBuffer().then(function(buf){return key?phSeal(key,buf):{buf:buf}}).then(function(x){var r={id:id,note:n.id,ts:Date.now(),buf:x.buf,k:'a',mt:blob.type||'audio/webm',dur:Math.round(dur)};if(x.iv)r.iv=x.iv;return phPut(r)})
-  .then(function(){mCaret=caret;mInsertB({id:bUid(),t:'aud',a:id,dur:Math.round(dur)});toast(TR('Înregistrare salvată'))}).catch(function(e){console.warn(e);toast(TR('Nu am putut salva înregistrarea'))})}
+  .then(function(){mCaret=caret;mInsertB({id:bUid(),t:'aud',a:id,dur:Math.round(dur),nm:TR('Înregistrare')});toast(TR('Înregistrare salvată'))}).catch(function(e){console.warn(e);toast(TR('Nu am putut salva înregistrarea'))})}
 /* inline player */
 var auP=null;
 function auStop(){if(auP){try{auP.a.pause()}catch(_){}var w=auP.w;if(w&&w.isConnected){w.classList.remove('play')}auP=null}}
@@ -1928,9 +1943,16 @@ function auToggle(w){var r=mBlk(w.dataset.b);if(!r.b)return;if(auP&&auP.w===w){i
   a.ontimeupdate=function(){var d=a.duration&&isFinite(a.duration)?a.duration:(r.b.dur||1);w.querySelector('.abar i').style.width=Math.min(100,a.currentTime/d*100)+'%';w.querySelector('.atm').textContent=recFmt(a.currentTime)+' / '+recFmt(r.b.dur||d)};
   a.onended=function(){w.classList.remove('play');w.querySelector('.abar i').style.width='0';w.querySelector('.atm').textContent=recFmt(r.b.dur||0);URL.revokeObjectURL(u);if(auP&&auP.a===a)auP=null};
   return a.play()})}).catch(function(e){console.warn(e);w.classList.remove('play');toast(TR('Nu pot reda înregistrarea'))})}
-function auDel(w){var r=mBlk(w.dataset.b);if(!r.b)return;var cf=$('cfModal').querySelector('.cftxt'),t0=cf.textContent;cf.textContent=TR('Ștergi înregistrarea?');
- jvConfirm(function(){cf.textContent=t0;auStop();var id=r.b.a;mPre(r.n);r.n.blocks.splice(r.n.blocks.indexOf(r.b),1);mTouch(r.n);nFlush();mRender();phDel(id).catch(function(){})});var no=$('cfNo').onclick;$('cfNo').onclick=function(){cf.textContent=t0;no&&no()}}
-$('nfBlocks').addEventListener('click',function(e){var w=e.target.closest('.nba');if(!w)return;e.preventDefault();e.stopPropagation();if(e.target.closest('.abx'))auDel(w);else auToggle(w)},true);
+function auDel(w){var r=mBlk(w.dataset.b);if(!r.b)return;var cf=$('cfModal').querySelector('.cftxt'),ok=$('cfOk'),no=$('cfNo'),t0=cf.textContent,o0=ok.textContent,n0=no.textContent;cf.textContent=TR('Ștergi înregistrarea?')+(r.b.nm?' '+r.b.nm:'');ok.textContent=TR('Da');no.textContent=TR('Nu');
+ function back(){cf.textContent=t0;ok.textContent=o0;no.textContent=n0}
+ jvConfirm(function(){back();auStop();var id=r.b.a;mPre(r.n);r.n.blocks.splice(r.n.blocks.indexOf(r.b),1);mTouch(r.n);nFlush();mRender();phDel(id).catch(function(){})});var nf=no.onclick;no.onclick=function(){back();nf&&nf()}}
+function auRen(w){var r=mBlk(w.dataset.b);if(!r.b)return;jvPrompt(TR('Redenumește'),r.b.nm||TR('Înregistrare'),function(v){v=String(v||'').trim();if(!v)return;r.b.nm=v.slice(0,80);mTouch(r.n);nFlush();mRender()})}
+function auShare(w){var r=mBlk(w.dataset.b);if(!r.b)return;var n=r.n,nm=r.b.nm||TR('Înregistrare');
+ phGet(r.b.a).then(function(rec){if(!rec||!rec.buf)throw new Error('missing');return phBlob(n,rec)}).then(function(b){var ext=/mp4|m4a|aac/.test(b.type)?'m4a':/ogg/.test(b.type)?'ogg':'webm',file=(nm.replace(/[^\w .-]+/g,'_').trim()||'rec')+'.'+ext;
+  try{var f=new File([b],file,{type:b.type});if(navigator.canShare&&navigator.canShare({files:[f]}))return navigator.share({files:[f],title:nm}).catch(function(){})}catch(_){}
+  if(window.NotisNative&&NotisNative.shareAudio)return b.arrayBuffer().then(function(buf){var ok=false;try{ok=NotisNative.shareAudio(phAb2b64(buf),ext,nm)}catch(_){}if(!ok)toast(TR('Nu am putut salva înregistrarea'))});
+  var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=file;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},800)}).catch(function(){toast(TR('Înregistrarea lipsește'))})}
+$('nfBlocks').addEventListener('click',function(e){var w=e.target.closest('.nba');if(!w)return;e.preventDefault();e.stopPropagation();var a=e.target.closest('[data-ar]');if(a&&a.dataset.ar==='del')auDel(w);else if(a&&a.dataset.ar==='sh')auShare(w);else if(a&&a.dataset.ar==='ren')auRen(w);else if(!a)auToggle(w)},true);
 
 /* v53: lock a whole tab (PIN gate, same mechanism as folders) */
 var tabOpen={};
@@ -2321,7 +2343,7 @@ var mRefT=null;function mRefitNow(){var B0=$('nfBlocks');if(!B0)return;B0.queryS
 function mRefit(){clearTimeout(mRefT);requestAnimationFrame(mRefitNow);mRefT=setTimeout(function(){mRefitNow();setTimeout(mRefitNow,400)},120)}
 function mRender(focus){var n=fullId&&findN(fullId);if(!n||n.type!=='mix')return;mNorm(n);var box=$('nfBlocks');
  if(!focus){var ae=document.activeElement;if(ae&&box.contains(ae)){var bb=ae.closest('[data-b]');if(ae.classList.contains('cit'))focus={b:bb.dataset.b,item:ae.closest('.ci').dataset.id,end:true};else if(ae.classList.contains('nbt'))focus={b:bb.dataset.b,pos:ae.selectionStart}}}
- var h='';n.blocks.forEach(function(b){h+=b.t==='img'&&b.nm?'<div class="nbi nbn" data-b="'+b.id+'">'+(b.ph||[]).map(function(id){return '<div class="phi phn" data-id="'+esc(id)+'"'+(phCache[id]?' data-u="'+phCache[id]+'"':'')+'>'+(window.tkIcon||'')+'<span>'+esc(b.nm)+'</span></div>'}).join('')+'</div>':b.t==='img'?'<div class="nbi'+((b.ph||[]).length===1?' one':'')+'" data-b="'+b.id+'">'+(b.ph||[]).map(function(id){return '<div class="phi" data-id="'+esc(id)+'"'+(phCache[id]?' data-u="'+phCache[id]+'" style="background-image:url('+phCache[id]+')'+(phRatio[id]?';aspect-ratio:'+phRatio[id]:'')+'"':'')+'></div>'}).join('')+'</div>':'';if(b.t==='img');else if(b.t==='aud')h+='<div class="nba" data-b="'+b.id+'"><button type="button" class="abt" aria-label="Redă / pauză"><i></i></button><div class="abar"><i></i></div><span class="atm">'+recFmt(b.dur||0)+'</span><button type="button" class="abx" aria-label="Șterge înregistrarea">×</button></div>';else if(b.t==='text')h+='<div class="nbw" data-b="'+b.id+'"><textarea class="nbt" rows="1" autocomplete="off" data-lpignore="true" data-1p-ignore="true" data-form-type="other" aria-label="Text">'+esc(b.v||'')+'</textarea></div>';
+ var h='';n.blocks.forEach(function(b){h+=b.t==='img'&&b.nm?'<div class="nbi nbn" data-b="'+b.id+'">'+(b.ph||[]).map(function(id){return '<div class="phi phn" data-id="'+esc(id)+'"'+(phCache[id]?' data-u="'+phCache[id]+'"':'')+'>'+(window.tkIcon||'')+'<span>'+esc(b.nm)+'</span></div>'}).join('')+'</div>':b.t==='img'?'<div class="nbi'+((b.ph||[]).length===1?' one':'')+'" data-b="'+b.id+'">'+(b.ph||[]).map(function(id){return '<div class="phi" data-id="'+esc(id)+'"'+(phCache[id]?' data-u="'+phCache[id]+'" style="background-image:url('+phCache[id]+')'+(phRatio[id]?';aspect-ratio:'+phRatio[id]:'')+'"':'')+'></div>'}).join('')+'</div>':'';if(b.t==='img');else if(b.t==='aud')h+='<div class="nba" data-b="'+b.id+'"><button type="button" class="abt" aria-label="Redă / pauză"><i></i></button><div class="aban"><button type="button" class="abn ux" data-ar="ren">'+esc(b.nm||TR('Înregistrare'))+'</button><div class="abar"><i></i></div></div><span class="atm">'+recFmt(b.dur||0)+'</span><button type="button" class="absh shGo" data-ar="sh" aria-label="'+esc(TR('Distribuie'))+'"><svg class="shI" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.3 10.8l7.4-4.4M8.3 13.2l7.4 4.4"/></svg></button><button type="button" class="abx" data-ar="del" aria-label="'+esc(TR('Șterge'))+'">×</button></div>';else if(b.t==='text')h+='<div class="nbw" data-b="'+b.id+'"><textarea class="nbt" rows="1" autocomplete="off" data-lpignore="true" data-1p-ignore="true" data-form-type="other" aria-label="Text">'+esc(b.v||'')+'</textarea></div>';
   else{var a=b.items||[],P={isort:n.isort,items:a,createdAt:n.createdAt,ts:n.ts},un=ciSort(P,a.filter(function(x){return !x.done})),dn=ciSort(P,a.filter(function(x){return x.done}));
    h+='<div class="nbc" data-b="'+b.id+'">'+un.map(chkRow).join('')+'<button type="button" class="ciadd" aria-label="Adaugă element"></button>'+(dn.length?'<div class="cisep"></div>'+dn.map(chkRow).join(''):'')+'</div>'}});
  box.innerHTML=h;box.querySelectorAll('.nbt').forEach(mFit);phFill();mRefit();
@@ -2892,10 +2914,14 @@ document.addEventListener('click',function(e){if(e.target&&e.target.id==='ndDone
    if(k==='rec'){try{if(typeof atDo==='function')atDo('atrec');else if($('nfPhoto'))$('nfPhoto').click()}catch(_){}return}
    try{if(typeof noteRead==='function')noteRead();else if($('nfRead'))$('nfRead').click()}catch(_){}};
   setTimeout(function(){document.addEventListener('pointerdown',function x(e){if(!e.target.closest||!e.target.closest('#vcMenu,#nfMic,#nfRead')){closeVc();document.removeEventListener('pointerdown',x,true)}},true)},0)}
- var vcLP=0,vcTm=0;
- document.addEventListener('pointerdown',function(e){var b=e.target.closest&&e.target.closest('#nfMic');if(!b)return;vcLP=0;clearTimeout(vcTm);vcTm=setTimeout(function(){vcLP=1;try{navigator.vibrate&&navigator.vibrate(30)}catch(_){}closeVc();try{vcOpenVoice()}catch(_){}},520)},true);
+ var vcLP=0,vcTm=0,vcSX=0,vcSY=0;
+ function vcArm(e){var b=e.target.closest&&e.target.closest('#nfMic');if(!b)return;if(e.pointerType==='mouse'&&e.button!==0)return;vcLP=0;vcSX=e.clientX;vcSY=e.clientY;clearTimeout(vcTm);vcTm=setTimeout(function(){vcLP=1;try{navigator.vibrate&&navigator.vibrate(30)}catch(_){}closeVc();try{vcOpenVoice()}catch(_){}},500)}
+ function vcMove(e){if(!vcTm)return;if(Math.abs(e.clientX-vcSX)+Math.abs(e.clientY-vcSY)>14)clearTimeout(vcTm)}
+ document.addEventListener('pointerdown',vcArm,true);
+ document.addEventListener('pointermove',vcMove,true);
  document.addEventListener('pointerup',function(){clearTimeout(vcTm)},true);
- document.addEventListener('pointercancel',function(){clearTimeout(vcTm)},true);
+ /* Android WebView fires pointercancel / contextmenu on a long-press; do not abort the timer */
+ document.addEventListener('contextmenu',function(e){if(e.target.closest&&e.target.closest('#nfMic')){e.preventDefault();e.stopPropagation()}},true);
  document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('#nfMic');if(!b)return;e.preventDefault();e.stopImmediatePropagation();if(vcLP){vcLP=0;return}openVc(b)},true);
  /* hide separate Citește in toolbar — keep for legacy callers; mic becomes the combined control */
  var st=document.createElement('style');st.textContent='#noteFull #nfRead{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;left:-9999px}#noteFull .nfhist #nfMic{order:99}';document.head.appendChild(st);
