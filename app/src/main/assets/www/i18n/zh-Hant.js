@@ -1617,5 +1617,13 @@ NOTIS_I18N={
 "Includ și datele secrete (parolă, CVV, IBAN)?": "是否同時包含機密資料（密碼、CVV、IBAN）？",
 "Confirmă cu parola principală pentru a include datele secrete.": "請用主密碼確認，以包含機密資料。",
 "Șters": "已刪除",
-"Trage separatorul sus sau jos": "向上或向下拖曳分隔線"
+"Trage separatorul sus sau jos": "向上或向下拖曳分隔線",
+"Ține apăsat pe o notiță, apoi atinge 📌 în bara de sus (poți selecta și mai multe). Cele fixate stau primele în tab, despărțite de restul printr-o linie.": "長按一則筆記，然後點按頂部列的 📌（可多選）。已置頂的筆記排在分頁最前面，與其餘筆記之間以一條線分隔。",
+"Atinge ⋮ din dreapta folderului: Redenumește, Mută, Culoare, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "點按資料夾右側的 ⋮：重新命名、移動、顏色、🔒 鎖定、🗑 刪除（進入資源回收筒，可還原）。資料夾中的資料夾：開啟資料夾，點按頂部的資料夾按鈕。在資料夾中新增的筆記會留在其中。範例請見「雜項」分頁。",
+"Ține apăsat pe o notiță, apoi atinge altele. Sus apare bara cu: ← ieșire, număr, 🎨 culoare, 📁 mută în alt tab, 📌 fixează, 🗑 coș, ⋮ (alarmă, editează, Share, blochează, etichete, selectează tot). Ține apăsat din nou pe singura notiță selectată ca s-o tragi în altă poziție.": "長按一則筆記，然後點按其他筆記。頂部會出現工具列：← 退出、數量、🎨 顏色、📁 移到其他分頁、📌 置頂、🗑 資源回收筒、⋮（提醒、編輯、Share、鎖定、標籤、全選）。僅選取一則筆記時，再次長按它即可拖曳到其他位置。",
+"Atinge ⋮ din dreapta notiței → Blochează. Notița (și pozele ei) se criptează cu PIN; în listă apare doar titlul cu 🔒.": "點按筆記右側的 ⋮ → 鎖定。筆記（及其照片）會以 PIN 加密；清單中只顯示帶 🔒 的標題。",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe o notiță, apoi atinge 📌 din bara de sus.": "你在 雜項 › 客戶 › 2026。層級數量不限：開啟資料夾，點按頂部的資料夾按鈕。📌 置頂：長按一則筆記，然後點按頂部列的 📌。",
+"Blochezi orice folder: atinge ⋮ → 🔒 Blochează → alegi un PIN de 4 cifre. La ieșire, folderul se blochează din nou.": "可以鎖定任何資料夾：點按 ⋮ → 🔒 鎖定 → 選擇 4 位數 PIN。離開時資料夾會再次鎖定。",
+"Ține apăsat pe o notiță, apoi atinge 📌 în bara de sus ca să rămână mereu sus.": "長按一則筆記，然後點按頂部列的 📌，讓它始終保持在最上面。",
+"Ține apăsat o notiță, eliberează, apoi ține apăsat din nou și trage-o în altă poziție. Pentru alt tab sau folder: ⋮ → Mută.": "長按一則筆記後放開，再次長按並拖曳到其他位置。要移到其他分頁或資料夾：⋮ → 移動。"
 };

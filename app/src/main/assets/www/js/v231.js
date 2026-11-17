@@ -39,7 +39,7 @@
  function cfg(){var t=findNT(noteTab);if(!t||nTrash||nFolder||(typeof tbHidden==='function'&&tbHidden(noteTab)))return null;if(t.kind==='task')return{c:'.tkv',r:'.tki[data-id]'};if(t.kind==='rec')return{c:'.qrv',r:'.qri[data-id]'};return null}
  function box(){var g=cfg();return g?document.querySelector('#spView '+g.c):null}
  function rows(){var g=cfg(),b=box();return g&&b?[].slice.call(b.querySelectorAll(g.r)):[]}
- function pill(x){var c=x.c?ncT(x.c):'';return '<span class="sepp"'+(c?' style="background:'+esc(c)+';color:'+sepInk(c)+'"':'')+'>'+esc(x.t)+'</span>'}
+ function pill(x){var c=x.c?ncT(x.c):'';return '<span class="sepp"'+(c?' style="'+esc(sepStyle(c))+'"':'')+'>'+esc(x.t)+'</span>'}
  function el(x){var d=document.createElement('div');d.className='spsep';d.dataset.sid=x.id;d.innerHTML='<span class="sept">'+pill(x)+'</span>'+DOTS_BTN;return d}
  function deco(){var b=box(),g=cfg();if(!b||!g)return;[].forEach.call(b.querySelectorAll('.spsep'),function(e){e.remove()});var R=rows(),L=lst(noteTab);if(!L.length)return;
   function byId(id){for(var i=0;i<R.length;i++)if(R[i].dataset.id===id)return R[i];return null}
@@ -59,7 +59,7 @@
  function openMenu(e0,btn){var f=find(e0.dataset.sid);if(!f)return;lpCur={li:e0,xs:'sep',anc:btn,sid:f.x.id};e0.classList.add('jv-lpon');
   $('lpBox').innerHTML='<button data-xs="ren">'+esc(TR('📛 Redenumește'))+'</button><button data-xs="col">'+esc(TR('🎨 Culoare'))+'</button><button data-xs="mv">'+esc('✥ '+TR('Mută (drag & drop)'))+'</button><button data-xs="del" class="dng">'+esc(TR('🗑 Șterge'))+'</button>';
   $('lpMenu').classList.add('show');try{lpJust=false}catch(_){}lpPos()}
- $('lpMenu').addEventListener('click',function(e){var c=lpCur;if(!c||!c.xs||lpJust)return;var b=e.target.closest('button');if(!b)return;e.stopPropagation();e.preventDefault();
+ $('lpMenu').addEventListener('click',function(e){var c=lpCur;if(!c||!c.xs||c.xs==='shr'||lpJust)return;var b=e.target.closest('button');if(!b)return;e.stopPropagation();e.preventDefault();
   if(c.xs==='fab'){lpClose();if(b.dataset.xs==='new')neu();else if(b.dataset.xs==='task'&&window.tkNew)tkNew();else if(b.dataset.xs==='task'){var nb=document.querySelector('#spView [data-ta=new]');if(nb)nb.click()}return}
   var f=find(c.sid),a=b.dataset.xs;
   if(c.xs==='pal'){if(b.dataset.spc==null||!f){return}var v=b.dataset.spc;lpClose();if(v)f.x.c=v;else delete f.x.c;save(noteTab,f.L);deco();return}
@@ -93,4 +93,7 @@
  wrap();if(!window.spCollect||!window.spCollect._v231)addEventListener('load',wrap);
  document.addEventListener('click',function(e){var f=e.target.closest&&e.target.closest('#noteFab');if(!f)return;var t=findNT(noteTab);if(t&&t.kind==='rec'&&cfg()&&!(typeof selOn==='function'&&selOn())){e.preventDefault();e.stopImmediatePropagation();neu()}},true);
  window.sxDeco=deco;
+ /* v232: per-row ⋮ with Share (Înregistrări, Plăți). Generic: rowShMenu(btn, row, fn) -> menu with the Share glyph; fn() runs the existing share action. */
+ window.rowShMenu=function(btn,row,fn){lpCur={li:row,xs:'shr',anc:btn,fn:fn};row.classList.add('jv-lpon');$('lpBox').innerHTML='<button data-xs="shr">'+SH_SVG+' Share</button>';$('lpMenu').classList.add('show');try{lpJust=false}catch(_){}lpPos()};
+ $('lpMenu').addEventListener('click',function(e){var c=lpCur;if(!c||c.xs!=='shr'||lpJust)return;var b=e.target.closest('button');if(!b)return;e.stopPropagation();e.preventDefault();var f=c.fn;lpClose();if(f)f()},true);
 })();

@@ -1617,5 +1617,13 @@ NOTIS_I18N={
 "Includ și datele secrete (parolă, CVV, IBAN)?": "機密データ（パスワード、CVV、IBAN）も含めますか？",
 "Confirmă cu parola principală pentru a include datele secrete.": "機密データを含めるには、メインパスワードで確認してください。",
 "Șters": "削除しました",
-"Trage separatorul sus sau jos": "区切りを上下にドラッグしてください"
+"Trage separatorul sus sau jos": "区切りを上下にドラッグしてください",
+"Ține apăsat pe o notiță, apoi atinge 📌 în bara de sus (poți selecta și mai multe). Cele fixate stau primele în tab, despărțite de restul printr-o linie.": "ノートを長押しして、上のバーの📌をタップします（複数選択もできます）。ピン留めしたものはタブの先頭に並び、残りとは線で区切られます。",
+"Atinge ⋮ din dreapta folderului: Redenumește, Mută, Culoare, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "フォルダの右にある⋮をタップ：名前の変更、移動、色、🔒ロック、🗑削除（ごみ箱に入り、元に戻せます）。フォルダの中のフォルダ：フォルダを開いて上のフォルダボタンをタップします。フォルダ内で作成した新しいノートはそのフォルダに残ります。例は「その他」タブで見られます。",
+"Ține apăsat pe o notiță, apoi atinge altele. Sus apare bara cu: ← ieșire, număr, 🎨 culoare, 📁 mută în alt tab, 📌 fixează, 🗑 coș, ⋮ (alarmă, editează, Share, blochează, etichete, selectează tot). Ține apăsat din nou pe singura notiță selectată ca s-o tragi în altă poziție.": "ノートを長押しして、ほかのノートをタップします。上にバーが表示されます：← 終了、件数、🎨 色、📁 別のタブへ移動、📌 ピン留め、🗑 ごみ箱、⋮（アラーム、編集、Share、ロック、ラベル、すべて選択）。選択中のノートが1つだけのとき、もう一度長押しすると別の位置へドラッグできます。",
+"Atinge ⋮ din dreapta notiței → Blochează. Notița (și pozele ei) se criptează cu PIN; în listă apare doar titlul cu 🔒.": "ノートの右にある⋮をタップ → ロック。ノート（と写真）はPINで暗号化され、リストには🔒付きのタイトルだけが表示されます。",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe o notiță, apoi atinge 📌 din bara de sus.": "今は その他 › クライアント › 2026 にいます。階層はいくつでも作れます：フォルダを開いて上のフォルダボタンをタップします。📌 ピン留め：ノートを長押しして、上のバーの📌をタップします。",
+"Blochezi orice folder: atinge ⋮ → 🔒 Blochează → alegi un PIN de 4 cifre. La ieșire, folderul se blochează din nou.": "どのフォルダもロックできます：⋮をタップ → 🔒ロック → 4桁のPINを選びます。終了するとフォルダは再びロックされます。",
+"Ține apăsat pe o notiță, apoi atinge 📌 în bara de sus ca să rămână mereu sus.": "ノートを長押しして、上のバーの📌をタップすると、常に一番上に表示されます。",
+"Ține apăsat o notiță, eliberează, apoi ține apăsat din nou și trage-o în altă poziție. Pentru alt tab sau folder: ⋮ → Mută.": "ノートを長押しして離し、もう一度長押ししてから別の位置へドラッグします。別のタブやフォルダへは：⋮ → 移動。"
 };

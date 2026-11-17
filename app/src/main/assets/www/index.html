@@ -1194,7 +1194,7 @@ body.ndmode #ndDone{display:grid!important}
   el.addEventListener('keydown',function(e){if(e.key==='Enter'){var b=el.querySelector('[data-m="ok"]');if(b){e.preventDefault();b.click()}}});window.addEventListener('nsschange',function(){if(!el.contains(document.activeElement))draw()});draw();return el}
  /* overlay: coin + gear; a tap anywhere else -> onTap (tap while the picker is open only closes the picker) */
  /* v107: tips shown on the screensaver (never on the splash). ns_tipoff=true hides the card; ns_tipseen=[ids] hidden tips; ns_tipi=rotation index */
- var TIPS=[['📌','Fixează notițele','Ține apăsat pe o notiță și alege 📌 ca să rămână mereu sus.'],['📚','Bibliotecă și taburi','Grupează notițele în foldere și taburi ca să le găsești rapid.'],['↕️','Mută prin tragere','Ține apăsat și trage o notiță ca s-o muți în alt loc sau folder.'],['🔍','Căutare completă','Caută în toate notițele, inclusiv în cele blocate 🔒.'],['✎','Scrie din widget','Pe widget apasă ✎ ca să scrii direct, fără să deschizi aplicația.'],['⏰','Alarme cu sunet','Pune alarme pe notițe și alege sunetul din %s.',['Setări','Sunet alarmă']],['❗','Notițe urgente','Marchează o notiță ca urgentă ca să iasă în evidență.'],['💾','Backup și restaurare','Salvează o copie a notițelor și restaureaz-o oricând.'],['🔤','Fonturi','Alege fontul preferat din %s.',['Setări','Design','Font']],['🎨','Teme','Schimbă culorile aplicației din %s.',['Setări','Design','Teme']],['🖼️','Fundal din galerie','Pune o imagine din galerie ca fundal din %s.',['Setări','Design','Fundal']],['🗂️','Stil taburi','Alege cum arată taburile din %s.',['Setări','Design','Stil taburi']],['🔒','Notițe blocate','Blochează o notiță cu PIN ca să rămână doar a ta.'],['👆','Deblocare cu amprenta','Deschide notițele 🔒 cu amprenta, fără să tastezi PIN-ul.'],['🎬','Demo','Încearcă exemplele din modul Demo, separat de notițele tale.'],['💬','Comunică cu creatorul','Trimite idei sau probleme direct creatorului aplicației.'],['📨','Mesaje de la creator','Citește noutățile și răspunsurile primite de la creator.']];
+ var TIPS=[['📌','Fixează notițele','Ține apăsat pe o notiță, apoi atinge 📌 în bara de sus ca să rămână mereu sus.'],['📚','Bibliotecă și taburi','Grupează notițele în foldere și taburi ca să le găsești rapid.'],['↕️','Mută prin tragere','Ține apăsat o notiță, eliberează, apoi ține apăsat din nou și trage-o în altă poziție. Pentru alt tab sau folder: ⋮ → Mută.'],['🔍','Căutare completă','Caută în toate notițele, inclusiv în cele blocate 🔒.'],['✎','Scrie din widget','Pe widget apasă ✎ ca să scrii direct, fără să deschizi aplicația.'],['⏰','Alarme cu sunet','Pune alarme pe notițe și alege sunetul din %s.',['Setări','Sunet alarmă']],['❗','Notițe urgente','Marchează o notiță ca urgentă ca să iasă în evidență.'],['💾','Backup și restaurare','Salvează o copie a notițelor și restaureaz-o oricând.'],['🔤','Fonturi','Alege fontul preferat din %s.',['Setări','Design','Font']],['🎨','Teme','Schimbă culorile aplicației din %s.',['Setări','Design','Teme']],['🖼️','Fundal din galerie','Pune o imagine din galerie ca fundal din %s.',['Setări','Design','Fundal']],['🗂️','Stil taburi','Alege cum arată taburile din %s.',['Setări','Design','Stil taburi']],['🔒','Notițe blocate','Blochează o notiță cu PIN ca să rămână doar a ta.'],['👆','Deblocare cu amprenta','Deschide notițele 🔒 cu amprenta, fără să tastezi PIN-ul.'],['🎬','Demo','Încearcă exemplele din modul Demo, separat de notițele tale.'],['💬','Comunică cu creatorul','Trimite idei sau probleme direct creatorului aplicației.'],['📨','Mesaje de la creator','Citește noutățile și răspunsurile primite de la creator.']];
  function seen(){var a=rd('ns_tipseen',[]);return Array.isArray(a)?a:[]}function tipsOn(){return rd('ns_tipoff',false)!==true}
  function nextTip(){var s=seen(),n=TIPS.length,i0=(parseInt(rd('ns_tipi',0),10)||0);for(var k=0;k<n;k++){var i=(i0+k)%n;if(s.indexOf(i)<0){wr('ns_tipi',i+1);return i}}return -1}
  function ck(cls,txt){return '<label class="nsCk '+cls+'"><span>'+txt+'</span><input type="checkbox"></label>'}
@@ -1785,7 +1785,7 @@ label.chk.alsil{display:flex!important;flex-direction:row-reverse;align-items:ce
 .mdlib .lbshw{display:flex;justify-content:flex-end;padding:4px 2px 2px}
 .mdlib .lbname .lbfh small{font-size:14px;opacity:.95}
 /* v183 recordings share like everywhere */
-.qrb.qrsh{border:0;background:none;color:var(--cyan)}
+.qrb.qrsh{border:0;background:none;color:var(--mut);padding:0;display:flex;align-items:center;justify-content:center}.qrb.qrsh svg{display:block}.lbsh{width:30px;height:30px;padding:0;border:0;border-radius:50%;background:none;color:var(--mut);display:flex;align-items:center;justify-content:center;cursor:pointer}.lbsh:active,.qrb.qrsh:active{background:rgba(var(--acR),.16)}.lbsh svg{display:block}
 /* v183 Parole: whole locked screen is the tap target */
 #spView .pwlk{min-height:46vh;cursor:pointer}
 /* v183 quick settings per tab */
@@ -1892,12 +1892,6 @@ label.chk.alsil{display:flex!important;flex-direction:row-reverse;align-items:ce
 .tki.tkl::after{top:32px;bottom:-11px;width:1.5px;left:18px;z-index:0;border-radius:1px}
 .tki .tkc{z-index:2;background:var(--card,#111)}
 .tki .tkc.on{background:currentColor}
-.tkv.tkcomp .tkx,.tkv.tkcomp .tks,.tkv.tkcomp .tkp,.tkv.tkcomp .tksi{display:none}
-.tkv.tkcomp .tki.open .tkx,.tkv.tkcomp .tki.open .tks{display:block}
-.tkv.tkcomp .tki.open .tkp{display:flex}
-.tkv.tkcomp .tki.open .tksi{display:block}
-.tkcmp{margin-left:8px;font-weight:300}
-.tkcmp.on{border-color:var(--cyan);color:var(--cyan)}
 
 /* year / submenu typography: lighter and smaller than parent */
 .spyh{font-size:13px!important;font-weight:300!important;opacity:.78;color:var(--mut)}
@@ -2024,7 +2018,7 @@ textarea,input[type=text],input[type=search],input:not([type]){caret-color:var(-
 .pwpth{text-align:center;margin:6px 0 0}
 /* v224: text separator — like the Setări section headers, lines on both sides through the middle of the text */
 #notesList .note.nsep{display:block;padding:12px 6px 10px;min-height:0;cursor:default;border-bottom:0;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
-#notesList .nsep .sept{display:flex;align-items:center;gap:10px;font-family:"Oswald",Roboto,"Segoe UI",system-ui,-apple-system,Arial,sans-serif;font-weight:500;font-size:13.5px;letter-spacing:.1em;line-height:1.25;text-transform:uppercase;color:var(--cyan2);text-align:center;overflow-wrap:anywhere}
+#notesList .nsep .sept{display:flex;align-items:center;gap:10px;font-family:"Oswald",Roboto,"Segoe UI",system-ui,-apple-system,Arial,sans-serif;font-weight:300;font-size:17px;letter-spacing:.07em;line-height:1.2;text-transform:uppercase;color:var(--cyan2);text-align:center;overflow-wrap:anywhere}
 #notesList .nsep .sept::before,#notesList .nsep .sept::after{content:"";flex:1 1 18px;min-width:18px;height:1px;background:currentColor;opacity:.7}
 #notesList .note.nsep .nck{position:absolute;right:6px;top:50%;margin-top:-11px}
 #notesList .note.nsep.jv-lpon{background:rgba(var(--acR),.14);border-radius:10px}
@@ -2036,7 +2030,7 @@ body.ndmode #notesList .note.nsep{padding-left:36px}
 <style id="v231css">
 /* v231: separator label in a coloured pill (line stays uncoloured); dots menu */
 #notesList .nsep .sept{margin:0 24px}
-#notesList .nsep .sepp{flex:0 1 auto;min-width:0;max-width:80%;padding:3px 14px;border-radius:999px;background:rgba(var(--acR),.14);line-height:1.25}
+#notesList .nsep .sepp{flex:0 1 auto;min-width:0;max-width:80%;padding:4px 16px 3px;border-radius:999px;background:rgba(var(--acR),.22);color:var(--txt);text-shadow:none;line-height:1.2}
 #notesList .note.nsep .fdots{position:absolute;right:-2px;top:50%;margin:-15px 0 0;align-self:auto}
 #lpBox .npal.sp6{grid-template-columns:repeat(6,1fr);gap:6px;padding:4px}
 #lpBox .npal.sp6 button{width:34px;height:34px}
@@ -2044,9 +2038,9 @@ body.ndmode #notesList .note.nsep{padding-left:36px}
 #lpBox .npal.sp6 button.cur i{outline:2px solid var(--cyan);outline-offset:1px}
 #lpBox .spdef{width:100%;margin:2px 0 0}
 .spsep{display:flex;align-items:center;gap:10px;margin:8px 0;padding:2px 0;position:relative;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;touch-action:manipulation;cursor:default}
-.spsep .sept{flex:1;display:flex;align-items:center;gap:10px;margin:0 24px;font-weight:500;font-size:13.5px;letter-spacing:.1em;line-height:1.25;text-transform:uppercase;color:var(--cyan2);text-align:center;overflow-wrap:anywhere}
+.spsep .sept{flex:1;display:flex;align-items:center;gap:10px;margin:0 24px;font-family:"Oswald",Roboto,"Segoe UI",system-ui,-apple-system,Arial,sans-serif;font-weight:300;font-size:17px;letter-spacing:.07em;line-height:1.2;text-transform:uppercase;color:var(--cyan2);text-align:center;overflow-wrap:anywhere}
 .spsep .sept::before,.spsep .sept::after{content:"";flex:1 1 18px;min-width:18px;height:1px;background:currentColor;opacity:.7}
-.spsep .sepp{flex:0 1 auto;min-width:0;max-width:80%;padding:3px 14px;border-radius:999px;background:rgba(var(--acR),.14)}
+.spsep .sepp{flex:0 1 auto;min-width:0;max-width:80%;padding:4px 16px 3px;border-radius:999px;background:rgba(var(--acR),.22);color:var(--txt);text-shadow:none}
 .spsep .fdots{position:absolute;right:-2px;top:50%;margin:-15px 0 0;flex:none;width:30px;height:30px;padding:0;border:0;border-radius:50%;background:transparent;color:var(--mut);display:flex;align-items:center;justify-content:center;cursor:pointer}
 .spsep.drag{opacity:.9;background:rgba(var(--acR),.12);border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.35)}
 /* v231: Share glyph + ⋮ on note rows */

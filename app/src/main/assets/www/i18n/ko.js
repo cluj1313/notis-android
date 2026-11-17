@@ -1617,5 +1617,13 @@ NOTIS_I18N={
 "Includ și datele secrete (parolă, CVV, IBAN)?": "비밀 정보(비밀번호, CVV, IBAN)도 포함할까요?",
 "Confirmă cu parola principală pentru a include datele secrete.": "비밀 정보를 포함하려면 기본 비밀번호로 확인하세요.",
 "Șters": "삭제됨",
-"Trage separatorul sus sau jos": "구분선을 위나 아래로 끌어 옮기세요"
+"Trage separatorul sus sau jos": "구분선을 위나 아래로 끌어 옮기세요",
+"Ține apăsat pe o notiță, apoi atinge 📌 în bara de sus (poți selecta și mai multe). Cele fixate stau primele în tab, despărțite de restul printr-o linie.": "메모를 길게 누른 뒤 상단 바의 📌을 누르세요(여러 개 선택 가능). 고정된 메모는 탭 맨 위에 놓이며 나머지와 선으로 구분됩니다.",
+"Atinge ⋮ din dreapta folderului: Redenumește, Mută, Culoare, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "폴더 오른쪽의 ⋮을 누르세요: 이름 바꾸기, 이동, 색상, 🔒 잠금, 🗑 삭제(휴지통으로 가며 복원할 수 있음). 폴더 안의 폴더: 폴더를 열고 위쪽 폴더 버튼을 누르세요. 폴더에서 만든 새 메모는 그 폴더에 남습니다. 예시는 기타 탭에서 볼 수 있습니다.",
+"Ține apăsat pe o notiță, apoi atinge altele. Sus apare bara cu: ← ieșire, număr, 🎨 culoare, 📁 mută în alt tab, 📌 fixează, 🗑 coș, ⋮ (alarmă, editează, Share, blochează, etichete, selectează tot). Ține apăsat din nou pe singura notiță selectată ca s-o tragi în altă poziție.": "메모를 길게 누른 뒤 다른 메모를 누르세요. 위에 막대가 나타납니다: ← 나가기, 개수, 🎨 색상, 📁 다른 탭으로 이동, 📌 고정, 🗑 휴지통, ⋮(알람, 편집, Share, 잠금, 라벨, 모두 선택). 선택한 메모가 하나뿐일 때 다시 길게 누르면 다른 위치로 끌어 옮길 수 있습니다.",
+"Atinge ⋮ din dreapta notiței → Blochează. Notița (și pozele ei) se criptează cu PIN; în listă apare doar titlul cu 🔒.": "메모 오른쪽의 ⋮을 누르세요 → 잠금. 메모(와 사진)는 PIN으로 암호화되며, 목록에는 🔒와 함께 제목만 표시됩니다.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe o notiță, apoi atinge 📌 din bara de sus.": "기타 › 고객 › 2026에 있습니다. 단계는 원하는 만큼 만들 수 있습니다: 폴더를 열고 위쪽 폴더 버튼을 누르세요. 📌 고정: 메모를 길게 누른 뒤 상단 바의 📌을 누르세요.",
+"Blochezi orice folder: atinge ⋮ → 🔒 Blochează → alegi un PIN de 4 cifre. La ieșire, folderul se blochează din nou.": "어떤 폴더든 잠글 수 있습니다: ⋮을 누르고 → 🔒 잠금 → 4자리 PIN을 선택하세요. 나가면 폴더가 다시 잠깁니다.",
+"Ține apăsat pe o notiță, apoi atinge 📌 în bara de sus ca să rămână mereu sus.": "메모를 길게 누른 뒤 상단 바의 📌을 누르면 항상 맨 위에 유지됩니다.",
+"Ține apăsat o notiță, eliberează, apoi ține apăsat din nou și trage-o în altă poziție. Pentru alt tab sau folder: ⋮ → Mută.": "메모를 길게 눌렀다 놓은 뒤, 다시 길게 눌러 다른 위치로 끌어 옮기세요. 다른 탭이나 폴더로: ⋮ → 이동."
 };

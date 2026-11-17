@@ -1617,5 +1617,13 @@ NOTIS_I18N={
 "Includ și datele secrete (parolă, CVV, IBAN)?": "هل أُضمّن البيانات السرية (كلمة المرور، CVV، IBAN)؟",
 "Confirmă cu parola principală pentru a include datele secrete.": "أكّد بكلمة المرور الرئيسية لتضمين البيانات السرية.",
 "Șters": "تم الحذف",
-"Trage separatorul sus sau jos": "اسحب الفاصل لأعلى أو لأسفل"
+"Trage separatorul sus sau jos": "اسحب الفاصل لأعلى أو لأسفل",
+"Ține apăsat pe o notiță, apoi atinge 📌 în bara de sus (poți selecta și mai multe). Cele fixate stau primele în tab, despărțite de restul printr-o linie.": "اضغط مطولًا على ملاحظة، ثم المس 📌 في الشريط العلوي (يمكنك تحديد عدة ملاحظات). تظهر الملاحظات المثبّتة أولًا في التبويب، مفصولة عن الباقي بخط.",
+"Atinge ⋮ din dreapta folderului: Redenumește, Mută, Culoare, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "المس ⋮ على يمين المجلد: إعادة التسمية، نقل، لون، 🔒 قفل، 🗑 حذف (ينتقل إلى سلة المحذوفات ويمكن استرجاعه). مجلد داخل مجلد: ادخل المجلد والمس زر المجلد في الأعلى. تبقى الملاحظات الجديدة المنشأة داخل مجلد فيه. شاهد الأمثلة في تبويب متنوع.",
+"Ține apăsat pe o notiță, apoi atinge altele. Sus apare bara cu: ← ieșire, număr, 🎨 culoare, 📁 mută în alt tab, 📌 fixează, 🗑 coș, ⋮ (alarmă, editează, Share, blochează, etichete, selectează tot). Ține apăsat din nou pe singura notiță selectată ca s-o tragi în altă poziție.": "اضغط مطولًا على ملاحظة، ثم المس ملاحظات أخرى. يظهر في الأعلى شريط فيه: ← خروج، العدد، 🎨 اللون، 📁 نقل إلى تبويب آخر، 📌 تثبيت، 🗑 السلة، ⋮ (تنبيه، تعديل، Share، قفل، تسميات، تحديد الكل). اضغط مطولًا مرة أخرى على الملاحظة الوحيدة المحددة لسحبها إلى موضع آخر.",
+"Atinge ⋮ din dreapta notiței → Blochează. Notița (și pozele ei) se criptează cu PIN; în listă apare doar titlul cu 🔒.": "المس ⋮ على يمين الملاحظة ← قفل. تُشفَّر الملاحظة (وصورها) برمز PIN؛ ويظهر في القائمة العنوان فقط مع 🔒.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe o notiță, apoi atinge 📌 din bara de sus.": "أنت في متنوع › العملاء › 2026. يمكنك إنشاء أي عدد من المستويات: ادخل مجلدًا والمس زر المجلد في الأعلى. 📌 تثبيت: اضغط مطولًا على ملاحظة ثم المس 📌 في الشريط العلوي.",
+"Blochezi orice folder: atinge ⋮ → 🔒 Blochează → alegi un PIN de 4 cifre. La ieșire, folderul se blochează din nou.": "يمكنك قفل أي مجلد: المس ⋮ ← 🔒 قفل ← اختر رمز PIN من 4 أرقام. عند الخروج يُقفل المجلد مجددًا.",
+"Ține apăsat pe o notiță, apoi atinge 📌 în bara de sus ca să rămână mereu sus.": "اضغط مطولًا على ملاحظة، ثم المس 📌 في الشريط العلوي لتبقى دائمًا في الأعلى.",
+"Ține apăsat o notiță, eliberează, apoi ține apăsat din nou și trage-o în altă poziție. Pentru alt tab sau folder: ⋮ → Mută.": "اضغط مطولًا على ملاحظة، ثم حرّر، ثم اضغط مطولًا مرة أخرى واسحبها إلى موضع آخر. لتبويب أو مجلد آخر: ⋮ ← نقل."
 };

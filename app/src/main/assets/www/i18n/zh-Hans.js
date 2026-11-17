@@ -1617,5 +1617,13 @@ NOTIS_I18N={
 "Includ și datele secrete (parolă, CVV, IBAN)?": "是否同时包含机密数据（密码、CVV、IBAN）？",
 "Confirmă cu parola principală pentru a include datele secrete.": "请用主密码确认，以包含机密数据。",
 "Șters": "已删除",
-"Trage separatorul sus sau jos": "向上或向下拖动分隔线"
+"Trage separatorul sus sau jos": "向上或向下拖动分隔线",
+"Ține apăsat pe o notiță, apoi atinge 📌 în bara de sus (poți selecta și mai multe). Cele fixate stau primele în tab, despărțite de restul printr-o linie.": "长按一条笔记，然后点按顶部栏的 📌（可多选）。已置顶的笔记排在标签页最前面，与其余笔记之间用一条线分隔。",
+"Atinge ⋮ din dreapta folderului: Redenumește, Mută, Culoare, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "点按文件夹右侧的 ⋮：重命名、移动、颜色、🔒 锁定、🗑 删除（进入回收站，可恢复）。文件夹中的文件夹：打开文件夹，点按顶部的文件夹按钮。在文件夹中新建的笔记会留在其中。示例见“杂项”标签页。",
+"Ține apăsat pe o notiță, apoi atinge altele. Sus apare bara cu: ← ieșire, număr, 🎨 culoare, 📁 mută în alt tab, 📌 fixează, 🗑 coș, ⋮ (alarmă, editează, Share, blochează, etichete, selectează tot). Ține apăsat din nou pe singura notiță selectată ca s-o tragi în altă poziție.": "长按一条笔记，然后点按其他笔记。顶部会出现工具栏：← 退出、数量、🎨 颜色、📁 移到其他标签页、📌 置顶、🗑 回收站、⋮（提醒、编辑、Share、锁定、标签、全选）。仅选中一条笔记时，再次长按它即可拖到其他位置。",
+"Atinge ⋮ din dreapta notiței → Blochează. Notița (și pozele ei) se criptează cu PIN; în listă apare doar titlul cu 🔒.": "点按笔记右侧的 ⋮ → 锁定。笔记（及其照片）会用 PIN 加密；列表中只显示带 🔒 的标题。",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe o notiță, apoi atinge 📌 din bara de sus.": "你在 杂项 › 客户 › 2026。层级数量不限：打开文件夹，点按顶部的文件夹按钮。📌 置顶：长按一条笔记，然后点按顶部栏的 📌。",
+"Blochezi orice folder: atinge ⋮ → 🔒 Blochează → alegi un PIN de 4 cifre. La ieșire, folderul se blochează din nou.": "可以锁定任何文件夹：点按 ⋮ → 🔒 锁定 → 选择 4 位 PIN。退出时文件夹会再次锁定。",
+"Ține apăsat pe o notiță, apoi atinge 📌 în bara de sus ca să rămână mereu sus.": "长按一条笔记，然后点按顶部栏的 📌，让它始终保持在最上面。",
+"Ține apăsat o notiță, eliberează, apoi ține apăsat din nou și trage-o în altă poziție. Pentru alt tab sau folder: ⋮ → Mută.": "长按一条笔记后松开，再次长按并拖到其他位置。要移到其他标签页或文件夹：⋮ → 移动。"
 };

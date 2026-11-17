@@ -1617,5 +1617,13 @@ NOTIS_I18N={
 "Includ și datele secrete (parolă, CVV, IBAN)?": "รวมข้อมูลลับ (รหัสผ่าน, CVV, IBAN) ด้วยไหม",
 "Confirmă cu parola principală pentru a include datele secrete.": "ยืนยันด้วยรหัสผ่านหลักเพื่อรวมข้อมูลลับ",
 "Șters": "ลบแล้ว",
-"Trage separatorul sus sau jos": "ลากตัวแบ่งขึ้นหรือลง"
+"Trage separatorul sus sau jos": "ลากตัวแบ่งขึ้นหรือลง",
+"Ține apăsat pe o notiță, apoi atinge 📌 în bara de sus (poți selecta și mai multe). Cele fixate stau primele în tab, despărțite de restul printr-o linie.": "กดโน้ตค้างไว้ แล้วแตะ 📌 ที่แถบด้านบน (เลือกได้หลายรายการ) โน้ตที่ปักหมุดจะอยู่บนสุดของแท็บ และคั่นจากรายการอื่นด้วยเส้น",
+"Atinge ⋮ din dreapta folderului: Redenumește, Mută, Culoare, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "แตะ ⋮ ทางขวาของโฟลเดอร์: เปลี่ยนชื่อ, ย้าย, สี, 🔒 ล็อก, 🗑 ลบ (ไปที่ถังขยะและกู้คืนได้) โฟลเดอร์ซ้อนโฟลเดอร์: เปิดโฟลเดอร์แล้วแตะปุ่มโฟลเดอร์ด้านบน โน้ตใหม่ที่สร้างในโฟลเดอร์จะอยู่ในโฟลเดอร์นั้น ดูตัวอย่างได้ที่แท็บอื่น ๆ",
+"Ține apăsat pe o notiță, apoi atinge altele. Sus apare bara cu: ← ieșire, număr, 🎨 culoare, 📁 mută în alt tab, 📌 fixează, 🗑 coș, ⋮ (alarmă, editează, Share, blochează, etichete, selectează tot). Ține apăsat din nou pe singura notiță selectată ca s-o tragi în altă poziție.": "กดโน้ตค้างไว้ แล้วแตะโน้ตอื่น ๆ แถบด้านบนจะปรากฏพร้อม: ← ออก, จำนวน, 🎨 สี, 📁 ย้ายไปแท็บอื่น, 📌 ปักหมุด, 🗑 ถังขยะ, ⋮ (การแจ้งเตือน, แก้ไข, Share, ล็อก, ป้ายกำกับ, เลือกทั้งหมด) กดโน้ตที่เลือกอยู่เพียงอันเดียวค้างไว้อีกครั้งเพื่อลากไปยังตำแหน่งอื่น",
+"Atinge ⋮ din dreapta notiței → Blochează. Notița (și pozele ei) se criptează cu PIN; în listă apare doar titlul cu 🔒.": "แตะ ⋮ ทางขวาของโน้ต → ล็อก โน้ต (และรูปของโน้ต) จะถูกเข้ารหัสด้วย PIN ในรายการจะเห็นเฉพาะชื่อพร้อม 🔒",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe o notiță, apoi atinge 📌 din bara de sus.": "คุณอยู่ที่ อื่น ๆ › ลูกค้า › 2026 ทำกี่ระดับก็ได้: เปิดโฟลเดอร์แล้วแตะปุ่มโฟลเดอร์ด้านบน 📌 ปักหมุด: กดโน้ตค้างไว้ แล้วแตะ 📌 ที่แถบด้านบน",
+"Blochezi orice folder: atinge ⋮ → 🔒 Blochează → alegi un PIN de 4 cifre. La ieșire, folderul se blochează din nou.": "คุณล็อกโฟลเดอร์ใดก็ได้: แตะ ⋮ → 🔒 ล็อก → เลือก PIN 4 หลัก เมื่อออก โฟลเดอร์จะล็อกอีกครั้ง",
+"Ține apăsat pe o notiță, apoi atinge 📌 în bara de sus ca să rămână mereu sus.": "กดโน้ตค้างไว้ แล้วแตะ 📌 ที่แถบด้านบนเพื่อให้อยู่บนสุดเสมอ",
+"Ține apăsat o notiță, eliberează, apoi ține apăsat din nou și trage-o în altă poziție. Pentru alt tab sau folder: ⋮ → Mută.": "กดโน้ตค้างไว้แล้วปล่อย จากนั้นกดค้างอีกครั้งแล้วลากไปยังตำแหน่งอื่น หากต้องการย้ายไปแท็บหรือโฟลเดอร์อื่น: ⋮ → ย้าย"
 };

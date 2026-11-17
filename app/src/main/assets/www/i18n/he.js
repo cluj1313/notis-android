@@ -1617,5 +1617,13 @@ NOTIS_I18N={
 "Includ și datele secrete (parolă, CVV, IBAN)?": "לכלול גם את הנתונים הסודיים (סיסמה, CVV, IBAN)?",
 "Confirmă cu parola principală pentru a include datele secrete.": "אשר עם הסיסמה הראשית כדי לכלול את הנתונים הסודיים.",
 "Șters": "נמחק",
-"Trage separatorul sus sau jos": "גרור את המפריד למעלה או למטה"
+"Trage separatorul sus sau jos": "גרור את המפריד למעלה או למטה",
+"Ține apăsat pe o notiță, apoi atinge 📌 în bara de sus (poți selecta și mai multe). Cele fixate stau primele în tab, despărțite de restul printr-o linie.": "לחץ לחיצה ארוכה על פתק ואז הקש על 📌 בסרגל העליון (אפשר לבחור כמה). הפתקים המוצמדים נשארים ראשונים בלשונית, מופרדים משאר הפתקים בקו.",
+"Atinge ⋮ din dreapta folderului: Redenumește, Mută, Culoare, 🔒 Blochează, 🗑 Șterge (merge în coș și se poate reface). Folder în folder: intră în folder și atinge butonul de folder de sus. Notițele noi create într-un folder rămân în el. Vezi exemplele din tabul Diverse.": "הקש על ⋮ מימין לתיקייה: שינוי שם, העברה, צבע, 🔒 נעילה, 🗑 מחיקה (עוברת לפח וניתנת לשחזור). תיקייה בתוך תיקייה: היכנס לתיקייה והקש על כפתור התיקייה למעלה. פתקים חדשים שנוצרים בתיקייה נשארים בה. ראה את הדוגמאות בלשונית שונות.",
+"Ține apăsat pe o notiță, apoi atinge altele. Sus apare bara cu: ← ieșire, număr, 🎨 culoare, 📁 mută în alt tab, 📌 fixează, 🗑 coș, ⋮ (alarmă, editează, Share, blochează, etichete, selectează tot). Ține apăsat din nou pe singura notiță selectată ca s-o tragi în altă poziție.": "לחץ לחיצה ארוכה על פתק ואז הקש על אחרים. למעלה מופיע סרגל עם: ← יציאה, מספר, 🎨 צבע, 📁 העברה ללשונית אחרת, 📌 הצמדה, 🗑 פח, ⋮ (התראה, עריכה, Share, נעילה, תוויות, בחר הכול). לחץ שוב לחיצה ארוכה על הפתק הנבחר היחיד כדי לגרור אותו למקום אחר.",
+"Atinge ⋮ din dreapta notiței → Blochează. Notița (și pozele ei) se criptează cu PIN; în listă apare doar titlul cu 🔒.": "הקש על ⋮ מימין לפתק ← נעילה. הפתק (והתמונות שלו) מוצפן בקוד PIN; ברשימה מופיעה רק הכותרת עם 🔒.",
+"Ești în Diverse › Clienți › 2026. Poți face oricâte niveluri: intră într-un folder și atinge butonul de folder de sus. 📌 Fixează: ține apăsat pe o notiță, apoi atinge 📌 din bara de sus.": "אתה ב-שונות › לקוחות › 2026. אפשר ליצור כמה רמות שרוצים: היכנס לתיקייה והקש על כפתור התיקייה למעלה. 📌 הצמדה: לחץ לחיצה ארוכה על פתק ואז הקש על 📌 בסרגל העליון.",
+"Blochezi orice folder: atinge ⋮ → 🔒 Blochează → alegi un PIN de 4 cifre. La ieșire, folderul se blochează din nou.": "אפשר לנעול כל תיקייה: הקש על ⋮ ← 🔒 נעילה ← בחר קוד PIN בן 4 ספרות. ביציאה התיקייה ננעלת שוב.",
+"Ține apăsat pe o notiță, apoi atinge 📌 în bara de sus ca să rămână mereu sus.": "לחץ לחיצה ארוכה על פתק והקש על 📌 בסרגל העליון כדי שיישאר תמיד למעלה.",
+"Ține apăsat o notiță, eliberează, apoi ține apăsat din nou și trage-o în altă poziție. Pentru alt tab sau folder: ⋮ → Mută.": "לחץ לחיצה ארוכה על פתק, שחרר, לחץ שוב לחיצה ארוכה וגרור אותו למקום אחר. ללשונית או תיקייה אחרת: ⋮ ← העברה."
 };
