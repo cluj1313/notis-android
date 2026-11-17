@@ -1,6 +1,8 @@
 <resources>
     <style name="NotisTheme" parent="android:Theme.Material.NoActionBar">
-        <item name="android:textColorHighlight">#2E78B4FF</item>
+        <!-- v2.26.0: clearly visible text selection + handles on light and dark themes -->
+        <item name="android:textColorHighlight">#992E9BFF</item>
+        <item name="android:colorControlActivated">#FF1E88E5</item>
         <item name="android:windowBackground">@color/bg</item>
         <item name="android:statusBarColor">@color/bg</item>
         <item name="android:navigationBarColor">@color/bg</item>
