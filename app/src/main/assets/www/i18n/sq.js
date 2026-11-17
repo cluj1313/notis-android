@@ -1600,5 +1600,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "Pamjet e ekranit lejohen",
 "Capturile de ecran sunt blocate": "Pamjet e ekranit bllokohen",
 "Ajustează": "Rregullo",
-"Fără nume": "Pa emër"
+"Fără nume": "Pa emër",
+"Nume aplicație": "Emri i aplikacionit",
+"Serviciu email": "Shërbimi i email-it",
+"Adresa de email": "Adresa e email-it",
+"Link cont": "Lidhja e llogarisë",
+"Nume utilizator": "Emri i përdoruesit",
+"Copertă sau poză de profil": "Foto e kopertinës ose e profilit",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "Mund të ruash vetëm disa shkronja të fjalëkalimit (p.sh. fillimin) nëse e mban mend të gjithë.",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "Për siguri, shtoji fjalëkalimit të vërtetë 1–3 shkronja, shifra ose simbole të PAPAFSHME: mos i shkruaj këtu, i di vetëm ti.",
+"Alege pictograma": "Zgjidh ikonën",
+"Fără pictogramă": "Pa ikonë",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Me Premium: ikonë, lidhje, kopertinë, emër përdoruesi, shënim dhe fjalëkalim i pjesshëm. Aktivizo një kod te Ndryshimet → «Ke një kod?»."
 };

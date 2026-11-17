@@ -1602,5 +1602,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "Snímky obrazovky povoleny",
 "Capturile de ecran sunt blocate": "Snímky obrazovky blokovány",
 "Ajustează": "Upravit",
-"Fără nume": "Bez názvu"
+"Fără nume": "Bez názvu",
+"Nume aplicație": "Název aplikace",
+"Serviciu email": "E-mailová služba",
+"Adresa de email": "E-mailová adresa",
+"Link cont": "Odkaz na účet",
+"Nume utilizator": "Uživatelské jméno",
+"Copertă sau poză de profil": "Úvodní nebo profilová fotka",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "Můžeš uložit jen několik písmen hesla (např. začátek), pokud si pamatuješ celé.",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "Pro jistotu přidej ke skutečnému heslu 1–3 NEVIDITELNÁ písmena, číslice nebo znaky: nepiš je sem, znáš je jen ty.",
+"Alege pictograma": "Vybrat ikonu",
+"Fără pictogramă": "Bez ikony",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "S Premium: ikona, odkaz, úvodní fotka, uživatelské jméno, poznámka a částečné heslo. Aktivuj kód v Nastavení → „Máš kód?“."
 };

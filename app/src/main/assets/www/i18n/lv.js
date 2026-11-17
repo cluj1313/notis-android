@@ -1601,5 +1601,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "Ekrānuzņēmumi atļauti",
 "Capturile de ecran sunt blocate": "Ekrānuzņēmumi bloķēti",
 "Ajustează": "Pielāgot",
-"Fără nume": "Bez nosaukuma"
+"Fără nume": "Bez nosaukuma",
+"Nume aplicație": "Lietotnes nosaukums",
+"Serviciu email": "E-pasta pakalpojums",
+"Adresa de email": "E-pasta adrese",
+"Link cont": "Konta saite",
+"Nume utilizator": "Lietotājvārds",
+"Copertă sau poză de profil": "Vāka vai profila foto",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "Vari saglabāt tikai dažus paroles burtus (piem., sākumu), ja atceries visu.",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "Drošībai pievieno īstajai parolei 1–3 NEREDZAMUS burtus, ciparus vai zīmes: neraksti tos šeit, zini tikai tu.",
+"Alege pictograma": "Izvēlēties ikonu",
+"Fără pictogramă": "Bez ikonas",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Ar Premium: ikona, saite, vāks, lietotājvārds, piezīme un daļēja parole. Aktivizē kodu sadaļā Ieguldījumi → „Vai tev ir kods?”."
 };

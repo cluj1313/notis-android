@@ -1614,6 +1614,7 @@ NOTIS_AB.restore=function(why){var R=NOTIS_AB;if(!R.changed||R.restored||!R.raw)
 <script src="js/core.js"></script>
 <script src="js/plati.js"></script>
 <script src="js/crm.js"></script>
+<script src="js/picons.js"></script>
 <script src="js/parole.js"></script>
 <script src="js/tabs.js"></script>
 <script src="js/setari.js"></script>
@@ -2006,6 +2007,19 @@ textarea,input[type=text],input[type=search],input:not([type]){caret-color:var(-
 .pwbzc{width:100%;margin:0 0 10px}
 /* v228: Cărți de vizită / Poze acte — one-line names, tap → photo, tap photo → name */
 .pwbnl{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}.pwbn{border-radius:12px;background:rgba(127,127,127,.08);overflow:hidden;touch-action:manipulation;-webkit-tap-highlight-color:transparent}.pwbh{display:flex;align-items:center;min-height:46px;padding:10px 14px;cursor:pointer}.pwbl{font-size:16px;font-weight:600;line-height:1.3;overflow-wrap:anywhere}.pwbl.pwbe{font-weight:400;font-style:italic;opacity:.55}.pwbn.open .pwpf{cursor:pointer}.pwbn .pwpt{justify-content:flex-end;padding:4px 6px 6px}.pwbn .pwpt .btn{min-width:44px}
+/* v229: entry rows (all Parole sections), brand icons, account form */
+[data-ek][hidden]{display:none!important}
+.pwen .pwbh{gap:0}.pwbn.pwen.open .pwbh{display:flex;border-bottom:1px solid var(--line)}.pwbl.on{font-weight:700}.pwen .pwfw,.pwen .pwfr{margin-left:8px;font-style:normal}
+.pwic{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:8px;background:#f2f4f7;flex:0 0 auto;margin-right:10px;font-style:normal}.pwic svg{width:18px;height:18px;display:block}.pwic b{font:700 13px/1 system-ui,sans-serif}
+.pwed{padding:4px 12px 6px}.pwed .pwcov{margin:6px -12px 8px;min-height:0;cursor:pointer}.pwed .pwcov img{max-height:170px;width:100%;object-fit:cover}
+.pwdr{display:flex;align-items:center;gap:8px;min-height:38px;padding:3px 0}.pwdr1{padding:4px 12px}.pwdl{flex:0 0 38%;font-size:12.5px;opacity:.65;overflow-wrap:anywhere}.pwdv{flex:1;min-width:0;font-size:15px;overflow-wrap:anywhere}.pwdv.pwnote{white-space:pre-wrap}.pwdr>.pwic+.pwdv{margin-left:0}a.pwlk2{color:var(--cyan);text-decoration:none}
+.pwdr .pwcp{flex:0 0 auto;margin:0;padding:4px 8px;min-width:40px;height:36px}.pwicg[hidden]{display:none}
+.pwed .pwpt{padding:6px 0 2px}
+.pwer{display:flex;gap:8px;align-items:center;margin:6px 0}.pwer .pwin{flex:1;min-width:0;margin:0}.pwico{flex:0 0 auto;width:48px;height:48px;padding:0;border-radius:12px;border:1px solid var(--line);background:rgba(127,127,127,.12);display:flex;align-items:center;justify-content:center}.pwico .pwic{margin:0;width:34px;height:34px}.pwico .pwic svg{width:22px;height:22px}.pwico.auto{opacity:.9}
+.pwicg{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 8px}.pwico2{width:42px;height:42px;padding:0;border-radius:10px;border:1px solid var(--line);background:rgba(127,127,127,.12);display:flex;align-items:center;justify-content:center;color:inherit;font-size:16px}.pwico2 .pwic{margin:0}
+.pwcvt{margin:4px 0 6px;border-radius:10px;overflow:hidden}.pwcvt img{display:block;width:100%;max-height:140px;object-fit:cover}
+.pwtiny{font-size:11px;line-height:1.35;margin:4px 0}.pwup{margin:8px 0}
+
 .pwlt button{font-size:13.5px;padding:0 4px}
 .pwpth{text-align:center;margin:6px 0 0}
 /* v224: text separator — like the Setări section headers, lines on both sides through the middle of the text */

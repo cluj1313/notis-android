@@ -1600,5 +1600,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "لقطات الشاشة مسموح بها",
 "Capturile de ecran sunt blocate": "لقطات الشاشة محظورة",
 "Ajustează": "تعديل",
-"Fără nume": "بدون اسم"
+"Fără nume": "بدون اسم",
+"Nume aplicație": "اسم التطبيق",
+"Serviciu email": "خدمة البريد الإلكتروني",
+"Adresa de email": "عنوان البريد الإلكتروني",
+"Link cont": "رابط الحساب",
+"Nume utilizator": "اسم المستخدم",
+"Copertă sau poză de profil": "صورة الغلاف أو الملف الشخصي",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "يمكنك حفظ بضعة أحرف فقط من كلمة المرور (مثل البداية) إذا كنت تتذكرها كاملة.",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "للأمان، أضف 1–3 أحرف أو أرقام أو رموز «خفية» إلى كلمة المرور الفعلية: لا تكتبها هنا، أنت وحدك تعرفها.",
+"Alege pictograma": "اختر الأيقونة",
+"Fără pictogramă": "بدون أيقونة",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "مع Premium: أيقونة، رابط، غلاف، اسم مستخدم، ملاحظة وكلمة مرور جزئية. فعّل رمزًا من الإعدادات ← «هل لديك رمز؟»."
 };

@@ -1601,5 +1601,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "Tangkapan skrin dibenarkan",
 "Capturile de ecran sunt blocate": "Tangkapan skrin disekat",
 "Ajustează": "Laras",
-"Fără nume": "Tanpa nama"
+"Fără nume": "Tanpa nama",
+"Nume aplicație": "Nama aplikasi",
+"Serviciu email": "Perkhidmatan e-mel",
+"Adresa de email": "Alamat e-mel",
+"Link cont": "Pautan akaun",
+"Nume utilizator": "Nama pengguna",
+"Copertă sau poză de profil": "Foto muka depan atau profil",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "Anda boleh menyimpan hanya beberapa huruf kata laluan (cth. permulaannya) jika anda ingat semuanya.",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "Demi keselamatan, tambah 1–3 huruf, digit atau simbol TIDAK KELIHATAN pada kata laluan sebenar: jangan tulis di sini, hanya anda yang tahu.",
+"Alege pictograma": "Pilih ikon",
+"Fără pictogramă": "Tiada ikon",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Dengan Premium: ikon, pautan, muka depan, nama pengguna, nota dan kata laluan separa. Aktifkan kod di Tetapan → “Ada kod?”."
 };

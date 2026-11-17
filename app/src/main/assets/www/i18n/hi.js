@@ -1600,5 +1600,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "स्क्रीनशॉट की अनुमति है",
 "Capturile de ecran sunt blocate": "स्क्रीनशॉट अवरुद्ध हैं",
 "Ajustează": "समायोजित करें",
-"Fără nume": "बिना नाम"
+"Fără nume": "बिना नाम",
+"Nume aplicație": "ऐप का नाम",
+"Serviciu email": "ईमेल सेवा",
+"Adresa de email": "ईमेल पता",
+"Link cont": "खाते का लिंक",
+"Nume utilizator": "उपयोगकर्ता नाम",
+"Copertă sau poză de profil": "कवर या प्रोफ़ाइल फ़ोटो",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "अगर आपको पूरा पासवर्ड याद है, तो आप उसके केवल कुछ अक्षर (जैसे शुरुआत) सहेज सकते हैं।",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "सुरक्षा के लिए असली पासवर्ड में 1–3 अदृश्य अक्षर, अंक या चिह्न जोड़ें: उन्हें यहाँ न लिखें, केवल आप उन्हें जानते हैं।",
+"Alege pictograma": "आइकन चुनें",
+"Fără pictogramă": "कोई आइकन नहीं",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Premium के साथ: आइकन, लिंक, कवर, उपयोगकर्ता नाम, नोट और आंशिक पासवर्ड। सेटिंग्स → “क्या आपके पास कोड है?” में कोड सक्रिय करें।"
 };

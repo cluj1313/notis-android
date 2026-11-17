@@ -1600,5 +1600,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "Τα στιγμιότυπα οθόνης επιτρέπονται",
 "Capturile de ecran sunt blocate": "Τα στιγμιότυπα οθόνης αποκλείονται",
 "Ajustează": "Προσαρμογή",
-"Fără nume": "Χωρίς όνομα"
+"Fără nume": "Χωρίς όνομα",
+"Nume aplicație": "Όνομα εφαρμογής",
+"Serviciu email": "Υπηρεσία email",
+"Adresa de email": "Διεύθυνση email",
+"Link cont": "Σύνδεσμος λογαριασμού",
+"Nume utilizator": "Όνομα χρήστη",
+"Copertă sau poză de profil": "Φωτογραφία εξωφύλλου ή προφίλ",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "Μπορείς να κρατήσεις μόνο μερικά γράμματα του κωδικού (π.χ. την αρχή), αν τον θυμάσαι ολόκληρο.",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "Για ασφάλεια, πρόσθεσε στον πραγματικό κωδικό 1–3 ΑΟΡΑΤΑ γράμματα, ψηφία ή σύμβολα: μην τα γράψεις εδώ, τα ξέρεις μόνο εσύ.",
+"Alege pictograma": "Επιλογή εικονιδίου",
+"Fără pictogramă": "Χωρίς εικονίδιο",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Με Premium: εικονίδιο, σύνδεσμος, εξώφυλλο, όνομα χρήστη, σημείωση και μερικός κωδικός. Ενεργοποίησε κωδικό στις Ρυθμίσεις → «Έχεις κωδικό;»."
 };

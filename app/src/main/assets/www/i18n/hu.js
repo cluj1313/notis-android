@@ -1601,5 +1601,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "Képernyőképek engedélyezve",
 "Capturile de ecran sunt blocate": "Képernyőképek letiltva",
 "Ajustează": "Igazítás",
-"Fără nume": "Név nélkül"
+"Fără nume": "Név nélkül",
+"Nume aplicație": "Alkalmazás neve",
+"Serviciu email": "E-mail szolgáltatás",
+"Adresa de email": "E-mail-cím",
+"Link cont": "Fiók linkje",
+"Nume utilizator": "Felhasználónév",
+"Copertă sau poză de profil": "Borító- vagy profilkép",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "Elég a jelszó néhány betűjét (pl. az elejét) elmenteni, ha az egészet fejben tartod.",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "A biztonság kedvéért fűzz a valódi jelszóhoz 1–3 LÁTHATATLAN betűt, számjegyet vagy jelet: ide ne írd be, csak te ismered őket.",
+"Alege pictograma": "Ikon kiválasztása",
+"Fără pictogramă": "Ikon nélkül",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Premiummal: ikon, link, borító, felhasználónév, jegyzet és részleges jelszó. Aktiválj kódot itt: Beállítások → „Van kódod?”."
 };

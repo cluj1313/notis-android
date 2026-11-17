@@ -1601,5 +1601,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "Đã cho phép chụp màn hình",
 "Capturile de ecran sunt blocate": "Đã chặn chụp màn hình",
 "Ajustează": "Điều chỉnh",
-"Fără nume": "Không tên"
+"Fără nume": "Không tên",
+"Nume aplicație": "Tên ứng dụng",
+"Serviciu email": "Dịch vụ email",
+"Adresa de email": "Địa chỉ email",
+"Link cont": "Liên kết tài khoản",
+"Nume utilizator": "Tên người dùng",
+"Copertă sau poză de profil": "Ảnh bìa hoặc ảnh đại diện",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "Bạn có thể chỉ lưu vài ký tự của mật khẩu (ví dụ phần đầu) nếu nhớ toàn bộ.",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "Để an toàn, hãy thêm 1–3 chữ cái, chữ số hoặc ký hiệu VÔ HÌNH vào mật khẩu thật: đừng ghi ở đây, chỉ mình bạn biết.",
+"Alege pictograma": "Chọn biểu tượng",
+"Fără pictogramă": "Không biểu tượng",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Với Premium: biểu tượng, liên kết, ảnh bìa, tên người dùng, ghi chú và mật khẩu một phần. Kích hoạt mã trong Cài đặt → “Bạn có mã không?”."
 };

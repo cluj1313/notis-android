@@ -1600,5 +1600,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "スクリーンショットを許可しました",
 "Capturile de ecran sunt blocate": "スクリーンショットをブロックしました",
 "Ajustează": "調整",
-"Fără nume": "名前なし"
+"Fără nume": "名前なし",
+"Nume aplicație": "アプリ名",
+"Serviciu email": "メールサービス",
+"Adresa de email": "メールアドレス",
+"Link cont": "アカウントのリンク",
+"Nume utilizator": "ユーザー名",
+"Copertă sau poză de profil": "カバー写真またはプロフィール写真",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "パスワード全体を覚えているなら、先頭など数文字だけを保存できます。",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "安全のため、実際のパスワードに見えない文字・数字・記号を1〜3個足してください。ここには書かず、自分だけが知っておきます。",
+"Alege pictograma": "アイコンを選択",
+"Fără pictogramă": "アイコンなし",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Premiumでは、アイコン、リンク、カバー、ユーザー名、メモ、部分パスワードが使えます。設定→「コードをお持ちですか?」でコードを有効にしてください。"
 };

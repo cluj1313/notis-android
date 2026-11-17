@@ -1600,5 +1600,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "צילומי מסך מותרים",
 "Capturile de ecran sunt blocate": "צילומי מסך חסומים",
 "Ajustează": "התאם",
-"Fără nume": "ללא שם"
+"Fără nume": "ללא שם",
+"Nume aplicație": "שם האפליקציה",
+"Serviciu email": "שירות דוא״ל",
+"Adresa de email": "כתובת דוא״ל",
+"Link cont": "קישור לחשבון",
+"Nume utilizator": "שם משתמש",
+"Copertă sau poză de profil": "תמונת נושא או פרופיל",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "אפשר לשמור רק כמה אותיות מהסיסמה (למשל את ההתחלה) אם אתה זוכר אותה במלואה.",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "לשם בטיחות, הוסף לסיסמה האמיתית 1–3 אותיות, ספרות או סימנים בלתי נראים: אל תכתוב אותם כאן, רק אתה מכיר אותם.",
+"Alege pictograma": "בחר סמל",
+"Fără pictogramă": "ללא סמל",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "עם Premium: סמל, קישור, תמונת נושא, שם משתמש, הערה וסיסמה חלקית. הפעל קוד בהגדרות ← «יש לך קוד?»."
 };

@@ -1601,5 +1601,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "Captures de pantalla permeses",
 "Capturile de ecran sunt blocate": "Captures de pantalla bloquejades",
 "Ajustează": "Ajusta",
-"Fără nume": "Sense nom"
+"Fără nume": "Sense nom",
+"Nume aplicație": "Nom de l’aplicació",
+"Serviciu email": "Servei de correu",
+"Adresa de email": "Adreça de correu",
+"Link cont": "Enllaç del compte",
+"Nume utilizator": "Nom d’usuari",
+"Copertă sau poză de profil": "Portada o foto de perfil",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "Pots desar només unes quantes lletres de la contrasenya (p. ex. el principi) si te la recordes sencera.",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "Per seguretat, afegeix a la contrasenya real 1–3 lletres, xifres o signes INVISIBLES: no els escriguis aquí, només tu els saps.",
+"Alege pictograma": "Tria la icona",
+"Fără pictogramă": "Sense icona",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Amb Premium: icona, enllaç, portada, nom d’usuari, nota i contrasenya parcial. Activa un codi a Configuració → «Tens un codi?»."
 };

@@ -1600,5 +1600,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "Skærmbilleder er tilladt",
 "Capturile de ecran sunt blocate": "Skærmbilleder er blokeret",
 "Ajustează": "Juster",
-"Fără nume": "Uden navn"
+"Fără nume": "Uden navn",
+"Nume aplicație": "Appens navn",
+"Serviciu email": "E-mailtjeneste",
+"Adresa de email": "E-mailadresse",
+"Link cont": "Link til kontoen",
+"Nume utilizator": "Brugernavn",
+"Copertă sau poză de profil": "Cover- eller profilbillede",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "Du kan kun gemme nogle få tegn af adgangskoden (fx begyndelsen), hvis du kan huske hele.",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "For en sikkerheds skyld: tilføj 1–3 USYNLIGE bogstaver, tal eller tegn til den rigtige adgangskode. Skriv dem ikke her, kun du kender dem.",
+"Alege pictograma": "Vælg ikon",
+"Fără pictogramă": "Uden ikon",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Med Premium: ikon, link, cover, brugernavn, note og delvis adgangskode. Aktivér en kode i Indstillinger → “Har du en kode?”."
 };

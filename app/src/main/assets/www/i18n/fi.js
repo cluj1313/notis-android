@@ -1601,5 +1601,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "Kuvakaappaukset sallittu",
 "Capturile de ecran sunt blocate": "Kuvakaappaukset estetty",
 "Ajustează": "Säädä",
-"Fără nume": "Nimetön"
+"Fără nume": "Nimetön",
+"Nume aplicație": "Sovelluksen nimi",
+"Serviciu email": "Sähköpostipalvelu",
+"Adresa de email": "Sähköpostiosoite",
+"Link cont": "Tilin linkki",
+"Nume utilizator": "Käyttäjätunnus",
+"Copertă sau poză de profil": "Kansi- tai profiilikuva",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "Voit tallentaa vain muutaman salasanan merkin (esim. alun), jos muistat sen kokonaan.",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "Turvallisuuden vuoksi lisää oikeaan salasanaan 1–3 NÄKYMÄTÖNTÄ kirjainta, numeroa tai merkkiä: älä kirjoita niitä tähän, vain sinä tiedät ne.",
+"Alege pictograma": "Valitse kuvake",
+"Fără pictogramă": "Ei kuvaketta",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Premiumilla: kuvake, linkki, kansikuva, käyttäjätunnus, muistiinpano ja osittainen salasana. Aktivoi koodi kohdassa Asennukset → “Onko sinulla koodi?”."
 };

@@ -1601,5 +1601,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "Skärmbilder tillåts",
 "Capturile de ecran sunt blocate": "Skärmbilder blockeras",
 "Ajustează": "Justera",
-"Fără nume": "Utan namn"
+"Fără nume": "Utan namn",
+"Nume aplicație": "Appens namn",
+"Serviciu email": "E-posttjänst",
+"Adresa de email": "E-postadress",
+"Link cont": "Länk till kontot",
+"Nume utilizator": "Användarnamn",
+"Copertă sau poză de profil": "Omslags- eller profilbild",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "Du kan spara bara några tecken av lösenordet (t.ex. början) om du kommer ihåg hela.",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "För säkerhets skull: lägg till 1–3 OSYNLIGA bokstäver, siffror eller tecken i det riktiga lösenordet. Skriv inte dem här, bara du känner till dem.",
+"Alege pictograma": "Välj ikon",
+"Fără pictogramă": "Utan ikon",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Med Premium: ikon, länk, omslag, användarnamn, anteckning och delvis lösenord. Aktivera en kod i Inställningar → ”Har du en kod?”."
 };

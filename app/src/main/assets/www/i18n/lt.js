@@ -1600,5 +1600,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "Ekrano kopijos leidžiamos",
 "Capturile de ecran sunt blocate": "Ekrano kopijos užblokuotos",
 "Ajustează": "Koreguoti",
-"Fără nume": "Be pavadinimo"
+"Fără nume": "Be pavadinimo",
+"Nume aplicație": "Programėlės pavadinimas",
+"Serviciu email": "El. pašto paslauga",
+"Adresa de email": "El. pašto adresas",
+"Link cont": "Paskyros nuoroda",
+"Nume utilizator": "Naudotojo vardas",
+"Copertă sau poză de profil": "Viršelio arba profilio nuotrauka",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "Gali išsaugoti tik kelias slaptažodžio raides (pvz., pradžią), jei prisimeni visą.",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "Saugumo dėlei prie tikrojo slaptažodžio pridėk 1–3 NEMATOMAS raides, skaičius ar ženklus: čia jų nerašyk, žinai tik tu.",
+"Alege pictograma": "Pasirinkti piktogramą",
+"Fără pictogramă": "Be piktogramos",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Su Premium: piktograma, nuoroda, viršelis, naudotojo vardas, pastaba ir dalinis slaptažodis. Aktyvuok kodą: Pasirinkimai → „Turi kodą?“."
 };

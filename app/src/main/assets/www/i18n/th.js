@@ -1600,5 +1600,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "อนุญาตการจับภาพหน้าจอแล้ว",
 "Capturile de ecran sunt blocate": "บล็อกการจับภาพหน้าจอแล้ว",
 "Ajustează": "ปรับ",
-"Fără nume": "ไม่มีชื่อ"
+"Fără nume": "ไม่มีชื่อ",
+"Nume aplicație": "ชื่อแอป",
+"Serviciu email": "บริการอีเมล",
+"Adresa de email": "ที่อยู่อีเมล",
+"Link cont": "ลิงก์บัญชี",
+"Nume utilizator": "ชื่อผู้ใช้",
+"Copertă sau poză de profil": "ภาพปกหรือรูปโปรไฟล์",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "ถ้าจำรหัสผ่านได้ทั้งหมด จะบันทึกแค่ไม่กี่ตัวอักษร (เช่น ตัวแรก ๆ) ก็ได้",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "เพื่อความปลอดภัย ให้เพิ่มตัวอักษร ตัวเลข หรือสัญลักษณ์ที่มองไม่เห็น 1–3 ตัวลงในรหัสผ่านจริง อย่าเขียนไว้ที่นี่ มีแต่คุณที่รู้",
+"Alege pictograma": "เลือกไอคอน",
+"Fără pictogramă": "ไม่มีไอคอน",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "ด้วย Premium: ไอคอน ลิงก์ ภาพปก ชื่อผู้ใช้ โน้ต และรหัสผ่านบางส่วน เปิดใช้โค้ดที่ การตั้งค่า → “มีโค้ดไหม?”"
 };

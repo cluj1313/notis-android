@@ -1600,5 +1600,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "Снимци екрана дозвољени",
 "Capturile de ecran sunt blocate": "Снимци екрана блокирани",
 "Ajustează": "Прилагоди",
-"Fără nume": "Без имена"
+"Fără nume": "Без имена",
+"Nume aplicație": "Назив апликације",
+"Serviciu email": "Услуга е-поште",
+"Adresa de email": "Адреса е-поште",
+"Link cont": "Веза до налога",
+"Nume utilizator": "Корисничко име",
+"Copertă sau poză de profil": "Насловна или профилна слика",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "Можеш да сачуваш само неколико слова лозинке (нпр. почетак) ако је памтиш целу.",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "Ради сигурности додај стварној лозинки 1–3 НЕВИДЉИВА слова, цифре или знака: не уписуј их овде, знаш их само ти.",
+"Alege pictograma": "Изабери икону",
+"Fără pictogramă": "Без иконе",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Са Premium: икона, веза, насловна, корисничко име, белешка и делимична лозинка. Активирај код у Уређивања → „Imaš kod?“."
 };

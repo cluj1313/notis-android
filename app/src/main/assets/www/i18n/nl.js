@@ -1602,5 +1602,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "Schermafbeeldingen toegestaan",
 "Capturile de ecran sunt blocate": "Schermafbeeldingen geblokkeerd",
 "Ajustează": "Aanpassen",
-"Fără nume": "Zonder naam"
+"Fără nume": "Zonder naam",
+"Nume aplicație": "Naam van de app",
+"Serviciu email": "E-maildienst",
+"Adresa de email": "E-mailadres",
+"Link cont": "Link naar account",
+"Nume utilizator": "Gebruikersnaam",
+"Copertă sau poză de profil": "Omslag- of profielfoto",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "Je kunt slechts een paar tekens van het wachtwoord bewaren (bijv. het begin) als je het helemaal onthoudt.",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "Voor de veiligheid: voeg 1–3 ONZICHTBARE letters, cijfers of tekens toe aan het echte wachtwoord. Schrijf ze hier niet op, alleen jij kent ze.",
+"Alege pictograma": "Pictogram kiezen",
+"Fără pictogramă": "Geen pictogram",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Met Premium: pictogram, link, omslag, gebruikersnaam, notitie en gedeeltelijk wachtwoord. Activeer een code in Instellingen → “Heb je een code?”."
 };

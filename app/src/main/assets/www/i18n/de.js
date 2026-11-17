@@ -1602,5 +1602,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "Screenshots sind erlaubt",
 "Capturile de ecran sunt blocate": "Screenshots sind blockiert",
 "Ajustează": "Anpassen",
-"Fără nume": "Ohne Namen"
+"Fără nume": "Ohne Namen",
+"Nume aplicație": "App-Name",
+"Serviciu email": "E-Mail-Dienst",
+"Adresa de email": "E-Mail-Adresse",
+"Link cont": "Link zum Konto",
+"Nume utilizator": "Benutzername",
+"Copertă sau poză de profil": "Titel- oder Profilbild",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "Du kannst nur ein paar Zeichen des Passworts speichern (z. B. den Anfang), wenn du es ganz im Kopf hast.",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "Zur Sicherheit: Füge dem echten Passwort 1–3 UNSICHTBARE Buchstaben, Ziffern oder Zeichen hinzu. Schreib sie nicht hier auf, nur du kennst sie.",
+"Alege pictograma": "Symbol wählen",
+"Fără pictogramă": "Ohne Symbol",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Mit Premium: Symbol, Link, Titelbild, Benutzername, Notiz und Teilpasswort. Aktiviere einen Code unter Einstellungen → „Hast du einen Code?“."
 };

@@ -1600,5 +1600,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "اسکرین‌شات مجاز است",
 "Capturile de ecran sunt blocate": "اسکرین‌شات مسدود است",
 "Ajustează": "تنظیم",
-"Fără nume": "بدون نام"
+"Fără nume": "بدون نام",
+"Nume aplicație": "نام برنامه",
+"Serviciu email": "سرویس ایمیل",
+"Adresa de email": "نشانی ایمیل",
+"Link cont": "پیوند حساب",
+"Nume utilizator": "نام کاربری",
+"Copertă sau poză de profil": "عکس کاور یا پروفایل",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "اگر کل گذرواژه را به خاطر دارید، می‌توانید فقط چند حرف از آن (مثلاً ابتدای آن) را ذخیره کنید.",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "برای امنیت، ۱ تا ۳ حرف، رقم یا نماد «نامرئی» به گذرواژهٔ واقعی اضافه کنید: اینجا ننویسید، فقط خودتان آن را می‌دانید.",
+"Alege pictograma": "انتخاب نماد",
+"Fără pictogramă": "بدون نماد",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "با Premium: نماد، پیوند، کاور، نام کاربری، یادداشت و گذرواژهٔ ناقص. کدی را در تنظیمات ← «کد داری؟» فعال کنید."
 };

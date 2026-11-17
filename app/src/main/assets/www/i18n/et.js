@@ -1602,5 +1602,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "Ekraanipildid on lubatud",
 "Capturile de ecran sunt blocate": "Ekraanipildid on blokeeritud",
 "Ajustează": "Kohanda",
-"Fără nume": "Nimeta"
+"Fără nume": "Nimeta",
+"Nume aplicație": "Rakenduse nimi",
+"Serviciu email": "E-posti teenus",
+"Adresa de email": "E-posti aadress",
+"Link cont": "Konto link",
+"Nume utilizator": "Kasutajanimi",
+"Copertă sau poză de profil": "Kaane- või profiilipilt",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "Võid salvestada vaid mõne parooli tähe (nt algus), kui mäletad seda tervikuna.",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "Turvalisuse huvides lisa päris paroolile 1–3 NÄHTAMATUT tähte, numbrit või märki: ära kirjuta neid siia, tead neid vaid sina.",
+"Alege pictograma": "Vali ikoon",
+"Fără pictogramă": "Ikoonita",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Premiumiga: ikoon, link, kaanepilt, kasutajanimi, märkus ja osaline parool. Aktiveeri kood: Seaded → „Kas sul on kood?“."
 };

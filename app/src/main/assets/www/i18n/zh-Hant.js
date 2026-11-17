@@ -1600,5 +1600,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "已允許截圖",
 "Capturile de ecran sunt blocate": "已封鎖截圖",
 "Ajustează": "調整",
-"Fără nume": "無名稱"
+"Fără nume": "無名稱",
+"Nume aplicație": "應用程式名稱",
+"Serviciu email": "電子郵件服務",
+"Adresa de email": "電子郵件地址",
+"Link cont": "帳號連結",
+"Nume utilizator": "使用者名稱",
+"Copertă sau poză de profil": "封面或大頭貼照片",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "如果你記得完整密碼，可以只儲存其中幾個字元（如開頭部分）。",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "為了安全，在真實密碼後加 1–3 個「看不見」的字母、數字或符號：不要寫在這裡，只有你自己知道。",
+"Alege pictograma": "選擇圖示",
+"Fără pictogramă": "無圖示",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Premium 可使用：圖示、連結、封面、使用者名稱、備註和部分密碼。請在 設定方式 → 「有兌換碼嗎?」 中啟用代碼。"
 };

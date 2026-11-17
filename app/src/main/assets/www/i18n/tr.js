@@ -1600,5 +1600,16 @@ NOTIS_I18N={
 "Capturile de ecran sunt permise": "Ekran görüntülerine izin verildi",
 "Capturile de ecran sunt blocate": "Ekran görüntüleri engellendi",
 "Ajustează": "Ayarla",
-"Fără nume": "Adsız"
+"Fără nume": "Adsız",
+"Nume aplicație": "Uygulama adı",
+"Serviciu email": "E-posta hizmeti",
+"Adresa de email": "E-posta adresi",
+"Link cont": "Hesap bağlantısı",
+"Nume utilizator": "Kullanıcı adı",
+"Copertă sau poză de profil": "Kapak veya profil fotoğrafı",
+"Poți nota doar câteva litere din parolă (de ex. începutul), dacă o ții minte pe toată.": "Parolanın tamamını hatırlıyorsan yalnızca birkaç harfini (ör. başlangıcını) kaydedebilirsin.",
+"Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "Güvenlik için gerçek parolaya 1–3 GÖRÜNMEZ harf, rakam veya işaret ekle: buraya yazma, yalnızca sen bilirsin.",
+"Alege pictograma": "Simge seç",
+"Fără pictogramă": "Simgesiz",
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Premium ile: simge, bağlantı, kapak, kullanıcı adı, not ve kısmi parola. Ayarlar → “Kodun var mı?” bölümünden kod etkinleştir."
 };
