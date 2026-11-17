@@ -1595,5 +1595,9 @@ NOTIS_I18N={
 "Mută (drag & drop)": "Premakni (povleci in spusti)",
 "Ștergi separatorul?": "Izbrišem ločilo?",
 "Citire (voce)": "Branje na glas",
-"Blochează seiful": "Zakleni sef"
+"Blochează seiful": "Zakleni sef",
+"Permite capturi de ecran": "Dovoli posnetke zaslona",
+"Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "Samo na tem telefonu. Posnetki lahko vsebujejo gesla: izklopi, ko jih ne potrebuješ več.",
+"Capturile de ecran sunt permise": "Posnetki zaslona dovoljeni",
+"Capturile de ecran sunt blocate": "Posnetki zaslona blokirani"
 };

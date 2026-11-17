@@ -1595,5 +1595,9 @@ NOTIS_I18N={
 "Mută (drag & drop)": "Pārvietot (velciet)",
 "Ștergi separatorul?": "Dzēst atdalītāju?",
 "Citire (voce)": "Lasīšana balsī",
-"Blochează seiful": "Bloķēt seifu"
+"Blochează seiful": "Bloķēt seifu",
+"Permite capturi de ecran": "Atļaut ekrānuzņēmumus",
+"Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "Tikai šajā tālrunī. Ekrānuzņēmumos var būt paroles: izslēdz, kad vairs nevajag.",
+"Capturile de ecran sunt permise": "Ekrānuzņēmumi atļauti",
+"Capturile de ecran sunt blocate": "Ekrānuzņēmumi bloķēti"
 };

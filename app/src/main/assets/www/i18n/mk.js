@@ -1594,5 +1594,9 @@ NOTIS_I18N={
 "Mută (drag & drop)": "Премести (влечи и пушти)",
 "Ștergi separatorul?": "Да се избрише разделникот?",
 "Citire (voce)": "Читање на глас",
-"Blochează seiful": "Заклучи го сефот"
+"Blochează seiful": "Заклучи го сефот",
+"Permite capturi de ecran": "Дозволи слики од екранот",
+"Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "Само на овој телефон. Сликите може да содржат лозинки: исклучи кога не ти требаат.",
+"Capturile de ecran sunt permise": "Сликите од екранот се дозволени",
+"Capturile de ecran sunt blocate": "Сликите од екранот се блокирани"
 };

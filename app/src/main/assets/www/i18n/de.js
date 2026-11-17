@@ -1596,5 +1596,9 @@ NOTIS_I18N={
 "Mută (drag & drop)": "Verschieben (Drag & Drop)",
 "Ștergi separatorul?": "Trenner löschen?",
 "Citire (voce)": "Vorlesen",
-"Blochează seiful": "Tresor sperren"
+"Blochează seiful": "Tresor sperren",
+"Permite capturi de ecran": "Screenshots erlauben",
+"Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "Nur auf diesem Telefon. Screenshots können Passwörter enthalten: ausschalten, wenn du es nicht mehr brauchst.",
+"Capturile de ecran sunt permise": "Screenshots sind erlaubt",
+"Capturile de ecran sunt blocate": "Screenshots sind blockiert"
 };

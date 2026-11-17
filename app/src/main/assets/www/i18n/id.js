@@ -1595,5 +1595,9 @@ NOTIS_I18N={
 "Mută (drag & drop)": "Pindahkan (seret)",
 "Ștergi separatorul?": "Hapus pemisah?",
 "Citire (voce)": "Bacakan",
-"Blochează seiful": "Kunci brankas"
+"Blochează seiful": "Kunci brankas",
+"Permite capturi de ecran": "Izinkan tangkapan layar",
+"Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "Hanya di ponsel ini. Tangkapan layar bisa berisi kata sandi: matikan jika tidak diperlukan lagi.",
+"Capturile de ecran sunt permise": "Tangkapan layar diizinkan",
+"Capturile de ecran sunt blocate": "Tangkapan layar diblokir"
 };

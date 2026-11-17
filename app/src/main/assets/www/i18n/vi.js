@@ -1595,5 +1595,9 @@ NOTIS_I18N={
 "Mută (drag & drop)": "Di chuyển (kéo thả)",
 "Ștergi separatorul?": "Xóa dải phân cách?",
 "Citire (voce)": "Đọc to",
-"Blochează seiful": "Khóa két"
+"Blochează seiful": "Khóa két",
+"Permite capturi de ecran": "Cho phép chụp màn hình",
+"Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "Chỉ trên điện thoại này. Ảnh chụp có thể chứa mật khẩu: tắt khi không cần nữa.",
+"Capturile de ecran sunt permise": "Đã cho phép chụp màn hình",
+"Capturile de ecran sunt blocate": "Đã chặn chụp màn hình"
 };

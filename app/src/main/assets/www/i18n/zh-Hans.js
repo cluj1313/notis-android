@@ -1594,5 +1594,9 @@ NOTIS_I18N={
 "Mută (drag & drop)": "移动(拖放)",
 "Ștergi separatorul?": "删除分隔线?",
 "Citire (voce)": "朗读",
-"Blochează seiful": "锁定保险库"
+"Blochează seiful": "锁定保险库",
+"Permite capturi de ecran": "允许截屏",
+"Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "仅限此手机。截屏可能包含密码：不需要时请关闭。",
+"Capturile de ecran sunt permise": "已允许截屏",
+"Capturile de ecran sunt blocate": "已阻止截屏"
 };

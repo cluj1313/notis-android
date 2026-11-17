@@ -1594,5 +1594,9 @@ NOTIS_I18N={
 "Mută (drag & drop)": "Perkelti (vilkite)",
 "Ștergi separatorul?": "Ištrinti skirtuką?",
 "Citire (voce)": "Skaitymas balsu",
-"Blochează seiful": "Užrakinti seifą"
+"Blochează seiful": "Užrakinti seifą",
+"Permite capturi de ecran": "Leisti ekrano kopijas",
+"Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "Tik šiame telefone. Ekrano kopijose gali būti slaptažodžių: išjunk, kai nebereikia.",
+"Capturile de ecran sunt permise": "Ekrano kopijos leidžiamos",
+"Capturile de ecran sunt blocate": "Ekrano kopijos užblokuotos"
 };

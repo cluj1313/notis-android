@@ -1595,5 +1595,9 @@ NOTIS_I18N={
 "Mută (drag & drop)": "Mou (arrossega i deixa anar)",
 "Ștergi separatorul?": "Vols eliminar el separador?",
 "Citire (voce)": "Lectura en veu alta",
-"Blochează seiful": "Bloca la caixa forta"
+"Blochează seiful": "Bloca la caixa forta",
+"Permite capturi de ecran": "Permet captures de pantalla",
+"Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "Només en aquest telèfon. Les captures poden contenir contrasenyes: desactiva-ho quan ja no ho necessitis.",
+"Capturile de ecran sunt permise": "Captures de pantalla permeses",
+"Capturile de ecran sunt blocate": "Captures de pantalla bloquejades"
 };

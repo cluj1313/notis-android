@@ -1596,5 +1596,9 @@ NOTIS_I18N={
 "Mută (drag & drop)": "Presunúť (potiahnutím)",
 "Ștergi separatorul?": "Odstrániť oddeľovač?",
 "Citire (voce)": "Čítanie nahlas",
-"Blochează seiful": "Zamknúť trezor"
+"Blochează seiful": "Zamknúť trezor",
+"Permite capturi de ecran": "Povoliť snímky obrazovky",
+"Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "Len na tomto telefóne. Snímky môžu obsahovať heslá: vypni, keď ich už nebudeš potrebovať.",
+"Capturile de ecran sunt permise": "Snímky obrazovky povolené",
+"Capturile de ecran sunt blocate": "Snímky obrazovky blokované"
 };

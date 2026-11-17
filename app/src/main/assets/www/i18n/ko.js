@@ -1594,5 +1594,9 @@ NOTIS_I18N={
 "Mută (drag & drop)": "이동(드래그)",
 "Ștergi separatorul?": "구분선을 삭제할까요?",
 "Citire (voce)": "소리 내어 읽기",
-"Blochează seiful": "금고 잠그기"
+"Blochează seiful": "금고 잠그기",
+"Permite capturi de ecran": "스크린샷 허용",
+"Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "이 휴대폰에서만. 스크린샷에 비밀번호가 포함될 수 있으니 필요 없으면 끄세요.",
+"Capturile de ecran sunt permise": "스크린샷 허용됨",
+"Capturile de ecran sunt blocate": "스크린샷 차단됨"
 };

@@ -1594,5 +1594,9 @@ NOTIS_I18N={
 "Mută (drag & drop)": "移動(ドラッグ)",
 "Ștergi separatorul?": "区切りを削除しますか?",
 "Citire (voce)": "読み上げ",
-"Blochează seiful": "金庫をロック"
+"Blochează seiful": "金庫をロック",
+"Permite capturi de ecran": "スクリーンショットを許可",
+"Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "この端末のみ。スクリーンショットにパスワードが写る場合があります。不要になったらオフにしてください。",
+"Capturile de ecran sunt permise": "スクリーンショットを許可しました",
+"Capturile de ecran sunt blocate": "スクリーンショットをブロックしました"
 };

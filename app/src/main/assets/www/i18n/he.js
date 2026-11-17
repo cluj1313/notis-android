@@ -1594,5 +1594,9 @@ NOTIS_I18N={
 "Mută (drag & drop)": "העבר (גרירה)",
 "Ștergi separatorul?": "למחוק את המפריד?",
 "Citire (voce)": "הקראה",
-"Blochează seiful": "נעל את הכספת"
+"Blochează seiful": "נעל את הכספת",
+"Permite capturi de ecran": "אפשר צילומי מסך",
+"Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "בטלפון הזה בלבד. צילומי מסך עלולים להכיל סיסמאות: כבה כשאין בזה צורך.",
+"Capturile de ecran sunt permise": "צילומי מסך מותרים",
+"Capturile de ecran sunt blocate": "צילומי מסך חסומים"
 };

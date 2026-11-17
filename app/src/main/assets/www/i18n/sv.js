@@ -1595,5 +1595,9 @@ NOTIS_I18N={
 "Mută (drag & drop)": "Flytta (dra och släpp)",
 "Ștergi separatorul?": "Ta bort avdelaren?",
 "Citire (voce)": "Uppläsning",
-"Blochează seiful": "Lås valvet"
+"Blochează seiful": "Lås valvet",
+"Permite capturi de ecran": "Tillåt skärmbilder",
+"Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "Endast på den här telefonen. Skärmbilder kan innehålla lösenord: stäng av när du inte längre behöver det.",
+"Capturile de ecran sunt permise": "Skärmbilder tillåts",
+"Capturile de ecran sunt blocate": "Skärmbilder blockeras"
 };

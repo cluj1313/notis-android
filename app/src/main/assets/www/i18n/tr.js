@@ -1594,5 +1594,9 @@ NOTIS_I18N={
 "Mută (drag & drop)": "Taşı (sürükle bırak)",
 "Ștergi separatorul?": "Ayırıcı silinsin mi?",
 "Citire (voce)": "Sesli okuma",
-"Blochează seiful": "Kasayı kilitle"
+"Blochează seiful": "Kasayı kilitle",
+"Permite capturi de ecran": "Ekran görüntüsüne izin ver",
+"Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "Yalnızca bu telefonda. Ekran görüntüleri şifre içerebilir: artık gerekmediğinde kapat.",
+"Capturile de ecran sunt permise": "Ekran görüntülerine izin verildi",
+"Capturile de ecran sunt blocate": "Ekran görüntüleri engellendi"
 };

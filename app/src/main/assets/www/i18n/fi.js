@@ -1595,5 +1595,9 @@ NOTIS_I18N={
 "Mută (drag & drop)": "Siirrä (vedä ja pudota)",
 "Ștergi separatorul?": "Poistetaanko erotin?",
 "Citire (voce)": "Ääneen luku",
-"Blochează seiful": "Lukitse holvi"
+"Blochează seiful": "Lukitse holvi",
+"Permite capturi de ecran": "Salli kuvakaappaukset",
+"Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "Vain tässä puhelimessa. Kuvakaappaukset voivat sisältää salasanoja: kytke pois, kun et enää tarvitse.",
+"Capturile de ecran sunt permise": "Kuvakaappaukset sallittu",
+"Capturile de ecran sunt blocate": "Kuvakaappaukset estetty"
 };

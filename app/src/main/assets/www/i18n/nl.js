@@ -1596,5 +1596,9 @@ NOTIS_I18N={
 "Mută (drag & drop)": "Verplaatsen (slepen)",
 "Ștergi separatorul?": "Scheidingslijn verwijderen?",
 "Citire (voce)": "Voorlezen",
-"Blochează seiful": "Kluis vergrendelen"
+"Blochează seiful": "Kluis vergrendelen",
+"Permite capturi de ecran": "Schermafbeeldingen toestaan",
+"Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "Alleen op deze telefoon. Schermafbeeldingen kunnen wachtwoorden bevatten: zet uit als je het niet meer nodig hebt.",
+"Capturile de ecran sunt permise": "Schermafbeeldingen toegestaan",
+"Capturile de ecran sunt blocate": "Schermafbeeldingen geblokkeerd"
 };

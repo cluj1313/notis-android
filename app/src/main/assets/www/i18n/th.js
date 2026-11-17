@@ -1594,5 +1594,9 @@ NOTIS_I18N={
 "Mută (drag & drop)": "ย้าย (ลากแล้ววาง)",
 "Ștergi separatorul?": "ลบตัวคั่นหรือไม่",
 "Citire (voce)": "อ่านออกเสียง",
-"Blochează seiful": "ล็อกตู้นิรภัย"
+"Blochează seiful": "ล็อกตู้นิรภัย",
+"Permite capturi de ecran": "อนุญาตให้จับภาพหน้าจอ",
+"Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "เฉพาะโทรศัพท์เครื่องนี้ ภาพหน้าจออาจมีรหัสผ่าน: ปิดเมื่อไม่ต้องการแล้ว",
+"Capturile de ecran sunt permise": "อนุญาตการจับภาพหน้าจอแล้ว",
+"Capturile de ecran sunt blocate": "บล็อกการจับภาพหน้าจอแล้ว"
 };

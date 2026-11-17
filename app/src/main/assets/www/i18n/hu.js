@@ -1595,5 +1595,9 @@ NOTIS_I18N={
 "Mută (drag & drop)": "Áthelyezés (húzással)",
 "Ștergi separatorul?": "Törlöd az elválasztót?",
 "Citire (voce)": "Felolvasás",
-"Blochează seiful": "Széf zárolása"
+"Blochează seiful": "Széf zárolása",
+"Permite capturi de ecran": "Képernyőképek engedélyezése",
+"Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "Csak ezen a telefonon. A képernyőképeken jelszavak lehetnek: kapcsold ki, ha már nincs rá szükség.",
+"Capturile de ecran sunt permise": "Képernyőképek engedélyezve",
+"Capturile de ecran sunt blocate": "Képernyőképek letiltva"
 };

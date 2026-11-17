@@ -1596,5 +1596,9 @@ NOTIS_I18N={
 "Mută (drag & drop)": "Teisalda (lohista)",
 "Ștergi separatorul?": "Kas kustutada eraldaja?",
 "Citire (voce)": "Ettelugemine",
-"Blochează seiful": "Lukusta seif"
+"Blochează seiful": "Lukusta seif",
+"Permite capturi de ecran": "Luba ekraanipildid",
+"Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "Ainult selles telefonis. Ekraanipildid võivad sisaldada paroole: lülita välja, kui enam vaja pole.",
+"Capturile de ecran sunt permise": "Ekraanipildid on lubatud",
+"Capturile de ecran sunt blocate": "Ekraanipildid on blokeeritud"
 };
