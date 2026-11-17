@@ -1599,5 +1599,7 @@ NOTIS_I18N={
 "Permite capturi de ecran": "Képernyőképek engedélyezése",
 "Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "Csak ezen a telefonon. A képernyőképeken jelszavak lehetnek: kapcsold ki, ha már nincs rá szükség.",
 "Capturile de ecran sunt permise": "Képernyőképek engedélyezve",
-"Capturile de ecran sunt blocate": "Képernyőképek letiltva"
+"Capturile de ecran sunt blocate": "Képernyőképek letiltva",
+"Ajustează": "Igazítás",
+"Fără nume": "Név nélkül"
 };

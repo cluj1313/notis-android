@@ -1599,5 +1599,7 @@ NOTIS_I18N={
 "Permite capturi de ecran": "Permitir capturas de pantalla",
 "Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "Solo en este teléfono. Las capturas pueden contener contraseñas: desactívalo cuando ya no lo necesites.",
 "Capturile de ecran sunt permise": "Capturas de pantalla permitidas",
-"Capturile de ecran sunt blocate": "Capturas de pantalla bloqueadas"
+"Capturile de ecran sunt blocate": "Capturas de pantalla bloqueadas",
+"Ajustează": "Ajustar",
+"Fără nume": "Sin nombre"
 };

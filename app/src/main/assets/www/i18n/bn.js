@@ -1598,5 +1598,7 @@ NOTIS_I18N={
 "Permite capturi de ecran": "স্ক্রিনশট অনুমতি দিন",
 "Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "শুধু এই ফোনে। স্ক্রিনশটে পাসওয়ার্ড থাকতে পারে: দরকার না হলে বন্ধ করুন।",
 "Capturile de ecran sunt permise": "স্ক্রিনশট অনুমোদিত",
-"Capturile de ecran sunt blocate": "স্ক্রিনশট বন্ধ"
+"Capturile de ecran sunt blocate": "স্ক্রিনশট বন্ধ",
+"Ajustează": "সামঞ্জস্য",
+"Fără nume": "নাম নেই"
 };

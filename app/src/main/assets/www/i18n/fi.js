@@ -1599,5 +1599,7 @@ NOTIS_I18N={
 "Permite capturi de ecran": "Salli kuvakaappaukset",
 "Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "Vain tässä puhelimessa. Kuvakaappaukset voivat sisältää salasanoja: kytke pois, kun et enää tarvitse.",
 "Capturile de ecran sunt permise": "Kuvakaappaukset sallittu",
-"Capturile de ecran sunt blocate": "Kuvakaappaukset estetty"
+"Capturile de ecran sunt blocate": "Kuvakaappaukset estetty",
+"Ajustează": "Säädä",
+"Fără nume": "Nimetön"
 };

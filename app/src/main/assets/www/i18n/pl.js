@@ -1599,5 +1599,7 @@ NOTIS_I18N={
 "Permite capturi de ecran": "Zezwalaj na zrzuty ekranu",
 "Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "Tylko na tym telefonie. Zrzuty mogą zawierać hasła: wyłącz, gdy nie będą potrzebne.",
 "Capturile de ecran sunt permise": "Zrzuty ekranu dozwolone",
-"Capturile de ecran sunt blocate": "Zrzuty ekranu zablokowane"
+"Capturile de ecran sunt blocate": "Zrzuty ekranu zablokowane",
+"Ajustează": "Dopasuj",
+"Fără nume": "Bez nazwy"
 };

@@ -1598,5 +1598,7 @@ NOTIS_I18N={
 "Permite capturi de ecran": "Lejo pamjet e ekranit",
 "Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "Vetëm në këtë telefon. Pamjet mund të përmbajnë fjalëkalime: çaktivizoje kur s’të duhet më.",
 "Capturile de ecran sunt permise": "Pamjet e ekranit lejohen",
-"Capturile de ecran sunt blocate": "Pamjet e ekranit bllokohen"
+"Capturile de ecran sunt blocate": "Pamjet e ekranit bllokohen",
+"Ajustează": "Rregullo",
+"Fără nume": "Pa emër"
 };

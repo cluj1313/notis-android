@@ -1598,5 +1598,7 @@ NOTIS_I18N={
 "Permite capturi de ecran": "Leisti ekrano kopijas",
 "Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "Tik šiame telefone. Ekrano kopijose gali būti slaptažodžių: išjunk, kai nebereikia.",
 "Capturile de ecran sunt permise": "Ekrano kopijos leidžiamos",
-"Capturile de ecran sunt blocate": "Ekrano kopijos užblokuotos"
+"Capturile de ecran sunt blocate": "Ekrano kopijos užblokuotos",
+"Ajustează": "Koreguoti",
+"Fără nume": "Be pavadinimo"
 };

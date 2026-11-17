@@ -1598,5 +1598,7 @@ NOTIS_I18N={
 "Permite capturi de ecran": "Tillad skærmbilleder",
 "Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "Kun på denne telefon. Skærmbilleder kan indeholde adgangskoder: slå fra, når du ikke længere har brug for det.",
 "Capturile de ecran sunt permise": "Skærmbilleder er tilladt",
-"Capturile de ecran sunt blocate": "Skærmbilleder er blokeret"
+"Capturile de ecran sunt blocate": "Skærmbilleder er blokeret",
+"Ajustează": "Juster",
+"Fără nume": "Uden navn"
 };

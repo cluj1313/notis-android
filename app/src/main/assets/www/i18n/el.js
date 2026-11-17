@@ -1598,5 +1598,7 @@ NOTIS_I18N={
 "Permite capturi de ecran": "Να επιτρέπονται στιγμιότυπα οθόνης",
 "Doar pe acest telefon. Capturile pot conține parole: oprește când nu mai ai nevoie.": "Μόνο σε αυτό το τηλέφωνο. Τα στιγμιότυπα μπορεί να περιέχουν κωδικούς: απενεργοποίησέ το όταν δεν το χρειάζεσαι.",
 "Capturile de ecran sunt permise": "Τα στιγμιότυπα οθόνης επιτρέπονται",
-"Capturile de ecran sunt blocate": "Τα στιγμιότυπα οθόνης αποκλείονται"
+"Capturile de ecran sunt blocate": "Τα στιγμιότυπα οθόνης αποκλείονται",
+"Ajustează": "Προσαρμογή",
+"Fără nume": "Χωρίς όνομα"
 };
