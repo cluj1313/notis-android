@@ -99,7 +99,7 @@ function wrapSP(){var o=window.spRender;if(!o||o.__pw)return;window.spRender=fun
  window.pwSecSync();$('notesPg').classList.toggle('spnone',!notes.some(function(n){return !n.del&&n.tab===noteTab}))};window.spRender.__pw=1}
 /* ---- sheet ---- */
 function sh(title,body,btns){var s=$('pwSheet');if(!s){s=document.createElement('div');s.id='pwSheet';s.className='modal pwsh';document.body.appendChild(s)}
- s.innerHTML='<div class="card pwshc" role="dialog"><div class="pwsht"><b>'+esc(title)+'</b><button type="button" class="hb" data-pa="x" aria-label="'+esc(TR('Închide'))+'">×</button></div><div class="pwshb">'+body+'</div><div class="pwshf">'+(btns||'')+'</div></div>';s.classList.add('show');
+ s.innerHTML='<div class="card pwshc" role="dialog"><div class="pwsht"><b>'+esc(title)+'</b><button type="button" class="hb" data-pa="x" aria-label="'+esc(TR('Închide'))+'">×</button></div><div class="pwshb">'+body+'</div><div class="pwshf">'+(btns||'')+'</div></div>';s.classList.remove('pwbank');s.classList.add('show');
  s.querySelectorAll('input,textarea').forEach(function(x){x.setAttribute('autocomplete',x.type==='password'?'new-password':'off');x.setAttribute('data-lpignore','true');x.setAttribute('data-form-type','other');x.setAttribute('spellcheck','false');x.setAttribute('autocapitalize','off')});return s}
 function shClose(){try{xCvGC()}catch(_){}var s=$('pwSheet');if(s){s.classList.remove('show');s.innerHTML=''}openId=''}
 function B(a,t,cls){return '<button type="button" class="btn '+(cls||'')+'" data-pa="'+a+'">'+esc(t)+'</button>'}
@@ -200,18 +200,49 @@ function sets(){var m=M(),n=NN(),ba=n&&n.bioAvail&&n.bioAvail();var seg=function
  '<div class="pwsl">'+(superClass?B('mode',TR('Mod seif')+': '+TR(xMode()==='complete'?'Complet':'Simplu')):'')+B('cats',TR('Categorii'))+B('chpw',TR('Schimbă parola principală'))+B('rgk',TR('Cheie de recuperare nouă'))+B('exp',TR('Exportă seiful criptat'))+B('wipe',TR('Șterge seiful'),'dngb')+'</div><p class="pwhint pwsm">'+esc(TR('Seiful e criptat (AES-256) și rămâne doar pe acest telefon și în backup-urile tale.'))+'</p>','')}
 function cats(){var h=D.cats.map(function(c,i){if(c.kind&&xMode()!=='complete'||xIdnHide(c))return '';return '<div class="pwcr" data-ci="'+i+'"><span class="pwch" aria-label="☰">☰</span><b>'+esc(c.name)+'</b><button type="button" class="hb" data-pa="clk" aria-label="'+esc(TR('Blochează'))+'">'+(c.lock?'🔒':'🔓')+'</button><button type="button" class="hb" data-pa="cup" aria-label="↑">↑</button><button type="button" class="hb" data-pa="cdn" aria-label="↓">↓</button><button type="button" class="hb" data-pa="cren" aria-label="'+esc(TR('Redenumește'))+'">✎</button>'+(xIsSoc(c)?'':'<button type="button" class="hb" data-pa="cdel" aria-label="'+esc(TR('Șterge'))+'">🗑</button>')+'</div>'}).join('');
  sh(TR('Categorii'),h+'<p class="pwhint pwsm">'+esc(TR('🔒 = cere parola sau amprenta de fiecare dată când deschizi categoria.'))+'</p>',B('cadd','+ '+TR('Adaugă')))}
-/* v179: ☰ drag handle (left of name) — touch drag-and-drop reorders categories; pills follow D.cats order */
-(function(){var dr=null;function rows(){return dr?[].slice.call(dr.box.querySelectorAll('.pwcr[data-ci]')):[]}
- function st(e,y){var h=e.target.closest&&e.target.closest('.pwch');if(!h||!D)return;var r=h.closest('.pwcr');if(!r)return;e.preventDefault();var b=r.getBoundingClientRect();dr={r:r,box:r.parentNode,y0:y,h:b.height,ord:null};r.classList.add('pwdrg')}
- function mv(e,y){if(!dr)return;e.preventDefault();var dy=y-dr.y0,rs=rows(),i=rs.indexOf(dr.r);dr.r.style.transform='translateY('+dy+'px)';
-  if(dy>dr.h/2&&i<rs.length-1){dr.box.insertBefore(rs[i+1],dr.r);dr.y0+=dr.h;dr.r.style.transform='translateY('+(y-dr.y0)+'px)'}
-  else if(dy<-dr.h/2&&i>0){dr.box.insertBefore(dr.r,rs[i-1]);dr.y0-=dr.h;dr.r.style.transform='translateY('+(y-dr.y0)+'px)'}}
- function en(){if(!dr)return;var d=dr;dr=null;d.r.classList.remove('pwdrg');d.r.style.transform='';var idx=[].slice.call(d.box.querySelectorAll('.pwcr[data-ci]')).map(function(x){return +x.dataset.ci});
+/* v179/v233: reorder categories — drag the ☰ handle, OR long-press anywhere on the row (not on a button), then drag up/down; the list auto-scrolls near its edges. ↑/↓ move one step among the VISIBLE categories (hidden ones keep their place). Order = D.cats (encrypted vault, in backups). */
+function catVis(c){return !(c.kind&&xMode()!=='complete'||xIdnHide(c))}
+function catStep(i,d){var j=i+d;while(j>=0&&j<D.cats.length&&!catVis(D.cats[j]))j+=d;if(j<0||j>=D.cats.length||!catVis(D.cats[i]))return false;var t=D.cats[i];D.cats[i]=D.cats[j];D.cats[j]=t;return true}
+(function(){var dr=null,lt=null,raf=0,lastY=0;function rows(){return dr?[].slice.call(dr.box.querySelectorAll('.pwcr[data-ci]')):[]}
+ function sc(){return dr.sb?dr.sb.scrollTop:0}
+ function begin(r,y){var b=r.getBoundingClientRect();dr={r:r,box:r.parentNode,sb:r.closest('.pwshc'),y0:y,h:b.height,sc0:0};dr.sc0=sc();r.classList.add('pwdrg');try{if(navigator.vibrate)navigator.vibrate(20)}catch(_){}}
+ function st(e,y){if(!D||dr)return;var t=e.target;if(!t.closest)return;var h=t.closest('.pwch'),r=t.closest('.pwcr');if(!r||!t.closest('#pwSheet'))return;
+  if(h){e.preventDefault();begin(r,y);return}
+  if(t.closest('button'))return;lastY=y;lt={x:e.touches?e.touches[0].clientX:e.clientX,y:y,t:setTimeout(function(){var q=lt;lt=null;if(q)begin(r,lastY)},420)}}
+ function place(){if(!dr)return;var y=lastY,dy=y-dr.y0+(sc()-dr.sc0),rs=rows(),i=rs.indexOf(dr.r);dr.r.style.transform='translateY('+dy+'px)';
+  if(dy>dr.h/2&&i<rs.length-1){dr.box.insertBefore(rs[i+1],dr.r);dr.y0+=dr.h;dr.r.style.transform='translateY('+(y-dr.y0+(sc()-dr.sc0))+'px)'}
+  else if(dy<-dr.h/2&&i>0){dr.box.insertBefore(dr.r,rs[i-1]);dr.y0-=dr.h;dr.r.style.transform='translateY('+(y-dr.y0+(sc()-dr.sc0))+'px)'}}
+ function auto(){raf=0;if(!dr||!dr.sb)return;var r=dr.sb.getBoundingClientRect(),z=44,v=0;if(lastY<r.top+z)v=-Math.ceil((r.top+z-lastY)/4);else if(lastY>r.bottom-z)v=Math.ceil((lastY-(r.bottom-z))/4);if(v){var o=dr.sb.scrollTop;dr.sb.scrollTop=o+Math.max(-14,Math.min(14,v));if(dr.sb.scrollTop!==o)place();raf=requestAnimationFrame(auto)}}
+ function mv(e,y){if(lt){if(Math.abs(y-lt.y)>8||(e.touches&&Math.abs(e.touches[0].clientX-lt.x)>8)){clearTimeout(lt.t);lt=null}return}if(!dr)return;e.preventDefault();lastY=y;place();if(!raf)raf=requestAnimationFrame(auto)}
+ function en(){if(lt){clearTimeout(lt.t);lt=null}if(!dr)return;var d=dr;dr=null;lastY=0;d.r.classList.remove('pwdrg');d.r.style.transform='';var idx=[].slice.call(d.box.querySelectorAll('.pwcr[data-ci]')).map(function(x){return +x.dataset.ci});
   var pos=idx.slice().sort(function(a,b){return a-b});if(idx.every(function(v,k){return v===pos[k]}))return;var old=D.cats.slice(),nc=D.cats.slice();pos.forEach(function(p,k){nc[p]=old[idx[k]]});D.cats=nc;save().then(function(){cats();rer()})}
  document.addEventListener('touchstart',function(e){if(e.touches.length===1)st(e,e.touches[0].clientY)},{passive:false});
- document.addEventListener('touchmove',function(e){if(dr&&e.touches.length)mv(e,e.touches[0].clientY)},{passive:false});
+ document.addEventListener('touchmove',function(e){if(e.touches.length)mv(e,e.touches[0].clientY)},{passive:false});
  document.addEventListener('touchend',en);document.addEventListener('touchcancel',en);
- document.addEventListener('mousedown',function(e){st(e,e.clientY)});document.addEventListener('mousemove',function(e){if(dr)mv(e,e.clientY)});document.addEventListener('mouseup',en)})();
+ document.addEventListener('mousedown',function(e){if(e.button===0)st(e,e.clientY)});document.addEventListener('mousemove',function(e){mv(e,e.clientY)});document.addEventListener('mouseup',en);
+ document.addEventListener('contextmenu',function(e){if(dr||lt&&e.target.closest&&e.target.closest('.pwcr'))e.preventDefault()});
+ })();
+/* v233: sub-tabs (Bancă, WiFi, Cărți de vizită, Poze acte, Emailuri, Social media …) — long-press a pill, then drag it left/right (the row auto-scrolls near its edges). A short tap still opens the category. The order is D.cats (encrypted vault → included in the backup); hidden categories keep their place. */
+(function(){var dr=null,lt=null,raf=0,lastX=0;
+ function pills(){return dr?[].slice.call(dr.row.querySelectorAll('.ntab[data-pc]')):[]}
+ function tr(){var d=lastX-dr.x0+(dr.row.scrollLeft-dr.sc0);dr.el.style.transform='translateX('+d+'px)';return d}
+ function begin(el){var row=el.closest('.pwcats');dr={el:el,row:row,x0:lastX,sc0:row.scrollLeft};window.__pwPD=1;el.classList.add('pwpdrg');row.classList.add('pwpdon');try{if(navigator.vibrate)navigator.vibrate(20)}catch(_){}}
+ function place(){if(!dr)return;var d=tr(),L=pills(),i=L.indexOf(dr.el),nx=L[i+1],pv=L[i-1],g=8;
+  if(d>0&&nx&&d>nx.offsetWidth/2+g/2){var o=dr.el.offsetLeft;dr.row.insertBefore(nx,dr.el);dr.x0+=dr.el.offsetLeft-o;tr()}
+  else if(d<0&&pv&&-d>pv.offsetWidth/2+g/2){var o2=dr.el.offsetLeft;dr.row.insertBefore(dr.el,pv);dr.x0+=dr.el.offsetLeft-o2;tr()}}
+ function auto(){raf=0;if(!dr)return;var r=dr.row.getBoundingClientRect(),z=44,v=0;if(lastX<r.left+z)v=-Math.ceil((r.left+z-lastX)/3);else if(lastX>r.right-z)v=Math.ceil((lastX-(r.right-z))/3);if(v){var o=dr.row.scrollLeft;dr.row.scrollLeft=o+Math.max(-14,Math.min(14,v));if(dr.row.scrollLeft!==o)place();raf=requestAnimationFrame(auto)}}
+ function st(e,x,y){if(!D||dr)return;var t=e.target;if(!t.closest)return;var el=t.closest('#spView .pwcats .ntab[data-pc]');if(!el)return;lastX=x;lt={x:x,y:y,t:setTimeout(function(){var q=lt;lt=null;if(q)begin(el)},450)}}
+ function mv(e,x,y){if(lt){if(Math.abs(x-lt.x)>8||Math.abs(y-lt.y)>8){clearTimeout(lt.t);lt=null}return}if(!dr)return;e.preventDefault();lastX=x;place();if(!raf)raf=requestAnimationFrame(auto)}
+ function en(){if(lt){clearTimeout(lt.t);lt=null}if(!dr)return;var d=dr;dr=null;window.__pwPD=0;window.__pwPDT=Date.now();d.el.classList.remove('pwpdrg');d.row.classList.remove('pwpdon');d.el.style.transform='';
+  var ids=[].slice.call(d.row.querySelectorAll('.ntab[data-pc]')).map(function(x){return x.dataset.pc}),pos=[];D.cats.forEach(function(c,i){if(pill(c))pos.push(i)});
+  var byId={};D.cats.forEach(function(c){byId[c.id]=c});var cur=pos.map(function(i){return D.cats[i].id});if(ids.length!==pos.length||ids.every(function(v,k){return v===cur[k]}))return;
+  var nc=D.cats.slice();pos.forEach(function(p,k){nc[p]=byId[ids[k]]});D.cats=nc;save().then(function(){rer()})}
+ document.addEventListener('touchstart',function(e){if(e.touches.length===1)st(e,e.touches[0].clientX,e.touches[0].clientY)},{passive:true});
+ document.addEventListener('touchmove',function(e){if(e.touches.length)mv(e,e.touches[0].clientX,e.touches[0].clientY)},{passive:false});
+ document.addEventListener('touchend',en);document.addEventListener('touchcancel',en);
+ document.addEventListener('mousedown',function(e){if(e.button===0)st(e,e.clientX,e.clientY)});document.addEventListener('mousemove',function(e){mv(e,e.clientX,e.clientY)});document.addEventListener('mouseup',en);
+ document.addEventListener('contextmenu',function(e){if((dr||lt)&&e.target.closest&&e.target.closest('.pwcats'))e.preventDefault()});
+ document.addEventListener('click',function(e){if(Date.now()-(window.__pwPDT||0)<500&&e.target.closest&&e.target.closest('#spView .pwcats .ntab')){e.stopPropagation();e.preventDefault()}},true)})();
 function chpw(){sh(TR('Schimbă parola principală'),P('pwO',TR('Parola actuală'))+P('pwN1',TR('Parola principală nouă'))+'<div id="pwS1"></div>'+P('pwN2',TR('Repetă parola'))+'<div class="pwerr"></div>',B('chpw2',TR('Salvează'),'pwbig'))}
 function chpw2(){var o=$('pwO').value,a=$('pwN1').value,b=$('pwN2').value;if(str(a).l<2||a.length<8){err(TR('Parola e prea slabă (minim 8 caractere, medie).'));return}if(a!==b){err(TR('Parolele nu coincid'));return}if(busy)return;busy=true;err(TR('Se verifică…'));var m=M();
  unwrap(o,m.wp).then(function(raw){return wrapPw(a,raw)},function(){throw 1}).then(function(w){m.wp=w;Mset(m);busy=false;shClose();toast(TR('Parola principală a fost schimbată'))},function(){busy=false;err(TR('Parolă greșită'))})}
@@ -253,9 +284,10 @@ function xSetMode(md){if(!D)return;D.mode=md==='complete'?'complete':'simple';if
 function xChooser(){return '<div class="pwvmode" id="pwVMode"><p class="pwmt">'+esc(TR('Cum vrei să folosești seiful?'))+'</p><button type="button" class="btn pwbig" data-m="simple">'+esc(TR('Simplu'))+'<small>'+esc(TR('Doar parole.'))+'</small></button><button type="button" class="btn pwbig" data-m="complete">'+esc(TR('Complet'))+'<small>'+esc(TR('Parole, carduri de magazin, poze acte, carduri bancare și date de identitate.'))+'</small></button><p class="pwhint pwsm">'+esc(TR('Poți schimba oricând din ⚙ Setări.'))+'</p></div>'}
 /* ---- field sets ---- */
 var XF={loy:[['name','Magazin'],['code','Număr card']],
- card:[['name','Bancă'],['holder','Titular'],['num','Număr card',1],['exp','Expiră (LL/AA)'],['cvv','CVV',1],['iban','IBAN',1],['note','Notă']],
+ card:[['name','Bancă'],['holder','Titular'],['num','Număr card',1],['exp','Expiră (LL/AA)'],['cvv','CVV',1],['pin','PIN',1],['iban','IBAN',1],['note','Notă']],
  biz:[['name','Nume'],['firm','Firmă'],['tel','Telefon'],['mail','Email'],['note','Notă']],
  idn:[['name','Persoană'],['cnp','CNP',1],['ser','Serie'],['nr','Număr'],['valid','Valabil până la'],['addr','Adresă'],['iban','IBAN',1],['note','Notă']]};
+document.addEventListener('input',function(e){var t=e.target;if(t&&t.dataset&&t.dataset.pin){var v=t.value.replace(/\D/g,'').slice(0,8);if(v!==t.value)t.value=v}});
 function xLast4(s){s=String(s||'').replace(/\s/g,'');return s?'•••• '+s.slice(-4):''}
 function xList(kind){var it=D.items.filter(function(x){return x.cat===cat}).sort(function(a,b){return nFold(a.name).localeCompare(nFold(b.name))});
  if(kind==='doc')return xTopN()+'<div class="pwdocs pwbnl" id="pwDocs"></div>';
@@ -278,7 +310,7 @@ function xDet(x){var d=[],k=xEKind(x),t=x.t&&x.t!=='acct'?x.t:'acct';
  return d}
 function xEnt(x,R){R=R||{};if((x.t==='biz'||x.t==='loy')&&x.ph)return xNRow(x.id,xBizLab(x),x.ph,'',x.t,x);
  var o=!!XO[x.id],ik=icOf(x),w=(!x.t||x.t==='acct')&&!x.part&&x.pw&&str(x.pw).l===1,lb=x.t==='card'?x.name:xBizLab(x)||x.name;
- return '<div class="pwbn pwen'+(o?' open':'')+'" data-eid="'+esc(x.id)+'"><div class="pwbh">'+(ik?icSvg(ik):'')+'<span class="pwbl'+(o?' on':'')+'">'+esc(lb||TR('Fără nume'))+'</span>'+(w?'<i class="pwfw" title="'+esc(TR('Slabă'))+'">⚠</i>':'')+(R[x.id]?'<i class="pwfr" title="'+esc(TR('Repetată'))+'">⟳</i>':'')+'</div>'+(o?xEBody(x):'')+'</div>'}
+ return '<div class="pwbn pwen'+(x.t==='card'?' pwcard':'')+(o?' open':'')+'" data-eid="'+esc(x.id)+'"><div class="pwbh">'+(ik?icSvg(ik):'')+'<span class="pwbl'+(o?' on':'')+'">'+esc(lb||TR('Fără nume'))+'</span>'+(w?'<i class="pwfw" title="'+esc(TR('Slabă'))+'">⚠</i>':'')+(R[x.id]?'<i class="pwfr" title="'+esc(TR('Repetată'))+'">⟳</i>':'')+'</div>'+(o?xEBody(x):'')+'</div>'}
 function xEBody(x){var h='<div class="pwed">',ik=icOf(x),lk=xLink(x.lnk);
  if(x.cv)h+='<div class="pwpf pwcov" data-pr="'+esc(x.cv)+'"></div>';
  if(x.lnk)h+='<div class="pwdr">'+(ik?icSvg(ik):'')+(lk?'<a class="pwdv pwlk2" href="'+esc(lk)+'" target="_blank" rel="noopener noreferrer">'+esc(lk.replace(/^https?:\/\/(www\.)?/i,'').replace(/\/$/,''))+'</a>':'<span class="pwdv">'+esc(x.lnk)+'</span>')+'</div>';
@@ -383,13 +415,14 @@ try{window.pwDbg.quad=function(cv){return xQuad(cv.getContext('2d').getImageData
 var XE=null,XPH=null,XB=null,XBT=[];
 function xEdit(x,kind){kind=kind||(x&&x.t);var nw=!x;x=x||{id:'',t:kind,cat:cat};XE=x;XPH=x.ph||null;openId=x.id;
  var b=XF[kind].map(function(f,i){var fid='pwX'+i,v=x[f[0]]||'';var inp=f[2]?P(fid,TR(f[1]),v):'<input type="text" id="'+fid+'" class="pwin" autocomplete="off" data-lpignore="true" placeholder="'+esc(TR(f[1]))+'" value="'+esc(v)+'">';
+  if(kind==='card'&&f[0]==='pin')inp=inp.replace('<input ','<input inputmode="numeric" pattern="[0-9]*" maxlength="8" autocomplete="off" data-pin="1" ');/* v233: card PIN — digits only, up to 8, masked like CVV */
   return '<label class="pwl">'+esc(TR(f[1]))+'</label><div class="pwxr">'+inp+(nw||!v?'':'<button type="button" class="pwcp" data-pa="xcp" data-f="'+i+'" aria-label="'+esc(TR('Copiază'))+'">📋</button>')+'</div>'}).join('');
  if(kind==='loy'){b+='<div class="pwrow2"><button type="button" class="btn" data-pa="lscan">📷 '+esc(TR('Scanează'))+'</button><button type="button" class="btn" data-pa="lgal">🖼 '+esc(TR('Din galerie'))+'</button></div><div id="pwXm" class="pwerr"></div>'+
   '<label class="pwl">'+esc(TR('Tip cod'))+'</label><div class="pwseg" id="pwFmt">'+[['bar','Cod de bare'],['qr','QR']].map(function(o){return '<button type="button" class="'+((x.fmt==='qr_code'?'qr':'bar')===o[0]?'on':'')+'" data-f="'+o[0]+'">'+esc(TR(o[1]))+'</button>'}).join('')+'</div>'+
   '<label class="pwl">'+esc(TR('Poză card (opțional)'))+'</label><div id="pwXph" class="pwxph"></div><button type="button" class="btn" data-pa="lph">📷 '+esc(TR('Poză card'))+'</button>'}
  if(kind==='biz'){XB={f:x.ph||null,b:x.ph2||null};b='<div class="pwbzr">'+[['f','Față'],['b','Spate (opțional)']].map(function(o){return '<div class="pwbzs" data-side="'+o[0]+'"><label class="pwl">'+esc(TR(o[1]))+'</label><div class="pwbzt" id="pwBz'+o[0]+'" data-pa="bzv">📇</div><div class="pwbzb"><button type="button" class="btn" data-pa="bzc" aria-label="'+esc(TR('Cameră'))+'">📷</button><button type="button" class="btn" data-pa="bzg" aria-label="'+esc(TR('Galerie'))+'">🖼</button><button type="button" class="btn" data-pa="bzd" aria-label="'+esc(TR('Șterge'))+'">🗑</button></div></div>'}).join('')+'</div>'+b}
- sh(TR(kind==='card'?'Bancă':XK.filter(function(k){return k[0]===kind})[0][1]),b,(nw?'':B('del',TR('Șterge'),'dngb'))+B('xsave',TR('Salvează'),'pwbig'));if(kind==='loy'&&XPH)xThumb(XPH);if(kind==='biz'){xBzT('f');xBzT('b')}}
-function xSave(){var x=XE;if(!x||!D)return;var nw=!x.id;XF[x.t].forEach(function(f,i){var e=$('pwX'+i);if(e)x[f[0]]=e.value.trim()});
+ sh(TR(kind==='card'?'Bancă':XK.filter(function(k){return k[0]===kind})[0][1]),b,(nw?'':B('del',TR('Șterge'),'dngb'))+B('xsave',TR('Salvează'),'pwbig'));if(kind==='card')$('pwSheet').classList.add('pwbank');if(kind==='loy'&&XPH)xThumb(XPH);if(kind==='biz'){xBzT('f');xBzT('b')}}
+function xSave(){var x=XE;if(!x||!D)return;var nw=!x.id;XF[x.t].forEach(function(f,i){var e=$('pwX'+i);if(e)x[f[0]]=f[0]==='pin'&&x.t==='card'?e.value.replace(/\D/g,'').slice(0,8):e.value.trim()});
  if(x.t==='loy'){var s=document.querySelector('#pwFmt .on');var fm=s&&s.dataset.f==='qr'?'qr_code':(x.fmt&&x.fmt!=='qr_code'?x.fmt:'auto');x.fmt=fm;if(x.ph&&x.ph!==XPH)phDel(x.ph).catch(function(){});x.ph=XPH||undefined}
  if(!x.name&&!x.ph&&!(x.t==='biz'&&XB&&XB.f)){var e0=$('pwX0');if(e0)e0.focus();return}
  if(x.t==='biz'&&XB){[['ph','f'],['ph2','b']].forEach(function(a){if(x[a[0]]&&x[a[0]]!==XB[a[1]])phDel(x[a[0]]).catch(function(){});if(XB[a[1]])x[a[0]]=XB[a[1]];else delete x[a[0]]});XB=null;XBT=XBT.filter(function(r){return r!==x.ph&&r!==x.ph2});xBzGC()}
@@ -566,8 +599,8 @@ document.addEventListener('click',function(e){var v=$('spView'),s=$('pwSheet'),i
   cadd:function(){jvPrompt(TR('Categorie nouă'),'',function(nm){D.cats.push({id:id(),name:nm,lock:0});save().then(function(){cats();rer()})})},
   cren:function(){var c=D.cats[cix];jvPrompt(TR('Redenumește'),c.name,function(nm){c.name=nm;save().then(function(){cats();rer()})})},
   cdel:function(){var c=D.cats[cix];if(!c||xIsSoc(c))return;var n=D.items.filter(function(y){return y.cat===c.id}).length;ask(TR('Ștergi categoria?')+(n?' '+n+' → Social media':''),function(){/* v179: entries are never lost - they move to Social media (lock carries over) */try{LS.set('ns_vault_precdel179',M())}catch(_){}var so=xSoc(1);if(c.lock&&n&&!so.lock)so.lock=1;if(c.kind){D.kdel=D.kdel||[];if(D.kdel.indexOf(c.kind)<0)D.kdel.push(c.kind)}D.cats=D.cats.filter(function(y){return y!==c});D.items.forEach(function(y){if(y.cat===c.id)y.cat=so.id});if(cat===c.id)cat=so.id;save().then(function(){cats();rer()})})},
-  cup:function(){if(cix>0){var t=D.cats.splice(cix,1)[0];D.cats.splice(cix-1,0,t);save().then(function(){cats();rer()})}},
-  cdn:function(){if(cix<D.cats.length-1){var t=D.cats.splice(cix,1)[0];D.cats.splice(cix+1,0,t);save().then(function(){cats();rer()})}},
+  cup:function(){if(catStep(cix,-1))save().then(function(){cats();rer()})},
+  cdn:function(){if(catStep(cix,1))save().then(function(){cats();rer()})},
   clk:function(){var c=D.cats[cix];c.lock=c.lock?0:1;delete catOK[c.id];save().then(function(){cats();rer()})}};
  if(!F[k]&&F2[k]){e.preventDefault();F2[k](e);return}
  if(F[k]){e.preventDefault();F[k]()}
@@ -583,7 +616,7 @@ try{window.pwDbg.xph=phDump;window.pwDbg.xgc=phGC;window.pwDbg.xall=phAll}catch(
 window.pwSwOn=function(t){var pg=$('notesPg');return !!(pg&&pg.classList.contains('pwtab')&&pg.classList.contains('show')&&t&&t.closest&&t.closest('#notesPg')&&!t.closest('#noteTabs,.ntop'))};
 (function(){var S=null;document.addEventListener('touchstart',function(e){S=null;var t=e.target;if(!pwSwOn(t)||e.touches.length!==1||t.closest('input,textarea,select,#pwSheet,#pwZoom,#pwBig,.modal.show,.pwpat'))return;var r=t.closest('.pwcats');S={x:e.touches[0].clientX,y:e.touches[0].clientY,r:r,sl:r?r.scrollLeft:0,t:Date.now()}},{passive:true});
  document.addEventListener('touchmove',function(e){if(S&&e.touches.length!==1)S=null},{passive:true});document.addEventListener('touchcancel',function(){S=null},{passive:true});
- document.addEventListener('touchend',function(e){if(!S)return;var t=e.changedTouches[0],dx=t.clientX-S.x,dy=t.clientY-S.y,s0=S;S=null;if(s0.r&&Math.abs(s0.r.scrollLeft-s0.sl)>2)return;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5&&Date.now()-s0.t<900){var d=dx<0?1:-1;/* v180: one swipe = one step; at the first/last category (or locked) the swipe moves to the neighbouring main tab, same direction as the global swipe; cat stays remembered for the way back */if(!K||!D){if(window.ntGo)window.ntGo(d);return}if(q.trim())return;if(goCat(d)==='edge'&&window.ntGo)window.ntGo(d)}},{passive:true})})();
+ document.addEventListener('touchend',function(e){if(!S)return;if(window.__pwPD||Date.now()-(window.__pwPDT||0)<700){S=null;return}var t=e.changedTouches[0],dx=t.clientX-S.x,dy=t.clientY-S.y,s0=S;S=null;if(s0.r&&Math.abs(s0.r.scrollLeft-s0.sl)>2)return;if(Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.5&&Date.now()-s0.t<900){var d=dx<0?1:-1;/* v180: one swipe = one step; at the first/last category (or locked) the swipe moves to the neighbouring main tab, same direction as the global swipe; cat stays remembered for the way back */if(!K||!D){if(window.ntGo)window.ntGo(d);return}if(q.trim())return;if(goCat(d)==='edge'&&window.ntGo)window.ntGo(d)}},{passive:true})})();
 /* tab migration */
 function mig(){if(LS.get('ns_pwmig1',0))return;if(!noteTabs.some(function(t){return t.kind==='pw'})){var nid='pw';while(findNT(nid))nid='pw'+Math.random().toString(36).slice(2,5);var t={id:nid,name:TR('Parole')+' 🔑',color:'#7cc4ff',kind:'pw'},ci=noteTabs.findIndex(function(x){return x.kind==='crm'});if(ci>=0)noteTabs.splice(ci+1,0,t);else noteTabs.push(t);LS.set('ns_notetabs',noteTabs)}LS.set('ns_pwmig1',1)}
 /* backup / restore: ciphertext only */
