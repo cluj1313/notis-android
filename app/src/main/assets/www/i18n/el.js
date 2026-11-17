@@ -1611,5 +1611,9 @@ NOTIS_I18N={
 "Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "Για ασφάλεια, πρόσθεσε στον πραγματικό κωδικό 1–3 ΑΟΡΑΤΑ γράμματα, ψηφία ή σύμβολα: μην τα γράψεις εδώ, τα ξέρεις μόνο εσύ.",
 "Alege pictograma": "Επιλογή εικονιδίου",
 "Fără pictogramă": "Χωρίς εικονίδιο",
-"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Με Premium: εικονίδιο, σύνδεσμος, εξώφυλλο, όνομα χρήστη, σημείωση και μερικός κωδικός. Ενεργοποίησε κωδικό στις Ρυθμίσεις → «Έχεις κωδικό;»."
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Με Premium: εικονίδιο, σύνδεσμος, εξώφυλλο, όνομα χρήστη, σημείωση και μερικός κωδικός. Ενεργοποίησε κωδικό στις Ρυθμίσεις → «Έχεις κωδικό;».",
+"Fără parolă": "Χωρίς κωδικό",
+"Cu parolă": "Με κωδικό",
+"Includ și datele secrete (parolă, CVV, IBAN)?": "Να συμπεριλάβω και τα απόρρητα στοιχεία (κωδικός, CVV, IBAN);",
+"Confirmă cu parola principală pentru a include datele secrete.": "Επιβεβαίωσε με τον κύριο κωδικό για να συμπεριληφθούν τα απόρρητα στοιχεία."
 };

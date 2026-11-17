@@ -52,6 +52,35 @@ final class Bridge {
             return true;
         } catch (Exception ex) { return false; }
     }
+    /** v230: Parole 📤 — share one (already decrypted by the user's request) JPEG through the system share sheet. Temp file cache/cam/pwshare-<ts>.jpg, one-off read grant (CamProvider); older pwshare files are wiped on every call and by shareClean() when the vault locks. Content never logged. */
+    @JavascriptInterface public boolean shareImage(String b64, String title, String text) { if (!MainActivity.trusted || b64 == null || b64.isEmpty() || b64.length() > 20000000) return false;
+        final android.app.Activity a = MainActivity.cur; final Context c = a != null ? a : ctx;
+        try { File d = new File(ctx.getCacheDir(), "cam"); d.mkdirs(); wipeShare(300000L);
+            String n = "pwshare-" + System.currentTimeMillis() + ".jpg"; if (CamProvider.safe(n) == null) return false;
+            byte[] b = android.util.Base64.decode(b64, android.util.Base64.DEFAULT);
+            try (FileOutputStream os = new FileOutputStream(new File(d, n))) { os.write(b); }
+            Uri u = Uri.parse("content://" + ctx.getPackageName() + ".cam/" + n);
+            Intent s = new Intent(Intent.ACTION_SEND).setType("image/jpeg").putExtra(Intent.EXTRA_STREAM, u).addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            if (title != null && title.length() > 0) s.putExtra(Intent.EXTRA_SUBJECT, title);
+            if (text != null && text.length() > 0) s.putExtra(Intent.EXTRA_TEXT, text);
+            s.setClipData(android.content.ClipData.newRawUri(n, u));
+            Intent go = Intent.createChooser(s, title).addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION); if (a == null) go.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            final Intent fg = go; if (a != null) a.runOnUiThread(() -> { try { a.startActivity(fg); } catch (Exception ignored) {} }); else c.startActivity(fg);
+            return true;
+        } catch (Exception ex) { return false; }
+    }
+    /** v230: text share that always shows the system chooser (shareText prefers WhatsApp directly — not wanted for vault entries). */
+    @JavascriptInterface public boolean shareTextChooser(String text, String title) { if (!MainActivity.trusted || text == null || text.isEmpty() || text.length() > 20000) return false;
+        final android.app.Activity a = MainActivity.cur; final Context c = a != null ? a : ctx;
+        try { Intent s = new Intent(Intent.ACTION_SEND).setType("text/plain").putExtra(Intent.EXTRA_TEXT, text);
+            if (title != null && title.length() > 0) s.putExtra(Intent.EXTRA_SUBJECT, title);
+            final Intent go = Intent.createChooser(s, title); if (a == null) go.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            if (a != null) a.runOnUiThread(() -> { try { a.startActivity(go); } catch (Exception ignored) {} }); else c.startActivity(go);
+            return true;
+        } catch (Exception ex) { return false; }
+    }
+    @JavascriptInterface public void shareClean() { if (!MainActivity.trusted) return; wipeShare(120000L); }
+    private void wipeShare(long minAge) { try { File[] old = new File(ctx.getCacheDir(), "cam").listFiles(); if (old != null) for (File o : old) if (o.getName().startsWith("pwshare-") && System.currentTimeMillis() - o.lastModified() > minAge) o.delete(); } catch (Exception ignored) {} }
     @JavascriptInterface public void shareText(String text, String title) { if (!MainActivity.trusted || text == null) return;
         final android.app.Activity a = MainActivity.cur; final Context c = a != null ? a : ctx;
         Intent s = new Intent(Intent.ACTION_SEND).setType("text/plain").putExtra(Intent.EXTRA_TEXT, text);

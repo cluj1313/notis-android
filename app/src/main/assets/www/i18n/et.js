@@ -1613,5 +1613,9 @@ NOTIS_I18N={
 "Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "Turvalisuse huvides lisa päris paroolile 1–3 NÄHTAMATUT tähte, numbrit või märki: ära kirjuta neid siia, tead neid vaid sina.",
 "Alege pictograma": "Vali ikoon",
 "Fără pictogramă": "Ikoonita",
-"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Premiumiga: ikoon, link, kaanepilt, kasutajanimi, märkus ja osaline parool. Aktiveeri kood: Seaded → „Kas sul on kood?“."
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Premiumiga: ikoon, link, kaanepilt, kasutajanimi, märkus ja osaline parool. Aktiveeri kood: Seaded → „Kas sul on kood?“.",
+"Fără parolă": "Ilma paroolita",
+"Cu parolă": "Koos parooliga",
+"Includ și datele secrete (parolă, CVV, IBAN)?": "Kas lisada ka salajased andmed (parool, CVV, IBAN)?",
+"Confirmă cu parola principală pentru a include datele secrete.": "Kinnita põhiparooliga, et salajased andmed lisada."
 };

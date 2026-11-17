@@ -1612,5 +1612,9 @@ NOTIS_I18N={
 "Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "Drošībai pievieno īstajai parolei 1–3 NEREDZAMUS burtus, ciparus vai zīmes: neraksti tos šeit, zini tikai tu.",
 "Alege pictograma": "Izvēlēties ikonu",
 "Fără pictogramă": "Bez ikonas",
-"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Ar Premium: ikona, saite, vāks, lietotājvārds, piezīme un daļēja parole. Aktivizē kodu sadaļā Ieguldījumi → „Vai tev ir kods?”."
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Ar Premium: ikona, saite, vāks, lietotājvārds, piezīme un daļēja parole. Aktivizē kodu sadaļā Ieguldījumi → „Vai tev ir kods?”.",
+"Fără parolă": "Bez paroles",
+"Cu parolă": "Ar paroli",
+"Includ și datele secrete (parolă, CVV, IBAN)?": "Vai iekļaut arī slepenos datus (parole, CVV, IBAN)?",
+"Confirmă cu parola principală pentru a include datele secrete.": "Apstiprini ar galveno paroli, lai iekļautu slepenos datus."
 };

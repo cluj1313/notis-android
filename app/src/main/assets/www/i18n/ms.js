@@ -1612,5 +1612,9 @@ NOTIS_I18N={
 "Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "Demi keselamatan, tambah 1–3 huruf, digit atau simbol TIDAK KELIHATAN pada kata laluan sebenar: jangan tulis di sini, hanya anda yang tahu.",
 "Alege pictograma": "Pilih ikon",
 "Fără pictogramă": "Tiada ikon",
-"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Dengan Premium: ikon, pautan, muka depan, nama pengguna, nota dan kata laluan separa. Aktifkan kod di Tetapan → “Ada kod?”."
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Dengan Premium: ikon, pautan, muka depan, nama pengguna, nota dan kata laluan separa. Aktifkan kod di Tetapan → “Ada kod?”.",
+"Fără parolă": "Tanpa kata laluan",
+"Cu parolă": "Dengan kata laluan",
+"Includ și datele secrete (parolă, CVV, IBAN)?": "Sertakan juga data rahsia (kata laluan, CVV, IBAN)?",
+"Confirmă cu parola principală pentru a include datele secrete.": "Sahkan dengan kata laluan utama untuk menyertakan data rahsia."
 };

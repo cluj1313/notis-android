@@ -1612,5 +1612,9 @@ NOTIS_I18N={
 "Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "Turvallisuuden vuoksi lisää oikeaan salasanaan 1–3 NÄKYMÄTÖNTÄ kirjainta, numeroa tai merkkiä: älä kirjoita niitä tähän, vain sinä tiedät ne.",
 "Alege pictograma": "Valitse kuvake",
 "Fără pictogramă": "Ei kuvaketta",
-"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Premiumilla: kuvake, linkki, kansikuva, käyttäjätunnus, muistiinpano ja osittainen salasana. Aktivoi koodi kohdassa Asennukset → “Onko sinulla koodi?”."
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Premiumilla: kuvake, linkki, kansikuva, käyttäjätunnus, muistiinpano ja osittainen salasana. Aktivoi koodi kohdassa Asennukset → “Onko sinulla koodi?”.",
+"Fără parolă": "Ilman salasanaa",
+"Cu parolă": "Salasanan kanssa",
+"Includ și datele secrete (parolă, CVV, IBAN)?": "Sisällytetäänkö myös salaiset tiedot (salasana, CVV, IBAN)?",
+"Confirmă cu parola principală pentru a include datele secrete.": "Vahvista pääsalasanalla, jotta salaiset tiedot voidaan sisällyttää."
 };

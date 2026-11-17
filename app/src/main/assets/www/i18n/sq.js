@@ -1611,5 +1611,9 @@ NOTIS_I18N={
 "Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "Për siguri, shtoji fjalëkalimit të vërtetë 1–3 shkronja, shifra ose simbole të PAPAFSHME: mos i shkruaj këtu, i di vetëm ti.",
 "Alege pictograma": "Zgjidh ikonën",
 "Fără pictogramă": "Pa ikonë",
-"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Me Premium: ikonë, lidhje, kopertinë, emër përdoruesi, shënim dhe fjalëkalim i pjesshëm. Aktivizo një kod te Ndryshimet → «Ke një kod?»."
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Me Premium: ikonë, lidhje, kopertinë, emër përdoruesi, shënim dhe fjalëkalim i pjesshëm. Aktivizo një kod te Ndryshimet → «Ke një kod?».",
+"Fără parolă": "Pa fjalëkalim",
+"Cu parolă": "Me fjalëkalim",
+"Includ și datele secrete (parolă, CVV, IBAN)?": "Të përfshij edhe të dhënat sekrete (fjalëkalim, CVV, IBAN)?",
+"Confirmă cu parola principală pentru a include datele secrete.": "Konfirmo me fjalëkalimin kryesor për të përfshirë të dhënat sekrete."
 };

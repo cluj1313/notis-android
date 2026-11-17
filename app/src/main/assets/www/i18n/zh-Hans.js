@@ -1611,5 +1611,9 @@ NOTIS_I18N={
 "Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "为了安全，在真实密码后加 1–3 个“看不见”的字母、数字或符号：不要写在这里，只有你自己知道。",
 "Alege pictograma": "选择图标",
 "Fără pictogramă": "无图标",
-"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Premium 可使用：图标、链接、封面、用户名、备注和部分密码。请在 设置 → “有兑换码吗?” 中激活代码。"
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Premium 可使用：图标、链接、封面、用户名、备注和部分密码。请在 设置 → “有兑换码吗?” 中激活代码。",
+"Fără parolă": "不含密码",
+"Cu parolă": "含密码",
+"Includ și datele secrete (parolă, CVV, IBAN)?": "是否同时包含机密数据（密码、CVV、IBAN）？",
+"Confirmă cu parola principală pentru a include datele secrete.": "请用主密码确认，以包含机密数据。"
 };

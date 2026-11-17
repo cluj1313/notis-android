@@ -1611,5 +1611,9 @@ NOTIS_I18N={
 "Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "For en sikkerheds skyld: tilføj 1–3 USYNLIGE bogstaver, tal eller tegn til den rigtige adgangskode. Skriv dem ikke her, kun du kender dem.",
 "Alege pictograma": "Vælg ikon",
 "Fără pictogramă": "Uden ikon",
-"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Med Premium: ikon, link, cover, brugernavn, note og delvis adgangskode. Aktivér en kode i Indstillinger → “Har du en kode?”."
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Med Premium: ikon, link, cover, brugernavn, note og delvis adgangskode. Aktivér en kode i Indstillinger → “Har du en kode?”.",
+"Fără parolă": "Uden adgangskode",
+"Cu parolă": "Med adgangskode",
+"Includ și datele secrete (parolă, CVV, IBAN)?": "Skal de hemmelige oplysninger (adgangskode, CVV, IBAN) med?",
+"Confirmă cu parola principală pentru a include datele secrete.": "Bekræft med hovedadgangskoden for at medtage de hemmelige oplysninger."
 };

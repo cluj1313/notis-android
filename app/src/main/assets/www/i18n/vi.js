@@ -1612,5 +1612,9 @@ NOTIS_I18N={
 "Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "Để an toàn, hãy thêm 1–3 chữ cái, chữ số hoặc ký hiệu VÔ HÌNH vào mật khẩu thật: đừng ghi ở đây, chỉ mình bạn biết.",
 "Alege pictograma": "Chọn biểu tượng",
 "Fără pictogramă": "Không biểu tượng",
-"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Với Premium: biểu tượng, liên kết, ảnh bìa, tên người dùng, ghi chú và mật khẩu một phần. Kích hoạt mã trong Cài đặt → “Bạn có mã không?”."
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Với Premium: biểu tượng, liên kết, ảnh bìa, tên người dùng, ghi chú và mật khẩu một phần. Kích hoạt mã trong Cài đặt → “Bạn có mã không?”.",
+"Fără parolă": "Không kèm mật khẩu",
+"Cu parolă": "Kèm mật khẩu",
+"Includ și datele secrete (parolă, CVV, IBAN)?": "Có kèm cả dữ liệu bí mật (mật khẩu, CVV, IBAN) không?",
+"Confirmă cu parola principală pentru a include datele secrete.": "Xác nhận bằng mật khẩu chính để kèm dữ liệu bí mật."
 };

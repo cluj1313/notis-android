@@ -1612,5 +1612,9 @@ NOTIS_I18N={
 "Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "A biztonság kedvéért fűzz a valódi jelszóhoz 1–3 LÁTHATATLAN betűt, számjegyet vagy jelet: ide ne írd be, csak te ismered őket.",
 "Alege pictograma": "Ikon kiválasztása",
 "Fără pictogramă": "Ikon nélkül",
-"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Premiummal: ikon, link, borító, felhasználónév, jegyzet és részleges jelszó. Aktiválj kódot itt: Beállítások → „Van kódod?”."
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "Premiummal: ikon, link, borító, felhasználónév, jegyzet és részleges jelszó. Aktiválj kódot itt: Beállítások → „Van kódod?”.",
+"Fără parolă": "Jelszó nélkül",
+"Cu parolă": "Jelszóval",
+"Includ și datele secrete (parolă, CVV, IBAN)?": "A titkos adatokat (jelszó, CVV, IBAN) is mellékeljem?",
+"Confirmă cu parola principală pentru a include datele secrete.": "Erősítsd meg a főjelszóval, hogy a titkos adatok is bekerüljenek."
 };

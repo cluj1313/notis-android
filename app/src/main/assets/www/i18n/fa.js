@@ -1611,5 +1611,9 @@ NOTIS_I18N={
 "Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "برای امنیت، ۱ تا ۳ حرف، رقم یا نماد «نامرئی» به گذرواژهٔ واقعی اضافه کنید: اینجا ننویسید، فقط خودتان آن را می‌دانید.",
 "Alege pictograma": "انتخاب نماد",
 "Fără pictogramă": "بدون نماد",
-"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "با Premium: نماد، پیوند، کاور، نام کاربری، یادداشت و گذرواژهٔ ناقص. کدی را در تنظیمات ← «کد داری؟» فعال کنید."
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "با Premium: نماد، پیوند، کاور، نام کاربری، یادداشت و گذرواژهٔ ناقص. کدی را در تنظیمات ← «کد داری؟» فعال کنید.",
+"Fără parolă": "بدون گذرواژه",
+"Cu parolă": "با گذرواژه",
+"Includ și datele secrete (parolă, CVV, IBAN)?": "داده‌های محرمانه (گذرواژه، CVV، IBAN) هم اضافه شوند؟",
+"Confirmă cu parola principală pentru a include datele secrete.": "برای افزودن داده‌های محرمانه، با گذرواژهٔ اصلی تأیید کنید."
 };

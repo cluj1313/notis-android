@@ -1612,5 +1612,9 @@ NOTIS_I18N={
 "Pentru siguranță, adaugă la parola reală 1–3 litere, cifre sau semne INVIZIBILE: nu le scrii aici, le știi doar tu.": "For safety, add 1–3 INVISIBLE letters, digits or symbols to the real password: don’t write them here, only you know them.",
 "Alege pictograma": "Choose icon",
 "Fără pictogramă": "No icon",
-"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "With Premium: icon, link, cover, username, note and partial password. Activate a code in Settings → “Have a code?”."
+"Cu Premium: pictogramă, link, copertă, nume de utilizator, notă și parolă parțială. Activează un cod în Setări → „Ai un cod?”.": "With Premium: icon, link, cover, username, note and partial password. Activate a code in Settings → “Have a code?”.",
+"Fără parolă": "Without password",
+"Cu parolă": "With password",
+"Includ și datele secrete (parolă, CVV, IBAN)?": "Include the secret data too (password, CVV, IBAN)?",
+"Confirmă cu parola principală pentru a include datele secrete.": "Confirm with the main password to include the secret data."
 };
