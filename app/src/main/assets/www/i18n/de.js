@@ -23,7 +23,7 @@ NOTIS_I18N={
 "Va fi fixată la salvare":"Wird beim Speichern angeheftet",
 "Cod secret":"Geheimcode",
 "Ștergi mesajul?":"Nachricht löschen?",
-"Navy Aur":"Navy Gold",
+"Navy Aur":"Marineblau Gold",
 
 "Nu e destul spațiu pentru poză.": "Nicht genug Speicherplatz für das Foto.",
 "Nu e destul spațiu pentru poză. Sarcina e păstrată.": "Nicht genug Speicherplatz für das Foto. Die Aufgabe bleibt erhalten.",
@@ -1594,5 +1594,6 @@ NOTIS_I18N={
 "Separator": "Trenner",
 "Schimbă fundal": "Hintergrund ändern",
 "Mută (drag & drop)": "Verschieben (Drag & Drop)",
-"Ștergi separatorul?": "Trenner löschen?"
+"Ștergi separatorul?": "Trenner löschen?",
+"Citire (voce)": "Vorlesen"
 };

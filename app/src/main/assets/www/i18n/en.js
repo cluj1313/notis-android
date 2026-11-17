@@ -1593,5 +1593,6 @@ NOTIS_I18N={
 "Separator": "Divider",
 "Schimbă fundal": "Change background",
 "Mută (drag & drop)": "Move (drag & drop)",
-"Ștergi separatorul?": "Delete the divider?"
+"Ștergi separatorul?": "Delete the divider?",
+"Citire (voce)": "Read aloud"
 };

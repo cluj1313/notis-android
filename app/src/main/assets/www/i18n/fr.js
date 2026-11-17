@@ -6,16 +6,16 @@ NOTIS_I18N={
 "Engleză — Joe":"Anglais — Joe",
 
 "Fundaluri gratuite":"Fonds d'écran gratuits",
-"Puteți alege una din miile de wallpapere care vi se potrivește, de aici:":"You can pick one of thousands of wallpapers that fit you, from here:",
+"Puteți alege una din miile de wallpapere care vi se potrivește, de aici:":"Vous pouvez choisir parmi des milliers de fonds d'écran celui qui vous plaît, ici :",
 "Valabilitate pentru destinatar":"Validité pour le destinataire",
-"După expirare, notițele rămân pe telefon; se pot citi și exporta. Nu se șterge nimic.":"After expiry, notes stay on the phone; they can still be read and exported. Nothing is deleted.",
+"După expirare, notițele rămân pe telefon; se pot citi și exporta. Nu se șterge nimic.":"Après l'expiration, les notes restent sur le téléphone ; elles peuvent être lues et exportées. Rien n'est supprimé.",
 "Acces partajat":"Accès partagé",
 "2 luni":"2 mois",
 "6 luni":"6 mois",
 "1 an":"1 an",
 "luni":"mois",
 "Acces partajat activ":"Accès partagé actif",
-"Perioada de folosire partajată a expirat. Notițele tale rămân; le poți citi și exporta oricând.":"The shared access period has expired. Your notes remain; you can read and export them anytime.",
+"Perioada de folosire partajată a expirat. Notițele tale rămân; le poți citi și exporta oricând.":"La période d'utilisation partagée a expiré. Vos notes restent ; vous pouvez les lire et les exporter à tout moment.",
 "Dictare":"Dictée",
 "Carte de vizită":"Carte de visite",
 "Trage de ≡ · ✓ salvează ordinea":"Glissez ≡ · ✓ enregistre l'ordre",
@@ -1594,5 +1594,6 @@ NOTIS_I18N={
 "Separator": "Séparateur",
 "Schimbă fundal": "Changer le fond",
 "Mută (drag & drop)": "Déplacer (glisser-déposer)",
-"Ștergi separatorul?": "Supprimer le séparateur ?"
+"Ștergi separatorul?": "Supprimer le séparateur ?",
+"Citire (voce)": "Lecture à voix haute"
 };
