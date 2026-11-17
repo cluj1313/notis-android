@@ -1594,5 +1594,6 @@ NOTIS_I18N={
 "Schimbă fundal": "Đổi nền",
 "Mută (drag & drop)": "Di chuyển (kéo thả)",
 "Ștergi separatorul?": "Xóa dải phân cách?",
-"Citire (voce)": "Đọc to"
+"Citire (voce)": "Đọc to",
+"Blochează seiful": "Khóa két"
 };

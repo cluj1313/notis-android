@@ -1593,5 +1593,6 @@ NOTIS_I18N={
 "Schimbă fundal": "Сменить фон",
 "Mută (drag & drop)": "Переместить (перетаскиванием)",
 "Ștergi separatorul?": "Удалить разделитель?",
-"Citire (voce)": "Чтение вслух"
+"Citire (voce)": "Чтение вслух",
+"Blochează seiful": "Заблокировать сейф"
 };

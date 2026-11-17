@@ -1593,5 +1593,6 @@ NOTIS_I18N={
 "Schimbă fundal": "تغییر پس‌زمینه",
 "Mută (drag & drop)": "جابه‌جایی (کشیدن و رها کردن)",
 "Ștergi separatorul?": "جداکننده حذف شود؟",
-"Citire (voce)": "بلندخوانی"
+"Citire (voce)": "بلندخوانی",
+"Blochează seiful": "قفل کردن گاوصندوق"
 };

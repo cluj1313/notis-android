@@ -1610,6 +1610,7 @@ NOTIS_AB.restore=function(why){var R=NOTIS_AB;if(!R.changed||R.restored||!R.raw)
  var once=false;try{once=sessionStorage.getItem('ns_abreload')===R.cur;sessionStorage.setItem('ns_abreload',R.cur)}catch(_){}
  if(!once)setTimeout(function(){location.reload()},50);return true};
 </script>
+<script src="js/cardq.js"></script>
 <script src="js/core.js"></script>
 <script src="js/plati.js"></script>
 <script src="js/crm.js"></script>

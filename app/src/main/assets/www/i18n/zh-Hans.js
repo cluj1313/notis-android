@@ -1593,5 +1593,6 @@ NOTIS_I18N={
 "Schimbă fundal": "更换背景",
 "Mută (drag & drop)": "移动(拖放)",
 "Ștergi separatorul?": "删除分隔线?",
-"Citire (voce)": "朗读"
+"Citire (voce)": "朗读",
+"Blochează seiful": "锁定保险库"
 };

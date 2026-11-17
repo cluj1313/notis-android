@@ -1593,5 +1593,6 @@ NOTIS_I18N={
 "Schimbă fundal": "تغيير الخلفية",
 "Mută (drag & drop)": "نقل (سحب وإفلات)",
 "Ștergi separatorul?": "هل تريد حذف الفاصل؟",
-"Citire (voce)": "قراءة بصوت عالٍ"
+"Citire (voce)": "قراءة بصوت عالٍ",
+"Blochează seiful": "قفل الخزنة"
 };

@@ -1595,5 +1595,6 @@ NOTIS_I18N={
 "Schimbă fundal": "Promijeni pozadinu",
 "Mută (drag & drop)": "Premjesti (povuci i ispusti)",
 "Ștergi separatorul?": "Izbrisati razdjelnik?",
-"Citire (voce)": "Čitanje naglas"
+"Citire (voce)": "Čitanje naglas",
+"Blochează seiful": "Zaključaj sef"
 };

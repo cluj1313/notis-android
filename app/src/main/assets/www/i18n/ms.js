@@ -1594,5 +1594,6 @@ NOTIS_I18N={
 "Schimbă fundal": "Tukar latar",
 "Mută (drag & drop)": "Alih (seret dan lepas)",
 "Ștergi separatorul?": "Padam pemisah?",
-"Citire (voce)": "Baca kuat"
+"Citire (voce)": "Baca kuat",
+"Blochează seiful": "Kunci peti besi"
 };

@@ -1595,5 +1595,6 @@ NOTIS_I18N={
 "Schimbă fundal": "Achtergrond wijzigen",
 "Mută (drag & drop)": "Verplaatsen (slepen)",
 "Ștergi separatorul?": "Scheidingslijn verwijderen?",
-"Citire (voce)": "Voorlezen"
+"Citire (voce)": "Voorlezen",
+"Blochează seiful": "Kluis vergrendelen"
 };

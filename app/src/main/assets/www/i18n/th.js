@@ -1593,5 +1593,6 @@ NOTIS_I18N={
 "Schimbă fundal": "เปลี่ยนพื้นหลัง",
 "Mută (drag & drop)": "ย้าย (ลากแล้ววาง)",
 "Ștergi separatorul?": "ลบตัวคั่นหรือไม่",
-"Citire (voce)": "อ่านออกเสียง"
+"Citire (voce)": "อ่านออกเสียง",
+"Blochează seiful": "ล็อกตู้นิรภัย"
 };

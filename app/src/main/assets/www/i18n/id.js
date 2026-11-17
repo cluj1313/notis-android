@@ -1594,5 +1594,6 @@ NOTIS_I18N={
 "Schimbă fundal": "Ubah latar",
 "Mută (drag & drop)": "Pindahkan (seret)",
 "Ștergi separatorul?": "Hapus pemisah?",
-"Citire (voce)": "Bacakan"
+"Citire (voce)": "Bacakan",
+"Blochează seiful": "Kunci brankas"
 };

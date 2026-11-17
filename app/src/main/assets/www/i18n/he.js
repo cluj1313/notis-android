@@ -1593,5 +1593,6 @@ NOTIS_I18N={
 "Schimbă fundal": "שנה רקע",
 "Mută (drag & drop)": "העבר (גרירה)",
 "Ștergi separatorul?": "למחוק את המפריד?",
-"Citire (voce)": "הקראה"
+"Citire (voce)": "הקראה",
+"Blochează seiful": "נעל את הכספת"
 };

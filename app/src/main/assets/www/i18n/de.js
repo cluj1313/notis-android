@@ -1595,5 +1595,6 @@ NOTIS_I18N={
 "Schimbă fundal": "Hintergrund ändern",
 "Mută (drag & drop)": "Verschieben (Drag & Drop)",
 "Ștergi separatorul?": "Trenner löschen?",
-"Citire (voce)": "Vorlesen"
+"Citire (voce)": "Vorlesen",
+"Blochează seiful": "Tresor sperren"
 };

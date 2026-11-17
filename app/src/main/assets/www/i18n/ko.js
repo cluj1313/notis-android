@@ -1593,5 +1593,6 @@ NOTIS_I18N={
 "Schimbă fundal": "배경 변경",
 "Mută (drag & drop)": "이동(드래그)",
 "Ștergi separatorul?": "구분선을 삭제할까요?",
-"Citire (voce)": "소리 내어 읽기"
+"Citire (voce)": "소리 내어 읽기",
+"Blochează seiful": "금고 잠그기"
 };

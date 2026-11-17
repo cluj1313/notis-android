@@ -1593,5 +1593,6 @@ NOTIS_I18N={
 "Schimbă fundal": "Αλλαγή φόντου",
 "Mută (drag & drop)": "Μετακίνηση (σύρσιμο)",
 "Ștergi separatorul?": "Διαγραφή του διαχωριστικού;",
-"Citire (voce)": "Ανάγνωση φωναχτά"
+"Citire (voce)": "Ανάγνωση φωναχτά",
+"Blochează seiful": "Κλείδωμα θησαυροφυλακίου"
 };

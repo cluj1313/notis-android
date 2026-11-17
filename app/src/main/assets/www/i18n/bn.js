@@ -1593,5 +1593,6 @@ NOTIS_I18N={
 "Schimbă fundal": "পটভূমি বদলান",
 "Mută (drag & drop)": "সরান (টেনে আনুন)",
 "Ștergi separatorul?": "বিভাজকটি মুছবেন?",
-"Citire (voce)": "জোরে পড়া"
+"Citire (voce)": "জোরে পড়া",
+"Blochează seiful": "ভল্ট লক করুন"
 };

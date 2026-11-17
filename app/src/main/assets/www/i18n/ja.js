@@ -1593,5 +1593,6 @@ NOTIS_I18N={
 "Schimbă fundal": "背景を変更",
 "Mută (drag & drop)": "移動(ドラッグ)",
 "Ștergi separatorul?": "区切りを削除しますか?",
-"Citire (voce)": "読み上げ"
+"Citire (voce)": "読み上げ",
+"Blochează seiful": "金庫をロック"
 };

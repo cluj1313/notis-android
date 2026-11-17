@@ -1593,5 +1593,6 @@ NOTIS_I18N={
 "Schimbă fundal": "Arka planı değiştir",
 "Mută (drag & drop)": "Taşı (sürükle bırak)",
 "Ștergi separatorul?": "Ayırıcı silinsin mi?",
-"Citire (voce)": "Sesli okuma"
+"Citire (voce)": "Sesli okuma",
+"Blochează seiful": "Kasayı kilitle"
 };

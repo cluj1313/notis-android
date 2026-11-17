@@ -1593,5 +1593,6 @@ NOTIS_I18N={
 "Schimbă fundal": "Ndrysho sfondin",
 "Mută (drag & drop)": "Zhvendos (tërhiq e lësho)",
 "Ștergi separatorul?": "Ta fshij ndarësin?",
-"Citire (voce)": "Lexim me zë"
+"Citire (voce)": "Lexim me zë",
+"Blochează seiful": "Kyç kasafortën"
 };

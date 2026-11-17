@@ -1594,5 +1594,6 @@ NOTIS_I18N={
 "Schimbă fundal": "Cambiar fondo",
 "Mută (drag & drop)": "Mover (arrastrar y soltar)",
 "Ștergi separatorul?": "¿Eliminar el separador?",
-"Citire (voce)": "Lectura en voz alta"
+"Citire (voce)": "Lectura en voz alta",
+"Blochează seiful": "Bloquear la caja fuerte"
 };

@@ -1593,5 +1593,6 @@ NOTIS_I18N={
 "Schimbă fundal": "Skift baggrund",
 "Mută (drag & drop)": "Flyt (træk og slip)",
 "Ștergi separatorul?": "Slet skillelinjen?",
-"Citire (voce)": "Oplæsning"
+"Citire (voce)": "Oplæsning",
+"Blochează seiful": "Lås boksen"
 };

@@ -1595,5 +1595,6 @@ NOTIS_I18N={
 "Schimbă fundal": "Muuda tausta",
 "Mută (drag & drop)": "Teisalda (lohista)",
 "Ștergi separatorul?": "Kas kustutada eraldaja?",
-"Citire (voce)": "Ettelugemine"
+"Citire (voce)": "Ettelugemine",
+"Blochează seiful": "Lukusta seif"
 };

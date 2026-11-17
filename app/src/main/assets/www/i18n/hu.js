@@ -1594,5 +1594,6 @@ NOTIS_I18N={
 "Schimbă fundal": "Háttér módosítása",
 "Mută (drag & drop)": "Áthelyezés (húzással)",
 "Ștergi separatorul?": "Törlöd az elválasztót?",
-"Citire (voce)": "Felolvasás"
+"Citire (voce)": "Felolvasás",
+"Blochează seiful": "Széf zárolása"
 };

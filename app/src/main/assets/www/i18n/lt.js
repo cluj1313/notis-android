@@ -1593,5 +1593,6 @@ NOTIS_I18N={
 "Schimbă fundal": "Keisti foną",
 "Mută (drag & drop)": "Perkelti (vilkite)",
 "Ștergi separatorul?": "Ištrinti skirtuką?",
-"Citire (voce)": "Skaitymas balsu"
+"Citire (voce)": "Skaitymas balsu",
+"Blochează seiful": "Užrakinti seifą"
 };
