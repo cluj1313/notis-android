@@ -1615,5 +1615,7 @@ NOTIS_I18N={
 "Fără parolă": "不含密码",
 "Cu parolă": "含密码",
 "Includ și datele secrete (parolă, CVV, IBAN)?": "是否同时包含机密数据（密码、CVV、IBAN）？",
-"Confirmă cu parola principală pentru a include datele secrete.": "请用主密码确认，以包含机密数据。"
+"Confirmă cu parola principală pentru a include datele secrete.": "请用主密码确认，以包含机密数据。",
+"Șters": "已删除",
+"Trage separatorul sus sau jos": "向上或向下拖动分隔线"
 };

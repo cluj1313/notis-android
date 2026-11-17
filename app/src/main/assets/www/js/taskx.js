@@ -173,7 +173,7 @@ document.addEventListener('pointermove',function(e){if(tkRP&&Math.abs(e.clientX-
 document.addEventListener('contextmenu',function(e){if(e.target.closest&&e.target.closest('#spView .tkm'))e.preventDefault()});
 /* v200: in a task tab the + button makes a task; plain notes left in a task tab become tasks (note → trash, recoverable) */
 function isTT(){var t=typeof findNT==='function'&&findNT(noteTab);return t&&t.kind==='task'&&!nTrash&&!nFolder}
-document.addEventListener('click',function(e){var f=e.target.closest&&e.target.closest('#noteFab');if(!f||!isTT())return;e.preventDefault();e.stopImmediatePropagation();edTask(null)},true);
+document.addEventListener('click',function(e){var f=e.target.closest&&e.target.closest('#noteFab');if(!f||!isTT())return;e.preventDefault();e.stopImmediatePropagation();if(window.sxFab&&sxFab(f))return;edTask(null)},true);
 function strip(s){return String(s||'').replace(/^\s*(?:[-*•]\s*)?(?:\[[ xX]?\]\s*)?/,'').trim()}
 function migNotes(){if(!isTT())return;var ch=0;notes.forEach(function(n){if(n.del||n.sep||n.tab!==noteTab||(n.fd||'')!==''||n.lock)return;var L=String(n.text||'').split('\n').map(strip).filter(Boolean);if(!L.length)return;
  TK.list.push({id:tkId('t'),tab:noteTab,t:L[0].slice(0,200),d:'',s:'',e:'',done:0,ts:Date.parse(n.createdAt||n.ts)||Date.now(),ph:[],from:n.id,sub:L.slice(1).map(function(x){return{id:tkId('s'),t:x.slice(0,200),done:0,ph:[]}})});

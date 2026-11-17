@@ -1616,5 +1616,7 @@ NOTIS_I18N={
 "Fără parolă": "Sense contrasenya",
 "Cu parolă": "Amb contrasenya",
 "Includ și datele secrete (parolă, CVV, IBAN)?": "Hi incloc també les dades secretes (contrasenya, CVV, IBAN)?",
-"Confirmă cu parola principală pentru a include datele secrete.": "Confirma amb la contrasenya principal per incloure les dades secretes."
+"Confirmă cu parola principală pentru a include datele secrete.": "Confirma amb la contrasenya principal per incloure les dades secretes.",
+"Șters": "Eliminat",
+"Trage separatorul sus sau jos": "Arrossega el separador amunt o avall"
 };

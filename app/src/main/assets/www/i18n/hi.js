@@ -1615,5 +1615,7 @@ NOTIS_I18N={
 "Fără parolă": "पासवर्ड के बिना",
 "Cu parolă": "पासवर्ड के साथ",
 "Includ și datele secrete (parolă, CVV, IBAN)?": "क्या गोपनीय डेटा (पासवर्ड, CVV, IBAN) भी शामिल करूँ?",
-"Confirmă cu parola principală pentru a include datele secrete.": "गोपनीय डेटा शामिल करने के लिए मुख्य पासवर्ड से पुष्टि करें।"
+"Confirmă cu parola principală pentru a include datele secrete.": "गोपनीय डेटा शामिल करने के लिए मुख्य पासवर्ड से पुष्टि करें।",
+"Șters": "हटा दिया गया",
+"Trage separatorul sus sau jos": "विभाजक को ऊपर या नीचे खींचें"
 };

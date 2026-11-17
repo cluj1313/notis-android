@@ -11,8 +11,12 @@ $('noteFab').addEventListener('click',function(e){if(!plainTab()||(typeof selOn=
  menu(this,'<div class="lph">'+esc(TR('Adaugă'))+'</div>'+B('newn','📝 '+TR('Notiță'))+B('news','➖ '+TR('Separator')),'fab')},true);
 function sepNew(){jvPrompt(TR('Separator'),'',function(v){v=String(v||'').trim();if(!v)return;var now=new Date().toISOString(),n={id:ntUid(),text:v,sep:1,ts:now,createdAt:now,updatedAt:now,tab:noteTab};if(nFolder)n.fd=nFolder;notes.push(n);saveNotes();renderNotes();
  setTimeout(function(){var li=q('#notesList .nsep[data-id="'+n.id+'"]');if(li)try{li.scrollIntoView({block:'center',behavior:'smooth'})}catch(_){}},60)})}
-function sepMenu(li){var n=findN(li.dataset.id);if(!n)return;menu(li,'<div class="lph">'+esc(String(n.text||'').trim())+'</div>'+B('ren','✎ '+TR('Redenumește'))+B('col','🎨 '+TR('Schimbă fundal'))+B('mv','✥ '+TR('Mută (drag & drop)'))+'<button data-spx="del" class="dng">🗑 '+esc(TR('Șterge'))+'</button>','sep')}
-function sepPal(li){var n=findN(li.dataset.id);if(!n)return;var cur=n.color||'',h='<div class="lph">'+esc(TR('Schimbă fundal'))+'</div><div class="npal">';NC.forEach(function(k){h+='<button data-spc="'+k[0]+'" class="'+(k[0]===cur?'on':'')+'" aria-label="'+esc(k[1])+'" title="'+esc(k[1])+'" style="background:'+(k[0]?esc(ncT(k[0])):'transparent')+'">'+(k[0]?'':'∅')+'</button>'});menu(li,h+'</div>','sepc')}
+window.sepMenu=sepMenu;function sepMenu(li){var n=findN(li.dataset.id);if(!n)return;menu(li,'<div class="lph">'+esc(String(n.text||'').trim())+'</div>'+B('ren',TR('📛 Redenumește'))+B('col',TR('🎨 Culoare'))+B('mv','✥ '+TR('Mută (drag & drop)'))+'<button data-spx="del" class="dng">🗑 '+esc(TR('Șterge'))+'</button>','sep')}
+/* v231: separator pill colours — 12 vivid + 12 pale shades, plus "Implicit" (theme colour). Text colour is chosen automatically (sepInk). */
+var SP_V=['#ef4444','#f97316','#f59e0b','#eab308','#84cc16','#22c55e','#14b8a6','#06b6d4','#3b82f6','#6366f1','#a855f7','#ec4899'],SP_P=['#fecaca','#fed7aa','#fde68a','#fef08a','#d9f99d','#bbf7d0','#99f6e4','#a5f3fc','#bfdbfe','#c7d2fe','#e9d5ff','#fbcfe8'];
+window.sepPalHtml=function(cur,attr){function g(A){return '<div class="npal sp6">'+A.map(function(c){return '<button '+attr+'="'+c+'" class="'+(c===cur?'cur':'')+'" style="--nc:'+c+'" aria-label="'+c+'"><i></i></button>'}).join('')+'</div>'}
+ return '<div class="lph">'+esc(TR('Culoare'))+'</div>'+g(SP_V)+g(SP_P)+'<button type="button" '+attr+'="" class="spdef'+(cur?'':' cur')+'">'+esc(TR('Implicit'))+'</button>'};
+function sepPal(li){var n=findN(li.dataset.id);if(!n)return;menu(li,sepPalHtml(n.color||'','data-spc'),'sepc')}
 $('lpMenu').addEventListener('click',function(e){var c=lpCur;if(!c||!c.spx||lpJust)return;var b=e.target.closest('button');if(!b)return;e.stopPropagation();e.preventDefault();
  var li=c.li,id=li&&li.dataset&&li.dataset.id,n=id&&findN(id),a=b.dataset.spx;
  if(c.spx==='sepc'){if(!n){lpClose();return}var col=b.dataset.spc;if(col==null)return;lpClose();if(col)n.color=col;else delete n.color;n.updatedAt=new Date().toISOString();saveNotes();renderNotes();return}
@@ -24,11 +28,11 @@ $('lpMenu').addEventListener('click',function(e){var c=lpCur;if(!c||!c.spx||lpJu
  if(a==='del'){ask(TR('Ștergi separatorul?'),function(){n.del=new Date().toISOString();saveNotes();renderNotes();toast(TR('Mutată în coș'))})}},true);
 /* long-press on a separator → its menu (selection mode and drag mode keep the normal behaviour); tap does not open the editor */
 var T=null;function cancel(){if(T){clearTimeout(T.t);T=null}}
-document.addEventListener('pointerdown',function(e){cancel();var li=e.target.closest&&e.target.closest('#notesList .nsep');if(!li||nTrash||document.body.classList.contains('ndmode')||(typeof selOn==='function'&&selOn()))return;
- e.stopPropagation();lpJust=false;try{lpCancel()}catch(_){}T={x:e.clientX,y:e.clientY,id:e.pointerId,t:setTimeout(function(){T=null;try{if(navigator.vibrate)navigator.vibrate(20)}catch(_){}lpJust=true;lpUnsel();sepMenu(li)},LP_MS)}},true);
+document.addEventListener('pointerdown',function(e){cancel();var li=e.target.closest&&e.target.closest('#notesList .nsep');if(!li||e.target.closest('.fdots')||nTrash||document.body.classList.contains('ndmode')||(typeof selOn==='function'&&selOn()))return;
+ e.stopPropagation();lpJust=false;try{lpCancel()}catch(_){}T={x:e.clientX,y:e.clientY,id:e.pointerId,t:setTimeout(function(){T=null;try{if(navigator.vibrate)navigator.vibrate(20)}catch(_){}lpJust=true;lpUnsel();ndModeOn(li.dataset.id)},LP_MS)}},true);
 document.addEventListener('pointermove',function(e){if(T&&e.pointerId===T.id&&Math.hypot(e.clientX-T.x,e.clientY-T.y)>10)cancel()},true);
 document.addEventListener('pointerup',function(e){if(T&&e.pointerId===T.id)cancel()},true);document.addEventListener('pointercancel',cancel,true);
-document.addEventListener('click',function(e){var li=e.target.closest&&e.target.closest('#notesList .nsep');if(!li||nTrash)return;if(typeof selOn==='function'&&selOn())return;e.stopPropagation();e.preventDefault()},true);
+document.addEventListener('click',function(e){var li=e.target.closest&&e.target.closest('#notesList .nsep');if(!li||e.target.closest('.fdots')||nTrash)return;if(typeof selOn==='function'&&selOn())return;e.stopPropagation();e.preventDefault()},true);
 document.addEventListener('contextmenu',function(e){if(e.target.closest&&e.target.closest('#notesList .nsep'))e.preventDefault()},true);
 
 /* v224: on a FRESH install only Taskuri, Cumpărături, Medicamente and Înregistrări start visible; the other tabs start off (Setări → Taburi turns them on).

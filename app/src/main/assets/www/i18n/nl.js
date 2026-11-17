@@ -1617,5 +1617,7 @@ NOTIS_I18N={
 "Fără parolă": "Zonder wachtwoord",
 "Cu parolă": "Met wachtwoord",
 "Includ și datele secrete (parolă, CVV, IBAN)?": "Ook de geheime gegevens (wachtwoord, CVV, IBAN) meesturen?",
-"Confirmă cu parola principală pentru a include datele secrete.": "Bevestig met het hoofdwachtwoord om de geheime gegevens mee te sturen."
+"Confirmă cu parola principală pentru a include datele secrete.": "Bevestig met het hoofdwachtwoord om de geheime gegevens mee te sturen.",
+"Șters": "Verwijderd",
+"Trage separatorul sus sau jos": "Sleep de scheiding omhoog of omlaag"
 };

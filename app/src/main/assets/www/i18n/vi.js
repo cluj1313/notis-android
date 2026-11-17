@@ -1616,5 +1616,7 @@ NOTIS_I18N={
 "Fără parolă": "Không kèm mật khẩu",
 "Cu parolă": "Kèm mật khẩu",
 "Includ și datele secrete (parolă, CVV, IBAN)?": "Có kèm cả dữ liệu bí mật (mật khẩu, CVV, IBAN) không?",
-"Confirmă cu parola principală pentru a include datele secrete.": "Xác nhận bằng mật khẩu chính để kèm dữ liệu bí mật."
+"Confirmă cu parola principală pentru a include datele secrete.": "Xác nhận bằng mật khẩu chính để kèm dữ liệu bí mật.",
+"Șters": "Đã xóa",
+"Trage separatorul sus sau jos": "Kéo dải phân cách lên hoặc xuống"
 };

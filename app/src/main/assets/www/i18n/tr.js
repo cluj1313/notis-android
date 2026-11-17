@@ -1615,5 +1615,7 @@ NOTIS_I18N={
 "Fără parolă": "Parolasız",
 "Cu parolă": "Parolayla",
 "Includ și datele secrete (parolă, CVV, IBAN)?": "Gizli veriler de (parola, CVV, IBAN) eklensin mi?",
-"Confirmă cu parola principală pentru a include datele secrete.": "Gizli verileri eklemek için ana parolayla onayla."
+"Confirmă cu parola principală pentru a include datele secrete.": "Gizli verileri eklemek için ana parolayla onayla.",
+"Șters": "Silindi",
+"Trage separatorul sus sau jos": "Ayırıcıyı yukarı veya aşağı sürükle"
 };

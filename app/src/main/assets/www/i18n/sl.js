@@ -1616,5 +1616,7 @@ NOTIS_I18N={
 "Fără parolă": "Brez gesla",
 "Cu parolă": "Z geslom",
 "Includ și datele secrete (parolă, CVV, IBAN)?": "Vključim tudi skrite podatke (geslo, CVV, IBAN)?",
-"Confirmă cu parola principală pentru a include datele secrete.": "Potrdi z glavnim geslom, da se vključijo skriti podatki."
+"Confirmă cu parola principală pentru a include datele secrete.": "Potrdi z glavnim geslom, da se vključijo skriti podatki.",
+"Șters": "Izbrisano",
+"Trage separatorul sus sau jos": "Povleci ločilo gor ali dol"
 };

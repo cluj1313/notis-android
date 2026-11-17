@@ -1616,5 +1616,7 @@ NOTIS_I18N={
 "Fără parolă": "Ilman salasanaa",
 "Cu parolă": "Salasanan kanssa",
 "Includ și datele secrete (parolă, CVV, IBAN)?": "Sisällytetäänkö myös salaiset tiedot (salasana, CVV, IBAN)?",
-"Confirmă cu parola principală pentru a include datele secrete.": "Vahvista pääsalasanalla, jotta salaiset tiedot voidaan sisällyttää."
+"Confirmă cu parola principală pentru a include datele secrete.": "Vahvista pääsalasanalla, jotta salaiset tiedot voidaan sisällyttää.",
+"Șters": "Poistettu",
+"Trage separatorul sus sau jos": "Vedä erotin ylös tai alas"
 };

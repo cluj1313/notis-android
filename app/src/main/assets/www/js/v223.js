@@ -48,18 +48,13 @@ var $=function(i){return document.getElementById(i)};
  new MutationObserver(function(){if(nf.classList.contains('show'))upd()}).observe(nf,{attributes:true,attributeFilter:['class']});
  var b=$('nfBack');if(b)b.addEventListener('click',function(){try{var ae=document.activeElement;if(ae&&ae.blur&&ae!==document.body)ae.blur()}catch(_){}},true)})();
 
-/* ---------- 3. folder rows: ⋮ instead of › — Blochează / Deblochează, Șterge (same actions as the long-press menu, delete still asks) ---------- */
+/* ---------- 3. folder / note rows: ⋮ button (v231: menu built in js/v231.js; the dots are rendered by fdRow / renderNotes) ---------- */
 (function(){var ul=$('notesList');if(!ul)return;
- var DOTS='<button type="button" class="fdots" aria-label="'+(window.TR?TR('Mai multe'):'Mai multe')+'"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="5" r="1.9" fill="currentColor"/><circle cx="12" cy="12" r="1.9" fill="currentColor"/><circle cx="12" cy="19" r="1.9" fill="currentColor"/></svg></button>';
- function swap(){ul.querySelectorAll('li.nfo .fch').forEach(function(s){var t=document.createElement('span');t.innerHTML=DOTS;s.replaceWith(t.firstChild)})}
- new MutationObserver(swap).observe(ul,{childList:true,subtree:true});swap();
  function stop(e){if(e.target.closest&&e.target.closest('.fdots')){e.stopPropagation()}}
  ['pointerdown','touchstart','mousedown'].forEach(function(t){ul.addEventListener(t,stop,true)});
- ul.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.fdots');if(!b)return;e.stopPropagation();e.preventDefault();var li=b.closest('li.nfo');if(!li)return;
+ ul.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.fdots');if(!b)return;e.stopPropagation();e.preventDefault();var li=b.closest('li.nfo,li.note');if(!li)return;
   try{if(typeof selOn==='function'&&selOn())return}catch(_){}
-  var f=findF(li.dataset.fid);if(!f||f.del)return;fdMenu(li);
-  $('lpBox').innerHTML='<div class="lph">'+FD_IC+' '+esc(f.name)+'</div>'+(f.lk?'<button data-a="funl">'+esc(TR('🔓 Deblochează'))+'</button>':'<button data-a="flock">'+esc(TR('🔒 Blochează'))+'</button>')+'<button data-a="fdel" class="dng">'+esc(TR('🗑 Șterge'))+'</button>';
-  try{lpJust=false}catch(_){}lpPos()},true)})();
+  if(window.rwOpen)rwOpen(li,b)},true)})();
 
 /* ---------- 4. Design → single-colour background: optional very thin horizontal lines (ns_bglines, in backups) ---------- */
 (function(){var R=document.documentElement,cb=$('bgLines');if(!cb||typeof LS==='undefined')return;

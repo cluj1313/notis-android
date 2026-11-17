@@ -1615,5 +1615,7 @@ NOTIS_I18N={
 "Fără parolă": "Χωρίς κωδικό",
 "Cu parolă": "Με κωδικό",
 "Includ și datele secrete (parolă, CVV, IBAN)?": "Να συμπεριλάβω και τα απόρρητα στοιχεία (κωδικός, CVV, IBAN);",
-"Confirmă cu parola principală pentru a include datele secrete.": "Επιβεβαίωσε με τον κύριο κωδικό για να συμπεριληφθούν τα απόρρητα στοιχεία."
+"Confirmă cu parola principală pentru a include datele secrete.": "Επιβεβαίωσε με τον κύριο κωδικό για να συμπεριληφθούν τα απόρρητα στοιχεία.",
+"Șters": "Διαγράφηκε",
+"Trage separatorul sus sau jos": "Σύρε τον διαχωριστή πάνω ή κάτω"
 };

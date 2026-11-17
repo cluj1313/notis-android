@@ -1617,5 +1617,7 @@ NOTIS_I18N={
 "Fără parolă": "Ilma paroolita",
 "Cu parolă": "Koos parooliga",
 "Includ și datele secrete (parolă, CVV, IBAN)?": "Kas lisada ka salajased andmed (parool, CVV, IBAN)?",
-"Confirmă cu parola principală pentru a include datele secrete.": "Kinnita põhiparooliga, et salajased andmed lisada."
+"Confirmă cu parola principală pentru a include datele secrete.": "Kinnita põhiparooliga, et salajased andmed lisada.",
+"Șters": "Kustutatud",
+"Trage separatorul sus sau jos": "Lohista eraldaja üles või alla"
 };

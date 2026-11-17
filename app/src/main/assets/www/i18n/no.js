@@ -1615,5 +1615,7 @@ NOTIS_I18N={
 "Fără parolă": "Uten passord",
 "Cu parolă": "Med passord",
 "Includ și datele secrete (parolă, CVV, IBAN)?": "Skal de hemmelige opplysningene (passord, CVV, IBAN) være med?",
-"Confirmă cu parola principală pentru a include datele secrete.": "Bekreft med hovedpassordet for å ta med de hemmelige opplysningene."
+"Confirmă cu parola principală pentru a include datele secrete.": "Bekreft med hovedpassordet for å ta med de hemmelige opplysningene.",
+"Șters": "Slettet",
+"Trage separatorul sus sau jos": "Dra skilleren opp eller ned"
 };

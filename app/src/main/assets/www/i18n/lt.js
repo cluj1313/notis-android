@@ -1615,5 +1615,7 @@ NOTIS_I18N={
 "Fără parolă": "Be slaptažodžio",
 "Cu parolă": "Su slaptažodžiu",
 "Includ și datele secrete (parolă, CVV, IBAN)?": "Įtraukti ir slaptus duomenis (slaptažodis, CVV, IBAN)?",
-"Confirmă cu parola principală pentru a include datele secrete.": "Patvirtink pagrindiniu slaptažodžiu, kad būtų įtraukti slapti duomenys."
+"Confirmă cu parola principală pentru a include datele secrete.": "Patvirtink pagrindiniu slaptažodžiu, kad būtų įtraukti slapti duomenys.",
+"Șters": "Ištrinta",
+"Trage separatorul sus sau jos": "Vilk skirtuką aukštyn arba žemyn"
 };

@@ -1616,5 +1616,7 @@ NOTIS_I18N={
 "Fără parolă": "Jelszó nélkül",
 "Cu parolă": "Jelszóval",
 "Includ și datele secrete (parolă, CVV, IBAN)?": "A titkos adatokat (jelszó, CVV, IBAN) is mellékeljem?",
-"Confirmă cu parola principală pentru a include datele secrete.": "Erősítsd meg a főjelszóval, hogy a titkos adatok is bekerüljenek."
+"Confirmă cu parola principală pentru a include datele secrete.": "Erősítsd meg a főjelszóval, hogy a titkos adatok is bekerüljenek.",
+"Șters": "Törölve",
+"Trage separatorul sus sau jos": "Húzd a elválasztót fel vagy le"
 };
