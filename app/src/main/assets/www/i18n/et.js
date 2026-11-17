@@ -1565,5 +1565,8 @@ NOTIS_I18N={
 "Widget": "Vidin",
 "Pe widgetul Pastile, atinge ⚙ ca să alegi limba, persoana și medicamentele. Setările țin doar de acel widget.": "Pastile vidinal toksake ⚙, et valida keel, isik ja ravimid. Sätted kehtivad ainult selle vidina kohta.",
 "Vrei să ieși din Zona secretă?": "Kas soovid salatsoonist väljuda?",
-"Ieșire": "Välju"
+"Ieșire": "Välju",
+"Mută în coș 🗑️": "Teisalda prügikasti 🗑️",
+"Scoți medicamentul din tratament? Zilele de până azi rămân în istoric.": "Kas eemaldada ravim ravist? Päevad tänaseni jäävad ajalukku.",
+"Linii fine orizontale": "Peened horisontaaljooned"
 };

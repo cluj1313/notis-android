@@ -1563,5 +1563,8 @@ NOTIS_I18N={
 "Widget": "위젯",
 "Pe widgetul Pastile, atinge ⚙ ca să alegi limba, persoana și medicamentele. Setările țin doar de acel widget.": "Pastile 위젯에서 ⚙을 눌러 언어, 대상, 약을 선택하세요. 설정은 해당 위젯에만 적용됩니다.",
 "Vrei să ieși din Zona secretă?": "비밀 구역에서 나가시겠습니까?",
-"Ieșire": "나가기"
+"Ieșire": "나가기",
+"Mută în coș 🗑️": "휴지통으로 이동 🗑️",
+"Scoți medicamentul din tratament? Zilele de până azi rămân în istoric.": "이 약을 치료에서 뺄까요? 오늘까지의 기록은 기록에 남습니다.",
+"Linii fine orizontale": "얇은 가로줄"
 };

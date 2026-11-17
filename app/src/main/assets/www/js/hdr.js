@@ -28,7 +28,7 @@
  document.addEventListener('click',function(e){if(swallow&&Date.now()-swallow<4000&&HT.some(function(el){return el.contains(e.target)})){e.stopImmediatePropagation();e.preventDefault();swallow=0}},true);
  function fld(id,ph,type,eye){return '<div class="crf"><input id="'+id+'" type="'+(type||'text')+'" placeholder="'+esc(ph)+'" autocomplete="off" autocapitalize="off" spellcheck="false"'+(id==='crCh'?' maxlength="4"':'')+'>'+(eye?'<button type="button" class="eye" data-f="'+id+'" aria-label="'+esc(TR('Arată / ascunde'))+'">👁</button>':'')+'</div>'}
  function hide(){var o=$('crx');if(o)o.remove()}
- function exit(){sess=null;draft={t:'',b:'',te:'',be:''};var a=$('adx');if(a)a.remove();hide()}
+ function exit(){sess=null;try{window.NotisAdmin&&NotisAdmin.lock&&NotisAdmin.lock()}catch(_){};draft={t:'',b:'',te:'',be:''};var a=$('adx');if(a)a.remove();hide()}
  function wantLeave(){if(!sess){hide();return}ask(TR('Vrei să ieși din Zona secretă?'),function(){exit()})}
  function saveDraft(){if($('crT'))draft={t:$('crT').value,b:$('crB').value,te:$('crTe').value,be:$('crBe').value}}
  function bindShell(o){if(!o||o._crBound)return;o._crBound=1;
@@ -47,7 +47,7 @@
   $('crGo').onclick=function(){var a=$('crP1').value,b=$('crP2').value,c=$('crCh').value;if(a.length<8)return err(TR('Minim 8 caractere'));if(a!==b)return err(TR('Parolele nu coincid'));if(!c)return err(TR('Alege un caracter secret'));
    var salt=crypto.getRandomValues(new Uint8Array(16));err('…');hash(a,c,salt,IT).then(function(h){put(KH,{salt:h64(salt),hash:h,iter:IT});sess={pw:a,ch:c};main()})}}
  function unlock(){ui(TR('Meniu creator'),fld('crP1',TR('Parolă'),'password',1)+fld('crCh',TR('Caracter secret'),'password',1)+'<div class="crb"><button type="button" class="alt" id="crRs">'+esc(TR('Resetează'))+'</button><button type="button" id="crGo">'+esc(TR('Deblochează'))+'</button></div>');
-  $('crRs').onclick=function(){ask(TR('Resetezi meniul creator? Parola și tokenul se șterg de pe acest dispozitiv.'),function(){try{localStorage.removeItem(KH);localStorage.removeItem(KT)}catch(_){}setup()})};
+  $('crRs').onclick=function(){ask(TR('Resetezi meniul creator? Parola și tokenul se șterg de pe acest dispozitiv.'),function(){try{localStorage.removeItem(KH);localStorage.removeItem(KT);localStorage.removeItem('ns_adpw')}catch(_){}setup()})};
   $('crGo').onclick=function(){var a=$('crP1').value,c=$('crCh').value,H=get(KH);err('…');hash(a,c,d64(H.salt),H.iter||IT).then(function(h){if(h!==H.hash)return err(TR('Parolă sau caracter greșit'));sess={pw:a,ch:c};main()})}}
  function main(){if(!sess)return close();if(!get(KT))return tokForm();compose()}
  function tokForm(){ui(TR('Meniu creator'),'<div class="hint">'+esc(TR('Lipește tokenul GitHub (o singură dată)'))+'</div>'+fld('crTk','github_pat_…','password',1)+'<div class="crb"><button type="button" id="crGo">'+esc(TR('Salvează tokenul'))+'</button></div>');
@@ -70,7 +70,7 @@
   return fetch(g.url,{method:'PUT',headers:g.hd,body:JSON.stringify({message:'news: delete '+id,content:u8b64(JSON.stringify(g.j,null,1)+'\n'),sha:g.sha,branch:'main'})})}).then(function(r){if(!r.ok)throw new Error('PUT '+r.status);toast(TR('Mesaj șters'));inbox()}).catch(function(e){err(crMsg(e)+' ('+(e&&e.message||e)+')')})}
  function compose(){ui(TR('Meniu creator'),fld('crT',TR('Titlu'))+'<textarea id="crB" placeholder="'+esc(TR('Mesaj'))+'"></textarea>'+fld('crTe',TR('Titlu EN (opțional)'))+'<textarea id="crBe" placeholder="'+esc(TR('Mesaj EN (opțional)'))+'"></textarea><div class="crb"><button type="button" class="alt" id="crAd" aria-label="📊">📊</button><button type="button" class="alt" id="crMs">'+esc(TR('Mesaje'))+'</button><button type="button" class="alt" id="crDt">'+esc(TR('Șterge tokenul'))+'</button><button type="button" class="alt" id="crOut">'+esc(TR('Ieșire'))+'</button><button type="button" id="crGo">'+esc(TR('Trimite'))+'</button></div>');
   if($('crT')){$('crT').value=draft.t||'';$('crB').value=draft.b||'';$('crTe').value=draft.te||'';$('crBe').value=draft.be||''}
-  $('crAd').onclick=function(){saveDraft();if(window.NotisAdmin)NotisAdmin.open()};$('crMs').onclick=function(){saveDraft();inbox()};$('crOut').onclick=wantLeave;$('crDt').onclick=function(){ask(TR('Șterge tokenul')+'?',function(){try{localStorage.removeItem(KT)}catch(_){}tokForm()})};
+  $('crAd').onclick=function(){saveDraft();if(window.NotisAdmin)NotisAdmin.open(sess?{pw:sess.pw,ch:sess.ch}:null)};$('crMs').onclick=function(){saveDraft();inbox()};$('crOut').onclick=wantLeave;$('crDt').onclick=function(){ask(TR('Șterge tokenul')+'?',function(){try{localStorage.removeItem(KT)}catch(_){}tokForm()})};
   $('crGo').onclick=function(){var t=$('crT').value.trim(),b=$('crB').value.trim(),te=$('crTe').value.trim(),be=$('crBe').value.trim();if(!t||!b)return err(TR('Completează titlul și mesajul'));
    var go=$('crGo');go.disabled=true;err(TR('Se trimite…'));var tok,url='https://api.github.com/repos/'+REPO+'/contents/'+FILE,hd;
    token().then(function(x){tok=x;hd={'Authorization':'Bearer '+tok,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};return fetch(url+'?ref=main&t='+Date.now(),{headers:hd,cache:'no-store'})}).then(function(r){if(!r.ok)throw new Error('GET '+r.status);return r.json()}).then(function(f){

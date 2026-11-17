@@ -48,15 +48,23 @@
   $('adX').onclick=back;o.onclick=function(e){if(e.target===o)back()}}
  function er(t){var e=$('adE');if(e)e.textContent=t||''}
  function pw(id,ph){return '<div class="crf"><input id="'+id+'" type="password" placeholder="'+ph+'" autocomplete="off" autocapitalize="off" spellcheck="false"></div>'}
- function open(){box('<div class="hint">…</div>');try{if(!tok)tok=sessionStorage.getItem('ns_adtok')||null}catch(_){}get('/admin/state').then(function(s){if(tok)return dash();s&&s.claimed?login():claim()}).catch(function(){er('Fără conexiune la internet')})}
+ /* v223: opened from an unlocked Zona secretă → the admin password is kept on this phone ENCRYPTED with the zone key (password + secret character, PBKDF2 200 000 + AES-GCM) in ns_adpw; later openings log in by themselves. Ieșire from the zone forgets the session. */
+ var Z=null,AT=0,AIT=200000,te=new TextEncoder(),h64=function(u){return btoa(String.fromCharCode.apply(null,new Uint8Array(u)))},d64=function(x){return Uint8Array.from(atob(x),function(c){return c.charCodeAt(0)})};
+ function zk(salt,it){return crypto.subtle.importKey('raw',te.encode(Z.pw+'\u241F'+Z.ch),'PBKDF2',false,['deriveKey']).then(function(k){return crypto.subtle.deriveKey({name:'PBKDF2',salt:salt,iterations:it,hash:'SHA-256'},k,{name:'AES-GCM',length:256},false,['encrypt','decrypt'])})}
+ function apGet(){try{return JSON.parse(ls('ns_adpw')||'null')}catch(_){return null}}
+ function apSave(a){if(!Z||!(window.crypto&&crypto.subtle))return;var salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12));zk(salt,AIT).then(function(k){return crypto.subtle.encrypt({name:'AES-GCM',iv:iv},k,te.encode(a))}).then(function(ct){ls('ns_adpw',JSON.stringify({salt:h64(salt),iv:h64(iv),ct:h64(ct),iter:AIT}))}).catch(function(){})}
+ function auto(){var S=apGet();if(!Z||!S||AT>1)return login();AT++;er('…');zk(d64(S.salt),S.iter||AIT).then(function(k){return crypto.subtle.decrypt({name:'AES-GCM',iv:d64(S.iv)},k,d64(S.ct))}).then(function(b){var a=new TextDecoder().decode(b);
+   return post('/admin/login',{pass:a}).then(function(r){if(r.ok){tok=r.t;try{sessionStorage.setItem('ns_adtok',tok)}catch(_){}dash()}else if(r.e==='rate'){login();er('Prea multe încercări. Încearcă peste o oră.')}else{ls('ns_adpw',null);login();er('Parola de admin salvată nu mai e valabilă. Introdu-o din nou.')}})}).catch(function(){login()})}
+ function open(z){Z=z&&z.pw&&z.ch?{pw:z.pw,ch:z.ch}:null;AT=0;box('<div class="hint">…</div>');try{if(!tok)tok=sessionStorage.getItem('ns_adtok')||null}catch(_){}get('/admin/state').then(function(s){if(tok)return dash();s&&s.claimed?auto():claim()}).catch(function(){er('Fără conexiune la internet')})}
+ function lock(){tok=null;Z=null;AT=0;try{sessionStorage.removeItem('ns_adtok');sessionStorage.removeItem('ns_adsec')}catch(_){}var o=$('adx');if(o)o.remove()}
  function claim(){box('<div class="hint">Prima dată: alege parola de admin (minim 10 caractere). Se salvează doar un hash pe server. O poate seta o singură dată.</div>'+pw('adP1','Parolă admin')+pw('adP2','Repetă parola')+'<div class="crb"><button type="button" id="adGo">Setează</button></div>');
   $('adGo').onclick=function(){var a=$('adP1').value,b=$('adP2').value;if(a.length<10)return er('Minim 10 caractere');if(a!==b)return er('Parolele nu coincid');er('…');
    post('/admin/claim',{pass:a}).then(function(r){if(!r.ok)return er(r.e==='claimed'?'Parola e deja setată':'Eroare');return doLogin(a)}).catch(function(){er('Fără conexiune la internet')})}}
- function doLogin(a){return post('/admin/login',{pass:a}).then(function(r){if(r.ok){tok=r.t;try{sessionStorage.setItem('ns_adtok',tok)}catch(_){}dash()}else er(r.e==='rate'?'Prea multe încercări. Încearcă peste o oră.':'Parolă greșită')})}
+ function doLogin(a){return post('/admin/login',{pass:a}).then(function(r){if(r.ok){tok=r.t;try{sessionStorage.setItem('ns_adtok',tok)}catch(_){}apSave(a);dash()}else er(r.e==='rate'?'Prea multe încercări. Încearcă peste o oră.':'Parolă greșită')})}
  function login(){box(pw('adP1','Parolă admin')+pw('adSec','Cod secret')+'<div class="crb"><button type="button" id="adGo">Intră</button></div>');$('adGo').onclick=function(){er('…');var sec=($('adSec').value||'').trim(),need=null;try{need=sessionStorage.getItem('ns_adsec')}catch(_){};if(need&&sec!==need){er('Cod secret greșit');return}doLogin($('adP1').value).then(function(){if(sec)try{sessionStorage.setItem('ns_adsec',sec)}catch(_){}}).catch(function(){er('Fără conexiune la internet')})}}
  function rows(a){return (a||[]).map(function(x){return '<span>'+esc(x.k||'—')+'</span><b>'+x.n+'</b>'}).join('')}
  var codes=[];
- function dash(){box('<div class="hint">…</div>');Promise.all([get('/admin/stats',tok),get('/admin/codes',tok)]).then(function(v){var s=v[0],c=v[1];if(!s.ok||!c.ok){tok=null;return login()}codes=c.codes||[];
+ function dash(){box('<div class="hint">…</div>');Promise.all([get('/admin/stats',tok),get('/admin/codes',tok)]).then(function(v){var s=v[0],c=v[1];if(!s.ok||!c.ok){tok=null;try{sessionStorage.removeItem('ns_adtok')}catch(_){}return auto()}codes=c.codes||[];
   var used=codes.filter(function(x){return x.used}).length;
   box('<div class="ads">Instalări (total)</div><div class="adt">'+s.total+'</div><div class="hint">Dezinstalările nu pot fi măsurate de aplicație — le vezi în Google Play Console. Numărul de mai sus include doar cei cu contorul pornit.</div>'+
    '<div class="ads">Activi pe zi</div><div class="adg">'+rows(s.active)+'</div><div class="ads">Pe țări</div><div class="adg">'+rows(s.country)+'</div><div class="ads">Pe versiuni</div><div class="adg">'+rows(s.ver)+'</div><div class="ads">Sursă</div><div class="adg">'+rows(s.src)+'</div>'+
@@ -72,5 +80,5 @@
    try{if(window.NotisNative&&NotisNative.shareFile&&NotisNative.shareFile(n,t,n))return}catch(_){}var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([t],{type:'text/csv'}));a.download=n;document.body.appendChild(a);a.click();a.remove()};
   $('adOut').onclick=function(){var o=$('adx');if(o)o.remove()}}).catch(function(){er('Fără conexiune la internet')})}
  function list(){return codes.slice(0,300).map(function(x){var ty=x.days?x.days+'z':'viață',st=x.used?('folosit '+new Date(x.used).toISOString().slice(0,10)+(x.days?' → exp '+new Date(x.used+x.days*864e5).toISOString().slice(0,10):'')):'nefolosit';return x.code+'  '+ty+'  '+st}).join('\n')}
- window.NotisAdmin={open:open};
+ window.NotisAdmin={open:open,lock:lock};
 })();

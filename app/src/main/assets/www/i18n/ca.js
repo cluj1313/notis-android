@@ -1564,5 +1564,8 @@ NOTIS_I18N={
 "Widget": "Giny",
 "Pe widgetul Pastile, atinge ⚙ ca să alegi limba, persoana și medicamentele. Setările țin doar de acel widget.": "Al giny Pastile, toqueu ⚙ per triar l’idioma, la persona i els medicaments. Els paràmetres s’apliquen només a aquest giny.",
 "Vrei să ieși din Zona secretă?": "Vols sortir de la Zona secreta?",
-"Ieșire": "Surt"
+"Ieșire": "Surt",
+"Mută în coș 🗑️": "Mou a la paperera 🗑️",
+"Scoți medicamentul din tratament? Zilele de până azi rămân în istoric.": "Vols treure el medicament del tractament? Els dies fins avui es queden a l’historial.",
+"Linii fine orizontale": "Línies horitzontals fines"
 };

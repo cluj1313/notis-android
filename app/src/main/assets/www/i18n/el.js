@@ -1563,5 +1563,8 @@ NOTIS_I18N={
 "Widget": "Γραφικό στοιχείο",
 "Pe widgetul Pastile, atinge ⚙ ca să alegi limba, persoana și medicamentele. Setările țin doar de acel widget.": "Στο γραφικό στοιχείο Pastile, πατήστε ⚙ για να επιλέξετε γλώσσα, άτομο και φάρμακα. Οι ρυθμίσεις ισχύουν μόνο για αυτό το στοιχείο.",
 "Vrei să ieși din Zona secretă?": "Θέλετε να βγείτε από τη Μυστική ζώνη;",
-"Ieșire": "Έξοδος"
+"Ieșire": "Έξοδος",
+"Mută în coș 🗑️": "Μετακίνηση στον κάδο 🗑️",
+"Scoți medicamentul din tratament? Zilele de până azi rămân în istoric.": "Αφαίρεση του φαρμάκου από τη θεραπεία; Οι μέρες μέχρι σήμερα μένουν στο ιστορικό.",
+"Linii fine orizontale": "Λεπτές οριζόντιες γραμμές"
 };

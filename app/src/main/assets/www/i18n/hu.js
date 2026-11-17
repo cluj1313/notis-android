@@ -1564,5 +1564,8 @@ NOTIS_I18N={
 "Widget": "Widget",
 "Pe widgetul Pastile, atinge ⚙ ca să alegi limba, persoana și medicamentele. Setările țin doar de acel widget.": "A Pastile widgeten koppints a ⚙ ikonra a nyelv, a személy és a gyógyszerek kiválasztásához. A beállítások csak arra a widgetre vonatkoznak.",
 "Vrei să ieși din Zona secretă?": "Ki akarsz lépni a Titkos zónából?",
-"Ieșire": "Kilépés"
+"Ieșire": "Kilépés",
+"Mută în coș 🗑️": "Kukába 🗑️",
+"Scoți medicamentul din tratament? Zilele de până azi rămân în istoric.": "Kiveszed a gyógyszert a kezelésből? A mai napig tartó napok megmaradnak az előzményekben.",
+"Linii fine orizontale": "Vékony vízszintes vonalak"
 };

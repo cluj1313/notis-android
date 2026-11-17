@@ -1563,5 +1563,8 @@ NOTIS_I18N={
 "Widget": "Valdiklis",
 "Pe widgetul Pastile, atinge ⚙ ca să alegi limba, persoana și medicamentele. Setările țin doar de acel widget.": "Pastile valdiklyje bakstelėkite ⚙, kad pasirinktumėte kalbą, asmenį ir vaistus. Nustatymai galioja tik tam valdikliui.",
 "Vrei să ieși din Zona secretă?": "Ar norite išeiti iš slaptosios zonos?",
-"Ieșire": "Išeiti"
+"Ieșire": "Išeiti",
+"Mută în coș 🗑️": "Perkelti į šiukšlinę 🗑️",
+"Scoți medicamentul din tratament? Zilele de până azi rămân în istoric.": "Pašalinti vaistą iš gydymo? Dienos iki šiandien lieka istorijoje.",
+"Linii fine orizontale": "Plonos horizontalios linijos"
 };

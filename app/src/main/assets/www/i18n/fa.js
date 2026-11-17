@@ -1563,5 +1563,8 @@ NOTIS_I18N={
 "Widget": "ویجت",
 "Pe widgetul Pastile, atinge ⚙ ca să alegi limba, persoana și medicamentele. Setările țin doar de acel widget.": "در ویجت Pastile روی ⚙ بزنید تا زبان، شخص و داروها را انتخاب کنید. تنظیمات فقط برای همان ویجت است.",
 "Vrei să ieși din Zona secretă?": "می‌خواهید از منطقهٔ محرمانه خارج شوید؟",
-"Ieșire": "خروج"
+"Ieșire": "خروج",
+"Mută în coș 🗑️": "انتقال به سطل زباله 🗑️",
+"Scoți medicamentul din tratament? Zilele de până azi rămân în istoric.": "دارو از درمان حذف شود؟ روزهای تا امروز در سابقه می‌مانند.",
+"Linii fine orizontale": "خطوط افقی نازک"
 };

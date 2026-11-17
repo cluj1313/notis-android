@@ -1564,5 +1564,8 @@ NOTIS_I18N={
 "Widget": "Logrīks",
 "Pe widgetul Pastile, atinge ⚙ ca să alegi limba, persoana și medicamentele. Setările țin doar de acel widget.": "Pastile logrīkā pieskarieties ⚙, lai izvēlētos valodu, personu un zāles. Iestatījumi attiecas tikai uz šo logrīku.",
 "Vrei să ieși din Zona secretă?": "Vai vēlaties iziet no slepenās zonas?",
-"Ieșire": "Iziet"
+"Ieșire": "Iziet",
+"Mută în coș 🗑️": "Pārvietot uz atkritumiem 🗑️",
+"Scoți medicamentul din tratament? Zilele de până azi rămân în istoric.": "Izņemt zāles no ārstēšanas? Dienas līdz šodienai paliek vēsturē.",
+"Linii fine orizontale": "Plānas horizontālas līnijas"
 };

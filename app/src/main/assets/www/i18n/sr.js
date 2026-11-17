@@ -1563,5 +1563,8 @@ NOTIS_I18N={
 "Widget": "Виџет",
 "Pe widgetul Pastile, atinge ⚙ ca să alegi limba, persoana și medicamentele. Setările țin doar de acel widget.": "На виџету Pastile додирните ⚙ да изаберете језик, особу и лекове. Подешавања важе само за тај виџет.",
 "Vrei să ieși din Zona secretă?": "Желите ли да изађете из Тајне зоне?",
-"Ieșire": "Излаз"
+"Ieșire": "Излаз",
+"Mută în coș 🗑️": "Премести у смеће 🗑️",
+"Scoți medicamentul din tratament? Zilele de până azi rămân în istoric.": "Уклонити лек из терапије? Дани до данас остају у историји.",
+"Linii fine orizontale": "Танке хоризонталне линије"
 };

@@ -1563,5 +1563,8 @@ NOTIS_I18N={
 "Widget": "ودجت",
 "Pe widgetul Pastile, atinge ⚙ ca să alegi limba, persoana și medicamentele. Setările țin doar de acel widget.": "في ودجت Pastile، المس ⚙ لاختيار اللغة والشخص والأدوية. الإعدادات تنطبق على ذلك الودجت فقط.",
 "Vrei să ieși din Zona secretă?": "هل تريد الخروج من المنطقة السرية؟",
-"Ieșire": "خروج"
+"Ieșire": "خروج",
+"Mută în coș 🗑️": "نقل إلى سلة المهملات 🗑️",
+"Scoți medicamentul din tratament? Zilele de până azi rămân în istoric.": "هل تريد إخراج الدواء من العلاج؟ تبقى الأيام حتى اليوم في السجل.",
+"Linii fine orizontale": "خطوط أفقية رفيعة"
 };

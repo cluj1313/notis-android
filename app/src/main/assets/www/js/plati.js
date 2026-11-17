@@ -204,7 +204,7 @@ function mDays(m){if(!(m.days>0))return null;var a=dParse(m.d0||today()),b=dPars
 /* v160: day-by-day treatment view — one row per day across the union of all medicines' days; tap the date = open/close; round check = all doses of the day taken (auto), red = no medicine that day */
 var MDO={},MDCEN='';
 function dAdd(k,n){var d=dParse(k);d.setDate(d.getDate()+n);return dkey(d)}
-function mRange(m){var a=m.d0||(m.sch&&m.sch.d0)||today();return [a,m.days>0?dAdd(a,m.days-1):(dAdd(today(),7)>a?dAdd(today(),7):dAdd(a,7))]} /* no duration = ongoing: shown until a week ahead */
+function mRange(m){var a=m.d0||(m.sch&&m.sch.d0)||today(),e=m.days>0?dAdd(a,m.days-1):(dAdd(today(),7)>a?dAdd(today(),7):dAdd(a,7));if(m.stop&&/^\d{4}-\d\d-\d\d$/.test(m.stop)&&m.stop<e)e=m.stop;return [a,e]} /* v223: m.stop = last day of a medicine taken out of the treatment (history before it stays) */ /* no duration = ongoing: shown until a week ahead */
 function mOn(m,k){var r=mRange(m);return k>=r[0]&&k<=r[1]&&mDue(m,k)}
 function mReq(m){if(m.rep>0)return mSlots(m).map(function(_,i){return i});var P=m.pat||[1,1,1];return [0,1,2].filter(function(i){return P[i]})}
 function mS(m,k,w){if(k===today())return mChk(m).s;m.h=m.h||{};var s=m.h[k];if(!Array.isArray(s)){s=[];if(w)m.h[k]=s}return s}
@@ -255,7 +255,7 @@ function medShareTxt(m){var pp=pFind(m.p),L=['💊 '+m.name];if(m.adm)L.push(TR(
 function medShare(m){var all=medShareTxt(m),ti=m.name,fb=function(){try{navigator.clipboard.writeText(all).then(function(){toast(TR('Copiat'))},function(){toast(TR('Copiat'))})}catch(_){toast(all)}};
  try{if(window.NotisNative&&NotisNative.shareText){NotisNative.shareText(all,ti);return}}catch(_){}
  if(navigator.share){navigator.share({title:ti,text:all}).catch(function(e){if(!e||e.name!=='AbortError')fb()})}else fb()}
-function medEdit(m,pid){var isNew=!m,PRE=window.__mdPre;window.__mdPre=null;if(!m&&PRE){m=JSON.parse(JSON.stringify(PRE));m.id=uid();m.p=pid;m.d0=mTreat0(pid);delete m.sch_d0}m=m||{id:uid(),p:pid,name:'',pat:[1,0,1],t:['','',''],al:[0,0,0],rep:0,st:'08:00',ral:1,days:14,d0:mTreat0(pid)};var T=(m.t||['','','']).slice(),A=(m.al||[]).slice(),P=(m.pat||[1,1,1]).slice(),K=mKind(m),sc=m.sch||{},WD=sc.wd|0||(1<<new Date().getDay()),ob=m.obs||{};
+function medEdit(m,pid){var isNew=!m,PRE=window.__mdPre;window.__mdPre=null;if(!m&&PRE){m=JSON.parse(JSON.stringify(PRE));m.id=uid();m.p=pid;m.d0=today();delete m.sch_d0;delete m.stop;delete m.h;delete m.c}m=m||{id:uid(),p:pid,name:'',pat:[1,0,1],t:['','',''],al:[0,0,0],rep:0,st:'08:00',ral:1,days:14,d0:today()};/* v223: a medicine added during a running treatment starts today (editable), so earlier days stay as they were */var T=(m.t||['','','']).slice(),A=(m.al||[]).slice(),P=(m.pat||[1,1,1]).slice(),K=mKind(m),sc=m.sch||{},WD=sc.wd|0||(1<<new Date().getDay()),ob=m.obs||{};
  if(m.adm===undefined){var inf=MED.info[mKey(m.name)];if(inf&&inf.h)m.adm=String(inf.h)}
  var dz='';[0,1,2].forEach(function(i){dz+='<div class="mdz" data-s="'+i+'"><button type="button" class="mdg mdpt ux'+(P[i]?' on1':'')+'" id="mdP'+i+'">'+(P[i]?1:0)+'</button><span class="mdzl">'+SLOT[i]+'</span><input type="time" id="mdT'+i+'" value="'+esc(T[i]||'')+'"><label class="mdal"><input type="checkbox" id="mdA'+i+'"'+(A[i]?' checked':'')+'> ⏰</label></div>'});
  var wdb='<div class="mdwd" id="mdWd">'+[1,2,3,4,5,6,0].map(function(d){return '<button type="button" class="btn ux'+(WD&(1<<d)?' on':'')+'" data-d="'+d+'">'+esc(wdNm(d))+'</button>'}).join('')+'</div>';
@@ -280,7 +280,8 @@ function medEdit(m,pid){var isNew=!m,PRE=window.__mdPre;window.__mdPre=null;if(!
     m.sch=k==='xd'?{k:'xd',n:Math.max(2,Math.min(60,parseInt($('mdXn').value,10)||2)),d0:d0}:k==='wd'?{k:'wd',wd:w}:{k:'d'}}
    m.adm=$('mdAdm').value.trim();var oe=segVal('mdOe')||'',ot=$('mdOt').value.trim();if(oe||ot)m.obs={e:oe,t:ot};else delete m.obs;
    MED.hist[mKey(n)]=n;if(isNew)MED.list.push(m);if(m.c)m.c.s=[];mTplPut(m);if(isNew&&VLIB)VLIB=0;medSave();spRender();alPerm()},
-  isNew?null:function(){ask('Ștergi medicamentul?',function(){mTplPut(m);MED.list=MED.list.filter(function(x){return x!==m});medSave();jvClose('spModal');spRender()})});
+  isNew?null:function(){var t0=today(),del=function(){mTplPut(m);MED.list=MED.list.filter(function(x){return x!==m});medSave();jvClose('spModal');spRender()};/* v223: started before today → taken out of the treatment from today (past days keep their record); otherwise deleted */
+   if(!m.stop&&mRange(m)[0]<t0)ask(TR('Scoți medicamentul din tratament? Zilele de până azi rămân în istoric.'),function(){m.stop=dAdd(t0,-1);mTplPut(m);medSave();jvClose('spModal');spRender()});else ask('Ștergi medicamentul?',del)});
  var cur=function(){var k=segVal('mdK')||'d',x={name:$('mdN').value.trim(),p:m.p,rep:0,st:$('mdSt').value,pat:[0,1,2].map(function(i){return $('mdP'+i).textContent==='1'?1:0}),t:[0,1,2].map(function(i){return $('mdT'+i).value||''}),al:[],d0:$('mdD0').value,adm:$('mdAdm').value.trim(),obs:{e:segVal('mdOe')||'',t:$('mdOt').value.trim()}};
   if(k==='xh')x.rep=parseInt($('mdH').value,10)||6;var w=0;$('mdWd').querySelectorAll('button.on').forEach(function(b){w|=1<<(+b.dataset.d)});x.sch={k:k,n:parseInt($('mdXn').value,10)||2,wd:w,d0:x.d0};var dz=parseInt($('mdDz').value,10);if(dz>0)x.days=dz;return x};
  var sum=function(){if(window.mdTUp)mdTUp();var x=cur();$('mdSa').textContent=x.name;$('mdSb').textContent=(x.adm||'').split('\n')[0].slice(0,40);$('mdSc').textContent=schTxt(x);$('mdSd').textContent=obsTxt(x).split('\n')[0].slice(0,40)};
@@ -377,7 +378,7 @@ function ntSplit(text){var s=String(text||'').trim(),nl=s.indexOf('\n'),first=nl
 window.ntSplit=ntSplit;window.ntLead=ntLead;window.ntClean=ntClean;
 function medAlarms(){var out=[],now=Date.now();if(!noteTabs.some(function(t){return t.kind==='med'}))return medSnz(out,now);
  var many=MED.persons.length>1;
- MED.list.forEach(function(m){var pp=pFind(m.p),who=pp&&many?' — '+pName(pp):'',k=mKind(m);if(m.rep>0){if(m.ral)out.push({id:'med-'+m.id+'-r',text:'💊 '+m.name+who,hm:m.st||'08:00',rep:m.rep*60})}
+ MED.list.forEach(function(m){if(m.stop&&m.stop<today())return; /* v223: no alarms for a medicine taken out of the treatment */var pp=pFind(m.p),who=pp&&many?' — '+pName(pp):'',k=mKind(m);if(m.rep>0){if(m.ral)out.push({id:'med-'+m.id+'-r',text:'💊 '+m.name+who,hm:m.st||'08:00',rep:m.rep*60})}
   else mSlots(m).forEach(function(s){if(s.al){var a={id:'med-'+m.id+'-'+s.s,text:'💊 '+m.name+' · '+TR(SLOT[s.s])+' '+s.t+who,hm:s.t,rep:1440};if(k!=='d')medDayAl(a,m,k,now);out.push(a)}})});
  out.forEach(function(a){if(!a.at)a.at=hmNext(a.hm,a.rep,now)});
  return medSnz(out,now)}
@@ -460,7 +461,8 @@ setInterval(function(){if(kindOf()==='med'&&MED.list.some(function(m){return m.c
 /* notification tap ?open=med-… → Medicamente tab */
 var nl=nsLaunch;nsLaunch=function(u){try{var q=new URL(u,location.href).searchParams.get('open');if(q&&q.indexOf('med-')===0){var t=noteTabs.filter(function(x){return x.kind==='med'})[0];var mp=MED.list.filter(function(m){return m.id===q.split('-')[1]})[0];if(mp){MED.open[mp.p]=1;LS.set('ns_med',MED)}if(t){if($('noteFull').classList.contains('show'))fullClose();notesOpen();noteTab=t.id;nFolder='';saveNotes(true);renderNotes()}return}}catch(_){}return nl.apply(this,arguments)};
 spMigrate();renderNotes();
+/* v223: widget dose ticks — moved inside the module so MED/mS are in scope (outside it MED was undefined, every widget tick was dropped) */
+(function(){var prev=window.secApply;window.secApply=function(c){if(c&&c.op==='mt'){try{if(typeof MED==='undefined'||!MED||!MED.list)return false;var m=MED.list.filter(function(x){return String(x.id)===String(c.m)})[0];if(!m)return false;var day=c.day||today();if(day>today())return false;var S=mS(m,day,1),i=+c.i,want=!!c.d;if(!!S[i]===want)return false;S[i]=want;if(day===today()&&m.rep>0&&want){var ck=mChk(m);ck.rp=ck.r||0;ck.r=Date.now()}LS.set('ns_med',MED);try{if(typeof kindOf==='function'&&kindOf()==='med'&&typeof spRender==='function')spRender()}catch(_){}return true}catch(e){return false}}return prev?prev(c):false}})();
 })();
 qrWrapSP();
 
-(function(){var prev=window.secApply;window.secApply=function(c){if(c&&c.op==='mt'){try{if(typeof MED==='undefined'||!MED||!MED.list)return false;var m=MED.list.filter(function(x){return String(x.id)===String(c.m)})[0];if(!m)return false;var day=c.day||today();if(day>today())return false;var S=mS(m,day,1),i=+c.i,want=!!c.d;if(!!S[i]===want)return false;S[i]=want;if(day===today()&&m.rep>0&&want){var ck=mChk(m);ck.rp=ck.r||0;ck.r=Date.now()}LS.set('ns_med',MED);try{if(typeof kindOf==='function'&&kindOf()==='med'&&typeof spRender==='function')spRender()}catch(_){}return true}catch(e){return false}}return prev?prev(c):false}})();
