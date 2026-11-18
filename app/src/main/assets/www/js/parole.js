@@ -87,7 +87,7 @@ function H(){var m=M();if(!C)return '<div class="spv pwv"><p class="pwhint">'+es
  else if(c&&c.lock&&!catOK[c.id]){return h+'<div class="pwcl"><p>🔒 '+esc(TR('Categorie protejată'))+'</p><button type="button" class="btn pwbig" data-pa="catun">'+esc(TR('Deblochează'))+'</button></div></div>'}
  else if(xKindCat(c))return h+xList(xKindCat(c))+'</div>';
  else list=D.items.filter(function(x){return x.cat===cat});if(xMode()!=='complete')list=list.filter(function(x){return !x.t||x.t==='acct'});
- list=list.slice().sort(function(a,b){return nFold(a.name).localeCompare(nFold(b.name))});
+ var cmpN=function(a,b){return nFold(a.name).localeCompare(nFold(b.name))};list=srch?list.slice().sort(cmpN):ordSort(list.slice(),function(x){return x.id},cmpN);/* v234: manual order (D.ord) when the user has dragged rows */
  h+='<div class="pwbnl">'+(list.length?list.map(function(x){return xEnt(x,R)}).join(''):'<p class="pwhint">'+esc(TR('Nicio parolă aici încă.'))+'</p>')+'</div>';
  /* v176: category-specific add button (Bancă in complete mode adds cards; logins there stay editable) */
  if(!srch)h+=xMode()==='complete'&&c&&c===xBank()?'<button type="button" class="btn pwbig pwadd" data-pa="cnew">💳 + '+esc(TR('Adaugă card'))+'</button>':'<button type="button" class="btn pwbig pwadd" data-pa="new">+ '+esc(TR(c&&c.id==='mail'?'Adaugă email':'Adaugă parolă'))+'</button>';
@@ -222,6 +222,32 @@ function catStep(i,d){var j=i+d;while(j>=0&&j<D.cats.length&&!catVis(D.cats[j]))
  document.addEventListener('mousedown',function(e){if(e.button===0)st(e,e.clientY)});document.addEventListener('mousemove',function(e){mv(e,e.clientY)});document.addEventListener('mouseup',en);
  document.addEventListener('contextmenu',function(e){if(dr||lt&&e.target.closest&&e.target.closest('.pwcr'))e.preventDefault()});
  })();
+/* v234: entries inside a Parole section (cards in Bancă, logins in Email / Social media / WiFi…, business cards, store cards, ID photos) — long-press a row (~0.5 s, vibrates), then drag up/down; the page auto-scrolls near its edges. A short tap still opens the row. Order = D.ord[categoryId] (list of ids) inside the encrypted vault → in backups; until the first drag the list stays alphabetical. */
+(function(){var dr=null,lt=null,raf=0,lastY=0;
+ function rid(r){return r.dataset.eid||r.dataset.bid||''}
+ function rowsOf(){return dr?[].slice.call(dr.box.children).filter(function(x){return x.classList&&x.classList.contains('pwbn')&&rid(x)}):[]}
+ function scroller(el){var n=el.parentNode;while(n&&n!==document.body&&n!==document.documentElement){var o=getComputedStyle(n).overflowY;if((o==='auto'||o==='scroll')&&n.scrollHeight>n.clientHeight+2)return n;n=n.parentNode}return null}
+ function sY(){return dr.sc?dr.sc.scrollTop:(window.pageYOffset||0)}
+ function tr(){var d=lastY-dr.y0+(sY()-dr.s0);dr.el.style.transform='translateY('+d+'px)';return d}
+ function begin(el){dr={el:el,box:el.parentNode,sc:scroller(el),y0:lastY,s0:0};dr.s0=sY();window.__pwPD=1;el.classList.add('pwrdrg');dr.box.classList.add('pwrdon');try{if(navigator.vibrate)navigator.vibrate(20)}catch(_){}}
+ function place(){if(!dr)return;var d=tr(),L=rowsOf(),i=L.indexOf(dr.el),nx=L[i+1],pv=L[i-1];
+  if(d>0&&nx&&d>nx.offsetHeight/2){var o=dr.el.offsetTop;dr.box.insertBefore(nx,dr.el);dr.y0+=dr.el.offsetTop-o;tr()}
+  else if(d<0&&pv&&-d>pv.offsetHeight/2){var o2=dr.el.offsetTop;dr.box.insertBefore(dr.el,pv);dr.y0+=dr.el.offsetTop-o2;tr()}}
+ function auto(){raf=0;if(!dr)return;var top=dr.sc?dr.sc.getBoundingClientRect().top:0,bot=dr.sc?dr.sc.getBoundingClientRect().bottom:window.innerHeight,z=70,v=0;
+  if(lastY<top+z+60&&lastY<top+z)v=-Math.ceil((top+z-lastY)/4);else if(lastY>bot-z)v=Math.ceil((lastY-(bot-z))/4);
+  if(v){v=Math.max(-16,Math.min(16,v));var o=sY();if(dr.sc)dr.sc.scrollTop=o+v;else window.scrollBy(0,v);if(sY()!==o)place();raf=requestAnimationFrame(auto)}}
+ function st(e,y){if(!D||dr||!K)return;var t=e.target;if(!t.closest||t.closest('button,a,input,textarea,select,#pwSheet,.modal.show'))return;var el=t.closest('#spView .pwbnl > .pwbn');if(!el||!rid(el))return;try{if(q&&q.trim())return}catch(_){}lastY=y;lt={x:e.touches?e.touches[0].clientX:e.clientX,y:y,t:setTimeout(function(){var z=lt;lt=null;if(z)begin(el)},500)}}
+ function mv(e,x,y){if(lt){if(Math.abs(x-lt.x)>8||Math.abs(y-lt.y)>8){clearTimeout(lt.t);lt=null}return}if(!dr)return;e.preventDefault();lastY=y;place();if(!raf)raf=requestAnimationFrame(auto)}
+ function en(){if(lt){clearTimeout(lt.t);lt=null}if(!dr)return;var d=dr;dr=null;window.__pwPD=0;window.__pwPDT=Date.now();window.__pwRDT=Date.now();d.el.classList.remove('pwrdrg');d.box.classList.remove('pwrdon');d.el.style.transform='';
+  var ids=[].slice.call(d.box.children).filter(function(x){return x.classList&&x.classList.contains('pwbn')&&rid(x)}).map(rid);if(!ids.length||!D)return;
+  var was=(D.ord&&D.ord[cat])||[];if(was.length===ids.length&&was.every(function(v,k){return v===ids[k]}))return;
+  D.ord=D.ord||{};D.ord[cat]=ids;save().then(function(){rer()})}
+ document.addEventListener('touchstart',function(e){if(e.touches.length===1)st(e,e.touches[0].clientY)},{passive:true});
+ document.addEventListener('touchmove',function(e){if(e.touches.length)mv(e,e.touches[0].clientX,e.touches[0].clientY)},{passive:false});
+ document.addEventListener('touchend',en);document.addEventListener('touchcancel',en);
+ document.addEventListener('mousedown',function(e){if(e.button===0)st(e,e.clientY)});document.addEventListener('mousemove',function(e){mv(e,e.clientX,e.clientY)});document.addEventListener('mouseup',en);
+ document.addEventListener('contextmenu',function(e){if((dr||lt)&&e.target.closest&&e.target.closest('#spView .pwbnl'))e.preventDefault()});
+ document.addEventListener('click',function(e){if(Date.now()-(window.__pwRDT||0)<500&&e.target.closest&&e.target.closest('#spView .pwbnl')){e.stopPropagation();e.preventDefault()}},true)})();
 /* v233: sub-tabs (Bancă, WiFi, Cărți de vizită, Poze acte, Emailuri, Social media …) — long-press a pill, then drag it left/right (the row auto-scrolls near its edges). A short tap still opens the category. The order is D.cats (encrypted vault → included in the backup); hidden categories keep their place. */
 (function(){var dr=null,lt=null,raf=0,lastX=0;
  function pills(){return dr?[].slice.call(dr.row.querySelectorAll('.ntab[data-pc]')):[]}
@@ -289,7 +315,8 @@ var XF={loy:[['name','Magazin'],['code','Număr card']],
  idn:[['name','Persoană'],['cnp','CNP',1],['ser','Serie'],['nr','Număr'],['valid','Valabil până la'],['addr','Adresă'],['iban','IBAN',1],['note','Notă']]};
 document.addEventListener('input',function(e){var t=e.target;if(t&&t.dataset&&t.dataset.pin){var v=t.value.replace(/\D/g,'').slice(0,8);if(v!==t.value)t.value=v}});
 function xLast4(s){s=String(s||'').replace(/\s/g,'');return s?'•••• '+s.slice(-4):''}
-function xList(kind){var it=D.items.filter(function(x){return x.cat===cat}).sort(function(a,b){return nFold(a.name).localeCompare(nFold(b.name))});
+function ordSort(arr,gid,cmp,cid){cid=cid||cat;var o=D&&D.ord&&D.ord[cid];if(!o||!o.length)return arr.sort(cmp);var ix={};o.forEach(function(k,i){ix[k]=i});return arr.sort(function(a,b){var ia=ix[gid(a)],ib=ix[gid(b)];if(ia!==undefined&&ib!==undefined)return ia-ib;if(ia!==undefined)return -1;if(ib!==undefined)return 1;return cmp(a,b)})}
+function xList(kind){var it=ordSort(D.items.filter(function(x){return x.cat===cat}),function(x){return x.id},function(a,b){return nFold(a.name).localeCompare(nFold(b.name))});
  if(kind==='doc')return xTopN()+'<div class="pwdocs pwbnl" id="pwDocs"></div>';
  if(kind==='biz'||kind==='loy')return xPhL(it,kind);var R=reps();
  return '<div class="pwbnl">'+(it.length?it.map(function(x){return xEnt(x,R)}).join(''):'<p class="pwhint">'+esc(TR('Nimic aici încă.'))+'</p>')+'</div><button type="button" class="btn pwbig pwadd" data-pa="xnew">'+(kind==='idn'?'+ '+esc(TR('Adaugă date')):'+ '+esc(TR('Adaugă')))+'</button>'}
@@ -341,7 +368,7 @@ function enOf(e){var r=e.target.closest('.pwen');return r&&xIt(r.dataset.eid)}
 function xTopN(){return '<div class="pwtop"><button type="button" class="btn pwbig" data-pa="pcam">📷 '+esc(TR('Cameră'))+'</button><button type="button" class="btn pwbig" data-pa="pgal">🖼 '+esc(TR('Galerie'))+'</button></div>'}
 function xNRow(pid,lb,f,b,kind,x){var o=!!XO[pid],loy=kind==='loy'&&x;return '<div class="pwbn'+(o?' open':'')+'" data-bid="'+esc(pid)+'" data-bk="'+kind+'">'+(o&&f?'<div class="pwpf" data-pr="'+esc(f)+'"></div>'+(b&&kind==='doc'?'<div class="pwpf pwpb" data-pr="'+esc(b)+'"></div>':'')+(loy&&x.code?'<div class="pwdr pwdr1"><span class="pwdl">'+esc(TR('Număr card'))+'</span><span class="pwdv">'+esc(x.code)+'</span></div>':'')+'<div class="pwpt"><button type="button" class="btn" data-pa="nren" aria-label="'+esc(TR(loy?'Editează':'Redenumește'))+'">✏️</button><button type="button" class="btn" data-pa="nadj" aria-label="'+esc(TR('Ajustează'))+'">✂️</button><button type="button" class="btn" data-pa="nzm" aria-label="'+esc(TR('Mărește'))+'">🔍</button>'+(loy&&x.code?'<button type="button" class="btn" data-pa="nshow" aria-label="'+esc(TR('Arată la casă'))+'">▦</button>':'')+'<button type="button" class="btn" data-pa="nsh" aria-label="Share">'+SH_SVG+'</button><button type="button" class="btn" data-pa="ndel" aria-label="'+esc(TR('Șterge'))+'">🗑</button></div>':'<div class="pwbh"><span class="pwbl'+(lb?'':' pwbe')+'">'+esc(lb||TR('Fără nume'))+'</span></div>')+'</div>'}
 function xBizLab(x){return x.name||x.firm||x.tel||x.mail||String(x.note||'').split('\n')[0]||x.code||''}
-function xPhL(it,kind){var R=reps(),a=it.slice().sort(function(p,q){var l1=xBizLab(p),l2=xBizLab(q);if(!l1!==!l2)return l1?-1:1;return l1?nFold(l1).localeCompare(nFold(l2)):(p.ts||0)-(q.ts||0)});
+function xPhL(it,kind){var R=reps(),a=ordSort(it.slice(),function(x){return x.id},function(p,q){var l1=xBizLab(p),l2=xBizLab(q);if(!l1!==!l2)return l1?-1:1;return l1?nFold(l1).localeCompare(nFold(l2)):(p.ts||0)-(q.ts||0)});
  return xTopN()+'<div class="pwbnl">'+(a.length?a.map(function(x){return xEnt(x,R)}).join(''):'<p class="pwhint">'+esc(TR('Nimic aici încă.'))+'</p>')+'</div>'+(kind==='loy'?'<button type="button" class="btn pwbig pwadd" data-pa="xnew">+ '+esc(TR('Adaugă card'))+'</button>':'')}
 function xNRef(kind){if(kind!=='doc')rer();else xDocs()}
 function xNPrompt(kind,pid){setTimeout(function(){jvPrompt(TR('Nume'),'',function(v){if(!K||!D)return;if(kind!=='doc'){var x=xIt(pid);if(!x)return;x.name=v;x.mod=Date.now()}else{D.dn=D.dn||{};D.dn[pid]=v}save().then(function(){xNRef(kind)})})},80)}
@@ -434,7 +461,7 @@ function xOpen(r){if(XU[r.id])return Promise.resolve(XU[r.id]);return C.decrypt(
 function xPut(file,note){return phCompress(file).then(function(b){return xPutB(b,note)})}
 function xGet(rid){return phTx('readonly',function(s){return s.get(rid)})}
 function xDocs(){var box=$('pwDocs');if(!box||!K)return;phOf('pw:doc',1).then(function(a){return Promise.all(a.map(function(r){return phOf('pw:docb:'+r.id,1).then(function(b){return[r.id,b.length?b[b.length-1].id:'',r.ts||0] })}))}).then(function(l){var bx=$('pwDocs');if(!bx||!K)return;var dn=(D&&D.dn)||{};
- l.sort(function(p,q){var l1=dn[p[0]]||'',l2=dn[q[0]]||'';if(!l1!==!l2)return l1?-1:1;return l1?nFold(l1).localeCompare(nFold(l2)):p[2]-q[2]});
+ l=ordSort(l,function(p){return p[0]},function(p,q){var l1=dn[p[0]]||'',l2=dn[q[0]]||'';if(!l1!==!l2)return l1?-1:1;return l1?nFold(l1).localeCompare(nFold(l2)):p[2]-q[2]});
  bx.innerHTML=l.length?l.map(function(p){return xNRow(p[0],dn[p[0]]||'',p[0],p[1],'doc')}).join(''):'<p class="pwhint">'+esc(TR('Nicio poză încă.'))+'</p>';xPLfill()}).catch(function(){})}
 function xThumb(rid){xGet(rid).then(function(r){if(!r)return;return xOpen(r).then(function(u){var t=$('pwXph');if(t)t.innerHTML='<img src="'+u+'" alt="">'})}).catch(function(){})}
 /* v176: business cards — front/back photos, encrypted like Poze acte (note 'pw:biz'), resized to 1600px by phCompress */
